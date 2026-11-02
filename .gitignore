@@ -29,7 +29,9 @@ Thumbs.db
 # large / local-only artifacts（题目 ZIP 原件不入库；以 materials/_unzipped 为准）
 *.zip
 !docs/**/*.zip
+!tasks/**/deliverables/*.zip
 deliverables/**/logs/
+/PReluGradUpdate_*_code_best.zip
 **/msprof*/
 **/profiling/
 

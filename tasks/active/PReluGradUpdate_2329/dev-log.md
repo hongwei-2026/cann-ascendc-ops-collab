@@ -99,3 +99,11 @@
 - 路径：`explorations/logs/EXP_P019_20261102_175158/`
 - 下一步：云端重编 `-e`。
 - 关联道路：P020
+
+## 2026-11-02（P021 试交工程包）
+
+- 做了：从 hongwei `workdir/code`（tip `beaa00e`）打官方结构 ZIP；写 `deliverables/README.md`；gitignore 放行 `tasks/**/deliverables/*.zip`。
+- 路径：`tasks/active/PReluGradUpdate_2329/deliverables/PReluGradUpdate_2329_code_best.zip`；桌面同名副本。
+- 结果：云上历史最好仍 WA~95–97；本包含未复测的 bf16 位转换。
+- 下一步：平台试交；同时 CodeArts 复测 P020。
+- 关联道路：P021
