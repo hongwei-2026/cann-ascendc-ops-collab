@@ -27,3 +27,10 @@
 - 结果：后续 AI 须按阶段门禁与路径围栏工作。
 - 下一步：用会话卡片指挥写 `design.md`（P004）。
 - 关联道路：P005
+
+## 2026-11-02（合并本地 Codex/Claude + 云同步）
+
+- 做了：发现 `D:\华为算子比赛\PReluGradUpdate_problem_2329_plan`；导入 design_final；重写 SUMMARY；design.md 对齐；写 SYNC_CODEARTS；建 workdir。
+- 结果：实施主依据=本地设计（Select/Inf/模式R/weights[1|C]）。
+- 下一步：按 design 改 workdir Host/Kernel → push → CodeArts pull。
+- 关联道路：P006、P007

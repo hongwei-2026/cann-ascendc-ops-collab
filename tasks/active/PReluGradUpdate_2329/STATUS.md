@@ -2,12 +2,10 @@
 
 | 项 | 内容 |
 |----|------|
-| 状态 | `分析定稿`（可写设计；未开发 Kernel） |
+| 状态 | `设计定稿 / 实现准备`（workdir 已建；按合并 SUMMARY 开工） |
 | Owner | 待指定 |
-| 更新日期 | 2026-03-22 |
-| 合入仓 | 待核对（模板 OpDef：`ascend910b`；开源仓算子工程 ict） |
-| 设计 PR | — |
-| 代码 MR | — |
-| 模板 ZIP | 已同步并解压至 `materials/_unzipped/` |
-| 分析 | AI-1/2/3 + SUMMARY **已定稿** → 见 `analysis/` |
-| 阻塞 | 无（下一闸：design.md） |
+| 更新日期 | 2026-11-02 |
+| 设计 | `design.md` = 本地 Codex/Claude `design_final`；合并见 `analysis/SUMMARY.md` |
+| 代码 | `workdir/code/`（模板副本，待按设计改 Host/Kernel） |
+| 云同步 | `SYNC_CODEARTS.md` |
+| 阻塞 | 无 |

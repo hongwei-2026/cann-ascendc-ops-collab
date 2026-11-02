@@ -1,61 +1,57 @@
-# 汇总 — PReluGradUpdate（已定稿）
+# 汇总 — PReluGradUpdate（合并定稿）
 
 | 项 | 内容 |
 |----|------|
-| 状态 | **已定稿**（可进入设计；仍禁止无台账的性能死磕） |
-| 来源 | [AI-1_composer.md](AI-1_composer.md) · [AI-2_grok.md](AI-2_grok.md) · [AI-3_grok.md](AI-3_grok.md) |
-| 定稿日 | 2026-03-22 |
-| 隔离 | 仅本题；不得套用到 SpMV / SageAttention2 等 |
+| 状态 | **已定稿（可实现）** |
+| Cursor 三路 | [AI-1_composer.md](AI-1_composer.md) · [AI-2_grok.md](AI-2_grok.md) · [AI-3_grok.md](AI-3_grok.md) |
+| 本地 Codex/Claude | [AI-codex-claude_design_final.md](AI-codex-claude_design_final.md)（源自 `D:\华为算子比赛\PReluGradUpdate_problem_2329_plan`） |
+| 实现主依据 | **以本地 design_final 为实施细则**；Cursor 三路作交叉校验与止损纪律 |
+| 隔离 | 仅本题 |
 
 ---
 
-## 共识（三路一致，必须执行）
+## 共识（全部来源一致）
 
-1. **语义**：`dx = f>0 ? g : w*g`；`update = f>0 ? 0 : f*g`；`weights` 按 **dim1 通道** 广播；`update` **同形不 reduce**。  
-2. **比较**：逻辑 `GT`；禁止位型/整数比较；`==0`、`-0`、NaN 走 else（与 reference/TBE 一致）。  
-3. **画像**：带宽受限逐元素算子；workspace=0；不上 Cube。  
-4. **bf16**：必须独立 tiling key / `bfloat16_t`，禁止复用 `half`。  
-5. **TilingData**：仅有 `totalNum/blockFactor/ubFactor` **不够**，必须能表达 `C`、`inner`（及切分模式）。  
-6. **实现顺序**：InferShape/校验 → 通道正确 tiling → 单趟融合 Kernel → 泛化矩阵绿 → 全核对照；小 shape 走仿真豁免。  
-7. **反模式（废弃，无新证据不得重开）**：update 通道求和；权重 expand 到 GM；TBE 的 0/1 中间张量落 GM；假全核硬铺小 shape；无 profile 抠微秒。
+1. 语义：`dx = x>0 ? g : w*g`；`update = x>0 ? 0 : x*g`；通道维 dim1；update **不 reduce**  
+2. bf16 **独立 tiling key**，禁止走 `half`  
+3. workspace=0；带宽题；先正确性后性能；小 shape 不抠 us  
+4. InferShape 必须校验；TilingData 须含 C/inner 等元数据  
 
----
+## 采纳本地设计的关键加严（覆盖 Cursor 粗案）
 
-## 分歧与裁决
+| 点 | 裁决 | 理由 |
+|----|------|------|
+| 分支实现 | **必须 Compare + Select**，禁止掩码乘法 / TBE 0-1 公式落地 | Inf 场景：掩码乘法与 numpy golden 不一致（已实测） |
+| 对标口径 | **以 `reference.py` / numpy `where` 为 golden** | 与内置 TBE 在 Inf 两处可不同；评测若改 TBE 需 DEC 重对齐 |
+| 切分 | **模式 R（sample-major）优先 + 模式 C（大 S）**；权重向量模式 R **整核只展开一次** | 比单纯 ROW_SLICE 更贴合小 inner；为本题主优化 |
+| weights | 支持 **`[1]` 与 `[C]`** | 本地设计明确；InferShape 须校验 |
+| tiling key | 0=fp32，1=fp16，2=bf16（与本地表一致；实现时与模板 MODE 命名对齐即可） | |
+| Select 极性 | 四元素 UT 锁定（B03） | 极性反了会静默错 |
+| Cast | 半精度升 fp32；回写 `CAST_RINT`；bf16 golden 勿用截断 | |
 
-| 点 | AI-1 | AI-2 | AI-3 | **裁决** |
-|----|------|------|------|----------|
-| 切分主策略 | 平坦元素 + 下标还原 `c` | **行片 ROW_SLICE / PACK_ROWS**，禁止跨通道 | 按通道连续扫 inner，勿 flatten round-robin | **采纳 AI-2 为主**：以不跨通道的行片/整行打包切分；允许用 `c=(idx/inner)%C` 仅作校验或退化路径，不作主路径 |
-| 流量口径 | 强调少 GM 往返 | 主张约 **4×** 主张量（2 读 2 写，权忽略） | 理想约 **5×**（含权 gather 上限） | **按「不物化权重」目标对齐 AI-2**：大张量 2 读 2 写；权重量级忽略；禁止为权再加 1× GM |
-| 双缓冲 | 模板双队列沿用 | **四队列**（grads/features/dx/update）深度 2 | 5 路账 + tile≥2 才开双缓冲 | **采纳四队列双缓冲**；小 shape / 单 tile 可不强开 |
-| 计算顺序表达 | Compare + Select + Mul | 一次 GT + 标量 Muls + 两次 Select，UB 内 fp32 | 同左，强调单趟双出 | **一致采纳**：UB 内升 fp32 计算再 cast；单趟产 dx+update |
-| 测试强调 | 泛化自建 | 正/负/0/NaN 极性探针 | 完整 F/Q/B/N 矩阵 + 零值探针 | **合并采纳**：以 AI-3 矩阵为检查表，AI-2 极性用例为必测 |
+## 保留 Cursor 三路的纪律
 
----
+- 性能止损 / 小 shape 仿真豁免 / 禁止假全核调 `[4,6,8]`  
+- 一题隔离、path-ledger、≥3 分析流程（本地设计计为 Codex+Claude 长文，与 Cursor 三路一并归档）  
 
-## 执行顺序（回写台账）
+## 废弃清单
 
-| 级 | 内容 | 时限意识 |
-|----|------|----------|
-| **P0** | 修 InferShape（两输出=features；校验 rank≥2、同形、`weights=[C]`）；扩展 TilingData；行片切分 + 全核策略；Kernel 单趟逻辑比较融合；bf16=MODE_2；泛化/极性/C=1/高 rank 用例绿 | 功能基线；亦为性能基线预期 |
-| **P1** | 仅当全核大 shape &lt;95% TBE：查核数、预取重叠、32B 对齐、ubFactor；增益&lt;2% → DEC 停 | ≤1 人日 |
-| **P2** | &lt;10us 且差≤3us：仿真图+流量说明（≤2h）；无向量侧堵 trace 不做指令级融合 | 默认不做深度优化 |
+- 掩码乘法实现分支  
+- update 通道归约 / atomic  
+- bf16→half  
+- 权重 expand 到 GM workspace  
+- 无极性 UT 就上多核优化  
+- 拿首点当性能门禁  
 
----
+## 执行顺序
 
-## 废弃清单（禁止重复开工）
+| 级 | 内容 |
+|----|------|
+| P0 | 按 `AI-codex-claude_design_final.md` 实现 Host/Tiling/Kernel；B03+样例冒烟 |
+| P1 | 全核大 M ≥ TBE 95%（任务书）；有界排查 |
+| P2 | &lt;10us 仿真豁免 |
 
-- update 做成 `[C]` 或 atomic 通道归约  
-- 二进制/符号位比较替代逻辑 `>0`  
-- 权重 broadcast 成同形 GM / 非零 workspace  
-- bf16 走 `half` kernel  
-- 为对齐 DMA 让 tile **跨通道** 却共用一个标量 w  
-- 拿样例 `[4,6,8]` 当全核 95% 调优对象  
-- Cube / NZ / 多套小 shape 微核  
+## 代码落点
 
----
-
-## 设计入口（下一步）
-
-依据本 SUMMARY 撰写本题 `design.md`（仍在本目录，勿写入其他题）。  
-台账对应：`path-ledger.md` 中 P003 结案为采纳；P004 按本页 P0 启动。
+- 协作仓：`tasks/active/PReluGradUpdate_2329/workdir/code/`  
+- 云上：CodeArts `/mnt/workspace` 用 **git clone/pull** 同步（见 `SYNC_CODEARTS.md`）
