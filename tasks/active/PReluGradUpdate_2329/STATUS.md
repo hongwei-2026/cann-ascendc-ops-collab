@@ -2,10 +2,10 @@
 
 | 项 | 内容 |
 |----|------|
-| 状态 | `实现中`（Select 极性已推；最新云测仍 WA） |
+| 状态 | `实现中`（P015 已改 Kernel；待云端 `-e`） |
 | Owner | 待指定 |
 | 更新日期 | 2026-11-02 |
-| 基线 | EXP001：空 Kernel WA；EXP20261102_161116：Build OK，dx/update 各 95/192 |
-| 代码 | `workdir/code` 含 InferShape/Tiling/Compare-Select（极性已换） |
-| 下一闸 | 云端确认已 pull f89dd20 → 清 build → `bash build.sh -j4 -e` |
-| 若仍 WA | 查权重广播 / Compare 语义；日志见 `explorations/logs/EXP20261102_161116/` |
+| 基线 | EXP20261102_161116：95/192 ≡ 恒正支（EXP004） |
+| 代码 | CompareScalar + Barrier；Select 恢复 `g/wg` 与 `0/xg` |
+| 下一闸 | 云端 pull → 清 build → `bash build.sh -j4 -e`；打包日志含 bins |
+| 依据 | `explorations/EXP004-mask-always-src1.md` |

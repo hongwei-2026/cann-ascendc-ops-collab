@@ -16,8 +16,10 @@
 | P009 | 2026-11-02 | team | 功能 | 按 design_final 实现可过样例 | InferShape+Tiling+Compare/Select Kernel；key 0/1/2 | 本迭代 | 首次云编因 bf16 Cast 失败 | 进行中 | — |
 | P010 | 2026-11-02 | team | 环境 | bf16 用 Cast 升精度 | `Cast(bfloat16_t↔float)` | 0.5h | `not support bf16 type cast` → FATBIN 缺 .o | **废弃** | — |
 | P011 | 2026-11-02 | team | 功能 | bf16 避开 Cast | 位扩展/RNE 截断逐元素；half/float 仍 Cast | 本迭代 | 编过；样例仍 WA ~97/192 | 采纳(编译) | — |
-| P012 | 2026-11-02 | team | 功能 | WA≈半错=Select 极性反 | 交换 Select src0/src1（禁改 LE） | 本迭代 | EXP003 推送后；`EXP20261102_161116` 仍 WA 95/192 | 进行中(未证实) | — |
+| P012 | 2026-11-02 | team | 功能 | WA≈半错=Select 极性反 | 交换 Select src0/src1（禁改 LE） | 本迭代 | 换后仍 95/192；见 EXP004 | **废弃(非根因)** | — |
 | P013 | 2026-11-02 | team | 协作 | 云日志须落盘公开仓 | 本机 tar→`explorations/logs/EXP20261102_161116`→push | 0.5h | build OK + WA 95/192 原文已归档 | 采纳 | — |
+| P014 | 2026-11-02 | team | 功能 | mask 失效→恒选 src1 | 解压日志 + seed42 复算错数；写 EXP004 | 0.5h | 95≡恒正支；97≡恒负支；对上 EXP003 前后 | **采纳(根因)** | — |
+| P015 | 2026-11-02 | team | 功能 | 修 Compare/Select mask 通路 | 恢复 Select(g,wg)/(0,xg)；CompareScalar+PipeBarrier；mask 按 256-bit 对齐 | 本迭代 | 已改 workdir；待云端 `-e` | 进行中 | — |
 
 ## 性能道路预声明（未到阶段勿开）
 

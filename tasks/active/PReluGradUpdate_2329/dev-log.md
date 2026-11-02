@@ -61,3 +61,16 @@
 - 结果：`build_e_full.log` 显示 Build OK，样例仍 `Wrong Answer` dx/update 各 95/192。
 - 下一步：确认云端已 `git pull` 含 f89dd20 后清 build 再 `-e`；若仍半错则查权重广播/Compare 语义。
 - 关联道路：P012、P013
+
+## 2026-11-02（EXP004 分析）
+
+- 做了：解压 tar；用 seed=42 复算正负个数与各类错误模型错数；对照 EXP003 前后。
+- 结果：95/95 = 恒 `dx=g`/`update=0`；换 Select 只是从恒负支(97)换成恒正支(95)。根因=**mask 未生效**，P012 废弃。
+- 下一步：P015 修 Compare/Select mask（恢复正确 Select 序）。
+- 关联道路：P014、P015
+
+## 2026-11-02（P015 mask 修复）
+
+- 做了：`CompareScalar` + `PipeBarrier`；Select 恢复 `g/wg`、`0/xg`；maskBuf 按 256-bit 对齐。
+- 下一步：云端 pull 清 build 后 `-e`；打包日志须含 bins。
+- 关联道路：P015

@@ -3,6 +3,7 @@
  * \brief Kernel: Compare + Select; mode R/C
  *
  * EXP002: never Cast bfloat16_t on 910B/CANN9.1 (backend unsupported).
+ * EXP004/P015: CompareScalar + PipeBarrier; Select bit1→src0 (g/wg, 0/xg).
  */
 
 #ifndef PRELUGRADUPDATE_H
@@ -166,15 +167,20 @@ __aicore__ inline void PReluGradUpdate<T>::Init(
     pipe.InitBuffer(outQueueDx, BUFFER_NUM, tileLen_ * tBytes);
     pipe.InitBuffer(outQueueUpd, BUFFER_NUM, tileLen_ * tBytes);
     pipe.InitBuffer(wBuf, tileLen_ * sizeof(float));
-    pipe.InitBuffer(maskBuf, tileLen_ * sizeof(uint8_t));
+    // Compare/Select 用 bit-mask：按 256 元素对齐预留（≥ ceil(tileLen/8)）
+    const int64_t maskBytes = ((tileLen_ + 255) / 256) * 32;
+    pipe.InitBuffer(maskBuf, maskBytes > 32 ? maskBytes : 32);
     pipe.InitBuffer(tmpBuf, tileLen_ * sizeof(float) * 4);
     pipe.InitBuffer(zeroBuf, tileLen_ * sizeof(float));
 
     Duplicate(zeroBuf.Get<float>(), 0.0f, tileLen_);
+    PipeBarrier<PIPE_V>();
     if (weightsPerChannel_ == 0) {
         Duplicate(wBuf.Get<float>(), w0f_, tileLen_);
+        PipeBarrier<PIPE_V>();
     } else if (rowsPerTile_ > 0) {
         BuildWeightVecModeR();
+        PipeBarrier<PIPE_V>();
     }
 }
 
@@ -258,13 +264,18 @@ __aicore__ inline void PReluGradUpdate<T>::Process()
         LoadToFloat(gF, gLocal, calcLen);
         LoadToFloat(xF, xLocal, calcLen);
         DataCopy(stashG, gF, calcLen);
+        PipeBarrier<PIPE_V>();
 
-        Compare(mask, xF, zeros, CMPMODE::GT, calcLen);
+        // EXP004: mask 曾恒假→Select 恒 src1；恢复 bit1→src0 语义并加 barrier
+        // dx = mask?g:w*g ; update = mask?0:x*g
+        CompareScalar(mask, xF, static_cast<float>(0.0f), CMPMODE::GT, calcLen);
+        PipeBarrier<PIPE_V>();
         Mul(xg, wVec, stashG, calcLen); // w * g
-        // EXP003: swap vs bit1->src0 docs — bit1 selects src1 on this stack
-        Select(gF, mask, xg, stashG, SELMODE::VSEL_TENSOR_TENSOR_MODE, calcLen); // dx
-        Mul(xg, xF, stashG, calcLen);                                             // x * g
-        Select(stashG, mask, xg, zeros, SELMODE::VSEL_TENSOR_TENSOR_MODE, calcLen); // update
+        Select(gF, mask, stashG, xg, SELMODE::VSEL_TENSOR_TENSOR_MODE, calcLen); // dx
+        PipeBarrier<PIPE_V>();
+        Mul(xg, xF, stashG, calcLen); // x * g
+        Select(stashG, mask, zeros, xg, SELMODE::VSEL_TENSOR_TENSOR_MODE, calcLen); // update
+        PipeBarrier<PIPE_V>();
 
         StoreFromFloat(dxLocal, gF, calcLen);
         StoreFromFloat(upLocal, stashG, calcLen);

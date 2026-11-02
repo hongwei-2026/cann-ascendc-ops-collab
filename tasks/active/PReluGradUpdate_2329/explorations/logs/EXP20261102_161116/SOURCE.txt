@@ -3,4 +3,4 @@ cloud_path=/mnt/workspace/EXP20261102_161116_logs.tar.gz
 date=2026-11-02
 command=DEVICE_ID=0 bash build.sh -j4 -e
 result=Build OK; Wrong Answer dx.bin 95/192, update.bin 95/192; FAILED
-note=半错模式仍在；需确认云端是否已 pull Select 极性修复(f89dd20)后再复测
+analysis=EXP004: seed42 下 95≡恒正支(dx=g,upd=0)；非极性反转(否则≈192)。bins/ 空未含 output/golden。
