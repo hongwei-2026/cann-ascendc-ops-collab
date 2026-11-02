@@ -86,3 +86,9 @@
 - 做了：从题包模板合入 Claude 完整重写（独立 neg/fg、cmp 64 对齐、DataCopyPad）；写 EXP005。
 - 下一步：云端 `-e`；若过样例再处理 bf16 Cast（EXP002）。
 - 关联道路：P017
+
+## 2026-11-02（P019 源码指纹门禁）
+
+- 做了：Codex 加 `verify_codearts_source.sh`（比对 workdir vs prelu2329/code SHA、禁残留 SyncFunc）；修脚本里错误转义的 `${`；更新 SYNC。
+- 下一步：云端必须校验 PASS 再 `-e`。
+- 关联道路：P019

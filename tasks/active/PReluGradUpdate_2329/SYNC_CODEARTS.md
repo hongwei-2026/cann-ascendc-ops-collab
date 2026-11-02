@@ -53,7 +53,11 @@ rsync -a --delete \
   cann-ascendc-ops-collab/people/${ME}/PReluGradUpdate_2329/workdir/code/ \
   prelu2329/code/
 
-# 4) 进去构建（按题包 README；环境先 source cann）
+# 4) 强制校验实际构建树，防止“提交已更新、prelu2329/code 仍是旧副本”
+bash cann-ascendc-ops-collab/people/${ME}/PReluGradUpdate_2329/verify_codearts_source.sh \
+  /mnt/workspace/cann-ascendc-ops-collab /mnt/workspace/prelu2329/code
+
+# 5) 只有校验 PASS 后才构建（按题包 README；环境先 source cann）
 cd prelu2329/code
 # source /usr/local/Ascend/ascend-toolkit/set_env.sh   # 路径以云环境为准
 bash build.sh -j4
@@ -67,6 +71,9 @@ ME=hongwei-2026
 rm -rf /mnt/workspace/prelu2329/code
 cp -a /mnt/workspace/cann-ascendc-ops-collab/people/${ME}/PReluGradUpdate_2329/workdir/code \
       /mnt/workspace/prelu2329/code
+
+bash /mnt/workspace/cann-ascendc-ops-collab/people/${ME}/PReluGradUpdate_2329/verify_codearts_source.sh \
+  /mnt/workspace/cann-ascendc-ops-collab /mnt/workspace/prelu2329/code
 ```
 
 ---
@@ -81,6 +88,9 @@ ME=hongwei-2026   # ← 改成你的登录名
 rm -rf /mnt/workspace/prelu2329/code
 cp -a /mnt/workspace/cann-ascendc-ops-collab/people/${ME}/PReluGradUpdate_2329/workdir/code \
       /mnt/workspace/prelu2329/code
+
+bash /mnt/workspace/cann-ascendc-ops-collab/people/${ME}/PReluGradUpdate_2329/verify_codearts_source.sh \
+  /mnt/workspace/cann-ascendc-ops-collab /mnt/workspace/prelu2329/code
 
 cd /mnt/workspace/prelu2329/code
 bash build.sh -j4
@@ -119,6 +129,19 @@ git clone https://github.com/hongwei-2026/cann-ascendc-ops-collab.git
 EXPNAME=EXP$(date +%Y%m%d_%H%M%S)
 OUT=/mnt/workspace/${EXPNAME}_logs
 mkdir -p "$OUT"
+
+# 0) 记录真正参与构建的源码指纹；不要手写 commit 代替校验
+REPO=/mnt/workspace/cann-ascendc-ops-collab
+ME=hongwei-2026
+{
+  echo "date=$(date -Iseconds)"
+  echo "repo_commit=$(git -C \"$REPO\" rev-parse HEAD)"
+  echo "source_kernel=$(sha256sum \"$REPO/people/$ME/PReluGradUpdate_2329/workdir/code/op_kernel/p_relu_grad_update.h\" | awk '{print $1}')"
+  echo "build_kernel=$(sha256sum /mnt/workspace/prelu2329/code/op_kernel/p_relu_grad_update.h | awk '{print $1}')"
+} > "$OUT/SOURCE.txt"
+
+bash "$REPO/people/$ME/PReluGradUpdate_2329/verify_codearts_source.sh" \
+  "$REPO" /mnt/workspace/prelu2329/code | tee -a "$OUT/SOURCE.txt"
 
 # 1) 把本次终端完整输出再跑一遍并 tee（推荐；已跑过可跳过）
 cd /mnt/workspace/prelu2329/code

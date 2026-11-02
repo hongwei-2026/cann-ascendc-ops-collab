@@ -16,6 +16,6 @@
 | `EXP_P015_.../` | WA 97/192 |
 | `EXP_P016_.../` | WA 97/192 |
 | `EXP_P017_.../` | SyncFunc 编译失败 |
-| `EXP_P018_.../` | 仍 SyncFunc（云端未拉到修复） |
+| `EXP_P018_.../` | 仍 SyncFunc；SOURCE 写 925ea28 但编译正文是旧文件，确认同步链路失效 |
 
 规范见 `AGENTS.md` 探索落盘、`people/shared-lessons/general/codearts-and-logs.md`。
