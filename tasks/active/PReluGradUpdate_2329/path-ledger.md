@@ -21,6 +21,7 @@
 | P014 | 2026-11-02 | team | 功能 | mask 失效→恒选 src1 | 解压日志 + seed42 复算错数；写 EXP004 | 0.5h | 95≡恒正支；97≡恒负支；对上 EXP003 前后 | **采纳(根因)** | — |
 | P015 | 2026-11-02 | team | 功能 | 修 Compare/Select mask 通路 | 恢复 Select(g,wg)/(0,xg)；CompareScalar+PipeBarrier；mask 按 256-bit 对齐 | 本迭代 | `EXP_P015_…162823` 仍 WA **97/192**≡恒负支；Compare 仍失效 | 进行中(未过) | — |
 | P016 | 2026-11-02 | team | 实现 | Codex 收紧 UB/单缓冲 | `BUFFER_NUM=1`；coef 21/29；usable 80%；同步 design_final | 本迭代 | `EXP_P016_…170730` 仍 WA **97/192**；与 P015 同（不修 mask） | 采纳(UB) / 未过样例 | — |
+| P017 | 2026-11-02 | team | 功能 | Select dst/src1 别名踩负支 | 合入 Claude 重写：独立 neg/fg buffer + cmpCount 64 对齐 + DataCopyPad | 本迭代 | 已进 hongwei workdir；待云端 `-e` | 进行中 | — |
 
 ## 性能道路预声明（未到阶段勿开）
 

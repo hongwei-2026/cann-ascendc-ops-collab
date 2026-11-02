@@ -1,15 +1,12 @@
 /*!
  * \file p_relu_grad_update.h
- * \brief Kernel: Compare + Select; mode R/C
- *
- * EXP002: never Cast bfloat16_t on 910B/CANN9.1 (backend unsupported).
- * EXP004/P015: CompareScalar + PipeBarrier; Select bit1→src0 (g/wg, 0/xg).
- * Codex: BUFFER_NUM=1 稳定基线（design_final 2026-11-02）。
+ * \brief Vectorized PReluGradUpdate kernel.
  */
 
 #ifndef PRELUGRADUPDATE_H
 #define PRELUGRADUPDATE_H
 
+#include <type_traits>
 #include "kernel_operator.h"
 #include "kernel_tiling/kernel_tiling.h"
 #include "p_relu_grad_update_tiling_data.h"
@@ -20,290 +17,275 @@ namespace NsPReluGradUpdate {
 using namespace AscendC;
 
 constexpr int32_t BUFFER_NUM = 1;
-
-__aicore__ inline float Bf16ToFloat(bfloat16_t v)
-{
-    uint16_t bits = *reinterpret_cast<uint16_t*>(&v);
-    uint32_t u = static_cast<uint32_t>(bits) << 16;
-    float f = 0.0f;
-    *reinterpret_cast<uint32_t*>(&f) = u;
-    return f;
-}
-
-__aicore__ inline bfloat16_t FloatToBf16Rne(float f)
-{
-    uint32_t u = *reinterpret_cast<uint32_t*>(&f);
-    uint32_t lsb = (u >> 16) & 1U;
-    uint32_t roundingBias = 0x7FFFU + lsb;
-    uint16_t bits = static_cast<uint16_t>((u + roundingBias) >> 16);
-    bfloat16_t out;
-    *reinterpret_cast<uint16_t*>(&out) = bits;
-    return out;
-}
-
-__aicore__ inline void LoadToFloat(LocalTensor<float>& dst, LocalTensor<float>& src, int64_t n)
-{
-    DataCopy(dst, src, n);
-}
-
-__aicore__ inline void LoadToFloat(LocalTensor<float>& dst, LocalTensor<half>& src, int64_t n)
-{
-    Cast(dst, src, RoundMode::CAST_NONE, n);
-}
-
-__aicore__ inline void LoadToFloat(LocalTensor<float>& dst, LocalTensor<bfloat16_t>& src, int64_t n)
-{
-    for (int64_t i = 0; i < n; ++i) {
-        dst.SetValue(i, Bf16ToFloat(src.GetValue(i)));
-    }
-}
-
-__aicore__ inline void StoreFromFloat(LocalTensor<float>& dst, LocalTensor<float>& src, int64_t n)
-{
-    DataCopy(dst, src, n);
-}
-
-__aicore__ inline void StoreFromFloat(LocalTensor<half>& dst, LocalTensor<float>& src, int64_t n)
-{
-    Cast(dst, src, RoundMode::CAST_RINT, n);
-}
-
-__aicore__ inline void StoreFromFloat(LocalTensor<bfloat16_t>& dst, LocalTensor<float>& src, int64_t n)
-{
-    for (int64_t i = 0; i < n; ++i) {
-        dst.SetValue(i, FloatToBf16Rne(src.GetValue(i)));
-    }
-}
+// Compare / Select 要求参与计算的元素数按 256Byte 对齐。全部中间计算都在 float 上做，
+// 故对齐粒度固定为 256/sizeof(float) = 64 个元素。
+constexpr int64_t CMP_ALIGN_ELEMS = 256 / static_cast<int64_t>(sizeof(float));
 
 template <typename T>
 class PReluGradUpdate {
 public:
-    __aicore__ inline PReluGradUpdate(){};
-    __aicore__ inline void Init(
-        GM_ADDR grads, GM_ADDR features, GM_ADDR weights, GM_ADDR dx, GM_ADDR update,
-        const PReluGradUpdateTilingData* tilingData);
+    __aicore__ inline PReluGradUpdate() = default;
+
+    __aicore__ inline void Init(GM_ADDR grads, GM_ADDR features, GM_ADDR weights, GM_ADDR dx,
+        GM_ADDR update, const PReluGradUpdateTilingData* tilingData);
     __aicore__ inline void Process();
 
 private:
-    __aicore__ inline void BuildWeightVecModeR();
-    __aicore__ inline void FillWeightVecModeC(int64_t absOff, int64_t len, int64_t calcLen);
-    __aicore__ inline float WeightAsFloat(int64_t idx);
+    __aicore__ inline void CopyIn(int64_t progress, int64_t currentNum);
+    __aicore__ inline void Compute(int64_t progress, int64_t currentNum);
+    __aicore__ inline void CopyOut(int64_t progress, int64_t currentNum);
+    __aicore__ inline void BuildWeightVector(int64_t globalStart, int64_t currentNum);
+    __aicore__ inline float ReadWeight(int64_t index) const;
+    __aicore__ inline int64_t AlignUp(int64_t value, int64_t alignment) const;
 
-    TPipe pipe;
-    TQue<QuePosition::VECIN, BUFFER_NUM> inQueueG;
-    TQue<QuePosition::VECIN, BUFFER_NUM> inQueueX;
-    TQue<QuePosition::VECOUT, BUFFER_NUM> outQueueDx;
-    TQue<QuePosition::VECOUT, BUFFER_NUM> outQueueUpd;
-    TBuf<TPosition::VECCALC> wBuf;
-    TBuf<TPosition::VECCALC> maskBuf;
-    TBuf<TPosition::VECCALC> tmpBuf;
-    TBuf<TPosition::VECCALC> zeroBuf;
+private:
+    TPipe pipe_;
+    TQue<QuePosition::VECIN, BUFFER_NUM> gradsQueue_;
+    TQue<QuePosition::VECIN, BUFFER_NUM> featuresQueue_;
+    TQue<QuePosition::VECOUT, BUFFER_NUM> dxQueue_;
+    TQue<QuePosition::VECOUT, BUFFER_NUM> updateQueue_;
 
-    GlobalTensor<T> gradsGm;
-    GlobalTensor<T> featuresGm;
-    GlobalTensor<T> weightsGm;
-    GlobalTensor<T> dxGm;
-    GlobalTensor<T> updateGm;
+    TBuf<TPosition::VECCALC> gradsFloatBuf_;
+    TBuf<TPosition::VECCALC> featuresFloatBuf_;
+    TBuf<TPosition::VECCALC> weightFloatBuf_;
+    TBuf<TPosition::VECCALC> dxFloatBuf_;
+    TBuf<TPosition::VECCALC> updateFloatBuf_;
+    TBuf<TPosition::VECCALC> negFloatBuf_;    // w*g，Select 的 src1，必须与 dst 不同
+    TBuf<TPosition::VECCALC> fgFloatBuf_;     // f*g，Select 的 src1，必须与 dst 不同
+    TBuf<TPosition::VECCALC> maskBuf_;
 
+    GlobalTensor<T> gradsGm_;
+    GlobalTensor<T> featuresGm_;
+    GlobalTensor<T> weightsGm_;
+    GlobalTensor<T> dxGm_;
+    GlobalTensor<T> updateGm_;
+
+    int64_t totalNum_ = 0;
     int64_t blockStart_ = 0;
-    int64_t blockLen_ = 0;
+    int64_t blockLength_ = 0;
     int64_t tileLen_ = 0;
     int64_t channelNum_ = 0;
     int64_t innerSize_ = 0;
-    int64_t sampleSize_ = 0;
-    int64_t weightsPerChannel_ = 1;
+    int64_t weightsPerChannel_ = 0;
     int64_t rowsPerTile_ = 0;
-    float w0f_ = 0.0f;
 };
 
 template <typename T>
-__aicore__ inline float PReluGradUpdate<T>::WeightAsFloat(int64_t idx)
+__aicore__ inline int64_t PReluGradUpdate<T>::AlignUp(int64_t value, int64_t alignment) const
 {
-    return static_cast<float>(weightsGm.GetValue(idx));
-}
-
-template <>
-__aicore__ inline float PReluGradUpdate<bfloat16_t>::WeightAsFloat(int64_t idx)
-{
-    return Bf16ToFloat(weightsGm.GetValue(idx));
+    return ((value + alignment - 1) / alignment) * alignment;
 }
 
 template <typename T>
-__aicore__ inline void PReluGradUpdate<T>::Init(
-    GM_ADDR grads, GM_ADDR features, GM_ADDR weights, GM_ADDR dx, GM_ADDR update,
-    const PReluGradUpdateTilingData* tilingData)
+__aicore__ inline float PReluGradUpdate<T>::ReadWeight(int64_t index) const
 {
-    gradsGm.SetGlobalBuffer((__gm__ T*)grads);
-    featuresGm.SetGlobalBuffer((__gm__ T*)features);
-    weightsGm.SetGlobalBuffer((__gm__ T*)weights);
-    dxGm.SetGlobalBuffer((__gm__ T*)dx);
-    updateGm.SetGlobalBuffer((__gm__ T*)update);
-
-    const int64_t M = tilingData->totalNum;
-    const int64_t blockFactor = tilingData->blockFactor;
-    blockStart_ = GetBlockIdx() * blockFactor;
-    blockLen_ = 0;
-    if (blockStart_ < M) {
-        blockLen_ = blockFactor;
-        if (blockStart_ + blockLen_ > M) {
-            blockLen_ = M - blockStart_;
-        }
+    const T value = weightsGm_.GetValue(index);
+    if constexpr (std::is_same<T, float>::value) {
+        return value;
+    } else {
+        return ToFloat(value);
     }
+}
 
+template <typename T>
+__aicore__ inline void PReluGradUpdate<T>::Init(GM_ADDR grads, GM_ADDR features, GM_ADDR weights,
+    GM_ADDR dx, GM_ADDR update, const PReluGradUpdateTilingData* tilingData)
+{
+    totalNum_ = tilingData->totalNum;
     tileLen_ = tilingData->tileLen;
     channelNum_ = tilingData->channelNum;
     innerSize_ = tilingData->innerSize;
-    sampleSize_ = tilingData->sampleSize;
     weightsPerChannel_ = tilingData->weightsPerChannel;
     rowsPerTile_ = tilingData->rowsPerTile;
-    w0f_ = WeightAsFloat(0);
 
-    if (blockLen_ <= 0 || tileLen_ <= 0) {
-        return;
+    blockStart_ = static_cast<int64_t>(GetBlockIdx()) * tilingData->blockFactor;
+    blockLength_ = blockStart_ < totalNum_ ? totalNum_ - blockStart_ : 0;
+    if (blockLength_ > tilingData->blockFactor) {
+        blockLength_ = tilingData->blockFactor;
     }
 
-    const uint32_t tBytes = static_cast<uint32_t>(sizeof(T));
-    pipe.InitBuffer(inQueueG, BUFFER_NUM, tileLen_ * tBytes);
-    pipe.InitBuffer(inQueueX, BUFFER_NUM, tileLen_ * tBytes);
-    pipe.InitBuffer(outQueueDx, BUFFER_NUM, tileLen_ * tBytes);
-    pipe.InitBuffer(outQueueUpd, BUFFER_NUM, tileLen_ * tBytes);
-    pipe.InitBuffer(wBuf, tileLen_ * sizeof(float));
-    // Compare/Select 用 bit-mask：按 256 元素对齐预留（≥ ceil(tileLen/8)）
-    const int64_t maskBytes = ((tileLen_ + 255) / 256) * 32;
-    pipe.InitBuffer(maskBuf, maskBytes > 32 ? maskBytes : 32);
-    pipe.InitBuffer(tmpBuf, tileLen_ * sizeof(float) * 4);
-    pipe.InitBuffer(zeroBuf, tileLen_ * sizeof(float));
+    gradsGm_.SetGlobalBuffer((__gm__ T*)grads, totalNum_);
+    featuresGm_.SetGlobalBuffer((__gm__ T*)features, totalNum_);
+    weightsGm_.SetGlobalBuffer((__gm__ T*)weights, weightsPerChannel_ != 0 ? channelNum_ : 1);
+    dxGm_.SetGlobalBuffer((__gm__ T*)dx, totalNum_);
+    updateGm_.SetGlobalBuffer((__gm__ T*)update, totalNum_);
 
-    Duplicate(zeroBuf.Get<float>(), 0.0f, tileLen_);
+    // 所有参与 Compare/Select 的 buffer 都按 256Byte（=64 个 float）对齐，
+    // 这样尾块把 count 向上取整到 cmpCount 时不会越界。
+    const int64_t alignedCount = AlignUp(tileLen_, CMP_ALIGN_ELEMS);
+    const int64_t alignedMaskBytes = AlignUp(alignedCount, 32);
+
+    pipe_.InitBuffer(gradsQueue_, BUFFER_NUM, alignedCount * sizeof(T));
+    pipe_.InitBuffer(featuresQueue_, BUFFER_NUM, alignedCount * sizeof(T));
+    pipe_.InitBuffer(dxQueue_, BUFFER_NUM, alignedCount * sizeof(T));
+    pipe_.InitBuffer(updateQueue_, BUFFER_NUM, alignedCount * sizeof(T));
+    pipe_.InitBuffer(weightFloatBuf_, alignedCount * sizeof(float));
+    pipe_.InitBuffer(negFloatBuf_, alignedCount * sizeof(float));
+    pipe_.InitBuffer(fgFloatBuf_, alignedCount * sizeof(float));
+    pipe_.InitBuffer(maskBuf_, alignedMaskBytes);
+
+    if constexpr (!std::is_same<T, float>::value) {
+        pipe_.InitBuffer(gradsFloatBuf_, alignedCount * sizeof(float));
+        pipe_.InitBuffer(featuresFloatBuf_, alignedCount * sizeof(float));
+        pipe_.InitBuffer(dxFloatBuf_, alignedCount * sizeof(float));
+        pipe_.InitBuffer(updateFloatBuf_, alignedCount * sizeof(float));
+    }
+
+    if (rowsPerTile_ > 0 && weightsPerChannel_ != 0 && blockLength_ > 0) {
+        BuildWeightVector(0, tileLen_);
+        PipeBarrier<PIPE_V>();
+    }
+}
+
+template <typename T>
+__aicore__ inline void PReluGradUpdate<T>::BuildWeightVector(int64_t globalStart, int64_t currentNum)
+{
+    LocalTensor<float> weightLocal = weightFloatBuf_.Get<float>();
+    int64_t localOffset = 0;
+    while (localOffset < currentNum) {
+        const int64_t index = globalStart + localOffset;
+        const int64_t channel = (index / innerSize_) % channelNum_;
+        const int64_t offsetInChannel = index % innerSize_;
+        int64_t segment = innerSize_ - offsetInChannel;
+        if (segment > currentNum - localOffset) {
+            segment = currentNum - localOffset;
+        }
+        const float weightValue = ReadWeight(channel);
+        SyncFunc<HardEvent::S_V>();
+        Duplicate(weightLocal[localOffset], weightValue, segment);
+        localOffset += segment;
+    }
+}
+
+template <typename T>
+__aicore__ inline void PReluGradUpdate<T>::CopyIn(int64_t progress, int64_t currentNum)
+{
+    LocalTensor<T> gradsLocal = gradsQueue_.AllocTensor<T>();
+    LocalTensor<T> featuresLocal = featuresQueue_.AllocTensor<T>();
+
+    // isPad=true 把 32B 块内的尾部补 0，避免尾块 lane 上残留 UB 垃圾。
+    const int64_t tBlockElements = 32 / static_cast<int64_t>(sizeof(T));
+    const int64_t paddedNum = AlignUp(currentNum, tBlockElements);
+    DataCopyExtParams copyParams = {1, static_cast<uint32_t>(currentNum * sizeof(T)), 0, 0, 0};
+    DataCopyPadExtParams<T> padParams = {true, 0,
+        static_cast<uint8_t>(paddedNum - currentNum), static_cast<T>(0)};
+    DataCopyPad(gradsLocal, gradsGm_[blockStart_ + progress], copyParams, padParams);
+    DataCopyPad(featuresLocal, featuresGm_[blockStart_ + progress], copyParams, padParams);
+
+    gradsQueue_.EnQue(gradsLocal);
+    featuresQueue_.EnQue(featuresLocal);
+}
+
+template <typename T>
+__aicore__ inline void PReluGradUpdate<T>::Compute(int64_t progress, int64_t currentNum)
+{
+    LocalTensor<T> gradsLocal = gradsQueue_.DeQue<T>();
+    LocalTensor<T> featuresLocal = featuresQueue_.DeQue<T>();
+    LocalTensor<T> dxLocal = dxQueue_.AllocTensor<T>();
+    LocalTensor<T> updateLocal = updateQueue_.AllocTensor<T>();
+
+    LocalTensor<float> gradsFloat;
+    LocalTensor<float> featuresFloat;
+    LocalTensor<float> dxFloat;
+    LocalTensor<float> updateFloat;
+
+    if constexpr (std::is_same<T, float>::value) {
+        gradsFloat = gradsLocal.template ReinterpretCast<float>();
+        featuresFloat = featuresLocal.template ReinterpretCast<float>();
+        dxFloat = dxLocal.template ReinterpretCast<float>();
+        updateFloat = updateLocal.template ReinterpretCast<float>();
+    } else {
+        gradsFloat = gradsFloatBuf_.Get<float>();
+        featuresFloat = featuresFloatBuf_.Get<float>();
+        dxFloat = dxFloatBuf_.Get<float>();
+        updateFloat = updateFloatBuf_.Get<float>();
+        Cast(gradsFloat, gradsLocal, RoundMode::CAST_NONE, currentNum);
+        Cast(featuresFloat, featuresLocal, RoundMode::CAST_NONE, currentNum);
+        PipeBarrier<PIPE_V>();
+    }
+
+    // Compare/Select 的 count 必须按 256Byte 对齐；buffer 已按 alignedCount 申请，
+    // 多算出来的尾 lane 不会被 CopyOut 写回。
+    const int64_t cmpCount = AlignUp(currentNum, CMP_ALIGN_ELEMS);
+
+    // 负分支候选 w*g 与 f*g 必须写到独立 buffer：Select 不保证逐 lane 原子，
+    // 若 dst 与 src1 同址，src1 会在写 dst 的过程中被 src0 覆盖，
+    // 导致 mask=0 的 lane 读到 src0（实测现象：负分支全错、正分支全对）。
+    LocalTensor<float> negLocal = negFloatBuf_.Get<float>();
+    LocalTensor<float> fgLocal = fgFloatBuf_.Get<float>();
+
+    if (weightsPerChannel_ != 0) {
+        if (rowsPerTile_ == 0) {
+            BuildWeightVector(blockStart_ + progress, currentNum);
+            PipeBarrier<PIPE_V>();
+        }
+        LocalTensor<float> weightLocal = weightFloatBuf_.Get<float>();
+        Mul(negLocal, gradsFloat, weightLocal, currentNum);
+    } else {
+        const float weightValue = ReadWeight(0);
+        SyncFunc<HardEvent::S_V>();
+        Muls(negLocal, gradsFloat, weightValue, currentNum);
+    }
+
+    Mul(fgLocal, featuresFloat, gradsFloat, currentNum);
+    LocalTensor<uint8_t> maskLocal = maskBuf_.Get<uint8_t>();
+    // 必须用浮点 GT 比较：NaN 在任何比较下为假，会落入负分支，与 golden 的 np.where 一致；
+    // 改用 LE 取反会把 NaN 也判成假，两个分支都错。
+    CompareScalar(maskLocal, featuresFloat, 0.0f, CMPMODE::GT, static_cast<uint32_t>(cmpCount));
     PipeBarrier<PIPE_V>();
-    if (weightsPerChannel_ == 0) {
-        Duplicate(wBuf.Get<float>(), w0f_, tileLen_);
-        PipeBarrier<PIPE_V>();
-    } else if (rowsPerTile_ > 0) {
-        BuildWeightVecModeR();
+
+    // selMask=1 取 src0：正分支取 grads，非正分支取 w*grads。
+    Select(dxFloat, maskLocal, gradsFloat, negLocal, SELMODE::VSEL_TENSOR_TENSOR_MODE,
+        static_cast<uint32_t>(cmpCount));
+
+    // featuresFloat 在 Mul/Compare 之后已无用，复用为全 0 向量（它不是任何 Select 的 dst）。
+    LocalTensor<float> zeroLocal = featuresFloat;
+    Duplicate(zeroLocal, 0.0f, static_cast<int32_t>(cmpCount));
+    PipeBarrier<PIPE_V>();
+    Select(updateFloat, maskLocal, zeroLocal, fgLocal, SELMODE::VSEL_TENSOR_TENSOR_MODE,
+        static_cast<uint32_t>(cmpCount));
+    PipeBarrier<PIPE_V>();
+
+    if constexpr (!std::is_same<T, float>::value) {
+        Cast(dxLocal, dxFloat, RoundMode::CAST_RINT, currentNum);
+        Cast(updateLocal, updateFloat, RoundMode::CAST_RINT, currentNum);
         PipeBarrier<PIPE_V>();
     }
+
+    dxQueue_.EnQue(dxLocal);
+    updateQueue_.EnQue(updateLocal);
+    gradsQueue_.FreeTensor(gradsLocal);
+    featuresQueue_.FreeTensor(featuresLocal);
 }
 
 template <typename T>
-__aicore__ inline void PReluGradUpdate<T>::BuildWeightVecModeR()
+__aicore__ inline void PReluGradUpdate<T>::CopyOut(int64_t progress, int64_t currentNum)
 {
-    LocalTensor<float> wVec = wBuf.Get<float>();
-    for (int64_t r = 0; r < rowsPerTile_; ++r) {
-        for (int64_t ch = 0; ch < channelNum_; ++ch) {
-            const float wv = WeightAsFloat(ch);
-            const int64_t off = r * sampleSize_ + ch * innerSize_;
-            Duplicate(wVec[off], wv, innerSize_);
-        }
-    }
-}
-
-template <typename T>
-__aicore__ inline void PReluGradUpdate<T>::FillWeightVecModeC(int64_t absOff, int64_t len, int64_t calcLen)
-{
-    LocalTensor<float> wVec = wBuf.Get<float>();
-    for (int64_t i = 0; i < len; ++i) {
-        const int64_t idx = absOff + i;
-        int64_t c = 0;
-        if (innerSize_ > 0 && channelNum_ > 0) {
-            c = (idx / innerSize_) % channelNum_;
-        }
-        wVec.SetValue(i, WeightAsFloat(c));
-    }
-    for (int64_t i = len; i < calcLen; ++i) {
-        wVec.SetValue(i, 0.0f);
-    }
+    LocalTensor<T> dxLocal = dxQueue_.DeQue<T>();
+    LocalTensor<T> updateLocal = updateQueue_.DeQue<T>();
+    DataCopyExtParams copyParams = {1, static_cast<uint32_t>(currentNum * sizeof(T)), 0, 0, 0};
+    DataCopyPad(dxGm_[blockStart_ + progress], dxLocal, copyParams);
+    DataCopyPad(updateGm_[blockStart_ + progress], updateLocal, copyParams);
+    dxQueue_.FreeTensor(dxLocal);
+    updateQueue_.FreeTensor(updateLocal);
 }
 
 template <typename T>
 __aicore__ inline void PReluGradUpdate<T>::Process()
 {
-    if (blockLen_ <= 0 || tileLen_ <= 0) {
+    if (blockLength_ <= 0 || tileLen_ <= 0) {
         return;
     }
-    const int64_t alignElem = static_cast<int64_t>(32 / sizeof(T));
-    int64_t done = 0;
-    while (done < blockLen_) {
-        int64_t len = tileLen_;
-        if (done + len > blockLen_) {
-            len = blockLen_ - done;
+    for (int64_t progress = 0; progress < blockLength_; progress += tileLen_) {
+        int64_t currentNum = blockLength_ - progress;
+        if (currentNum > tileLen_) {
+            currentNum = tileLen_;
         }
-        int64_t calcLen = ((len + alignElem - 1) / alignElem) * alignElem;
-        if (calcLen > tileLen_) {
-            calcLen = tileLen_;
-            len = tileLen_;
-        }
-        const int64_t absOff = blockStart_ + done;
-
-        if (rowsPerTile_ == 0 && weightsPerChannel_ == 1) {
-            FillWeightVecModeC(absOff, len, calcLen);
-        } else if (rowsPerTile_ == 0 && weightsPerChannel_ == 0) {
-            Duplicate(wBuf.Get<float>(), w0f_, calcLen);
-        }
-
-        LocalTensor<T> gLocal = inQueueG.AllocTensor<T>();
-        LocalTensor<T> xLocal = inQueueX.AllocTensor<T>();
-        DataCopy(gLocal, gradsGm[absOff], calcLen);
-        DataCopy(xLocal, featuresGm[absOff], calcLen);
-        inQueueG.EnQue(gLocal);
-        inQueueX.EnQue(xLocal);
-        gLocal = inQueueG.DeQue<T>();
-        xLocal = inQueueX.DeQue<T>();
-
-        LocalTensor<T> dxLocal = outQueueDx.AllocTensor<T>();
-        LocalTensor<T> upLocal = outQueueUpd.AllocTensor<T>();
-
-        LocalTensor<float> tmp = tmpBuf.Get<float>();
-        LocalTensor<float> gF = tmp;
-        LocalTensor<float> xF = tmp[tileLen_];
-        LocalTensor<float> stashG = tmp[tileLen_ * 2];
-        LocalTensor<float> xg = tmp[tileLen_ * 3];
-        LocalTensor<float> wVec = wBuf.Get<float>();
-        LocalTensor<float> zeros = zeroBuf.Get<float>();
-        LocalTensor<uint8_t> mask = maskBuf.Get<uint8_t>();
-
-        LoadToFloat(gF, gLocal, calcLen);
-        LoadToFloat(xF, xLocal, calcLen);
-        DataCopy(stashG, gF, calcLen);
-        PipeBarrier<PIPE_V>();
-
-        // EXP004: mask 曾恒假→Select 恒 src1；恢复 bit1→src0 语义并加 barrier
-        // dx = mask?g:w*g ; update = mask?0:x*g
-        CompareScalar(mask, xF, static_cast<float>(0.0f), CMPMODE::GT, calcLen);
-        PipeBarrier<PIPE_V>();
-        Mul(xg, wVec, stashG, calcLen); // w * g
-        Select(gF, mask, stashG, xg, SELMODE::VSEL_TENSOR_TENSOR_MODE, calcLen); // dx
-        PipeBarrier<PIPE_V>();
-        Mul(xg, xF, stashG, calcLen); // x * g
-        Select(stashG, mask, zeros, xg, SELMODE::VSEL_TENSOR_TENSOR_MODE, calcLen); // update
-        PipeBarrier<PIPE_V>();
-
-        StoreFromFloat(dxLocal, gF, calcLen);
-        StoreFromFloat(upLocal, stashG, calcLen);
-
-        outQueueDx.EnQue(dxLocal);
-        outQueueUpd.EnQue(upLocal);
-        dxLocal = outQueueDx.DeQue<T>();
-        upLocal = outQueueUpd.DeQue<T>();
-
-        if (len == calcLen) {
-            DataCopy(dxGm[absOff], dxLocal, calcLen);
-            DataCopy(updateGm[absOff], upLocal, calcLen);
-        } else {
-            for (int64_t i = 0; i < len; ++i) {
-                dxGm.SetValue(absOff + i, dxLocal.GetValue(i));
-                updateGm.SetValue(absOff + i, upLocal.GetValue(i));
-            }
-        }
-
-        outQueueDx.FreeTensor(dxLocal);
-        outQueueUpd.FreeTensor(upLocal);
-        inQueueG.FreeTensor(gLocal);
-        inQueueX.FreeTensor(xLocal);
-
-        done += len;
+        CopyIn(progress, currentNum);
+        Compute(progress, currentNum);
+        CopyOut(progress, currentNum);
     }
 }
 
 } // namespace NsPReluGradUpdate
-#endif // PRELUGRADUPDATE_H
+#endif

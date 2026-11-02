@@ -80,3 +80,9 @@
 - 做了：同步 Codex `design_final`（单缓冲、coef 21/29、usable 80%、Select 极性说明）；改 workdir Kernel/Tiling；归档 EXP_P015 日志。
 - 下一步：云端 `-e` 看是否仍 97；mask 根因另开路径。
 - 关联道路：P016
+
+## 2026-11-02（P017 Claude Select 别名）
+
+- 做了：从题包模板合入 Claude 完整重写（独立 neg/fg、cmp 64 对齐、DataCopyPad）；写 EXP005。
+- 下一步：云端 `-e`；若过样例再处理 bf16 Cast（EXP002）。
+- 关联道路：P017

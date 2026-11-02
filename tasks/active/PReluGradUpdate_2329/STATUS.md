@@ -2,10 +2,10 @@
 
 | 项 | 内容 |
 |----|------|
-| 状态 | `实现中`（三人 `people/` 隔离；mask 仍待修） |
+| 状态 | `实现中`（P017 Claude：Select 别名修复待云测） |
 | Owner | hongwei-2026 |
 | 更新日期 | 2026-11-02 |
-| 基线 | EXP_P016：WA **97/192** ≡ 恒负支 |
-| 代码 | [`people/hongwei-2026/PReluGradUpdate_2329/workdir/`](../../../people/hongwei-2026/PReluGradUpdate_2329/workdir/) |
-| 下一闸 | 各座位自建 workdir；修 Compare mask；见 `WORKDIR.md` + `people/CLAIM.md` |
-| 依据 | `people/shared-lessons/PReluGradUpdate_2329/` · EXP004 |
+| 基线 | EXP_P016：WA **97/192**；根因候选见 EXP005 |
+| 代码 | [`people/hongwei-2026/.../workdir`](../../../people/hongwei-2026/PReluGradUpdate_2329/workdir/)（Claude 重写已合入） |
+| 下一闸 | 云端 pull → 清 build → `-e`；打包含 bins |
+| 依据 | `explorations/EXP005-select-dst-src1-alias.md` · workdir `FIX_NOTES.md` |

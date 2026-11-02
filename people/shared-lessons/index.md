@@ -14,3 +14,4 @@
 | L01 | 样例 WA≈半错：先区分「极性反」vs「mask 失效」 | [PReluGradUpdate_2329/mask-vs-polarity.md](PReluGradUpdate_2329/mask-vs-polarity.md) |
 | L02 | 910B bf16 禁止 Cast | [PReluGradUpdate_2329/bf16-no-cast.md](PReluGradUpdate_2329/bf16-no-cast.md) |
 | L03 | Select 必须 Compare+Select，禁掩码乘（Inf） | [PReluGradUpdate_2329/compare-select-not-maskmul.md](PReluGradUpdate_2329/compare-select-not-maskmul.md) |
+| L04 | Select dst 勿与 src1 同址 | [PReluGradUpdate_2329/select-no-alias-src1.md](PReluGradUpdate_2329/select-no-alias-src1.md) |

@@ -81,10 +81,6 @@ TEST_F(PReluGradUpdateKernelTest, test_kernel_run)
     { std::ifstream f(root + "/input/features.bin", std::ios::binary); ASSERT_TRUE(f.good()); f.read(reinterpret_cast<char*>(features), 768); ASSERT_EQ(f.gcount(), 768); }
     { std::ifstream f(root + "/input/weights.bin", std::ios::binary); ASSERT_TRUE(f.good()); f.read(reinterpret_cast<char*>(weights), 24); ASSERT_EQ(f.gcount(), 24); }
     
-    // TODO: 以下 tilingData 字段基于初始模板的 TilingData 结构。
-    //       修改 TilingData 结构后请更新字段名和赋值：
-    //         参考 op_kernel/p_relu_grad_update_tiling_data.h 中的字段定义
-    //         参考 op_host/p_relu_grad_update_tiling.cpp 中的 tiling 计算逻辑
     PReluGradUpdateTilingData* tilingData = reinterpret_cast<PReluGradUpdateTilingData*>(tiling);
     tilingData->totalNum = size;
     tilingData->coreNum = 1;
@@ -95,12 +91,11 @@ TEST_F(PReluGradUpdateKernelTest, test_kernel_run)
     tilingData->sampleSize = 48;
     tilingData->weightsPerChannel = 1;
     tilingData->rowsPerTile = 4;
-
-    // fp32 -> schMode 0
-    ICPU_SET_TILING_KEY(0);
+    
+    ICPU_SET_TILING_KEY(PRELUGRADUPDATE_TPL_FLOAT);
     AscendC::SetKernelMode(KernelMode::AIV_MODE);
-
-    ICPU_RUN_KF((p_relu_grad_update<0>), numBlocks, grads, features, weights, dx, update, workspace, tiling);
+    
+    ICPU_RUN_KF((p_relu_grad_update<PRELUGRADUPDATE_TPL_FLOAT>), numBlocks, grads, features, weights, dx, update, workspace, tiling);
     
     // 将动态输出的 packed buffer 拆回 individual buffers
     
