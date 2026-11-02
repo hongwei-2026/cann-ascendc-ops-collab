@@ -2,10 +2,10 @@
 
 | 项 | 内容 |
 |----|------|
-| 状态 | `设计定稿 / 实现准备`（workdir 已建；按合并 SUMMARY 开工） |
+| 状态 | `实现中`（P0 已推 workdir；待云端 `-e` 复测） |
 | Owner | 待指定 |
 | 更新日期 | 2026-11-02 |
-| 设计 | `design.md` = 本地 Codex/Claude `design_final`；合并见 `analysis/SUMMARY.md` |
-| 代码 | `workdir/code/`（模板副本，待按设计改 Host/Kernel） |
-| 云同步 | `SYNC_CODEARTS.md` |
-| 阻塞 | 无 |
+| 基线 | EXP001：空 Kernel `Wrong Answer`（dx 192/192） |
+| 代码 | `workdir/code` 已按 design_final 填 InferShape/Tiling/Kernel |
+| 下一闸 | 云端 pull → build → `DEVICE_ID=0 bash build.sh -j4 -e` |
+| 若仍 WA | 优先查 Select 极性（交换 src0/src1），记 EXP002 |

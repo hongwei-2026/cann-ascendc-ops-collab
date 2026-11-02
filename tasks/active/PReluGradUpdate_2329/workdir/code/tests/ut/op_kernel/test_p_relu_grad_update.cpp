@@ -87,14 +87,20 @@ TEST_F(PReluGradUpdateKernelTest, test_kernel_run)
     //         参考 op_host/p_relu_grad_update_tiling.cpp 中的 tiling 计算逻辑
     PReluGradUpdateTilingData* tilingData = reinterpret_cast<PReluGradUpdateTilingData*>(tiling);
     tilingData->totalNum = size;
+    tilingData->coreNum = 1;
     tilingData->blockFactor = size;
-    tilingData->ubFactor = size;
-    
-    // TODO: tilingKey 应与 op_host/p_relu_grad_update_tiling.cpp 中 SetTilingKey 设置的值一致
-    ICPU_SET_TILING_KEY(1);
+    tilingData->tileLen = size;
+    tilingData->channelNum = 6;
+    tilingData->innerSize = 8;
+    tilingData->sampleSize = 48;
+    tilingData->weightsPerChannel = 1;
+    tilingData->rowsPerTile = 4;
+
+    // fp32 -> schMode 0
+    ICPU_SET_TILING_KEY(0);
     AscendC::SetKernelMode(KernelMode::AIV_MODE);
-    
-    ICPU_RUN_KF((p_relu_grad_update<1>), numBlocks, grads, features, weights, dx, update, workspace, tiling);
+
+    ICPU_RUN_KF((p_relu_grad_update<0>), numBlocks, grads, features, weights, dx, update, workspace, tiling);
     
     // 将动态输出的 packed buffer 拆回 individual buffers
     

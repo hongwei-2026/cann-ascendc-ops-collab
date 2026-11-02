@@ -1,6 +1,6 @@
 /*!
  * \file p_relu_grad_update_tiling.cpp
- * \brief PReluGradUpdate 算子 Tiling 实现
+ * \brief Tiling — design_final §3.3
  */
 
 #include "register/op_def_registry.h"
@@ -14,17 +14,13 @@ namespace optiling {
 
 using Ops::Base::CeilDiv;
 using Ops::Base::CeilAlign;
-using Ops::Base::FloorDiv;
 using Ops::Base::FloorAlign;
-using Ops::Base::GetUbBlockSize;
 
 constexpr uint32_t WS_SYS_SIZE = 0U;
-constexpr int64_t TYPE_SIZE = 4;
-constexpr int64_t MIN_SPLIT_THRESHOLD = 1024;
-
 static const gert::Shape g_vec_1_shape = {1};
 
-static inline const gert::Shape EnsureNotScalar(const gert::Shape& in_shape) {
+static inline const gert::Shape& EnsureNotScalar(const gert::Shape& in_shape)
+{
     if (in_shape.GetDimNum() == 0) {
         return g_vec_1_shape;
     }
@@ -51,16 +47,27 @@ static ge::graphStatus GetWorkspaceSize(gert::TilingContext* context)
     return ge::GRAPH_SUCCESS;
 }
 
+static int64_t DtypeSize(ge::DataType dt)
+{
+    if (dt == ge::DT_FLOAT) {
+        return 4;
+    }
+    return 2;
+}
+
+static int64_t UbCoef(int64_t typeSize)
+{
+    return (typeSize == 4) ? 42 : 74;
+}
+
 static ge::graphStatus PReluGradUpdateTilingFunc(gert::TilingContext* context)
 {
-    // TODO: 实现 Tiling 逻辑
-    uint64_t ubSize;
-    int64_t coreNum;
+    uint64_t ubSize = 0;
+    int64_t coreNum = 0;
     OP_CHECK_IF(
         GetPlatformInfo(context, ubSize, coreNum) != ge::GRAPH_SUCCESS,
         OP_LOGE(context, "GetPlatformInfo error"),
         return ge::GRAPH_FAILED);
-
     OP_CHECK_IF(
         GetWorkspaceSize(context) != ge::GRAPH_SUCCESS,
         OP_LOGE(context, "GetWorkspaceSize error"),
@@ -69,20 +76,86 @@ static ge::graphStatus PReluGradUpdateTilingFunc(gert::TilingContext* context)
     PReluGradUpdateTilingData* tiling = context->GetTilingData<PReluGradUpdateTilingData>();
     OP_CHECK_NULL_WITH_CONTEXT(context, tiling);
 
-    // TODO: 设置 tiling 数据
-    tiling->totalNum = 0;
-    tiling->blockFactor = 1;
-    tiling->ubFactor = 0;
+    auto shapePtr = context->GetInputShape(0);
+    auto wShapePtr = context->GetInputShape(2);
+    auto desc = context->GetInputDesc(0);
+    OP_CHECK_NULL_WITH_CONTEXT(context, shapePtr);
+    OP_CHECK_NULL_WITH_CONTEXT(context, wShapePtr);
+    OP_CHECK_NULL_WITH_CONTEXT(context, desc);
 
-    context->SetBlockDim(1);
+    const gert::Shape& shape = EnsureNotScalar(shapePtr->GetStorageShape());
+    const gert::Shape& wShape = EnsureNotScalar(wShapePtr->GetStorageShape());
+    OP_CHECK_IF(shape.GetDimNum() < 2, OP_LOGE(context, "rank < 2"), return ge::GRAPH_FAILED);
 
-    // 根据输入 dtype 选择 tilingKey
-    uint64_t tilingKey;
-    auto inputDesc = context->GetInputDesc(0);
-    if (inputDesc != nullptr && (inputDesc->GetDataType() == ge::DT_FLOAT16 || inputDesc->GetDataType() == ge::DT_BF16)) {
-        tilingKey = GET_TPL_TILING_KEY(PRELUGRADUPDATE_TPL_SCH_MODE_0);
+    const int64_t n = shape.GetDim(0);
+    const int64_t c = shape.GetDim(1);
+    int64_t inner = 1;
+    for (size_t i = 2; i < shape.GetDimNum(); ++i) {
+        inner *= shape.GetDim(i);
+    }
+    const int64_t M = n * c * inner;
+    const int64_t S = c * inner;
+    const int64_t wLen = wShape.GetDim(0);
+    const int64_t weightsPerChannel = (wLen == 1) ? 0 : 1;
+
+    const int64_t typeSize = DtypeSize(desc->GetDataType());
+    const int64_t alignElem = (typeSize > 0) ? (32 / typeSize) : 8;
+    const int64_t coef = UbCoef(typeSize);
+    int64_t maxTile = FloorAlign(static_cast<int64_t>((ubSize * 85) / 100) / coef, alignElem);
+    if (maxTile < alignElem) {
+        maxTile = alignElem;
+    }
+
+    int64_t tileLen = 0;
+    int64_t rowsPerTile = 0;
+    if (S > 0 && S <= maxTile) {
+        rowsPerTile = n;
+        if (S > 0 && rowsPerTile > maxTile / S) {
+            rowsPerTile = maxTile / S;
+        }
+        if (rowsPerTile < 1) {
+            rowsPerTile = 1;
+        }
+        tileLen = rowsPerTile * S;
     } else {
+        rowsPerTile = 0;
+        tileLen = maxTile;
+    }
+
+    int64_t perCore = CeilAlign(CeilDiv((M > 0) ? M : static_cast<int64_t>(1), coreNum), alignElem);
+    if (rowsPerTile > 0 && S * typeSize >= 32) {
+        perCore = CeilAlign(perCore, S);
+    }
+    int64_t usedCores = CeilDiv((M > 0) ? M : static_cast<int64_t>(1), perCore);
+    if (usedCores > coreNum) {
+        usedCores = coreNum;
+    }
+    if (usedCores < 1) {
+        usedCores = 1;
+    }
+    if (M == 0) {
+        usedCores = 1;
+        perCore = 0;
+        tileLen = alignElem;
+    }
+
+    tiling->totalNum = M;
+    tiling->coreNum = usedCores;
+    tiling->blockFactor = perCore;
+    tiling->tileLen = tileLen;
+    tiling->channelNum = c;
+    tiling->innerSize = inner;
+    tiling->sampleSize = S;
+    tiling->weightsPerChannel = weightsPerChannel;
+    tiling->rowsPerTile = rowsPerTile;
+
+    context->SetBlockDim(static_cast<uint32_t>(usedCores));
+
+    uint64_t tilingKey = GET_TPL_TILING_KEY(PRELUGRADUPDATE_TPL_SCH_MODE_0);
+    if (desc->GetDataType() == ge::DT_FLOAT16) {
         tilingKey = GET_TPL_TILING_KEY(PRELUGRADUPDATE_TPL_SCH_MODE_1);
+    } else if (desc->GetDataType() == ge::DT_BF16) {
+        tilingKey = GET_TPL_TILING_KEY(PRELUGRADUPDATE_TPL_SCH_MODE_2);
     }
     context->SetTilingKey(tilingKey);
     return ge::GRAPH_SUCCESS;
@@ -95,6 +168,8 @@ static ge::graphStatus TilingParseForPReluGradUpdate([[maybe_unused]] gert::Tili
 
 struct PReluGradUpdateCompileInfo {};
 
-IMPL_OP_OPTILING(PReluGradUpdate).Tiling(PReluGradUpdateTilingFunc).TilingParse<PReluGradUpdateCompileInfo>(TilingParseForPReluGradUpdate);
+IMPL_OP_OPTILING(PReluGradUpdate)
+    .Tiling(PReluGradUpdateTilingFunc)
+    .TilingParse<PReluGradUpdateCompileInfo>(TilingParseForPReluGradUpdate);
 
 } // namespace optiling

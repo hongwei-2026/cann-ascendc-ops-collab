@@ -34,3 +34,10 @@
 - 结果：实施主依据=本地设计（Select/Inf/模式R/weights[1|C]）。
 - 下一步：按 design 改 workdir Host/Kernel → push → CodeArts pull。
 - 关联道路：P006、P007
+
+## 2026-11-02（EXP001 WA → P0 实现）
+
+- 做了：记录空 Kernel `-e` WA；实现 InferShape/Tiling/Kernel（Compare+Select，key 0/1/2）。
+- 结果：已 push workdir；待云端复测。
+- 下一步：pull 后 `bash build.sh -j4` + `-e`；若 WA 查 Select 极性。
+- 关联道路：P008、P009

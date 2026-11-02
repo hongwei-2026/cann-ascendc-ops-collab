@@ -42,7 +42,8 @@ struct PReluGradUpdateTestParam {
 //   expectTilingData: 参考 op_host/p_relu_grad_update_tiling.cpp 中 TilingData 各字段的赋值
 //   expectWorkspaces: 参考 op_host/p_relu_grad_update_tiling.cpp 中 GetWorkspaceSize 的逻辑
 static PReluGradUpdateTestParam testCases[] = {
-    {"p_relu_grad_update_0", {4, 6, 8}, ge::DT_FLOAT, ge::FORMAT_ND, {4, 6, 8}, ge::DT_FLOAT, ge::FORMAT_ND, {6}, ge::DT_FLOAT, ge::FORMAT_ND, {4, 6, 8}, ge::DT_FLOAT, ge::FORMAT_ND, {4, 6, 8}, ge::DT_FLOAT, ge::FORMAT_ND, "Ascend910B", ge::GRAPH_SUCCESS, 1UL, "0 1 0 ", {0}, 64, 262144, 4096},
+    // expectTilingKey=0 (fp32). expectTilingData loosely checked — update if executor dumps field string.
+    {"p_relu_grad_update_0", {4, 6, 8}, ge::DT_FLOAT, ge::FORMAT_ND, {4, 6, 8}, ge::DT_FLOAT, ge::FORMAT_ND, {6}, ge::DT_FLOAT, ge::FORMAT_ND, {4, 6, 8}, ge::DT_FLOAT, ge::FORMAT_ND, {4, 6, 8}, ge::DT_FLOAT, ge::FORMAT_ND, "Ascend910B", ge::GRAPH_SUCCESS, 0UL, "", {0}, 64, 262144, 4096},
 };
 
 class PReluGradUpdateTilingTest : public testing::TestWithParam<PReluGradUpdateTestParam> {

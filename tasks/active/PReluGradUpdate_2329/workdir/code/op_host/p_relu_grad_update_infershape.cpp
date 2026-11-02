@@ -1,6 +1,6 @@
 /*!
  * \file p_relu_grad_update_infershape.cpp
- * \brief PReluGradUpdate 算子形状推导实现
+ * \brief InferShape + checks (design_final §3.2.2)
  */
 
 #include "register/op_impl_registry.h"
@@ -10,25 +10,51 @@ using namespace ge;
 
 namespace ops {
 
-static ge::graphStatus InferShapePReluGradUpdate(gert::InferShapeContext* context)
+static bool HasUnknownDim(const gert::Shape* s)
 {
-    // TODO: 实现形状推导逻辑
-    const gert::Shape* input_shape = (3 > 0) ? context->GetInputShape(0) : nullptr;
-    // 注意：无输入算子时 input_shape 为 nullptr，需在此处手动设置输出 shape
-
-    for (size_t i = 0; i < 2; i++) {
-        gert::Shape* output_shape = context->GetOutputShape(i);
-        if (output_shape == nullptr) {
-            return ge::GRAPH_FAILED;
-        }
-        const gert::Shape* in_shape = (i < 3) ? context->GetInputShape(i) : input_shape;
-        if (in_shape == nullptr) {
-            in_shape = input_shape;
-        }
-        if (in_shape != nullptr) {
-            *output_shape = *in_shape;
+    if (s == nullptr) {
+        return true;
+    }
+    for (size_t i = 0; i < s->GetDimNum(); ++i) {
+        if (s->GetDim(i) < 0) {
+            return true;
         }
     }
+    return false;
+}
+
+static ge::graphStatus InferShapePReluGradUpdate(gert::InferShapeContext* context)
+{
+    const gert::Shape* grads = context->GetInputShape(0);
+    const gert::Shape* features = context->GetInputShape(1);
+    const gert::Shape* weights = context->GetInputShape(2);
+    gert::Shape* dx = context->GetOutputShape(0);
+    gert::Shape* update = context->GetOutputShape(1);
+    if (grads == nullptr || features == nullptr || weights == nullptr || dx == nullptr || update == nullptr) {
+        return ge::GRAPH_FAILED;
+    }
+
+    if (grads->GetDimNum() < 2 || features->GetDimNum() < 2) {
+        return ge::GRAPH_FAILED;
+    }
+    if (weights->GetDimNum() != 1) {
+        return ge::GRAPH_FAILED;
+    }
+
+    const bool dynamic = HasUnknownDim(grads) || HasUnknownDim(features) || HasUnknownDim(weights);
+    if (!dynamic) {
+        if (*grads != *features) {
+            return ge::GRAPH_FAILED;
+        }
+        const int64_t c = grads->GetDim(1);
+        const int64_t wLen = weights->GetDim(0);
+        if (wLen != 1 && wLen != c) {
+            return ge::GRAPH_FAILED;
+        }
+    }
+
+    *dx = *grads;
+    *update = *features;
     return ge::GRAPH_SUCCESS;
 }
 
