@@ -1,0 +1,26 @@
+---
+description: AscendC collab repo — AI isolation, phase gates, no scope creep
+alwaysApply: true
+---
+
+# AI 工作围栏（本仓）
+
+进入仓库先读根目录 `AGENTS.md` 与 `docs/collaboration/05-ai-work-protocol.md`。
+
+## 必须
+
+- 先确认**题名**与本题 `STATUS.md` 阶段；无题名则只读。
+- 一次会话一个目标；先记账（`path-ledger`）再换路。
+- 文件只写入当前题目录（分析进 `analysis/`）；子 Agent 产物不得扔在题根/仓库根。
+- 开题须 ≥3 路独立分析 + `SUMMARY` 定稿后才深度编码。
+- 结束时更新 `path-ledger` + `dev-log`。
+
+## 禁止
+
+- 串题、改其他 `tasks/*`、无授权改 `skills/` 或全局大重构
+- 跳过 SUMMARY / 止损门禁做性能死磕
+- 假 PASS、删除历史台账与分析
+- 多 Implementer 并行改同一题代码
+- 用户未点名的「顺便优化全仓」
+
+性能止损见 `docs/collaboration/02-perf-gate.md`；多路分析见 `04-multi-ai-analysis.md`。

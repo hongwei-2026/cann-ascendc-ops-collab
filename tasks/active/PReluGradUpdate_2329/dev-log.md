@@ -20,3 +20,10 @@
 - 结果：`analysis/SUMMARY.md` 已定稿；P003 采纳。
 - 下一步：按 SUMMARY 写本题 `design.md`（仍不串题、不提前死磕性能）。
 - 关联道路：P003、P004
+
+## 2026-03-22（AI 工作规范）
+
+- 做了：新增 AI 流程规范、AGENTS.md、会话卡片模板、Cursor always-apply 规则；CONTRIBUTING/README 挂接。
+- 结果：后续 AI 须按阶段门禁与路径围栏工作。
+- 下一步：用会话卡片指挥写 `design.md`（P004）。
+- 关联道路：P005

@@ -108,11 +108,32 @@
 
 ---
 
-## 8. 检查清单（开干前）
+## 8. AI 工作规范（防搞乱）
+
+凡使用 AI 助手 / 多 Agent，必须遵守：
+
+- 根目录 [AGENTS.md](AGENTS.md)（每次会话启动短规）  
+- [docs/collaboration/05-ai-work-protocol.md](docs/collaboration/05-ai-work-protocol.md)（完整流程、角色隔离、围栏、失控恢复）  
+- 开干前复制 [docs/templates/ai-session-card.md](docs/templates/ai-session-card.md) 定界  
+
+摘要：
+
+1. **无题名 → 只读**；有题名 → 只动该题目录。  
+2. **按 STATUS 阶段门禁**，禁止分析未齐就编码、禁止无台账换路。  
+3. **同时只允许 1 个 Implementer 写代码**；分析 AI 只写 `analysis/AI-*.md`。  
+4. 子 Agent 文件写错位置必须迁回约定目录。  
+5. 触止损说「停，写 DEC」—— AI 必须停手只出决策文档。
+
+Cursor 已配置 always-apply 规则：`.cursor/rules/ai-work-protocol.mdc`。
+
+---
+
+## 9. 检查清单（开干前）
 
 - [ ] 任务编号、合入仓、硬件、CANN、精度链接、性能门禁已抄入 `TASK.md`  
 - [ ] 本题材料只在 `tasks/.../<题>/materials/`，未污染其他题  
 - [ ] `analysis/` 已有 ≥3 路独立分析 + 已定稿 `SUMMARY.md`  
 - [ ] `path-ledger.md` 已有「基线最简方案」行（与 SUMMARY 一致）  
 - [ ] 已知是否允许小 shape 用仿真豁免  
-- [ ] 已读本仓 `skills/` 与**本题**归档教训（勿直接抄其他题门禁数字）
+- [ ] 已读本仓 `skills/` 与**本题**归档教训（勿直接抄其他题门禁数字）  
+- [ ] （若用 AI）已贴会话卡片：题名 / 唯一目标 / 允许路径 / 禁止项
