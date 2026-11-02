@@ -149,14 +149,14 @@ flat 元素扁平下标 i 的通道: c(i) = (i / inner) % C
 
 从 `PlatformAscendC` 取 `ubSize`（910B 约 192KB，**不写死**）与 `coreNum`（AIV 核数）。按 dtype 的每元素缓冲系数 `coef` 估算单次 tile 上限：
 
-| dtype 路径 | 缓冲明细（字节/元素） | coef（×BUFFER_NUM=2） |
+| dtype 路径 | 缓冲明细（字节/元素） | coef（BUFFER_NUM=1） |
 |---|---|---|
-| fp32 | g 4 + x 4 + dx 4 + upd 4 + wVec 4 + mask 1 | 2×21 = **42** |
-| fp16 → fp32 计算 | gIn 2 + xIn 2 + gF32 4 + xF32 4 + wVec 4 + wg 4 + xg 4 + dxF32 4 + updF32 4 + dxOut 2 + updOut 2 + mask 1 | 2×37 = **74** |
-| bf16 → fp32 计算 | 同 fp16 | **74** |
+| fp32 | g 4 + x 4 + dx 4 + upd 4 + wVec 4 + mask 1 | **21** |
+| fp16 → fp32 计算 | gIn 2 + xIn 2 + gF32 4 + xF32 4 + wVec 4 + dxF32 4 + updF32 4 + dxOut 2 + updOut 2 + mask 1 | **29** |
+| bf16 → fp32 计算 | 同 fp16 | **29** |
 
 ```
-usable   = ubSize * 0.85                       // 预留 TPipe 对齐与临时区
+usable   = ubSize * 0.80                       // 预留 TPipe 对齐与临时区
 maxTile  = AlignDown(usable / coef, 32 / sizeof(T))
 ```
 
@@ -238,13 +238,13 @@ Host 与 Kernel 共用此结构，`tests/ut/op_kernel/p_relu_grad_update_tiling.
 
 #### 3.4.1 结构
 
-`Init → Process(CopyIn → Compute → CopyOut)`，`BUFFER_NUM = 2` 双缓冲，按 `tileLen` 循环。队列：
+`Init → Process(CopyIn → Compute → CopyOut)`，`BUFFER_NUM = 1` 单缓冲稳定基线，按 `tileLen` 循环。队列：
 
 ```
-inQueueG    QuePosition::VECIN  ×2   float 或 T
-inQueueX    QuePosition::VECIN  ×2
-outQueueDx  QuePosition::VECOUT ×2
-outQueueUpd QuePosition::VECOUT ×2
+inQueueG    QuePosition::VECIN  ×1   float 或 T
+inQueueX    QuePosition::VECIN  ×1
+outQueueDx  QuePosition::VECOUT ×1
+outQueueUpd QuePosition::VECOUT ×1
 wBuf        TBuf<TPosition::VECCALC>  tileLen（或 T）
 maskBuf     TBuf<TPosition::VECCALC>  tileLen（uint8）
 tmpBuf      TBuf<TPosition::VECCALC>  仅半精度路径
@@ -282,16 +282,16 @@ weightsPerChannel ? Mul(wg, gF32, wVec, L)
                   : Muls(wg, gF32, w0, L)
 
 // 3) dx = x>0 ? g : w*g
-Select(dxF32, maskU8, wg, gF32, SELMODE::VSEL_TENSOR_TENSOR_MODE, L)
+Select(dxF32, maskU8, gF32, wg, SELMODE::VSEL_TENSOR_TENSOR_MODE, L)
 
 // 4) update = x>0 ? 0 : x*g
 Mul(xg, xF32, gF32, L)
-Select(updF32, maskU8, xg, 0.0f, SELMODE::VSEL_TENSOR_SCALAR_MODE, L)
+Select(updF32, maskU8, zeroF32, xg, SELMODE::VSEL_TENSOR_TENSOR_MODE, L)
 ```
 
-**mask 极性**：`Compare` 产出的 mask 置位表示"比较为真"。`Select` 的取值侧（`selMode` 0/1/2 下 src0/src1 谁对应置位 lane）在手册中表述含混，**必须在实现第一步用 4 元素的 CPU UT 锁定**：`x=[1,-1,0,NaN]`, `w=0.5`, `g=[2,4,6,8]` → `dx=[2,2,3,4]`, `update=[0,-4,0,NaN]`（golden 已用 numpy 实算）。
+**mask 极性**：`Compare` 产出的 mask 置位表示"比较为真"。`Select` 的置位 lane 取 `src0`、未置位 lane 取 `src1`；实现必须用 4 元素的 CPU UT 锁定该极性：`x=[1,-1,0,NaN]`, `w=0.5`, `g=[2,4,6,8]` → `dx=[2,2,3,4]`, `update=[0,-4,0,NaN]`（golden 已用 numpy 实算）。
 
-若极性相反，**只交换 `src0`/`src1` 的位置即可**，不要改用 `CMPMODE::LE` 取反——`LE` 会把 NaN 判为真（`NaN <= 0` 为假，但 `!(NaN > 0)` 语义经 `LE` 表达时会引入 ±0 的边界差异），改变分支语义。极性反了会得到"正负互换"的结果，而样例若恰好数值对称则难以发现。
+若测试出现正负分支互换，**只检查并交换 `src0`/`src1` 的位置**，不要改用 `CMPMODE::LE` 取反——`LE` 会把 NaN 判为真（`NaN <= 0` 为假，但 `!(NaN > 0)` 语义经 `LE` 表达时会引入 ±0 的边界差异），改变分支语义。极性反了会得到"正负互换"的结果，而样例若恰好数值对称则难以发现。
 
 **tail lane 的处理**：UB 中补齐到 32B 的 lane 上算出的值是垃圾，但 `CopyOut` 只写真实元素数，不影响正确性；不要为这些 lane 增加分支判断，那会引入向量指令的非对齐路径。
 
@@ -353,7 +353,7 @@ flowchart TD
 1. **正确性优先**：先保证布局、尾块、通道边界、mask 极性正确，再谈性能。
 2. **权重展开外提**（本设计已含）：模式 R 下 `wVec` 只构造一次，这是小 inner 的主要收益来源。
 3. **半精度路径减少 Cast**：fp16 可优先改为原生 `Select(half)` + `Cast`，省两次 fp32 Cast 与相应 UB；bf16 无原生 Select，仍走 fp32。改前须用 B03/N01 用例确认与 golden 一致。
-4. **双缓冲**：`BUFFER_NUM=2` 让 MTE2/MTE3 与 Vector 重叠。
+4. **流水优化（后续）**：当前 `BUFFER_NUM=1` 保证 UB 余量与实现稳定；若重构为批量 CopyIn/Compute/CopyOut 流水，再评估 `BUFFER_NUM=2`。
 5. **分核粒度**：小 M 时避免启用过多空核（`usedCores = min(coreNum, CeilDiv(M, perCore))`）。
 
 > **小 shape 的边际收益说明**：题包首点 M=192（fp32 仅 768 B/张量），kernel 启动与 tiling 开销远大于搬运与计算，任何 UB/双缓冲优化在此规模上都测不出差别。性能优化只在大 M 用例上评估，首点只作为正确性基准。正式性能门槛题包未提供，设计阶段不写死验收耗时；实测数据须在指定硬件与 CANN 版本上采集后回填。

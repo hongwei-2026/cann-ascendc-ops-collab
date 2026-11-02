@@ -1,0 +1,4 @@
+﻿archived_from=D:\sageAttention2 算子开发任务书\EXP_P015_20261102_162823_logs
+date=2026-11-02
+result=Build OK; WA dx 97/192, update 97/192 FAILED
+analysis=97≡恒负支(dx=w*g,upd=x*g)=mask仍全0+Select(g,wg)/(0,xg)的src1; P015未修好Compare

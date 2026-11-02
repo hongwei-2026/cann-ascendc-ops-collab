@@ -74,3 +74,9 @@
 - 做了：`CompareScalar` + `PipeBarrier`；Select 恢复 `g/wg`、`0/xg`；maskBuf 按 256-bit 对齐。
 - 下一步：云端 pull 清 build 后 `-e`；打包日志须含 bins。
 - 关联道路：P015
+
+## 2026-11-02（P016 Codex 优化合入）
+
+- 做了：同步 Codex `design_final`（单缓冲、coef 21/29、usable 80%、Select 极性说明）；改 workdir Kernel/Tiling；归档 EXP_P015 日志。
+- 下一步：云端 `-e` 看是否仍 97；mask 根因另开路径。
+- 关联道路：P016

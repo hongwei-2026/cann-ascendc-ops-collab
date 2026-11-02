@@ -2,10 +2,10 @@
 
 | 项 | 内容 |
 |----|------|
-| 状态 | `实现中`（P015 已改 Kernel；待云端 `-e`） |
+| 状态 | `实现中`（P016 Codex 单缓冲/UB 已推；mask 仍待修） |
 | Owner | 待指定 |
 | 更新日期 | 2026-11-02 |
-| 基线 | EXP20261102_161116：95/192 ≡ 恒正支（EXP004） |
-| 代码 | CompareScalar + Barrier；Select 恢复 `g/wg` 与 `0/xg` |
-| 下一闸 | 云端 pull → 清 build → `bash build.sh -j4 -e`；打包日志含 bins |
-| 依据 | `explorations/EXP004-mask-always-src1.md` |
+| 基线 | EXP_P015_162823：WA **97/192** ≡ 恒负支 |
+| 代码 | `BUFFER_NUM=1`；tiling coef 21/29；usable 80%；Select=`g/wg`,`0/xg` |
+| 下一闸 | 云端 pull → 清 build → `-e`；同时继续查 Compare mask |
+| 依据 | Codex `design_final` + `explorations/logs/EXP_P015_*` |

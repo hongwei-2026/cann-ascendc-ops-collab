@@ -57,7 +57,8 @@ static int64_t DtypeSize(ge::DataType dt)
 
 static int64_t UbCoef(int64_t typeSize)
 {
-    return (typeSize == 4) ? 42 : 74;
+    // design_final: BUFFER_NUM=1 → fp32 coef=21, half/bf16 coef=29
+    return (typeSize == 4) ? 21 : 29;
 }
 
 static ge::graphStatus PReluGradUpdateTilingFunc(gert::TilingContext* context)
@@ -101,7 +102,7 @@ static ge::graphStatus PReluGradUpdateTilingFunc(gert::TilingContext* context)
     const int64_t typeSize = DtypeSize(desc->GetDataType());
     const int64_t alignElem = (typeSize > 0) ? (32 / typeSize) : 8;
     const int64_t coef = UbCoef(typeSize);
-    int64_t maxTile = FloorAlign(static_cast<int64_t>((ubSize * 85) / 100) / coef, alignElem);
+    int64_t maxTile = FloorAlign(static_cast<int64_t>((ubSize * 80) / 100) / coef, alignElem);
     if (maxTile < alignElem) {
         maxTile = alignElem;
     }

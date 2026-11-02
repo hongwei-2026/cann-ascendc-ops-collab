@@ -4,6 +4,7 @@
  *
  * EXP002: never Cast bfloat16_t on 910B/CANN9.1 (backend unsupported).
  * EXP004/P015: CompareScalar + PipeBarrier; Select bit1→src0 (g/wg, 0/xg).
+ * Codex: BUFFER_NUM=1 稳定基线（design_final 2026-11-02）。
  */
 
 #ifndef PRELUGRADUPDATE_H
@@ -18,7 +19,7 @@ namespace NsPReluGradUpdate {
 
 using namespace AscendC;
 
-constexpr int32_t BUFFER_NUM = 2;
+constexpr int32_t BUFFER_NUM = 1;
 
 __aicore__ inline float Bf16ToFloat(bfloat16_t v)
 {
