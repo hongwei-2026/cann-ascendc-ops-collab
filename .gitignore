@@ -1,0 +1,39 @@
+# secrets & env
+.env
+.env.*
+*.pem
+*.key
+credentials.json
+*token*
+
+# build / cache
+**/build/
+**/output/
+**/out/
+**/.cache/
+**/__pycache__/
+*.pyc
+*.o
+*.so
+*.a
+*.egg-info/
+
+# IDE / OS
+.idea/
+.vscode/
+*.swp
+.DS_Store
+Thumbs.db
+.arts/
+
+# large / local-only artifacts
+*.zip
+!docs/**/*.zip
+deliverables/**/logs/
+**/msprof*/
+**/profiling/
+
+# hidevlab / NPU local dumps
+lost+found/
+data/
+log/
