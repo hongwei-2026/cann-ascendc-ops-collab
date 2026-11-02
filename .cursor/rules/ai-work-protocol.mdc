@@ -9,9 +9,10 @@ alwaysApply: true
 
 ## 必须
 
-- 先确认**题名**与本题 `STATUS.md` 阶段；无题名则只读。
+- 先确认**题名**、**成员登录名**（`people/CLAIM.md`）与本题 `STATUS.md` 阶段；无题名则只读。
 - 一次会话一个目标；先记账（`path-ledger`）再换路。
-- 文件只写入当前题目录（分析进 `analysis/`）；子 Agent 产物不得扔在题根/仓库根。
+- **代码只写** `people/<本成员>/`；共享台账写 `tasks/active/<本题>/`；可升格经验写 `people/shared-lessons/`。
+- 子 Agent 产物不得扔在题根/仓库根/他人 `people/`。
 - 开题须 ≥3 路独立分析 + `SUMMARY` 定稿后才深度编码。
 - **每一次探索**（含失败）写入 `path-ledger`；复杂过程写 `explorations/EXPxxx.md`；结束更新 `dev-log`。
 - **云上日志必须下载归档**（`explorations/logs/` 或 tar）；禁止只留截图。
@@ -19,10 +20,10 @@ alwaysApply: true
 
 ## 禁止
 
-- 串题、改其他 `tasks/*`、无授权改 `skills/` 或全局大重构
+- 写入 `people/<其他成员>/`；串题、改其他 `tasks/*`、无授权改 `skills/`
 - 跳过 SUMMARY / 止损门禁做性能死磕
 - 假 PASS、删除历史台账与分析；探索只口头不落盘
-- 多 Implementer 并行改同一题代码
+- 多人抢改**同一** workdir 主路径（各写各的 `people/<自己>/`）
 - 用户未点名的「顺便优化全仓」
 
-性能止损见 `docs/collaboration/02-perf-gate.md`；多路分析见 `04-multi-ai-analysis.md`。
+性能止损见 `docs/collaboration/02-perf-gate.md`；座位见 `people/README.md`。

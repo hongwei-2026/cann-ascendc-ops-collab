@@ -12,12 +12,18 @@
 ├── AGENTS.md                    # AI 每次会话必读短规
 ├── CONTRIBUTING.md              # 协作总规（必读）
 ├── .cursor/rules/               # Cursor always-apply 围栏
+├── people/                      # 三人座位：个人代码 + shared-lessons
+│   ├── CLAIM.md                 # 谁认领了哪一格
+│   ├── shared-lessons/          # 全员可引的规律/坑
+│   ├── hongwei-2026/            # 成员实现
+│   ├── yuhongming-2026/         # 预留
+│   └── seat-3/                  # 第三人认领
 ├── docs/
 │   ├── collaboration/           # 原则、止损、台账、多路分析、AI 流程
 │   └── templates/               # 含 ai-session-card
 ├── tasks/
 │   ├── README.md                # 题目分类索引
-│   ├── active/                  # 进行中（一题一目录，严禁串题）
+│   ├── active/                  # 进行中（共享台账；实现见 people/）
 │   └── archive/                 # 历史/未验收归档
 ├── skills/                      # AscendC 社区任务 skill 参考副本
 ├── 规范/                        # 任务书原文归档
@@ -38,17 +44,18 @@
 
 | 题目 | 目录 | 状态 |
 |------|------|------|
-| PReluGradUpdate（problem 2329） | [tasks/active/PReluGradUpdate_2329](tasks/active/PReluGradUpdate_2329) | 分析定稿 / 未开发 |
+| PReluGradUpdate（problem 2329） | [tasks/active/PReluGradUpdate_2329](tasks/active/PReluGradUpdate_2329) · 实现见 [people/](people/) | 实现中（精度攻坚） |
 
 历史题目见 [tasks/README.md](tasks/README.md)。
 
 ## 新人上手
 
-1. 读 [CONTRIBUTING.md](CONTRIBUTING.md)  
-2. 读 [docs/collaboration/00-principles.md](docs/collaboration/00-principles.md)  
-3. 用 AI 前读 [AGENTS.md](AGENTS.md) + [05-ai-work-protocol.md](docs/collaboration/05-ai-work-protocol.md)，并填会话卡片  
-4. 接题时复制 `docs/templates/task-scaffold/`，在 `tasks/active/<题名>/` 落盘  
-5. 动手前先写 `path-ledger.md` 的「基线方案」一行
+1. 读 [CONTRIBUTING.md](CONTRIBUTING.md) 与 [people/README.md](people/README.md)  
+2. 在 [people/CLAIM.md](people/CLAIM.md) **认领座位**（或占用已预留目录）  
+3. 读 [docs/collaboration/00-principles.md](docs/collaboration/00-principles.md)  
+4. 用 AI 前读 [AGENTS.md](AGENTS.md)，会话卡片写明 **你的 GitHub 登录名**  
+5. 共享台账在 `tasks/active/<题名>/`；**代码只进** `people/<你>/<题名>/workdir/`  
+6. 动手前先写 `path-ledger.md` 一行；先读 `people/shared-lessons/`
 
 ## 上游与 skill
 

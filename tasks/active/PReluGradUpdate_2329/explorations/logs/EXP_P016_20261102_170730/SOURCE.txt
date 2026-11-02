@@ -1,0 +1,4 @@
+﻿archived_from=D:\sageAttention2 算子开发任务书\EXP_P016_20261102_170730_logs
+date=2026-11-02
+commit=9031230 P016 BUFFER_NUM=1
+result=Wrong Answer: dx.bin, mismatched=97/192; Wrong Answer: update.bin, mismatched=97/192

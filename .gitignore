@@ -37,3 +37,7 @@ deliverables/**/logs/
 lost+found/
 data/
 log/
+
+# local downloaded cloud log folders at repo root (archive under tasks/.../explorations/logs/)
+/EXP_*_logs/
+/EXP_*_logs.tar.gz

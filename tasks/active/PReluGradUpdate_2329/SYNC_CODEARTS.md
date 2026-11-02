@@ -1,7 +1,15 @@
 # CodeArts 同步（无 IDE 远程时用 git，勿网页狂传）
 
 仓库：https://github.com/hongwei-2026/cann-ascendc-ops-collab  
-本题实现目录：`tasks/active/PReluGradUpdate_2329/workdir/code/`
+
+**个人实现目录**（三人隔离，见 `people/CLAIM.md`）：
+
+```text
+people/<你的GitHub登录名>/PReluGradUpdate_2329/workdir/code/
+```
+
+hongwei 当前路径：`people/hongwei-2026/PReluGradUpdate_2329/workdir/code/`  
+共享台账仍在：`tasks/active/PReluGradUpdate_2329/`（无 workdir，见 `WORKDIR.md`）
 
 ---
 
@@ -39,8 +47,10 @@ git clone https://github.com/hongwei-2026/cann-ascendc-ops-collab.git
 mkdir -p prelu2329 && unzip -o PReluGradUpdate_problem_2329_template.zip -d prelu2329
 
 # 3) 用协作仓里的实现覆盖题包 code（只覆盖工程，不碰无关目录）
+# 把 hongwei-2026 换成你自己的 people 目录名
+ME=hongwei-2026
 rsync -a --delete \
-  cann-ascendc-ops-collab/tasks/active/PReluGradUpdate_2329/workdir/code/ \
+  cann-ascendc-ops-collab/people/${ME}/PReluGradUpdate_2329/workdir/code/ \
   prelu2329/code/
 
 # 4) 进去构建（按题包 README；环境先 source cann）
@@ -53,8 +63,9 @@ bash build.sh -j4
 若无 `rsync`：
 
 ```bash
+ME=hongwei-2026
 rm -rf /mnt/workspace/prelu2329/code
-cp -a /mnt/workspace/cann-ascendc-ops-collab/tasks/active/PReluGradUpdate_2329/workdir/code \
+cp -a /mnt/workspace/cann-ascendc-ops-collab/people/${ME}/PReluGradUpdate_2329/workdir/code \
       /mnt/workspace/prelu2329/code
 ```
 
@@ -64,11 +75,12 @@ cp -a /mnt/workspace/cann-ascendc-ops-collab/tasks/active/PReluGradUpdate_2329/w
 
 ```bash
 cd /mnt/workspace/cann-ascendc-ops-collab
-git pull origin main
+GIT_EDITOR=true git pull origin main
 
-rsync -a --delete \
-  /mnt/workspace/cann-ascendc-ops-collab/tasks/active/PReluGradUpdate_2329/workdir/code/ \
-  /mnt/workspace/prelu2329/code/
+ME=hongwei-2026   # ← 改成你的登录名
+rm -rf /mnt/workspace/prelu2329/code
+cp -a /mnt/workspace/cann-ascendc-ops-collab/people/${ME}/PReluGradUpdate_2329/workdir/code \
+      /mnt/workspace/prelu2329/code
 
 cd /mnt/workspace/prelu2329/code
 bash build.sh -j4

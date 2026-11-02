@@ -15,6 +15,19 @@
 
 同一题目同一时刻只允许 **1 个 Owner**；换人须在 `STATUS.md` 写明交接日期与未闭环道路。
 
+### 1.1 三人并行（people 座位）
+
+精度题耗时长时，允许最多 **3 人** 各写各的实现，互不覆盖：
+
+| 路径 | 用途 |
+|------|------|
+| `people/<GitHub登录名>/` | 个人代码版本与笔记（**只改自己的**） |
+| `people/shared-lessons/` | AI/团队提炼的可复用规律（全员只读引用；写入走 Review） |
+| `tasks/active/<题>/` | 共享 STATUS、design、材料、正式 EXP 台账 |
+
+认领与邀请：见 [people/CLAIM.md](people/CLAIM.md)、[people/README.md](people/README.md)。  
+可参考另外两人目录与 `shared-lessons/`，但合并别人代码须显式复制到自己目录或开 PR，禁止直接改他人文件夹。
+
 ---
 
 ## 2. 开发阶段（禁止跳阶段）

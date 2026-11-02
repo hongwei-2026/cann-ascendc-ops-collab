@@ -36,7 +36,7 @@
 | Analyst（分析） | 仅 `tasks/.../<本题>/analysis/AI-*.md` | 改 Kernel/Host、改其他题、改全局规范（除非专项） |
 | Summarizer（汇总） | 仅本题 `analysis/SUMMARY.md` + 回写本题 `path-ledger` 相关行 | 开始编码 |
 | Designer | 本题 `design.md`、`TASK.md` 澄清项 | 大段实现代码 |
-| Implementer（实现） | 题目约定的代码目录 / fork 仓；本题 `dev-log`、`path-ledger` | 改 `docs/collaboration` 规范（除非 Owner 授权）；动其他 `tasks/*` |
+| Implementer（实现） | `people/<本成员>/<本题>/`；本题 `dev-log`、`path-ledger` | 写他人 `people/`；改 `docs/collaboration`（除非 Owner 授权）；动其他 `tasks/*` |
 | Librarian（规范） | `docs/`、`CONTRIBUTING`、`AGENTS.md` | 改某题实现细节冒充规范 |
 
 硬规则：
@@ -68,14 +68,19 @@
 ### 4.1 默认允许（单题会话）
 
 ```text
-tasks/active/<本题>/          ✅ 本题文档与台账
-tasks/active/<本题>/analysis/ ✅ 分析
-tasks/active/<本题>/materials/✅ 只读材料（改模板副本须声明）
+tasks/active/<本题>/                    ✅ 本题共享文档与台账
+tasks/active/<本题>/analysis/           ✅ 分析
+tasks/active/<本题>/materials/          ✅ 只读材料（改模板副本须声明）
+people/<本会话成员登录名>/<本题>/       ✅ 个人实现 / 笔记
+people/shared-lessons/                  ✅ 提案升格经验（合入需 Review）
 ```
+
+会话卡片必须写明 **成员登录名**（对应 `people/CLAIM.md`）。
 
 ### 4.2 默认禁止（除非会话卡片写明）
 
 ```text
+people/<其他成员>/         ❌ 只读参考，禁止写入
 tasks/active/<其他题>/     ❌
 tasks/archive/**           ❌ 除非归档摘要专项
 skills/                    ❌ 只读参考；改 skill 另开 Librarian 会话
@@ -86,9 +91,9 @@ skills/                    ❌ 只读参考；改 skill 另开 Librarian 会话
 
 ### 4.3 协作仓 vs 合入仓
 
-- **本仓**（`cann-ascendc-ops-collab`）：规范、台账、分析、小模板；**不堆**大型算子实现主战场。  
-- **合入 fork 仓**：Host/Kernel 实现。AI 改代码前必须在会话卡片写清 **repo 路径 + 分支**。  
-- 禁止把 A 题 fork 的改动提交进 B 题目录「备份」。
+- **本仓**（`cann-ascendc-ops-collab`）：规范、台账、分析、**三人隔离的** `people/*/workdir`。  
+- **合入 fork 仓**：正式上游 MR 用的 Host/Kernel。AI 改代码前必须在会话卡片写清 **repo 路径 + 分支 + people 座位**。  
+- 禁止把 A 题 fork 的改动提交进 B 题目录「备份」；禁止三人共用一个 workdir 互踩。
 
 ---
 
