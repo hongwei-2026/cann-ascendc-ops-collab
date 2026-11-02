@@ -28,3 +28,8 @@
 正式环境执行：bash build.sh -j4 -e
 
 并补跑 bash build.sh -j4 -u（配置好 GoogleTest、nlohmann/json 与 tikicpulib 后）。
+
+## EXP_P017 云编补丁（CANN 9.1）
+
+`SyncFunc<HardEvent::S_V>()` 在 9.1 未声明 → opc 三条 key 全挂。  
+已改为 `FetchEventID` + `SetFlag`/`WaitFlag`（见 EXP006）。

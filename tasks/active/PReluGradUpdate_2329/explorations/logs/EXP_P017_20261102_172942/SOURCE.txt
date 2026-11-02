@@ -1,0 +1,4 @@
+﻿archived_from=D:\sageAttention2 算子开发任务书\EXP_P017_20261102_172942_logs
+date=2026-11-02
+commit=561011b
+result=Kernel compile FAIL: undeclared identifier SyncFunc (lines 154, 226)

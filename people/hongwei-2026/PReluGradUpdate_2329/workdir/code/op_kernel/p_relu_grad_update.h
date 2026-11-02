@@ -151,7 +151,10 @@ __aicore__ inline void PReluGradUpdate<T>::BuildWeightVector(int64_t globalStart
             segment = currentNum - localOffset;
         }
         const float weightValue = ReadWeight(channel);
-        SyncFunc<HardEvent::S_V>();
+        // CANN 9.1: SyncFunc 不存在；标量→向量用 SetFlag/WaitFlag
+        event_t evtSV = static_cast<event_t>(GetTPipePtr()->FetchEventID(HardEvent::S_V));
+        SetFlag<HardEvent::S_V>(evtSV);
+        WaitFlag<HardEvent::S_V>(evtSV);
         Duplicate(weightLocal[localOffset], weightValue, segment);
         localOffset += segment;
     }
@@ -223,7 +226,9 @@ __aicore__ inline void PReluGradUpdate<T>::Compute(int64_t progress, int64_t cur
         Mul(negLocal, gradsFloat, weightLocal, currentNum);
     } else {
         const float weightValue = ReadWeight(0);
-        SyncFunc<HardEvent::S_V>();
+        event_t evtSV = static_cast<event_t>(GetTPipePtr()->FetchEventID(HardEvent::S_V));
+        SetFlag<HardEvent::S_V>(evtSV);
+        WaitFlag<HardEvent::S_V>(evtSV);
         Muls(negLocal, gradsFloat, weightValue, currentNum);
     }
 
