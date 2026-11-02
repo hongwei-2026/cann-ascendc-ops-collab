@@ -260,10 +260,11 @@ __aicore__ inline void PReluGradUpdate<T>::Process()
         DataCopy(stashG, gF, calcLen);
 
         Compare(mask, xF, zeros, CMPMODE::GT, calcLen);
-        Mul(xg, wVec, stashG, calcLen);
-        Select(gF, mask, stashG, xg, SELMODE::VSEL_TENSOR_TENSOR_MODE, calcLen);
-        Mul(xg, xF, stashG, calcLen);
-        Select(stashG, mask, zeros, xg, SELMODE::VSEL_TENSOR_TENSOR_MODE, calcLen);
+        Mul(xg, wVec, stashG, calcLen); // w * g
+        // EXP003: swap vs bit1->src0 docs — bit1 selects src1 on this stack
+        Select(gF, mask, xg, stashG, SELMODE::VSEL_TENSOR_TENSOR_MODE, calcLen); // dx
+        Mul(xg, xF, stashG, calcLen);                                             // x * g
+        Select(stashG, mask, xg, zeros, SELMODE::VSEL_TENSOR_TENSOR_MODE, calcLen); // update
 
         StoreFromFloat(dxLocal, gF, calcLen);
         StoreFromFloat(upLocal, stashG, calcLen);
