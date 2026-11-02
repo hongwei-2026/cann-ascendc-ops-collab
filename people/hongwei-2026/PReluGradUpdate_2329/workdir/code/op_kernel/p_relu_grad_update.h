@@ -21,6 +21,27 @@ constexpr int32_t BUFFER_NUM = 1;
 // 故对齐粒度固定为 256/sizeof(float) = 64 个元素。
 constexpr int64_t CMP_ALIGN_ELEMS = 256 / static_cast<int64_t>(sizeof(float));
 
+// EXP002/P020: 910B 不支持 bf16 Cast，位扩展/RNE 截断
+__aicore__ inline float Bf16ToFloatBits(bfloat16_t v)
+{
+    uint16_t bits = *reinterpret_cast<uint16_t*>(&v);
+    uint32_t u = static_cast<uint32_t>(bits) << 16;
+    float f = 0.0f;
+    *reinterpret_cast<uint32_t*>(&f) = u;
+    return f;
+}
+
+__aicore__ inline bfloat16_t FloatToBf16Rne(float f)
+{
+    uint32_t u = *reinterpret_cast<uint32_t*>(&f);
+    uint32_t lsb = (u >> 16) & 1U;
+    uint32_t roundingBias = 0x7FFFU + lsb;
+    uint16_t bits = static_cast<uint16_t>((u + roundingBias) >> 16);
+    bfloat16_t out;
+    *reinterpret_cast<uint16_t*>(&out) = bits;
+    return out;
+}
+
 template <typename T>
 class PReluGradUpdate {
 public:
@@ -82,6 +103,8 @@ __aicore__ inline float PReluGradUpdate<T>::ReadWeight(int64_t index) const
     const T value = weightsGm_.GetValue(index);
     if constexpr (std::is_same<T, float>::value) {
         return value;
+    } else if constexpr (std::is_same<T, bfloat16_t>::value) {
+        return Bf16ToFloatBits(value);
     } else {
         return ToFloat(value);
     }
@@ -202,8 +225,15 @@ __aicore__ inline void PReluGradUpdate<T>::Compute(int64_t progress, int64_t cur
         featuresFloat = featuresFloatBuf_.Get<float>();
         dxFloat = dxFloatBuf_.Get<float>();
         updateFloat = updateFloatBuf_.Get<float>();
-        Cast(gradsFloat, gradsLocal, RoundMode::CAST_NONE, currentNum);
-        Cast(featuresFloat, featuresLocal, RoundMode::CAST_NONE, currentNum);
+        if constexpr (std::is_same<T, bfloat16_t>::value) {
+            for (int64_t i = 0; i < currentNum; ++i) {
+                gradsFloat.SetValue(i, Bf16ToFloatBits(gradsLocal.GetValue(i)));
+                featuresFloat.SetValue(i, Bf16ToFloatBits(featuresLocal.GetValue(i)));
+            }
+        } else {
+            Cast(gradsFloat, gradsLocal, RoundMode::CAST_NONE, currentNum);
+            Cast(featuresFloat, featuresLocal, RoundMode::CAST_NONE, currentNum);
+        }
         PipeBarrier<PIPE_V>();
     }
 
@@ -251,7 +281,13 @@ __aicore__ inline void PReluGradUpdate<T>::Compute(int64_t progress, int64_t cur
         static_cast<uint32_t>(cmpCount));
     PipeBarrier<PIPE_V>();
 
-    if constexpr (!std::is_same<T, float>::value) {
+    if constexpr (std::is_same<T, bfloat16_t>::value) {
+        for (int64_t i = 0; i < currentNum; ++i) {
+            dxLocal.SetValue(i, FloatToBf16Rne(dxFloat.GetValue(i)));
+            updateLocal.SetValue(i, FloatToBf16Rne(updateFloat.GetValue(i)));
+        }
+        PipeBarrier<PIPE_V>();
+    } else if constexpr (!std::is_same<T, float>::value) {
         Cast(dxLocal, dxFloat, RoundMode::CAST_RINT, currentNum);
         Cast(updateLocal, updateFloat, RoundMode::CAST_RINT, currentNum);
         PipeBarrier<PIPE_V>();

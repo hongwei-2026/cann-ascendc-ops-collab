@@ -1,0 +1,6 @@
+repo_commit=7f27529a310328af83d0402453033fe4aeb766fa
+source_kernel=72ff478fd1d55ef84c7ef72a6e03abc75ff19586d2bf24cf5b8d350cf227c91a
+build_kernel=72ff478fd1d55ef84c7ef72a6e03abc75ff19586d2bf24cf5b8d350cf227c91a
+CodeArts source verification: PASS
+
+analysis=verify PASS (7f27529, kernels SHA match). Compile FAIL: not support bf16 type cast -> missing .o / FATBIN (EXP002 再现). fp32/fp16 opc also cascaded fail.

@@ -23,7 +23,8 @@
 | P016 | 2026-11-02 | team | 实现 | Codex 收紧 UB/单缓冲 | `BUFFER_NUM=1`；coef 21/29；usable 80%；同步 design_final | 本迭代 | `EXP_P016_…170730` 仍 WA **97/192**；与 P015 同（不修 mask） | 采纳(UB) / 未过样例 | — |
 | P017 | 2026-11-02 | team | 功能 | Select dst/src1 别名踩负支 | 合入 Claude 重写：独立 neg/fg buffer + cmpCount 64 对齐 + DataCopyPad | 本迭代 | `EXP_P017`：**SyncFunc 未声明**，未编过 | 进行中 | — |
 | P018 | 2026-11-02 | team | 环境 | 换掉 SyncFunc | `SetFlag`/`WaitFlag` S→V；记 EXP006 | 本迭代 | 已改 workdir；待云端重编 `-e` | 进行中 | — |
-| P019 | 2026-11-02 | team | 环境 | P018 实际编译了旧 code 副本 | 加 `verify_codearts_source.sh`，构建前比对 workdir/build kernel SHA256，禁止残留 SyncFunc | 本迭代 | EXP_P018 的 SOURCE commit 与编译正文矛盾；确认为同步链路问题 | **采纳** | — |
+| P019 | 2026-11-02 | team | 环境 | P018 实际编译了旧 code 副本 | 加 `verify_codearts_source.sh`，构建前比对 workdir/build kernel SHA256，禁止残留 SyncFunc | 本迭代 | EXP_P019 verify **PASS**；编挂在 bf16 Cast | **采纳(门禁)** | — |
+| P020 | 2026-11-02 | team | 环境 | bf16 禁止 Cast（EXP002 再现） | bf16 位扩展/RNE；half 仍 Cast；记 EXP007 | 本迭代 | 已改 kernel；待云端 `-e` | 进行中 | — |
 
 ## 性能道路预声明（未到阶段勿开）
 

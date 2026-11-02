@@ -92,3 +92,10 @@
 - 做了：Codex 加 `verify_codearts_source.sh`（比对 workdir vs prelu2329/code SHA、禁残留 SyncFunc）；修脚本里错误转义的 `${`；更新 SYNC。
 - 下一步：云端必须校验 PASS 再 `-e`。
 - 关联道路：P019
+
+## 2026-11-02（P020 / EXP_P019）
+
+- 做了：归档 EXP_P019；确认 verify PASS；bf16 去 Cast（位扩展/RNE）；写 EXP007。
+- 路径：`explorations/logs/EXP_P019_20261102_175158/`
+- 下一步：云端重编 `-e`。
+- 关联道路：P020

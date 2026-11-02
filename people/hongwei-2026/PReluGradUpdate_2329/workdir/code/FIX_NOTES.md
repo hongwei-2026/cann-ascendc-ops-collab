@@ -33,3 +33,8 @@
 
 `SyncFunc<HardEvent::S_V>()` 在 9.1 未声明 → opc 三条 key 全挂。  
 已改为 `FetchEventID` + `SetFlag`/`WaitFlag`（见 EXP006）。
+
+## EXP_P019
+
+源码指纹 PASS 后仍挂：`not support bf16 type cast`。  
+bf16 禁止 `Cast`，改位扩展/RNE（见 EXP002/EXP007）。
