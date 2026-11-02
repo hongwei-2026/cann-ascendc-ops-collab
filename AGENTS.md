@@ -16,9 +16,17 @@
 - 串题、改 `tasks` 下其他题目、在仓库根乱丢分析/代码  
 - 无 `SUMMARY` 定稿就深度编码 / 性能专题  
 - 无 `path-ledger` 新行就换优化路线  
+- 探索只聊不写、失败不记账（本仓**公开**，后人会踩同一坑）  
 - 假 PASS、删历史台账/分析、扩大用户未授权 scope  
 - 多 Implementer 同时改同一题代码  
 - 把子 Agent 文件随便写在题根；必须进 `analysis/` 等约定目录
+
+## 探索落盘（每次尝试结束前）
+
+1. `path-ledger.md` 补结论行  
+2. 复杂过程 → `explorations/EXPxxx.md`  
+3. `dev-log` 三五行  
+4. 提醒用户 **push 到公开 `main`**（未 push = 外人看不见）
 
 ## 阶段速查
 
@@ -31,5 +39,5 @@
 
 ## 结束前
 
-更新本题 `path-ledger` + `dev-log`；汇报改动路径与下一闸。  
+更新本题 `path-ledger` + `dev-log`（及必要的 `explorations/`）；汇报改动路径与下一闸；提醒 push。  
 完整流程与失控恢复见 `docs/collaboration/05-ai-work-protocol.md`。
