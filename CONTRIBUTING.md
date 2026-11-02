@@ -39,19 +39,22 @@
 
 ---
 
-## 3. 道路台账（防重复开发）
+## 3. 道路台账与探索文档（公开仓防重复造轮子）
 
-每个题目目录必须有 `path-ledger.md`。
+本仓 **公开**：后人会直接读文档。算子开发中**每一次探索**（成功或失败）都必须写入本题目录，禁止只留在聊天/私盘。
+
+每个题目目录必须有 `path-ledger.md`；复杂探索另写 `explorations/EXPxxx.md`。
 
 动手前：
 
-1. 全文检索本仓 `path-ledger` / `records`，确认无人试过同思路  
+1. 全文检索本仓 `path-ledger` / `explorations` / `records`，确认无人试过同思路  
 2. 新开一行：假设 → 方法 → 时限 → 预期指标  
-3. 结束后补：实测结果 → 结论（采纳 / 废弃 / 挂起）→ 耗时
+3. 结束后补：实测结果 → 结论（采纳 / 废弃 / 挂起）→ 耗时；废弃须写清「别再试的原因」  
+4. 推送到 `main`，保证公开可见
 
-**未记账的尝试 = 团队未发生过**；重复劳动由未记账方负责。
+**未记账的尝试 = 对公众与团队均未发生过**；重复劳动由未记账方负责。
 
-模板：[docs/templates/path-record.md](docs/templates/path-record.md)  
+模板：[docs/templates/path-record.md](docs/templates/path-record.md) · [docs/templates/exploration.md](docs/templates/exploration.md)  
 规范：[docs/collaboration/01-path-ledger.md](docs/collaboration/01-path-ledger.md)
 
 ---

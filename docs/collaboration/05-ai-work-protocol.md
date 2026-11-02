@@ -124,9 +124,10 @@ skills/                    ❌ 只读参考；改 skill 另开 Librarian 会话
 ### 结束后（必做）
 
 - `path-ledger` 结案或标注进行中 + 下一步  
+- 复杂探索：`explorations/EXPxxx.md`（失败也要写「别再试」）  
 - `dev-log` 追加：做了 / 结果 / 卡住 / 下一步  
 - 若产生决策：`decisions/DECxxx.md`  
-- 向用户汇报：**改了哪些路径、没改哪些、下一闸是什么**
+- 向用户汇报：**改了哪些路径、没改哪些、下一闸是什么**；提醒 **push 公开 main**
 
 ---
 

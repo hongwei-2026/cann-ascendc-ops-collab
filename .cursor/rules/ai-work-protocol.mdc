@@ -13,13 +13,14 @@ alwaysApply: true
 - 一次会话一个目标；先记账（`path-ledger`）再换路。
 - 文件只写入当前题目录（分析进 `analysis/`）；子 Agent 产物不得扔在题根/仓库根。
 - 开题须 ≥3 路独立分析 + `SUMMARY` 定稿后才深度编码。
-- 结束时更新 `path-ledger` + `dev-log`。
+- **每一次探索**（含失败）写入 `path-ledger`；复杂过程写 `explorations/EXPxxx.md`；结束更新 `dev-log`。
+- 本仓为**公开仓**：提醒用户将记录 push 到 `main`，否则后人不可见。
 
 ## 禁止
 
 - 串题、改其他 `tasks/*`、无授权改 `skills/` 或全局大重构
 - 跳过 SUMMARY / 止损门禁做性能死磕
-- 假 PASS、删除历史台账与分析
+- 假 PASS、删除历史台账与分析；探索只口头不落盘
 - 多 Implementer 并行改同一题代码
 - 用户未点名的「顺便优化全仓」
 
