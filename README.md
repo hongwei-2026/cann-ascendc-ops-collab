@@ -15,9 +15,9 @@
 ├── people/                      # 三人座位：个人代码 + shared-lessons
 │   ├── CLAIM.md                 # 谁认领了哪一格
 │   ├── shared-lessons/          # 全员可引的规律/坑
-│   ├── hongwei-2026/            # 成员实现
-│   ├── yuhongming-2026/         # 预留
-│   └── seat-3/                  # 第三人认领
+│   ├── hongwei-2026/            # 座位1
+│   ├── yuhongming-2026/         # 座位2
+│   └── JadeYara/                # 座位3
 ├── docs/
 │   ├── collaboration/           # 原则、止损、台账、多路分析、AI 流程
 │   └── templates/               # 含 ai-session-card

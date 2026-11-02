@@ -10,9 +10,9 @@ people/
 ├── CLAIM.md                  # 座位认领表（谁占哪格）
 ├── shared-lessons/           # 【总文件夹】AI 提炼、全员可引的规律/坑
 │   └── ...
-├── hongwei-2026/             # 成员目录（GitHub 登录名）
-├── yuhongming-2026/          # 已预留（受邀后认领生效）
-└── seat-3/                   # 第三人：先到先改名认领
+├── hongwei-2026/             # 座位1 Owner
+├── yuhongming-2026/          # 座位2 已预留
+└── JadeYara/                 # 座位3 已预留
 ```
 
 ## 规则（硬）
