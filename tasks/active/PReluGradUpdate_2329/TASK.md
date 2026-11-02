@@ -10,8 +10,9 @@
 | 对标实现 | 昇腾版本内置 PReluGradUpdate 的 **TBE** 实现 |
 | 开发语言 | Ascend C |
 | 硬件 | 昇腾 NPU（以模板/任务书为准） |
-| 模板包 | `PReluGradUpdate_problem_2329_template.zip` |
-| 本阶段 | **仅建协作规范与任务卡，不开发** |
+| 模板包 | `materials/`（已解压）；ZIP 原件见 `D:\华为算子比赛\` |
+| 平台（模板） | `ascend910b`；输入 grads/features/weights；输出 dx/update；dtype fp16/fp32/bf16 |
+| 本阶段 | **多路 AI 分析 → 汇总**；不开发 Kernel |
 
 ## 赛题概述
 
@@ -43,20 +44,26 @@
 
 - 满足 CANN Judge 平台对应题目精度默认阈值  
 
+## 语义速记（来自模板 reference.py）
+
+```text
+dx     = features > 0 ? grads : weights * grads   # weights 按通道广播
+update = features > 0 ? 0     : features * grads  # 与 features 同形，不 reduce
+```
+
 ## 非目标（本阶段）
 
-- 不实现 Kernel/Host  
-- 不解读 ZIP 内工程并改代码（ZIP 入库与解析另开道路）  
-- 不做无台账的性能预研  
+- 不实现 / 不改 Kernel 业务逻辑（分析未齐）  
+- 不串用其他题目结论  
+- 不做无台账、无 SUMMARY 的性能预研  
 
 ## 下一步（有界）
 
 | 顺序 | 动作 | 时限建议 |
 |------|------|----------|
-| 1 | 将模板 ZIP 同步到题目目录 `materials/`（或对象存储链接）并核对官方条文 | 0.5d |
-| 2 | 抄齐合入仓路径、dtype/format 清单进本文件 | 0.5d |
-| 3 | 写设计 `design.md` 草案（最简对齐 TBE） | 设计评审前 |
-| 4 | 功能精度基线 → 再进入性能门禁流程 | 见 CONTRIBUTING |
+| 1 | 收齐 AI-2 / AI-3，定稿 `analysis/SUMMARY.md` 并回写台账 | 本迭代 |
+| 2 | 按 SUMMARY 写设计 `design.md`（最简对齐 TBE） | 设计评审前 |
+| 3 | 功能精度基线 → 性能门禁流程 | 见 CONTRIBUTING |
 
 ## 参考
 

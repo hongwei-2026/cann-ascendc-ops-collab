@@ -26,7 +26,7 @@ credentials.json
 Thumbs.db
 .arts/
 
-# large / local-only artifacts
+# large / local-only artifacts（题目 ZIP 原件不入库；以 materials/_unzipped 为准）
 *.zip
 !docs/**/*.zip
 deliverables/**/logs/
