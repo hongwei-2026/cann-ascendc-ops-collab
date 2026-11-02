@@ -1,0 +1,24 @@
+/*!
+ * \file p_relu_grad_update_tiling_key.h
+ * \brief Tiling template keys for the three supported dtypes.
+ */
+
+#ifndef PRELUGRADUPDATE_TILING_KEY_H
+#define PRELUGRADUPDATE_TILING_KEY_H
+
+#include "ascendc/host_api/tiling/template_argument.h"
+
+#define PRELUGRADUPDATE_TPL_FLOAT 0
+#define PRELUGRADUPDATE_TPL_FLOAT16 1
+#define PRELUGRADUPDATE_TPL_BF16 2
+
+ASCENDC_TPL_ARGS_DECL(
+    PReluGradUpdate,
+    ASCENDC_TPL_UINT_DECL(schMode, 2, ASCENDC_TPL_UI_LIST,
+        PRELUGRADUPDATE_TPL_FLOAT, PRELUGRADUPDATE_TPL_FLOAT16, PRELUGRADUPDATE_TPL_BF16));
+
+ASCENDC_TPL_SEL(ASCENDC_TPL_ARGS_SEL(
+    ASCENDC_TPL_UINT_SEL(schMode, ASCENDC_TPL_UI_LIST,
+        PRELUGRADUPDATE_TPL_FLOAT, PRELUGRADUPDATE_TPL_FLOAT16, PRELUGRADUPDATE_TPL_BF16)));
+
+#endif

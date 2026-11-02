@@ -107,3 +107,10 @@
 - 结果：云上历史最好仍 WA~95–97；本包含未复测的 bf16 位转换。
 - 下一步：平台试交；同时 CodeArts 复测 P020。
 - 关联道路：P021
+
+## 2026-11-02（P022 yuhongming mask 通路）
+
+- 做了：认领座位 2；复制 hongwei workdir；`CompareScalar`→`Compare(+zero)`；Select 改 64-elem 显式 repeat；写 EXP008。
+- 路径：`people/yuhongming-2026/PReluGradUpdate_2329/workdir/code/op_kernel/p_relu_grad_update.h`
+- 下一步：CodeArts 同步该 workdir 后 `-e`；过样例再打新 ZIP。
+- 关联道路：P022

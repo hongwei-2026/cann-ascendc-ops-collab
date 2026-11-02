@@ -2,22 +2,20 @@
 
 | 项 | 内容 |
 |----|------|
-| 生成时间 | 2026-11-02_181641 |
-| git tip | `beaa00e`（P020：bf16 位转换 + Select 独立 buffer + SetFlag/WaitFlag） |
-| 源码 | `people/hongwei-2026/PReluGradUpdate_2329/workdir/code/` |
-| ZIP（带时间戳） | `deliverables/PReluGradUpdate_2329_code_best_20261102_181641.zip` |
+| 生成时间 | 2026-11-02_201233 |
+| 道路 | P022（Compare + 显式 Select repeat） |
+| 源码 | `people/yuhongming-2026/PReluGradUpdate_2329/workdir/code/` |
+| ZIP（带时间戳） | `deliverables/PReluGradUpdate_2329_code_p022_20261102_201233.zip` |
 | 稳定别名 | `deliverables/PReluGradUpdate_2329_code_best.zip` |
-| 仓库根副本 | `PReluGradUpdate_2329_code_best.zip` |
-| 本机桌面 | `C:\Users\yuhon\Desktop\PReluGradUpdate_2329_code_best.zip` |
-| SHA256 | `A7C800F60130748B1315E6E71D34ACF6FF069CE011C92891703D31620E7F973D` |
-| 体积 | ~41 KB / 39 entries |
+| SHA256 | `23FE92C9FBC23498B70E7369F875A33D7E25F78EDD8D866DF1EA93808C9D9E68` |
+| 体积 | ~42 KB |
 | 结构 | 顶层 `code/`（与官方题包一致） |
 
 ## 诚实基线
 
-- 云上曾编过的最好样例：WA ~95–97/192（`EXP_P015` / `EXP_P016` / `EXP20261102_161116`）
-- tip `beaa00e` 含 bf16 去 Cast，**尚未** CodeArts 复测通过；P019 因 bf16 Cast 炸 FATBIN
-- 本包适合先交一版试平台；不保证全量精度 PASS
+- 历史云测最好：WA ~95–97/192（mask 失效，见 EXP004/P015）
+- 本包相对 hongwei tip 的改动：`Compare(+zero)` 替代 `CompareScalar`；Select 显式 64-elem repeat；bf16 仍位转换
+- **尚未** CodeArts `-e` 复测；过样例前不宣称精度 PASS
 
 ## 排除项
 

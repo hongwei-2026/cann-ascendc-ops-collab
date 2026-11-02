@@ -1,13 +1,17 @@
-# yuhongming-2026（预留）
+# yuhongming-2026
 
-- GitHub：https://github.com/yuhongming-2026  
-- 座位：2（**已预留**；你首次 push 前请把 [CLAIM.md](../CLAIM.md) 改为「已认领」并填日期）  
+- GitHub：https://github.com/yuhongming-2026
+- 座位：2（已认领）
+
+## 本题
+
+- `PReluGradUpdate_2329/workdir/`：自 hongwei 基线复制后做 **P022** mask 通路优化
+  - `Compare` + 零向量（替代 `CompareScalar`）
+  - `Select` 显式 64-elem repeat
+- CodeArts：只 rsync **本目录** `workdir/code/`（见题内 `SYNC_CODEARTS.md`）
 
 ## 开工
 
-1. `git pull`  
-2. 复制 `../_template/` 里缺的结构，建 `PReluGradUpdate_2329/workdir/`（可从 `../hongwei-2026/PReluGradUpdate_2329/workdir` **复制**后改，不要直接改 hongwei 目录）  
-3. 读 `../shared-lessons/` 与 `../../tasks/active/PReluGradUpdate_2329/`  
-4. 自己的探索写在本题 `tasks/.../explorations/`（共享台账）或本目录 `notes/`  
-
-CodeArts 同步时只 rsync **你自己的** `workdir/code/`。
+1. `git pull`
+2. 读 `../shared-lessons/` 与 `../../tasks/active/PReluGradUpdate_2329/`
+3. 探索写在本题 `tasks/.../explorations/` 或本目录 `notes/`

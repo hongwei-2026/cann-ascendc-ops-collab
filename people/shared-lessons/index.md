@@ -16,3 +16,4 @@
 | L03 | Select 必须 Compare+Select，禁掩码乘（Inf） | [PReluGradUpdate_2329/compare-select-not-maskmul.md](PReluGradUpdate_2329/compare-select-not-maskmul.md) |
 | L04 | Select dst 勿与 src1 同址 | [PReluGradUpdate_2329/select-no-alias-src1.md](PReluGradUpdate_2329/select-no-alias-src1.md) |
 | L05 | CANN 9.1 不用 SyncFunc，用 SetFlag/WaitFlag | [PReluGradUpdate_2329/no-syncfunc-cann91.md](PReluGradUpdate_2329/no-syncfunc-cann91.md) |
+| L06 | mask 全 0：用 Compare(+zero)+显式 Select repeat | [PReluGradUpdate_2329/compare-not-comparescalar.md](PReluGradUpdate_2329/compare-not-comparescalar.md) |
