@@ -1,4 +1,21 @@
-# 探索原始日志（必下）
+# 云测日志归档（必须进 GitHub）
 
-每次云上编译/跑测后，把 log 放进对应 `EXPxxx/` 子目录再 git push。  
-打包命令见本题 `SYNC_CODEARTS.md` §日志下载。
+每次 CodeArts `build.sh` / `-e`（**成功或失败**）都要：
+
+1. 本机放到本题 `explorations/logs/<EXP名>/`  
+   - 至少：`build_e_full.log`（或等价全文 tee）  
+   - 有则：`bins/{input,output,golden}`、`SOURCE.txt`  
+2. `git add` 本题 logs → `commit` → **`push origin main`**  
+3. 未 push 视为未归档。
+
+当前已入库：
+
+| 目录 | 结果摘要 |
+|------|----------|
+| `EXP20261102_161116/` | Build OK，WA 95/192 |
+| `EXP_P015_.../` | WA 97/192 |
+| `EXP_P016_.../` | WA 97/192 |
+| `EXP_P017_.../` | SyncFunc 编译失败 |
+| `EXP_P018_.../` | 仍 SyncFunc（云端未拉到修复） |
+
+规范见 `AGENTS.md` 探索落盘、`people/shared-lessons/general/codearts-and-logs.md`。

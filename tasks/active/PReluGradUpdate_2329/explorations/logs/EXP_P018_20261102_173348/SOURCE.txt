@@ -1,0 +1,10 @@
+﻿archived_from=D:\sageAttention2 算子开发任务书\EXP_P018_20261102_173348_logs
+date=2026-11-02
+commit=925ea28
+result:
+[ERROR] TBE(4681,python3):2026-11-02-17:33:48.757.966 [op_compilation.py:190][record_compile_error_info] Op[PReluGradUpdate] of index[0] compile failed, kernelName: PReluGradUpdate_599588aa57378985d89e91ae7759ebed.
+[ERROR] TBE(4681,python3):2026-11-02-17:33:48.760.569 [opc.py:688][main] Opc tool compile failed.
+[ERROR] TBE(4683,python3):2026-11-02-17:33:48.783.143 [op_compilation.py:190][record_compile_error_info] Op[PReluGradUpdate] of index[0] compile failed, kernelName: PReluGradUpdate_40c7c86afed688dc3472607bbb5e140b.
+[ERROR] TBE(4683,python3):2026-11-02-17:33:48.785.892 [opc.py:688][main] Opc tool compile failed.
+[ERROR] TBE(4682,python3):2026-11-02-17:33:48.898.053 [op_compilation.py:190][record_compile_error_info] Op[PReluGradUpdate] of index[0] compile failed, kernelName: PReluGradUpdate_7d1e7472ff1adf7c5d7627c5477d529a.
+[ERROR] TBE(4682,python3):2026-11-02-17:33:48.900.720 [opc.py:688][main] Opc tool compile failed.

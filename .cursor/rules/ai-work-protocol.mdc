@@ -15,8 +15,8 @@ alwaysApply: true
 - 子 Agent 产物不得扔在题根/仓库根/他人 `people/`。
 - 开题须 ≥3 路独立分析 + `SUMMARY` 定稿后才深度编码。
 - **每一次探索**（含失败）写入 `path-ledger`；复杂过程写 `explorations/EXPxxx.md`；结束更新 `dev-log`。
-- **云上日志必须下载归档**（`explorations/logs/` 或 tar）；禁止只留截图。
-- 本仓为**公开仓**：提醒用户将记录 push 到 `main`，否则后人不可见。
+- **云上日志必须下载归档**到本题 `explorations/logs/`（含编译失败/WA 全文 log），并 **push 到 `main`**；禁止只留截图或只放本机。
+- 本仓为**公开仓**：未 push = 队友看不见。
 
 ## 禁止
 

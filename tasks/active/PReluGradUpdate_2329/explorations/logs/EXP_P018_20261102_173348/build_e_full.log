@@ -1,0 +1,305 @@
+----------------------------------------------------------------
+[INFO] Configuring project...
+[INFO] CMAKE_ARGS: -DASCEND_COMPUTE_UNIT=ascend910b -DCANNJUDGE_COMPILE_JOBS=4
+-- The C compiler identification is GNU 9.4.0
+-- The CXX compiler identification is GNU 9.4.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- set package config: INSTALL_PATH;/mnt/workspace/prelu2329/code/build
+-- Opbuild generating sources
+-- Opbuild generating sources - done
+INFO target name: cust_optiling
+INFO target name: cust_op_proto
+INFO target name: cust_opapi
+INFO target name: ascendc_kernels
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /mnt/workspace/prelu2329/code/build
+----------------------------------------------------------------
+[INFO] Building project with 4 threads...
+[  6%] Generating scripts/install.sh, scripts/upgrade.sh, scripts/uninstall.sh
+[ 13%] Building CXX object op_host/CMakeFiles/cust_opapi.dir/__/autogen/aclnn_p_relu_grad_update.cpp.o
+[ 20%] Building CXX object op_host/CMakeFiles/cust_op_proto.dir/p_relu_grad_update_def.cpp.o
+[ 20%] Built target gen_version_info
+[ 26%] Building CXX object op_host/CMakeFiles/cust_optiling.dir/p_relu_grad_update_def.cpp.o
+[ 26%] Built target modify_vendor
+[ 33%] Building CXX object op_host/CMakeFiles/cust_optiling.dir/p_relu_grad_update_infershape.cpp.o
+[ 33%] Built target cust_opapi
+[ 40%] Generating ../autogen/copy_kernel_src.timestamp
+[ 40%] Built target ascendc_kernels_copy_kernel_srcs
+[ 46%] Generating ascendc_kernels/tbe/op_info_cfg/ai_core/npu_supported_ops.json
+/mnt/workspace/prelu2329/code/build/autogen /mnt/workspace/prelu2329/code/build/op_kernel/ascendc_kernels/tbe/op_info_cfg/ai_core
+[INFO] Succeeded generated /mnt/workspace/prelu2329/code/build/op_kernel/ascendc_kernels/tbe/op_info_cfg/ai_core/npu_supported_ops.json
+[ 46%] Built target p_relu_grad_update_custom_npu_supported_ops
+[ 53%] Building CXX object op_host/CMakeFiles/cust_optiling.dir/p_relu_grad_update_tiling.cpp.o
+[ 53%] Built target p_relu_grad_update_custom_update_so_names
+[ 60%] Linking CXX shared library libcust_opapi.so
+[ 60%] Built target p_relu_grad_update_custom_ascendc_cust_opapi
+[ 66%] Generating ascendc_kernels/tbe/op_info_cfg/ai_core/ascend910b/aic-ascend910b-ops-info.json
+
+
+==============check valid for ops info start==============
+==============check valid for ops info end================
+
+
+Compile op info cfg successfully.
+[ 66%] Built target ascendc_kernels_ops_info_gen_ascend910b
+[ 73%] Building CXX object op_host/CMakeFiles/cust_op_proto.dir/p_relu_grad_update_infershape.cpp.o
+[ 80%] Building CXX object op_host/CMakeFiles/cust_op_proto.dir/p_relu_grad_update_tiling.cpp.o
+[ 86%] Building CXX object op_host/CMakeFiles/cust_op_proto.dir/__/autogen/op_proto.cc.o
+[ 86%] Built target cust_optiling
+[ 93%] Linking CXX shared library libcust_opmaster_rt2.0.so
+[ 93%] Built target p_relu_grad_update_custom_ascendc_cust_optiling
+[ 93%] Built target optiling_compat
+[ 93%] Built target cust_op_proto
+[100%] Linking CXX shared library libcust_opsproto_rt2.0.so
+[100%] Built target p_relu_grad_update_custom_ascendc_cust_op_proto
+[ 16%] Built target ascendc_kernels_copy_kernel_srcs
+Consolidate compiler generated dependencies of target cust_optiling
+[ 66%] Built target cust_optiling
+[ 83%] Built target ascendc_kernels_ops_info_gen_ascend910b
+[100%] Built target p_relu_grad_update_custom_ascendc_cust_optiling
+[ascend910b] Generating PReluGradUpdate_599588aa57378985d89e91ae7759ebed ...
+[ascend910b] Generating PReluGradUpdate_7d1e7472ff1adf7c5d7627c5477d529a ...
+[ascend910b] Generating PReluGradUpdate_40c7c86afed688dc3472607bbb5e140b ...
+[ERROR] TBE(4681,python3):2026-11-02-17:33:48.753.141 [log_utils.py:183][plog_print] [ascend910b]  PReluGradUpdate_599588aa57378985d89e91ae7759ebed In file included from /mnt/workspace/prelu2329/code/op_kernel/p_relu_grad_update.cpp:6:
+/mnt/workspace/prelu2329/code/op_kernel/p_relu_grad_update.h:154:9: error: use of undeclared identifier 'SyncFunc'
+        SyncFunc<HardEvent::S_V>();
+        ^
+/mnt/workspace/prelu2329/code/op_kernel/p_relu_grad_update.h:226:9: error: use of undeclared identifier 'SyncFunc'
+        SyncFunc<HardEvent::S_V>();
+        ^
+2 errors generated.
+Opc tool start working now, please wait for a moment.
+[2026-11-02 17:33:48] [ERROR] [ascend910b] PReluGradUpdate_599588aa57378985d89e91ae7759ebed In file included from /mnt/workspace/prelu2329/code/op_kernel/p_relu_grad_update.cpp:6:
+/mnt/workspace/prelu2329/code/op_kernel/p_relu_grad_update.h:154:9: error: use of undeclared identifier 'SyncFunc'
+        SyncFunc<HardEvent::S_V>();
+        ^
+/mnt/workspace/prelu2329/code/op_kernel/p_relu_grad_update.h:226:9: error: use of undeclared identifier 'SyncFunc'
+        SyncFunc<HardEvent::S_V>();
+        ^
+2 errors generated.
+
+[ERROR] TBE(4681,python3):2026-11-02-17:33:48.753.504 [op_compilation.py:311][__single_op_compile] Exception occured, An error occurred during compile phases of CompileStage.INFERCHANNEL, msg is In file included from /mnt/workspace/prelu2329/code/op_kernel/p_relu_grad_update.cpp:6:
+/mnt/workspace/prelu2329/code/op_kernel/p_relu_grad_update.h:154:9: error: use of undeclared identifier 'SyncFunc'
+        SyncFunc<HardEvent::S_V>();
+        ^
+/mnt/workspace/prelu2329/code/op_kernel/p_relu_grad_update.h:226:9: error: use of undeclared identifier 'SyncFunc'
+        SyncFunc<HardEvent::S_V>();
+        ^
+2 errors generated.
+[ERROR] TBE(4681,python3):2026-11-02-17:33:48.757.806 [opc_common.py:227][_log_error] Traceback (most recent call last):
+  File "/home/developer/Ascend/cann-9.1.0/python/site-packages/asc_opc_tool/op_compilation.py", line 303, in __single_op_compile
+    json_file_path = single_op_obj.op_compile()
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/developer/Ascend/cann-9.1.0/python/site-packages/asc_opc_tool/single_op_compile.py", line 259, in op_compile
+    json_file_path = self.__call_op()
+                     ^^^^^^^^^^^^^^^^
+  File "/home/developer/Ascend/cann-9.1.0/python/site-packages/asc_opc_tool/single_op_compile.py", line 165, in __call_op
+    op_func(*inputs, *outputs, *new_attrs, self.__op_info.get(OpcOptions.KERNEL_NAME), **kwargs)
+[ERROR] TBE(4681,python3):2026-11-02-17:33:48.757.855 [opc_common.py:227][_log_error]   File "/home/developer/Ascend/cann-9.1.0/python/site-packages/asc_op_compile_base/common/register/operation_func_mgr.py", line 55, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/developer/Ascend/cann-9.1.0/python/site-packages/asc_op_compile_base/common/utils/para_check.py", line 527, in _in_wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/workspace/prelu2329/code/build/op_kernel/PReluGradUpdate_ascend910b/dynamic/PReluGradUpdate.py", line 248, in p_relu_grad_update
+    compile_op(src, origin_func_name, op_info, options, code_channel, '{}', {'valueDepend': {}})
+[ERROR] TBE(4681,python3):2026-11-02-17:33:48.757.884 [opc_common.py:227][_log_error]   File "/home/developer/Ascend/cann-9.1.0/python/site-packages/asc_op_compile_base/asc_op_compiler/compile_op.py", line 1411, in compile_op
+    compile_op_common_part(cce_file, origin_func_name, op_info, compile_option_tuple, infered_info_from_ifile,
+  File "/home/developer/Ascend/cann-9.1.0/python/site-packages/asc_op_compile_base/asc_op_compiler/compile_op.py", line 1247, in compile_op_common_part
+    code_channel, hardware_sync_in_asm = get_code_channel_v220_by_first_tiling_key(
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[ERROR] TBE(4681,python3):2026-11-02-17:33:48.757.909 [opc_common.py:227][_log_error]   File "/home/developer/Ascend/cann-9.1.0/python/site-packages/asc_op_compile_base/asc_op_compiler/ascendc_compile_v220.py", line 598, in get_code_channel_v220_by_first_tiling_key
+    CommonUtility.dump_build_log(out.decode(), compile_cmd, CompileStage.INFERCHANNEL, proc.returncode)
+  File "/home/developer/Ascend/cann-9.1.0/python/site-packages/asc_op_compile_base/asc_op_compiler/ascendc_common_utility.py", line 603, in dump_build_log
+    raise Exception("An error occurred during compile phases of {}, msg is {}".\
+[ERROR] TBE(4681,python3):2026-11-02-17:33:48.757.931 [opc_common.py:227][_log_error] Exception: An error occurred during compile phases of CompileStage.INFERCHANNEL, msg is In file included from /mnt/workspace/prelu2329/code/op_kernel/p_relu_grad_update.cpp:6:
+/mnt/workspace/prelu2329/code/op_kernel/p_relu_grad_update.h:154:9: error: use of undeclared identifier 'SyncFunc'
+        SyncFunc<HardEvent::S_V>();
+        ^
+/mnt/workspace/prelu2329/code/op_kernel/p_relu_grad_update.h:226:9: error: use of undeclared identifier 'SyncFunc'
+        SyncFunc<HardEvent::S_V>();
+        ^
+2 errors generated.
+
+[ERROR] TBE(4681,python3):2026-11-02-17:33:48.757.966 [op_compilation.py:190][record_compile_error_info] Op[PReluGradUpdate] of index[0] compile failed, kernelName: PReluGradUpdate_599588aa57378985d89e91ae7759ebed.
+[ERROR] TBE(4681,python3):2026-11-02-17:33:48.758.139 [opc_common.py:520][opc_log_full] [op_compilation.py:192][record_compile_error_info] reason is:[An error occurred during compile phases of CompileStage.INFERCHANNEL, msg is In file included from /mnt/workspace/prelu2329/code/op_kernel/p_relu_grad_update.cpp:6:
+/mnt/workspace/prelu2329/code/op_kernel/p_relu_grad_update.h:154:9: error: use of undeclared identifier 'SyncFunc'
+        SyncFunc<HardEvent::S_V>();
+        ^
+/mnt/workspace/prelu2329/code/op_kernel/p_relu_grad_update.h:226:9: error: use of undeclared identifier 'SyncFunc'
+        SyncFunc<HardEvent::S_V>();
+        ^
+2 errors generated.
+].
+[ERROR] TBE(4681,python3):2026-11-02-17:33:48.760.569 [opc.py:688][main] Opc tool compile failed.
+/mnt/workspace/prelu2329/code/build/op_kernel/ascendc_kernels/binary/ascend910b/p_relu_grad_update/PReluGradUpdate_599588aa57378985d89e91ae7759ebed.json not generated!
+make[4]: *** [/mnt/workspace/prelu2329/code/build/op_kernel/PReluGradUpdate_ascend910b/p_relu_grad_update.make:3: p_relu_grad_update0] Error 1
+make[4]: *** Waiting for unfinished jobs....
+[ERROR] TBE(4683,python3):2026-11-02-17:33:48.778.209 [log_utils.py:183][plog_print] [ascend910b]  PReluGradUpdate_40c7c86afed688dc3472607bbb5e140b In file included from /mnt/workspace/prelu2329/code/op_kernel/p_relu_grad_update.cpp:6:
+/mnt/workspace/prelu2329/code/op_kernel/p_relu_grad_update.h:154:9: error: use of undeclared identifier 'SyncFunc'
+        SyncFunc<HardEvent::S_V>();
+        ^
+/mnt/workspace/prelu2329/code/op_kernel/p_relu_grad_update.h:226:9: error: use of undeclared identifier 'SyncFunc'
+        SyncFunc<HardEvent::S_V>();
+        ^
+2 errors generated.
+Opc tool start working now, please wait for a moment.
+[2026-11-02 17:33:48] [ERROR] [ascend910b] PReluGradUpdate_40c7c86afed688dc3472607bbb5e140b In file included from /mnt/workspace/prelu2329/code/op_kernel/p_relu_grad_update.cpp:6:
+/mnt/workspace/prelu2329/code/op_kernel/p_relu_grad_update.h:154:9: error: use of undeclared identifier 'SyncFunc'
+        SyncFunc<HardEvent::S_V>();
+        ^
+/mnt/workspace/prelu2329/code/op_kernel/p_relu_grad_update.h:226:9: error: use of undeclared identifier 'SyncFunc'
+        SyncFunc<HardEvent::S_V>();
+        ^
+2 errors generated.
+
+[ERROR] TBE(4683,python3):2026-11-02-17:33:48.778.568 [op_compilation.py:311][__single_op_compile] Exception occured, An error occurred during compile phases of CompileStage.INFERCHANNEL, msg is In file included from /mnt/workspace/prelu2329/code/op_kernel/p_relu_grad_update.cpp:6:
+/mnt/workspace/prelu2329/code/op_kernel/p_relu_grad_update.h:154:9: error: use of undeclared identifier 'SyncFunc'
+        SyncFunc<HardEvent::S_V>();
+        ^
+/mnt/workspace/prelu2329/code/op_kernel/p_relu_grad_update.h:226:9: error: use of undeclared identifier 'SyncFunc'
+        SyncFunc<HardEvent::S_V>();
+        ^
+2 errors generated.
+[ERROR] TBE(4683,python3):2026-11-02-17:33:48.782.984 [opc_common.py:227][_log_error] Traceback (most recent call last):
+  File "/home/developer/Ascend/cann-9.1.0/python/site-packages/asc_opc_tool/op_compilation.py", line 303, in __single_op_compile
+    json_file_path = single_op_obj.op_compile()
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/developer/Ascend/cann-9.1.0/python/site-packages/asc_opc_tool/single_op_compile.py", line 259, in op_compile
+    json_file_path = self.__call_op()
+                     ^^^^^^^^^^^^^^^^
+  File "/home/developer/Ascend/cann-9.1.0/python/site-packages/asc_opc_tool/single_op_compile.py", line 165, in __call_op
+    op_func(*inputs, *outputs, *new_attrs, self.__op_info.get(OpcOptions.KERNEL_NAME), **kwargs)
+[ERROR] TBE(4683,python3):2026-11-02-17:33:48.783.033 [opc_common.py:227][_log_error]   File "/home/developer/Ascend/cann-9.1.0/python/site-packages/asc_op_compile_base/common/register/operation_func_mgr.py", line 55, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/developer/Ascend/cann-9.1.0/python/site-packages/asc_op_compile_base/common/utils/para_check.py", line 527, in _in_wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/workspace/prelu2329/code/build/op_kernel/PReluGradUpdate_ascend910b/dynamic/PReluGradUpdate.py", line 248, in p_relu_grad_update
+    compile_op(src, origin_func_name, op_info, options, code_channel, '{}', {'valueDepend': {}})
+[ERROR] TBE(4683,python3):2026-11-02-17:33:48.783.063 [opc_common.py:227][_log_error]   File "/home/developer/Ascend/cann-9.1.0/python/site-packages/asc_op_compile_base/asc_op_compiler/compile_op.py", line 1411, in compile_op
+    compile_op_common_part(cce_file, origin_func_name, op_info, compile_option_tuple, infered_info_from_ifile,
+  File "/home/developer/Ascend/cann-9.1.0/python/site-packages/asc_op_compile_base/asc_op_compiler/compile_op.py", line 1247, in compile_op_common_part
+    code_channel, hardware_sync_in_asm = get_code_channel_v220_by_first_tiling_key(
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[ERROR] TBE(4683,python3):2026-11-02-17:33:48.783.089 [opc_common.py:227][_log_error]   File "/home/developer/Ascend/cann-9.1.0/python/site-packages/asc_op_compile_base/asc_op_compiler/ascendc_compile_v220.py", line 598, in get_code_channel_v220_by_first_tiling_key
+    CommonUtility.dump_build_log(out.decode(), compile_cmd, CompileStage.INFERCHANNEL, proc.returncode)
+  File "/home/developer/Ascend/cann-9.1.0/python/site-packages/asc_op_compile_base/asc_op_compiler/ascendc_common_utility.py", line 603, in dump_build_log
+    raise Exception("An error occurred during compile phases of {}, msg is {}".\
+[ERROR] TBE(4683,python3):2026-11-02-17:33:48.783.110 [opc_common.py:227][_log_error] Exception: An error occurred during compile phases of CompileStage.INFERCHANNEL, msg is In file included from /mnt/workspace/prelu2329/code/op_kernel/p_relu_grad_update.cpp:6:
+/mnt/workspace/prelu2329/code/op_kernel/p_relu_grad_update.h:154:9: error: use of undeclared identifier 'SyncFunc'
+        SyncFunc<HardEvent::S_V>();
+        ^
+/mnt/workspace/prelu2329/code/op_kernel/p_relu_grad_update.h:226:9: error: use of undeclared identifier 'SyncFunc'
+        SyncFunc<HardEvent::S_V>();
+        ^
+2 errors generated.
+
+[ERROR] TBE(4683,python3):2026-11-02-17:33:48.783.143 [op_compilation.py:190][record_compile_error_info] Op[PReluGradUpdate] of index[0] compile failed, kernelName: PReluGradUpdate_40c7c86afed688dc3472607bbb5e140b.
+[ERROR] TBE(4683,python3):2026-11-02-17:33:48.783.319 [opc_common.py:520][opc_log_full] [op_compilation.py:192][record_compile_error_info] reason is:[An error occurred during compile phases of CompileStage.INFERCHANNEL, msg is In file included from /mnt/workspace/prelu2329/code/op_kernel/p_relu_grad_update.cpp:6:
+/mnt/workspace/prelu2329/code/op_kernel/p_relu_grad_update.h:154:9: error: use of undeclared identifier 'SyncFunc'
+        SyncFunc<HardEvent::S_V>();
+        ^
+/mnt/workspace/prelu2329/code/op_kernel/p_relu_grad_update.h:226:9: error: use of undeclared identifier 'SyncFunc'
+        SyncFunc<HardEvent::S_V>();
+        ^
+2 errors generated.
+].
+[ERROR] TBE(4683,python3):2026-11-02-17:33:48.785.892 [opc.py:688][main] Opc tool compile failed.
+/mnt/workspace/prelu2329/code/build/op_kernel/ascendc_kernels/binary/ascend910b/p_relu_grad_update/PReluGradUpdate_40c7c86afed688dc3472607bbb5e140b.json not generated!
+make[4]: *** [/mnt/workspace/prelu2329/code/build/op_kernel/PReluGradUpdate_ascend910b/p_relu_grad_update.make:7: p_relu_grad_update2] Error 1
+[ERROR] TBE(4682,python3):2026-11-02-17:33:48.893.209 [log_utils.py:183][plog_print] [ascend910b]  PReluGradUpdate_7d1e7472ff1adf7c5d7627c5477d529a In file included from /mnt/workspace/prelu2329/code/op_kernel/p_relu_grad_update.cpp:6:
+/mnt/workspace/prelu2329/code/op_kernel/p_relu_grad_update.h:154:9: error: use of undeclared identifier 'SyncFunc'
+        SyncFunc<HardEvent::S_V>();
+        ^
+/mnt/workspace/prelu2329/code/op_kernel/p_relu_grad_update.h:226:9: error: use of undeclared identifier 'SyncFunc'
+        SyncFunc<HardEvent::S_V>();
+        ^
+2 errors generated.
+Opc tool start working now, please wait for a moment.
+[2026-11-02 17:33:48] [ERROR] [ascend910b] PReluGradUpdate_7d1e7472ff1adf7c5d7627c5477d529a In file included from /mnt/workspace/prelu2329/code/op_kernel/p_relu_grad_update.cpp:6:
+/mnt/workspace/prelu2329/code/op_kernel/p_relu_grad_update.h:154:9: error: use of undeclared identifier 'SyncFunc'
+        SyncFunc<HardEvent::S_V>();
+        ^
+/mnt/workspace/prelu2329/code/op_kernel/p_relu_grad_update.h:226:9: error: use of undeclared identifier 'SyncFunc'
+        SyncFunc<HardEvent::S_V>();
+        ^
+2 errors generated.
+
+[ERROR] TBE(4682,python3):2026-11-02-17:33:48.893.559 [op_compilation.py:311][__single_op_compile] Exception occured, An error occurred during compile phases of CompileStage.INFERCHANNEL, msg is In file included from /mnt/workspace/prelu2329/code/op_kernel/p_relu_grad_update.cpp:6:
+/mnt/workspace/prelu2329/code/op_kernel/p_relu_grad_update.h:154:9: error: use of undeclared identifier 'SyncFunc'
+        SyncFunc<HardEvent::S_V>();
+        ^
+/mnt/workspace/prelu2329/code/op_kernel/p_relu_grad_update.h:226:9: error: use of undeclared identifier 'SyncFunc'
+        SyncFunc<HardEvent::S_V>();
+        ^
+2 errors generated.
+[ERROR] TBE(4682,python3):2026-11-02-17:33:48.897.887 [opc_common.py:227][_log_error] Traceback (most recent call last):
+  File "/home/developer/Ascend/cann-9.1.0/python/site-packages/asc_opc_tool/op_compilation.py", line 303, in __single_op_compile
+    json_file_path = single_op_obj.op_compile()
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/developer/Ascend/cann-9.1.0/python/site-packages/asc_opc_tool/single_op_compile.py", line 259, in op_compile
+    json_file_path = self.__call_op()
+                     ^^^^^^^^^^^^^^^^
+  File "/home/developer/Ascend/cann-9.1.0/python/site-packages/asc_opc_tool/single_op_compile.py", line 165, in __call_op
+    op_func(*inputs, *outputs, *new_attrs, self.__op_info.get(OpcOptions.KERNEL_NAME), **kwargs)
+[ERROR] TBE(4682,python3):2026-11-02-17:33:48.897.938 [opc_common.py:227][_log_error]   File "/home/developer/Ascend/cann-9.1.0/python/site-packages/asc_op_compile_base/common/register/operation_func_mgr.py", line 55, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/developer/Ascend/cann-9.1.0/python/site-packages/asc_op_compile_base/common/utils/para_check.py", line 527, in _in_wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/workspace/prelu2329/code/build/op_kernel/PReluGradUpdate_ascend910b/dynamic/PReluGradUpdate.py", line 248, in p_relu_grad_update
+    compile_op(src, origin_func_name, op_info, options, code_channel, '{}', {'valueDepend': {}})
+[ERROR] TBE(4682,python3):2026-11-02-17:33:48.897.970 [opc_common.py:227][_log_error]   File "/home/developer/Ascend/cann-9.1.0/python/site-packages/asc_op_compile_base/asc_op_compiler/compile_op.py", line 1411, in compile_op
+    compile_op_common_part(cce_file, origin_func_name, op_info, compile_option_tuple, infered_info_from_ifile,
+  File "/home/developer/Ascend/cann-9.1.0/python/site-packages/asc_op_compile_base/asc_op_compiler/compile_op.py", line 1247, in compile_op_common_part
+    code_channel, hardware_sync_in_asm = get_code_channel_v220_by_first_tiling_key(
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[ERROR] TBE(4682,python3):2026-11-02-17:33:48.897.996 [opc_common.py:227][_log_error]   File "/home/developer/Ascend/cann-9.1.0/python/site-packages/asc_op_compile_base/asc_op_compiler/ascendc_compile_v220.py", line 598, in get_code_channel_v220_by_first_tiling_key
+    CommonUtility.dump_build_log(out.decode(), compile_cmd, CompileStage.INFERCHANNEL, proc.returncode)
+  File "/home/developer/Ascend/cann-9.1.0/python/site-packages/asc_op_compile_base/asc_op_compiler/ascendc_common_utility.py", line 603, in dump_build_log
+    raise Exception("An error occurred during compile phases of {}, msg is {}".\
+[ERROR] TBE(4682,python3):2026-11-02-17:33:48.898.019 [opc_common.py:227][_log_error] Exception: An error occurred during compile phases of CompileStage.INFERCHANNEL, msg is In file included from /mnt/workspace/prelu2329/code/op_kernel/p_relu_grad_update.cpp:6:
+/mnt/workspace/prelu2329/code/op_kernel/p_relu_grad_update.h:154:9: error: use of undeclared identifier 'SyncFunc'
+        SyncFunc<HardEvent::S_V>();
+        ^
+/mnt/workspace/prelu2329/code/op_kernel/p_relu_grad_update.h:226:9: error: use of undeclared identifier 'SyncFunc'
+        SyncFunc<HardEvent::S_V>();
+        ^
+2 errors generated.
+
+[ERROR] TBE(4682,python3):2026-11-02-17:33:48.898.053 [op_compilation.py:190][record_compile_error_info] Op[PReluGradUpdate] of index[0] compile failed, kernelName: PReluGradUpdate_7d1e7472ff1adf7c5d7627c5477d529a.
+[ERROR] TBE(4682,python3):2026-11-02-17:33:48.898.222 [opc_common.py:520][opc_log_full] [op_compilation.py:192][record_compile_error_info] reason is:[An error occurred during compile phases of CompileStage.INFERCHANNEL, msg is In file included from /mnt/workspace/prelu2329/code/op_kernel/p_relu_grad_update.cpp:6:
+/mnt/workspace/prelu2329/code/op_kernel/p_relu_grad_update.h:154:9: error: use of undeclared identifier 'SyncFunc'
+        SyncFunc<HardEvent::S_V>();
+        ^
+/mnt/workspace/prelu2329/code/op_kernel/p_relu_grad_update.h:226:9: error: use of undeclared identifier 'SyncFunc'
+        SyncFunc<HardEvent::S_V>();
+        ^
+2 errors generated.
+].
+[ERROR] TBE(4682,python3):2026-11-02-17:33:48.900.720 [opc.py:688][main] Opc tool compile failed.
+/mnt/workspace/prelu2329/code/build/op_kernel/ascendc_kernels/binary/ascend910b/p_relu_grad_update/PReluGradUpdate_7d1e7472ff1adf7c5d7627c5477d529a.json not generated!
+make[4]: *** [/mnt/workspace/prelu2329/code/build/op_kernel/PReluGradUpdate_ascend910b/p_relu_grad_update.make:5: p_relu_grad_update1] Error 1
+Traceback (most recent call last):
+  File "/home/developer/Ascend/cann-9.1.0/compiler/tikcpp/ascendc_kernel_cmake/fwk_modules/util/ascendc_compile_kernel.py", line 277, in <module>
+    kernel_builder.ascendc_build()
+  File "/home/developer/Ascend/cann-9.1.0/compiler/tikcpp/ascendc_kernel_cmake/fwk_modules/util/ascendc_compile_kernel.py", line 214, in ascendc_build
+    raise RuntimeError('Kernel Compilation Error: OpType {} Kernel File {}!'.format(
+RuntimeError: Kernel Compilation Error: OpType PReluGradUpdate Kernel File /mnt/workspace/prelu2329/code/op_kernel/p_relu_grad_update.cpp!
+make[3]: *** [op_kernel/CMakeFiles/PReluGradUpdate_ascend910b.dir/build.make:70: op_kernel/CMakeFiles/PReluGradUpdate_ascend910b] Error 1
+make[2]: *** [CMakeFiles/Makefile2:427: op_kernel/CMakeFiles/PReluGradUpdate_ascend910b.dir/all] Error 2
+make[1]: *** [CMakeFiles/Makefile2:460: op_kernel/CMakeFiles/binary.dir/rule] Error 2
+make: *** [Makefile:345: binary] Error 2

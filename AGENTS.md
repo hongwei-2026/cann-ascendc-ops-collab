@@ -33,9 +33,9 @@
 
 1. `path-ledger.md` 补结论行  
 2. 复杂过程 → `explorations/EXPxxx.md`  
-3. **云上日志必须下载归档**到 `explorations/logs/EXPxxx/`（或 tar）；禁止只留截图  
+3. **云上日志必须下载归档**到 `tasks/.../<题>/explorations/logs/EXPxxx/`（含 **错误/编译失败** 全文 `.log`）；禁止只留截图  
 4. `dev-log` 三五行  
-5. 提醒用户 **push 到公开 `main`**（未 push = 外人看不见）
+5. **立刻 `git push` 公开 `main`**——日志未 push = 队友与后人看不见；每题每次失败都要推
 
 ## 阶段速查
 
