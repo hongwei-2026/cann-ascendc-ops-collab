@@ -1,0 +1,187 @@
+----------------------------------------------------------------
+[INFO] Configuring project...
+[INFO] CMAKE_ARGS: -DASCEND_COMPUTE_UNIT=ascend910b -DCANNJUDGE_COMPILE_JOBS=4
+-- The C compiler identification is GNU 9.4.0
+-- The CXX compiler identification is GNU 9.4.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- set package config: INSTALL_PATH;/mnt/workspace/prelu2329/code/build
+-- Opbuild generating sources
+-- Opbuild generating sources - done
+INFO target name: cust_optiling
+INFO target name: cust_op_proto
+INFO target name: cust_opapi
+INFO target name: ascendc_kernels
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /mnt/workspace/prelu2329/code/build
+----------------------------------------------------------------
+[INFO] Building project with 4 threads...
+Consolidate compiler generated dependencies of target cust_opapi
+Consolidate compiler generated dependencies of target cust_op_proto
+[  6%] Building CXX object op_host/CMakeFiles/cust_opapi.dir/__/autogen/aclnn_p_relu_grad_update.cpp.o
+[ 13%] Built target modify_vendor
+[ 13%] Built target gen_version_info
+[ 20%] Building CXX object op_host/CMakeFiles/cust_op_proto.dir/__/autogen/op_proto.cc.o
+Consolidate compiler generated dependencies of target cust_optiling
+[ 26%] Built target ascendc_kernels_copy_kernel_srcs
+[ 46%] Built target cust_optiling
+[ 53%] Built target p_relu_grad_update_custom_npu_supported_ops
+[ 60%] Built target p_relu_grad_update_custom_ascendc_cust_optiling
+[ 60%] Built target p_relu_grad_update_custom_update_so_names
+[ 66%] Built target ascendc_kernels_ops_info_gen_ascend910b
+[ 66%] Built target optiling_compat
+[ 66%] Built target cust_opapi
+[ 73%] Linking CXX shared library libcust_opapi.so
+[ 73%] Built target p_relu_grad_update_custom_ascendc_cust_opapi
+[ 93%] Built target cust_op_proto
+[100%] Linking CXX shared library libcust_opsproto_rt2.0.so
+[100%] Built target p_relu_grad_update_custom_ascendc_cust_op_proto
+[ 16%] Built target ascendc_kernels_copy_kernel_srcs
+[ 66%] Built target cust_optiling
+[ 83%] Built target ascendc_kernels_ops_info_gen_ascend910b
+[100%] Built target p_relu_grad_update_custom_ascendc_cust_optiling
+[ascend910b] Generating PReluGradUpdate_599588aa57378985d89e91ae7759ebed ...
+[ascend910b] Generating PReluGradUpdate_7d1e7472ff1adf7c5d7627c5477d529a ...
+[ascend910b] Generating PReluGradUpdate_40c7c86afed688dc3472607bbb5e140b ...
+Opc tool start working now, please wait for a moment.
+[ascend910b] Generating PReluGradUpdate_40c7c86afed688dc3472607bbb5e140b Done
+Opc tool start working now, please wait for a moment.
+[ascend910b] Generating PReluGradUpdate_599588aa57378985d89e91ae7759ebed Done
+Opc tool start working now, please wait for a moment.
+[ascend910b] Generating PReluGradUpdate_7d1e7472ff1adf7c5d7627c5477d529a Done
+[100%] Built target PReluGradUpdate_ascend910b
+[100%] Built target ascendc_kernels_ascendc_bin_ascend910b_gen_ops_config
+[100%] Built target binary
+Consolidate compiler generated dependencies of target cust_opapi
+Consolidate compiler generated dependencies of target cust_op_proto
+[ 13%] Built target modify_vendor
+[ 13%] Built target cust_opapi
+[ 13%] Built target gen_version_info
+[ 40%] Built target cust_op_proto
+[ 46%] Built target ascendc_kernels_copy_kernel_srcs
+[ 53%] Built target p_relu_grad_update_custom_npu_supported_ops
+[ 73%] Built target cust_optiling
+[ 80%] Built target p_relu_grad_update_custom_ascendc_cust_opapi
+[ 86%] Built target p_relu_grad_update_custom_ascendc_cust_op_proto
+[ 93%] Built target ascendc_kernels_ops_info_gen_ascend910b
+[ 93%] Built target p_relu_grad_update_custom_update_so_names
+[100%] Built target p_relu_grad_update_custom_ascendc_cust_optiling
+[100%] Built target optiling_compat
+Run CPack packaging tool...
+CPack: Create package using External
+CPack: Install projects
+CPack: - Run preinstall target for: p_relu_grad_update_op_prj
+CPack: - Install project: p_relu_grad_update_op_prj []
+CPack: Create package
+
+About to compress 1616 KB of data...
+Adding files to archive named "custom_opp_ubuntu_aarch64.run"...
+./help.info
+./install.sh
+./packages/vendors/p_relu_grad_update_custom/framework/tensorflow/npu_supported_ops.json
+./packages/vendors/p_relu_grad_update_custom/op_api/include/aclnn_p_relu_grad_update.h
+./packages/vendors/p_relu_grad_update_custom/op_api/lib/libcust_opapi.so
+./packages/vendors/p_relu_grad_update_custom/op_impl/ai_core/tbe/config/ascend910b/aic-ascend910b-ops-info.json
+./packages/vendors/p_relu_grad_update_custom/op_impl/ai_core/tbe/kernel/ascend910b/p_relu_grad_update/PReluGradUpdate_40c7c86afed688dc3472607bbb5e140b.json
+./packages/vendors/p_relu_grad_update_custom/op_impl/ai_core/tbe/kernel/ascend910b/p_relu_grad_update/PReluGradUpdate_40c7c86afed688dc3472607bbb5e140b.o
+./packages/vendors/p_relu_grad_update_custom/op_impl/ai_core/tbe/kernel/ascend910b/p_relu_grad_update/PReluGradUpdate_599588aa57378985d89e91ae7759ebed.json
+./packages/vendors/p_relu_grad_update_custom/op_impl/ai_core/tbe/kernel/ascend910b/p_relu_grad_update/PReluGradUpdate_599588aa57378985d89e91ae7759ebed.o
+./packages/vendors/p_relu_grad_update_custom/op_impl/ai_core/tbe/kernel/ascend910b/p_relu_grad_update/PReluGradUpdate_7d1e7472ff1adf7c5d7627c5477d529a.json
+./packages/vendors/p_relu_grad_update_custom/op_impl/ai_core/tbe/kernel/ascend910b/p_relu_grad_update/PReluGradUpdate_7d1e7472ff1adf7c5d7627c5477d529a.o
+./packages/vendors/p_relu_grad_update_custom/op_impl/ai_core/tbe/kernel/config/ascend910b/binary_info_config.json
+./packages/vendors/p_relu_grad_update_custom/op_impl/ai_core/tbe/kernel/config/ascend910b/p_relu_grad_update.json
+./packages/vendors/p_relu_grad_update_custom/op_impl/ai_core/tbe/op_tiling/lib/linux/aarch64/libcust_opmaster_rt2.0.so
+./packages/vendors/p_relu_grad_update_custom/op_impl/ai_core/tbe/op_tiling/liboptiling.so
+./packages/vendors/p_relu_grad_update_custom/op_impl/ai_core/tbe/p_relu_grad_update_custom_impl/dynamic/p_relu_grad_update.cpp
+./packages/vendors/p_relu_grad_update_custom/op_impl/ai_core/tbe/p_relu_grad_update_custom_impl/dynamic/p_relu_grad_update.h
+./packages/vendors/p_relu_grad_update_custom/op_impl/ai_core/tbe/p_relu_grad_update_custom_impl/dynamic/p_relu_grad_update.py
+./packages/vendors/p_relu_grad_update_custom/op_impl/ai_core/tbe/p_relu_grad_update_custom_impl/dynamic/p_relu_grad_update_tiling_data.h
+./packages/vendors/p_relu_grad_update_custom/op_impl/ai_core/tbe/p_relu_grad_update_custom_impl/dynamic/p_relu_grad_update_tiling_key.h
+./packages/vendors/p_relu_grad_update_custom/op_proto/inc/op_proto.h
+./packages/vendors/p_relu_grad_update_custom/op_proto/lib/linux/aarch64/libcust_opsproto_rt2.0.so
+./packages/vendors/p_relu_grad_update_custom/version.info
+./uninstall.sh
+./upgrade.sh
+CRC: 2683914120
+SHA256: 38f691b2d23e562969881c8e88ff1a53d824fb081e784439abf399ea76c272f9
+Skipping md5sum at user request
+
+Self-extractable archive "custom_opp_ubuntu_aarch64.run" successfully created.
+Copy /mnt/workspace/prelu2329/code/build/_CPack_Packages/Linux/External/custom_opp_ubuntu_aarch64.run/custom_opp_ubuntu_aarch64.run to /mnt/workspace/prelu2329/code/build/
+CPack: - package: /mnt/workspace/prelu2329/code/build/custom_opp_ubuntu_aarch64.run.json generated.
+CPack: - package: /mnt/workspace/prelu2329/code/build/custom_opp_ubuntu_aarch64.run generated.
+[  6%] Built target cust_opapi
+[ 13%] Built target modify_vendor
+[ 40%] Built target cust_op_proto
+[ 40%] Built target gen_version_info
+[ 46%] Built target ascendc_kernels_copy_kernel_srcs
+[ 53%] Built target p_relu_grad_update_custom_npu_supported_ops
+[ 73%] Built target cust_optiling
+[ 80%] Built target p_relu_grad_update_custom_ascendc_cust_opapi
+[ 86%] Built target p_relu_grad_update_custom_ascendc_cust_op_proto
+[ 86%] Built target p_relu_grad_update_custom_update_so_names
+[ 93%] Built target ascendc_kernels_ops_info_gen_ascend910b
+[100%] Built target p_relu_grad_update_custom_ascendc_cust_optiling
+[100%] Built target optiling_compat
+Install the project...
+-- Install configuration: ""
+-- Up-to-date: /mnt/workspace/prelu2329/code/build/.
+-- Up-to-date: /mnt/workspace/prelu2329/code/build/./help.info
+-- Installing: /mnt/workspace/prelu2329/code/build/./uninstall.sh
+-- Installing: /mnt/workspace/prelu2329/code/build/./install.sh
+-- Installing: /mnt/workspace/prelu2329/code/build/./upgrade.sh
+-- Installing: /mnt/workspace/prelu2329/code/build/packages/vendors/p_relu_grad_update_custom/version.info
+-- Up-to-date: /mnt/workspace/prelu2329/code/build/packages/vendors/p_relu_grad_update_custom/op_impl/ai_core/tbe/op_tiling/lib/linux/aarch64/libcust_opmaster_rt2.0.so
+-- Up-to-date: /mnt/workspace/prelu2329/code/build/packages/vendors/p_relu_grad_update_custom/op_impl/ai_core/tbe/op_tiling/liboptiling.so
+-- Installing: /mnt/workspace/prelu2329/code/build/packages/vendors/p_relu_grad_update_custom/op_proto/lib/linux/aarch64/libcust_opsproto_rt2.0.so
+-- Set runtime path of "/mnt/workspace/prelu2329/code/build/packages/vendors/p_relu_grad_update_custom/op_proto/lib/linux/aarch64/libcust_opsproto_rt2.0.so" to ""
+-- Installing: /mnt/workspace/prelu2329/code/build/packages/vendors/p_relu_grad_update_custom/op_proto/inc/op_proto.h
+-- Installing: /mnt/workspace/prelu2329/code/build/packages/vendors/p_relu_grad_update_custom/op_api/lib/libcust_opapi.so
+-- Set runtime path of "/mnt/workspace/prelu2329/code/build/packages/vendors/p_relu_grad_update_custom/op_api/lib/libcust_opapi.so" to ""
+-- Installing: /mnt/workspace/prelu2329/code/build/packages/vendors/p_relu_grad_update_custom/op_api/include/aclnn_p_relu_grad_update.h
+-- Up-to-date: /mnt/workspace/prelu2329/code/build/packages/vendors/p_relu_grad_update_custom/op_impl/ai_core/tbe/p_relu_grad_update_custom_impl/dynamic/
+-- Up-to-date: /mnt/workspace/prelu2329/code/build/packages/vendors/p_relu_grad_update_custom/op_impl/ai_core/tbe/p_relu_grad_update_custom_impl/dynamic//p_relu_grad_update.cpp
+-- Up-to-date: /mnt/workspace/prelu2329/code/build/packages/vendors/p_relu_grad_update_custom/op_impl/ai_core/tbe/p_relu_grad_update_custom_impl/dynamic//p_relu_grad_update_tiling_key.h
+-- Up-to-date: /mnt/workspace/prelu2329/code/build/packages/vendors/p_relu_grad_update_custom/op_impl/ai_core/tbe/p_relu_grad_update_custom_impl/dynamic//p_relu_grad_update.h
+-- Installing: /mnt/workspace/prelu2329/code/build/packages/vendors/p_relu_grad_update_custom/op_impl/ai_core/tbe/p_relu_grad_update_custom_impl/dynamic//p_relu_grad_update.py
+-- Up-to-date: /mnt/workspace/prelu2329/code/build/packages/vendors/p_relu_grad_update_custom/op_impl/ai_core/tbe/p_relu_grad_update_custom_impl/dynamic//p_relu_grad_update_tiling_data.h
+-- Up-to-date: /mnt/workspace/prelu2329/code/build/packages/vendors/p_relu_grad_update_custom/op_impl/ai_core/tbe//kernel/ascend910b/
+-- Up-to-date: /mnt/workspace/prelu2329/code/build/packages/vendors/p_relu_grad_update_custom/op_impl/ai_core/tbe//kernel/ascend910b//p_relu_grad_update
+-- Installing: /mnt/workspace/prelu2329/code/build/packages/vendors/p_relu_grad_update_custom/op_impl/ai_core/tbe//kernel/ascend910b//p_relu_grad_update/PReluGradUpdate_40c7c86afed688dc3472607bbb5e140b.o
+-- Installing: /mnt/workspace/prelu2329/code/build/packages/vendors/p_relu_grad_update_custom/op_impl/ai_core/tbe//kernel/ascend910b//p_relu_grad_update/PReluGradUpdate_40c7c86afed688dc3472607bbb5e140b.json
+-- Installing: /mnt/workspace/prelu2329/code/build/packages/vendors/p_relu_grad_update_custom/op_impl/ai_core/tbe//kernel/ascend910b//p_relu_grad_update/PReluGradUpdate_7d1e7472ff1adf7c5d7627c5477d529a.json
+-- Installing: /mnt/workspace/prelu2329/code/build/packages/vendors/p_relu_grad_update_custom/op_impl/ai_core/tbe//kernel/ascend910b//p_relu_grad_update/PReluGradUpdate_599588aa57378985d89e91ae7759ebed.json
+-- Installing: /mnt/workspace/prelu2329/code/build/packages/vendors/p_relu_grad_update_custom/op_impl/ai_core/tbe//kernel/ascend910b//p_relu_grad_update/PReluGradUpdate_7d1e7472ff1adf7c5d7627c5477d529a.o
+-- Installing: /mnt/workspace/prelu2329/code/build/packages/vendors/p_relu_grad_update_custom/op_impl/ai_core/tbe//kernel/ascend910b//p_relu_grad_update/PReluGradUpdate_599588aa57378985d89e91ae7759ebed.o
+-- Up-to-date: /mnt/workspace/prelu2329/code/build/packages/vendors/p_relu_grad_update_custom/op_impl/ai_core/tbe//kernel/config/
+-- Up-to-date: /mnt/workspace/prelu2329/code/build/packages/vendors/p_relu_grad_update_custom/op_impl/ai_core/tbe//kernel/config//ascend910b
+-- Installing: /mnt/workspace/prelu2329/code/build/packages/vendors/p_relu_grad_update_custom/op_impl/ai_core/tbe//kernel/config//ascend910b/binary_info_config.json
+-- Installing: /mnt/workspace/prelu2329/code/build/packages/vendors/p_relu_grad_update_custom/op_impl/ai_core/tbe//kernel/config//ascend910b/p_relu_grad_update.json
+-- Up-to-date: /mnt/workspace/prelu2329/code/build/packages/vendors/p_relu_grad_update_custom/op_impl/ai_core/tbe/config/ascend910b/aic-ascend910b-ops-info.json
+-- Up-to-date: /mnt/workspace/prelu2329/code/build/packages/vendors/p_relu_grad_update_custom/framework/tensorflow/npu_supported_ops.json
+----------------------------------------------------------------
+[INFO] Build completed successfully!
+[INFO] Kernel binary: /mnt/workspace/prelu2329/code/build/op_kernel/ascendc_kernels/binary/ascend910b/p_relu_grad_update/PReluGradUpdate_40c7c86afed688dc3472607bbb5e140b.o
+[INFO] Package: /mnt/workspace/prelu2329/code/build/custom_opp_ubuntu_aarch64.run
+----------------------------------------------------------------
+[INFO] Running examples...
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /mnt/workspace/prelu2329/code/examples/build
+Consolidate compiler generated dependencies of target sample
+[ 50%] Building CXX object CMakeFiles/sample.dir/test_aclnn_p_relu_grad_update.cpp.o
+[100%] Linking CXX executable sample
+[100%] Built target sample
+Sample data generated.
+Wrong Answer: dx.bin, mismatched=95/192
+Wrong Answer: update.bin, mismatched=95/192
+FAILED

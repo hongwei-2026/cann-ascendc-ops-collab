@@ -54,3 +54,10 @@
 - 做了：`-e` 编过但 dx/update 各错 ~97/192；按半错假设交换 Select 参数。
 - 下一步：pull 后重编 `-e`；若仍错再查权重广播。
 - 关联道路：P012
+
+## 2026-11-02（归档云日志 EXP20261102_161116）
+
+- 做了：本机 `D:\华为算子比赛\EXP20261102_161116_logs.tar.gz` 解压进 `explorations/logs/EXP20261102_161116/`；更新 SYNC E2 无密码路径说明。
+- 结果：`build_e_full.log` 显示 Build OK，样例仍 `Wrong Answer` dx/update 各 95/192。
+- 下一步：确认云端已 `git pull` 含 f89dd20 后清 build 再 `-e`；若仍半错则查权重广播/Compare 语义。
+- 关联道路：P012、P013

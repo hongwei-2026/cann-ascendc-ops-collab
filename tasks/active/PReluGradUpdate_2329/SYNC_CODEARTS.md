@@ -136,16 +136,35 @@ ls -lh "${EXPNAME}_logs.tar.gz"
 echo ">>> Download: /mnt/workspace/${EXPNAME}_logs.tar.gz"
 ```
 
-### E2. 归档进公开仓（方便后人，体积注意）
+### E2. 推荐：无密码归档（云端不 push）
+
+CodeArts **不要** `git push`（会要账号/密码）。只做 E1 打好 tar 后：
+
+1. 资源管理器里对 `/mnt/workspace/${EXPNAME}_logs.tar.gz` **右键 → Download**（无密码）
+2. 本机放到例如 `Downloads\`，告诉 Agent 路径
+3. **本机**解压进仓并 push（本机已配过凭据时通常也不再问密码）：
+
+```powershell
+cd "D:\sageAttention2 算子开发任务书"
+$exp = "EXPYYYYMMDD_HHMMSS"   # 与 tar 名一致
+$tar = "$env:USERPROFILE\Downloads\${exp}_logs.tar.gz"
+$dir = "tasks\active\PReluGradUpdate_2329\explorations\logs\$exp"
+New-Item -ItemType Directory -Force -Path $dir | Out-Null
+tar -xzf $tar -C $dir --strip-components=1
+# 只保留 .log / SOURCE；大 bin 可删后再提交
+git add "tasks/active/PReluGradUpdate_2329/explorations/logs/$exp"
+git commit -m "PReluGradUpdate: archive $exp cloud logs"
+git -c http.sslVerify=false push origin main
+```
+
+### E3. 备选：云端直接 push（需要已存凭据 / PAT，会要密则改用 E2）
 
 ```bash
 cd /mnt/workspace/cann-ascendc-ops-collab
 git pull
 mkdir -p tasks/active/PReluGradUpdate_2329/explorations/logs/${EXPNAME}
-# 只拷文本 log + 小 bin 说明，避免整棵 build
+# 只拷文本 log，避免整棵 build
 cp -a /mnt/workspace/${EXPNAME}_logs/*.log \
-  tasks/active/PReluGradUpdate_2329/explorations/logs/${EXPNAME}/ 2>/dev/null || true
-cp -a /mnt/workspace/${EXPNAME}_logs/bins \
   tasks/active/PReluGradUpdate_2329/explorations/logs/${EXPNAME}/ 2>/dev/null || true
 
 git add tasks/active/PReluGradUpdate_2329/explorations/logs/${EXPNAME}
