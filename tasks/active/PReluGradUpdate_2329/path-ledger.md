@@ -13,7 +13,9 @@
 | P006 | 2026-11-02 | team | 分析 | 本地 Codex/Claude 设计比 Cursor 粗案更细 | 导入 `PReluGradUpdate_problem_2329_plan`；SUMMARY 以 design_final 为实施主依据（Select/Inf/模式R） | 本迭代 | 已合并定稿 | 采纳 | — |
 | P007 | 2026-11-02 | team | 实现 | 用 git 同步 CodeArts，避免网页上传 | `workdir/code` + `SYNC_CODEARTS.md`；云端 clone/pull+rsync | 进行中 | 命令已写 | 采纳 | — |
 | P008 | 2026-11-02 | team | 功能 | 空 Kernel 必 WA，作基线 | 云端 `build.sh -e` | 0.5h | dx 192/192、update 95/192 FAILED | 废弃(空实现) | — |
-| P009 | 2026-11-02 | team | 功能 | 按 design_final 实现可过样例 | InferShape+Tiling+Compare/Select Kernel；key 0/1/2 | 本迭代 | 已推 workdir，待云端复测 | 进行中 | — |
+| P009 | 2026-11-02 | team | 功能 | 按 design_final 实现可过样例 | InferShape+Tiling+Compare/Select Kernel；key 0/1/2 | 本迭代 | 首次云编因 bf16 Cast 失败 | 进行中 | — |
+| P010 | 2026-11-02 | team | 环境 | bf16 用 Cast 升精度 | `Cast(bfloat16_t↔float)` | 0.5h | `not support bf16 type cast` → FATBIN 缺 .o | **废弃** | — |
+| P011 | 2026-11-02 | team | 功能 | bf16 避开 Cast | 位扩展/RNE 截断逐元素；half/float 仍 Cast | 本迭代 | 已改 kernel，待云端重编 | 进行中 | — |
 
 ## 性能道路预声明（未到阶段勿开）
 

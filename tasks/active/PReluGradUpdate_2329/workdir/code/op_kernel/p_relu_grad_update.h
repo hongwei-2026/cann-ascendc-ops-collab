@@ -1,11 +1,8 @@
 /*!
  * \file p_relu_grad_update.h
- * \brief Kernel: Compare + Select; mode R/C (design_final)
+ * \brief Kernel: Compare + Select; mode R/C
  *
- * Select polarity (AscendC VSEL_TENSOR_TENSOR): bit1 -> src0, bit0 -> src1.
- * dx     = mask ? g : w*g   -> Select(dst, mask, g, wg)
- * update = mask ? 0 : x*g   -> Select(dst, mask, zeros, xg)
- * If polarity wrong on device, swap src0/src1 only (see EXP / B03).
+ * EXP002: never Cast bfloat16_t on 910B/CANN9.1 (backend unsupported).
  */
 
 #ifndef PRELUGRADUPDATE_H
@@ -22,6 +19,60 @@ using namespace AscendC;
 
 constexpr int32_t BUFFER_NUM = 2;
 
+__aicore__ inline float Bf16ToFloat(bfloat16_t v)
+{
+    uint16_t bits = *reinterpret_cast<uint16_t*>(&v);
+    uint32_t u = static_cast<uint32_t>(bits) << 16;
+    float f = 0.0f;
+    *reinterpret_cast<uint32_t*>(&f) = u;
+    return f;
+}
+
+__aicore__ inline bfloat16_t FloatToBf16Rne(float f)
+{
+    uint32_t u = *reinterpret_cast<uint32_t*>(&f);
+    uint32_t lsb = (u >> 16) & 1U;
+    uint32_t roundingBias = 0x7FFFU + lsb;
+    uint16_t bits = static_cast<uint16_t>((u + roundingBias) >> 16);
+    bfloat16_t out;
+    *reinterpret_cast<uint16_t*>(&out) = bits;
+    return out;
+}
+
+__aicore__ inline void LoadToFloat(LocalTensor<float>& dst, LocalTensor<float>& src, int64_t n)
+{
+    DataCopy(dst, src, n);
+}
+
+__aicore__ inline void LoadToFloat(LocalTensor<float>& dst, LocalTensor<half>& src, int64_t n)
+{
+    Cast(dst, src, RoundMode::CAST_NONE, n);
+}
+
+__aicore__ inline void LoadToFloat(LocalTensor<float>& dst, LocalTensor<bfloat16_t>& src, int64_t n)
+{
+    for (int64_t i = 0; i < n; ++i) {
+        dst.SetValue(i, Bf16ToFloat(src.GetValue(i)));
+    }
+}
+
+__aicore__ inline void StoreFromFloat(LocalTensor<float>& dst, LocalTensor<float>& src, int64_t n)
+{
+    DataCopy(dst, src, n);
+}
+
+__aicore__ inline void StoreFromFloat(LocalTensor<half>& dst, LocalTensor<float>& src, int64_t n)
+{
+    Cast(dst, src, RoundMode::CAST_RINT, n);
+}
+
+__aicore__ inline void StoreFromFloat(LocalTensor<bfloat16_t>& dst, LocalTensor<float>& src, int64_t n)
+{
+    for (int64_t i = 0; i < n; ++i) {
+        dst.SetValue(i, FloatToBf16Rne(src.GetValue(i)));
+    }
+}
+
 template <typename T>
 class PReluGradUpdate {
 public:
@@ -34,6 +85,7 @@ public:
 private:
     __aicore__ inline void BuildWeightVecModeR();
     __aicore__ inline void FillWeightVecModeC(int64_t absOff, int64_t len, int64_t calcLen);
+    __aicore__ inline float WeightAsFloat(int64_t idx);
 
     TPipe pipe;
     TQue<QuePosition::VECIN, BUFFER_NUM> inQueueG;
@@ -59,8 +111,20 @@ private:
     int64_t sampleSize_ = 0;
     int64_t weightsPerChannel_ = 1;
     int64_t rowsPerTile_ = 0;
-    T w0_{};
+    float w0f_ = 0.0f;
 };
+
+template <typename T>
+__aicore__ inline float PReluGradUpdate<T>::WeightAsFloat(int64_t idx)
+{
+    return static_cast<float>(weightsGm.GetValue(idx));
+}
+
+template <>
+__aicore__ inline float PReluGradUpdate<bfloat16_t>::WeightAsFloat(int64_t idx)
+{
+    return Bf16ToFloat(weightsGm.GetValue(idx));
+}
 
 template <typename T>
 __aicore__ inline void PReluGradUpdate<T>::Init(
@@ -90,7 +154,7 @@ __aicore__ inline void PReluGradUpdate<T>::Init(
     sampleSize_ = tilingData->sampleSize;
     weightsPerChannel_ = tilingData->weightsPerChannel;
     rowsPerTile_ = tilingData->rowsPerTile;
-    w0_ = weightsGm.GetValue(0);
+    w0f_ = WeightAsFloat(0);
 
     if (blockLen_ <= 0 || tileLen_ <= 0) {
         return;
@@ -108,7 +172,7 @@ __aicore__ inline void PReluGradUpdate<T>::Init(
 
     Duplicate(zeroBuf.Get<float>(), 0.0f, tileLen_);
     if (weightsPerChannel_ == 0) {
-        Duplicate(wBuf.Get<float>(), static_cast<float>(w0_), tileLen_);
+        Duplicate(wBuf.Get<float>(), w0f_, tileLen_);
     } else if (rowsPerTile_ > 0) {
         BuildWeightVecModeR();
     }
@@ -120,7 +184,7 @@ __aicore__ inline void PReluGradUpdate<T>::BuildWeightVecModeR()
     LocalTensor<float> wVec = wBuf.Get<float>();
     for (int64_t r = 0; r < rowsPerTile_; ++r) {
         for (int64_t ch = 0; ch < channelNum_; ++ch) {
-            const float wv = static_cast<float>(weightsGm.GetValue(ch));
+            const float wv = WeightAsFloat(ch);
             const int64_t off = r * sampleSize_ + ch * innerSize_;
             Duplicate(wVec[off], wv, innerSize_);
         }
@@ -137,7 +201,7 @@ __aicore__ inline void PReluGradUpdate<T>::FillWeightVecModeC(int64_t absOff, in
         if (innerSize_ > 0 && channelNum_ > 0) {
             c = (idx / innerSize_) % channelNum_;
         }
-        wVec.SetValue(i, static_cast<float>(weightsGm.GetValue(c)));
+        wVec.SetValue(i, WeightAsFloat(c));
     }
     for (int64_t i = len; i < calcLen; ++i) {
         wVec.SetValue(i, 0.0f);
@@ -167,7 +231,7 @@ __aicore__ inline void PReluGradUpdate<T>::Process()
         if (rowsPerTile_ == 0 && weightsPerChannel_ == 1) {
             FillWeightVecModeC(absOff, len, calcLen);
         } else if (rowsPerTile_ == 0 && weightsPerChannel_ == 0) {
-            Duplicate(wBuf.Get<float>(), static_cast<float>(w0_), calcLen);
+            Duplicate(wBuf.Get<float>(), w0f_, calcLen);
         }
 
         LocalTensor<T> gLocal = inQueueG.AllocTensor<T>();
@@ -191,25 +255,24 @@ __aicore__ inline void PReluGradUpdate<T>::Process()
         LocalTensor<float> zeros = zeroBuf.Get<float>();
         LocalTensor<uint8_t> mask = maskBuf.Get<uint8_t>();
 
-        Cast(gF, gLocal, RoundMode::CAST_NONE, calcLen);
-        Cast(xF, xLocal, RoundMode::CAST_NONE, calcLen);
+        LoadToFloat(gF, gLocal, calcLen);
+        LoadToFloat(xF, xLocal, calcLen);
         DataCopy(stashG, gF, calcLen);
 
         Compare(mask, xF, zeros, CMPMODE::GT, calcLen);
-        Mul(xg, wVec, stashG, calcLen); // w * g
-        Select(gF, mask, stashG, xg, SELMODE::VSEL_TENSOR_TENSOR_MODE, calcLen); // dx
-        Mul(xg, xF, stashG, calcLen);                                             // x * g
-        Select(stashG, mask, zeros, xg, SELMODE::VSEL_TENSOR_TENSOR_MODE, calcLen); // update
+        Mul(xg, wVec, stashG, calcLen);
+        Select(gF, mask, stashG, xg, SELMODE::VSEL_TENSOR_TENSOR_MODE, calcLen);
+        Mul(xg, xF, stashG, calcLen);
+        Select(stashG, mask, zeros, xg, SELMODE::VSEL_TENSOR_TENSOR_MODE, calcLen);
 
-        Cast(dxLocal, gF, RoundMode::CAST_RINT, calcLen);
-        Cast(upLocal, stashG, RoundMode::CAST_RINT, calcLen);
+        StoreFromFloat(dxLocal, gF, calcLen);
+        StoreFromFloat(upLocal, stashG, calcLen);
 
         outQueueDx.EnQue(dxLocal);
         outQueueUpd.EnQue(upLocal);
         dxLocal = outQueueDx.DeQue<T>();
         upLocal = outQueueUpd.DeQue<T>();
 
-        // write only real elements (avoid padding overwrite past M)
         if (len == calcLen) {
             DataCopy(dxGm[absOff], dxLocal, calcLen);
             DataCopy(updateGm[absOff], upLocal, calcLen);

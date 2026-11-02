@@ -41,3 +41,10 @@
 - 结果：已 push workdir；待云端复测。
 - 下一步：pull 后 `bash build.sh -j4` + `-e`；若 WA 查 Select 极性。
 - 关联道路：P008、P009
+
+## 2026-11-02（EXP002 bf16 Cast）
+
+- 做了：云编报 `not support bf16 type cast`；记 EXP002；bf16 改位转换，禁止 Cast。
+- 结果：修复已推；待重编。
+- 下一步：pull → 清 build → `bash build.sh -j4` → `-e`。
+- 关联道路：P010、P011
