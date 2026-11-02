@@ -95,8 +95,71 @@ git clone https://github.com/hongwei-2026/cann-ascendc-ops-collab.git
 
 ---
 
+## E. 日志下载 / 归档（纠错必做）
+
+规范：每次探索除截图外，**必须留下原始 log 文件**。
+
+### E1. CodeArts：打包到 `/mnt/workspace`（IDE 里右键 Download）
+
+把 `EXPNAME` 换成如 `EXP003` 或带日期名：
+
+```bash
+EXPNAME=EXP$(date +%Y%m%d_%H%M%S)
+OUT=/mnt/workspace/${EXPNAME}_logs
+mkdir -p "$OUT"
+
+# 1) 把本次终端完整输出再跑一遍并 tee（推荐；已跑过可跳过）
+cd /mnt/workspace/prelu2329/code
+DEVICE_ID=0 bash build.sh -j4 -e 2>&1 | tee "$OUT/build_e_full.log"
+
+# 2) 收集常见产物（有则拷，无则忽略）
+cp -a samples/build-npu "$OUT/samples_build_npu" 2>/dev/null || true
+cp -a examples/build "$OUT/examples_build" 2>/dev/null || true
+# 样例对比 bin
+mkdir -p "$OUT/bins"
+cp -a samples/build-npu/output "$OUT/bins/output" 2>/dev/null || true
+cp -a samples/build-npu/golden "$OUT/bins/golden" 2>/dev/null || true
+cp -a samples/build-npu/input "$OUT/bins/input" 2>/dev/null || true
+
+# 3) 编译失败时抓 kernel 错误日志（路径随 hash 变，整目录打包）
+mkdir -p "$OUT/op_kernel_logs"
+find build/op_kernel -name '*.log' -o -name '*error*' 2>/dev/null | head -200 | while read f; do
+  cp -a --parents "$f" "$OUT/op_kernel_logs/" 2>/dev/null || true
+done
+# 若目录不大，可直接：
+# cp -a build/op_kernel/PReluGradUpdate_ascend910b "$OUT/op_kernel_PRelu" 2>/dev/null || true
+
+# 4) 打 tar（在文件树里下载这个文件）
+cd /mnt/workspace
+tar -czvf "${EXPNAME}_logs.tar.gz" "${EXPNAME}_logs"
+ls -lh "${EXPNAME}_logs.tar.gz"
+echo ">>> Download: /mnt/workspace/${EXPNAME}_logs.tar.gz"
+```
+
+### E2. 归档进公开仓（方便后人，体积注意）
+
+```bash
+cd /mnt/workspace/cann-ascendc-ops-collab
+git pull
+mkdir -p tasks/active/PReluGradUpdate_2329/explorations/logs/${EXPNAME}
+# 只拷文本 log + 小 bin 说明，避免整棵 build
+cp -a /mnt/workspace/${EXPNAME}_logs/*.log \
+  tasks/active/PReluGradUpdate_2329/explorations/logs/${EXPNAME}/ 2>/dev/null || true
+cp -a /mnt/workspace/${EXPNAME}_logs/bins \
+  tasks/active/PReluGradUpdate_2329/explorations/logs/${EXPNAME}/ 2>/dev/null || true
+
+git add tasks/active/PReluGradUpdate_2329/explorations/logs/${EXPNAME}
+git commit -m "PReluGradUpdate: archive ${EXPNAME} cloud logs"
+git push origin main
+```
+
+大 `.o` / 整棵 `build/` **不要**进 git；用 `tar.gz` 本地下载即可。
+
+---
+
 ## 不要做的事
 
-- 不要把整个 `build/`、`data/`、大 log zip 网页上传  
+- 不要把整个 `build/`、`data/`、大 profiling 网页上传 / 推进 git  
+- 不要只截图、不留 `.log`（纠错困难）  
 - 不要在云端改完却忘了 `git pull`（会覆盖）  
 - 云端若改了代码：在 `cann-ascendc-ops-collab` 里改 → commit → push，再回本机 `git pull`

@@ -25,8 +25,9 @@
 
 1. `path-ledger.md` 补结论行  
 2. 复杂过程 → `explorations/EXPxxx.md`  
-3. `dev-log` 三五行  
-4. 提醒用户 **push 到公开 `main`**（未 push = 外人看不见）
+3. **云上日志必须下载归档**到 `explorations/logs/EXPxxx/`（或 tar）；禁止只留截图  
+4. `dev-log` 三五行  
+5. 提醒用户 **push 到公开 `main`**（未 push = 外人看不见）
 
 ## 阶段速查
 
