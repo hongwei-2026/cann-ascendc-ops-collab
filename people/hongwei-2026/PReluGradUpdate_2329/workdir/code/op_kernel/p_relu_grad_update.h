@@ -21,7 +21,8 @@ constexpr int32_t BUFFER_NUM = 1;
 // 故对齐粒度固定为 256/sizeof(float) = 64 个元素。
 constexpr int64_t CMP_ALIGN_ELEMS = 256 / static_cast<int64_t>(sizeof(float));
 
-// EXP002/P020: 910B 不支持 bf16 Cast，位扩展/RNE 截断
+// EXP002/P020/P024: 910B 不支持 bf16 Cast。必须用全特化，勿靠 if constexpr 藏 Cast——
+// AscendC/bisheng 仍可能把 false 分支里的 Cast(bf16) 送进后端（EXP_P023 再现）。
 __aicore__ inline float Bf16ToFloatBits(bfloat16_t v)
 {
     uint16_t bits = *reinterpret_cast<uint16_t*>(&v);
@@ -41,6 +42,63 @@ __aicore__ inline bfloat16_t FloatToBf16Rne(float f)
     *reinterpret_cast<uint16_t*>(&out) = bits;
     return out;
 }
+
+template <typename T>
+struct DtypeBridge;
+
+template <>
+struct DtypeBridge<float> {
+    static constexpr bool NEED_FP32_BUF = false;
+    __aicore__ inline static float ScalarToFp32(float v) { return v; }
+    __aicore__ inline static void TensorToFp32(LocalTensor<float>& /*dst*/, LocalTensor<float>& /*src*/,
+        int64_t /*n*/)
+    {
+    }
+    __aicore__ inline static void TensorFromFp32(LocalTensor<float>& /*dst*/, LocalTensor<float>& /*src*/,
+        int64_t /*n*/)
+    {
+    }
+};
+
+template <>
+struct DtypeBridge<half> {
+    static constexpr bool NEED_FP32_BUF = true;
+    __aicore__ inline static float ScalarToFp32(half v) { return ToFloat(v); }
+    __aicore__ inline static void TensorToFp32(LocalTensor<float>& dst, LocalTensor<half>& src, int64_t n)
+    {
+        Cast(dst, src, RoundMode::CAST_NONE, n);
+    }
+    __aicore__ inline static void TensorFromFp32(LocalTensor<half>& dst, LocalTensor<float>& src, int64_t n)
+    {
+        Cast(dst, src, RoundMode::CAST_RINT, n);
+    }
+};
+
+// P024: 默认先关掉 bf16 key，避免 opc 三 key 同编时 bisheng 仍扫到 Cast/bf16 路径。
+// 样例为 fp32；fp16 仍走 Cast。打开 bf16：改 PRELU_ENABLE_BF16=1，并恢复 tiling_key/def。
+#ifndef PRELU_ENABLE_BF16
+#define PRELU_ENABLE_BF16 0
+#endif
+
+#if PRELU_ENABLE_BF16
+template <>
+struct DtypeBridge<bfloat16_t> {
+    static constexpr bool NEED_FP32_BUF = true;
+    __aicore__ inline static float ScalarToFp32(bfloat16_t v) { return Bf16ToFloatBits(v); }
+    __aicore__ inline static void TensorToFp32(LocalTensor<float>& dst, LocalTensor<bfloat16_t>& src, int64_t n)
+    {
+        for (int64_t i = 0; i < n; ++i) {
+            dst.SetValue(i, Bf16ToFloatBits(src.GetValue(i)));
+        }
+    }
+    __aicore__ inline static void TensorFromFp32(LocalTensor<bfloat16_t>& dst, LocalTensor<float>& src, int64_t n)
+    {
+        for (int64_t i = 0; i < n; ++i) {
+            dst.SetValue(i, FloatToBf16Rne(src.GetValue(i)));
+        }
+    }
+};
+#endif
 
 template <typename T>
 class PReluGradUpdate {
@@ -100,14 +158,7 @@ __aicore__ inline int64_t PReluGradUpdate<T>::AlignUp(int64_t value, int64_t ali
 template <typename T>
 __aicore__ inline float PReluGradUpdate<T>::ReadWeight(int64_t index) const
 {
-    const T value = weightsGm_.GetValue(index);
-    if constexpr (std::is_same<T, float>::value) {
-        return value;
-    } else if constexpr (std::is_same<T, bfloat16_t>::value) {
-        return Bf16ToFloatBits(value);
-    } else {
-        return ToFloat(value);
-    }
+    return DtypeBridge<T>::ScalarToFp32(weightsGm_.GetValue(index));
 }
 
 template <typename T>
@@ -147,7 +198,7 @@ __aicore__ inline void PReluGradUpdate<T>::Init(GM_ADDR grads, GM_ADDR features,
     pipe_.InitBuffer(fgFloatBuf_, alignedCount * sizeof(float));
     pipe_.InitBuffer(maskBuf_, alignedMaskBytes);
 
-    if constexpr (!std::is_same<T, float>::value) {
+    if constexpr (DtypeBridge<T>::NEED_FP32_BUF) {
         pipe_.InitBuffer(gradsFloatBuf_, alignedCount * sizeof(float));
         pipe_.InitBuffer(featuresFloatBuf_, alignedCount * sizeof(float));
         pipe_.InitBuffer(dxFloatBuf_, alignedCount * sizeof(float));
@@ -215,7 +266,7 @@ __aicore__ inline void PReluGradUpdate<T>::Compute(int64_t progress, int64_t cur
     LocalTensor<float> dxFloat;
     LocalTensor<float> updateFloat;
 
-    if constexpr (std::is_same<T, float>::value) {
+    if constexpr (!DtypeBridge<T>::NEED_FP32_BUF) {
         gradsFloat = gradsLocal.template ReinterpretCast<float>();
         featuresFloat = featuresLocal.template ReinterpretCast<float>();
         dxFloat = dxLocal.template ReinterpretCast<float>();
@@ -225,15 +276,8 @@ __aicore__ inline void PReluGradUpdate<T>::Compute(int64_t progress, int64_t cur
         featuresFloat = featuresFloatBuf_.Get<float>();
         dxFloat = dxFloatBuf_.Get<float>();
         updateFloat = updateFloatBuf_.Get<float>();
-        if constexpr (std::is_same<T, bfloat16_t>::value) {
-            for (int64_t i = 0; i < currentNum; ++i) {
-                gradsFloat.SetValue(i, Bf16ToFloatBits(gradsLocal.GetValue(i)));
-                featuresFloat.SetValue(i, Bf16ToFloatBits(featuresLocal.GetValue(i)));
-            }
-        } else {
-            Cast(gradsFloat, gradsLocal, RoundMode::CAST_NONE, currentNum);
-            Cast(featuresFloat, featuresLocal, RoundMode::CAST_NONE, currentNum);
-        }
+        DtypeBridge<T>::TensorToFp32(gradsFloat, gradsLocal, currentNum);
+        DtypeBridge<T>::TensorToFp32(featuresFloat, featuresLocal, currentNum);
         PipeBarrier<PIPE_V>();
     }
 
@@ -288,15 +332,9 @@ __aicore__ inline void PReluGradUpdate<T>::Compute(int64_t progress, int64_t cur
         static_cast<uint32_t>(cmpCount));
     PipeBarrier<PIPE_V>();
 
-    if constexpr (std::is_same<T, bfloat16_t>::value) {
-        for (int64_t i = 0; i < currentNum; ++i) {
-            dxLocal.SetValue(i, FloatToBf16Rne(dxFloat.GetValue(i)));
-            updateLocal.SetValue(i, FloatToBf16Rne(updateFloat.GetValue(i)));
-        }
-        PipeBarrier<PIPE_V>();
-    } else if constexpr (!std::is_same<T, float>::value) {
-        Cast(dxLocal, dxFloat, RoundMode::CAST_RINT, currentNum);
-        Cast(updateLocal, updateFloat, RoundMode::CAST_RINT, currentNum);
+    if constexpr (DtypeBridge<T>::NEED_FP32_BUF) {
+        DtypeBridge<T>::TensorFromFp32(dxLocal, dxFloat, currentNum);
+        DtypeBridge<T>::TensorFromFp32(updateLocal, updateFloat, currentNum);
         PipeBarrier<PIPE_V>();
     }
 

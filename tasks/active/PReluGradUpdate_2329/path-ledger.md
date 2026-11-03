@@ -27,7 +27,8 @@
 | P020 | 2026-11-02 | team | 环境 | bf16 禁止 Cast（EXP002 再现） | bf16 位扩展/RNE；half 仍 Cast；记 EXP007 | 本迭代 | 已改 kernel；待云端 `-e` | 进行中 | — |
 | P021 | 2026-11-02 | team | 交付 | 先交 tip 工程试平台 | 打顶层 `code/` ZIP（beaa00e）；排除 pyc/build | 0.5h | `deliverables/PReluGradUpdate_2329_code_best.zip` SHA256 `A7C800F6…7F973D` | 采纳(试交) | — |
 | P022 | 2026-11-02 | yuhongming-2026 | 功能 | CompareScalar 致 mask 全 0 | PR#1：`Compare`+零；八参 Select+BinaryRepeatParams | 本迭代 | 平台 Compile Error 嫌疑；未合 main | 部分采纳 | EXP008 |
-| P023 | 2026-11-03 | hongwei-2026 | 功能 | 吸 P022 比较、保可编译 Select | hongwei：`Compare(+zero)` + **count** Select；禁八参 | 本迭代 | 已改待云测/平台重交 | 进行中 | EXP009 |
+| P023 | 2026-11-03 | hongwei-2026 | 功能 | 吸 P022 比较、保可编译 Select | hongwei：`Compare(+zero)` + **count** Select；禁八参 | 本迭代 | EXP_P023 仍 `bf16 type cast` | 进行中 | EXP009 |
+| P024 | 2026-11-03 | hongwei-2026 | 环境 | if constexpr 藏 Cast 不够 | `DtypeBridge` 全特化；默认 `PRELU_ENABLE_BF16=0` 只编 fp16/fp32 | 本迭代 | 已改待云测 | 进行中 | EXP010 |
 
 ## 性能道路预声明（未到阶段勿开）
 

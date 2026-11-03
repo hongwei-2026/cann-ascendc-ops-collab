@@ -140,10 +140,12 @@ static ge::graphStatus PReluGradUpdateTilingFunc(gert::TilingContext* context)
         typeSize = 2;
         bytesPerElement = LOW_PRECISION_BYTES_PER_ELEMENT;
         tilingKey = GET_TPL_TILING_KEY(PRELUGRADUPDATE_TPL_FLOAT16);
+#if PRELU_ENABLE_BF16
     } else if (dtype == ge::DT_BF16) {
         typeSize = 2;
         bytesPerElement = LOW_PRECISION_BYTES_PER_ELEMENT;
         tilingKey = GET_TPL_TILING_KEY(PRELUGRADUPDATE_TPL_BF16);
+#endif
     } else {
         OP_LOGE(context, "unsupported dtype=%d", static_cast<int32_t>(dtype));
         return ge::GRAPH_FAILED;

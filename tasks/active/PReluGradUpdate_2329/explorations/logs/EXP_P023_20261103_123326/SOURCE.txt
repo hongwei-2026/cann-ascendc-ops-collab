@@ -1,0 +1,3 @@
+﻿repo tip at fail: eee7cd8 (P023)
+error: not support bf16 type cast -> FATBIN (EXP002/007 再现)
+analysis: if constexpr 藏 Cast 不够；三 key 同炸。P024: DtypeBridge 全特化 + 默认关 bf16 key。

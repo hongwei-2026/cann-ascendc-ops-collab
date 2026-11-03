@@ -114,3 +114,11 @@
 - 路径：`people/hongwei-2026/.../op_kernel/p_relu_grad_update.h`；`deliverables/PReluGradUpdate_2329_code_best.zip`
 - 下一步：平台重交；CodeArts `-e`。
 - 关联道路：P022、P023
+
+## 2026-11-03（P024 / EXP_P023）
+
+- 做了：归档 EXP_P023；确认仍 bf16 Cast；`DtypeBridge` 全特化；默认 `PRELU_ENABLE_BF16=0`（def/TPL/tiling/entry）。
+- 路径：`explorations/logs/EXP_P023_20261103_123326/`
+- 下一步：云端重编 `-e` 验样例 mask。
+- 关联道路：P024
+
