@@ -26,12 +26,13 @@ P100 的 `CopyIn` 和 `CopyOut` 对所有 tile 使用 `DataCopyPad`。设计文�
 
 `python -B people/hongwei-2026/PReluGradUpdate_2329/workdir/code/tests/local_semantic_check.py`：PASS；`git diff --check`：PASS。候选 Kernel SHA256：`9E62D7E3C30C874F5E7DC355CDD354D959417DAF6D2C93FDB4EA3CFA61B6F3A0`。
 
-本地没有完成 CANN 编译或 NPU 计时；云测和平台结果未取得，P102 不能标记为通过。
+## 云测（EXP_P102_20261103_154833）
+
+- tip `2e3cbc6`；verify PASS；三 key Done；dx/update **0/192 PASS**  
+- kernel LF sha256 `0e58c2b2…7221c`（与 git blob 一致）
 
 ## Owner 复审（同日）
 
-- **可试**：单点假设清晰；保留 DataCopyPad 尾块；未动 tiling/Select/dtype；本地语义 PASS。  
-- **注意**：公开点已在 ~7μs vs TBest ~4μs → **B 类小 shape**（`02-perf-gate`）；本路 ≤2h，无 ≥2% 同机增益即回退写 DEC，勿叠双缓冲。  
-- **覆盖**：`[4,6,8]` fp32 的 `inner=8` 会走对齐 `DataCopy`；`inner` 非 32B 倍数仍走 Pad——收益可能只在对齐 case。  
-- **外部模板** 15:09 仍是旧回归包，勿与 P102 混淆。  
-- **下一闸**：CodeArts 指纹 + 三 key `-e` → 同机平台复测；默认试交在未 PASS 前仍标 P100 基线。
+- **可试且功能已过云测**：单点假设清晰；未动 tiling/Select/dtype。  
+- **注意**：公开点 ~7μs vs TBest ~4μs → **B 类**；平台无 ≥2% 增益即回退写 DEC。  
+- **下一闸**：同机平台交 P102 采时。

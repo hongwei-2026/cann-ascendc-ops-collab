@@ -39,7 +39,7 @@
 | P032 | 2026-11-03 | yuhongming-2026 | 功能 | 座位代码仍含未对齐 `Duplicate(weightLocal[localOffset])`，会复现 case4 507035 | 吸 P031/EXP018 进 `people/yuhongming-2026/.../BuildWeightVector`；补对齐静态回归 | 本迭代 | 对齐 ✅；tiling 已 `workspace=0`；仍八参 Select + 非 P100 全核/`Muls` → **不作默认试交** | 部分采纳(对齐) | EXP018 |
 | P100 | 2026-11-03 | hongwei-2026 | 性能 | ms 级固定开销来自未使用 16MB workspace；单核内 per-channel 权重展开又串行放大 | workspace=0；全核 tiling；channel 内 `Muls`；**补丁** `progress+=currentNum` + host `tileLen<=inner` | 0.5d | EXP_P100 云测三 key + 样例 **0/192 PASS**；平台截图提交 13557230920：1–5 Pass、42.41 分、7.26/7.41/7.33/5.72/5.82 μs（截图不含源码 hash） | 采纳（当前性能基线） | EXP019 |
 | P101 | 2026-11-03 | hongwei-2026 | 性能 | 外部模板 15:03 声称「再优化」 | 对照 P100：实为 SyncFunc/CompareScalar/未对齐 Duplicate/`ToFloat` **回归** | 0.1h | **拒收**；勿合座位 | **废弃** | EXP021 |
-| P102 | 2026-11-03 | hongwei-2026 | 性能 | 对齐 tile 使用 `DataCopyPad` 带来额外的搬运设置开销 | GM 起点与 tile 字节数均 32B 对齐时，四路 GM↔UB 搬运改用连续 `DataCopy`；其他 tile 仍 `DataCopyPad` | ≤2h；无增益即回退并写 DEC | 本地语义与 diff 检查 PASS；云端编译/性能待测 | 进行中 | EXP022 |
+| P102 | 2026-11-03 | hongwei-2026 | 性能 | 对齐 tile 使用 `DataCopyPad` 带来额外的搬运设置开销 | GM 起点与 tile 字节数均 32B 对齐时，四路 GM↔UB 搬运改用连续 `DataCopy`；其他 tile 仍 `DataCopyPad` | ≤2h；无增益即回退并写 DEC | EXP_P102_154833：三 key Done + 样例 **0/192 PASS**；待同机平台采时 | 进行中 | EXP022 |
 
 ## 性能道路（阶段已开 · 2026-11-03）
 

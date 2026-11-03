@@ -1,0 +1,11 @@
+EXP_P102_20261103_154833 — P102 cloud PASS
+
+- tip: 2e3cbc6
+- verify: PASS（source_kernel == build_kernel）
+- kernel sha256 (git LF / 云端): 0e58c2b21c0ed1ecc3b8b30340aa144c51d9c63ae5662ac316dd8fac9787221c
+  注：本机工作区 CRLF 会得到 9e62d7e3…，内容同 tip，勿当另一版
+- 三 tiling key: Done ×3
+- Build completed successfully
+- 样例: dx.bin mismatched=0/192；update.bin mismatched=0/192；PASSED
+
+结论：P102 对齐 DataCopy 候选云测功能通过；下一闸同机平台采时（B 类小 shape，≥2% 才留）。
