@@ -202,6 +202,12 @@
 - 下一步：CodeArts 三 key 编译与 `-e`，归档日志后平台重交。
 - 关联道路：P031、EXP018
 
+## 2026-11-03（P032 / yuhongming 座位吸 P031）
+
+- 做了：按 EXP018 与报错台账，把对齐修复合入 `people/yuhongming-2026/.../BuildWeightVector`；补 `check_weight_fill_alignment`；本地语义 PASS。
+- 下一步：CodeArts 同步自己座位 `workdir/code` 后 `-e`。
+- 关联道路：P032、EXP018
+
 
 
 

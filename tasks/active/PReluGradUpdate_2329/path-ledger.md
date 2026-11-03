@@ -36,6 +36,7 @@
 | P029 | 2026-11-03 | hongwei-2026 | 功能 | 显式特化/ToFloat 污染各 key | 删 DtypeBridge；float/half **原生**；bf16 仅 if constexpr 位转换；开三 dtype | 本迭代 | EXP_P029 云测 PASS；平台 case4 仍 507035 | 部分采纳 | EXP016 |
 | P030 | 2026-11-03 | hongwei-2026 | 功能 | case4=低精度运行时炸 | half 改 Cast↔fp32；bf16 补 S_V/S_MTE3；禁半精度成员污染 | 本迭代 | EXP_P030 云测 PASS；平台 case4 仍 507035 | 部分采纳 | EXP017 |
 | P031 | 2026-11-03 | hongwei-2026 | 功能 | case4=per-channel weight 的 `Duplicate` 从非 32B 对齐 UB 偏移启动 | 每段未对齐前缀用 `SetValue`；仅从 8-float 对齐下标 `Duplicate`；补 innerSize=1/3/5/7/35/8255 回归 | 本迭代 | 本地语义 PASS；待云测/平台 | 进行中 | EXP018 |
+| P032 | 2026-11-03 | yuhongming-2026 | 功能 | 座位代码仍含未对齐 `Duplicate(weightLocal[localOffset])`，会复现 case4 507035 | 吸 P031/EXP018 进 `people/yuhongming-2026/.../BuildWeightVector`；补对齐静态回归 | 本迭代 | 本地语义 PASS；待 CodeArts | 进行中 | EXP018 |
 
 ## 性能道路预声明（未到阶段勿开）
 

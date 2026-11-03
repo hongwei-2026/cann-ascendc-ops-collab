@@ -109,6 +109,28 @@ def check_tiling_invariants():
                 assert tile % sample == 0
 
 
+def check_weight_fill_alignment():
+    float_block_elements = 8
+    for inner_size in (1, 3, 5, 7, 8, 35, 8255):
+        for global_start in (0, 1, inner_size - 1, inner_size, inner_size + 1):
+            current_num = min(257, inner_size * 3 + 5)
+            local_offset = 0
+            while local_offset < current_num:
+                offset_in_channel = (global_start + local_offset) % inner_size
+                segment = min(inner_size - offset_in_channel, current_num - local_offset)
+                segment_end = local_offset + segment
+                fill_offset = local_offset
+                while fill_offset < segment_end and fill_offset % float_block_elements != 0:
+                    fill_offset += 1
+                if fill_offset < segment_end:
+                    assert fill_offset % float_block_elements == 0
+                local_offset = segment_end
+
+    kernel_source = (ROOT / "op_kernel" / "p_relu_grad_update.h").read_text(encoding="utf-8")
+    assert "Duplicate(weightLocal[localOffset]" not in kernel_source
+    assert "Duplicate(weightLocal[fillOffset]" in kernel_source
+
+
 def check_log_signature():
     rng = np.random.default_rng(42)
     rng.uniform(-5, 5, (4, 6, 8))
@@ -121,5 +143,6 @@ if __name__ == "__main__":
     check_random_cases()
     check_select_polarity()
     check_tiling_invariants()
+    check_weight_fill_alignment()
     check_log_signature()
     print("PReluGradUpdate local semantic checks: PASS")

@@ -20,6 +20,8 @@ constexpr int32_t BUFFER_NUM = 1;
 // Compare / Select 要求参与计算的元素数按 256Byte 对齐。全部中间计算都在 float 上做，
 // 故对齐粒度固定为 256/sizeof(float) = 64 个元素。
 constexpr int64_t CMP_ALIGN_ELEMS = 256 / static_cast<int64_t>(sizeof(float));
+// Duplicate 等向量指令要求 UB 起始地址 32B 对齐（= 8 个 float）。
+constexpr int64_t FLOAT_BLOCK_ELEMENTS = 32 / static_cast<int64_t>(sizeof(float));
 
 // EXP002/P020: 910B 不支持 bf16 Cast，位扩展/RNE 截断
 __aicore__ inline float Bf16ToFloatBits(bfloat16_t v)
@@ -174,13 +176,28 @@ __aicore__ inline void PReluGradUpdate<T>::BuildWeightVector(int64_t globalStart
             segment = currentNum - localOffset;
         }
         const float weightValue = ReadWeight(channel);
-        // CANN 9.1: SyncFunc 不存在；标量→向量用 SetFlag/WaitFlag
-        event_t evtSV = static_cast<event_t>(GetTPipePtr()->FetchEventID(HardEvent::S_V));
-        SetFlag<HardEvent::S_V>(evtSV);
-        WaitFlag<HardEvent::S_V>(evtSV);
-        Duplicate(weightLocal[localOffset], weightValue, segment);
-        localOffset += segment;
+        const int64_t segmentEnd = localOffset + segment;
+        int64_t fillOffset = localOffset;
+
+        // case4 ACL 507035 / EXP018 / P031：channel 边界不一定 32B 对齐（innerSize=1/3/5/35）。
+        // 未对齐前缀用 SetValue；Duplicate 只从 fillOffset % 8 == 0 处启动。
+        while (fillOffset < segmentEnd && (fillOffset % FLOAT_BLOCK_ELEMENTS) != 0) {
+            weightLocal.SetValue(fillOffset, weightValue);
+            ++fillOffset;
+        }
+        if (fillOffset < segmentEnd) {
+            // CANN 9.1: SyncFunc 不存在；标量→向量用 SetFlag/WaitFlag
+            event_t evtSV = static_cast<event_t>(GetTPipePtr()->FetchEventID(HardEvent::S_V));
+            SetFlag<HardEvent::S_V>(evtSV);
+            WaitFlag<HardEvent::S_V>(evtSV);
+            Duplicate(weightLocal[fillOffset], weightValue, segmentEnd - fillOffset);
+        }
+        localOffset = segmentEnd;
     }
+    // 标量前缀写完后再进后续向量 Mul
+    event_t evtSV = static_cast<event_t>(GetTPipePtr()->FetchEventID(HardEvent::S_V));
+    SetFlag<HardEvent::S_V>(evtSV);
+    WaitFlag<HardEvent::S_V>(evtSV);
 }
 
 template <typename T>

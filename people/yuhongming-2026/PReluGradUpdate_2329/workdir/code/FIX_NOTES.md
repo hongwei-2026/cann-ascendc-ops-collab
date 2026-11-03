@@ -46,3 +46,10 @@ bf16 禁止 `Cast`，改位扩展/RNE（见 EXP002/EXP007）。
 - 弃用 `CompareScalar`；`Duplicate(0)` 后 `Compare(mask, x, zero, GT)`。
 - `Select` 改显式 `maskBits=64, repeats=cmpCount/64, BinaryRepeatParams{1,1,1,8,8,8}`。
 - 保留独立 `neg`/`fg` buffer；bf16 仍位转换。
+
+## P032（yuhongming）— 吸 EXP018/P031：weight Duplicate 对齐
+
+平台 case4 `ACL 507035`：`innerSize` 非 8-float 倍数时，旧 `Duplicate(weightLocal[localOffset], …)` 从非 32B 对齐 UB 启动向量指令。
+
+- 未对齐前缀 `SetValue`；仅从 `fillOffset % 8 == 0` 调用 `Duplicate`。
+- 标量写完后补 S_V；`local_semantic_check` 增加对齐回归。
