@@ -12,13 +12,12 @@
 #define PRELUGRADUPDATE_TPL_FLOAT16 1
 #define PRELUGRADUPDATE_TPL_BF16 2
 
-// P028: EXP_P027 证明只要同编译单元出现 half 路径，fp32/fp16 都报
-// "not support bf16 type cast"。本 CANN 9.1.0 上默认只编 fp32（P025 已 PASS）。
+// P029: 三 dtype。kernel 用 if constexpr 原生 half / bf16 位转换，禁止 DtypeBridge 显式特化。
 #ifndef PRELU_ENABLE_FP16
-#define PRELU_ENABLE_FP16 0
+#define PRELU_ENABLE_FP16 1
 #endif
 #ifndef PRELU_ENABLE_BF16
-#define PRELU_ENABLE_BF16 0
+#define PRELU_ENABLE_BF16 1
 #endif
 
 #if PRELU_ENABLE_BF16 && PRELU_ENABLE_FP16

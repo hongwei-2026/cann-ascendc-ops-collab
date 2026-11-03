@@ -163,6 +163,12 @@
 - 下一步：平台继续交 fp32 包；低精度另开独立实现。
 - 关联道路：P028
 
+## 2026-11-03（P029）
+
+- 做了：根因定为 DtypeBridge/ToFloat 显式特化污染各 key；改原生 float/half + bf16 仅 if constexpr 位转换；开三 dtype；写 EXP016。
+- 下一步：云端 verify + `build.sh -j4 -e`，下载日志归档。
+- 关联道路：P029
+
 
 
 

@@ -18,13 +18,15 @@ namespace {
 constexpr uint32_t WS_SYS_SIZE = 16U * 1024U * 1024U;
 constexpr uint64_t UB_USAGE_NUMERATOR = 8U;
 constexpr uint64_t UB_USAGE_DENOMINATOR = 10U;
-// 每元素 UB 占用（BUFFER_NUM=1）：
-//   float: grads/features/dx/update(4×4) + weight/neg/fg(3×4) + mask(1) = 29
-//   fp16/bf16: 4×2 + float 版 grads/features/dx/update/weight/neg/fg(7×4) + mask(1) = 37
+// P029 每元素 UB（BUFFER_NUM=1）：
+//   float 原生: 4×4 + weight/neg/fg(3×4) + mask≈1 = 29
+//   fp16 原生: 4×2 + 3×2 + mask≈1 = 15
+//   bf16→fp32: 4×2 + float grads/features/dx/update/weight/neg/fg(7×4) + mask≈1 = 37
 constexpr int64_t FLOAT_BYTES_PER_ELEMENT = 29;
-constexpr int64_t LOW_PRECISION_BYTES_PER_ELEMENT = 37;
-// Compare/Select 要求 256Byte 对齐，中间计算一律 float，故 tile 按 64 元素对齐。
-constexpr int64_t CMP_ALIGN_ELEMS = 64;
+constexpr int64_t FP16_NATIVE_BYTES_PER_ELEMENT = 15;
+constexpr int64_t BF16_BYTES_PER_ELEMENT = 37;
+constexpr int64_t CMP_ALIGN_FLOAT = 64;   // 256 / sizeof(float)
+constexpr int64_t CMP_ALIGN_HALF = 128;   // 256 / sizeof(half)
 
 int64_t CeilDivI64(int64_t value, int64_t divisor)
 {
@@ -132,21 +134,25 @@ static ge::graphStatus PReluGradUpdateTilingFunc(gert::TilingContext* context)
     ge::DataType dtype = inputDesc->GetDataType();
     int64_t typeSize = 0;
     int64_t bytesPerElement = 0;
+    int64_t cmpAlignElems = CMP_ALIGN_FLOAT;
     uint64_t tilingKey = 0;
     if (dtype == ge::DT_FLOAT) {
         typeSize = 4;
         bytesPerElement = FLOAT_BYTES_PER_ELEMENT;
+        cmpAlignElems = CMP_ALIGN_FLOAT;
         tilingKey = GET_TPL_TILING_KEY(PRELUGRADUPDATE_TPL_FLOAT);
 #if PRELU_ENABLE_FP16
     } else if (dtype == ge::DT_FLOAT16) {
         typeSize = 2;
-        bytesPerElement = LOW_PRECISION_BYTES_PER_ELEMENT;
+        bytesPerElement = FP16_NATIVE_BYTES_PER_ELEMENT;
+        cmpAlignElems = CMP_ALIGN_HALF;
         tilingKey = GET_TPL_TILING_KEY(PRELUGRADUPDATE_TPL_FLOAT16);
 #endif
 #if PRELU_ENABLE_BF16
     } else if (dtype == ge::DT_BF16) {
         typeSize = 2;
-        bytesPerElement = LOW_PRECISION_BYTES_PER_ELEMENT;
+        bytesPerElement = BF16_BYTES_PER_ELEMENT;
+        cmpAlignElems = CMP_ALIGN_FLOAT; // bf16 在 fp32 上 Compare
         tilingKey = GET_TPL_TILING_KEY(PRELUGRADUPDATE_TPL_BF16);
 #endif
     } else {
@@ -164,10 +170,9 @@ static ge::graphStatus PReluGradUpdateTilingFunc(gert::TilingContext* context)
     const int64_t blockElements = 32 / typeSize;
     const uint64_t usableUb = ubSize * UB_USAGE_NUMERATOR / UB_USAGE_DENOMINATOR;
     int64_t maxTile = static_cast<int64_t>(usableUb / static_cast<uint64_t>(bytesPerElement));
-    // 按 64 元素对齐向下取整：kernel 侧会把 tileLen 向上对齐到 64 来满足 Compare/Select
-    // 的 256Byte 约束，maxTile 取 64 的整数倍可保证对齐后仍不超 UB 预算。
-    maxTile = AlignDownI64(maxTile, CMP_ALIGN_ELEMS);
-    if (maxTile < CMP_ALIGN_ELEMS) {
+    // kernel 会把 count 向上对齐到 cmpAlignElems；maxTile 取同倍数保证对齐后不超 UB。
+    maxTile = AlignDownI64(maxTile, cmpAlignElems);
+    if (maxTile < cmpAlignElems) {
         OP_LOGE(context, "UB is too small for one 256B-aligned tile");
         return ge::GRAPH_FAILED;
     }

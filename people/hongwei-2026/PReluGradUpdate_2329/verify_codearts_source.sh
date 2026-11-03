@@ -5,6 +5,7 @@ REPO_ROOT="${1:-/mnt/workspace/cann-ascendc-ops-collab}"
 BUILD_CODE="${2:-/mnt/workspace/prelu2329/code}"
 SOURCE_CODE="${REPO_ROOT}/people/hongwei-2026/PReluGradUpdate_2329/workdir/code"
 KERNEL_REL="op_kernel/p_relu_grad_update.h"
+KEY_REL="op_kernel/p_relu_grad_update_tiling_key.h"
 
 if [[ ! -d "${SOURCE_CODE}" || ! -d "${BUILD_CODE}" ]]; then
   echo "ERROR: source or build code directory is missing" >&2
@@ -31,18 +32,19 @@ if ! grep -q -F 'SetFlag<HardEvent::S_V>' "${BUILD_CODE}/${KERNEL_REL}"; then
   exit 5
 fi
 
-# P028: 默认仅 fp32
-if ! grep -q '#define PRELU_ENABLE_FP16 0' "${BUILD_CODE}/op_kernel/p_relu_grad_update_tiling_key.h" || \
-   ! grep -q '#define PRELU_ENABLE_BF16 0' "${BUILD_CODE}/op_kernel/p_relu_grad_update_tiling_key.h"; then
-  echo "WARN: low-precision switches are not both 0 (P028 default is fp32-only)" >&2
-fi
-if ! grep -q 'DataType({ge::DT_FLOAT})' "${BUILD_CODE}/op_host/p_relu_grad_update_def.cpp"; then
-  echo "ERROR: expected fp32-only DataType({ge::DT_FLOAT}) in else branch of def.cpp" >&2
+# P029: 三 dtype；禁止 Cast / ToFloat / DtypeBridge 显式特化
+if ! grep -q '#define PRELU_ENABLE_FP16 1' "${BUILD_CODE}/${KEY_REL}" || \
+   ! grep -q '#define PRELU_ENABLE_BF16 1' "${BUILD_CODE}/${KEY_REL}"; then
+  echo "ERROR: P029 expects PRELU_ENABLE_FP16/BF16 default 1" >&2
   exit 6
 fi
-if grep -n 'Cast(' "${BUILD_CODE}/op_kernel/p_relu_grad_update.h" | grep -v '//' >/dev/null; then
-  echo "ERROR: Cast() must not appear in kernel header" >&2
+if grep -nE '\bCast\s*\(|ToFloat\s*\(|struct DtypeBridge' "${BUILD_CODE}/${KERNEL_REL}" | grep -v '//' >/dev/null; then
+  echo "ERROR: Cast/ToFloat/DtypeBridge must not appear in kernel (contaminates all keys)" >&2
   exit 7
+fi
+if ! grep -q 'P029' "${BUILD_CODE}/${KERNEL_REL}"; then
+  echo "ERROR: expected P029 native-dtype kernel marker" >&2
+  exit 8
 fi
 
 echo "CodeArts source verification: PASS"
