@@ -20,7 +20,7 @@
 3. **P029 原生 half Compare/Select** 云测过、平台 4 仍炸（EXP017）  
 4. **Select 八参 + BinaryRepeatParams** 易平台 Compile Error（P022/EXP009）— 默认用 **count** 重载  
 
-## 当前道路 P030（hongwei `4d0fdb5`）
+## 当前道路 P031（工作树，待提交）
 
 代码：`people/hongwei-2026/PReluGradUpdate_2329/workdir/code/`
 
@@ -28,8 +28,9 @@
 - half：`if constexpr` 内 **Cast↔fp32** 再算（禁止原生 half Compare）  
 - bf16：**禁止 Cast**；位扩展/RNE；标量写后补 **S_V / S_MTE3**  
 - 工作区 16MB；Select dst≠src1；`Compare(+zero)`  
+- per-channel weight：未对齐前缀标量写；`Duplicate` 仅从 32B 对齐 UB 地址启动
 
-详情：[EXP017](explorations/EXP017-case4-507035-p030.md) · [EXP013](explorations/EXP013-acl-507035.md) · [path-ledger](path-ledger.md) P026–P030
+详情：[EXP018](explorations/EXP018-case4-unaligned-weight-ub.md) · [EXP017](explorations/EXP017-case4-507035-p030.md) · [path-ledger](path-ledger.md) P026–P031
 
 ## 请队友注意
 
@@ -37,9 +38,9 @@
 2. 共享台账只改本题 `tasks/active/PReluGradUpdate_2329/`  
 3. 默认试交 / 平台链接以 Owner **hongwei** 最新 tip 为准；改试交包先在群/本 STATUS 打招呼  
 4. 云上 **每次** `build.sh` 成败都要打 `EXP_*_logs.tar.gz` 下载归档（见 `SYNC_CODEARTS.md`）  
-5. 若你本地复现 case4：优先怀疑半精度路径与标量↔向量同步，不要先死磕小 shape 性能  
+5. 若你本地复现 case4：先检查所有向量指令的 LocalTensor 起始地址是否 32B 对齐，尤其是 `tensor[offset]` 形式
 
 ## 下一闸
 
-hongwei：CodeArts 对 P030 跑 `-e` → 过则平台重交。  
-队友：可读 EXP017；有独立假设先写 `path-ledger` 新行再开道路。
+hongwei：CodeArts 对 P031 跑 `-e` → 过则平台重交。
+队友：可读 EXP018；有独立假设先写 `path-ledger` 新行再开道路。

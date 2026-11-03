@@ -22,6 +22,7 @@ using namespace AscendC;
 
 constexpr int32_t BUFFER_NUM = 1;
 constexpr int64_t CMP_ALIGN_FLOAT = 64;
+constexpr int64_t FLOAT_BLOCK_ELEMENTS = 32 / static_cast<int64_t>(sizeof(float));
 
 template <typename T>
 class PReluGradUpdate {
@@ -260,10 +261,25 @@ __aicore__ inline void PReluGradUpdate<T>::Compute(int64_t progress, int64_t cur
                 *reinterpret_cast<uint32_t*>(&weightValue) = static_cast<uint32_t>(bits) << 16;
             }
 
-            SyncSV();
-            Duplicate(weightLocal[localOffset], weightValue, segment);
-            localOffset += segment;
+            const int64_t segmentEnd = localOffset + segment;
+            int64_t fillOffset = localOffset;
+
+            // Vector instructions require a 32-byte-aligned UB start address. A channel
+            // boundary is not necessarily aligned (for example innerSize=1 or 35), so
+            // write the unaligned prefix with scalar stores and vector-fill only from
+            // the next aligned float element.
+            while (fillOffset < segmentEnd && (fillOffset % FLOAT_BLOCK_ELEMENTS) != 0) {
+                weightLocal.SetValue(fillOffset, weightValue);
+                ++fillOffset;
+            }
+            if (fillOffset < segmentEnd) {
+                SyncSV();
+                Duplicate(weightLocal[fillOffset], weightValue, segmentEnd - fillOffset);
+            }
+            localOffset = segmentEnd;
         }
+        // Make all scalar prefix stores visible before the vector multiply.
+        SyncSV();
         PipeBarrier<PIPE_V>();
         Mul(negLocal, gradsFloat, weightLocal, currentNum);
     } else {

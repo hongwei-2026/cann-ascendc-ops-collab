@@ -1,0 +1,5 @@
+﻿tip=64db315 (kernel=P030)
+verify=PASS
+compile=3 keys Done
+sample=PASS 0/192
+platform_note=case4 still 507035 after P030 -> P031 weight Duplicate alignment

@@ -188,6 +188,20 @@
 - 下一步：队友 pull main 读 TEAM_NOTICE；hongwei 继续 P030 云测。
 - 关联道路：P030
 
+## 2026-11-03（P030 日志 + P031 Codex）
+
+- 做了：归档 EXP_P030（云测 PASS、平台仍 507035）；采纳 Codex：weight Duplicate 对齐（EXP018/P031）；本地语义 PASS。
+- 下一步：云端 `-e` P031 → 平台重交。
+- 关联道路：P031
+
+## 2026-11-03（P031 / case4 UB 地址对齐）
+
+- 做了：审查平台 507035 的全部向量入口；发现 per-channel 权重展开使用 `Duplicate(weightLocal[localOffset], ...)`，当 `innerSize` 不是 8 个 float 的倍数时会从非 32B 对齐地址启动向量指令。
+- 修复：每个 channel segment 的未对齐前缀改用 `SetValue`，只在 `fillOffset % 8 == 0` 后调用 `Duplicate`，进入 `Mul` 前补 S_V 同步。
+- 验证：`python tests/local_semantic_check.py` PASS；新增 innerSize=1/3/5/7/35/8255 和非零 global start 对齐回归；`git diff --check` PASS。
+- 下一步：CodeArts 三 key 编译与 `-e`，归档日志后平台重交。
+- 关联道路：P031、EXP018
+
 
 
 

@@ -34,7 +34,8 @@
 | P027 | 2026-11-03 | hongwei-2026 | 环境 | bf16 进编译单元必炸 | **只开 fp32+fp16**；`PRELU_ENABLE_BF16=0`；half 标量无 Cast | 本迭代 | EXP_P027：fp16+fp32 仍双挂 Cast | **废弃(混编)** | EXP015 |
 | P028 | 2026-11-03 | hongwei-2026 | 环境 | half 路径污染同 TU 的 fp32 | 默认回到 **仅 fp32**（对齐 P025）；修 verify 误报 | 本迭代 | 已改；以 P025 为可交基线 | **采纳** | EXP015 |
 | P029 | 2026-11-03 | hongwei-2026 | 功能 | 显式特化/ToFloat 污染各 key | 删 DtypeBridge；float/half **原生**；bf16 仅 if constexpr 位转换；开三 dtype | 本迭代 | EXP_P029 云测 PASS；平台 case4 仍 507035 | 部分采纳 | EXP016 |
-| P030 | 2026-11-03 | hongwei-2026 | 功能 | case4=低精度运行时炸 | half 改 Cast↔fp32；bf16 补 S_V/S_MTE3；禁半精度成员污染 | 本迭代 | 已改待云测/平台 | 进行中 | EXP017 |
+| P030 | 2026-11-03 | hongwei-2026 | 功能 | case4=低精度运行时炸 | half 改 Cast↔fp32；bf16 补 S_V/S_MTE3；禁半精度成员污染 | 本迭代 | EXP_P030 云测 PASS；平台 case4 仍 507035 | 部分采纳 | EXP017 |
+| P031 | 2026-11-03 | hongwei-2026 | 功能 | case4=per-channel weight 的 `Duplicate` 从非 32B 对齐 UB 偏移启动 | 每段未对齐前缀用 `SetValue`；仅从 8-float 对齐下标 `Duplicate`；补 innerSize=1/3/5/7/35/8255 回归 | 本迭代 | 本地语义 PASS；待云测/平台 | 进行中 | EXP018 |
 
 ## 性能道路预声明（未到阶段勿开）
 
