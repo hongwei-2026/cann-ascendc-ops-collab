@@ -14,15 +14,16 @@
 namespace optiling {
 namespace {
 
-// P026: 给系统 workspace 留 16MB，避免部分 ACL 路径上 workspace=0 触发向量核异常(507035)。
-constexpr uint32_t WS_SYS_SIZE = 16U * 1024U * 1024U;
+// The kernel has no GM scratch data. P026's temporary 16MB workspace was based
+// on the old 507035 diagnosis and adds millisecond-scale fixed overhead.
+constexpr uint32_t WS_SYS_SIZE = 0;
 constexpr uint64_t UB_USAGE_NUMERATOR = 8U;
 constexpr uint64_t UB_USAGE_DENOMINATOR = 10U;
-// P030 每元素 UB（BUFFER_NUM=1）：
-//   float: 4×4 + weight/neg/fg(3×4) + mask≈1 = 29
-//   fp16/bf16→fp32: 4×2 + float grads/features/dx/update/weight/neg/fg(7×4) + mask≈1 = 37
-constexpr int64_t FLOAT_BYTES_PER_ELEMENT = 29;
-constexpr int64_t LOW_PRECISION_BYTES_PER_ELEMENT = 37;
+// P100 每元素 UB（BUFFER_NUM=1）：
+//   float: 4×4 + neg/fg(2×4) + mask≈1 = 25
+//   fp16/bf16→fp32: 4×2 + float grads/features/dx/update/neg/fg(6×4) + mask≈1 = 33
+constexpr int64_t FLOAT_BYTES_PER_ELEMENT = 25;
+constexpr int64_t LOW_PRECISION_BYTES_PER_ELEMENT = 33;
 constexpr int64_t CMP_ALIGN_FLOAT = 64;   // 中间计算在 fp32 上，Compare 按 64 齐
 
 int64_t CeilDivI64(int64_t value, int64_t divisor)
@@ -179,22 +180,15 @@ static ge::graphStatus PReluGradUpdateTilingFunc(gert::TilingContext* context)
     int64_t tileLen = totalNum == 0 ? blockElements : std::min(totalNum, maxTile);
     int64_t rowsPerTile = 0;
 
-    if (totalNum > 0 && sampleSize <= maxTile) {
-        if (totalNum <= maxTile) {
-            rowsPerTile = totalNum / sampleSize;
-            tileLen = totalNum;
-        } else {
-            blockFactor = AlignUpI64(CeilDivI64(totalNum, hardwareCoreNum), sampleSize);
-            usedCores = std::min(hardwareCoreNum, CeilDivI64(totalNum, blockFactor));
-            const int64_t maxRows = std::max<int64_t>(1, maxTile / sampleSize);
-            const int64_t rowsInBlock = std::max<int64_t>(1, blockFactor / sampleSize);
-            rowsPerTile = std::min(maxRows, rowsInBlock);
-            tileLen = rowsPerTile * sampleSize;
-        }
-    } else if (totalNum > 0) {
+    if (totalNum > 0) {
         blockFactor = AlignUpI64(CeilDivI64(totalNum, hardwareCoreNum), blockElements);
         usedCores = std::min(hardwareCoreNum, CeilDivI64(totalNum, blockFactor));
-        tileLen = maxTile;
+        tileLen = std::min(blockFactor, maxTile);
+        // When weights are [C], one Compute uses a single Muls weight — keep the
+        // host tile inside one channel (kernel also clamps and steps by currentNum).
+        if (weightLen == channelNum && innerSize > 0) {
+            tileLen = std::min(tileLen, innerSize);
+        }
     }
 
     PReluGradUpdateTilingData* tiling = context->GetTilingData<PReluGradUpdateTilingData>();

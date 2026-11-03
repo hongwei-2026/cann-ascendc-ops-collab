@@ -5,6 +5,8 @@
  * P030: case4 ACL 507035。half 不用原生 Compare/Select，仅在 if constexpr(half)
  * 内 Cast↔fp32；bf16 位转换只写在 if constexpr(bf16) 内，并补 S_V/S_MTE3。
  * 禁止把 half/bf16 辅助函数做成对所有 T 都会实例化的成员（会污染 fp32 key）。
+ * P100: zero unused workspace, use full-core 32B tiling, and keep each
+ * per-channel tile inside one channel so scalar Muls replaces weight expansion.
  */
 
 #ifndef PRELUGRADUPDATE_H
@@ -22,7 +24,6 @@ using namespace AscendC;
 
 constexpr int32_t BUFFER_NUM = 1;
 constexpr int64_t CMP_ALIGN_FLOAT = 64;
-constexpr int64_t FLOAT_BLOCK_ELEMENTS = 32 / static_cast<int64_t>(sizeof(float));
 
 template <typename T>
 class PReluGradUpdate {
@@ -48,7 +49,6 @@ private:
     TQue<QuePosition::VECOUT, BUFFER_NUM> dxQueue_;
     TQue<QuePosition::VECOUT, BUFFER_NUM> updateQueue_;
 
-    TBuf<TPosition::VECCALC> weightFloatBuf_;
     TBuf<TPosition::VECCALC> negFloatBuf_;
     TBuf<TPosition::VECCALC> fgFloatBuf_;
     TBuf<TPosition::VECCALC> maskBuf_;
@@ -126,7 +126,6 @@ __aicore__ inline void PReluGradUpdate<T>::Init(GM_ADDR grads, GM_ADDR features,
     pipe_.InitBuffer(dxQueue_, BUFFER_NUM, alignedCount * sizeof(T));
     pipe_.InitBuffer(updateQueue_, BUFFER_NUM, alignedCount * sizeof(T));
     pipe_.InitBuffer(maskBuf_, alignedMaskBytes);
-    pipe_.InitBuffer(weightFloatBuf_, alignedCount * sizeof(float));
     pipe_.InitBuffer(negFloatBuf_, alignedCount * sizeof(float));
     pipe_.InitBuffer(fgFloatBuf_, alignedCount * sizeof(float));
 
@@ -176,7 +175,6 @@ __aicore__ inline void PReluGradUpdate<T>::Compute(int64_t progress, int64_t cur
     LocalTensor<uint8_t> maskLocal = maskBuf_.Get<uint8_t>();
     LocalTensor<float> negLocal = negFloatBuf_.Get<float>();
     LocalTensor<float> fgLocal = fgFloatBuf_.Get<float>();
-    LocalTensor<float> weightLocal = weightFloatBuf_.Get<float>();
 
     LocalTensor<float> gradsFloat;
     LocalTensor<float> featuresFloat;
@@ -215,110 +213,45 @@ __aicore__ inline void PReluGradUpdate<T>::Compute(int64_t progress, int64_t cur
         }
     }
 
-    if (weightsPerChannel_ != 0) {
-        int64_t localOffset = 0;
-        const int64_t globalStart = blockStart_ + progress;
-        while (localOffset < currentNum) {
-            const int64_t index = globalStart + localOffset;
-            const int64_t channel = (index / innerSize_) % channelNum_;
-            const int64_t offsetInChannel = index % innerSize_;
-            int64_t segment = innerSize_ - offsetInChannel;
-            if (segment > currentNum - localOffset) {
-                segment = currentNum - localOffset;
-            }
-
-            float weightValue = 0.0f;
-            if constexpr (std::is_same<T, float>::value) {
-                weightValue = weightsGm_.GetValue(channel);
-            } else if constexpr (std::is_same<T, half>::value) {
-                half h = weightsGm_.GetValue(channel);
-                uint16_t hb = *reinterpret_cast<uint16_t*>(&h);
-                uint32_t sign = (static_cast<uint32_t>(hb) & 0x8000u) << 16;
-                uint32_t exp = (static_cast<uint32_t>(hb) >> 10) & 0x1Fu;
-                uint32_t man = static_cast<uint32_t>(hb) & 0x3FFu;
-                uint32_t outBits;
-                if (exp == 0) {
-                    if (man == 0) {
-                        outBits = sign;
-                    } else {
-                        exp = 127 - 15 + 1;
-                        while ((man & 0x400u) == 0) {
-                            man <<= 1;
-                            --exp;
-                        }
-                        man &= 0x3FFu;
-                        outBits = sign | (exp << 23) | (man << 13);
-                    }
-                } else if (exp == 31) {
-                    outBits = sign | 0x7F800000u | (man << 13);
-                } else {
-                    outBits = sign | ((exp + (127 - 15)) << 23) | (man << 13);
-                }
-                *reinterpret_cast<uint32_t*>(&weightValue) = outBits;
+    const int64_t globalStart = blockStart_ + progress;
+    const int64_t weightIndex = weightsPerChannel_ != 0
+        ? (globalStart / innerSize_) % channelNum_
+        : 0;
+    float weightValue = 0.0f;
+    if constexpr (std::is_same<T, float>::value) {
+        weightValue = weightsGm_.GetValue(weightIndex);
+    } else if constexpr (std::is_same<T, half>::value) {
+        half h = weightsGm_.GetValue(weightIndex);
+        uint16_t hb = *reinterpret_cast<uint16_t*>(&h);
+        uint32_t sign = (static_cast<uint32_t>(hb) & 0x8000u) << 16;
+        uint32_t exp = (static_cast<uint32_t>(hb) >> 10) & 0x1Fu;
+        uint32_t man = static_cast<uint32_t>(hb) & 0x3FFu;
+        uint32_t outBits;
+        if (exp == 0) {
+            if (man == 0) {
+                outBits = sign;
             } else {
-                T raw = weightsGm_.GetValue(channel);
-                uint16_t bits = *reinterpret_cast<uint16_t*>(&raw);
-                *reinterpret_cast<uint32_t*>(&weightValue) = static_cast<uint32_t>(bits) << 16;
-            }
-
-            const int64_t segmentEnd = localOffset + segment;
-            int64_t fillOffset = localOffset;
-
-            // Vector instructions require a 32-byte-aligned UB start address. A channel
-            // boundary is not necessarily aligned (for example innerSize=1 or 35), so
-            // write the unaligned prefix with scalar stores and vector-fill only from
-            // the next aligned float element.
-            while (fillOffset < segmentEnd && (fillOffset % FLOAT_BLOCK_ELEMENTS) != 0) {
-                weightLocal.SetValue(fillOffset, weightValue);
-                ++fillOffset;
-            }
-            if (fillOffset < segmentEnd) {
-                SyncSV();
-                Duplicate(weightLocal[fillOffset], weightValue, segmentEnd - fillOffset);
-            }
-            localOffset = segmentEnd;
-        }
-        // Make all scalar prefix stores visible before the vector multiply.
-        SyncSV();
-        PipeBarrier<PIPE_V>();
-        Mul(negLocal, gradsFloat, weightLocal, currentNum);
-    } else {
-        float weightValue = 0.0f;
-        if constexpr (std::is_same<T, float>::value) {
-            weightValue = weightsGm_.GetValue(0);
-        } else if constexpr (std::is_same<T, half>::value) {
-            half h = weightsGm_.GetValue(0);
-            uint16_t hb = *reinterpret_cast<uint16_t*>(&h);
-            uint32_t sign = (static_cast<uint32_t>(hb) & 0x8000u) << 16;
-            uint32_t exp = (static_cast<uint32_t>(hb) >> 10) & 0x1Fu;
-            uint32_t man = static_cast<uint32_t>(hb) & 0x3FFu;
-            uint32_t outBits;
-            if (exp == 0) {
-                if (man == 0) {
-                    outBits = sign;
-                } else {
-                    exp = 127 - 15 + 1;
-                    while ((man & 0x400u) == 0) {
-                        man <<= 1;
-                        --exp;
-                    }
-                    man &= 0x3FFu;
-                    outBits = sign | (exp << 23) | (man << 13);
+                exp = 127 - 15 + 1;
+                while ((man & 0x400u) == 0) {
+                    man <<= 1;
+                    --exp;
                 }
-            } else if (exp == 31) {
-                outBits = sign | 0x7F800000u | (man << 13);
-            } else {
-                outBits = sign | ((exp + (127 - 15)) << 23) | (man << 13);
+                man &= 0x3FFu;
+                outBits = sign | (exp << 23) | (man << 13);
             }
-            *reinterpret_cast<uint32_t*>(&weightValue) = outBits;
+        } else if (exp == 31) {
+            outBits = sign | 0x7F800000u | (man << 13);
         } else {
-            T raw = weightsGm_.GetValue(0);
-            uint16_t bits = *reinterpret_cast<uint16_t*>(&raw);
-            *reinterpret_cast<uint32_t*>(&weightValue) = static_cast<uint32_t>(bits) << 16;
+            outBits = sign | ((exp + (127 - 15)) << 23) | (man << 13);
         }
-        SyncSV();
-        Muls(negLocal, gradsFloat, weightValue, currentNum);
+        *reinterpret_cast<uint32_t*>(&weightValue) = outBits;
+    } else {
+        T raw = weightsGm_.GetValue(weightIndex);
+        uint16_t bits = *reinterpret_cast<uint16_t*>(&raw);
+        *reinterpret_cast<uint32_t*>(&weightValue) = static_cast<uint32_t>(bits) << 16;
     }
+    SyncSV();
+    Muls(negLocal, gradsFloat, weightValue, currentNum);
 
     Mul(fgLocal, featuresFloat, gradsFloat, currentNum);
     PipeBarrier<PIPE_V>();
@@ -385,14 +318,24 @@ __aicore__ inline void PReluGradUpdate<T>::Process()
     if (blockLength_ <= 0 || tileLen_ <= 0 || innerSize_ <= 0 || channelNum_ <= 0) {
         return;
     }
-    for (int64_t progress = 0; progress < blockLength_; progress += tileLen_) {
+    // Must advance by currentNum: channel clamping can make currentNum < tileLen_.
+    // Using progress += tileLen_ would skip the remainder of the channel (WA).
+    for (int64_t progress = 0; progress < blockLength_;) {
         int64_t currentNum = blockLength_ - progress;
         if (currentNum > tileLen_) {
             currentNum = tileLen_;
         }
+        if (weightsPerChannel_ != 0) {
+            const int64_t globalStart = blockStart_ + progress;
+            const int64_t channelRemain = innerSize_ - globalStart % innerSize_;
+            if (currentNum > channelRemain) {
+                currentNum = channelRemain;
+            }
+        }
         CopyIn(progress, currentNum);
         Compute(progress, currentNum);
         CopyOut(progress, currentNum);
+        progress += currentNum;
     }
 }
 

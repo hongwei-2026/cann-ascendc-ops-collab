@@ -67,12 +67,12 @@ def check_select_polarity():
 
 
 
-def tiling_model(shape, itemsize, ub_size=262144, core_num=64):
+def tiling_model(shape, itemsize, ub_size=262144, core_num=64, per_channel_weights=True):
     total = int(np.prod(shape))
     channel = shape[1]
     inner = int(np.prod(shape[2:])) if len(shape) > 2 else 1
     sample = channel * inner
-    coefficient = 29 if itemsize == 4 else 37
+    coefficient = 25 if itemsize == 4 else 33
     block_elements = 32 // itemsize
     cmp_align_elements = 64
     max_tile = (ub_size * 8 // 10 // coefficient) // cmp_align_elements * cmp_align_elements
@@ -80,19 +80,12 @@ def tiling_model(shape, itemsize, ub_size=262144, core_num=64):
     block_factor = total
     tile_len = block_elements if total == 0 else min(total, max_tile)
     rows_per_tile = 0
-    if total > 0 and sample <= max_tile:
-        if total <= max_tile:
-            rows_per_tile = total // sample
-            tile_len = total
-        else:
-            block_factor = ((total + core_num - 1) // core_num + sample - 1) // sample * sample
-            used_cores = min(core_num, (total + block_factor - 1) // block_factor)
-            rows_per_tile = min(max(1, max_tile // sample), max(1, block_factor // sample))
-            tile_len = rows_per_tile * sample
-    elif total > 0:
+    if total > 0:
         block_factor = ((total + core_num - 1) // core_num + block_elements - 1) // block_elements * block_elements
         used_cores = min(core_num, (total + block_factor - 1) // block_factor)
-        tile_len = max_tile
+        tile_len = min(block_factor, max_tile)
+        if per_channel_weights and inner > 0:
+            tile_len = min(tile_len, inner)
     return total, used_cores, block_factor, tile_len, sample, rows_per_tile, max_tile
 
 
@@ -110,26 +103,47 @@ def check_tiling_invariants():
                 assert tile % sample == 0
 
 
-def check_weight_fill_alignment():
-    float_block_elements = 8
-    for inner_size in (1, 3, 5, 7, 8, 35, 8255):
-        for global_start in (0, 1, inner_size - 1, inner_size, inner_size + 1):
-            current_num = min(257, inner_size * 3 + 5)
-            local_offset = 0
-            while local_offset < current_num:
-                offset_in_channel = (global_start + local_offset) % inner_size
-                segment = min(inner_size - offset_in_channel, current_num - local_offset)
-                segment_end = local_offset + segment
-                fill_offset = local_offset
-                while fill_offset < segment_end and fill_offset % float_block_elements != 0:
-                    fill_offset += 1
-                if fill_offset < segment_end:
-                    assert fill_offset % float_block_elements == 0
-                local_offset = segment_end
+def check_channel_tile_boundaries():
+    shapes = [(4, 6, 8), (2, 3, 5, 7), (8, 20000, 1), (16, 3, 127, 65)]
+    for shape in shapes:
+        inner_size = int(np.prod(shape[2:])) if len(shape) > 2 else 1
+        for itemsize in (2, 4):
+            total, cores, block, tile, _, _, _ = tiling_model(shape, itemsize)
+            for core_index in range(cores):
+                block_start = core_index * block
+                block_length = min(block, total - block_start)
+                progress = 0
+                while progress < block_length:
+                    global_start = block_start + progress
+                    current_num = min(tile, block_length - progress)
+                    current_num = min(current_num, inner_size - global_start % inner_size)
+                    assert current_num > 0
+                    first_channel = global_start // inner_size
+                    last_channel = (global_start + current_num - 1) // inner_size
+                    assert first_channel == last_channel
+                    progress += current_num
 
     kernel_source = (ROOT / "op_kernel" / "p_relu_grad_update.h").read_text(encoding="utf-8")
-    assert "Duplicate(weightLocal[localOffset]" not in kernel_source
-    assert "Duplicate(weightLocal[fillOffset]" in kernel_source
+    assert "weightFloatBuf_" not in kernel_source
+    assert "Duplicate(weightLocal" not in kernel_source
+    assert "Muls(negLocal, gradsFloat, weightValue, currentNum)" in kernel_source
+    assert "progress += currentNum" in kernel_source
+    assert "for (int64_t progress = 0; progress < blockLength_; progress += tileLen_)" not in kernel_source
+
+
+def check_full_core_tiling():
+    total, cores, block, tile, sample, rows, _ = tiling_model((4, 6, 8), 4)
+    assert total == 192
+    assert cores == 24
+    assert block == 8
+    assert tile == 8
+    assert sample == 48
+    assert rows == 0
+
+    _, cores, block, tile, _, _, _ = tiling_model((4, 6, 8), 2)
+    assert cores == 12
+    assert block == 16
+    assert tile == 8  # capped to innerSize when weights are [C]
 
 
 def check_log_signature():
@@ -144,6 +158,7 @@ if __name__ == "__main__":
     check_random_cases()
     check_select_polarity()
     check_tiling_invariants()
-    check_weight_fill_alignment()
+    check_channel_tile_boundaries()
+    check_full_core_tiling()
     check_log_signature()
     print("PReluGradUpdate local semantic checks: PASS")

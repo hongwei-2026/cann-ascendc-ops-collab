@@ -20,17 +20,17 @@
 3. **P029 原生 half Compare/Select** 云测过、平台 4 仍炸（EXP017）  
 4. **Select 八参 + BinaryRepeatParams** 易平台 Compile Error（P022/EXP009）— 默认用 **count** 重载  
 
-## 当前道路 P031（工作树，待提交）
+## 当前道路 P100（性能候选，待 CodeArts）
 
 代码：`people/hongwei-2026/PReluGradUpdate_2329/workdir/code/`
 
 - float：原生 Compare+Select  
 - half：`if constexpr` 内 **Cast↔fp32** 再算（禁止原生 half Compare）  
 - bf16：**禁止 Cast**；位扩展/RNE；标量写后补 **S_V / S_MTE3**  
-- 工作区 16MB；Select dst≠src1；`Compare(+zero)`  
-- per-channel weight：未对齐前缀标量写；`Duplicate` 仅从 32B 对齐 UB 地址启动
+- workspace=0；Select dst≠src1；`Compare(+zero)`
+- 32B block 全核切分；per-channel tile 不跨 channel，直接标量 `Muls`
 
-详情：[EXP018](explorations/EXP018-case4-unaligned-weight-ub.md) · [EXP017](explorations/EXP017-case4-507035-p030.md) · [path-ledger](path-ledger.md) P026–P031
+详情：[EXP019](explorations/EXP019-performance-workspace-fullcore.md) · [EXP018](explorations/EXP018-case4-unaligned-weight-ub.md) · [path-ledger](path-ledger.md) P031/P100
 
 ## 请队友注意
 
@@ -42,5 +42,5 @@
 
 ## 下一闸
 
-hongwei：CodeArts 对 P031 跑 `-e` → 过则平台重交。
-队友：可读 EXP018；有独立假设先写 `path-ledger` 新行再开道路。
+hongwei：CodeArts 对 P100 跑三 key + `-e` → 过则平台采时。
+队友：功能基线仍是 P031；性能修改先读 EXP019，再开独立道路。

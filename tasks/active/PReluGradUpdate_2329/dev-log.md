@@ -200,6 +200,13 @@
 - 下一步：开性能道路（有界）；功能对齐逻辑冻结。
 - 关联道路：P031 采纳
 
+## 2026-11-03（P100 review）
+
+- 做了：审 Codex 性能改；修 Process 跳步 WA；host tile 限 inner；更新 EXP019/语义检查。
+- 下一步：CodeArts `-e` → 平台采时。
+- 关联道路：P100
+
+
 ## 2026-11-03（P031 / case4 UB 地址对齐）
 
 - 做了：审查平台 507035 的全部向量入口；发现 per-channel 权重展开使用 `Duplicate(weightLocal[localOffset], ...)`，当 `innerSize` 不是 8 个 float 的倍数时会从非 32B 对齐地址启动向量指令。
@@ -213,6 +220,16 @@
 - 做了：按 EXP018 与报错台账，把对齐修复合入 `people/yuhongming-2026/.../BuildWeightVector`；补 `check_weight_fill_alignment`；本地语义 PASS。
 - 下一步：CodeArts 同步自己座位 `workdir/code` 后 `-e`。
 - 关联道路：P032、EXP018
+
+## 2026-11-03（P100 / 首轮性能优化）
+
+- 平台基线：1–5 全 Pass；本实现 1.30/1.32/2.00/1.79/1.79ms，参考约 9.82–13.76μs。
+- 定位一：P026 遗留 16MB workspace，但 Kernel `(void)workspace`，形成与 tensor 大小无关的固定开销；恢复为 0。
+- 定位二：公开 fp32 `[4,6,8]` 被 tiling 成 1 核，并串行处理 24 个 channel segment；改为 32B block 全核切分（24 核）。
+- Kernel：每 tile 限制在单个 channel 内，直接加载一个权重并 `Muls`；删除 weightFloatBuf、Duplicate 展开和逐段对齐分支。
+- 验证：本地数值、channel tile 边界、fp32 24 核/fp16 12 核 tiling 回归 PASS；`git diff --check` PASS。
+- 下一步：CodeArts 三 key 编译 + `-e`；平台采时后再决定是否开 P101（双缓冲/半精度路径）。
+- 关联道路：P100、EXP019
 
 
 

@@ -41,19 +41,19 @@ static PReluGradUpdateTestParam testCases[] = {
     {"float_channel_weights", {4, 6, 8}, ge::DT_FLOAT, ge::FORMAT_ND,
         {4, 6, 8}, ge::DT_FLOAT, ge::FORMAT_ND, {6}, ge::DT_FLOAT, ge::FORMAT_ND,
         {4, 6, 8}, ge::DT_FLOAT, ge::FORMAT_ND, {4, 6, 8}, ge::DT_FLOAT, ge::FORMAT_ND,
-        "Ascend910B", ge::GRAPH_SUCCESS, 0UL, "192 1 192 192 6 8 48 1 4 ", {0}, 64, 262144, 4096},
+        "Ascend910B", ge::GRAPH_SUCCESS, 0UL, "192 24 8 8 6 8 48 1 0 ", {0}, 64, 262144, 4096},
     {"float_scalar_weight", {4, 6, 8}, ge::DT_FLOAT, ge::FORMAT_ND,
         {4, 6, 8}, ge::DT_FLOAT, ge::FORMAT_ND, {1}, ge::DT_FLOAT, ge::FORMAT_ND,
         {4, 6, 8}, ge::DT_FLOAT, ge::FORMAT_ND, {4, 6, 8}, ge::DT_FLOAT, ge::FORMAT_ND,
-        "Ascend910B", ge::GRAPH_SUCCESS, 0UL, "192 1 192 192 6 8 48 0 4 ", {0}, 64, 262144, 4096},
+        "Ascend910B", ge::GRAPH_SUCCESS, 0UL, "192 24 8 8 6 8 48 0 0 ", {0}, 64, 262144, 4096},
     {"float16_key", {4, 6, 8}, ge::DT_FLOAT16, ge::FORMAT_ND,
         {4, 6, 8}, ge::DT_FLOAT16, ge::FORMAT_ND, {6}, ge::DT_FLOAT16, ge::FORMAT_ND,
         {4, 6, 8}, ge::DT_FLOAT16, ge::FORMAT_ND, {4, 6, 8}, ge::DT_FLOAT16, ge::FORMAT_ND,
-        "Ascend910B", ge::GRAPH_SUCCESS, 1UL, "192 1 192 192 6 8 48 1 4 ", {0}, 64, 262144, 4096},
+        "Ascend910B", ge::GRAPH_SUCCESS, 1UL, "192 12 16 8 6 8 48 1 0 ", {0}, 64, 262144, 4096},
     {"bf16_key", {4, 6, 8}, ge::DT_BF16, ge::FORMAT_ND,
         {4, 6, 8}, ge::DT_BF16, ge::FORMAT_ND, {6}, ge::DT_BF16, ge::FORMAT_ND,
         {4, 6, 8}, ge::DT_BF16, ge::FORMAT_ND, {4, 6, 8}, ge::DT_BF16, ge::FORMAT_ND,
-        "Ascend910B", ge::GRAPH_SUCCESS, 2UL, "192 1 192 192 6 8 48 1 4 ", {0}, 64, 262144, 4096},
+        "Ascend910B", ge::GRAPH_SUCCESS, 2UL, "192 12 16 8 6 8 48 1 0 ", {0}, 64, 262144, 4096},
 };
 
 class PReluGradUpdateTilingTest : public testing::TestWithParam<PReluGradUpdateTestParam> {
