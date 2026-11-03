@@ -1,5 +1,8 @@
 # MultilabelMarginLoss（2327）设计说明
 
+> 实施以 [analysis/SUMMARY.md](analysis/SUMMARY.md) 为准；细则优先 [analysis/AI-codex-claude_design_final.md](analysis/AI-codex-claude_design_final.md)。  
+> 初版代码：`people/hongwei-2026/MultilabelMarginLoss_2327/workdir/code/`（融合队友 baseline）。
+
 ## 需求
 
 基于 Ascend C 实现与 910B 内置 TBE `MultilabelMarginLoss` **功能对齐**的算子：

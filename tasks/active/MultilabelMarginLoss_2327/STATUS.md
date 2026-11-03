@@ -2,13 +2,15 @@
 
 | 项 | 内容 |
 |----|------|
-| 状态 | `实现中`（功能基线已落盘；待 CodeArts `-e` / 平台） |
-| Owner | yuhongming-2026 |
+| 状态 | **`实现中`**（多路分析 + Codex/Claude design_final 已归档；双座位初版代码） |
+| Owner | 共享台账；实现座位见下 |
 | 更新日期 | 2026-11-03 |
-| 代码座位 | `people/yuhongming-2026/MultilabelMarginLoss_2327/workdir/code/` |
-| 本地 | `tests/local_semantic_check.py` **PASS** |
-| 下一闸 | CodeArts 同步座位 code → `build.sh -e` → 泛化精度/性能 |
+| 代码座位 | **hongwei 融合初版**：`people/hongwei-2026/MultilabelMarginLoss_2327/workdir/code/` |
+| 队友 baseline | `people/yuhongming-2026/MultilabelMarginLoss_2327/`（`60f8add`，本地语义 PASS） |
+| 设计 | [SUMMARY](analysis/SUMMARY.md) · [design_final](analysis/AI-codex-claude_design_final.md) · [design.md](design.md) |
+| 下一闸 | CodeArts 按 [SYNC_CODEARTS](SYNC_CODEARTS.md) 隔离目录 → `build.sh -e` |
+| 禁止串题 | 勿与 `PReluGradUpdate_2329` 共用 build/EXP 根目录 |
 
 ## 一句话
 
-AscendC 实现已对齐 `samples/reference.py`（910B 计数语义 + mean/sum/none）；bf16 走位转换，避免 910B `Cast` 缺指令。
+本地初版在 **hongwei** 座位：队友 baseline + `classTile` 大 C 滑窗；云端必须题目隔离，根目录 EXP 进 `_archive/`。

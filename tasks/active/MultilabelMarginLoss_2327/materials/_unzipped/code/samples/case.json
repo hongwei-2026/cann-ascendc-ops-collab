@@ -1,0 +1,94 @@
+{
+  "source_case": "npu_cases[0]",
+  "function": "impl",
+  "attributes": {
+    "reduction": "mean"
+  },
+  "inputs": [
+    {
+      "name": "x",
+      "kind": "required",
+      "tensors": [
+        {
+          "file": "x.bin",
+          "dtype": "float32",
+          "shape": [
+            4,
+            6
+          ],
+          "bytes": 96,
+          "elements": 24,
+          "range": [
+            -5,
+            5
+          ],
+          "value": null,
+          "value_url": null,
+          "value_sha256": null
+        }
+      ]
+    },
+    {
+      "name": "target",
+      "kind": "required",
+      "tensors": [
+        {
+          "file": "target.bin",
+          "dtype": "int32",
+          "shape": [
+            4,
+            6
+          ],
+          "bytes": 96,
+          "elements": 24,
+          "range": [
+            -1,
+            5
+          ],
+          "value": null,
+          "value_url": null,
+          "value_sha256": null
+        }
+      ]
+    }
+  ],
+  "outputs": [
+    {
+      "name": "y",
+      "kind": "required",
+      "tensors": [
+        {
+          "file": "y.bin",
+          "dtype": "float32",
+          "shape": [
+            1
+          ],
+          "bytes": 4,
+          "elements": 1,
+          "rtol": 0.0001,
+          "atol": 0.0001,
+          "tol": 0.0001
+        }
+      ]
+    },
+    {
+      "name": "is_target",
+      "kind": "required",
+      "tensors": [
+        {
+          "file": "is_target.bin",
+          "dtype": "int32",
+          "shape": [
+            4,
+            6
+          ],
+          "bytes": 96,
+          "elements": 24,
+          "rtol": 0,
+          "atol": 0,
+          "tol": 0
+        }
+      ]
+    }
+  ]
+}
