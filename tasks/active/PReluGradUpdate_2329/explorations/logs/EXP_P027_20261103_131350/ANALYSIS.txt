@@ -1,0 +1,4 @@
+﻿tip=d10c2a4
+verify_script=false_positive on DT_BF16 in #if block
+compile=not support bf16 type cast on BOTH fp16(7d1e7472) and float(40c7c86a) keys
+conclusion=any half path in same TU breaks compile; only fp32-only (P025) works on this CANN

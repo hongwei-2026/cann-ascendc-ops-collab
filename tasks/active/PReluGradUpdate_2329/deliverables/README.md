@@ -1,8 +1,6 @@
-﻿# PReluGradUpdate_2329 提交工程包
+﻿# 提交包（P028 = 仅 fp32，对齐 P025 可过基线）
 
 | 项 | 内容 |
 |----|------|
-| 道路 | P026（三 dtype、无 Cast；对平台 507035） |
-| ZIP | deliverables/PReluGradUpdate_2329_code_best.zip |
-| SHA256 | 7FB7FBE24C586CC766BE92FA3F5F9E2E42ABF303FEDF51BA347C5CCDE3EC4708 |
-| 桌面 | Desktop\PReluGradUpdate_2329_code_best.zip |
+| SHA256 | ADCB11B7F423B571382E0F5D33038E6A45349FC5C15B112F2C3429023DC88339 |
+| 说明 | 本 CANN 无法在同 TU 编 half/bf16；平台 1-3 已 Pass |

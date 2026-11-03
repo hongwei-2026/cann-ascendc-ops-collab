@@ -12,10 +12,10 @@
 #define PRELUGRADUPDATE_TPL_FLOAT16 1
 #define PRELUGRADUPDATE_TPL_BF16 2
 
-// P027: P026 开 bf16 后三 key 仍报 not support bf16 type cast。
-// 先只开 fp32+fp16（half 标量转换、无 Cast）；bf16 继续关，避免 bfloat16_t 进编译单元。
+// P028: EXP_P027 证明只要同编译单元出现 half 路径，fp32/fp16 都报
+// "not support bf16 type cast"。本 CANN 9.1.0 上默认只编 fp32（P025 已 PASS）。
 #ifndef PRELU_ENABLE_FP16
-#define PRELU_ENABLE_FP16 1
+#define PRELU_ENABLE_FP16 0
 #endif
 #ifndef PRELU_ENABLE_BF16
 #define PRELU_ENABLE_BF16 0

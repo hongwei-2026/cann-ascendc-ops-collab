@@ -31,18 +31,18 @@ if ! grep -q -F 'SetFlag<HardEvent::S_V>' "${BUILD_CODE}/${KERNEL_REL}"; then
   exit 5
 fi
 
-# P027: 默认 fp32+fp16；禁止 Cast；bf16 关闭时 def 不得注册 DT_BF16
-if grep -q '#define PRELU_ENABLE_FP16 1' "${BUILD_CODE}/op_kernel/p_relu_grad_update_tiling_key.h"; then
-  if grep -n 'Cast(' "${BUILD_CODE}/op_kernel/p_relu_grad_update.h" | grep -v '//'; then
-    echo "ERROR: Cast() must not appear in kernel (use scalar convert)" >&2
-    exit 7
-  fi
+# P028: 默认仅 fp32
+if ! grep -q '#define PRELU_ENABLE_FP16 0' "${BUILD_CODE}/op_kernel/p_relu_grad_update_tiling_key.h" || \
+   ! grep -q '#define PRELU_ENABLE_BF16 0' "${BUILD_CODE}/op_kernel/p_relu_grad_update_tiling_key.h"; then
+  echo "WARN: low-precision switches are not both 0 (P028 default is fp32-only)" >&2
 fi
-if grep -q '#define PRELU_ENABLE_BF16 0' "${BUILD_CODE}/op_kernel/p_relu_grad_update_tiling_key.h"; then
-  if grep -n 'DT_BF16' "${BUILD_CODE}/op_host/p_relu_grad_update_def.cpp" | grep -v '#if\|#elif\|//' >/dev/null; then
-    echo "ERROR: DT_BF16 still active while PRELU_ENABLE_BF16=0" >&2
-    exit 6
-  fi
+if ! grep -q 'DataType({ge::DT_FLOAT})' "${BUILD_CODE}/op_host/p_relu_grad_update_def.cpp"; then
+  echo "ERROR: expected fp32-only DataType({ge::DT_FLOAT}) in else branch of def.cpp" >&2
+  exit 6
+fi
+if grep -n 'Cast(' "${BUILD_CODE}/op_kernel/p_relu_grad_update.h" | grep -v '//' >/dev/null; then
+  echo "ERROR: Cast() must not appear in kernel header" >&2
+  exit 7
 fi
 
 echo "CodeArts source verification: PASS"

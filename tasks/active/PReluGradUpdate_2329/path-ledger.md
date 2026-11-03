@@ -31,7 +31,8 @@
 | P024 | 2026-11-03 | hongwei-2026 | 环境 | if constexpr 藏 Cast 不够 | `DtypeBridge` 全特化；默认 `PRELU_ENABLE_BF16=0` 只编 fp16/fp32 | 本迭代 | EXP_P024 仍 bf16 Cast（hash=旧 fp16/bf16） | 进行中 | EXP010 |
 | P025 | 2026-11-03 | hongwei-2026 | 环境 | half Cast/bf16 符号仍进后端 | 默认 **仅 fp32**：`PRELU_ENABLE_FP16/BF16=0`；Cast/bf16 全 `#if` | 本迭代 | Build OK；样例 dx/update **0/192 PASS** | **采纳** | EXP012 |
 | P026 | 2026-11-03 | hongwei-2026 | 功能 | 平台4点 507035=缺低精度/核异常 | 开三 dtype；half/bf16 **无 Cast**；每 tile 重建 weight；WS 16MB | 本迭代 | EXP_P026 仍 bf16 Cast 三 key 全挂 | 部分废弃(bf16) | EXP014 |
-| P027 | 2026-11-03 | hongwei-2026 | 环境 | bf16 进编译单元必炸 | **只开 fp32+fp16**；`PRELU_ENABLE_BF16=0`；half 标量无 Cast | 本迭代 | 已改待云测 | 进行中 | EXP014 |
+| P027 | 2026-11-03 | hongwei-2026 | 环境 | bf16 进编译单元必炸 | **只开 fp32+fp16**；`PRELU_ENABLE_BF16=0`；half 标量无 Cast | 本迭代 | EXP_P027：fp16+fp32 仍双挂 Cast | **废弃(混编)** | EXP015 |
+| P028 | 2026-11-03 | hongwei-2026 | 环境 | half 路径污染同 TU 的 fp32 | 默认回到 **仅 fp32**（对齐 P025）；修 verify 误报 | 本迭代 | 已改；以 P025 为可交基线 | **采纳** | EXP015 |
 
 ## 性能道路预声明（未到阶段勿开）
 
