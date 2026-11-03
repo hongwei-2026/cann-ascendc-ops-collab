@@ -119,7 +119,8 @@ git clone https://github.com/hongwei-2026/cann-ascendc-ops-collab.git
 
 ## E. 日志下载 / 归档（纠错必做）
 
-规范：每次探索除截图外，**必须留下原始 log 文件**。
+规范：每次探索除截图外，**必须留下原始 log 文件**。  
+**硬规则（2026-11-03 起）**：云端 `build.sh` / `-e` **无论成功失败**，都必须打 `EXP_*_logs.tar.gz` → IDE 右键 Download → 本机归档进 `explorations/logs/` 再 push。禁止只说「又报错了」不给 log。
 
 ### E1. CodeArts：打包到 `/mnt/workspace`（IDE 里右键 Download）
 
