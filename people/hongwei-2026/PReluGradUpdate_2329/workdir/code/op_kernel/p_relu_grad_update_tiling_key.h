@@ -12,13 +12,13 @@
 #define PRELUGRADUPDATE_TPL_FLOAT16 1
 #define PRELUGRADUPDATE_TPL_BF16 2
 
-// P025: 默认只编 fp32（样例 dtype）。910B 上 half Cast / bf16 都会触发
-// "not support bf16 type cast" 后端错误（见 EXP_P024）。
+// P026: 平台第4点 ACL 507035（向量核异常）——在仅 fp32 注册时，后续点多为 fp16/bf16。
+// 重新打开三 dtype；kernel 侧禁止任何 Cast（half/bf16 走标量/位转换）。
 #ifndef PRELU_ENABLE_FP16
-#define PRELU_ENABLE_FP16 0
+#define PRELU_ENABLE_FP16 1
 #endif
 #ifndef PRELU_ENABLE_BF16
-#define PRELU_ENABLE_BF16 0
+#define PRELU_ENABLE_BF16 1
 #endif
 
 #if PRELU_ENABLE_BF16 && PRELU_ENABLE_FP16

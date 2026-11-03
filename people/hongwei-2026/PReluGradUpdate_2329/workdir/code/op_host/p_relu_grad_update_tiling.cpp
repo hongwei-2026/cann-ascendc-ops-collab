@@ -14,7 +14,8 @@
 namespace optiling {
 namespace {
 
-constexpr uint32_t WS_SYS_SIZE = 0U;
+// P026: 给系统 workspace 留 16MB，避免部分 ACL 路径上 workspace=0 触发向量核异常(507035)。
+constexpr uint32_t WS_SYS_SIZE = 16U * 1024U * 1024U;
 constexpr uint64_t UB_USAGE_NUMERATOR = 8U;
 constexpr uint64_t UB_USAGE_DENOMINATOR = 10U;
 // 每元素 UB 占用（BUFFER_NUM=1）：

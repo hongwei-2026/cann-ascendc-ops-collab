@@ -21,8 +21,8 @@ constexpr int32_t BUFFER_NUM = 1;
 // 故对齐粒度固定为 256/sizeof(float) = 64 个元素。
 constexpr int64_t CMP_ALIGN_ELEMS = 256 / static_cast<int64_t>(sizeof(float));
 
-// P025: 默认只保留 float 桥接。half 的 Cast / bf16 符号在 910B 上会报
-// "not support bf16 type cast"（EXP_P023/P024）；开关见 tiling_key.h。
+// P026: 三 dtype 都开，但全链路禁止 Cast（910B 会报 not support bf16 type cast）。
+// half/bf16 仅在对应全特化里做标量/位转换，避免文件作用域残留 bfloat16 API。
 template <typename T>
 struct DtypeBridge;
 
@@ -47,50 +47,54 @@ struct DtypeBridge<half> {
     __aicore__ inline static float ScalarToFp32(half v) { return ToFloat(v); }
     __aicore__ inline static void TensorToFp32(LocalTensor<float>& dst, LocalTensor<half>& src, int64_t n)
     {
-        Cast(dst, src, RoundMode::CAST_NONE, n);
+        for (int64_t i = 0; i < n; ++i) {
+            dst.SetValue(i, ToFloat(src.GetValue(i)));
+        }
     }
     __aicore__ inline static void TensorFromFp32(LocalTensor<half>& dst, LocalTensor<float>& src, int64_t n)
     {
-        Cast(dst, src, RoundMode::CAST_RINT, n);
+        for (int64_t i = 0; i < n; ++i) {
+            dst.SetValue(i, static_cast<half>(src.GetValue(i)));
+        }
     }
 };
 #endif
 
 #if PRELU_ENABLE_BF16
-__aicore__ inline float Bf16ToFloatBits(bfloat16_t v)
-{
-    uint16_t bits = *reinterpret_cast<uint16_t*>(&v);
-    uint32_t u = static_cast<uint32_t>(bits) << 16;
-    float f = 0.0f;
-    *reinterpret_cast<uint32_t*>(&f) = u;
-    return f;
-}
-
-__aicore__ inline bfloat16_t FloatToBf16Rne(float f)
-{
-    uint32_t u = *reinterpret_cast<uint32_t*>(&f);
-    uint32_t lsb = (u >> 16) & 1U;
-    uint32_t roundingBias = 0x7FFFU + lsb;
-    uint16_t bits = static_cast<uint16_t>((u + roundingBias) >> 16);
-    bfloat16_t out;
-    *reinterpret_cast<uint16_t*>(&out) = bits;
-    return out;
-}
-
 template <>
 struct DtypeBridge<bfloat16_t> {
     static constexpr bool NEED_FP32_BUF = true;
-    __aicore__ inline static float ScalarToFp32(bfloat16_t v) { return Bf16ToFloatBits(v); }
+
+    __aicore__ inline static float ScalarToFp32(bfloat16_t v)
+    {
+        uint16_t bits = *reinterpret_cast<uint16_t*>(&v);
+        uint32_t u = static_cast<uint32_t>(bits) << 16;
+        float f = 0.0f;
+        *reinterpret_cast<uint32_t*>(&f) = u;
+        return f;
+    }
+
+    __aicore__ inline static bfloat16_t Fp32ToBf16(float f)
+    {
+        uint32_t u = *reinterpret_cast<uint32_t*>(&f);
+        uint32_t lsb = (u >> 16) & 1U;
+        uint32_t roundingBias = 0x7FFFU + lsb;
+        uint16_t bits = static_cast<uint16_t>((u + roundingBias) >> 16);
+        bfloat16_t out;
+        *reinterpret_cast<uint16_t*>(&out) = bits;
+        return out;
+    }
+
     __aicore__ inline static void TensorToFp32(LocalTensor<float>& dst, LocalTensor<bfloat16_t>& src, int64_t n)
     {
         for (int64_t i = 0; i < n; ++i) {
-            dst.SetValue(i, Bf16ToFloatBits(src.GetValue(i)));
+            dst.SetValue(i, ScalarToFp32(src.GetValue(i)));
         }
     }
     __aicore__ inline static void TensorFromFp32(LocalTensor<bfloat16_t>& dst, LocalTensor<float>& src, int64_t n)
     {
         for (int64_t i = 0; i < n; ++i) {
-            dst.SetValue(i, FloatToBf16Rne(src.GetValue(i)));
+            dst.SetValue(i, Fp32ToBf16(src.GetValue(i)));
         }
     }
 };
@@ -201,10 +205,9 @@ __aicore__ inline void PReluGradUpdate<T>::Init(GM_ADDR grads, GM_ADDR features,
         pipe_.InitBuffer(updateFloatBuf_, alignedCount * sizeof(float));
     }
 
-    if (rowsPerTile_ > 0 && weightsPerChannel_ != 0 && blockLength_ > 0) {
-        BuildWeightVector(0, tileLen_);
-        PipeBarrier<PIPE_V>();
-    }
+    // P026: 不在 Init 预计算 weight——多核 blockStart_/多 tile 时全局起点不同，
+    // 预计算易错；每轮 Compute 按真实 globalStart 重建。
+    (void)rowsPerTile_;
 }
 
 template <typename T>
@@ -288,10 +291,8 @@ __aicore__ inline void PReluGradUpdate<T>::Compute(int64_t progress, int64_t cur
     LocalTensor<float> fgLocal = fgFloatBuf_.Get<float>();
 
     if (weightsPerChannel_ != 0) {
-        if (rowsPerTile_ == 0) {
-            BuildWeightVector(blockStart_ + progress, currentNum);
-            PipeBarrier<PIPE_V>();
-        }
+        BuildWeightVector(blockStart_ + progress, currentNum);
+        PipeBarrier<PIPE_V>();
         LocalTensor<float> weightLocal = weightFloatBuf_.Get<float>();
         Mul(negLocal, gradsFloat, weightLocal, currentNum);
     } else {
