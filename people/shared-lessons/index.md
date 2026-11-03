@@ -16,3 +16,5 @@
 | L03 | Select 必须 Compare+Select，禁掩码乘（Inf） | [PReluGradUpdate_2329/compare-select-not-maskmul.md](PReluGradUpdate_2329/compare-select-not-maskmul.md) |
 | L04 | Select dst 勿与 src1 同址 | [PReluGradUpdate_2329/select-no-alias-src1.md](PReluGradUpdate_2329/select-no-alias-src1.md) |
 | L05 | CANN 9.1 不用 SyncFunc，用 SetFlag/WaitFlag | [PReluGradUpdate_2329/no-syncfunc-cann91.md](PReluGradUpdate_2329/no-syncfunc-cann91.md) |
+| L06 | 优先 Compare(+zero)，慎用 CompareScalar | [PReluGradUpdate_2329/compare-not-comparescalar.md](PReluGradUpdate_2329/compare-not-comparescalar.md) |
+| L07 | Select 用 count 重载，勿默认八参 | [PReluGradUpdate_2329/select-use-count-overload.md](PReluGradUpdate_2329/select-use-count-overload.md) |

@@ -26,6 +26,8 @@
 | P019 | 2026-11-02 | team | 环境 | P018 实际编译了旧 code 副本 | 加 `verify_codearts_source.sh`，构建前比对 workdir/build kernel SHA256，禁止残留 SyncFunc | 本迭代 | EXP_P019 verify **PASS**；编挂在 bf16 Cast | **采纳(门禁)** | — |
 | P020 | 2026-11-02 | team | 环境 | bf16 禁止 Cast（EXP002 再现） | bf16 位扩展/RNE；half 仍 Cast；记 EXP007 | 本迭代 | 已改 kernel；待云端 `-e` | 进行中 | — |
 | P021 | 2026-11-02 | team | 交付 | 先交 tip 工程试平台 | 打顶层 `code/` ZIP（beaa00e）；排除 pyc/build | 0.5h | `deliverables/PReluGradUpdate_2329_code_best.zip` SHA256 `A7C800F6…7F973D` | 采纳(试交) | — |
+| P022 | 2026-11-02 | yuhongming-2026 | 功能 | CompareScalar 致 mask 全 0 | PR#1：`Compare`+零；八参 Select+BinaryRepeatParams | 本迭代 | 平台 Compile Error 嫌疑；未合 main | 部分采纳 | EXP008 |
+| P023 | 2026-11-03 | hongwei-2026 | 功能 | 吸 P022 比较、保可编译 Select | hongwei：`Compare(+zero)` + **count** Select；禁八参 | 本迭代 | 已改待云测/平台重交 | 进行中 | EXP009 |
 
 ## 性能道路预声明（未到阶段勿开）
 

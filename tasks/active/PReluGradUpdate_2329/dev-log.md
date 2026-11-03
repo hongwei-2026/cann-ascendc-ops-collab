@@ -107,3 +107,10 @@
 - 结果：云上历史最好仍 WA~95–97；本包含未复测的 bf16 位转换。
 - 下一步：平台试交；同时 CodeArts 复测 P020。
 - 关联道路：P021
+
+## 2026-11-03（P023 吸 P022 / 避八参 Select）
+
+- 做了：审 PR#1；hongwei Kernel 改 `Compare(+zero)` + **count** Select；写 EXP009；重打包试交 ZIP；PR 留言。
+- 路径：`people/hongwei-2026/.../op_kernel/p_relu_grad_update.h`；`deliverables/PReluGradUpdate_2329_code_best.zip`
+- 下一步：平台重交；CodeArts `-e`。
+- 关联道路：P022、P023

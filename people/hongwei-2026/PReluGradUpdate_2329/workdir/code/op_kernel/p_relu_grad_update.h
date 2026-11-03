@@ -263,21 +263,28 @@ __aicore__ inline void PReluGradUpdate<T>::Compute(int64_t progress, int64_t cur
     }
 
     Mul(fgLocal, featuresFloat, gradsFloat, currentNum);
-    LocalTensor<uint8_t> maskLocal = maskBuf_.Get<uint8_t>();
-    // 必须用浮点 GT 比较：NaN 在任何比较下为假，会落入负分支，与 golden 的 np.where 一致；
-    // 改用 LE 取反会把 NaN 也判成假，两个分支都错。
-    CompareScalar(maskLocal, featuresFloat, 0.0f, CMPMODE::GT, static_cast<uint32_t>(cmpCount));
     PipeBarrier<PIPE_V>();
 
-    // selMask=1 取 src0：正分支取 grads，非正分支取 w*grads。
-    Select(dxFloat, maskLocal, gradsFloat, negLocal, SELMODE::VSEL_TENSOR_TENSOR_MODE,
-        static_cast<uint32_t>(cmpCount));
-
-    // featuresFloat 在 Mul/Compare 之后已无用，复用为全 0 向量（它不是任何 Select 的 dst）。
-    LocalTensor<float> zeroLocal = featuresFloat;
+    // P023（吸收 P022）：CompareScalar 在样例上等效 mask 全 0（恒负支 97/192）。
+    // 先造零向量再 tensor Compare；Select 仍用 design_final 的 count 重载。
+    // 不用 BinaryRepeatParams 八参 Select——平台易 Compile Error（见 PR#1 / EXP009）。
+    LocalTensor<float> zeroLocal = dxFloat;
     Duplicate(zeroLocal, 0.0f, static_cast<int32_t>(cmpCount));
     PipeBarrier<PIPE_V>();
-    Select(updateFloat, maskLocal, zeroLocal, fgLocal, SELMODE::VSEL_TENSOR_TENSOR_MODE,
+    LocalTensor<uint8_t> maskLocal = maskBuf_.Get<uint8_t>();
+    // 必须用浮点 GT：NaN 比较为假 → 负分支，与 np.where 一致；禁止 LE 取反。
+    Compare(maskLocal, featuresFloat, zeroLocal, CMPMODE::GT, static_cast<uint32_t>(cmpCount));
+    PipeBarrier<PIPE_V>();
+
+    // selMask=1 取 src0：正支 grads / 0；bit0 → src1：负支 w*g / x*g。
+    Select(dxFloat, maskLocal, gradsFloat, negLocal, SELMODE::VSEL_TENSOR_TENSOR_MODE,
+        static_cast<uint32_t>(cmpCount));
+    PipeBarrier<PIPE_V>();
+
+    // featuresFloat 在 Mul/Compare 后已无用，复用为 update 零向量（非 Select dst）。
+    Duplicate(featuresFloat, 0.0f, static_cast<int32_t>(cmpCount));
+    PipeBarrier<PIPE_V>();
+    Select(updateFloat, maskLocal, featuresFloat, fgLocal, SELMODE::VSEL_TENSOR_TENSOR_MODE,
         static_cast<uint32_t>(cmpCount));
     PipeBarrier<PIPE_V>();
 
