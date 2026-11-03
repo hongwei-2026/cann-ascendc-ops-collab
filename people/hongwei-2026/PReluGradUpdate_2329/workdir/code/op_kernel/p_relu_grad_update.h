@@ -21,8 +21,42 @@ constexpr int32_t BUFFER_NUM = 1;
 // 故对齐粒度固定为 256/sizeof(float) = 64 个元素。
 constexpr int64_t CMP_ALIGN_ELEMS = 256 / static_cast<int64_t>(sizeof(float));
 
-// EXP002/P020/P024: 910B 不支持 bf16 Cast。必须用全特化，勿靠 if constexpr 藏 Cast——
-// AscendC/bisheng 仍可能把 false 分支里的 Cast(bf16) 送进后端（EXP_P023 再现）。
+// P025: 默认只保留 float 桥接。half 的 Cast / bf16 符号在 910B 上会报
+// "not support bf16 type cast"（EXP_P023/P024）；开关见 tiling_key.h。
+template <typename T>
+struct DtypeBridge;
+
+template <>
+struct DtypeBridge<float> {
+    static constexpr bool NEED_FP32_BUF = false;
+    __aicore__ inline static float ScalarToFp32(float v) { return v; }
+    __aicore__ inline static void TensorToFp32(LocalTensor<float>& /*dst*/, LocalTensor<float>& /*src*/,
+        int64_t /*n*/)
+    {
+    }
+    __aicore__ inline static void TensorFromFp32(LocalTensor<float>& /*dst*/, LocalTensor<float>& /*src*/,
+        int64_t /*n*/)
+    {
+    }
+};
+
+#if PRELU_ENABLE_FP16
+template <>
+struct DtypeBridge<half> {
+    static constexpr bool NEED_FP32_BUF = true;
+    __aicore__ inline static float ScalarToFp32(half v) { return ToFloat(v); }
+    __aicore__ inline static void TensorToFp32(LocalTensor<float>& dst, LocalTensor<half>& src, int64_t n)
+    {
+        Cast(dst, src, RoundMode::CAST_NONE, n);
+    }
+    __aicore__ inline static void TensorFromFp32(LocalTensor<half>& dst, LocalTensor<float>& src, int64_t n)
+    {
+        Cast(dst, src, RoundMode::CAST_RINT, n);
+    }
+};
+#endif
+
+#if PRELU_ENABLE_BF16
 __aicore__ inline float Bf16ToFloatBits(bfloat16_t v)
 {
     uint16_t bits = *reinterpret_cast<uint16_t*>(&v);
@@ -43,44 +77,6 @@ __aicore__ inline bfloat16_t FloatToBf16Rne(float f)
     return out;
 }
 
-template <typename T>
-struct DtypeBridge;
-
-template <>
-struct DtypeBridge<float> {
-    static constexpr bool NEED_FP32_BUF = false;
-    __aicore__ inline static float ScalarToFp32(float v) { return v; }
-    __aicore__ inline static void TensorToFp32(LocalTensor<float>& /*dst*/, LocalTensor<float>& /*src*/,
-        int64_t /*n*/)
-    {
-    }
-    __aicore__ inline static void TensorFromFp32(LocalTensor<float>& /*dst*/, LocalTensor<float>& /*src*/,
-        int64_t /*n*/)
-    {
-    }
-};
-
-template <>
-struct DtypeBridge<half> {
-    static constexpr bool NEED_FP32_BUF = true;
-    __aicore__ inline static float ScalarToFp32(half v) { return ToFloat(v); }
-    __aicore__ inline static void TensorToFp32(LocalTensor<float>& dst, LocalTensor<half>& src, int64_t n)
-    {
-        Cast(dst, src, RoundMode::CAST_NONE, n);
-    }
-    __aicore__ inline static void TensorFromFp32(LocalTensor<half>& dst, LocalTensor<float>& src, int64_t n)
-    {
-        Cast(dst, src, RoundMode::CAST_RINT, n);
-    }
-};
-
-// P024: 默认先关掉 bf16 key，避免 opc 三 key 同编时 bisheng 仍扫到 Cast/bf16 路径。
-// 样例为 fp32；fp16 仍走 Cast。打开 bf16：改 PRELU_ENABLE_BF16=1，并恢复 tiling_key/def。
-#ifndef PRELU_ENABLE_BF16
-#define PRELU_ENABLE_BF16 0
-#endif
-
-#if PRELU_ENABLE_BF16
 template <>
 struct DtypeBridge<bfloat16_t> {
     static constexpr bool NEED_FP32_BUF = true;

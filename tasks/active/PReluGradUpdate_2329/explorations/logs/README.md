@@ -19,6 +19,8 @@
 | `EXP_P018_.../` | 仍 SyncFunc；SOURCE 写 925ea28 但编译正文是旧文件，确认同步链路失效 |
 | `EXP_P019_.../` | verify PASS；bf16 Cast 炸 FATBIN（路径见本目录） |
 | `EXP_P023_.../` | P023 仍 `not support bf16 type cast` → P024 关 bf16 key |
+| `EXP_P024_.../` | P024 仍炸；hash=旧 fp16/bf16 → P025 仅 fp32 |
+
 
 
 规范见 `AGENTS.md` 探索落盘、`people/shared-lessons/general/codearts-and-logs.md`。

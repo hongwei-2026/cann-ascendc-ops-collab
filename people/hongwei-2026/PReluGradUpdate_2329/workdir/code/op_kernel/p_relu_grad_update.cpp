@@ -23,10 +23,12 @@ __global__ __aicore__ void p_relu_grad_update(GM_ADDR grads, GM_ADDR features, G
         NsPReluGradUpdate::PReluGradUpdate<float> op;
         op.Init(grads, features, weights, dx, update, &tilingData);
         op.Process();
+#if PRELU_ENABLE_FP16
     } else if constexpr (schMode == static_cast<uint32_t>(PReluGradUpdateTilingKey::FLOAT16)) {
         NsPReluGradUpdate::PReluGradUpdate<half> op;
         op.Init(grads, features, weights, dx, update, &tilingData);
         op.Process();
+#endif
 #if PRELU_ENABLE_BF16
     } else if constexpr (schMode == static_cast<uint32_t>(PReluGradUpdateTilingKey::BFLOAT16)) {
         NsPReluGradUpdate::PReluGradUpdate<bfloat16_t> op;
