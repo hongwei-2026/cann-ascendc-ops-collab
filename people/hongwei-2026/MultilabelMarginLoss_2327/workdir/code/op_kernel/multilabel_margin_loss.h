@@ -4,7 +4,40 @@
  *
  * is_target：扫描到首个 <0 为止，对合法类标计数（int32）。
  * loss：对非目标类 j 与目标类 l，累加 cnt[l]*max(0, 1+x[j]-x[l]) 再 /C。
- * 中间一律 float32；fp16 Cast，bf16 位转换（避免 910B bf16 Cast 缺指令）。
+ * 中间一律 float32，最后按输出 dtype 舍入。
+ *
+ * ────────────────────────────────────────────────────────────────────────
+ * 【EXP_M001 失败根因 · 已按 CANN 8.5.0 接口参考改正】
+ *
+ * 现象：is_target PASS(0/24)，y Wrong Answer(1/1)。
+ *
+ * 根因：旧版用 `rowLossGm_.SetValue()` / `yGm_.SetValue()` 写 GM、用
+ *       `GetValue()` 跨核读回。手册 §4.6.2 明确：
+ *         · DMA 搬运单元（DataCopy/DataCopyPad）读写 GM —— **没有 Cache 一致性问题**；
+ *         · Scalar 单元访问 GM —— 先过每个核内部的 Data Cache，**存在一致性问题**。
+ *       §3.2.7 SetValue 进一步规定：
+ *         · 写只改 DCache，**不会立刻写出 GM**，写出以 Cache Line(64B) 为单位；
+ *         · **多核操作 GM 时不同核地址至少要差一个 Cache Line，否则多核数据随机覆盖**。
+ *       本算子 N=4 走 4 个核，各核写 rowLoss[0..3]，偏移仅 0/4/8/12B，
+ *       **同处一条 64B Cache Line** → 各核回写整行时相互覆盖 → y 读到随机值。
+ *       而 is_target 走 DataCopyPad（DMA）不过 DCache，所以一直是对的。
+ *       这解释了「计数对、损失错」的全部现象。
+ *
+ * 改正：y / rowLoss 路径**全部改走 DataCopyPad（MTE3/MTE2 DMA）**，
+ *       kernel 内不再出现任何对 GM 的标量 SetValue/GetValue。
+ *
+ * 另修（同次定位）：
+ *   1. 旧版 Pass2 把 is_target 写出 GM 后又用 `isTargetGm_.GetValue()` 读回当 cnt，
+ *      既是 MTE3→Scalar 的读后写冒险，又违反 §3.2.5 GetValue 约束（GM 内容可能
+ *      被外部改写时须先 DataCacheCleanAndInvalid）。读回若拿到旧值则全行判为
+ *      「无目标类」→ loss 恒 0。现改为**从常驻 UB 的 target 行就地重算 cnt**，
+ *      彻底去掉 GM 往返。
+ *   2. 旧版 `rowCount_<=0` 时提前 return，**跳过了 SyncAll()**。当
+ *      ceil(N/rowsPerCore) < usedCores（如 N=100、coreNum=64 → 仅 50 核有活）
+ *      时，空闲核不参与 SyncAll，其余核永久等待 → 死锁。现改为无条件参与。
+ *   3. hinge 内层由标量改为**沿 j 轴向量化**，并按互异目标类 cnt 加权
+ *      （等价于按前缀位置展开），由 O(C*D) 标量降为 O(D) 次向量操作。
+ * ────────────────────────────────────────────────────────────────────────
  */
 
 #ifndef MULTILABELMARGINLOSS_H
@@ -20,28 +53,14 @@ namespace NsMultilabelMarginLoss {
 
 using namespace AscendC;
 
-constexpr int32_t BUFFER_NUM = 1;
 constexpr int64_t REDUCTION_NONE = 0;
 constexpr int64_t REDUCTION_MEAN = 1;
 constexpr int64_t REDUCTION_SUM = 2;
 
-__aicore__ inline float Bf16ToFloat(bfloat16_t v)
-{
-    uint16_t bits = *reinterpret_cast<uint16_t*>(&v);
-    float out = 0.0f;
-    *reinterpret_cast<uint32_t*>(&out) = static_cast<uint32_t>(bits) << 16;
-    return out;
-}
-
-__aicore__ inline bfloat16_t FloatToBf16Rne(float f)
-{
-    uint32_t u = *reinterpret_cast<uint32_t*>(&f);
-    uint32_t lsb = (u >> 16) & 1U;
-    uint16_t bits = static_cast<uint16_t>((u + 0x7FFFU + lsb) >> 16);
-    bfloat16_t out;
-    *reinterpret_cast<uint16_t*>(&out) = bits;
-    return out;
-}
+// 跨核归约时每次从 workspace 读回的 float 数（UB 常驻 RED_CHUNK*4B）
+constexpr int64_t RED_CHUNK = 512;
+// y 单次写出的暂存元素数（只用首元素，留 32 个槽保证 32B 对齐余量）
+constexpr int64_t OUT_SLOT = 32;
 
 template <typename T>
 class MultilabelMarginLoss {
@@ -53,19 +72,35 @@ public:
     __aicore__ inline void Process();
 
 private:
-    __aicore__ inline void SyncSV();
-    __aicore__ inline void SyncSMTE3();
-    __aicore__ inline int64_t AlignUp(int64_t value, int64_t alignment) const;
-    __aicore__ inline float LoadXAsFloat(const LocalTensor<T>& xLocal, int64_t idx);
-    __aicore__ inline void StoreYValue(int64_t idx, float value);
+    __aicore__ inline int64_t AlignUp(int64_t value, int64_t alignment) const
+    {
+        return ((value + alignment - 1) / alignment) * alignment;
+    }
+
+    __aicore__ inline void LoadTargetRow(int64_t row);
+    __aicore__ inline int64_t ScanPrefix() const;
+    __aicore__ inline void BuildCnt(int64_t c0, int64_t len);
+    __aicore__ inline void BuildMask(int64_t c0, int64_t len);
+    __aicore__ inline void LoadXTile(int64_t row, int64_t c0, int64_t len,
+        const LocalTensor<float>& dst, float bias);
     __aicore__ inline float ProcessOneRow(int64_t row);
+
+    // 以下两个写出接口一律走 DataCopyPad（DMA），禁止标量写 GM
+    __aicore__ inline void StoreRowLoss(int64_t row, float value);
+    __aicore__ inline void StoreY(int64_t idx, float value);
 
 private:
     TPipe pipe_;
-    TBuf<TPosition::VECCALC> xBuf_;
-    TBuf<TPosition::VECCALC> targetBuf_;
-    TBuf<TPosition::VECCALC> isTargetBuf_;
-    TBuf<TPosition::VECCALC> xFloatBuf_;
+    TBuf<TPosition::VECCALC> tgtBuf_;   // int32  K
+    TBuf<TPosition::VECCALC> xRawBuf_;  // T      classTile
+    TBuf<TPosition::VECCALC> xjfBuf_;   // float  classTile  (= x_j + 1)
+    TBuf<TPosition::VECCALC> xlfBuf_;   // float  classTile  (= x_l)
+    TBuf<TPosition::VECCALC> maskBuf_;  // float  classTile  (非目标类 1.0 / 目标类 0.0)
+    TBuf<TPosition::VECCALC> accBuf_;   // float  classTile  hinge 累加器
+    TBuf<TPosition::VECCALC> tmpBuf_;   // float  classTile  scratch / ReduceSum work
+    TBuf<TPosition::VECCALC> cntBuf_;   // int32  classTile  计数
+    TBuf<TPosition::VECCALC> redBuf_;   // float  RED_CHUNK  归约读回 + ReduceSum dst
+    TBuf<TPosition::VECCALC> outBuf_;   // T      OUT_SLOT   y 写出暂存
 
     GlobalTensor<T> xGm_;
     GlobalTensor<int32_t> targetGm_;
@@ -76,122 +111,26 @@ private:
     int64_t batchSize_ = 0;
     int64_t classNum_ = 0;
     int64_t targetLen_ = 0;
-    int64_t reduction_ = 1;
-    int64_t usedCores_ = 1;
+    int64_t reduction_ = REDUCTION_MEAN;
     int64_t rowsPerCore_ = 1;
     int64_t classTile_ = 0;
-    int64_t targetTile_ = 0;
     int64_t rowStart_ = 0;
     int64_t rowCount_ = 0;
+    int64_t prefixLen_ = 0;
 };
 
 template <typename T>
-__aicore__ inline int64_t MultilabelMarginLoss<T>::AlignUp(int64_t value, int64_t alignment) const
-{
-    return ((value + alignment - 1) / alignment) * alignment;
-}
-
-template <typename T>
-__aicore__ inline void MultilabelMarginLoss<T>::SyncSV()
-{
-    event_t evt = static_cast<event_t>(GetTPipePtr()->FetchEventID(HardEvent::S_V));
-    SetFlag<HardEvent::S_V>(evt);
-    WaitFlag<HardEvent::S_V>(evt);
-}
-
-template <typename T>
-__aicore__ inline void MultilabelMarginLoss<T>::SyncSMTE3()
-{
-    event_t evt = static_cast<event_t>(GetTPipePtr()->FetchEventID(HardEvent::S_MTE3));
-    SetFlag<HardEvent::S_MTE3>(evt);
-    WaitFlag<HardEvent::S_MTE3>(evt);
-}
-
-template <typename T>
-__aicore__ inline float MultilabelMarginLoss<T>::LoadXAsFloat(const LocalTensor<T>& xLocal, int64_t idx)
-{
-    T raw = xLocal.GetValue(idx);
-    if constexpr (std::is_same<T, float>::value) {
-        return raw;
-    } else if constexpr (std::is_same<T, half>::value) {
-        // 标量路径：half 按 IEEE 位展开到 float（与 Cast CAST_NONE 一致量级）
-        uint16_t h = *reinterpret_cast<uint16_t*>(&raw);
-        uint32_t sign = (static_cast<uint32_t>(h) & 0x8000u) << 16;
-        uint32_t exp = (static_cast<uint32_t>(h) >> 10) & 0x1Fu;
-        uint32_t man = static_cast<uint32_t>(h) & 0x3FFu;
-        uint32_t outBits;
-        if (exp == 0) {
-            if (man == 0) {
-                outBits = sign;
-            } else {
-                exp = 127 - 15 + 1;
-                while ((man & 0x400u) == 0) {
-                    man <<= 1;
-                    --exp;
-                }
-                man &= 0x3FFu;
-                outBits = sign | (exp << 23) | (man << 13);
-            }
-        } else if (exp == 31) {
-            outBits = sign | 0x7F800000u | (man << 13);
-        } else {
-            outBits = sign | ((exp + (127 - 15)) << 23) | (man << 13);
-        }
-        float out = 0.0f;
-        *reinterpret_cast<uint32_t*>(&out) = outBits;
-        return out;
-    } else {
-        return Bf16ToFloat(raw);
-    }
-}
-
-template <typename T>
-__aicore__ inline void MultilabelMarginLoss<T>::StoreYValue(int64_t idx, float value)
-{
-    T out;
-    if constexpr (std::is_same<T, float>::value) {
-        out = value;
-    } else if constexpr (std::is_same<T, half>::value) {
-        // float → half RNE
-        uint32_t f = *reinterpret_cast<uint32_t*>(&value);
-        uint32_t sign = (f >> 16) & 0x8000u;
-        int32_t exp = static_cast<int32_t>((f >> 23) & 0xFFu) - 127 + 15;
-        uint32_t man = f & 0x7FFFFFu;
-        uint16_t h;
-        if ((f & 0x7F800000u) == 0x7F800000u) {
-            h = static_cast<uint16_t>(sign | 0x7C00u | (man ? 0x200u : 0u));
-        } else if (exp <= 0) {
-            h = static_cast<uint16_t>(sign);
-        } else if (exp >= 31) {
-            h = static_cast<uint16_t>(sign | 0x7C00u);
-        } else {
-            uint32_t rounded = man + 0x1000u;
-            h = static_cast<uint16_t>(sign | (static_cast<uint32_t>(exp) << 10) | (rounded >> 13));
-        }
-        *reinterpret_cast<uint16_t*>(&out) = h;
-    } else {
-        out = FloatToBf16Rne(value);
-    }
-    yGm_.SetValue(idx, out);
-}
-
-template <typename T>
-__aicore__ inline void MultilabelMarginLoss<T>::Init(GM_ADDR x, GM_ADDR target, GM_ADDR y, GM_ADDR isTarget,
-    GM_ADDR workspace, const MultilabelMarginLossTilingData* tilingData)
+__aicore__ inline void MultilabelMarginLoss<T>::Init(GM_ADDR x, GM_ADDR target, GM_ADDR y,
+    GM_ADDR isTarget, GM_ADDR workspace, const MultilabelMarginLossTilingData* tilingData)
 {
     batchSize_ = tilingData->batchSize;
     classNum_ = tilingData->classNum;
     targetLen_ = tilingData->targetLen;
     reduction_ = tilingData->reduction;
-    usedCores_ = tilingData->usedCores;
     rowsPerCore_ = tilingData->rowsPerCore;
-    classTile_ = tilingData->classTile > 0 ? tilingData->classTile : tilingData->classNum;
-    targetTile_ = tilingData->targetTile > 0 ? tilingData->targetTile : tilingData->targetLen;
+    classTile_ = tilingData->classTile > 0 ? tilingData->classTile : classNum_;
     if (classTile_ > classNum_) {
         classTile_ = classNum_;
-    }
-    if (targetTile_ > targetLen_) {
-        targetTile_ = targetLen_;
     }
 
     const int64_t blockIdx = static_cast<int64_t>(GetBlockIdx());
@@ -206,168 +145,277 @@ __aicore__ inline void MultilabelMarginLoss<T>::Init(GM_ADDR x, GM_ADDR target, 
 
     xGm_.SetGlobalBuffer((__gm__ T*)x, batchSize_ * classNum_);
     targetGm_.SetGlobalBuffer((__gm__ int32_t*)target, batchSize_ * targetLen_);
-    if (reduction_ == REDUCTION_NONE) {
-        yGm_.SetGlobalBuffer((__gm__ T*)y, batchSize_);
-    } else {
-        yGm_.SetGlobalBuffer((__gm__ T*)y, 1);
-    }
+    yGm_.SetGlobalBuffer((__gm__ T*)y, reduction_ == REDUCTION_NONE ? batchSize_ : 1);
     isTargetGm_.SetGlobalBuffer((__gm__ int32_t*)isTarget, batchSize_ * classNum_);
+    rowLossGm_.SetGlobalBuffer((__gm__ float*)GetUserWorkspace(workspace), batchSize_);
 
-    GM_ADDR userWs = GetUserWorkspace(workspace);
-    rowLossGm_.SetGlobalBuffer((__gm__ float*)userWs, batchSize_);
-
-    // UB 按 classTile/targetTile 分配（大 C 滑窗，对齐 design_final）
-    const int64_t xAlign = AlignUp(classTile_, 32 / static_cast<int64_t>(sizeof(T)));
-    const int64_t tAlign = AlignUp(targetTile_, 8);
+    const int64_t xElemPerBlock = 32 / static_cast<int64_t>(sizeof(T));
     const int64_t cAlign = AlignUp(classTile_, 8);
 
-    pipe_.InitBuffer(xBuf_, xAlign * sizeof(T));
-    pipe_.InitBuffer(targetBuf_, tAlign * sizeof(int32_t));
-    pipe_.InitBuffer(isTargetBuf_, cAlign * sizeof(int32_t));
-    pipe_.InitBuffer(xFloatBuf_, AlignUp(classTile_, 8) * sizeof(float));
+    pipe_.InitBuffer(tgtBuf_, AlignUp(targetLen_, 8) * sizeof(int32_t));
+    pipe_.InitBuffer(xRawBuf_, AlignUp(classTile_, xElemPerBlock) * sizeof(T));
+    pipe_.InitBuffer(xjfBuf_, cAlign * sizeof(float));
+    pipe_.InitBuffer(xlfBuf_, cAlign * sizeof(float));
+    pipe_.InitBuffer(maskBuf_, cAlign * sizeof(float));
+    pipe_.InitBuffer(accBuf_, cAlign * sizeof(float));
+    pipe_.InitBuffer(tmpBuf_, cAlign * sizeof(float));
+    pipe_.InitBuffer(cntBuf_, cAlign * sizeof(int32_t));
+    pipe_.InitBuffer(redBuf_, RED_CHUNK * sizeof(float));
+    pipe_.InitBuffer(outBuf_, OUT_SLOT * sizeof(T));
+}
+
+// target 整行常驻 UB —— 「首个负值截断」是顺序依赖的，前缀不可跨核/跨块拆分
+template <typename T>
+__aicore__ inline void MultilabelMarginLoss<T>::LoadTargetRow(int64_t row)
+{
+    LocalTensor<int32_t> tgt = tgtBuf_.Get<int32_t>();
+    const int64_t pad = AlignUp(targetLen_, 8) - targetLen_;
+    DataCopyExtParams params = {1, static_cast<uint32_t>(targetLen_ * sizeof(int32_t)), 0, 0, 0};
+    // 尾部补 0（非负）：补负数会被误判成截断点，把有效前缀砍短
+    DataCopyPadExtParams<int32_t> padParams = {true, 0, static_cast<uint8_t>(pad), 0};
+    DataCopyPad(tgt, targetGm_[row * targetLen_], params, padParams);
+    PipeBarrier<PIPE_ALL>(); // MTE2 -> Scalar
+}
+
+template <typename T>
+__aicore__ inline int64_t MultilabelMarginLoss<T>::ScanPrefix() const
+{
+    LocalTensor<int32_t> tgt = tgtBuf_.Get<int32_t>();
+    for (int64_t k = 0; k < targetLen_; ++k) {
+        if (tgt.GetValue(k) < 0) {
+            return k;
+        }
+    }
+    return targetLen_;
+}
+
+// 前缀内落在 [c0, c0+len) 的合法类标计数；>=C 的正值跳过但**不截断**
+template <typename T>
+__aicore__ inline void MultilabelMarginLoss<T>::BuildCnt(int64_t c0, int64_t len)
+{
+    LocalTensor<int32_t> tgt = tgtBuf_.Get<int32_t>();
+    LocalTensor<int32_t> cnt = cntBuf_.Get<int32_t>();
+    for (int64_t c = 0; c < len; ++c) {
+        cnt.SetValue(c, 0);
+    }
+    for (int64_t k = 0; k < prefixLen_; ++k) {
+        const int32_t t = tgt.GetValue(k);
+        if (t < c0 || t >= c0 + len || t >= classNum_) {
+            continue;
+        }
+        const int64_t idx = static_cast<int64_t>(t) - c0;
+        cnt.SetValue(idx, cnt.GetValue(idx) + 1);
+    }
+}
+
+// 非目标类掩码：cnt==0 → 1.0，cnt>0 → 0.0。只扫前缀，O(L) 标量，不需遍历 C
+template <typename T>
+__aicore__ inline void MultilabelMarginLoss<T>::BuildMask(int64_t c0, int64_t len)
+{
+    LocalTensor<int32_t> tgt = tgtBuf_.Get<int32_t>();
+    LocalTensor<float> mask = maskBuf_.Get<float>();
+    Duplicate(mask, 1.0f, static_cast<int32_t>(len));
+    PipeBarrier<PIPE_ALL>(); // Vector -> Scalar
+    for (int64_t k = 0; k < prefixLen_; ++k) {
+        const int32_t t = tgt.GetValue(k);
+        if (t < c0 || t >= c0 + len || t >= classNum_) {
+            continue;
+        }
+        mask.SetValue(static_cast<int64_t>(t) - c0, 0.0f);
+    }
+    PipeBarrier<PIPE_ALL>(); // Scalar -> Vector
+}
+
+// 载入 x 的一个类别块并升 fp32；bias 用于一次性叠加 hinge 的 +1
+template <typename T>
+__aicore__ inline void MultilabelMarginLoss<T>::LoadXTile(int64_t row, int64_t c0, int64_t len,
+    const LocalTensor<float>& dst, float bias)
+{
+    const int64_t xElemPerBlock = 32 / static_cast<int64_t>(sizeof(T));
+    const int64_t pad = AlignUp(len, xElemPerBlock) - len;
+    T padVal;
+    if constexpr (sizeof(T) == 4) {
+        *reinterpret_cast<uint32_t*>(&padVal) = 0u;
+    } else {
+        *reinterpret_cast<uint16_t*>(&padVal) = 0u;
+    }
+
+    if constexpr (std::is_same<T, float>::value) {
+        DataCopyExtParams params = {1, static_cast<uint32_t>(len * sizeof(float)), 0, 0, 0};
+        DataCopyPadExtParams<float> padParams = {true, 0, static_cast<uint8_t>(pad), 0.0f};
+        DataCopyPad(dst, xGm_[row * classNum_ + c0], params, padParams);
+        PipeBarrier<PIPE_ALL>(); // MTE2 -> Vector
+    } else {
+        LocalTensor<T> raw = xRawBuf_.Get<T>();
+        DataCopyExtParams params = {1, static_cast<uint32_t>(len * sizeof(T)), 0, 0, 0};
+        DataCopyPadExtParams<T> padParams = {true, 0, static_cast<uint8_t>(pad), padVal};
+        DataCopyPad(raw, xGm_[row * classNum_ + c0], params, padParams);
+        PipeBarrier<PIPE_ALL>(); // MTE2 -> Vector
+        // half / bfloat16_t -> float 均为精确加宽
+        Cast(dst, raw, RoundMode::CAST_NONE, static_cast<int32_t>(len));
+        PipeBarrier<PIPE_V>();
+    }
+    if (bias != 0.0f) {
+        Adds(dst, dst, bias, static_cast<int32_t>(len));
+        PipeBarrier<PIPE_V>();
+    }
 }
 
 template <typename T>
 __aicore__ inline float MultilabelMarginLoss<T>::ProcessOneRow(int64_t row)
 {
-    LocalTensor<T> xLocal = xBuf_.Get<T>();
-    LocalTensor<int32_t> targetLocal = targetBuf_.Get<int32_t>();
-    LocalTensor<int32_t> isTargetLocal = isTargetBuf_.Get<int32_t>();
-    LocalTensor<float> xFloat = xFloatBuf_.Get<float>();
+    LocalTensor<int32_t> cnt = cntBuf_.Get<int32_t>();
+    LocalTensor<float> xjf = xjfBuf_.Get<float>();
+    LocalTensor<float> xlf = xlfBuf_.Get<float>();
+    LocalTensor<float> mask = maskBuf_.Get<float>();
+    LocalTensor<float> acc = accBuf_.Get<float>();
+    LocalTensor<float> tmp = tmpBuf_.Get<float>();
+    LocalTensor<float> red = redBuf_.Get<float>();
 
-    const int64_t xBlock = 32 / static_cast<int64_t>(sizeof(T));
-    T xPadVal;
-    if constexpr (sizeof(T) == 4) {
-        *reinterpret_cast<uint32_t*>(&xPadVal) = 0u;
-    } else {
-        *reinterpret_cast<uint16_t*>(&xPadVal) = 0u;
-    }
+    LoadTargetRow(row);
+    prefixLen_ = ScanPrefix();
 
-    // target 整行进 UB（截断前缀不可拆核）
-    const int64_t tCopy = targetTile_ < targetLen_ ? targetTile_ : targetLen_;
-    const int64_t tPad = AlignUp(tCopy, 8) - tCopy;
-    DataCopyExtParams tParams = {1, static_cast<uint32_t>(tCopy * sizeof(int32_t)), 0, 0, 0};
-    DataCopyPadExtParams<int32_t> tPadParams = {true, 0, static_cast<uint8_t>(tPad), 0};
-    DataCopyPad(targetLocal, targetGm_[row * targetLen_], tParams, tPadParams);
-    event_t evtT = static_cast<event_t>(GetTPipePtr()->FetchEventID(HardEvent::MTE2_S));
-    SetFlag<HardEvent::MTE2_S>(evtT);
-    WaitFlag<HardEvent::MTE2_S>(evtT);
-
-    // ---- 趟 1：按 classTile 写 is_target（计数型）----
+    // ---- 趟 1：按 classTile 写 is_target（计数型，DataCopyPad 写出）----
     for (int64_t c0 = 0; c0 < classNum_; c0 += classTile_) {
-        const int64_t tile = (c0 + classTile_ <= classNum_) ? classTile_ : (classNum_ - c0);
-        for (int64_t c = 0; c < tile; ++c) {
-            isTargetLocal.SetValue(c, 0);
-        }
-        for (int64_t k = 0; k < tCopy; ++k) {
-            const int32_t t = targetLocal.GetValue(k);
-            if (t < 0) {
-                break;
-            }
-            if (t >= c0 && t < c0 + tile) {
-                const int64_t local = static_cast<int64_t>(t) - c0;
-                isTargetLocal.SetValue(local, isTargetLocal.GetValue(local) + 1);
-            }
-        }
-        SyncSMTE3();
-        DataCopyExtParams outParams = {1, static_cast<uint32_t>(tile * sizeof(int32_t)), 0, 0, 0};
-        DataCopyPad(isTargetGm_[row * classNum_ + c0], isTargetLocal, outParams);
+        const int64_t len = (c0 + classTile_ <= classNum_) ? classTile_ : (classNum_ - c0);
+        BuildCnt(c0, len);
+        PipeBarrier<PIPE_ALL>(); // Scalar -> MTE3
+        DataCopyExtParams params = {1, static_cast<uint32_t>(len * sizeof(int32_t)), 0, 0, 0};
+        DataCopyPad(isTargetGm_[row * classNum_ + c0], cnt, params);
+        PipeBarrier<PIPE_ALL>(); // MTE3 完成后方可复用 cntBuf_
     }
 
-    // ---- 趟 2：按 (j-tile × l-tile) 累加 hinge；中间 fp32 ----
+    // ---- 趟 2：沿 j 轴向量化 hinge，按互异目标类 cnt 加权 ----
     float loss = 0.0f;
     for (int64_t j0 = 0; j0 < classNum_; j0 += classTile_) {
-        const int64_t jTile = (j0 + classTile_ <= classNum_) ? classTile_ : (classNum_ - j0);
-        const int64_t jPad = AlignUp(jTile, xBlock) - jTile;
-        DataCopyExtParams xParams = {1, static_cast<uint32_t>(jTile * sizeof(T)), 0, 0, 0};
-        DataCopyPadExtParams<T> xPadParams = {true, 0, static_cast<uint8_t>(jPad), xPadVal};
-        DataCopyPad(xLocal, xGm_[row * classNum_ + j0], xParams, xPadParams);
+        const int64_t jLen = (j0 + classTile_ <= classNum_) ? classTile_ : (classNum_ - j0);
 
-        DataCopyExtParams cntParams = {1, static_cast<uint32_t>(jTile * sizeof(int32_t)), 0, 0, 0};
-        DataCopyPadExtParams<int32_t> cntPadParams = {
-            true, 0, static_cast<uint8_t>(AlignUp(jTile, 8) - jTile), 0};
-        DataCopyPad(isTargetLocal, isTargetGm_[row * classNum_ + j0], cntParams, cntPadParams);
+        LoadXTile(row, j0, jLen, xjf, 1.0f); // xjf = x_j + 1
+        BuildMask(j0, jLen);                 // mask = 1.0 iff cnt[j]==0
+        Duplicate(acc, 0.0f, static_cast<int32_t>(jLen));
+        PipeBarrier<PIPE_V>();
 
-        event_t evtJ = static_cast<event_t>(GetTPipePtr()->FetchEventID(HardEvent::MTE2_S));
-        SetFlag<HardEvent::MTE2_S>(evtJ);
-        WaitFlag<HardEvent::MTE2_S>(evtJ);
+        for (int64_t l0 = 0; l0 < classNum_; l0 += classTile_) {
+            const int64_t lLen = (l0 + classTile_ <= classNum_) ? classTile_ : (classNum_ - l0);
+            LoadXTile(row, l0, lLen, xlf, 0.0f); // xlf = x_l
+            BuildCnt(l0, lLen);
+            PipeBarrier<PIPE_ALL>(); // Scalar(cnt) / Vector(xlf) -> Scalar 读取
 
-        for (int64_t jj = 0; jj < jTile; ++jj) {
-            xFloat.SetValue(jj, LoadXAsFloat(xLocal, jj));
-        }
-
-        for (int64_t jj = 0; jj < jTile; ++jj) {
-            if (isTargetLocal.GetValue(jj) != 0) {
-                continue; // 只对 cnt[j]==0 的非目标类
-            }
-            const float xj = xFloat.GetValue(jj);
-            for (int64_t l0 = 0; l0 < classNum_; l0 += classTile_) {
-                const int64_t lTile = (l0 + classTile_ <= classNum_) ? classTile_ : (classNum_ - l0);
-                // 复用 xBuf_/isTargetBuf_ 加载正类块（j 块已在标量寄存器 xj）
-                const int64_t lPad = AlignUp(lTile, xBlock) - lTile;
-                DataCopyExtParams xlParams = {1, static_cast<uint32_t>(lTile * sizeof(T)), 0, 0, 0};
-                DataCopyPadExtParams<T> xlPadParams = {true, 0, static_cast<uint8_t>(lPad), xPadVal};
-                DataCopyPad(xLocal, xGm_[row * classNum_ + l0], xlParams, xlPadParams);
-
-                DataCopyExtParams clParams = {1, static_cast<uint32_t>(lTile * sizeof(int32_t)), 0, 0, 0};
-                DataCopyPadExtParams<int32_t> clPadParams = {
-                    true, 0, static_cast<uint8_t>(AlignUp(lTile, 8) - lTile), 0};
-                // 注意：isTargetLocal 仍持有 j 块计数；正类 cnt 改从 GM 标量读，避免冲掉 j 掩码
-                event_t evtL = static_cast<event_t>(GetTPipePtr()->FetchEventID(HardEvent::MTE2_S));
-                SetFlag<HardEvent::MTE2_S>(evtL);
-                WaitFlag<HardEvent::MTE2_S>(evtL);
-
-                for (int64_t ll = 0; ll < lTile; ++ll) {
-                    const int32_t cnt = isTargetGm_.GetValue(row * classNum_ + l0 + ll);
-                    if (cnt == 0) {
-                        continue;
-                    }
-                    const float xl = LoadXAsFloat(xLocal, ll);
-                    const float pair = 1.0f + xj - xl;
-                    // 逻辑比较：pair<=0 才丢弃；NaN 比较为假 → 保留（对齐 np.maximum）
-                    if (!(pair <= 0.0f)) {
-                        loss += static_cast<float>(cnt) * pair;
-                    }
+            for (int64_t ll = 0; ll < lLen; ++ll) {
+                const int32_t c = cnt.GetValue(ll);
+                if (c == 0) {
+                    continue; // 只对目标类 l
                 }
-                (void)clParams;
-                (void)clPadParams;
+                const float xl = xlf.GetValue(ll);
+                PipeBarrier<PIPE_ALL>(); // Scalar -> Vector（xl 作为立即数）
+                // tmp = max(0, 1 + x[j] - x[l])
+                Adds(tmp, xjf, -xl, static_cast<int32_t>(jLen));
+                PipeBarrier<PIPE_V>();
+                Maxs(tmp, tmp, 0.0f, static_cast<int32_t>(jLen));
+                PipeBarrier<PIPE_V>();
+                if (c != 1) {
+                    // 重复标签按出现次数加权（等价于按前缀位置逐个展开）
+                    Muls(tmp, tmp, static_cast<float>(c), static_cast<int32_t>(jLen));
+                    PipeBarrier<PIPE_V>();
+                }
+                Add(acc, acc, tmp, static_cast<int32_t>(jLen));
+                PipeBarrier<PIPE_V>();
             }
         }
+
+        // 目标类 j 自身的 max(0, 1+x[l]-x[l])=1 必须屏蔽，否则凭空多加
+        Mul(acc, acc, mask, static_cast<int32_t>(jLen));
+        PipeBarrier<PIPE_V>();
+        ReduceSum<float>(red, acc, tmp, static_cast<int32_t>(jLen));
+        PipeBarrier<PIPE_ALL>(); // Vector -> Scalar
+        loss += red.GetValue(0);
     }
-    loss = loss / static_cast<float>(classNum_);
-    return loss;
+
+    return loss / static_cast<float>(classNum_);
+}
+
+template <typename T>
+__aicore__ inline void MultilabelMarginLoss<T>::StoreRowLoss(int64_t row, float value)
+{
+    LocalTensor<float> red = redBuf_.Get<float>();
+    red.SetValue(0, value);
+    PipeBarrier<PIPE_ALL>(); // Scalar -> MTE3
+    DataCopyExtParams params = {1, static_cast<uint32_t>(sizeof(float)), 0, 0, 0};
+    DataCopyPad(rowLossGm_[row], red, params);
+    PipeBarrier<PIPE_ALL>();
+}
+
+template <typename T>
+__aicore__ inline void MultilabelMarginLoss<T>::StoreY(int64_t idx, float value)
+{
+    LocalTensor<T> out = outBuf_.Get<T>();
+    if constexpr (std::is_same<T, float>::value) {
+        out.SetValue(0, value);
+        PipeBarrier<PIPE_ALL>(); // Scalar -> MTE3
+    } else {
+        LocalTensor<float> red = redBuf_.Get<float>();
+        red.SetValue(0, value);
+        PipeBarrier<PIPE_ALL>(); // Scalar -> Vector
+        // fp32 -> fp16/bf16 取最近偶数，与 numpy astype 一致
+        Cast(out, red, RoundMode::CAST_RINT, 1);
+        PipeBarrier<PIPE_ALL>(); // Vector -> MTE3
+    }
+    DataCopyExtParams params = {1, static_cast<uint32_t>(sizeof(T)), 0, 0, 0};
+    DataCopyPad(yGm_[idx], out, params);
+    PipeBarrier<PIPE_ALL>();
 }
 
 template <typename T>
 __aicore__ inline void MultilabelMarginLoss<T>::Process()
 {
-    if (rowCount_ <= 0 || classNum_ <= 0 || targetLen_ <= 0) {
+    const bool hasWork = (rowCount_ > 0 && classNum_ > 0 && targetLen_ > 0);
+
+    if (hasWork) {
+        for (int64_t i = 0; i < rowCount_; ++i) {
+            const int64_t row = rowStart_ + i;
+            const float loss = ProcessOneRow(row);
+            if (reduction_ == REDUCTION_NONE) {
+                StoreY(row, loss);
+            } else {
+                StoreRowLoss(row, loss);
+            }
+        }
+    }
+
+    if (reduction_ == REDUCTION_NONE) {
+        return; // none 各核独占行区间，无需跨核汇总
+    }
+
+    // 注意：无论本核是否有活都必须参与，否则空闲核缺席会让其余核永久等待
+    SyncAll();
+
+    if (GetBlockIdx() != 0) {
         return;
     }
 
-    for (int64_t i = 0; i < rowCount_; ++i) {
-        const int64_t row = rowStart_ + i;
-        const float loss = ProcessOneRow(row);
-        rowLossGm_.SetValue(row, loss);
-        if (reduction_ == REDUCTION_NONE) {
-            StoreYValue(row, loss);
-            SyncSMTE3();
+    // 单核有序归约：按行序 fp32 累加，杜绝多核无序 AtomicAdd 的不可复现
+    LocalTensor<float> red = redBuf_.Get<float>();
+    float acc = 0.0f;
+    for (int64_t base = 0; base < batchSize_; base += RED_CHUNK) {
+        int64_t len = batchSize_ - base;
+        if (len > RED_CHUNK) {
+            len = RED_CHUNK;
+        }
+        const int64_t pad = AlignUp(len, 8) - len;
+        DataCopyExtParams params = {1, static_cast<uint32_t>(len * sizeof(float)), 0, 0, 0};
+        DataCopyPadExtParams<float> padParams = {true, 0, static_cast<uint8_t>(pad), 0.0f};
+        DataCopyPad(red, rowLossGm_[base], params, padParams);
+        PipeBarrier<PIPE_ALL>(); // MTE2 -> Scalar
+        for (int64_t i = 0; i < len; ++i) {
+            acc += red.GetValue(i);
         }
     }
 
-    SyncAll();
-
-    if (reduction_ != REDUCTION_NONE && GetBlockIdx() == 0) {
-        float acc = 0.0f;
-        for (int64_t row = 0; row < batchSize_; ++row) {
-            acc += rowLossGm_.GetValue(row);
-        }
-        if (reduction_ == REDUCTION_MEAN && batchSize_ > 0) {
-            acc = acc / static_cast<float>(batchSize_);
-        }
-        StoreYValue(0, acc);
-        SyncSMTE3();
+    if (reduction_ == REDUCTION_MEAN && batchSize_ > 0) {
+        // 只在最后除一次 N；不与 /C 融合成 Σ/(N*C)，fp32 下两者不等价
+        acc = acc / static_cast<float>(batchSize_);
     }
+    StoreY(0, acc);
 }
 
 } // namespace NsMultilabelMarginLoss

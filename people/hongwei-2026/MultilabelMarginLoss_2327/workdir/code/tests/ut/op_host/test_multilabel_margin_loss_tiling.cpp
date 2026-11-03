@@ -40,9 +40,10 @@ struct MultilabelMarginLossTestParam {
 //   expectWorkspaces: 参考 op_host/multilabel_margin_loss_tiling.cpp 中 GetWorkspaceSize 的逻辑
 static MultilabelMarginLossTestParam testCases[] = {
     // tilingData: batchSize classNum targetLen reduction usedCores rowsPerCore tailRows classTile targetTile
-    // float32 → tilingKey MODE_1=1；N=4 时 usedCores=4, rowsPerCore=1, rem=0；整行可装下 → classTile=C, targetTile=K
+    // float32 → tilingKey MODE_1=1；N=4：coresCap=min(64,4)=4, rowsPerCore=ceil(4/4)=1,
+    //   usedCores=ceil(4/1)=4, tailRows=4-(4-1)*1=1；整行可装下 → classTile=C, targetTile=K
     // workspace = 16MB + N*sizeof(float)
-    {"multilabel_margin_loss_0", {4, 6}, ge::DT_FLOAT, ge::FORMAT_ND, {4, 6}, ge::DT_INT32, ge::FORMAT_ND, {1}, ge::DT_FLOAT, ge::FORMAT_ND, {4, 6}, ge::DT_INT32, ge::FORMAT_ND, "Ascend910B", ge::GRAPH_SUCCESS, 1UL, "4 6 6 1 4 1 0 6 6 ", {16UL * 1024UL * 1024UL + 16UL}, 64, 262144, 4096},
+    {"multilabel_margin_loss_0", {4, 6}, ge::DT_FLOAT, ge::FORMAT_ND, {4, 6}, ge::DT_INT32, ge::FORMAT_ND, {1}, ge::DT_FLOAT, ge::FORMAT_ND, {4, 6}, ge::DT_INT32, ge::FORMAT_ND, "Ascend910B", ge::GRAPH_SUCCESS, 1UL, "4 6 6 1 4 1 1 6 6 ", {16UL * 1024UL * 1024UL + 16UL}, 64, 262144, 4096},
 };
 
 class MultilabelMarginLossTilingTest : public testing::TestWithParam<MultilabelMarginLossTestParam> {
