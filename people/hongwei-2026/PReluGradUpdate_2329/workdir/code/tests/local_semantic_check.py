@@ -129,6 +129,10 @@ def check_channel_tile_boundaries():
     assert "Muls(negLocal, gradsFloat, weightValue, currentNum)" in kernel_source
     assert "progress += currentNum" in kernel_source
     assert "for (int64_t progress = 0; progress < blockLength_; progress += tileLen_)" not in kernel_source
+    # P102: aligned contiguous copy gate must stay dual-path (DataCopy + DataCopyPad).
+    assert "globalOffset % blockElements == 0 && currentNum % blockElements == 0" in kernel_source
+    assert "DataCopy(gradsLocal, gradsGm_[globalOffset]" in kernel_source
+    assert "DataCopyPad(gradsLocal, gradsGm_[globalOffset]" in kernel_source
 
 
 def check_full_core_tiling():
