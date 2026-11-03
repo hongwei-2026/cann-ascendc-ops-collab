@@ -25,6 +25,7 @@
 | `EXP_P027_.../` | fp16+fp32 仍双挂 Cast → P028 回仅 fp32 |
 | `EXP_P029_.../` | **PASS** 三 key Done + 样例 0/192；原生 half/bf16 位转换 |
 | `EXP_P030_.../` | 云测 PASS；平台 case4 仍 507035 → P031 对齐 Duplicate |
+| `EXP_P100_.../` | P100 云测 PASS（workspace=0 + 全核 Muls） |
 
 
 

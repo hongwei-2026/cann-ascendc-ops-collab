@@ -1,0 +1,5 @@
+﻿tip=3bd65fb
+verify=PASS
+compile=3 keys Done (float/fp16/bf16)
+sample=PASS dx/update mismatched=0/192
+conclusion=P100 cloud OK; ready for platform timing submit

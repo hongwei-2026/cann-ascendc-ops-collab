@@ -6,8 +6,8 @@
 | Owner | hongwei-2026 |
 | 队友 | yuhongming-2026 · JadeYara（见 [TEAM_NOTICE.md](TEAM_NOTICE.md)） |
 | 更新日期 | 2026-11-03 |
-| tip | 工作树 P100（待 CodeArts） |
-| 云测 | P029/P030 三 key + 样例 **0/192 PASS** |
+| tip | `3bd65fb`（P100） |
+| 云测 | EXP_P100：**三 key Done** + 样例 **0/192 PASS** |
 | 平台 | **1–5 Pass**；用时 1.30/1.32/2.00/1.79/1.79ms，参考 13.76/13.73/13.72/9.82/10.21μs |
 | 代码座位 | `people/hongwei-2026/.../workdir/code/`（P100 保留 P031 正确性） |
 | 下一闸 | CodeArts 三 key + `-e` → 平台采时；未测前不开双缓冲 |
