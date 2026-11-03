@@ -182,6 +182,13 @@
 - 下一步：云端 `-e` 后平台重交。
 - 关联道路：P030
 
+## 2026-11-03（队友同步）
+
+- 做了：写 `TEAM_NOTICE.md`；STATUS/README 置顶；shared-lessons L08。
+- 下一步：队友 pull main 读 TEAM_NOTICE；hongwei 继续 P030 云测。
+- 关联道路：P030
+
+
 
 
 

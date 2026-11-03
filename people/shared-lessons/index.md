@@ -18,3 +18,4 @@
 | L05 | CANN 9.1 不用 SyncFunc，用 SetFlag/WaitFlag | [PReluGradUpdate_2329/no-syncfunc-cann91.md](PReluGradUpdate_2329/no-syncfunc-cann91.md) |
 | L06 | 优先 Compare(+zero)，慎用 CompareScalar | [PReluGradUpdate_2329/compare-not-comparescalar.md](PReluGradUpdate_2329/compare-not-comparescalar.md) |
 | L07 | Select 用 count 重载，勿默认八参 | [PReluGradUpdate_2329/select-use-count-overload.md](PReluGradUpdate_2329/select-use-count-overload.md) |
+| L08 | 平台 case4 ACL 507035 | [PReluGradUpdate_2329/case4-acl-507035.md](PReluGradUpdate_2329/case4-acl-507035.md) |
