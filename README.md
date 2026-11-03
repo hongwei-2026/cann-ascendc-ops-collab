@@ -37,8 +37,10 @@
 | 题目 | 共享台账 | 实现（按人） |
 |------|----------|--------------|
 | **PReluGradUpdate**（2329） | [tasks/active/PReluGradUpdate_2329](tasks/active/PReluGradUpdate_2329) | [hongwei workdir](people/hongwei-2026/PReluGradUpdate_2329/) · 另两人自建 `people/<你>/PReluGradUpdate_2329/workdir/` |
+| **MultilabelMarginLoss**（2327） | [tasks/active/MultilabelMarginLoss_2327](tasks/active/MultilabelMarginLoss_2327) | [yuhongming workdir](people/yuhongming-2026/MultilabelMarginLoss_2327/) |
 
-状态：实现中（样例精度攻坚；共识坑见 [shared-lessons · PRelu](people/shared-lessons/PReluGradUpdate_2329/)）。
+PRelu：实现中（样例精度攻坚；共识坑见 [shared-lessons · PRelu](people/shared-lessons/PReluGradUpdate_2329/)）。  
+MultilabelMarginLoss：实现中（功能基线已落座位；待 CodeArts `-e`）。
 
 CodeArts 同步：只覆盖**你自己的** `people/<你>/.../workdir/code/` → 题包 `code/`（见题内 `SYNC_CODEARTS.md`）。
 
