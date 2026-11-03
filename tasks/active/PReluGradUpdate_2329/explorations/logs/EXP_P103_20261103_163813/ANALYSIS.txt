@@ -1,0 +1,10 @@
+EXP_P103_20261103_163813 — P103 cloud PASS
+
+- tip: 47db93e
+- verify: PASS（source_kernel == build_kernel）
+- kernel sha256 (LF): 2a340f612ec506a6e6ae920fd8f6acd14999f28cb2d89d386d2a075ff6fb3c89
+- 三 tiling key: Done ×3
+- Build completed successfully
+- 样例: dx.bin 0/192；update.bin 0/192；PASSED
+
+结论：P103 零缓冲复用/缩短屏障功能云测通过。下一闸同机相对 P100 平台采时；无 ≥2% 增益按 DEC 回退。

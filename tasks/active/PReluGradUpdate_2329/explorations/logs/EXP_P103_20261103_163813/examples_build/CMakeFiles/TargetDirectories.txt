@@ -1,0 +1,3 @@
+/mnt/workspace/prelu2329/code/examples/build/CMakeFiles/rebuild_cache.dir
+/mnt/workspace/prelu2329/code/examples/build/CMakeFiles/sample.dir
+/mnt/workspace/prelu2329/code/examples/build/CMakeFiles/edit_cache.dir

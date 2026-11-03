@@ -1,0 +1,4 @@
+repo_commit=47db93e0936da5091387ea822a9e4a360f7db6c8
+source_kernel=2a340f612ec506a6e6ae920fd8f6acd14999f28cb2d89d386d2a075ff6fb3c89
+build_kernel=2a340f612ec506a6e6ae920fd8f6acd14999f28cb2d89d386d2a075ff6fb3c89
+CodeArts source verification: PASS

@@ -3,7 +3,7 @@
 - Date: 2026-11-03
 - Owner: hongwei-2026
 - Candidate: P103, based on the restored P100 source
-- Status: local source checks pass; CANN build, cloud sample, and platform timing are pending
+- Status: cloud EXP_P103_163813 **0/192 PASS** (tip `47db93e`); platform A/B vs P100 pending
 
 ## Hypothesis
 
@@ -34,4 +34,5 @@ Keep P103 as the local candidate for a CANN build and controlled platform measur
 
 - **可试**：语义不变前提下少 1 次 Duplicate + 2 道 PIPE_V；update Select 前移并复用 `dxFloat` 零缓冲，依赖链有 barrier；本地 `compute_schedule_check` + `local_semantic_check` PASS。
 - **风险**：仍是 B 类小 shape 微优化；真机可能无感或因调度差异变慢（P102 前车）。必须云测 0/192 后再同机相对 P100 采时。
-- **下一闸**：CodeArts `-e`（日志进 `exp_logs/prelu2329/`）→ 平台 A/B；无 ≥2% 增益写 DEC 回退 P100。
+- **云测**：EXP_P103_163813 verify PASS；三 key Done；dx/update **0/192**。  
+- **下一闸**：同机平台交 P103 vs P100；无 ≥2% 增益写 DEC 回退 P100。

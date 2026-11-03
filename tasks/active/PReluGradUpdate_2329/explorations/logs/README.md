@@ -28,6 +28,7 @@
 | `EXP_P100_.../` | P100 云测 PASS（workspace=0 + 全核 Muls） |
 | `EXP_P102_154412/` | 不完整包（无 build_e） |
 | `EXP_P102_154833/` | **P102 PASS** 三 key + 0/192 |
+| `EXP_P103_163813/` | **P103 PASS** 零缓冲复用调度；三 key + 0/192 |
 | `EXP_P102_.../` | **不完整**：缺 build_e_full；kernel hash≠P102 → 需重打 |
 
 
