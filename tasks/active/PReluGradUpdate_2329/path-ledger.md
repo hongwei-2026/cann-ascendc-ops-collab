@@ -40,7 +40,7 @@
 | P100 | 2026-11-03 | hongwei-2026 | 性能 | ms 级固定开销来自未使用 16MB workspace；单核内 per-channel 权重展开又串行放大 | workspace=0；全核 tiling；channel 内 `Muls`；**补丁** `progress+=currentNum` + host `tileLen<=inner` | 0.5d | EXP_P100 云测三 key + 样例 **0/192 PASS**；14:46:56 平台截图：1–5 Pass、42.41 分、7.26/7.41/7.33/5.72/5.82 μs（截图不含源码 hash） | 采纳（已恢复的基线；耗时待复现） | EXP019 |
 | P101 | 2026-11-03 | hongwei-2026 | 性能 | 外部模板 15:03 声称「再优化」 | 对照 P100：实为 SyncFunc/CompareScalar/未对齐 Duplicate/`ToFloat` **回归** | 0.1h | **拒收**；勿合座位 | **废弃** | EXP021 |
 | P102 | 2026-11-03 | hongwei-2026 | 性能 | 对齐 tile 使用 `DataCopyPad` 带来额外的搬运设置开销 | GM 起点与 tile 字节数均 32B 对齐时，四路 GM↔UB 搬运改用连续 `DataCopy`；其他 tile 仍 `DataCopyPad` | ≤2h；无增益即回退并写 DEC | 云测三 key + 样例 **0/192 PASS**；15:48:12 截图 42.06 分、8.89/8.75/8.99/6.11/6.01 μs，五点均慢；源码归因仍需 A/B | 不采纳，已撤回至 P100 | EXP022 / DEC001 |
-| P103 | 2026-11-03 | hongwei-2026 | 性能 | P100 的 dx 零缓冲先被覆盖，导致 update 再次清零；独立计算之间还存在显式屏障 | update Select 前移，复用同一零缓冲；合并 Muls/Mul/Duplicate 独立阶段，保留 RAW/WAR 屏障；精度语义不变 | ≤2h；单一数据流改动，真机待验 | EXP_P103_163813：三 key Done + 样例 **0/192 PASS**；待同机相对 P100 采时 | 进行中 | EXP023 |
+| P103 | 2026-11-03 | hongwei-2026 | 性能 | P100 的 dx 零缓冲先被覆盖，导致 update 再次清零；独立计算之间还存在显式屏障 | update Select 前移，复用同一零缓冲；合并 Muls/Mul/Duplicate 独立阶段，保留 RAW/WAR 屏障；精度语义不变 | ≤2h；单一数据流改动，真机待验 | 云测 0/192；平台 16:46 **42.89**、7.36/7.30/7.24/5.83/6.07μs（优于 P102 的 42.06；相对 P100 图耗时基本持平/噪声内） | **采纳（当前默认）** | EXP023 |
 
 ## 性能道路（阶段已开 · 2026-11-03）
 

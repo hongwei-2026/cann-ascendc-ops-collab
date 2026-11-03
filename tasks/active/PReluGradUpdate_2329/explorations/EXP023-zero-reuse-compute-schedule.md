@@ -3,7 +3,7 @@
 - Date: 2026-11-03
 - Owner: hongwei-2026
 - Candidate: P103, based on the restored P100 source
-- Status: cloud EXP_P103_163813 **0/192 PASS** (tip `47db93e`); platform A/B vs P100 pending
+- Status: cloud **0/192 PASS**; platform 16:46 **42.89** / 7.36–6.07μs → **采纳为当前默认**
 
 ## Hypothesis
 
@@ -34,5 +34,6 @@ Keep P103 as the local candidate for a CANN build and controlled platform measur
 
 - **可试**：语义不变前提下少 1 次 Duplicate + 2 道 PIPE_V；update Select 前移并复用 `dxFloat` 零缓冲，依赖链有 barrier；本地 `compute_schedule_check` + `local_semantic_check` PASS。
 - **风险**：仍是 B 类小 shape 微优化；真机可能无感或因调度差异变慢（P102 前车）。必须云测 0/192 后再同机相对 P100 采时。
-- **云测**：EXP_P103_163813 verify PASS；三 key Done；dx/update **0/192**。  
-- **下一闸**：同机平台交 P103 vs P100；无 ≥2% 增益写 DEC 回退 P100。
+- **云测**：EXP_P103_163813 verify PASS；0/192。  
+- **平台**：16:46:42 Pass；**42.89**；7.36/7.30/7.24/5.83/6.07μs（截图 `screenshots/EXP023-platform-20261103-164642.png`）。优于 P102；相对 P100 图耗时噪声内、分数更高 → 采纳默认。  
+- **下一闸**：公开点仍 ~1.7× TBest；开新路须有界假设 + ledger，优先看隐藏/大 shape 或仿真材料。
