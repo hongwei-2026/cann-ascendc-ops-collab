@@ -136,5 +136,12 @@
 - 下一步：平台试交或开 fp16/bf16。
 - 关联道路：P025
 
+## 2026-11-03（合并 PR#1 yuhongming）
+
+- 做了：Owner 合并 PR#1；保留 hongwei 台账/试交包（P025 PASS）；合入 `people/yuhongming-2026/` + EXP008 + CLAIM 已认领。
+- 冲突裁决：共享 STATUS/ledger/deliverables 以 main（P025）为准。
+- 下一步：队友可在自己座位继续；默认试交仍用 hongwei P025 包。
+- 关联道路：P022
+
 
 
