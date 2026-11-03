@@ -33,7 +33,8 @@
 | P026 | 2026-11-03 | hongwei-2026 | 功能 | 平台4点 507035=缺低精度/核异常 | 开三 dtype；half/bf16 **无 Cast**；每 tile 重建 weight；WS 16MB | 本迭代 | EXP_P026 仍 bf16 Cast 三 key 全挂 | 部分废弃(bf16) | EXP014 |
 | P027 | 2026-11-03 | hongwei-2026 | 环境 | bf16 进编译单元必炸 | **只开 fp32+fp16**；`PRELU_ENABLE_BF16=0`；half 标量无 Cast | 本迭代 | EXP_P027：fp16+fp32 仍双挂 Cast | **废弃(混编)** | EXP015 |
 | P028 | 2026-11-03 | hongwei-2026 | 环境 | half 路径污染同 TU 的 fp32 | 默认回到 **仅 fp32**（对齐 P025）；修 verify 误报 | 本迭代 | 已改；以 P025 为可交基线 | **采纳** | EXP015 |
-| P029 | 2026-11-03 | hongwei-2026 | 功能 | 显式特化/ToFloat 污染各 key | 删 DtypeBridge；float/half **原生**；bf16 仅 if constexpr 位转换；开三 dtype | 本迭代 | EXP_P029：三 key Done；样例 0/192 PASS | **采纳** | EXP016 |
+| P029 | 2026-11-03 | hongwei-2026 | 功能 | 显式特化/ToFloat 污染各 key | 删 DtypeBridge；float/half **原生**；bf16 仅 if constexpr 位转换；开三 dtype | 本迭代 | EXP_P029 云测 PASS；平台 case4 仍 507035 | 部分采纳 | EXP016 |
+| P030 | 2026-11-03 | hongwei-2026 | 功能 | case4=低精度运行时炸 | half 改 Cast↔fp32；bf16 补 S_V/S_MTE3；禁半精度成员污染 | 本迭代 | 已改待云测/平台 | 进行中 | EXP017 |
 
 ## 性能道路预声明（未到阶段勿开）
 

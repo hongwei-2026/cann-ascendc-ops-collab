@@ -32,18 +32,17 @@ if ! grep -q -F 'SetFlag<HardEvent::S_V>' "${BUILD_CODE}/${KERNEL_REL}"; then
   exit 5
 fi
 
-# P029: 三 dtype；禁止 Cast / ToFloat / DtypeBridge 显式特化
 if ! grep -q '#define PRELU_ENABLE_FP16 1' "${BUILD_CODE}/${KEY_REL}" || \
    ! grep -q '#define PRELU_ENABLE_BF16 1' "${BUILD_CODE}/${KEY_REL}"; then
-  echo "ERROR: P029 expects PRELU_ENABLE_FP16/BF16 default 1" >&2
+  echo "ERROR: P030 expects PRELU_ENABLE_FP16/BF16 default 1" >&2
   exit 6
 fi
-if grep -nE '\bCast\s*\(|ToFloat\s*\(|struct DtypeBridge' "${BUILD_CODE}/${KERNEL_REL}" | grep -v '//' >/dev/null; then
-  echo "ERROR: Cast/ToFloat/DtypeBridge must not appear in kernel (contaminates all keys)" >&2
+if grep -nE 'ToFloat\s*\(|struct DtypeBridge' "${BUILD_CODE}/${KERNEL_REL}" | grep -v '//' >/dev/null; then
+  echo "ERROR: ToFloat/DtypeBridge must not appear (contaminates all keys)" >&2
   exit 7
 fi
-if ! grep -q 'P029' "${BUILD_CODE}/${KERNEL_REL}"; then
-  echo "ERROR: expected P029 native-dtype kernel marker" >&2
+if ! grep -q 'P030' "${BUILD_CODE}/${KERNEL_REL}"; then
+  echo "ERROR: expected P030 half-Cast / bf16-sync kernel marker" >&2
   exit 8
 fi
 
