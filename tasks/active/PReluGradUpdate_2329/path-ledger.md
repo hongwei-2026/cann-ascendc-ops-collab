@@ -29,7 +29,7 @@
 | P022 | 2026-11-02 | yuhongming-2026 | 功能 | CompareScalar 致 mask 全 0 | PR#1：`Compare`+零；八参 Select+BinaryRepeatParams | 本迭代 | 平台 Compile Error 嫌疑；未合 main | 部分采纳 | EXP008 |
 | P023 | 2026-11-03 | hongwei-2026 | 功能 | 吸 P022 比较、保可编译 Select | hongwei：`Compare(+zero)` + **count** Select；禁八参 | 本迭代 | EXP_P023 仍 `bf16 type cast` | 进行中 | EXP009 |
 | P024 | 2026-11-03 | hongwei-2026 | 环境 | if constexpr 藏 Cast 不够 | `DtypeBridge` 全特化；默认 `PRELU_ENABLE_BF16=0` 只编 fp16/fp32 | 本迭代 | EXP_P024 仍 bf16 Cast（hash=旧 fp16/bf16） | 进行中 | EXP010 |
-| P025 | 2026-11-03 | hongwei-2026 | 环境 | half Cast/bf16 符号仍进后端 | 默认 **仅 fp32**：`PRELU_ENABLE_FP16/BF16=0`；Cast/bf16 全 `#if` | 本迭代 | 已改待云测 | 进行中 | EXP011 |
+| P025 | 2026-11-03 | hongwei-2026 | 环境 | half Cast/bf16 符号仍进后端 | 默认 **仅 fp32**：`PRELU_ENABLE_FP16/BF16=0`；Cast/bf16 全 `#if` | 本迭代 | Build OK；样例 dx/update **0/192 PASS** | **采纳** | EXP012 |
 
 ## 性能道路预声明（未到阶段勿开）
 

@@ -20,6 +20,7 @@
 | `EXP_P019_.../` | verify PASS；bf16 Cast 炸 FATBIN（路径见本目录） |
 | `EXP_P023_.../` | P023 仍 `not support bf16 type cast` → P024 关 bf16 key |
 | `EXP_P024_.../` | P024 仍炸；hash=旧 fp16/bf16 → P025 仅 fp32 |
+| `EXP_P025_.../` | **PASS** Build + dx/update 0/192 |
 
 
 

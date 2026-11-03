@@ -129,4 +129,12 @@
 - 下一步：云端 `-e`；通过后再开低精度。
 - 关联道路：P025
 
+## 2026-11-03（EXP_P025 样例 PASS）
+
+- 做了：归档 EXP_P025；确认 Build OK + dx/update 0/192；刷新试交 ZIP；写 EXP012。
+- 路径：`explorations/logs/EXP_P025_20261103_125446/`；桌面 `PReluGradUpdate_2329_code_best.zip`
+- 下一步：平台试交或开 fp16/bf16。
+- 关联道路：P025
+
+
 

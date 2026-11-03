@@ -1,0 +1,4 @@
+﻿date=2026-11-03
+repo_commit=a6f7b6a
+result=BUILD OK; sample PASS dx 0/192 update 0/192
+note=P025 fp32-only; Compare(+zero)+count Select
