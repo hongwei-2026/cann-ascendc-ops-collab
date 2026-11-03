@@ -1,0 +1,18 @@
+# EXP_M001 — CodeArts -e
+
+- 时间：2026-11-03 16:37
+- 座位：hongwei-2026 MultilabelMarginLoss_2327
+- 路径：/mnt/workspace/problems/MultilabelMarginLoss_2327/code
+
+## 结果
+
+| 项 | 状态 |
+|----|------|
+| build.sh | **SUCCESS**（三 key o 已生成） |
+| is_target.bin | **PASS** 0/24 |
+| y.bin | **Wrong Answer** mismatched=1/1 |
+| 总评 | **FAILED** |
+
+## 含义
+
+计数/截断路径基本正确；行损失或 mean 归约 / 写回 dtype 有误。下一闸查 hinge 累加与 Finalize（先 `/C` 再 mean `/N`），对照 reference seed=42。
