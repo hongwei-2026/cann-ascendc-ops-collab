@@ -1,0 +1,6 @@
+﻿tip=91f4596
+verify=PASS
+kernel_sha=30fad1c1898750c840079dbb975a784dc1bdf8ddb10efe7026b5e2ebb10675a0
+compile=3 keys Done: float=40c7c86a fp16=7d1e7472 bf16=599588aa
+sample=PASS dx/update mismatched=0/192
+conclusion=P029 native half + bf16 bit-convert FIXED Cast contamination; ready for platform resubmit

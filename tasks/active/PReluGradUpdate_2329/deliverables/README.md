@@ -1,6 +1,8 @@
-﻿# 提交包（P028 = 仅 fp32，对齐 P025 可过基线）
+﻿# 提交包（P029 = 三 dtype 云测 PASS）
 
 | 项 | 内容 |
 |----|------|
-| SHA256 | ADCB11B7F423B571382E0F5D33038E6A45349FC5C15B112F2C3429023DC88339 |
-| 说明 | 本 CANN 无法在同 TU 编 half/bf16；平台 1-3 已 Pass |
+| SHA256 | 99DFD9F76942B5FEDA2FF9A587B6F479CC5B250627962899A3471AA9C685F960 |
+| tip | 91f4596 |
+| 云测 | 三 key Done；样例 dx/update 0/192 PASS |
+| 说明 | 原生 half + bf16 位转换；无 Cast 污染 |

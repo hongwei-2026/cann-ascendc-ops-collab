@@ -20,3 +20,12 @@
 ## 验收
 
 CodeArts：`verify` PASS → `build.sh -j4 -e`；期望三 key Generating Done + 样例 PASS。失败则整包 log 归档 `EXP_P029_*`。
+
+### 结果（EXP_P029_20261103_132332）
+
+| 项 | 结果 |
+|----|------|
+| tip | `91f4596` |
+| verify | PASS |
+| keys | float `40c7c86a` / fp16 `7d1e7472` / bf16 `599588aa` **全部 Done** |
+| 样例 | dx/update **0/192 PASS** |

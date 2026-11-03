@@ -169,6 +169,14 @@
 - 下一步：云端 verify + `build.sh -j4 -e`，下载日志归档。
 - 关联道路：P029
 
+## 2026-11-03（P029 云测 PASS）
+
+- 做了：归档 EXP_P029；三 key Done + 样例 0/192 PASS；刷 `code_best.zip`。
+- 路径：`explorations/logs/EXP_P029_20261103_132332/`
+- 下一步：平台重交。
+- 关联道路：P029
+
+
 
 
 

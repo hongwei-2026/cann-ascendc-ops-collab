@@ -23,6 +23,7 @@
 | `EXP_P025_.../` | **PASS** Build + dx/update 0/192 |
 | `EXP_P026_.../` | 三 dtype 仍 bf16 Cast → P027 关 bf16 只留 fp16 |
 | `EXP_P027_.../` | fp16+fp32 仍双挂 Cast → P028 回仅 fp32 |
+| `EXP_P029_.../` | **PASS** 三 key Done + 样例 0/192；原生 half/bf16 位转换 |
 
 
 
