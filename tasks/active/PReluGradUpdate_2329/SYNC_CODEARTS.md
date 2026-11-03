@@ -122,54 +122,71 @@ git clone https://github.com/hongwei-2026/cann-ascendc-ops-collab.git
 规范：每次探索除截图外，**必须留下原始 log 文件**。  
 **硬规则（2026-11-03 起）**：云端 `build.sh` / `-e` **无论成功失败**，都必须打 `EXP_*_logs.tar.gz` → IDE 右键 Download → 本机归档进 `explorations/logs/` 再 push。禁止只说「又报错了」不给 log。
 
-### E1. CodeArts：打包到 `/mnt/workspace`（IDE 里右键 Download）
+**目录约定（2026-11-03 起）**：云端日志**禁止**再堆在 `/mnt/workspace/` 根下。统一进：
 
-把 `EXPNAME` 换成如 `EXP003` 或带日期名：
+```text
+/mnt/workspace/exp_logs/prelu2329/
+  EXP_P103_YYYYMMDD_HHMMSS_logs/
+  EXP_P103_YYYYMMDD_HHMMSS_logs.tar.gz
+```
+
+### E0. 一次性清理（根目录已堆满 EXP_* 时）
+
+在 CodeArts 终端执行。只动 `EXP_*` 垃圾，**不动** `cann-ascendc-ops-collab` / `prelu2329` / `build` / `data`。
 
 ```bash
-EXPNAME=EXP$(date +%Y%m%d_%H%M%S)
-OUT=/mnt/workspace/${EXPNAME}_logs
+cd /mnt/workspace
+mkdir -p exp_logs/prelu2329/_old_root_dump_$(date +%Y%m%d)
+
+# 先挪走（可回滚）；确认本机已下载过的再删
+shopt -s nullglob
+for x in EXP_*_logs EXP_*_logs.tar.gz EXP_*_build_e.log; do
+  [ -e "$x" ] || continue
+  mv "$x" exp_logs/prelu2329/_old_root_dump_$(date +%Y%m%d)/
+done
+shopt -u nullglob
+ls -la
+ls exp_logs/prelu2329/_old_root_dump_$(date +%Y%m%d) | head
+
+# 本机已全部归档后，可彻底删旧堆（慎用）：
+# rm -rf exp_logs/prelu2329/_old_root_dump_*
+```
+
+### E1. CodeArts：打包到 `exp_logs/prelu2329/`（IDE 右键 Download）
+
+```bash
+LOG_ROOT=/mnt/workspace/exp_logs/prelu2329
+EXPNAME=EXP_P103_$(date +%Y%m%d_%H%M%S)   # 按道路改名
+OUT=${LOG_ROOT}/${EXPNAME}_logs
 mkdir -p "$OUT"
 
-# 0) 记录真正参与构建的源码指纹；不要手写 commit 代替校验
 REPO=/mnt/workspace/cann-ascendc-ops-collab
 ME=hongwei-2026
 {
   echo "date=$(date -Iseconds)"
-  echo "repo_commit=$(git -C \"$REPO\" rev-parse HEAD)"
-  echo "source_kernel=$(sha256sum \"$REPO/people/$ME/PReluGradUpdate_2329/workdir/code/op_kernel/p_relu_grad_update.h\" | awk '{print $1}')"
+  echo "repo_commit=$(git -C "$REPO" rev-parse HEAD)"
+  echo "source_kernel=$(sha256sum "$REPO/people/$ME/PReluGradUpdate_2329/workdir/code/op_kernel/p_relu_grad_update.h" | awk '{print $1}')"
   echo "build_kernel=$(sha256sum /mnt/workspace/prelu2329/code/op_kernel/p_relu_grad_update.h | awk '{print $1}')"
-} > "$OUT/SOURCE.txt"
+} | tee "$OUT/SOURCE.txt"
 
 bash "$REPO/people/$ME/PReluGradUpdate_2329/verify_codearts_source.sh" \
   "$REPO" /mnt/workspace/prelu2329/code | tee -a "$OUT/SOURCE.txt"
 
-# 1) 把本次终端完整输出再跑一遍并 tee（推荐；已跑过可跳过）
 cd /mnt/workspace/prelu2329/code
+# source /usr/local/Ascend/ascend-toolkit/set_env.sh
 DEVICE_ID=0 bash build.sh -j4 -e 2>&1 | tee "$OUT/build_e_full.log"
 
-# 2) 收集常见产物（有则拷，无则忽略）
 cp -a samples/build-npu "$OUT/samples_build_npu" 2>/dev/null || true
 cp -a examples/build "$OUT/examples_build" 2>/dev/null || true
-# 样例对比 bin
-mkdir -p "$OUT/bins"
-cp -a samples/build-npu/output "$OUT/bins/output" 2>/dev/null || true
-cp -a samples/build-npu/golden "$OUT/bins/golden" 2>/dev/null || true
-cp -a samples/build-npu/input "$OUT/bins/input" 2>/dev/null || true
-
-# 3) 编译失败时抓 kernel 错误日志（路径随 hash 变，整目录打包）
 mkdir -p "$OUT/op_kernel_logs"
-find build/op_kernel -name '*.log' -o -name '*error*' 2>/dev/null | head -200 | while read f; do
+find build/op_kernel -name '*.log' 2>/dev/null | head -200 | while read f; do
   cp -a --parents "$f" "$OUT/op_kernel_logs/" 2>/dev/null || true
 done
-# 若目录不大，可直接：
-# cp -a build/op_kernel/PReluGradUpdate_ascend910b "$OUT/op_kernel_PRelu" 2>/dev/null || true
 
-# 4) 打 tar（在文件树里下载这个文件）
-cd /mnt/workspace
+cd "$LOG_ROOT"
 tar -czvf "${EXPNAME}_logs.tar.gz" "${EXPNAME}_logs"
 ls -lh "${EXPNAME}_logs.tar.gz"
-echo ">>> Download: /mnt/workspace/${EXPNAME}_logs.tar.gz"
+echo ">>> Download: ${LOG_ROOT}/${EXPNAME}_logs.tar.gz"
 ```
 
 ### E2. 推荐：无密码归档（云端不 push）

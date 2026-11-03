@@ -252,23 +252,19 @@ __aicore__ inline void PReluGradUpdate<T>::Compute(int64_t progress, int64_t cur
     }
     SyncSV();
     Muls(negLocal, gradsFloat, weightValue, currentNum);
-
     Mul(fgLocal, featuresFloat, gradsFloat, currentNum);
-    PipeBarrier<PIPE_V>();
-
     LocalTensor<float> zeroLocal = dxFloat;
     Duplicate(zeroLocal, 0.0f, static_cast<int32_t>(cmpCount));
     PipeBarrier<PIPE_V>();
+
     Compare(maskLocal, featuresFloat, zeroLocal, CMPMODE::GT, static_cast<uint32_t>(cmpCount));
     PipeBarrier<PIPE_V>();
 
-    Select(dxFloat, maskLocal, gradsFloat, negLocal, SELMODE::VSEL_TENSOR_TENSOR_MODE,
+    Select(updateFloat, maskLocal, zeroLocal, fgLocal, SELMODE::VSEL_TENSOR_TENSOR_MODE,
         static_cast<uint32_t>(cmpCount));
     PipeBarrier<PIPE_V>();
 
-    Duplicate(featuresFloat, 0.0f, static_cast<int32_t>(cmpCount));
-    PipeBarrier<PIPE_V>();
-    Select(updateFloat, maskLocal, featuresFloat, fgLocal, SELMODE::VSEL_TENSOR_TENSOR_MODE,
+    Select(dxFloat, maskLocal, gradsFloat, negLocal, SELMODE::VSEL_TENSOR_TENSOR_MODE,
         static_cast<uint32_t>(cmpCount));
     PipeBarrier<PIPE_V>();
 
