@@ -1,0 +1,8 @@
+EXP_P102_20261103_154412 — incomplete archive
+
+- SOURCE.txt only has: sha256 0e58c2b2... op_kernel/p_relu_grad_update.h
+- Expected P102 kernel (tip 2e3cbc6): 9e62d7e3c30c874f5e7dc355cdd354d959417daf6d2c93fdb4ea3cfa61b6f3a0
+- MISSING: build_e_full.log, samples_build_npu, verify PASS line, repo_commit
+- Present: examples_build/ only (aclnn sample rebuild tree) — cannot judge 0/192 PASS
+
+Action: re-run full pack script with `DEVICE_ID=0 bash build.sh -j4 -e 2>&1 | tee build_e_full.log` then retar.
