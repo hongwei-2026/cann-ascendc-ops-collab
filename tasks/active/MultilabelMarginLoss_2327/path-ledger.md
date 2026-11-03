@@ -7,3 +7,4 @@
 | M003 | 2026-11-03 | hongwei-2026 | 实现 | 融合 teammate + design_final classTile；云端题目隔离 | 拷座位；Host/Kernel 滑窗；写 SYNC_CODEARTS | 本会话 | 本地 semantic PASS；初版落盘 | 采纳；进云测 | FIX_NOTES |
 | M004 | 2026-11-03 | hongwei-2026 | 云测 | 首点 -e 可过 | CodeArts build.sh -e | 本会话 | build OK；is_target PASS；**y WA 1/1** | **进行中**：查 hinge/mean 写回；见 EXP_M001 | EXP_M001 |
 | 2026-11-03 17:21 | EXP_M001_FIX | Claude/Codex: DataCopyPad StoreY/RowLoss + idle SyncAll + usedCores; local semantic PASS; push 3ebda45 | ������ -e ���� y |
+| 2026-11-03 17:25 | EXP_M002 | �Ʋ� COMPILE FAIL: ScanPrefix() const �� TBuf::Get����ȥ const | �� M003 -e |

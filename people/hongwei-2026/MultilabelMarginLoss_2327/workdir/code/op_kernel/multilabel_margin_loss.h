@@ -78,7 +78,8 @@ private:
     }
 
     __aicore__ inline void LoadTargetRow(int64_t row);
-    __aicore__ inline int64_t ScanPrefix() const;
+    // 不可 const：TBuf::Get 非 const（CANN 9.1 AscendC）
+    __aicore__ inline int64_t ScanPrefix();
     __aicore__ inline void BuildCnt(int64_t c0, int64_t len);
     __aicore__ inline void BuildMask(int64_t c0, int64_t len);
     __aicore__ inline void LoadXTile(int64_t row, int64_t c0, int64_t len,
@@ -178,7 +179,7 @@ __aicore__ inline void MultilabelMarginLoss<T>::LoadTargetRow(int64_t row)
 }
 
 template <typename T>
-__aicore__ inline int64_t MultilabelMarginLoss<T>::ScanPrefix() const
+__aicore__ inline int64_t MultilabelMarginLoss<T>::ScanPrefix()
 {
     LocalTensor<int32_t> tgt = tgtBuf_.Get<int32_t>();
     for (int64_t k = 0; k < targetLen_; ++k) {

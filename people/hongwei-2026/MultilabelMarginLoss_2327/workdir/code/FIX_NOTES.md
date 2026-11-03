@@ -1,9 +1,7 @@
-﻿# MultilabelMarginLoss_2327 — hongwei（Codex/Claude 修 y WA）
+﻿# MultilabelMarginLoss_2327 — hongwei
 
-## EXP_M001 根因（已修）
+## EXP_M001
+y WA：多核 SetValue/GetValue 与 DMA 冲突 → 改 DataCopyPad + idle SyncAll + usedCores。
 
-多核 `SetValue`/`GetValue` 写读 `rowLoss`/`y` 走 Scalar DCache，N=4 时同行 64B Cache Line 互踩 → `is_target`(DMA) 对、`y` WA。现全部改 `DataCopyPad`；cnt 从 UB target 重算；空闲核也进 `SyncAll`；Host `usedCores` 按有活核回算。
-
-## 云测
-
-rsync 本座位 code → `problems/MultilabelMarginLoss_2327/code/` → `bash build.sh -j4 -e`
+## EXP_M002
+COMPILE FAIL：`ScanPrefix() const` 内 `tgtBuf_.Get`（TBuf::Get 非 const）。已去掉 method const。

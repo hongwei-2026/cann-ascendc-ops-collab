@@ -8,3 +8,6 @@
 
 ## 2026-11-03 17:21
 - hongwei: Claude/Codex 修 EXP_M001 y WA（DMA 写 + SyncAll + usedCores），commit 3ebda45 已 push。下一闸：云上 pull/rsync/-e。
+
+## 2026-11-03 17:25
+- EXP_M002 编译失败（ScanPrefix const）；归档 logs；清 Downloads/华为 重复 tar；修 const 待云测。

@@ -1,0 +1,21 @@
+# EXP_M002 — CodeArts -e（DMA 修 y WA 后首测）
+
+- 时间：2026-11-03 17:22
+- 座位：hongwei-2026 MultilabelMarginLoss_2327
+- commit 基线：3ebda45（DMA StoreY/RowLoss + SyncAll）
+
+## 结果
+
+| 项 | 状态 |
+|----|------|
+| build.sh / kernel | **COMPILE FAIL**（三 key 全挂） |
+| samples -e | 未跑到 |
+
+## 根因
+
+`multilabel_margin_loss.h:183`：`ScanPrefix() const` 内调用 `tgtBuf_.Get<int32_t>()`。
+CANN 9.1 `TBuf::Get()` 非 const → `no matching member function for call to 'Get'`。
+
+## 下一闸
+
+去掉 `ScanPrefix` 的 `const`，重 rsync / `bash build.sh -j4 -e`。
