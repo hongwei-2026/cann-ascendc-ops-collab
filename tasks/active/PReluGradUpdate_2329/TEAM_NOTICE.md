@@ -64,5 +64,6 @@
 
 ## 下一闸
 
-- hongwei：平台交 P100 采时；若仍 ms 级 → 查 aclnn 重复分配 / 开 P101（有界）  
+- hongwei：平台交 P100 采时；若仍 ms 级 → 有界开下一条（先 ledger）  
 - 队友：可读 EXP019；有独立性能假设先写 path-ledger 再动手  
+- **勿**从 `D:\华为算子比赛\PReluGradUpdate_problem_2329_template\` 同步——EXP021：15:03 触达为 **回归**（SyncFunc / CompareScalar / 未对齐 Duplicate），已标 P101 废弃  

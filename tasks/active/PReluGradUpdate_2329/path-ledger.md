@@ -38,6 +38,7 @@
 | P031 | 2026-11-03 | hongwei-2026 | 功能 | case4=per-channel weight 的 `Duplicate` 从非 32B 对齐 UB 偏移启动 | 每段未对齐前缀用 `SetValue`；仅从 8-float 对齐下标 `Duplicate`；补 innerSize=1/3/5/7/35/8255 回归 | 本迭代 | 平台 **1–5 Pass**（原 case4 已过） | **采纳** | EXP018 |
 | P032 | 2026-11-03 | yuhongming-2026 | 功能 | 座位代码仍含未对齐 `Duplicate(weightLocal[localOffset])`，会复现 case4 507035 | 吸 P031/EXP018 进 `people/yuhongming-2026/.../BuildWeightVector`；补对齐静态回归 | 本迭代 | 对齐 ✅；tiling 已 `workspace=0`；仍八参 Select + 非 P100 全核/`Muls` → **不作默认试交** | 部分采纳(对齐) | EXP018 |
 | P100 | 2026-11-03 | hongwei-2026 | 性能 | ms 级固定开销来自未使用 16MB workspace；单核内 per-channel 权重展开又串行放大 | workspace=0；全核 tiling；channel 内 `Muls`；**补丁** `progress+=currentNum` + host `tileLen<=inner` | 0.5d | EXP_P100 云测三 key + 样例 **0/192 PASS**；待平台采时 | 进行中 | EXP019 |
+| P101 | 2026-11-03 | hongwei-2026 | 性能 | 外部模板 15:03 声称「再优化」 | 对照 P100：实为 SyncFunc/CompareScalar/未对齐 Duplicate/`ToFloat` **回归** | 0.1h | **拒收**；勿合座位 | **废弃** | EXP021 |
 
 ## 性能道路（阶段已开 · 2026-11-03）
 
