@@ -37,13 +37,15 @@
 | P030 | 2026-11-03 | hongwei-2026 | 功能 | case4=低精度运行时炸 | half 改 Cast↔fp32；bf16 补 S_V/S_MTE3；禁半精度成员污染 | 本迭代 | EXP_P030 云测 PASS；平台 case4 仍 507035 | 部分采纳 | EXP017 |
 | P031 | 2026-11-03 | hongwei-2026 | 功能 | case4=per-channel weight 的 `Duplicate` 从非 32B 对齐 UB 偏移启动 | 每段未对齐前缀用 `SetValue`；仅从 8-float 对齐下标 `Duplicate`；补 innerSize=1/3/5/7/35/8255 回归 | 本迭代 | 平台 **1–5 Pass**（原 case4 已过） | **采纳** | EXP018 |
 | P032 | 2026-11-03 | yuhongming-2026 | 功能 | 座位代码仍含未对齐 `Duplicate(weightLocal[localOffset])`，会复现 case4 507035 | 吸 P031/EXP018 进 `people/yuhongming-2026/.../BuildWeightVector`；补对齐静态回归 | 本迭代 | 对齐 ✅；tiling 已 `workspace=0`；仍八参 Select + 非 P100 全核/`Muls` → **不作默认试交** | 部分采纳(对齐) | EXP018 |
-| P100 | 2026-11-03 | hongwei-2026 | 性能 | ms 级固定开销来自未使用 16MB workspace；单核内 per-channel 权重展开又串行放大 | workspace=0；全核 tiling；channel 内 `Muls`；**补丁** `progress+=currentNum` + host `tileLen<=inner` | 0.5d | EXP_P100 云测三 key + 样例 **0/192 PASS**；待平台采时 | 进行中 | EXP019 |
+| P100 | 2026-11-03 | hongwei-2026 | 性能 | ms 级固定开销来自未使用 16MB workspace；单核内 per-channel 权重展开又串行放大 | workspace=0；全核 tiling；channel 内 `Muls`；**补丁** `progress+=currentNum` + host `tileLen<=inner` | 0.5d | EXP_P100 云测三 key + 样例 **0/192 PASS**；平台截图提交 13557230920：1–5 Pass、42.41 分、7.26/7.41/7.33/5.72/5.82 μs（截图不含源码 hash） | 采纳（当前性能基线） | EXP019 |
 | P101 | 2026-11-03 | hongwei-2026 | 性能 | 外部模板 15:03 声称「再优化」 | 对照 P100：实为 SyncFunc/CompareScalar/未对齐 Duplicate/`ToFloat` **回归** | 0.1h | **拒收**；勿合座位 | **废弃** | EXP021 |
+| P102 | 2026-11-03 | hongwei-2026 | 性能 | 对齐 tile 使用 `DataCopyPad` 带来额外的搬运设置开销 | GM 起点与 tile 字节数均 32B 对齐时，四路 GM↔UB 搬运改用连续 `DataCopy`；其他 tile 仍 `DataCopyPad` | ≤2h；无增益即回退并写 DEC | 本地语义与 diff 检查 PASS；云端编译/性能待测 | 进行中 | EXP022 |
 
 ## 性能道路（阶段已开 · 2026-11-03）
 
 | ID | 触发条件 | 默认策略 |
 |----|----------|----------|
-| P100 | 功能 1–5 Pass 后用时仍 ~ms | workspace=0 + 全核 + channel `Muls`（进行中，见上表） |
+| P100 | 功能 1–5 Pass 后用时仍 ~ms | workspace=0 + 全核 + channel `Muls`；平台截图 1–5 Pass、42.41 分 |
+| P102 | 对齐 tile 仍用 `DataCopyPad` | 有界试验普通 `DataCopy`；只比较同机同用例及源码 hash |
 | P101+ | 平台采时后仍远低于 TBE | 有界优化；触止损写 DEC（`02-perf-gate`） |
 | P1yy | 小 shape <10us 且差 ≤3us | **仿真图 + 分析**，默认不抠微秒 |

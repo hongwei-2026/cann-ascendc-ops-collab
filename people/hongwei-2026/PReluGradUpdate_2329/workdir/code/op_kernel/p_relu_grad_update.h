@@ -7,6 +7,8 @@
  * 禁止把 half/bf16 辅助函数做成对所有 T 都会实例化的成员（会污染 fp32 key）。
  * P100: zero unused workspace, use full-core 32B tiling, and keep each
  * per-channel tile inside one channel so scalar Muls replaces weight expansion.
+ * P102: use contiguous DataCopy only for 32B-aligned GM starts and lengths;
+ * keep DataCopyPad for channel boundaries and tails.
  */
 
 #ifndef PRELUGRADUPDATE_H
@@ -145,19 +147,25 @@ __aicore__ inline void PReluGradUpdate<T>::CopyIn(int64_t progress, int64_t curr
     LocalTensor<T> gradsLocal = gradsQueue_.AllocTensor<T>();
     LocalTensor<T> featuresLocal = featuresQueue_.AllocTensor<T>();
 
-    const int64_t tBlockElements = 32 / static_cast<int64_t>(sizeof(T));
-    const int64_t paddedNum = AlignUp(currentNum, tBlockElements);
-    T padVal;
-    if constexpr (sizeof(T) == 4) {
-        *reinterpret_cast<uint32_t*>(&padVal) = 0u;
+    const int64_t globalOffset = blockStart_ + progress;
+    const int64_t blockElements = 32 / static_cast<int64_t>(sizeof(T));
+    if (globalOffset % blockElements == 0 && currentNum % blockElements == 0) {
+        DataCopy(gradsLocal, gradsGm_[globalOffset], static_cast<uint32_t>(currentNum));
+        DataCopy(featuresLocal, featuresGm_[globalOffset], static_cast<uint32_t>(currentNum));
     } else {
-        *reinterpret_cast<uint16_t*>(&padVal) = 0u;
+        const int64_t paddedNum = AlignUp(currentNum, blockElements);
+        T padVal;
+        if constexpr (sizeof(T) == 4) {
+            *reinterpret_cast<uint32_t*>(&padVal) = 0u;
+        } else {
+            *reinterpret_cast<uint16_t*>(&padVal) = 0u;
+        }
+        DataCopyExtParams copyParams = {1, static_cast<uint32_t>(currentNum * sizeof(T)), 0, 0, 0};
+        DataCopyPadExtParams<T> padParams = {true, 0,
+            static_cast<uint8_t>(paddedNum - currentNum), padVal};
+        DataCopyPad(gradsLocal, gradsGm_[globalOffset], copyParams, padParams);
+        DataCopyPad(featuresLocal, featuresGm_[globalOffset], copyParams, padParams);
     }
-    DataCopyExtParams copyParams = {1, static_cast<uint32_t>(currentNum * sizeof(T)), 0, 0, 0};
-    DataCopyPadExtParams<T> padParams = {true, 0,
-        static_cast<uint8_t>(paddedNum - currentNum), padVal};
-    DataCopyPad(gradsLocal, gradsGm_[blockStart_ + progress], copyParams, padParams);
-    DataCopyPad(featuresLocal, featuresGm_[blockStart_ + progress], copyParams, padParams);
 
     gradsQueue_.EnQue(gradsLocal);
     featuresQueue_.EnQue(featuresLocal);
@@ -305,9 +313,16 @@ __aicore__ inline void PReluGradUpdate<T>::CopyOut(int64_t progress, int64_t cur
 {
     LocalTensor<T> dxLocal = dxQueue_.DeQue<T>();
     LocalTensor<T> updateLocal = updateQueue_.DeQue<T>();
-    DataCopyExtParams copyParams = {1, static_cast<uint32_t>(currentNum * sizeof(T)), 0, 0, 0};
-    DataCopyPad(dxGm_[blockStart_ + progress], dxLocal, copyParams);
-    DataCopyPad(updateGm_[blockStart_ + progress], updateLocal, copyParams);
+    const int64_t globalOffset = blockStart_ + progress;
+    const int64_t blockElements = 32 / static_cast<int64_t>(sizeof(T));
+    if (globalOffset % blockElements == 0 && currentNum % blockElements == 0) {
+        DataCopy(dxGm_[globalOffset], dxLocal, static_cast<uint32_t>(currentNum));
+        DataCopy(updateGm_[globalOffset], updateLocal, static_cast<uint32_t>(currentNum));
+    } else {
+        DataCopyExtParams copyParams = {1, static_cast<uint32_t>(currentNum * sizeof(T)), 0, 0, 0};
+        DataCopyPad(dxGm_[globalOffset], dxLocal, copyParams);
+        DataCopyPad(updateGm_[globalOffset], updateLocal, copyParams);
+    }
     dxQueue_.FreeTensor(dxLocal);
     updateQueue_.FreeTensor(updateLocal);
 }

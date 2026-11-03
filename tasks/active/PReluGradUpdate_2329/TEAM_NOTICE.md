@@ -4,15 +4,15 @@
 
 ## 一句话
 
-功能可见点已过（平台 1–5 Pass）。**当前主线是性能**（用时仍 ~ms，参考 ~10μs）。  
-默认试交 / 平台链接以 Owner **hongwei `3bd65fb` / P100** 为准。
+功能可见点已过（平台 1–5 Pass）。**当前主线是性能**（截图得分 42.41）。
+P100（Owner `3bd65fb`）是已云测基线；席位工作树当前含 P102 对齐搬运候选，**尚未云测或平台复测**。
 
 ## 现状
 
 | 项 | 状态 |
 |----|------|
 | 平台正确性 | **1–5 Pass**（原 case4 `ACL 507035` 已过）；6 隐藏 |
-| 平台性能 | ~1.3–2.0 ms vs 参考 ~10–14 μs（约慢两个数量级） |
+| 平台性能 | 截图提交 13557230920：7.26/7.41/7.33/5.72/5.82 μs；TBest 4.13/4.16/4.23/3.99/4.01 μs；截图不含源码 hash |
 | 云测 | EXP_P100：三 key Done + 样例 **0/192 PASS**（tip `3bd65fb`） |
 | 阶段 | `性能优化中`（见 STATUS） |
 
@@ -23,9 +23,9 @@
 3. bf16：**禁止** `Cast`；用位转换 + 必要 S_V/S_MTE3  
 4. half：可在 `if constexpr(half)` 内 Cast↔fp32；勿 DtypeBridge/`ToFloat` 显式特化（污染各 key）
 
-## 当前性能道路 P100（hongwei，已云测）
+## P100 已云测基线
 
-代码：`people/hongwei-2026/PReluGradUpdate_2329/workdir/code/`
+基线提交：`3bd65fb`；当前 `people/hongwei-2026/PReluGradUpdate_2329/workdir/code/` 已叠加未云测的 P102 候选。
 
 - `workspace = 0`（去掉无用的 16MB 分配）  
 - 小图也拉满多核（公开 fp32 `[4,6,8]` → 24 核）  
@@ -34,6 +34,10 @@
 - Host：`weights=[C]` 时 `tileLen <= innerSize`
 
 详情：EXP019 · EXP_P100 日志 · path-ledger P100
+
+## P102 对齐搬运候选（待云测）
+
+GM 起点与 tile 长度均按 32B 对齐时使用连续 `DataCopy`；其他 tile 保留 `DataCopyPad`。本地语义检查通过；CodeArts 三 key、样例及平台耗时尚未复测。候选 Kernel SHA256 为 `9E62D7E3C30C874F5E7DC355CDD354D959417DAF6D2C93FDB4EA3CFA61B6F3A0`。详见 EXP022。
 
 ## 对 yuhongming P032 的审阅
 
@@ -64,6 +68,6 @@
 
 ## 下一闸
 
-- hongwei：平台交 P100 采时；若仍 ms 级 → 有界开下一条（先 ledger）  
+- hongwei：在 CodeArts 校验 P102 源码指纹，编译三 key、跑 `-e` 并归档日志；通过后同机复测平台耗时
 - 队友：可读 EXP019；有独立性能假设先写 path-ledger 再动手  
 - **勿**从 `D:\华为算子比赛\PReluGradUpdate_problem_2329_template\` 同步——EXP021：15:03 触达为 **回归**（SyncFunc / CompareScalar / 未对齐 Duplicate），已标 P101 废弃  
