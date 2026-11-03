@@ -1,74 +1,53 @@
-# 队友同步 — 现已进入**性能优化**（2026-11-03）
+# 队友同步 — 性能仍不够（2026-11-03）
 
 @`yuhongming-2026` @`JadeYara` — 请先读本页再改 Kernel / 交平台。
 
 ## 一句话
 
-功能可见点已过。**默认 = P103**（tip `47db93e`）。平台 **42.89**（16:46），高于 P102 的 42.06；相对旧 P100 图分数也更高。
+功能 1–5 已过；默认包 **P103**（tip `47db93e`，平台 **42.89**）。  
+**问题：性能优化还远远不够**——公开点仍约 **1.5～1.8× TBest**（我们 ~7.2–7.4μs，TBest ~4.1μs），未到任务书「全核 ≥ TBE 95%」舒适区；P102/P103 只是微幅调度改动，不是瓶颈突破。
 
 ## 现状
 
 | 项 | 状态 |
 |----|------|
-| 平台正确性 | **1–5 Pass**；6 隐藏 |
-| 平台性能 | 16:46：7.36/7.30/7.24/5.83/6.07 μs；**42.89**；TBest ~4.0–4.2μs |
-| 云测 | EXP_P103_163813：三 key + **0/192 PASS** |
-| 阶段 | `性能优化中`（见 STATUS） |
+| 正确性 | 平台 **1–5 Pass**；云测样例 0/192 |
+| 分数 | **42.89**（16:46）；曾 42.41（P100 图）/ 42.06（P102 回退图） |
+| 耗时 | 7.36 / 7.30 / 7.24 / 5.83 / 6.07 μs vs TBest 4.13 / 4.16 / 4.23 / 3.99 / 4.01 μs |
+| 默认代码 | `people/hongwei-2026/PReluGradUpdate_2329/workdir/code/`（**P103**） |
+| 阶段 | **性能优化中 · 缺口仍大** |
 
-## 正确性基线（冻结，勿回退）
+## 已知问题（请对齐认知）
 
-1. **P031**：weight `Duplicate` 必须 32B 对齐（未对齐前缀 `SetValue`）——修 case4 507035  
-2. Select 用 **count** 重载；**禁止**默认八参 `BinaryRepeatParams`（易平台 Compile Error）  
-3. bf16：**禁止** `Cast`；用位转换 + 必要 S_V/S_MTE3  
-4. half：可在 `if constexpr(half)` 内 Cast↔fp32；勿 DtypeBridge/`ToFloat` 显式特化（污染各 key）
+1. **公开小 shape 仍慢**：差 >3μs，按 `02-perf-gate` 属 B 类边缘，禁止无 profile 死磕。  
+2. **已试道路不够**：P100（workspace=0 + 全核 + channel `Muls`）把 ms 打到 μs；P102（对齐 DataCopy）平台变慢已 DEC；P103（零缓冲复用）分数略升但相对 TBest 无质变。  
+3. **缺证据**：多数平台图无源码 hash；无稳定 A/B、无流水线 profile，不能凭感觉叠双缓冲。  
+4. **隐藏点 / 大 shape**：是否 A 类门禁未用公开五点代替；需要任务书 case 与同机 TBE 表。
 
-## P100 已云测基线
+## 正确性基线（冻结）
 
-功能性能基线提交：`3bd65fb`（P100）。席位 Kernel 与语义检查已恢复该版本；其他归档和协作改动保留。
+1. weight `Duplicate` 32B 对齐（P031）  
+2. Select 用 **count**；禁八参 `BinaryRepeatParams`  
+3. bf16 禁 `Cast`；half 仅 `if constexpr`  
+4. `progress += currentNum`（channel tile）
 
-- `workspace = 0`（去掉无用的 16MB 分配）  
-- 小图也拉满多核（公开 fp32 `[4,6,8]` → 24 核）  
-- tile 限制在单 channel 内，直接 `Muls`，删除 weight UB 展开  
-- **必带补丁**：`Process` 里 `progress += currentNum`（不能 `+= tileLen_`，否则 channel 截断会跳元素 WA）  
-- Host：`weights=[C]` 时 `tileLen <= innerSize`
+## 默认包 P103（在 P100 之上）
 
-详情：EXP019 · EXP_P100 日志 · path-ledger P100
-
-## P102 对齐搬运（云测功能 PASS · 本轮撤回）
-
-GM 起点与 tile 长度均按 32B 对齐时使用连续 `DataCopy`；其他 tile 保留 `DataCopyPad`。  
-EXP_P102_154833：verify PASS；三 key Done；dx/update **0/192**。  
-历史 P102 Kernel SHA256（git/云端 LF）`0e58c2b2…7221c`；当前已撤回此分支并恢复 P100（LF `ace05670…563a7`）。平台图未证明正向收益，前三点较上一图慢 18%–23%；退化具体原因尚无 profile 证据。详见 EXP022 / DEC001。
-
-## 对 yuhongming P032 的审阅
-
-| 点 | 评价 |
-|----|------|
-| 吸 P031 对齐 `Duplicate` | ✅ 正确，座位应保留 |
-| tiling `WS_SYS_SIZE=0` | ✅ 与 P100 一致，有利于砍固定开销 |
-| 仍 `BuildWeightVector` + `Mul` | ⚠️ 性能主路径上已被 P100 的 channel-`Muls` 取代；可作对照，勿当默认试交 |
-| 仍八参 `Select(..., repeats, BinaryRepeatParams)` | ❌ 平台 Compile Error 高风险；**不要交平台** |
-| 小 shape 仍单核整 tile | ⚠️ 与 P100「全核」策略不同；公开点仍易卡在启动/调度 |
-| `progress += tileLen_` | 若再叠 channel 截断，需改成 `+= currentNum`（见 P100 补丁） |
-
-结论：P032 **适合座位同步正确性**；**性能默认包仍用 hongwei P100**。若要在 `people/yuhongming-2026/` 试性能，请先吸收 P100 全量语义（含 progress 补丁 + count Select），并新开 `path-ledger` 行，勿直接改 `deliverables/code_best`。
-
-## 性能门禁纪律（`docs/collaboration/02-perf-gate.md`）
-
-- A 类：全核/任务书性能点 → 冲 ≥ TBE 95%（有界道路）  
-- B 类：&lt;10μs 且差 ≤3μs → **仿真图+分析**，禁止无限抠  
-- 一次只开一条性能假设；先 CodeArts `-e` 再交平台采时  
-- 未测前不要叠双缓冲 + 新 dtype 大改  
+- P100：`workspace=0`；全核；channel 内 `Muls`；`progress += currentNum`  
+- P103：update Select 前移，复用 dx 零缓冲，少 Duplicate/屏障（EXP023）  
+- **不要**交 P102 / 外部模板 / 八参 Select 包
 
 ## 协作围栏
 
-1. **不要改** `people/hongwei-2026/`；各写 `people/<自己>/`  
-2. 共享台账只动本题 `tasks/active/PReluGradUpdate_2329/`  
-3. 改默认试交包前先在 STATUS / 本页打招呼  
-4. 云上每次构建成败都打 `EXP_*_logs.tar.gz` 下载归档  
+1. 勿改 `people/hongwei-2026/`；各写自己座位  
+2. 新性能假设先写 `path-ledger` 一行，再动手；一次一条  
+3. 云测日志进 `/mnt/workspace/exp_logs/prelu2329/`，下载归档再认结果  
+4. 触止损写 `decisions/DEC*.md`，禁止假 PASS
 
 ## 下一闸
 
-- hongwei：锁定源码及构建产物，对恢复后的 P100 与历史 P102 同环境重复 A/B；先查启动、标量分支和流水线 profile，再决定是否开新道路
-- 队友：可读 EXP019；有独立性能假设先写 path-ledger 再动手  
-- **勿**从 `D:\华为算子比赛\PReluGradUpdate_problem_2329_template\` 同步——EXP021：15:03 触达为 **回归**（SyncFunc / CompareScalar / 未对齐 Duplicate），已标 P101 废弃  
+- 先分清 A/B 类 case；A 类冲 TBE 95%，B 类优先仿真图+分析  
+- 有新假设：ledger → CodeArts `-e` → 同机平台采时（带指纹）  
+- 无 ≥2% 同机增益或超时 → DEC，回退默认 P103  
+
+依据：STATUS · EXP019 · EXP022/DEC001 · EXP023 · 截图 `explorations/screenshots/EXP023-platform-20261103-164642.png`
