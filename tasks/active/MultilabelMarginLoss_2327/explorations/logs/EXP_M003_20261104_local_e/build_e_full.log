@@ -1,0 +1,10 @@
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /workspace/cann-ascendc-ops-collab/people/yuhongming-2026/MultilabelMarginLoss_2327/workdir/code/examples/build
+Consolidate compiler generated dependencies of target sample
+[100%] Built target sample
+Sample data generated.
+PASS: y.bin, mismatched=0/1
+PASS: is_target.bin, mismatched=0/24
+PASSED
+EXIT:0

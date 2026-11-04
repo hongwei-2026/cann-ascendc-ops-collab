@@ -1,0 +1,41 @@
+# compile summary (trimmed)
+43:/workspace/cann-ascendc-ops-collab/people/yuhongming-2026/MultilabelMarginLoss_2327/workdir/code/build/autogen/aclnn_multilabel_margin_loss.cpp:234:45: warning: ISO C++ forbids converting a string constant to 'char*' [-Wwrite-strings]
+56:[ascend910b] Generating MultilabelMarginLoss_28930a8dec6376f6e5c15676af76df1f ...
+57:[ascend910b] Generating MultilabelMarginLoss_b54e60505b13da63fa79d11715fb28fe ...
+58:[ascend910b] Generating MultilabelMarginLoss_2dd3370e8e71ffaf2fe631d5c274e118 ...
+60:[ascend910b] Generating MultilabelMarginLoss_b54e60505b13da63fa79d11715fb28fe Done
+62:[ascend910b] Generating MultilabelMarginLoss_2dd3370e8e71ffaf2fe631d5c274e118 Done
+64:[ascend910b] Generating MultilabelMarginLoss_28930a8dec6376f6e5c15676af76df1f Done
+177:[INFO] Build completed successfully!
+
+--- tail ---
+-- Installing: /workspace/cann-ascendc-ops-collab/people/yuhongming-2026/MultilabelMarginLoss_2327/workdir/code/build/packages/vendors/multilabel_margin_loss_custom/op_impl/ai_core/tbe//kernel/ascend910b//multilabel_margin_loss/MultilabelMarginLoss_28930a8dec6376f6e5c15676af76df1f.o
+-- Installing: /workspace/cann-ascendc-ops-collab/people/yuhongming-2026/MultilabelMarginLoss_2327/workdir/code/build/packages/vendors/multilabel_margin_loss_custom/op_impl/ai_core/tbe//kernel/config/
+-- Installing: /workspace/cann-ascendc-ops-collab/people/yuhongming-2026/MultilabelMarginLoss_2327/workdir/code/build/packages/vendors/multilabel_margin_loss_custom/op_impl/ai_core/tbe//kernel/config//ascend910b
+-- Installing: /workspace/cann-ascendc-ops-collab/people/yuhongming-2026/MultilabelMarginLoss_2327/workdir/code/build/packages/vendors/multilabel_margin_loss_custom/op_impl/ai_core/tbe//kernel/config//ascend910b/binary_info_config.json
+-- Installing: /workspace/cann-ascendc-ops-collab/people/yuhongming-2026/MultilabelMarginLoss_2327/workdir/code/build/packages/vendors/multilabel_margin_loss_custom/op_impl/ai_core/tbe//kernel/config//ascend910b/multilabel_margin_loss.json
+-- Installing: /workspace/cann-ascendc-ops-collab/people/yuhongming-2026/MultilabelMarginLoss_2327/workdir/code/build/packages/vendors/multilabel_margin_loss_custom/op_impl/ai_core/tbe/config/ascend910b/aic-ascend910b-ops-info.json
+-- Installing: /workspace/cann-ascendc-ops-collab/people/yuhongming-2026/MultilabelMarginLoss_2327/workdir/code/build/packages/vendors/multilabel_margin_loss_custom/framework/tensorflow/npu_supported_ops.json
+----------------------------------------------------------------
+[INFO] Build completed successfully!
+[INFO] Kernel binary: /workspace/cann-ascendc-ops-collab/people/yuhongming-2026/MultilabelMarginLoss_2327/workdir/code/build/op_kernel/ascendc_kernels/binary/ascend910b/multilabel_margin_loss/MultilabelMarginLoss_2dd3370e8e71ffaf2fe631d5c274e118.o
+[INFO] Package: /workspace/cann-ascendc-ops-collab/people/yuhongming-2026/MultilabelMarginLoss_2327/workdir/code/build/custom_opp_ubuntu_aarch64.run
+----------------------------------------------------------------
+[INFO] Running examples...
+-- The CXX compiler identification is GNU 11.4.0
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /workspace/cann-ascendc-ops-collab/people/yuhongming-2026/MultilabelMarginLoss_2327/workdir/code/examples/build
+[ 50%] Building CXX object CMakeFiles/sample.dir/test_aclnn_multilabel_margin_loss.cpp.o
+[100%] Linking CXX executable sample
+[100%] Built target sample
+Traceback (most recent call last):
+  File "/workspace/cann-ascendc-ops-collab/people/yuhongming-2026/MultilabelMarginLoss_2327/workdir/code/samples/sample.py", line 4, in <module>
+    import numpy as np
+ModuleNotFoundError: No module named 'numpy'
+EXIT:1

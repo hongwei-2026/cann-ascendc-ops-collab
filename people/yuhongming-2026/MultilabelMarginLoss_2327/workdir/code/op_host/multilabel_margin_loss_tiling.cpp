@@ -132,16 +132,42 @@ static ge::graphStatus MultilabelMarginLossTilingFunc(gert::TilingContext* conte
         OP_LOGE(context, "unsupported dtype");
         return ge::GRAPH_FAILED;
     }
-    // UB 粗估：x/target/is_target/float 工作缓冲；一行必须能放下。
-    const int64_t xBytes = classNum * xTypeSize;
-    const int64_t targetBytes = targetLen * static_cast<int64_t>(sizeof(int32_t));
-    const int64_t isTargetBytes = classNum * static_cast<int64_t>(sizeof(int32_t));
-    const int64_t floatWorkBytes = classNum * static_cast<int64_t>(sizeof(float)) * 3; // xFloat + scratch
-    const int64_t needUb = xBytes + targetBytes + isTargetBytes + floatWorkBytes + 4096;
-    OP_CHECK_IF(
-        static_cast<uint64_t>(needUb) > ubSize,
-        OP_LOGE(context, "row footprint %ld exceeds UB %lu", needUb, ubSize),
-        return ge::GRAPH_FAILED);
+    // UB：优先整行；装不下则按 design_final 滑窗切 C（target 仍整行，避免拆截断前缀）。
+    // reserve 覆盖 kernel 的 redBuf_(RED_CHUNK=512 float=2KB)、outBuf_ 与 UB 预留。
+    const int64_t reserve = 12288;
+    auto Footprint = [&](int64_t tileC, int64_t tileK) -> int64_t {
+        const int64_t xRawBytes = tileC * xTypeSize;                 // xRawBuf_
+        const int64_t targetBytes = tileK * static_cast<int64_t>(sizeof(int32_t)); // tgtBuf_
+        const int64_t cntBytes = tileC * static_cast<int64_t>(sizeof(int32_t));    // cntBuf_
+        // xjfBuf_ / xlfBuf_ / maskBuf_ / accBuf_ / tmpBuf_ 共 5 份 float
+        const int64_t floatWorkBytes = tileC * static_cast<int64_t>(sizeof(float)) * 5;
+        return xRawBytes + targetBytes + cntBytes + floatWorkBytes + reserve;
+    };
+    int64_t classTile = classNum;
+    int64_t targetTile = targetLen;
+    if (static_cast<uint64_t>(Footprint(classTile, targetTile)) > ubSize) {
+        OP_CHECK_IF(
+            static_cast<uint64_t>(Footprint(8, targetLen)) > ubSize,
+            OP_LOGE(context, "targetLen=%ld too large for UB %lu", targetLen, ubSize),
+            return ge::GRAPH_FAILED);
+        int64_t lo = 8;
+        int64_t hi = classNum;
+        classTile = 8;
+        while (lo <= hi) {
+            const int64_t mid = (lo + hi) / 2;
+            if (static_cast<uint64_t>(Footprint(mid, targetLen)) <= ubSize) {
+                classTile = mid;
+                lo = mid + 1;
+            } else {
+                hi = mid - 1;
+            }
+        }
+        classTile = (classTile / 8) * 8;
+        OP_CHECK_IF(
+            classTile < 8,
+            OP_LOGE(context, "cannot find classTile for C=%ld UB=%lu", classNum, ubSize),
+            return ge::GRAPH_FAILED);
+    }
 
     const int64_t reduction = ParseReductionAttr(context);
     OP_CHECK_IF(
@@ -157,10 +183,14 @@ static ge::graphStatus MultilabelMarginLossTilingFunc(gert::TilingContext* conte
     MultilabelMarginLossTilingData* tiling = context->GetTilingData<MultilabelMarginLossTilingData>();
     OP_CHECK_NULL_WITH_CONTEXT(context, tiling);
 
-    const int64_t usedCores = std::min(coreNum, batchSize);
-    const int64_t rowsPerCore = CeilDivI64(batchSize, usedCores);
-    const int64_t fullCores = (rowsPerCore == 0) ? 0 : (batchSize / rowsPerCore);
-    const int64_t rem = (rowsPerCore == 0) ? 0 : (batchSize % rowsPerCore);
+    // 分核：先按核数上限定每核行数，再回算**实际有活**的核数。
+    // 若直接用 min(coreNum,N) 当 blockDim，当 ceil(N/rowsPerCore) < min(coreNum,N) 时
+    // （如 N=100、coreNum=64 → rowsPerCore=2，只有 50 核有活）会拉起 14 个空闲核；
+    // 这些核在 kernel 里拿不到行，一旦提前退出就缺席 SyncAll，使其余核永久等待。
+    const int64_t coresCap = std::min(coreNum, batchSize);
+    const int64_t rowsPerCore = CeilDivI64(batchSize, coresCap);
+    const int64_t usedCores = CeilDivI64(batchSize, rowsPerCore);
+    const int64_t rem = batchSize - (usedCores - 1) * rowsPerCore; // 尾核实际行数
     // 采用均匀前缀分核：核 i 处理 [i*rowsPerCore, min((i+1)*rowsPerCore, N))
     tiling->batchSize = batchSize;
     tiling->classNum = classNum;
@@ -169,7 +199,8 @@ static ge::graphStatus MultilabelMarginLossTilingFunc(gert::TilingContext* conte
     tiling->usedCores = usedCores;
     tiling->rowsPerCore = rowsPerCore;
     tiling->tailRows = rem; // 仅记录；kernel 用 min 截断
-    (void)fullCores;
+    tiling->classTile = classTile;
+    tiling->targetTile = targetTile;
 
     context->SetBlockDim(static_cast<uint32_t>(usedCores));
 

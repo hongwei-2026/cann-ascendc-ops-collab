@@ -1,0 +1,19 @@
+# EXP_M003 — 本地 910B4 build.sh -e（yuhongming 座位）
+
+- 时间：2026-11-04
+- 座位：people/yuhongming-2026/MultilabelMarginLoss_2327
+- 代码：同步 hongwei tip（DMA StoreY/RowLoss + 去 ScanPrefix const + classTile）
+- 环境：CANN 9.1.0 · NPU 910B4 · DEVICE_ID=0
+
+## 结果
+
+| 项 | 状态 |
+|----|------|
+| build.sh（三 key） | **SUCCESS** |
+| y.bin | **PASS** mismatched=0/1 |
+| is_target.bin | **PASS** mismatched=0/24 |
+| 总评 | **PASSED** |
+
+## 备注
+
+首轮 -e 因系统 python3 缺 numpy 中断于 sample.py；安装 python3-numpy 后仅重跑 examples/run.sh 即过。
