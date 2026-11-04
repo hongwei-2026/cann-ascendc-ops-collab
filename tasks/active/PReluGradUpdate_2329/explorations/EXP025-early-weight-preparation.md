@@ -1,6 +1,6 @@
 # EXP025 — P105 提前准备标量权重
 
-- 日期：2026-11-04；席位：hongwei-2026；状态：本地候选，云测和平台待测。
+- 日期：2026-11-04；席位：hongwei-2026；状态：云测 PASS；平台计时待测。
 - 基线：P103 `47db93e`；P104 不采纳，见 DEC002。
 - 用户说明没有 profiler，按单项假设继续试验；不将 profile 作为前置阻塞。
 
@@ -19,16 +19,18 @@ Process 先调用 CopyIn 再调用 Compute。P103 在输入 DeQue 之后才准�
 
 本地检查不包含 CANN 编译、设备精度或设备计时，不能据此声称平台 PASS 或提速。
 
+## 云测（EXP_P105_204700）
+
+- tip `2e378eb`；source/build kernel 均为 `4f100a73…520c`；verify PASS。
+- 三 key Done；dx/update **0/192 PASS**。
+- 日志：`explorations/logs/EXP_P105_204700/`（含 `SOURCE.txt`、`build_e_full.log`）。
+
 ## 下一闸
 
-1. 将本轮实时源码送入既有云测流程，SOURCE 中记录 Kernel LF 指纹，核验实际构建副本一致。
-2. 三个 dtype key 编译及设备精度通过后，再交平台计时；归档完整日志与截图。
-3. 尽量同环境重复对照 P103；无明确收益则恢复 P103，不叠加候选。历史 42.89 分不代表 P105 成绩。
-
-仅修改本地指定席位及本题记录，不提交、不推送。入口：`../deliverables/SUBMIT_LINKS_P105.md`。
+平台计时 vs P103；归档截图。无 ≥2% 同机收益 → 回 P103 + DEC。历史 42.89 不代表本候选成绩。入口：`../deliverables/SUBMIT_LINKS_P105.md`。
 
 ## Owner 复审（同日）
 
 - **可试**：相对 P103 仅搬移权重 GM 读+解码到 DeQue 前；已剥离 P104；6ops/4barrier 不变；`weight_schedule_check` / 语义 / 调度 PASS；hash `4f100a73…520c`。  
 - **预期保守**：编译器可能已重叠；公开小 shape 未必有感。无 ≥2% 同机收益 → 回 P103。  
-- **下一闸**：CodeArts 三 key `-e` → 平台 vs P103。
+- **云测已过**；现等平台。
