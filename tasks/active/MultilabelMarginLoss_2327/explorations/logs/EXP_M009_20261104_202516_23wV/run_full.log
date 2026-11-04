@@ -1,0 +1,336 @@
+build.sh dac80276a3298f4a16f9e6824cec3d18d82650ba0116a229133a881a00dfa262
+CMakeLists.txt 63e64f53f66c9c7f87af1eb9a7ffa9e24b2b3e4ea89c2b6a11748de5f1ed7f76
+examples/CMakeLists.txt dfe9d2a6eeb1389a5f7f1141886f40018169f9572a966f08aceace4020bf2e33
+examples/run.sh 9177683b39512b4259641a4ad097500202f8f0c9c515cfa01c782e30a6f2856e
+examples/sample_support.h 1e3ce5d7a19afd69e4d9c75df7802e9be63db9ec61d9840ed7bda7e6a426d5f7
+examples/test_aclnn_multilabel_margin_loss.cpp f87e31b721f0dbeeb8954714a5c7abfed6d3e7d5a6301b166eb7b2ba1d28c93b
+FIX_NOTES.md 991a1bfca7f673b6f6d7b4ce4be32cd5fa02b3b27a9f1f41680febd467c5e590
+M009_README.md 6a79c8489b2bbd085566dc4c5839bfc4f37b4e00d052a32df7a97f31429ecb56
+op_host/CMakeLists.txt 1de444d1f669aabeb63b73b636b64a1532d74d7e056956150ba1465073aed96b
+op_host/multilabel_margin_loss_def.cpp a24cf1d7b0d7194474466732f00224b3500dec659bf517d22f4c813ccd0eacfa
+op_host/multilabel_margin_loss_infershape.cpp ccefad09864673d83b5849ebd3575cbf18e33c9636a16fbe588139fc3be45c9b
+op_host/multilabel_margin_loss_tiling.cpp fe00ab9f526660830cf66ef59134d6fb2c875ec675ad1955e497fe43f5558481
+op_kernel/CMakeLists.txt 803fb189cb5bb83c1003e43e7df99db42fc838fa53ea8f0fce9dc6ccd3561d6b
+op_kernel/multilabel_margin_loss.cpp 9834288243015db36b07200a4e0fc1aae27c187b8e587d7d85976e9af397e3b8
+op_kernel/multilabel_margin_loss.h a0d66d3bf2fa38f157b23e390a69fe5670a9345f05c294450d08d9701914dd0e
+op_kernel/multilabel_margin_loss_tiling_data.h 096d363e54dc1538448d1e84a5b37855d32be0220a35a095dbed8e9a3e837e3c
+op_kernel/multilabel_margin_loss_tiling_key.h e0fb76df1cd7cd1f6dca9ba2b4e913bcc33117f0136108aba2f8cbd0e5b2c766
+README.md 7f9bf3a841a3988ffb551f5ad168d00abc24e8f043be996c856d06c9d508e1a4
+samples/case.json 06eb3fb073d76406c352a6d929095c07256e508cfe94d050d8199262d62695fe
+samples/reference.py 0df28aadf45f5229ed8bd80c05d18fb1add71e41d005e3a29bb34b8a0d287bcc
+samples/sample.py 8e2195aff5cd5b998a879a9735ec582c2142dadbbc2ee26e498dff449714d6a4
+tests/local_semantic_check.py 0d1304bc826f9c5a4092455ff484338beb25dfde3d39ba5900d1f7300709fe3c
+tests/npu_regression.py 7a355835250fcd5c04bad4e1a818fa065b9bd949d72ea69cae5226e2aeff8913
+tests/run_m009_cloud.sh 2479994ebf42ee93f7f3c2f1e8b751bb0d88223a072558accda1b3f5fada7985
+tests/ut/cmake/BuildGoogleTest.cmake 51270daff5b349ce5f21f73e18d0b561f179541864158cafdef440ac7f81de93
+tests/ut/CMakeLists.txt 87d2f282003da472fa475cbea2c95a197c53eeee9850dbdef29924a49acb5cca
+tests/ut/common/any_value.h 8dd88ba3c3908d757ee8bd11c03f03bb28218662fcc112f08a63846e38ee0c0f
+tests/ut/common/infershape_case_executor.cpp ac45cda21b36cfec973f8b9faf17609c40ec0b1bb3505c5fa5b66a9f06239540
+tests/ut/common/infershape_case_executor.h 546fd2a0324139d58f1ae725189fdfd5d0d082feb69b8fbe53a9cdb07677ade4
+tests/ut/common/infershape_context_faker.cpp 5362aca7c89c708d8afbbdf32bc58e8a97ff96257d2fd60b669b410e765367c0
+tests/ut/common/infershape_context_faker.h 4154d87c522c3154753f31ad049719811103585871134b490ffde9fd69514ba9
+tests/ut/common/tiling_case_executor.cpp 3acf6379ae333fbf924a1ce1dea5ed44801f00f3f5dd7f52fc75914d19e0ba8f
+tests/ut/common/tiling_case_executor.h 2d3b1bdf37d545deeec09f901369d6bf18e0c9d94c0c6f5e43e8cd3a164b9ed1
+tests/ut/common/tiling_context_faker.cpp 966c05f053d931b983ed5f146d4d9a71fe68c143098ce9ac48c079020e774b66
+tests/ut/common/tiling_context_faker.h d881ebd71f0a4c3062efd425ba213cb6a875e8494860e77d76ce1fdd19846bc0
+tests/ut/op_host/CMakeLists.txt 4e385994c050536f3395646c9293001fba82dbe75d332f2706c66f8490b73598
+tests/ut/op_host/test_multilabel_margin_loss_tiling.cpp 2e144c31cb8b23a77fe137591d2b454a067cd12d40d911348f5d2929682311a6
+tests/ut/op_host/test_op_host_main.cpp 047eb496446f8d01f416e4966a234477c18ebe938916728c856d4770ebf4e04a
+tests/ut/op_kernel/CMakeLists.txt 53d33fbc30d7035af35461db4deed51d34d3d91e90fe3b5a6a8000f0901d48a3
+tests/ut/op_kernel/multilabel_margin_loss_data/README.md ffd9bb0b039727b52ed5ea3df627fb669ccd53b6752297d93bc8de786f76a934
+tests/ut/op_kernel/multilabel_margin_loss_tiling.h d8b00b926853b948a4fc26526c2b39ef9c55ab571b2034a4acf3b4cb2fd8ffac
+tests/ut/op_kernel/test_multilabel_margin_loss.cpp 7a9e011c46a5a4a4a43aa506063ea7d20f71a6e885a07f67df9f64322b16d576
+tests/ut/run.sh 0fa7d4687e91cb77f0d28d749dfa158ab0dfdb7ad23a6b3b45fbdfb0d96be17f
+M009 source verification: PASS
+MultilabelMarginLoss local semantic checks: PASS
+----------------------------------------------------------------
+[INFO] Configuring project...
+[INFO] CMAKE_ARGS: -DASCEND_COMPUTE_UNIT=ascend910b -DCANNJUDGE_COMPILE_JOBS=4
+-- The C compiler identification is GNU 9.4.0
+-- The CXX compiler identification is GNU 9.4.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- set package config: INSTALL_PATH;/mnt/workspace/problems/MultilabelMarginLoss_2327/code/build
+-- Opbuild generating sources
+-- Opbuild generating sources - done
+INFO target name: cust_optiling
+INFO target name: cust_op_proto
+INFO target name: cust_opapi
+INFO target name: ascendc_kernels
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /mnt/workspace/problems/MultilabelMarginLoss_2327/code/build
+----------------------------------------------------------------
+[INFO] Building project with 4 threads...
+[  6%] Generating scripts/install.sh, scripts/upgrade.sh, scripts/uninstall.sh
+[ 20%] Building CXX object op_host/CMakeFiles/cust_optiling.dir/multilabel_margin_loss_def.cpp.o
+[ 20%] Building CXX object op_host/CMakeFiles/cust_opapi.dir/__/autogen/aclnn_multilabel_margin_loss.cpp.o
+[ 20%] Built target gen_version_info
+[ 26%] Building CXX object op_host/CMakeFiles/cust_op_proto.dir/multilabel_margin_loss_def.cpp.o
+[ 26%] Built target modify_vendor
+[ 33%] Building CXX object op_host/CMakeFiles/cust_op_proto.dir/multilabel_margin_loss_infershape.cpp.o
+/mnt/workspace/problems/MultilabelMarginLoss_2327/code/build/autogen/aclnn_multilabel_margin_loss.cpp: In function ‘aclnnStatus aclnnMultilabelMarginLossGetWorkspaceSize(const aclTensor*, const aclTensor*, char*, const aclTensor*, const aclTensor*, uint64_t*, aclOpExecutor**)’:
+/mnt/workspace/problems/MultilabelMarginLoss_2327/code/build/autogen/aclnn_multilabel_margin_loss.cpp:234:45: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+  234 |         static char *reductionOptionalDef = "mean";
+      |                                             ^~~~~~
+[ 33%] Built target cust_opapi
+[ 40%] Generating ../autogen/copy_kernel_src.timestamp
+[ 40%] Built target ascendc_kernels_copy_kernel_srcs
+[ 46%] Building CXX object op_host/CMakeFiles/cust_optiling.dir/multilabel_margin_loss_infershape.cpp.o
+[ 53%] Building CXX object op_host/CMakeFiles/cust_optiling.dir/multilabel_margin_loss_tiling.cpp.o
+[ 60%] Building CXX object op_host/CMakeFiles/cust_op_proto.dir/multilabel_margin_loss_tiling.cpp.o
+[ 66%] Building CXX object op_host/CMakeFiles/cust_op_proto.dir/__/autogen/op_proto.cc.o
+[ 73%] Generating ascendc_kernels/tbe/op_info_cfg/ai_core/npu_supported_ops.json
+/mnt/workspace/problems/MultilabelMarginLoss_2327/code/build/autogen /mnt/workspace/problems/MultilabelMarginLoss_2327/code/build/op_kernel/ascendc_kernels/tbe/op_info_cfg/ai_core
+[INFO] Succeeded generated /mnt/workspace/problems/MultilabelMarginLoss_2327/code/build/op_kernel/ascendc_kernels/tbe/op_info_cfg/ai_core/npu_supported_ops.json
+[ 73%] Built target multilabel_margin_loss_custom_npu_supported_ops
+[ 73%] Built target multilabel_margin_loss_custom_update_so_names
+[ 80%] Linking CXX shared library libcust_opapi.so
+[ 80%] Built target multilabel_margin_loss_custom_ascendc_cust_opapi
+[ 86%] Generating ascendc_kernels/tbe/op_info_cfg/ai_core/ascend910b/aic-ascend910b-ops-info.json
+
+
+==============check valid for ops info start==============
+==============check valid for ops info end================
+
+
+Compile op info cfg successfully.
+[ 86%] Built target ascendc_kernels_ops_info_gen_ascend910b
+[ 86%] Built target cust_optiling
+[ 93%] Linking CXX shared library libcust_opmaster_rt2.0.so
+[ 93%] Built target cust_op_proto
+[100%] Linking CXX shared library libcust_opsproto_rt2.0.so
+[100%] Built target multilabel_margin_loss_custom_ascendc_cust_optiling
+[100%] Built target optiling_compat
+[100%] Built target multilabel_margin_loss_custom_ascendc_cust_op_proto
+[ 16%] Built target ascendc_kernels_copy_kernel_srcs
+Consolidate compiler generated dependencies of target cust_optiling
+[ 66%] Built target cust_optiling
+[ 83%] Built target ascendc_kernels_ops_info_gen_ascend910b
+[100%] Built target multilabel_margin_loss_custom_ascendc_cust_optiling
+[ascend910b] Generating MultilabelMarginLoss_b54e60505b13da63fa79d11715fb28fe ...
+[ascend910b] Generating MultilabelMarginLoss_2dd3370e8e71ffaf2fe631d5c274e118 ...
+[ascend910b] Generating MultilabelMarginLoss_28930a8dec6376f6e5c15676af76df1f ...
+Opc tool start working now, please wait for a moment.
+[ascend910b] Generating MultilabelMarginLoss_2dd3370e8e71ffaf2fe631d5c274e118 Done
+Opc tool start working now, please wait for a moment.
+[ascend910b] Generating MultilabelMarginLoss_b54e60505b13da63fa79d11715fb28fe Done
+Opc tool start working now, please wait for a moment.
+[ascend910b] Generating MultilabelMarginLoss_28930a8dec6376f6e5c15676af76df1f Done
+[100%] Built target MultilabelMarginLoss_ascend910b
+[100%] Built target ascendc_kernels_ascendc_bin_ascend910b_gen_ops_config
+[100%] Built target binary
+Consolidate compiler generated dependencies of target cust_opapi
+[  6%] Built target cust_opapi
+[ 13%] Built target modify_vendor
+[ 33%] Built target cust_optiling
+[ 33%] Built target gen_version_info
+[ 40%] Built target ascendc_kernels_copy_kernel_srcs
+[ 46%] Built target multilabel_margin_loss_custom_npu_supported_ops
+Consolidate compiler generated dependencies of target cust_op_proto
+[ 73%] Built target cust_op_proto
+[ 80%] Built target multilabel_margin_loss_custom_ascendc_cust_opapi
+[ 86%] Built target multilabel_margin_loss_custom_ascendc_cust_optiling
+[ 86%] Built target multilabel_margin_loss_custom_update_so_names
+[ 93%] Built target ascendc_kernels_ops_info_gen_ascend910b
+[100%] Built target multilabel_margin_loss_custom_ascendc_cust_op_proto
+[100%] Built target optiling_compat
+Run CPack packaging tool...
+CPack: Create package using External
+CPack: Install projects
+CPack: - Run preinstall target for: multilabel_margin_loss_op_prj
+CPack: - Install project: multilabel_margin_loss_op_prj []
+CPack: Create package
+
+About to compress 1636 KB of data...
+Adding files to archive named "custom_opp_ubuntu_aarch64.run"...
+./help.info
+./install.sh
+./packages/vendors/multilabel_margin_loss_custom/framework/tensorflow/npu_supported_ops.json
+./packages/vendors/multilabel_margin_loss_custom/op_api/include/aclnn_multilabel_margin_loss.h
+./packages/vendors/multilabel_margin_loss_custom/op_api/lib/libcust_opapi.so
+./packages/vendors/multilabel_margin_loss_custom/op_impl/ai_core/tbe/config/ascend910b/aic-ascend910b-ops-info.json
+./packages/vendors/multilabel_margin_loss_custom/op_impl/ai_core/tbe/kernel/ascend910b/multilabel_margin_loss/MultilabelMarginLoss_28930a8dec6376f6e5c15676af76df1f.json
+./packages/vendors/multilabel_margin_loss_custom/op_impl/ai_core/tbe/kernel/ascend910b/multilabel_margin_loss/MultilabelMarginLoss_28930a8dec6376f6e5c15676af76df1f.o
+./packages/vendors/multilabel_margin_loss_custom/op_impl/ai_core/tbe/kernel/ascend910b/multilabel_margin_loss/MultilabelMarginLoss_2dd3370e8e71ffaf2fe631d5c274e118.json
+./packages/vendors/multilabel_margin_loss_custom/op_impl/ai_core/tbe/kernel/ascend910b/multilabel_margin_loss/MultilabelMarginLoss_2dd3370e8e71ffaf2fe631d5c274e118.o
+./packages/vendors/multilabel_margin_loss_custom/op_impl/ai_core/tbe/kernel/ascend910b/multilabel_margin_loss/MultilabelMarginLoss_b54e60505b13da63fa79d11715fb28fe.json
+./packages/vendors/multilabel_margin_loss_custom/op_impl/ai_core/tbe/kernel/ascend910b/multilabel_margin_loss/MultilabelMarginLoss_b54e60505b13da63fa79d11715fb28fe.o
+./packages/vendors/multilabel_margin_loss_custom/op_impl/ai_core/tbe/kernel/config/ascend910b/binary_info_config.json
+./packages/vendors/multilabel_margin_loss_custom/op_impl/ai_core/tbe/kernel/config/ascend910b/multilabel_margin_loss.json
+./packages/vendors/multilabel_margin_loss_custom/op_impl/ai_core/tbe/multilabel_margin_loss_custom_impl/dynamic/multilabel_margin_loss.cpp
+./packages/vendors/multilabel_margin_loss_custom/op_impl/ai_core/tbe/multilabel_margin_loss_custom_impl/dynamic/multilabel_margin_loss.h
+./packages/vendors/multilabel_margin_loss_custom/op_impl/ai_core/tbe/multilabel_margin_loss_custom_impl/dynamic/multilabel_margin_loss.py
+./packages/vendors/multilabel_margin_loss_custom/op_impl/ai_core/tbe/multilabel_margin_loss_custom_impl/dynamic/multilabel_margin_loss_tiling_data.h
+./packages/vendors/multilabel_margin_loss_custom/op_impl/ai_core/tbe/multilabel_margin_loss_custom_impl/dynamic/multilabel_margin_loss_tiling_key.h
+./packages/vendors/multilabel_margin_loss_custom/op_impl/ai_core/tbe/op_tiling/lib/linux/aarch64/libcust_opmaster_rt2.0.so
+./packages/vendors/multilabel_margin_loss_custom/op_impl/ai_core/tbe/op_tiling/liboptiling.so
+./packages/vendors/multilabel_margin_loss_custom/op_proto/inc/op_proto.h
+./packages/vendors/multilabel_margin_loss_custom/op_proto/lib/linux/aarch64/libcust_opsproto_rt2.0.so
+./packages/vendors/multilabel_margin_loss_custom/version.info
+./uninstall.sh
+./upgrade.sh
+CRC: 973921454
+SHA256: 16af9b9fa5d0fe1ad7a559df6bdae30b0a26df7945f0bec718bc08f15e59e74d
+Skipping md5sum at user request
+
+Self-extractable archive "custom_opp_ubuntu_aarch64.run" successfully created.
+Copy /mnt/workspace/problems/MultilabelMarginLoss_2327/code/build/_CPack_Packages/Linux/External/custom_opp_ubuntu_aarch64.run/custom_opp_ubuntu_aarch64.run to /mnt/workspace/problems/MultilabelMarginLoss_2327/code/build/
+CPack: - package: /mnt/workspace/problems/MultilabelMarginLoss_2327/code/build/custom_opp_ubuntu_aarch64.run.json generated.
+CPack: - package: /mnt/workspace/problems/MultilabelMarginLoss_2327/code/build/custom_opp_ubuntu_aarch64.run generated.
+[  6%] Built target cust_opapi
+[ 13%] Built target modify_vendor
+[ 33%] Built target cust_optiling
+[ 33%] Built target gen_version_info
+[ 40%] Built target ascendc_kernels_copy_kernel_srcs
+[ 46%] Built target multilabel_margin_loss_custom_npu_supported_ops
+[ 73%] Built target cust_op_proto
+[ 80%] Built target multilabel_margin_loss_custom_ascendc_cust_opapi
+[ 86%] Built target multilabel_margin_loss_custom_ascendc_cust_optiling
+[ 86%] Built target multilabel_margin_loss_custom_update_so_names
+[ 93%] Built target ascendc_kernels_ops_info_gen_ascend910b
+[100%] Built target multilabel_margin_loss_custom_ascendc_cust_op_proto
+[100%] Built target optiling_compat
+Install the project...
+-- Install configuration: ""
+-- Up-to-date: /mnt/workspace/problems/MultilabelMarginLoss_2327/code/build/.
+-- Installing: /mnt/workspace/problems/MultilabelMarginLoss_2327/code/build/./help.info
+-- Installing: /mnt/workspace/problems/MultilabelMarginLoss_2327/code/build/./uninstall.sh
+-- Installing: /mnt/workspace/problems/MultilabelMarginLoss_2327/code/build/./install.sh
+-- Installing: /mnt/workspace/problems/MultilabelMarginLoss_2327/code/build/./upgrade.sh
+-- Installing: /mnt/workspace/problems/MultilabelMarginLoss_2327/code/build/packages/vendors/multilabel_margin_loss_custom/version.info
+-- Installing: /mnt/workspace/problems/MultilabelMarginLoss_2327/code/build/packages/vendors/multilabel_margin_loss_custom/op_impl/ai_core/tbe/op_tiling/lib/linux/aarch64/libcust_opmaster_rt2.0.so
+-- Set runtime path of "/mnt/workspace/problems/MultilabelMarginLoss_2327/code/build/packages/vendors/multilabel_margin_loss_custom/op_impl/ai_core/tbe/op_tiling/lib/linux/aarch64/libcust_opmaster_rt2.0.so" to ""
+-- Installing: /mnt/workspace/problems/MultilabelMarginLoss_2327/code/build/packages/vendors/multilabel_margin_loss_custom/op_impl/ai_core/tbe/op_tiling/liboptiling.so
+-- Installing: /mnt/workspace/problems/MultilabelMarginLoss_2327/code/build/packages/vendors/multilabel_margin_loss_custom/op_proto/lib/linux/aarch64/libcust_opsproto_rt2.0.so
+-- Set runtime path of "/mnt/workspace/problems/MultilabelMarginLoss_2327/code/build/packages/vendors/multilabel_margin_loss_custom/op_proto/lib/linux/aarch64/libcust_opsproto_rt2.0.so" to ""
+-- Installing: /mnt/workspace/problems/MultilabelMarginLoss_2327/code/build/packages/vendors/multilabel_margin_loss_custom/op_proto/inc/op_proto.h
+-- Installing: /mnt/workspace/problems/MultilabelMarginLoss_2327/code/build/packages/vendors/multilabel_margin_loss_custom/op_api/lib/libcust_opapi.so
+-- Set runtime path of "/mnt/workspace/problems/MultilabelMarginLoss_2327/code/build/packages/vendors/multilabel_margin_loss_custom/op_api/lib/libcust_opapi.so" to ""
+-- Installing: /mnt/workspace/problems/MultilabelMarginLoss_2327/code/build/packages/vendors/multilabel_margin_loss_custom/op_api/include/aclnn_multilabel_margin_loss.h
+-- Installing: /mnt/workspace/problems/MultilabelMarginLoss_2327/code/build/packages/vendors/multilabel_margin_loss_custom/op_impl/ai_core/tbe/multilabel_margin_loss_custom_impl/dynamic/
+-- Installing: /mnt/workspace/problems/MultilabelMarginLoss_2327/code/build/packages/vendors/multilabel_margin_loss_custom/op_impl/ai_core/tbe/multilabel_margin_loss_custom_impl/dynamic//multilabel_margin_loss.py
+-- Installing: /mnt/workspace/problems/MultilabelMarginLoss_2327/code/build/packages/vendors/multilabel_margin_loss_custom/op_impl/ai_core/tbe/multilabel_margin_loss_custom_impl/dynamic//multilabel_margin_loss_tiling_data.h
+-- Installing: /mnt/workspace/problems/MultilabelMarginLoss_2327/code/build/packages/vendors/multilabel_margin_loss_custom/op_impl/ai_core/tbe/multilabel_margin_loss_custom_impl/dynamic//multilabel_margin_loss.h
+-- Installing: /mnt/workspace/problems/MultilabelMarginLoss_2327/code/build/packages/vendors/multilabel_margin_loss_custom/op_impl/ai_core/tbe/multilabel_margin_loss_custom_impl/dynamic//multilabel_margin_loss.cpp
+-- Installing: /mnt/workspace/problems/MultilabelMarginLoss_2327/code/build/packages/vendors/multilabel_margin_loss_custom/op_impl/ai_core/tbe/multilabel_margin_loss_custom_impl/dynamic//multilabel_margin_loss_tiling_key.h
+-- Installing: /mnt/workspace/problems/MultilabelMarginLoss_2327/code/build/packages/vendors/multilabel_margin_loss_custom/op_impl/ai_core/tbe//kernel/ascend910b/
+-- Installing: /mnt/workspace/problems/MultilabelMarginLoss_2327/code/build/packages/vendors/multilabel_margin_loss_custom/op_impl/ai_core/tbe//kernel/ascend910b//multilabel_margin_loss
+-- Installing: /mnt/workspace/problems/MultilabelMarginLoss_2327/code/build/packages/vendors/multilabel_margin_loss_custom/op_impl/ai_core/tbe//kernel/ascend910b//multilabel_margin_loss/MultilabelMarginLoss_b54e60505b13da63fa79d11715fb28fe.o
+-- Installing: /mnt/workspace/problems/MultilabelMarginLoss_2327/code/build/packages/vendors/multilabel_margin_loss_custom/op_impl/ai_core/tbe//kernel/ascend910b//multilabel_margin_loss/MultilabelMarginLoss_28930a8dec6376f6e5c15676af76df1f.o
+-- Installing: /mnt/workspace/problems/MultilabelMarginLoss_2327/code/build/packages/vendors/multilabel_margin_loss_custom/op_impl/ai_core/tbe//kernel/ascend910b//multilabel_margin_loss/MultilabelMarginLoss_2dd3370e8e71ffaf2fe631d5c274e118.json
+-- Installing: /mnt/workspace/problems/MultilabelMarginLoss_2327/code/build/packages/vendors/multilabel_margin_loss_custom/op_impl/ai_core/tbe//kernel/ascend910b//multilabel_margin_loss/MultilabelMarginLoss_2dd3370e8e71ffaf2fe631d5c274e118.o
+-- Installing: /mnt/workspace/problems/MultilabelMarginLoss_2327/code/build/packages/vendors/multilabel_margin_loss_custom/op_impl/ai_core/tbe//kernel/ascend910b//multilabel_margin_loss/MultilabelMarginLoss_b54e60505b13da63fa79d11715fb28fe.json
+-- Installing: /mnt/workspace/problems/MultilabelMarginLoss_2327/code/build/packages/vendors/multilabel_margin_loss_custom/op_impl/ai_core/tbe//kernel/ascend910b//multilabel_margin_loss/MultilabelMarginLoss_28930a8dec6376f6e5c15676af76df1f.json
+-- Installing: /mnt/workspace/problems/MultilabelMarginLoss_2327/code/build/packages/vendors/multilabel_margin_loss_custom/op_impl/ai_core/tbe//kernel/config/
+-- Installing: /mnt/workspace/problems/MultilabelMarginLoss_2327/code/build/packages/vendors/multilabel_margin_loss_custom/op_impl/ai_core/tbe//kernel/config//ascend910b
+-- Installing: /mnt/workspace/problems/MultilabelMarginLoss_2327/code/build/packages/vendors/multilabel_margin_loss_custom/op_impl/ai_core/tbe//kernel/config//ascend910b/binary_info_config.json
+-- Installing: /mnt/workspace/problems/MultilabelMarginLoss_2327/code/build/packages/vendors/multilabel_margin_loss_custom/op_impl/ai_core/tbe//kernel/config//ascend910b/multilabel_margin_loss.json
+-- Installing: /mnt/workspace/problems/MultilabelMarginLoss_2327/code/build/packages/vendors/multilabel_margin_loss_custom/op_impl/ai_core/tbe/config/ascend910b/aic-ascend910b-ops-info.json
+-- Installing: /mnt/workspace/problems/MultilabelMarginLoss_2327/code/build/packages/vendors/multilabel_margin_loss_custom/framework/tensorflow/npu_supported_ops.json
+----------------------------------------------------------------
+[INFO] Build completed successfully!
+[INFO] Kernel binary: /mnt/workspace/problems/MultilabelMarginLoss_2327/code/build/op_kernel/ascendc_kernels/binary/ascend910b/multilabel_margin_loss/MultilabelMarginLoss_b54e60505b13da63fa79d11715fb28fe.o
+[INFO] Package: /mnt/workspace/problems/MultilabelMarginLoss_2327/code/build/custom_opp_ubuntu_aarch64.run
+----------------------------------------------------------------
+[INFO] Running examples...
+-- The CXX compiler identification is GNU 9.4.0
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /mnt/workspace/problems/MultilabelMarginLoss_2327/code/examples/build
+[ 50%] Building CXX object CMakeFiles/sample.dir/test_aclnn_multilabel_margin_loss.cpp.o
+[100%] Linking CXX executable sample
+[100%] Built target sample
+Sample data generated.
+workspace_bytes=0
+PASS: y.bin, mismatched=0/1
+PASS: is_target.bin, mismatched=0/24
+PASSED
+[INFO] Example completed successfully!
+Build copy not found at build/op_kernel; source snapshot is archived.
+PASS n4_c6_k6_float32_none
+PASS n4_c6_k6_float32_mean
+PASS n4_c6_k6_float32_sum
+PASS n4_c6_k6_float16_none
+PASS n4_c6_k6_float16_mean
+PASS n4_c6_k6_float16_sum
+PASS n4_c6_k6_bfloat16_none
+PASS n4_c6_k6_bfloat16_mean
+PASS n4_c6_k6_bfloat16_sum
+PASS n8_c32_k16_float32_none
+PASS n8_c32_k16_float32_mean
+PASS n8_c32_k16_float32_sum
+PASS n8_c32_k16_float16_none
+PASS n8_c32_k16_float16_mean
+PASS n8_c32_k16_float16_sum
+PASS n8_c32_k16_bfloat16_none
+PASS n8_c32_k16_bfloat16_mean
+PASS n8_c32_k16_bfloat16_sum
+PASS n8_c32_k17_float32_none
+FAIL n8_c32_k17_float32_mean
+FAIL n8_c32_k17_float32_sum
+PASS n8_c32_k17_float16_none
+FAIL n8_c32_k17_float16_mean
+FAIL n8_c32_k17_float16_sum
+PASS n8_c32_k17_bfloat16_none
+FAIL n8_c32_k17_bfloat16_mean
+FAIL n8_c32_k17_bfloat16_sum
+PASS n9_c17_k11_float32_none
+FAIL n9_c17_k11_float32_mean
+FAIL n9_c17_k11_float32_sum
+PASS n9_c17_k11_float16_none
+FAIL n9_c17_k11_float16_mean
+FAIL n9_c17_k11_float16_sum
+PASS n9_c17_k11_bfloat16_none
+FAIL n9_c17_k11_bfloat16_mean
+FAIL n9_c17_k11_bfloat16_sum
+PASS n100_c6_k6_float32_none
+FAIL n100_c6_k6_float32_mean
+FAIL n100_c6_k6_float32_sum
+PASS n100_c6_k6_float16_none
+FAIL n100_c6_k6_float16_mean
+FAIL n100_c6_k6_float16_sum
+PASS n100_c6_k6_bfloat16_none
+FAIL n100_c6_k6_bfloat16_mean
+FAIL n100_c6_k6_bfloat16_sum
+PASS n1_c257_k11_float32_none
+PASS n1_c257_k11_float32_mean
+PASS n1_c257_k11_float32_sum
+PASS n1_c257_k11_float16_none
+PASS n1_c257_k11_float16_mean
+PASS n1_c257_k11_float16_sum
+PASS n1_c257_k11_bfloat16_none
+PASS n1_c257_k11_bfloat16_mean
+PASS n1_c257_k11_bfloat16_sum
+PASS n3_c16385_k11_float32_none
+FAIL n3_c16385_k11_float32_mean
+FAIL n3_c16385_k11_float32_sum
+PASS n3_c16385_k11_float16_none
+FAIL n3_c16385_k11_float16_mean
+FAIL n3_c16385_k11_float16_sum
+PASS n3_c16385_k11_bfloat16_none
+FAIL n3_c16385_k11_bfloat16_mean
+FAIL n3_c16385_k11_bfloat16_sum
+PASS n513_c6_k9_float32_none
+FAIL n513_c6_k9_float32_mean
+FAIL n513_c6_k9_float32_sum
+PASS n513_c6_k9_float16_none
+FAIL n513_c6_k9_float16_mean
+FAIL n513_c6_k9_float16_sum
+PASS n513_c6_k9_bfloat16_none
+FAIL n513_c6_k9_bfloat16_mean
+FAIL n513_c6_k9_bfloat16_sum
+NPU regression: 42/72 PASS

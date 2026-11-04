@@ -14,3 +14,4 @@
 | M008 | 2026-11-04 | hongwei-2026 | 平台 | 提交 M006 tip | 平台用例 1-5 | **Pass** 0% 错；用时~713us vs 最优~5us | 功能采纳；进性能闸 | PLATFORM_CASES_1-5 |
 
 | M009 | 2026-11-04 | hongwei-2026 candidate | performance | Unused fixed 16MB workspace and tiny cross-core finalize | On-demand workspace; tiny single-core ordered reduction | <=2h | CPU semantic PASS; actual Process 36 / workspace 42 cases PASS; 72 reference cases generated; CANN/NPU/perf NOT RUN | candidate; M006 remains default | EXP_M009 |
+| M010 | 2026-11-04 | hongwei-2026 | 修复 | 多核 SyncAll 需系统 GM；M009 去 16MB → ACL 507035 | 多核恢复 WS_SYS+GetUserWorkspace；保留 none/tiny=0 | 本会话 | 本地 semantic+flow PASS；待云复测 | 候选修复 | EXP_M009 ANALYSIS |

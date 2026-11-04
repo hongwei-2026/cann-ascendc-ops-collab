@@ -39,3 +39,7 @@
 - Removed fixed 16MB workspace; none/single-core use 0, multi-core mean/sum use aligned FP32 losses[N]. Tiny reductions finalize on one core.
 - CPU semantic PASS; actual Process flow 36 cases and workspace 42 cases PASS. Generated 72 independent reference cases; NPU NOT RUN.
 - Added source manifest and isolated cloud check; preserved M006 as validated baseline. CANN build, NPU precision, and same-platform performance remain pending. No commit/push.
+
+## 2026-11-04 20:35
+- 归档 EXP_M009：多核 mean/sum ACL 507035。
+- M010：多核恢复 16MB 系统区 + GetUserWorkspace；none/tiny 仍 0。

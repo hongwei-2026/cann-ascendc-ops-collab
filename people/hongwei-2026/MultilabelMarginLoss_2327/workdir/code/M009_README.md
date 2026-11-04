@@ -1,15 +1,11 @@
 # MultilabelMarginLoss 2327: M009 candidate
 
-Based on hongwei M006 (platform cases 1-5 passed). M009 has not yet been built
-with CANN or run on an NPU. Keep the original M006 ZIP for rollback.
+Based on hongwei M006. Cloud EXP_M009: none/tiny PASS; multi-core mean/sum
+hit ACL 507035 without the system GM prefix. **M010** restores 16MB system
+workspace + `GetUserWorkspace` for multi-core only.
 
-The kernel loss/count algorithm is unchanged. M009 removes the fixed 16MB
-workspace reservation: none and single-core reductions use zero workspace;
-multi-core mean/sum use only 32-byte-aligned FP32 losses[N]. Small reductions
-(N<=8, C<=32, K<=32, N*C*K<=4096) finish on one core in row order.
-The kernel uses the raw workspace exclusively for its row losses; it has no
-Matmul/HCCL/software-sync system-workspace consumers. Multi-core hardware
-SyncAll and the core0 ordered final sum remain in place.
+Still: none and single-core (incl. tiny mean/sum) use workspace=0; multi-core
+mean/sum use `WS_SYS_SIZE + aligned losses[N]`. Loss/count algorithm unchanged.
 
 The existing example still defaults to the original seed42 [4,6] mean case.
 Optional arguments now support broader precision/scheduling checks. Host and

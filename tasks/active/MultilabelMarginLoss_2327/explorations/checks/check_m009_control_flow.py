@@ -69,6 +69,7 @@ namespace gert { struct TilingContext {
     size_t* GetWorkspaceSizes(int n) { check(n==1); return nullWorkspace?nullptr:&bytes; }
 }; }
 #define OP_CHECK_NULL_WITH_CONTEXT(ctx,ptr) if (!(ptr)) return ge::GRAPH_FAILED
+constexpr uint32_t WS_SYS_SIZE = 16U * 1024U * 1024U;
 // HOST_FUNCTIONS
 std::vector<float> rowLosses, output, scratch;
 std::vector<int> processed;
@@ -136,7 +137,10 @@ int main() {
         for (int reduction=0;reduction<3;++reduction) {
             for (int cores:{1,4}) {
                 check(SetWorkspace(&ctx,n,reduction,cores)==ge::GRAPH_SUCCESS);
-                size_t expected=reduction==0||cores==1?0:((n*4+31)/32)*32;
+                // Multi-core mean/sum: 16MB system prefix + aligned losses[N]
+                // (EXP_M009 cloud: ACL 507035 without the system prefix).
+                size_t expected=reduction==0||cores==1?0:
+                    (16u*1024u*1024u) + static_cast<size_t>(((n*4+31)/32)*32);
                 check(ctx.bytes==expected);
             }
         }

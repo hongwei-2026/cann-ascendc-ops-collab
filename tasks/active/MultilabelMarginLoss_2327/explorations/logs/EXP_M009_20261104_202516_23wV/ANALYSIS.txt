@@ -1,0 +1,24 @@
+# EXP_M009 — CodeArts run_m009_cloud.sh
+
+- 时间：2026-11-04 20:25
+- tip：M009（零系统 workspace 多核）
+- exit_code：1
+
+## 结果摘要
+
+| 路径 | 结果 |
+|------|------|
+| build / 原样例 -e | PASS（workspace_bytes=0） |
+| none（各 shape） | 全 PASS |
+| tiny 单核 mean/sum（N≤8,C≤32,K≤32,NCK≤4096） | PASS |
+| 多核 mean/sum | **FAIL ACL 507035**（workspace 仅 losses[N]，如 32/416B） |
+
+典型失败：`n8_c32_k17_*_mean/sum`、`n9_*`、`n100_*`、`n513_*`、`n3_c16385_*` mean/sum。
+
+## 根因
+
+多核 `SyncAll` 仍需要框架 **系统 GM 前缀**；M009 误判「无系统消费者」并直接用 raw workspace 首址。
+
+## 修复
+
+M010：多核恢复 `16MB + aligned losses[N]` + `GetUserWorkspace`；保留 none/tiny 零 workspace。

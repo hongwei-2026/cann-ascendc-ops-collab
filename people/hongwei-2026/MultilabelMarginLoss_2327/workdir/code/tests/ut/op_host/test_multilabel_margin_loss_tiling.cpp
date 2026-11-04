@@ -40,7 +40,7 @@ static MultilabelMarginLossTestParam testCases[] = {
     {"tiny_mean", "mean", {4, 6}, ge::DT_FLOAT, ge::FORMAT_ND, {4, 6}, ge::DT_INT32, ge::FORMAT_ND, {1}, ge::DT_FLOAT, ge::FORMAT_ND, {4, 6}, ge::DT_INT32, ge::FORMAT_ND, "Ascend910B", ge::GRAPH_SUCCESS, 1UL, "4 6 6 1 1 4 4 6 6 ", {0UL}, 64, 262144, 4096},
     {"none_no_workspace", "none", {4, 6}, ge::DT_FLOAT, ge::FORMAT_ND, {4, 6}, ge::DT_INT32, ge::FORMAT_ND, {4}, ge::DT_FLOAT, ge::FORMAT_ND, {4, 6}, ge::DT_INT32, ge::FORMAT_ND, "Ascend910B", ge::GRAPH_SUCCESS, 1UL, "4 6 6 0 4 1 1 6 6 ", {0UL}, 64, 262144, 4096},
     {"tiny_sum_bf16", "sum", {4, 6}, ge::DT_BF16, ge::FORMAT_ND, {4, 6}, ge::DT_INT32, ge::FORMAT_ND, {1}, ge::DT_BF16, ge::FORMAT_ND, {4, 6}, ge::DT_INT32, ge::FORMAT_ND, "Ascend910B", ge::GRAPH_SUCCESS, 2UL, "4 6 6 2 1 4 4 6 6 ", {0UL}, 64, 262144, 4096},
-    {"multicore_mean", "mean", {100, 6}, ge::DT_FLOAT, ge::FORMAT_ND, {100, 6}, ge::DT_INT32, ge::FORMAT_ND, {1}, ge::DT_FLOAT, ge::FORMAT_ND, {100, 6}, ge::DT_INT32, ge::FORMAT_ND, "Ascend910B", ge::GRAPH_SUCCESS, 1UL, "100 6 6 1 50 2 2 6 6 ", {416UL}, 64, 262144, 4096},
+    {"multicore_mean", "mean", {100, 6}, ge::DT_FLOAT, ge::FORMAT_ND, {100, 6}, ge::DT_INT32, ge::FORMAT_ND, {1}, ge::DT_FLOAT, ge::FORMAT_ND, {100, 6}, ge::DT_INT32, ge::FORMAT_ND, "Ascend910B", ge::GRAPH_SUCCESS, 1UL, "100 6 6 1 50 2 2 6 6 ", {16777632UL}, 64, 262144, 4096},
     {"single_core_fp16", "mean", {1, 257}, ge::DT_FLOAT16, ge::FORMAT_ND, {1, 11}, ge::DT_INT32, ge::FORMAT_ND, {1}, ge::DT_FLOAT16, ge::FORMAT_ND, {1, 257}, ge::DT_INT32, ge::FORMAT_ND, "Ascend910B", ge::GRAPH_SUCCESS, 0UL, "1 257 11 1 1 1 1 257 11 ", {0UL}, 64, 262144, 4096},
 };
 

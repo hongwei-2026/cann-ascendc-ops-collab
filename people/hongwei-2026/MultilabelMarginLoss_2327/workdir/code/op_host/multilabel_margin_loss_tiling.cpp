@@ -15,6 +15,9 @@
 namespace optiling {
 namespace {
 
+// Multi-core SyncAll still needs the framework system GM prefix (ACL 507035
+// without it). Tiny/none paths keep workspace=0.
+constexpr uint32_t WS_SYS_SIZE = 16U * 1024U * 1024U;
 constexpr int64_t REDUCTION_NONE = 0;
 constexpr int64_t REDUCTION_MEAN = 1;
 constexpr int64_t REDUCTION_SUM = 2;
@@ -64,10 +67,13 @@ ge::graphStatus SetWorkspace(gert::TilingContext* context, int64_t batchSize,
 {
     size_t* currentWorkspace = context->GetWorkspaceSizes(1);
     OP_CHECK_NULL_WITH_CONTEXT(context, currentWorkspace);
-    // Only multi-core mean/sum consume GM scratch. SyncAll() is the hardware
-    // overload; no Matmul/HCCL or software-sync API consumes system workspace.
-    currentWorkspace[0] = reduction == REDUCTION_NONE || usedCores == 1
-        ? 0 : static_cast<size_t>(CeilDivI64(batchSize, 8)) * 32;
+    if (reduction == REDUCTION_NONE || usedCores == 1) {
+        currentWorkspace[0] = 0;
+    } else {
+        // System prefix for SyncAll + 32B-aligned fp32 losses[N] user region.
+        const size_t rowLossBytes = static_cast<size_t>(CeilDivI64(batchSize, 8)) * 32;
+        currentWorkspace[0] = static_cast<size_t>(WS_SYS_SIZE) + rowLossBytes;
+    }
     return ge::GRAPH_SUCCESS;
 }
 

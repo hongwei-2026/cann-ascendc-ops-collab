@@ -151,9 +151,8 @@ __aicore__ inline void MultilabelMarginLoss<T>::Init(GM_ADDR x, GM_ADDR target, 
     yGm_.SetGlobalBuffer((__gm__ T*)y, reduction_ == REDUCTION_NONE ? batchSize_ : 1);
     isTargetGm_.SetGlobalBuffer((__gm__ int32_t*)isTarget, batchSize_ * classNum_);
     if (reduction_ != REDUCTION_NONE && usedCores_ > 1) {
-        // This basic-API kernel has no system GM workspace consumers. Host
-        // allocates only our row losses; no reserved system prefix is present.
-        rowLossGm_.SetGlobalBuffer((__gm__ float*)workspace, batchSize_);
+        // Skip framework system prefix; Host reserved WS_SYS_SIZE + losses[N].
+        rowLossGm_.SetGlobalBuffer((__gm__ float*)GetUserWorkspace(workspace), batchSize_);
     }
 
     const int64_t xElemPerBlock = 32 / static_cast<int64_t>(sizeof(T));
