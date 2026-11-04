@@ -13,6 +13,7 @@
 
 | 题目 | 目录 | 类型 | 合入仓（预期） | 状态 |
 |------|------|------|----------------|------|
+| ConfusionTransposeD (2323) | [active/ConfusionTransposeD_2323](active/ConfusionTransposeD_2323) | A 算子 | CANNJudge / 本仓座位 | 实现中 |
 | PReluGradUpdate (2329) | [active/PReluGradUpdate_2329](active/PReluGradUpdate_2329) | A 算子 | ict / 开源仓算子工程（以任务书与模板为准） | 分析定稿（SUMMARY 完成） |
 
 ## Archive
