@@ -8,4 +8,4 @@
 | M004 | 2026-11-03 | hongwei-2026 | 云测 | 首点 -e 可过 | CodeArts build.sh -e | 本会话 | build OK；is_target PASS；**y WA 1/1** | 根因：GM 标量写 Cache 不一致 | EXP_M001 |
 | M004b | 2026-11-03 | hongwei-2026 | 修复 | DataCopyPad 写 y/rowLoss + idle SyncAll + usedCores | push `3ebda45` | 本会话 | 待云复测 | 采纳 | EXP_M001_FIX |
 | M004c | 2026-11-03 | hongwei-2026 | 云测 | DMA 修后首测 | CodeArts -e | 本会话 | **COMPILE FAIL**：`ScanPrefix() const` → TBuf::Get | 去 const；见 EXP_M002 | EXP_M002 |
-| M005 | 2026-11-04 | yuhongming-2026 | 验证 | 同步 tip 后本地 -e 可过 | 座位同步 hongwei DMA+const 修；910B4 build + run.sh | 本会话 | **PASSED** y 0/1 · is_target 0/24 | **采纳**；可云复测 | EXP_M003 |
+| M005 | 2026-11-04 | yuhongming-2026 | 验证 | 同步 tip 后本地 -e 可过 | 座位同步 hongwei DMA+const 修；910B4 build + run.sh | 本会话 | **PASSED** y 0/1 · is_target 0/24 | **采纳**；可云复测 | [EXP_M003](explorations/EXP_M003-local-910b4-pass.md) · [会话卡片](explorations/AI-SESSION-20261104-card.md) |

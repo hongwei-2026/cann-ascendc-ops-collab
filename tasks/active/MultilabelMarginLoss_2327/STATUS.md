@@ -8,7 +8,8 @@
 | 代码座位 | **yuhongming tip（本地 -e PASS）**：`people/yuhongming-2026/MultilabelMarginLoss_2327/workdir/code/` |
 | 同源 | hongwei `22ec6d6` tip（DMA + 去 ScanPrefix const）亦可作云同步源 |
 | 设计 | [SUMMARY](analysis/SUMMARY.md) · [design_final](analysis/AI-codex-claude_design_final.md) · [design.md](design.md) |
-| 本地闸 | EXP_M003：**PASSED**（y 0/1 · is_target 0/24） |
+| 本地闸 | [EXP_M003](explorations/EXP_M003-local-910b4-pass.md)：**PASSED**（y 0/1 · is_target 0/24） |
+| 会话卡片 | [AI-SESSION-20261104-card.md](explorations/AI-SESSION-20261104-card.md) |
 | 下一闸 | CodeArts 隔离目录复测 `-e`；扩泛化对拍 |
 | 禁止串题 | 勿与 `PReluGradUpdate_2329` 共用 build/EXP 根目录 |
 
