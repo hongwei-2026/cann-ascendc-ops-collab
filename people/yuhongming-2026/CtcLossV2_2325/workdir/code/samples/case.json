@@ -1,0 +1,140 @@
+{
+  "source_case": "npu_cases[0]",
+  "function": "impl",
+  "attributes": {
+    "blank": 0,
+    "reduction": "mean",
+    "zero_infinity": false
+  },
+  "inputs": [
+    {
+      "name": "log_probs",
+      "kind": "required",
+      "tensors": [
+        {
+          "file": "log_probs.bin",
+          "dtype": "float32",
+          "shape": [
+            10,
+            1,
+            5
+          ],
+          "bytes": 200,
+          "elements": 50,
+          "range": [
+            -5,
+            0
+          ],
+          "value": null,
+          "value_url": null,
+          "value_sha256": null
+        }
+      ]
+    },
+    {
+      "name": "targets",
+      "kind": "required",
+      "tensors": [
+        {
+          "file": "targets.bin",
+          "dtype": "int32",
+          "shape": [
+            1,
+            8
+          ],
+          "bytes": 32,
+          "elements": 8,
+          "range": [
+            0,
+            4
+          ],
+          "value": null,
+          "value_url": null,
+          "value_sha256": null
+        }
+      ]
+    },
+    {
+      "name": "input_lengths",
+      "kind": "required",
+      "tensors": [
+        {
+          "file": "input_lengths.bin",
+          "dtype": "int32",
+          "shape": [
+            1
+          ],
+          "bytes": 4,
+          "elements": 1,
+          "range": null,
+          "value": [
+            10
+          ],
+          "value_url": null,
+          "value_sha256": null
+        }
+      ]
+    },
+    {
+      "name": "target_lengths",
+      "kind": "required",
+      "tensors": [
+        {
+          "file": "target_lengths.bin",
+          "dtype": "int32",
+          "shape": [
+            1
+          ],
+          "bytes": 4,
+          "elements": 1,
+          "range": null,
+          "value": [
+            8
+          ],
+          "value_url": null,
+          "value_sha256": null
+        }
+      ]
+    }
+  ],
+  "outputs": [
+    {
+      "name": "neg_log_likelihood",
+      "kind": "required",
+      "tensors": [
+        {
+          "file": "neg_log_likelihood.bin",
+          "dtype": "float32",
+          "shape": [
+            1
+          ],
+          "bytes": 4,
+          "elements": 1,
+          "rtol": 0.0001,
+          "atol": 0.0001,
+          "tol": 0.0001
+        }
+      ]
+    },
+    {
+      "name": "log_alpha",
+      "kind": "required",
+      "tensors": [
+        {
+          "file": "log_alpha.bin",
+          "dtype": "float32",
+          "shape": [
+            1,
+            10,
+            17
+          ],
+          "bytes": 680,
+          "elements": 170,
+          "rtol": 0.0001,
+          "atol": 0.0001,
+          "tol": 0.0001
+        }
+      ]
+    }
+  ]
+}
