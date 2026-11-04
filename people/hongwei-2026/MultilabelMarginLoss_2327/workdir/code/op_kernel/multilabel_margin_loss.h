@@ -277,13 +277,27 @@ __aicore__ inline float MultilabelMarginLoss<T>::ProcessOneRow(int64_t row)
     prefixLen_ = ScanPrefix();
 
     // ---- 趟 1：按 classTile 写 is_target（计数型，DataCopyPad 写出）----
+    bool hasPos = false;
     for (int64_t c0 = 0; c0 < classNum_; c0 += classTile_) {
         const int64_t len = (c0 + classTile_ <= classNum_) ? classTile_ : (classNum_ - c0);
         BuildCnt(c0, len);
         PipeBarrier<PIPE_ALL>(); // Scalar -> MTE3
+        if (!hasPos) {
+            for (int64_t i = 0; i < len; ++i) {
+                if (cnt.GetValue(i) > 0) {
+                    hasPos = true;
+                    break;
+                }
+            }
+        }
         DataCopyExtParams params = {1, static_cast<uint32_t>(len * sizeof(int32_t)), 0, 0, 0};
         DataCopyPad(isTargetGm_[row * classNum_ + c0], cnt, params);
         PipeBarrier<PIPE_ALL>(); // MTE3 完成后方可复用 cntBuf_
+    }
+
+    // 无正类：is_target 已写出，loss 为 0（仍计入 mean 的 N）
+    if (!hasPos) {
+        return 0.0f;
     }
 
     // ---- 趟 2：沿 j 轴向量化 hinge，按互异目标类 cnt 加权 ----
@@ -293,6 +307,19 @@ __aicore__ inline float MultilabelMarginLoss<T>::ProcessOneRow(int64_t row)
 
         LoadXTile(row, j0, jLen, xjf, 1.0f); // xjf = x_j + 1
         BuildMask(j0, jLen);                 // mask = 1.0 iff cnt[j]==0
+        PipeBarrier<PIPE_ALL>(); // Vector -> Scalar（探测 anyNeg）
+        // 本 j 块若全是目标类，Mul(acc,mask) 必为 0，直接跳过内层 O(C)
+        bool anyNeg = false;
+        for (int64_t jj = 0; jj < jLen; ++jj) {
+            if (mask.GetValue(jj) != 0.0f) {
+                anyNeg = true;
+                break;
+            }
+        }
+        if (!anyNeg) {
+            continue;
+        }
+
         Duplicate(acc, 0.0f, static_cast<int32_t>(jLen));
         PipeBarrier<PIPE_V>();
 

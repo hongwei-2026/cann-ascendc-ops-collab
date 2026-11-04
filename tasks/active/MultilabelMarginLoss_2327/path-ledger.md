@@ -9,3 +9,4 @@
 | M004b | 2026-11-03 | hongwei-2026 | ä¿®å¤ | DataCopyPad å†™ y/rowLoss + idle SyncAll + usedCores | push `3ebda45` | æœ¬ä¼šè¯ | å¾…äº‘å¤æµ‹ | é‡‡çº³ | EXP_M001_FIX |
 | M004c | 2026-11-03 | hongwei-2026 | äº‘æµ‹ | DMA ä¿®åé¦–æµ‹ | CodeArts -e | æœ¬ä¼šè¯ | **COMPILE FAIL**ï¼š`ScanPrefix() const` â†’ TBuf::Get | å» constï¼›è§ EXP_M002 | EXP_M002 |
 | M005 | 2026-11-04 | yuhongming-2026 | éªŒè¯ | åŒæ­¥ tip åæœ¬åœ° -e å¯è¿‡ | åº§ä½åŒæ­¥ hongwei DMA+const ä¿®ï¼›910B4 build + run.sh | æœ¬ä¼šè¯ | **PASSED** y 0/1 Â· is_target 0/24 | **é‡‡çº³**ï¼›å¯äº‘å¤æµ‹ | [EXP_M003](explorations/EXP_M003-local-910b4-pass.md) Â· [ä¼šè¯å¡ç‰‡](explorations/AI-SESSION-20261104-card.md) |
+| M006 | 2026-11-04 | hongwei-2026 | ÓÅ»¯ | ÎüÊÕ M003£»ÎŞÕıÀà/È«Ä¿±ê j ¿éÔçÍË£»À© semantic | ±¾»á»° | semantic PASS | ²ÉÄÉ£»´ıÔÆ -e | FIX_NOTES |
