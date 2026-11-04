@@ -31,7 +31,7 @@ losses[i] = 1/C * Σ_{j:cnt[j]==0} Σ_{l:cnt[l]>0} cnt[l] * max(0, 1 + x[j] - x[
 | 模块 | 策略 |
 |------|------|
 | InferShape | `is_target` 与 `x` 同形；`none` 且 2D → `y=[N]`，否则 `y=[1]` |
-| Tiling | 按 batch 行分核；workspace = 16MB + `N*sizeof(float)` 行损失缓冲 |
+| Tiling | M009 候选：none/单核 workspace=0；多核 mean/sum 仅申请 32B 对齐的 `N*sizeof(float)`；微小 reduction 单核，其余保留按行分核 |
 | Key | 0=fp16 / 1=fp32 / 2=bf16 |
 
 ## Kernel
@@ -39,7 +39,7 @@ losses[i] = 1/C * Σ_{j:cnt[j]==0} Σ_{l:cnt[l]>0} cnt[l] * max(0, 1 + x[j] - x[
 - 每核处理连续行区间 `[start, start+count)`
 - 行内标量实现计数 + O(C²) hinge（功能优先；大 C 后续可向量化）
 - fp16/bf16：位转换到 float32 计算；bf16 **不用** `Cast`（910B 缺指令）
-- `reduction!=none`：行损失写入 workspace，`SyncAll` 后核 0 做 sum/mean 写 `y[0]`
+- M009 候选：单核 mean/sum 按行累加后窄 DMA 写回；多核仍将行损失写入 workspace，`SyncAll` 后核 0 做 sum/mean 写 `y[0]`。mean 在逐行 `/C` 后，最后单独 `/N`。
 
 ## 自测
 

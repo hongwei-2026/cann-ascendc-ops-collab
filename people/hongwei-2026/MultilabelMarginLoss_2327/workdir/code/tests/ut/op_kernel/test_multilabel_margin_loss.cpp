@@ -71,20 +71,23 @@ TEST_F(MultilabelMarginLossKernelTest, test_kernel_run)
     uint8_t* target = (uint8_t*)AscendC::GmAlloc(targetByteSize);
     uint8_t* y = (uint8_t*)AscendC::GmAlloc(yByteSize);
     uint8_t* is_target = (uint8_t*)AscendC::GmAlloc(is_targetByteSize);
-    uint8_t* workspace = (uint8_t*)AscendC::GmAlloc(32);
+    uint8_t* workspace = nullptr; // Single-core reduction must not access workspace.
     uint8_t* tiling = (uint8_t*)AscendC::GmAlloc(tilingDataSize);
     
     { std::ifstream f(root + "/input/x.bin", std::ios::binary); ASSERT_TRUE(f.good()); f.read(reinterpret_cast<char*>(x), 96); ASSERT_EQ(f.gcount(), 96); }
     { std::ifstream f(root + "/input/target.bin", std::ios::binary); ASSERT_TRUE(f.good()); f.read(reinterpret_cast<char*>(target), 96); ASSERT_EQ(f.gcount(), 96); }
     
-    // TODO: 以下 tilingData 字段基于初始模板的 TilingData 结构。
-    //       修改 TilingData 结构后请更新字段名和赋值：
-    //         参考 op_kernel/multilabel_margin_loss_tiling_data.h 中的字段定义
-    //         参考 op_host/multilabel_margin_loss_tiling.cpp 中的 tiling 计算逻辑
     MultilabelMarginLossTilingData* tilingData = reinterpret_cast<MultilabelMarginLossTilingData*>(tiling);
-    tilingData->totalNum = size;
-    tilingData->blockFactor = size;
-    tilingData->ubFactor = size;
+    *tilingData = MultilabelMarginLossTilingData{};
+    tilingData->batchSize = 4;
+    tilingData->classNum = 6;
+    tilingData->targetLen = 6;
+    tilingData->reduction = 1;
+    tilingData->usedCores = 1;
+    tilingData->rowsPerCore = 4;
+    tilingData->tailRows = 4;
+    tilingData->classTile = 6;
+    tilingData->targetTile = 6;
     
     // TODO: tilingKey 应与 op_host/multilabel_margin_loss_tiling.cpp 中 SetTilingKey 设置的值一致
     ICPU_SET_TILING_KEY(1);
@@ -105,6 +108,5 @@ TEST_F(MultilabelMarginLossKernelTest, test_kernel_run)
     AscendC::GmFree(target);
     AscendC::GmFree(y);
     AscendC::GmFree(is_target);
-    AscendC::GmFree(workspace);
     AscendC::GmFree(tiling);
 }

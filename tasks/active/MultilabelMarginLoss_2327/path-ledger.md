@@ -12,3 +12,5 @@
 | M006 | 2026-11-04 | hongwei-2026 | 优化 | 吸收 M003；无正类/全目标 j 块早退；扩 semantic | 本会话 | semantic PASS | 采纳；待云 -e | FIX_NOTES |
 | M007 | 2026-11-04 | hongwei-2026 | 云测 | M006 tip 云 -e | CodeArts | **PASSED** y0/1 is_target0/24 | 采纳 | EXP_M004 |
 | M008 | 2026-11-04 | hongwei-2026 | 平台 | 提交 M006 tip | 平台用例 1-5 | **Pass** 0% 错；用时~713us vs 最优~5us | 功能采纳；进性能闸 | PLATFORM_CASES_1-5 |
+
+| M009 | 2026-11-04 | hongwei-2026 candidate | performance | Unused fixed 16MB workspace and tiny cross-core finalize | On-demand workspace; tiny single-core ordered reduction | <=2h | CPU semantic PASS; actual Process 36 / workspace 42 cases PASS; 72 reference cases generated; CANN/NPU/perf NOT RUN | candidate; M006 remains default | EXP_M009 |

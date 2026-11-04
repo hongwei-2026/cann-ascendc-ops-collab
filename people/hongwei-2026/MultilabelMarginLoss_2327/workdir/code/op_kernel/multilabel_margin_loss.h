@@ -113,6 +113,7 @@ private:
     int64_t classNum_ = 0;
     int64_t targetLen_ = 0;
     int64_t reduction_ = REDUCTION_MEAN;
+    int64_t usedCores_ = 1;
     int64_t rowsPerCore_ = 1;
     int64_t classTile_ = 0;
     int64_t rowStart_ = 0;
@@ -128,6 +129,7 @@ __aicore__ inline void MultilabelMarginLoss<T>::Init(GM_ADDR x, GM_ADDR target, 
     classNum_ = tilingData->classNum;
     targetLen_ = tilingData->targetLen;
     reduction_ = tilingData->reduction;
+    usedCores_ = tilingData->usedCores;
     rowsPerCore_ = tilingData->rowsPerCore;
     classTile_ = tilingData->classTile > 0 ? tilingData->classTile : classNum_;
     if (classTile_ > classNum_) {
@@ -148,7 +150,11 @@ __aicore__ inline void MultilabelMarginLoss<T>::Init(GM_ADDR x, GM_ADDR target, 
     targetGm_.SetGlobalBuffer((__gm__ int32_t*)target, batchSize_ * targetLen_);
     yGm_.SetGlobalBuffer((__gm__ T*)y, reduction_ == REDUCTION_NONE ? batchSize_ : 1);
     isTargetGm_.SetGlobalBuffer((__gm__ int32_t*)isTarget, batchSize_ * classNum_);
-    rowLossGm_.SetGlobalBuffer((__gm__ float*)GetUserWorkspace(workspace), batchSize_);
+    if (reduction_ != REDUCTION_NONE && usedCores_ > 1) {
+        // This basic-API kernel has no system GM workspace consumers. Host
+        // allocates only our row losses; no reserved system prefix is present.
+        rowLossGm_.SetGlobalBuffer((__gm__ float*)workspace, batchSize_);
+    }
 
     const int64_t xElemPerBlock = 32 / static_cast<int64_t>(sizeof(T));
     const int64_t cAlign = AlignUp(classTile_, 8);
@@ -397,6 +403,8 @@ template <typename T>
 __aicore__ inline void MultilabelMarginLoss<T>::Process()
 {
     const bool hasWork = (rowCount_ > 0 && classNum_ > 0 && targetLen_ > 0);
+    const bool localReduction = (reduction_ != REDUCTION_NONE && usedCores_ == 1);
+    float localAcc = 0.0f;
 
     if (hasWork) {
         for (int64_t i = 0; i < rowCount_; ++i) {
@@ -404,6 +412,9 @@ __aicore__ inline void MultilabelMarginLoss<T>::Process()
             const float loss = ProcessOneRow(row);
             if (reduction_ == REDUCTION_NONE) {
                 StoreY(row, loss);
+            } else if (localReduction) {
+                // Same fp32 row order as core0 Finalize, without a GM roundtrip.
+                localAcc += loss;
             } else {
                 StoreRowLoss(row, loss);
             }
@@ -412,6 +423,14 @@ __aicore__ inline void MultilabelMarginLoss<T>::Process()
 
     if (reduction_ == REDUCTION_NONE) {
         return; // none 各核独占行区间，无需跨核汇总
+    }
+
+    if (localReduction) {
+        if (reduction_ == REDUCTION_MEAN && batchSize_ > 0) {
+            localAcc /= static_cast<float>(batchSize_);
+        }
+        StoreY(0, localAcc);
+        return;
     }
 
     // 注意：无论本核是否有活都必须参与，否则空闲核缺席会让其余核永久等待

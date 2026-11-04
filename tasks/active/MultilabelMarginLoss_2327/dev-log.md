@@ -32,3 +32,10 @@
 ## 2026-11-04 19:51
 - 平台用例 1–5 **Pass**（错误 0%）；用时约 713μs～2.1ms，最优约 4.7～5.2μs（~150×）。
 - STATUS → 性能中入口；已 push 台账。
+
+
+## 2026-11-04 M009 candidate
+- Based on hongwei M006 / b61feb7; ZIP and source fingerprints matched.
+- Removed fixed 16MB workspace; none/single-core use 0, multi-core mean/sum use aligned FP32 losses[N]. Tiny reductions finalize on one core.
+- CPU semantic PASS; actual Process flow 36 cases and workspace 42 cases PASS. Generated 72 independent reference cases; NPU NOT RUN.
+- Added source manifest and isolated cloud check; preserved M006 as validated baseline. CANN build, NPU precision, and same-platform performance remain pending. No commit/push.
