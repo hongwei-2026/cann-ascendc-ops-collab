@@ -1,5 +1,7 @@
 # 平台粘贴用本地超链接（P104 · tip `e5333dd`）
 
+**2026-11-04：P104 已撤回，不再作为默认试交版本。** 下方链接指向实时工作区，当前已恢复 P103；P104 历史源码以 `e5333dd` 和云日志为准。当前入口见 [SUBMIT_LINKS_P103.md](SUBMIT_LINKS_P103.md)，撤回依据见 [DEC002](../decisions/DEC002-p104-platform-regression.md)。
+
 云测 EXP_P104_194854：**0/192 PASS**  
 Kernel SHA256（git/云端 LF）：`2C5F09E1901A05E81E345AB797D1E62D414CB898ACBAA58EDA39D60C4E5FCB2A`
 

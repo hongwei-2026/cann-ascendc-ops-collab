@@ -19,11 +19,11 @@ namespace {
 constexpr uint32_t WS_SYS_SIZE = 0;
 constexpr uint64_t UB_USAGE_NUMERATOR = 8U;
 constexpr uint64_t UB_USAGE_DENOMINATOR = 10U;
-// P104 每元素 UB（BUFFER_NUM=1，含每核常驻 zero buffer）：
-//   float: 4×4 + neg/fg/zero(3×4) + mask≈1 = 29
-//   fp16/bf16→fp32: 4×2 + float grads/features/dx/update/neg/fg/zero(7×4) + mask≈1 = 37
-constexpr int64_t FLOAT_BYTES_PER_ELEMENT = 29;
-constexpr int64_t LOW_PRECISION_BYTES_PER_ELEMENT = 37;
+// P100 每元素 UB（BUFFER_NUM=1）：
+//   float: 4×4 + neg/fg(2×4) + mask≈1 = 25
+//   fp16/bf16→fp32: 4×2 + float grads/features/dx/update/neg/fg(6×4) + mask≈1 = 33
+constexpr int64_t FLOAT_BYTES_PER_ELEMENT = 25;
+constexpr int64_t LOW_PRECISION_BYTES_PER_ELEMENT = 33;
 constexpr int64_t CMP_ALIGN_FLOAT = 64;   // 中间计算在 fp32 上，Compare 按 64 齐
 
 int64_t CeilDivI64(int64_t value, int64_t divisor)

@@ -7,8 +7,6 @@
  * 禁止把 half/bf16 辅助函数做成对所有 T 都会实例化的成员（会污染 fp32 key）。
  * P100: zero unused workspace, use full-core 32B tiling, and keep each
  * per-channel tile inside one channel so scalar Muls replaces weight expansion.
- * P104: initialize an independent zero vector once per core so the two output
- * selects do not serialize through the dx buffer.
  */
 
 #ifndef PRELUGRADUPDATE_H
@@ -58,7 +56,6 @@ private:
     TBuf<TPosition::VECCALC> featuresFloatBuf_;
     TBuf<TPosition::VECCALC> dxFloatBuf_;
     TBuf<TPosition::VECCALC> updateFloatBuf_;
-    TBuf<TPosition::VECCALC> zeroFloatBuf_;
 
     GlobalTensor<T> gradsGm_;
     GlobalTensor<T> featuresGm_;
@@ -139,11 +136,6 @@ __aicore__ inline void PReluGradUpdate<T>::Init(GM_ADDR grads, GM_ADDR features,
         pipe_.InitBuffer(updateFloatBuf_, alignedCount * sizeof(float));
     }
 
-    pipe_.InitBuffer(zeroFloatBuf_, alignedCount * sizeof(float));
-    LocalTensor<float> zeroLocal = zeroFloatBuf_.Get<float>();
-    Duplicate(zeroLocal, 0.0f, static_cast<int32_t>(alignedCount));
-    PipeBarrier<PIPE_V>();
-
     (void)rowsPerTile_;
 }
 
@@ -174,6 +166,44 @@ __aicore__ inline void PReluGradUpdate<T>::CopyIn(int64_t progress, int64_t curr
 template <typename T>
 __aicore__ inline void PReluGradUpdate<T>::Compute(int64_t progress, int64_t currentNum)
 {
+    const int64_t globalStart = blockStart_ + progress;
+    const int64_t weightIndex = weightsPerChannel_ != 0
+        ? (globalStart / innerSize_) % channelNum_
+        : 0;
+    float weightValue = 0.0f;
+    if constexpr (std::is_same<T, float>::value) {
+        weightValue = weightsGm_.GetValue(weightIndex);
+    } else if constexpr (std::is_same<T, half>::value) {
+        half h = weightsGm_.GetValue(weightIndex);
+        uint16_t hb = *reinterpret_cast<uint16_t*>(&h);
+        uint32_t sign = (static_cast<uint32_t>(hb) & 0x8000u) << 16;
+        uint32_t exp = (static_cast<uint32_t>(hb) >> 10) & 0x1Fu;
+        uint32_t man = static_cast<uint32_t>(hb) & 0x3FFu;
+        uint32_t outBits;
+        if (exp == 0) {
+            if (man == 0) {
+                outBits = sign;
+            } else {
+                exp = 127 - 15 + 1;
+                while ((man & 0x400u) == 0) {
+                    man <<= 1;
+                    --exp;
+                }
+                man &= 0x3FFu;
+                outBits = sign | (exp << 23) | (man << 13);
+            }
+        } else if (exp == 31) {
+            outBits = sign | 0x7F800000u | (man << 13);
+        } else {
+            outBits = sign | ((exp + (127 - 15)) << 23) | (man << 13);
+        }
+        *reinterpret_cast<uint32_t*>(&weightValue) = outBits;
+    } else {
+        T raw = weightsGm_.GetValue(weightIndex);
+        uint16_t bits = *reinterpret_cast<uint16_t*>(&raw);
+        *reinterpret_cast<uint32_t*>(&weightValue) = static_cast<uint32_t>(bits) << 16;
+    }
+
     LocalTensor<T> gradsLocal = gradsQueue_.DeQue<T>();
     LocalTensor<T> featuresLocal = featuresQueue_.DeQue<T>();
     LocalTensor<T> dxLocal = dxQueue_.AllocTensor<T>();
@@ -183,7 +213,6 @@ __aicore__ inline void PReluGradUpdate<T>::Compute(int64_t progress, int64_t cur
     LocalTensor<uint8_t> maskLocal = maskBuf_.Get<uint8_t>();
     LocalTensor<float> negLocal = negFloatBuf_.Get<float>();
     LocalTensor<float> fgLocal = fgFloatBuf_.Get<float>();
-    LocalTensor<float> zeroLocal = zeroFloatBuf_.Get<float>();
 
     LocalTensor<float> gradsFloat;
     LocalTensor<float> featuresFloat;
@@ -222,51 +251,19 @@ __aicore__ inline void PReluGradUpdate<T>::Compute(int64_t progress, int64_t cur
         }
     }
 
-    const int64_t globalStart = blockStart_ + progress;
-    const int64_t weightIndex = weightsPerChannel_ != 0
-        ? (globalStart / innerSize_) % channelNum_
-        : 0;
-    float weightValue = 0.0f;
-    if constexpr (std::is_same<T, float>::value) {
-        weightValue = weightsGm_.GetValue(weightIndex);
-    } else if constexpr (std::is_same<T, half>::value) {
-        half h = weightsGm_.GetValue(weightIndex);
-        uint16_t hb = *reinterpret_cast<uint16_t*>(&h);
-        uint32_t sign = (static_cast<uint32_t>(hb) & 0x8000u) << 16;
-        uint32_t exp = (static_cast<uint32_t>(hb) >> 10) & 0x1Fu;
-        uint32_t man = static_cast<uint32_t>(hb) & 0x3FFu;
-        uint32_t outBits;
-        if (exp == 0) {
-            if (man == 0) {
-                outBits = sign;
-            } else {
-                exp = 127 - 15 + 1;
-                while ((man & 0x400u) == 0) {
-                    man <<= 1;
-                    --exp;
-                }
-                man &= 0x3FFu;
-                outBits = sign | (exp << 23) | (man << 13);
-            }
-        } else if (exp == 31) {
-            outBits = sign | 0x7F800000u | (man << 13);
-        } else {
-            outBits = sign | ((exp + (127 - 15)) << 23) | (man << 13);
-        }
-        *reinterpret_cast<uint32_t*>(&weightValue) = outBits;
-    } else {
-        T raw = weightsGm_.GetValue(weightIndex);
-        uint16_t bits = *reinterpret_cast<uint16_t*>(&raw);
-        *reinterpret_cast<uint32_t*>(&weightValue) = static_cast<uint32_t>(bits) << 16;
-    }
     SyncSV();
     Muls(negLocal, gradsFloat, weightValue, currentNum);
     Mul(fgLocal, featuresFloat, gradsFloat, currentNum);
+    LocalTensor<float> zeroLocal = dxFloat;
+    Duplicate(zeroLocal, 0.0f, static_cast<int32_t>(cmpCount));
+    PipeBarrier<PIPE_V>();
+
     Compare(maskLocal, featuresFloat, zeroLocal, CMPMODE::GT, static_cast<uint32_t>(cmpCount));
     PipeBarrier<PIPE_V>();
 
     Select(updateFloat, maskLocal, zeroLocal, fgLocal, SELMODE::VSEL_TENSOR_TENSOR_MODE,
         static_cast<uint32_t>(cmpCount));
+    PipeBarrier<PIPE_V>();
 
     Select(dxFloat, maskLocal, gradsFloat, negLocal, SELMODE::VSEL_TENSOR_TENSOR_MODE,
         static_cast<uint32_t>(cmpCount));

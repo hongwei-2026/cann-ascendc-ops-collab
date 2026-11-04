@@ -2,7 +2,6 @@
 """CPU-only regression checks for PReluGradUpdate semantics and layout."""
 
 from pathlib import Path
-import re
 import sys
 
 import numpy as np
@@ -73,7 +72,7 @@ def tiling_model(shape, itemsize, ub_size=262144, core_num=64, per_channel_weigh
     channel = shape[1]
     inner = int(np.prod(shape[2:])) if len(shape) > 2 else 1
     sample = channel * inner
-    coefficient = 29 if itemsize == 4 else 37
+    coefficient = 25 if itemsize == 4 else 33
     block_elements = 32 // itemsize
     cmp_align_elements = 64
     max_tile = (ub_size * 8 // 10 // coefficient) // cmp_align_elements * cmp_align_elements
@@ -147,32 +146,6 @@ def check_full_core_tiling():
     assert tile == 8  # capped to innerSize when weights are [C]
 
 
-def check_ub_budget():
-    host = (ROOT / "op_host" / "p_relu_grad_update_tiling.cpp").read_text(encoding="utf-8")
-    coefficients = {
-        4: int(re.search(r"FLOAT_BYTES_PER_ELEMENT\s*=\s*(\d+)", host).group(1)),
-        2: int(re.search(r"LOW_PRECISION_BYTES_PER_ELEMENT\s*=\s*(\d+)", host).group(1)),
-    }
-    for itemsize, coefficient in coefficients.items():
-        # Four I/O queues; neg/fg/zero fp32 buffers; four more fp32 buffers
-        # for low precision. mask allocation is one byte per aligned element.
-        float_buffers = 3 if itemsize == 4 else 7
-        actual_bytes_per_element = 4 * itemsize + 4 * float_buffers + 1
-        assert coefficient >= actual_bytes_per_element, (itemsize, coefficient)
-        for ub_size in (65536 - 8192, 131072 - 8192, 262144 - 8192, 262144):
-            budget = ub_size * 8 // 10
-            max_tile = budget // coefficient // 64 * 64
-            assert max_tile >= 64
-            for tile in (1, 7, 8, 63, 64, 65, max_tile - 1, max_tile):
-                aligned_count = (tile + 63) // 64 * 64
-                allocated = aligned_count * actual_bytes_per_element
-                assert allocated <= budget, (itemsize, tile, allocated, budget)
-            _, _, _, _, _, _, model_max = tiling_model(
-                (1, 1, max_tile * 2), itemsize, ub_size=ub_size
-            )
-            assert model_max == max_tile
-
-
 def check_log_signature():
     rng = np.random.default_rng(42)
     rng.uniform(-5, 5, (4, 6, 8))
@@ -187,6 +160,5 @@ if __name__ == "__main__":
     check_tiling_invariants()
     check_channel_tile_boundaries()
     check_full_core_tiling()
-    check_ub_budget()
     check_log_signature()
     print("PReluGradUpdate local semantic checks: PASS")
