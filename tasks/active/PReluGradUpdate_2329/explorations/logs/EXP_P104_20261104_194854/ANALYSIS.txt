@@ -1,0 +1,9 @@
+EXP_P104_20261104_194854 — P104 cloud PASS
+
+- tip: e5333dd
+- verify: PASS
+- kernel LF: 2c5f09e1901a05e81e345ab797d1e62d414cb898acbaa58eda39d60c4e5fcb2a
+- 三 tiling key: Done ×3
+- dx/update: 0/192 PASSED
+
+下一闸：平台相对 P103 采时；无 ≥2% 回退。

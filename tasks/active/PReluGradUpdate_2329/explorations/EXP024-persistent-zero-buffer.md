@@ -5,7 +5,7 @@
 - 仓库：`D:\sageAttention2 算子开发任务书`；分支 `main`；席位 hongwei-2026；不改其他题目/席位
 - 已测基线：P103 `47db93e`，LF Kernel SHA256 `2a340f612ec506a6e6ae920fd8f6acd14999f28cb2d89d386d2a075ff6fb3c89`
 - 候选 Kernel LF SHA256：`2c5f09e1901a05e81e345ab797d1e62d414cb898acbaa58eda39d60c4e5fcb2a`
-- 状态：本地检查通过；未 CANN 编译，未真机精度/性能测试
+- 状态：云测 EXP_P104_194854 **0/192 PASS**（tip `e5333dd`）；平台采时待做
 
 ## 新日志与目标
 
