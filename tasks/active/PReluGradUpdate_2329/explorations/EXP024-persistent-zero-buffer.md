@@ -5,7 +5,7 @@
 - 仓库：`D:\sageAttention2 算子开发任务书`；分支 `main`；席位 hongwei-2026；不改其他题目/席位
 - 已测基线：P103 `47db93e`，LF Kernel SHA256 `2a340f612ec506a6e6ae920fd8f6acd14999f28cb2d89d386d2a075ff6fb3c89`
 - 候选 Kernel LF SHA256：`2c5f09e1901a05e81e345ab797d1e62d414cb898acbaa58eda39d60c4e5fcb2a`
-- 状态：云测 EXP_P104_194854 **0/192 PASS**（tip `e5333dd`）；平台采时待做
+- 状态：云测 0/192 PASS；平台 19:59 **变慢不采纳**（见 DEC002）；默认回 P103
 
 ## 新日志与目标
 
@@ -44,6 +44,6 @@ P103 每 tile：6 个向量操作、4 道显式 PIPE_V；P104 每 tile：5 个�
 
 ## Owner 复审（同日）
 
-- **可试**：独立零缓冲消除 update→dx 的 WAR；每 tile 5 ops / 2 PIPE_V；Host 系数 29/37 与缓冲一致；本地语义+调度检查 PASS；hash 与 EXP024 一致。  
-- **风险**：多占 UB 可能缩 maxTile；公开点仍 B 类；无 ≥2% 同机收益则回退 P103。  
-- **下一闸**：CodeArts 三 key `-e`（日志进 `exp_logs/prelu2329/`）→ 平台相对 P103 采时。
+- **可试**：独立零缓冲消除 update→dx 的 WAR；本地/云测功能 OK。  
+- **平台**：19:59 提交 1132450；8.15/8.22/8.25/5.79/5.99μs vs P103 7.36/7.30/7.24/5.83/6.07 → 前三点变差；**DEC002 不采纳**。  
+- **截图**：`screenshots/EXP024-platform-20261104-195909.png`
