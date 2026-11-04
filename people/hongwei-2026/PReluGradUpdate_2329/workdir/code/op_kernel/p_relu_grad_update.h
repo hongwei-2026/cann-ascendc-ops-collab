@@ -7,6 +7,8 @@
  * 禁止把 half/bf16 辅助函数做成对所有 T 都会实例化的成员（会污染 fp32 key）。
  * P100: zero unused workspace, use full-core 32B tiling, and keep each
  * per-channel tile inside one channel so scalar Muls replaces weight expansion.
+ * P104: initialize an independent zero vector once per core so the two output
+ * selects do not serialize through the dx buffer.
  */
 
 #ifndef PRELUGRADUPDATE_H
@@ -56,6 +58,7 @@ private:
     TBuf<TPosition::VECCALC> featuresFloatBuf_;
     TBuf<TPosition::VECCALC> dxFloatBuf_;
     TBuf<TPosition::VECCALC> updateFloatBuf_;
+    TBuf<TPosition::VECCALC> zeroFloatBuf_;
 
     GlobalTensor<T> gradsGm_;
     GlobalTensor<T> featuresGm_;
@@ -136,6 +139,11 @@ __aicore__ inline void PReluGradUpdate<T>::Init(GM_ADDR grads, GM_ADDR features,
         pipe_.InitBuffer(updateFloatBuf_, alignedCount * sizeof(float));
     }
 
+    pipe_.InitBuffer(zeroFloatBuf_, alignedCount * sizeof(float));
+    LocalTensor<float> zeroLocal = zeroFloatBuf_.Get<float>();
+    Duplicate(zeroLocal, 0.0f, static_cast<int32_t>(alignedCount));
+    PipeBarrier<PIPE_V>();
+
     (void)rowsPerTile_;
 }
 
@@ -175,6 +183,7 @@ __aicore__ inline void PReluGradUpdate<T>::Compute(int64_t progress, int64_t cur
     LocalTensor<uint8_t> maskLocal = maskBuf_.Get<uint8_t>();
     LocalTensor<float> negLocal = negFloatBuf_.Get<float>();
     LocalTensor<float> fgLocal = fgFloatBuf_.Get<float>();
+    LocalTensor<float> zeroLocal = zeroFloatBuf_.Get<float>();
 
     LocalTensor<float> gradsFloat;
     LocalTensor<float> featuresFloat;
@@ -253,16 +262,11 @@ __aicore__ inline void PReluGradUpdate<T>::Compute(int64_t progress, int64_t cur
     SyncSV();
     Muls(negLocal, gradsFloat, weightValue, currentNum);
     Mul(fgLocal, featuresFloat, gradsFloat, currentNum);
-    LocalTensor<float> zeroLocal = dxFloat;
-    Duplicate(zeroLocal, 0.0f, static_cast<int32_t>(cmpCount));
-    PipeBarrier<PIPE_V>();
-
     Compare(maskLocal, featuresFloat, zeroLocal, CMPMODE::GT, static_cast<uint32_t>(cmpCount));
     PipeBarrier<PIPE_V>();
 
     Select(updateFloat, maskLocal, zeroLocal, fgLocal, SELMODE::VSEL_TENSOR_TENSOR_MODE,
         static_cast<uint32_t>(cmpCount));
-    PipeBarrier<PIPE_V>();
 
     Select(dxFloat, maskLocal, gradsFloat, negLocal, SELMODE::VSEL_TENSOR_TENSOR_MODE,
         static_cast<uint32_t>(cmpCount));

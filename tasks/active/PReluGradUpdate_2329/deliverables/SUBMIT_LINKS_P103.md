@@ -1,5 +1,7 @@
 # 平台粘贴用本地超链接（P103 · tip `47db93e`）
 
+2026-11-04 提醒：下方链接是实时工作区，现已是 P104 待测候选，不能当作 P103 源码指纹的凭据。P103 历史基线以 `47db93e` 为准；当前候选入口与指纹见 [SUBMIT_LINKS_P104.md](SUBMIT_LINKS_P104.md)。
+
 Kernel SHA256（云端/git LF）：`2A340F612EC506A6E6AE920FD8F6ACD14999F28CB2D89D386D2A075FF6FB3C89`
 
 ## Host

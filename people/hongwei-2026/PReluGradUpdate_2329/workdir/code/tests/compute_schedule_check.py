@@ -21,8 +21,13 @@ def parse_schedule(path):
     end = source.index(END, start)
     region = source[start:end]
     alias_match = re.search(r"LocalTensor<float>\s+zeroLocal\s*=\s*dxFloat\s*;", region)
-    assert alias_match, "zeroLocal must alias dxFloat for zero-buffer reuse"
-    aliases = {"zeroLocal": "dxFloat"}
+    compute_start = source.rfind("__aicore__ inline void PReluGradUpdate<T>::Compute(", 0, start)
+    independent_match = re.search(
+        r"LocalTensor<float>\s+zeroLocal\s*=\s*zeroFloatBuf_\.Get<float>\(\)\s*;",
+        source[compute_start:end],
+    )
+    assert alias_match or independent_match, "zeroLocal must be defined in the compute region"
+    aliases = {"zeroLocal": "dxFloat"} if alias_match else {}
     events = []
     for match in CALL.finditer(region):
         kind, template_arg, raw_args = match.groups()
@@ -75,8 +80,11 @@ def check_barrier_dependencies(aliases, events):
                 )
 
 
-def execute(aliases, events, features, grads, weight):
-    tensors = {"featuresFloat": features, "gradsFloat": grads}
+def execute(aliases, events, features, grads, weight, zero_buffer=None):
+    zero = (np.zeros(features.size, dtype=np.float32) if zero_buffer is None
+            else zero_buffer[:features.size])
+    tensors = {"featuresFloat": features, "gradsFloat": grads,
+               "zeroLocal": zero, "dxFloat": zero.copy()}
 
     def read(name):
         return tensors[canonical(name, aliases)]
@@ -114,6 +122,7 @@ def verify_semantics(path, aliases, events):
     sys.path.insert(0, str(ROOT / "samples"))
     import reference
 
+    zero_buffer = np.zeros(8255, dtype=np.float32)
     for size in (1, 7, 8, 15, 16, 63, 64, 65, 127, 128, 257, 8255):
         features = rng.normal(size=size).astype(np.float32)
         grads = rng.normal(size=size).astype(np.float32)
@@ -129,6 +138,7 @@ def verify_semantics(path, aliases, events):
                     typed_features.astype(np.float32),
                     typed_grads.astype(np.float32),
                     np.float32(typed_weight.astype(np.float32)[0]),
+                    zero_buffer,
                 )
                 with np.errstate(all="ignore"):
                     expected = reference.impl(
@@ -139,6 +149,47 @@ def verify_semantics(path, aliases, events):
                 actual = tuple(value.astype(dtype).reshape(1, 1, -1) for value in actual)
                 np.testing.assert_allclose(actual[0], expected[0], rtol=0, atol=0, equal_nan=True)
                 np.testing.assert_allclose(actual[1], expected[1], rtol=0, atol=0, equal_nan=True)
+                for output, golden in zip(actual, expected):
+                    zeros = golden == 0
+                    np.testing.assert_array_equal(
+                        np.signbit(output[zeros]), np.signbit(golden[zeros])
+                    )
+                np.testing.assert_array_equal(zero_buffer, np.zeros_like(zero_buffer))
+
+
+def check_zero_lifetime(source, events):
+    init_start = source.index("__aicore__ inline void PReluGradUpdate<T>::Init(")
+    init_end = source.index("__aicore__ inline void PReluGradUpdate<T>::CopyIn(", init_start)
+    init = source[init_start:init_end]
+    assert re.search(r"InitBuffer\(zeroFloatBuf_,\s*alignedCount\s*\*\s*sizeof\(float\)\)", init)
+    assert re.search(
+        r"Duplicate\(zeroLocal,\s*0\.0f,\s*static_cast<int32_t>\(alignedCount\)\);\s*PipeBarrier<PIPE_V>\(\);",
+        init,
+    ), "persistent zero must be initialized and synchronized before Compute"
+    assert source.count("Duplicate(zeroLocal,") == 1
+    assert events[-1][0] == "PipeBarrier", "outputs must be complete before conversion/copyout"
+    for event in events:
+        writes, _ = accesses(event, {})
+        assert "zeroLocal" not in writes, "Compute must not modify the persistent zero buffer"
+
+
+def check_hazard_detection(aliases, events):
+    # Removing the producer/consumer barrier must fail dependency checking.
+    first_barrier = next(i for i, event in enumerate(events) if event[0] == "PipeBarrier")
+    broken = events[:first_barrier] + events[first_barrier + 1:]
+    try:
+        check_barrier_dependencies(aliases, broken)
+    except AssertionError:
+        pass
+    else:
+        raise AssertionError("dependency checker accepted a missing producer barrier")
+    # Reintroducing the P103 zero/dx alias without its WAR barrier must fail.
+    try:
+        check_barrier_dependencies({"zeroLocal": "dxFloat"}, events)
+    except AssertionError:
+        pass
+    else:
+        raise AssertionError("dependency checker accepted the zero/dx WAR hazard")
 
 
 def main():
@@ -153,13 +204,18 @@ def main():
     op_count = sum(kind != "PipeBarrier" for kind, _ in events)
     barrier_count = sum(kind == "PipeBarrier" for kind, _ in events)
     vector_ops = [event for event in events if event[0] != "PipeBarrier"]
-    assert [kind for kind, _ in vector_ops] == [
-        "Muls", "Mul", "Duplicate", "Compare", "Select", "Select"
-    ], "P103 compute order changed"
-    assert vector_ops[2][1][0] == "zeroLocal"
-    assert vector_ops[4][1][0] == "updateFloat"
-    assert vector_ops[5][1][0] == "dxFloat"
-    assert (op_count, barrier_count) == (6, 4), (op_count, barrier_count)
+    if "zeroLocal" in aliases:
+        assert [kind for kind, _ in vector_ops] == [
+            "Muls", "Mul", "Duplicate", "Compare", "Select", "Select"
+        ], "P103 compute order changed"
+        assert (op_count, barrier_count) == (6, 4), (op_count, barrier_count)
+    else:
+        assert [kind for kind, _ in vector_ops] == [
+            "Muls", "Mul", "Compare", "Select", "Select"
+        ], "P104 compute order changed"
+        assert (op_count, barrier_count) == (5, 2), (op_count, barrier_count)
+        check_zero_lifetime(args.kernel.read_text(encoding="utf-8"), events)
+        check_hazard_detection(aliases, events)
 
     if args.baseline:
         base_aliases, base_events = parse_schedule(args.baseline)
@@ -167,8 +223,7 @@ def main():
         verify_semantics(args.baseline, base_aliases, base_events)
         base_ops = sum(kind != "PipeBarrier" for kind, _ in base_events)
         base_barriers = sum(kind == "PipeBarrier" for kind, _ in base_events)
-        assert (base_ops, base_barriers) == (7, 6), (base_ops, base_barriers)
-        print(f"P100: {base_ops} vector ops, {base_barriers} barriers; P103: {op_count} vector ops, {barrier_count} barriers")
+        print(f"Baseline: {base_ops} vector ops, {base_barriers} barriers; candidate: {op_count} vector ops, {barrier_count} barriers")
     else:
         print(f"{args.kernel}: {op_count} vector ops, {barrier_count} barriers")
     print("Compute schedule semantic and dependency checks: PASS")
