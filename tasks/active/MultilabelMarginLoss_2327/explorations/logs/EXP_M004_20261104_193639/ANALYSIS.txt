@@ -1,0 +1,14 @@
+﻿# EXP_M004 — CodeArts -e（hongwei M006 tip）
+
+- 时间：2026-11-04 19:36
+- 座位：hongwei-2026 MultilabelMarginLoss_2327
+- tip：550de81（DMA + ScanPrefix + 早退）
+
+## 结果
+
+| 项 | 状态 |
+|----|------|
+| build | SUCCESS |
+| y.bin | PASS 0/1 |
+| is_target.bin | PASS 0/24 |
+| 总评 | **PASSED** |

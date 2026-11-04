@@ -25,3 +25,6 @@
 - 拉入 yuhongming EXP_M003（本地 -e PASS，同源 tip）。
 - hongwei M006：ProcessOneRow 早退；local_semantic_check 扩 K≠C/空正类/classTile mirror；semantic PASS。
 - 下一闸：云 rsync hongwei code → -e。
+
+## 2026-11-04 19:39
+- EXP_M004 CodeArts -e **PASSED**（y 0/1 · is_target 0/24）。日志已归档。
