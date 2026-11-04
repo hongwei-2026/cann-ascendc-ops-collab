@@ -24,7 +24,8 @@ for name, expected in manifest['files_sha256_lf'].items():
     print(name, actual)
     if actual != expected:
         raise SystemExit('Source mismatch: ' + name)
-print('M009 source verification: PASS')
+print('source verification: PASS label=', manifest.get('label','?'))
+print('Expect multi-core workspace >= 16MB (M010).')
 PY
 mkdir -p "$LOG_DIR/source/op_host" "$LOG_DIR/source/op_kernel"
 cp M009_SOURCE.json "$LOG_DIR/SOURCE.json"

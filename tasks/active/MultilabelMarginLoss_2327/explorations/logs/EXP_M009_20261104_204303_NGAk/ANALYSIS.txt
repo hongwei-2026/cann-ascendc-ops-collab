@@ -1,0 +1,18 @@
+# EXP_M009_20261104_204303 — 再次云测
+
+exit_code=1；PASS 42 / FAIL 30（与首轮 EXP_M009_23wV **同一批多核 case**）。
+
+## 关键结论：跑的是旧 M009，不是 M010
+
+| 项 | 本包云端 | 协作仓 M010（`e1b2de2`） |
+|----|----------|-------------------------|
+| `op_host/..._tiling.cpp` LF SHA256 | `fe00ab9f…`（M009） | `d6e4531a…` |
+| 多核 `n100` workspace_bytes | **416** | 应为 **16777632**（16MB+416） |
+| 失败形态 | ACL **507035** | （待用 M010 复测） |
+
+源码校验对 **包内旧** `M009_SOURCE.json` 报 PASS，说明 rsync/工程目录未更新到含 `WS_SYS_SIZE` 的 tip。
+
+## 下一闸
+
+`git pull` → rsync hongwei code → 确认 tiling 含 `WS_SYS_SIZE` → 再 `run_m009_cloud.sh`。
+多核 case 的 `workspace_bytes` 必须 ≥ 16MB。

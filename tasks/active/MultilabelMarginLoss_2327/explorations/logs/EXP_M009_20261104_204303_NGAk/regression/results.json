@@ -1,0 +1,290 @@
+[
+  {
+    "case": "n4_c6_k6_float32_none",
+    "result": "PASS"
+  },
+  {
+    "case": "n4_c6_k6_float32_mean",
+    "result": "PASS"
+  },
+  {
+    "case": "n4_c6_k6_float32_sum",
+    "result": "PASS"
+  },
+  {
+    "case": "n4_c6_k6_float16_none",
+    "result": "PASS"
+  },
+  {
+    "case": "n4_c6_k6_float16_mean",
+    "result": "PASS"
+  },
+  {
+    "case": "n4_c6_k6_float16_sum",
+    "result": "PASS"
+  },
+  {
+    "case": "n4_c6_k6_bfloat16_none",
+    "result": "PASS"
+  },
+  {
+    "case": "n4_c6_k6_bfloat16_mean",
+    "result": "PASS"
+  },
+  {
+    "case": "n4_c6_k6_bfloat16_sum",
+    "result": "PASS"
+  },
+  {
+    "case": "n8_c32_k16_float32_none",
+    "result": "PASS"
+  },
+  {
+    "case": "n8_c32_k16_float32_mean",
+    "result": "PASS"
+  },
+  {
+    "case": "n8_c32_k16_float32_sum",
+    "result": "PASS"
+  },
+  {
+    "case": "n8_c32_k16_float16_none",
+    "result": "PASS"
+  },
+  {
+    "case": "n8_c32_k16_float16_mean",
+    "result": "PASS"
+  },
+  {
+    "case": "n8_c32_k16_float16_sum",
+    "result": "PASS"
+  },
+  {
+    "case": "n8_c32_k16_bfloat16_none",
+    "result": "PASS"
+  },
+  {
+    "case": "n8_c32_k16_bfloat16_mean",
+    "result": "PASS"
+  },
+  {
+    "case": "n8_c32_k16_bfloat16_sum",
+    "result": "PASS"
+  },
+  {
+    "case": "n8_c32_k17_float32_none",
+    "result": "PASS"
+  },
+  {
+    "case": "n8_c32_k17_float32_mean",
+    "result": "FAIL"
+  },
+  {
+    "case": "n8_c32_k17_float32_sum",
+    "result": "FAIL"
+  },
+  {
+    "case": "n8_c32_k17_float16_none",
+    "result": "PASS"
+  },
+  {
+    "case": "n8_c32_k17_float16_mean",
+    "result": "FAIL"
+  },
+  {
+    "case": "n8_c32_k17_float16_sum",
+    "result": "FAIL"
+  },
+  {
+    "case": "n8_c32_k17_bfloat16_none",
+    "result": "PASS"
+  },
+  {
+    "case": "n8_c32_k17_bfloat16_mean",
+    "result": "FAIL"
+  },
+  {
+    "case": "n8_c32_k17_bfloat16_sum",
+    "result": "FAIL"
+  },
+  {
+    "case": "n9_c17_k11_float32_none",
+    "result": "PASS"
+  },
+  {
+    "case": "n9_c17_k11_float32_mean",
+    "result": "FAIL"
+  },
+  {
+    "case": "n9_c17_k11_float32_sum",
+    "result": "FAIL"
+  },
+  {
+    "case": "n9_c17_k11_float16_none",
+    "result": "PASS"
+  },
+  {
+    "case": "n9_c17_k11_float16_mean",
+    "result": "FAIL"
+  },
+  {
+    "case": "n9_c17_k11_float16_sum",
+    "result": "FAIL"
+  },
+  {
+    "case": "n9_c17_k11_bfloat16_none",
+    "result": "PASS"
+  },
+  {
+    "case": "n9_c17_k11_bfloat16_mean",
+    "result": "FAIL"
+  },
+  {
+    "case": "n9_c17_k11_bfloat16_sum",
+    "result": "FAIL"
+  },
+  {
+    "case": "n100_c6_k6_float32_none",
+    "result": "PASS"
+  },
+  {
+    "case": "n100_c6_k6_float32_mean",
+    "result": "FAIL"
+  },
+  {
+    "case": "n100_c6_k6_float32_sum",
+    "result": "FAIL"
+  },
+  {
+    "case": "n100_c6_k6_float16_none",
+    "result": "PASS"
+  },
+  {
+    "case": "n100_c6_k6_float16_mean",
+    "result": "FAIL"
+  },
+  {
+    "case": "n100_c6_k6_float16_sum",
+    "result": "FAIL"
+  },
+  {
+    "case": "n100_c6_k6_bfloat16_none",
+    "result": "PASS"
+  },
+  {
+    "case": "n100_c6_k6_bfloat16_mean",
+    "result": "FAIL"
+  },
+  {
+    "case": "n100_c6_k6_bfloat16_sum",
+    "result": "FAIL"
+  },
+  {
+    "case": "n1_c257_k11_float32_none",
+    "result": "PASS"
+  },
+  {
+    "case": "n1_c257_k11_float32_mean",
+    "result": "PASS"
+  },
+  {
+    "case": "n1_c257_k11_float32_sum",
+    "result": "PASS"
+  },
+  {
+    "case": "n1_c257_k11_float16_none",
+    "result": "PASS"
+  },
+  {
+    "case": "n1_c257_k11_float16_mean",
+    "result": "PASS"
+  },
+  {
+    "case": "n1_c257_k11_float16_sum",
+    "result": "PASS"
+  },
+  {
+    "case": "n1_c257_k11_bfloat16_none",
+    "result": "PASS"
+  },
+  {
+    "case": "n1_c257_k11_bfloat16_mean",
+    "result": "PASS"
+  },
+  {
+    "case": "n1_c257_k11_bfloat16_sum",
+    "result": "PASS"
+  },
+  {
+    "case": "n3_c16385_k11_float32_none",
+    "result": "PASS"
+  },
+  {
+    "case": "n3_c16385_k11_float32_mean",
+    "result": "FAIL"
+  },
+  {
+    "case": "n3_c16385_k11_float32_sum",
+    "result": "FAIL"
+  },
+  {
+    "case": "n3_c16385_k11_float16_none",
+    "result": "PASS"
+  },
+  {
+    "case": "n3_c16385_k11_float16_mean",
+    "result": "FAIL"
+  },
+  {
+    "case": "n3_c16385_k11_float16_sum",
+    "result": "FAIL"
+  },
+  {
+    "case": "n3_c16385_k11_bfloat16_none",
+    "result": "PASS"
+  },
+  {
+    "case": "n3_c16385_k11_bfloat16_mean",
+    "result": "FAIL"
+  },
+  {
+    "case": "n3_c16385_k11_bfloat16_sum",
+    "result": "FAIL"
+  },
+  {
+    "case": "n513_c6_k9_float32_none",
+    "result": "PASS"
+  },
+  {
+    "case": "n513_c6_k9_float32_mean",
+    "result": "FAIL"
+  },
+  {
+    "case": "n513_c6_k9_float32_sum",
+    "result": "FAIL"
+  },
+  {
+    "case": "n513_c6_k9_float16_none",
+    "result": "PASS"
+  },
+  {
+    "case": "n513_c6_k9_float16_mean",
+    "result": "FAIL"
+  },
+  {
+    "case": "n513_c6_k9_float16_sum",
+    "result": "FAIL"
+  },
+  {
+    "case": "n513_c6_k9_bfloat16_none",
+    "result": "PASS"
+  },
+  {
+    "case": "n513_c6_k9_bfloat16_mean",
+    "result": "FAIL"
+  },
+  {
+    "case": "n513_c6_k9_bfloat16_sum",
+    "result": "FAIL"
+  }
+]

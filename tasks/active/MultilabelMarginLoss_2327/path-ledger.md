@@ -15,3 +15,4 @@
 
 | M009 | 2026-11-04 | hongwei-2026 candidate | performance | Unused fixed 16MB workspace and tiny cross-core finalize | On-demand workspace; tiny single-core ordered reduction | <=2h | CPU semantic PASS; actual Process 36 / workspace 42 cases PASS; 72 reference cases generated; CANN/NPU/perf NOT RUN | candidate; M006 remains default | EXP_M009 |
 | M010 | 2026-11-04 | hongwei-2026 | 修复 | 多核 SyncAll 需系统 GM；M009 去 16MB → ACL 507035 | 多核恢复 WS_SYS+GetUserWorkspace；保留 none/tiny=0 | 本会话 | 本地 semantic+flow PASS；待云复测 | 候选修复 | EXP_M009 ANALYSIS |
+| M010b | 2026-11-04 | hongwei-2026 | 云测 | 204303 包仍 fe00ab9f/416B | 判定未部署 M010 | 本会话 | 同 507035；非回归 | 需 pull+rsync 复测 | EXP_M009_NGAk |

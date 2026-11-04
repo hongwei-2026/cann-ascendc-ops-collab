@@ -26,7 +26,7 @@
     "samples/sample.py": "8e2195aff5cd5b998a879a9735ec582c2142dadbbc2ee26e498dff449714d6a4",
     "tests/local_semantic_check.py": "0d1304bc826f9c5a4092455ff484338beb25dfde3d39ba5900d1f7300709fe3c",
     "tests/npu_regression.py": "7a355835250fcd5c04bad4e1a818fa065b9bd949d72ea69cae5226e2aeff8913",
-    "tests/run_m009_cloud.sh": "2479994ebf42ee93f7f3c2f1e8b751bb0d88223a072558accda1b3f5fada7985",
+    "tests/run_m009_cloud.sh": "3d3c1c4b83b6332ecf95e6638f7a0f7c6d00b46187a66d385737309dd8aa0145",
     "tests/ut/cmake/BuildGoogleTest.cmake": "51270daff5b349ce5f21f73e18d0b561f179541864158cafdef440ac7f81de93",
     "tests/ut/CMakeLists.txt": "87d2f282003da472fa475cbea2c95a197c53eeee9850dbdef29924a49acb5cca",
     "tests/ut/common/any_value.h": "8dd88ba3c3908d757ee8bd11c03f03bb28218662fcc112f08a63846e38ee0c0f",
