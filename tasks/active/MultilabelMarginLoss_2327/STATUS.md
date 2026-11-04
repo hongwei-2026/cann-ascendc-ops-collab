@@ -2,17 +2,17 @@
 
 | 项 | 内容 |
 |----|------|
-| 状态 | **`实现中`**（样例本地 PASS；hongwei M006 早退+泛化语义；待云复测） |
+| 状态 | **`性能中`（入口）**：平台用例 1–5 功能 Pass；耗时远慢于最优 |
 | Owner | 共享台账；实现座位见下 |
 | 更新日期 | 2026-11-04 |
 | 代码座位 | **hongwei tip（M006）**：`people/hongwei-2026/MultilabelMarginLoss_2327/workdir/code/` |
-| 队友验证座 | yuhongming 同源 tip 本地 `-e` PASS：`people/yuhongming-2026/MultilabelMarginLoss_2327/` |
+| 队友验证座 | yuhongming 同源 tip 本地 `-e` PASS |
 | 设计 | [SUMMARY](analysis/SUMMARY.md) · [design_final](analysis/AI-codex-claude_design_final.md) · [design.md](design.md) |
-| 本地闸 | [EXP_M003](explorations/EXP_M003-local-910b4-pass.md)：**PASSED**；hongwei semantic 扩测 PASS |
-| 会话卡片 | [AI-SESSION-20261104-card.md](explorations/AI-SESSION-20261104-card.md) |
-| 下一闸 | CodeArts 按 [SYNC_CODEARTS](SYNC_CODEARTS.md) 同步 **hongwei** code → `-e`；yuhongming 可再跟 tip |
+| 本地闸 | EXP_M003 / EXP_M004：**PASSED** |
+| 平台闸 | [用例 1–5 Pass](explorations/PLATFORM_CASES_1-5_20261104.md)（错误 0%；用时 ~713µs vs 最优 ~5µs） |
+| 下一闸 | 按 `02-perf-gate.md` 开有界性能优化；先同机最优/TBE 对照，禁止小 shape 无限抠 |
 | 禁止串题 | 勿与 `PReluGradUpdate_2329` 共用 build/EXP 根目录 |
 
 ## 一句话
 
-样例精度已本地打通（EXP_M003）；hongwei 跟进无正类/全目标块早退与泛化对拍。云端用 hongwei 最新 code 复测。
+功能精度已过平台可见点；下一阶段性能（约 150× 差距），先记账再优化。

@@ -11,3 +11,4 @@
 | M005 | 2026-11-04 | yuhongming-2026 | éªŒè¯ | åŒæ­¥ tip åæœ¬åœ° -e å¯è¿‡ | åº§ä½åŒæ­¥ hongwei DMA+const ä¿®ï¼›910B4 build + run.sh | æœ¬ä¼šè¯ | **PASSED** y 0/1 Â· is_target 0/24 | **é‡‡çº³**ï¼›å¯äº‘å¤æµ‹ | [EXP_M003](explorations/EXP_M003-local-910b4-pass.md) Â· [ä¼šè¯å¡ç‰‡](explorations/AI-SESSION-20261104-card.md) |
 | M006 | 2026-11-04 | hongwei-2026 | ÓÅ»¯ | ÎüÊÕ M003£»ÎŞÕıÀà/È«Ä¿±ê j ¿éÔçÍË£»À© semantic | ±¾»á»° | semantic PASS | ²ÉÄÉ£»´ıÔÆ -e | FIX_NOTES |
 | M007 | 2026-11-04 | hongwei-2026 | ÔÆ²â | M006 tip ÔÆ -e | CodeArts | **PASSED** y0/1 is_target0/24 | ²ÉÄÉ | EXP_M004 |
+| M008 | 2026-11-04 | hongwei-2026 | Æ½Ì¨ | Ìá½» M006 tip | Æ½Ì¨ÓÃÀı 1-5 | **Pass** 0% ´í£»ÓÃÊ±~713us vs ×îÓÅ~5us | ¹¦ÄÜ²ÉÄÉ£»½øĞÔÄÜÕ¢ | PLATFORM_CASES_1-5 |
