@@ -24,7 +24,7 @@ J035 原验证环境：Ascend910_9362，编译 ascend910_93，40 AIV 核，CANN 
 
 J035 低精度权重只搬一次，但每 tile 仍转换到 FP32；split-C 让每核固定 C 块并在 batch 范围复用。J035 的 FP32 改动是 UB 256B 相位布局，不是新归约算法。
 
-新 CANN 9.3 下 J050 为同一冻结源码重编译，曾通过 780 精度及 5184 次压力调用。J053 的 A 是 J050 的测试别名；本轮新执行状态单列于 [J053 记录](../../notes/J053-device-validation.md)，不将历史 PASS 计为本轮结果。
+新 CANN 9.3 下 J050 为同一冻结源码重编译，曾通过 780 精度及 5184 次压力调用。J053 的 A 是 J050 的测试别名；本轮新执行状态单列于 [J053 记录](../../J053-device-validation.md)，不将历史 PASS 计为本轮结果。
 
 ## 完整归档
 
@@ -33,4 +33,6 @@ J035 低精度权重只搬一次，但每 tile 仍转换到 FP32；split-C 让�
 | J035-910C-evidence.zip | 179054045 | `4f97f7a2e3d023f21a3962af4a55dbac4c97b7ab78f6abdc8fc76095042850f4` | 本地任务日志目录；未上传 Git |
 | J050-J052-910C-evidence.zip | 459137010 | `ec5032a50c72932b59039a3216c814bf1715413e047f4dffd0efd9160e50e4ac` | 本地任务日志目录；未上传 Git |
 
-恢复测试还需要 runner、输入、golden 和依赖；只有 `../../workdir/code/` 不能完整复现历史 780 项测试。设备包不是官方提交包。官方提交与成绩查看由用户操作。
+恢复测试还需要 runner、输入、golden 和依赖；只有 `people/JadeYara/PReluGradUpdate_2329/workdir/code/` 不能完整复现历史 780 项测试。设备包不是官方提交包。官方提交与成绩查看由用户操作。
+
+逐文件 SHA256 清单的相对路径以 `people/JadeYara/PReluGradUpdate_2329/` 为根；目录整理未改变清单或源码字节。
