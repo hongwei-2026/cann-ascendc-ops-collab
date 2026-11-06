@@ -15,6 +15,7 @@
 |------|------|------|----------------|------|
 | ConfusionTransposeD (2323) | [active/ConfusionTransposeD_2323](active/ConfusionTransposeD_2323) | A 算子 | CANNJudge / 本仓座位 | 实现中 |
 | CtcLossV2 (2325) | [active/CtcLossV2_2325](active/CtcLossV2_2325) | A 算子 | CANNJudge / 本仓座位 | 实现中 |
+| LayerNormV3 (2326) | [active/LayerNormV3_2326](active/LayerNormV3_2326) | A 算子 | ict / 开源仓算子工程 | 实现中（语义自测过，NPU `-e` 未跑） |
 | PReluGradUpdate (2329) | [active/PReluGradUpdate_2329](active/PReluGradUpdate_2329) | A 算子 | ict / 开源仓算子工程（以任务书与模板为准） | 分析定稿（SUMMARY 完成） |
 
 ## Archive

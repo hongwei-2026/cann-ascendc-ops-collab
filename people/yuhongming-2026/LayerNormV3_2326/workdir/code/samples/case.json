@@ -1,0 +1,143 @@
+{
+  "source_case": "npu_cases[0]",
+  "function": "impl",
+  "attributes": {
+    "begin_norm_axis": 1,
+    "begin_params_axis": 1,
+    "epsilon": 1e-05
+  },
+  "inputs": [
+    {
+      "name": "x",
+      "kind": "required",
+      "tensors": [
+        {
+          "file": "x.bin",
+          "dtype": "float32",
+          "shape": [
+            4,
+            6,
+            8
+          ],
+          "bytes": 768,
+          "elements": 192,
+          "range": [
+            -5,
+            5
+          ],
+          "value": null,
+          "value_url": null,
+          "value_sha256": null
+        }
+      ]
+    },
+    {
+      "name": "gamma",
+      "kind": "required",
+      "tensors": [
+        {
+          "file": "gamma.bin",
+          "dtype": "float32",
+          "shape": [
+            6,
+            8
+          ],
+          "bytes": 192,
+          "elements": 48,
+          "range": [
+            0.5,
+            2.0
+          ],
+          "value": null,
+          "value_url": null,
+          "value_sha256": null
+        }
+      ]
+    },
+    {
+      "name": "beta",
+      "kind": "required",
+      "tensors": [
+        {
+          "file": "beta.bin",
+          "dtype": "float32",
+          "shape": [
+            6,
+            8
+          ],
+          "bytes": 192,
+          "elements": 48,
+          "range": [
+            -1,
+            1
+          ],
+          "value": null,
+          "value_url": null,
+          "value_sha256": null
+        }
+      ]
+    }
+  ],
+  "outputs": [
+    {
+      "name": "y",
+      "kind": "required",
+      "tensors": [
+        {
+          "file": "y.bin",
+          "dtype": "float32",
+          "shape": [
+            4,
+            6,
+            8
+          ],
+          "bytes": 768,
+          "elements": 192,
+          "rtol": 0.0001,
+          "atol": 0.0001,
+          "tol": 0.0001
+        }
+      ]
+    },
+    {
+      "name": "mean",
+      "kind": "optional",
+      "tensors": [
+        {
+          "file": "mean.bin",
+          "dtype": "float32",
+          "shape": [
+            4,
+            1,
+            1
+          ],
+          "bytes": 16,
+          "elements": 4,
+          "rtol": 0.0001,
+          "atol": 0.0001,
+          "tol": 0.0001
+        }
+      ]
+    },
+    {
+      "name": "rstd",
+      "kind": "optional",
+      "tensors": [
+        {
+          "file": "rstd.bin",
+          "dtype": "float32",
+          "shape": [
+            4,
+            1,
+            1
+          ],
+          "bytes": 16,
+          "elements": 4,
+          "rtol": 0.0001,
+          "atol": 0.0001,
+          "tol": 0.0001
+        }
+      ]
+    }
+  ]
+}
