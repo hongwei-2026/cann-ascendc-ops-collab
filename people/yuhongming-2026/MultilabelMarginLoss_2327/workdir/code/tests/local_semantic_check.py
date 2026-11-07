@@ -53,8 +53,54 @@ def check_count_truncation():
     np.testing.assert_array_equal(is_target2[0], [0, 0, 0, 4, 0, 0])
 
 
+def check_out_of_range_does_not_truncate():
+    # 9 不在 [0, C)，跳过但不截断；-1 才截断。
+    x = np.array([[0.0, 1.0, 2.0, 3.0, 4.0, 5.0]], dtype=np.float32)
+    target = np.array([[3, 9, 1, -1, 0]], dtype=np.int32)
+    y, is_target = reference.impl(x, target, reduction="none")
+    np.testing.assert_array_equal(is_target[0], [0, 1, 0, 1, 0, 0])
+    # 手算：l in {1,3}，j in {0,2,4,5}
+    # loss = 1/6 * sum_l sum_j max(0, 1+x[j]-x[l])
+    manual = 0.0
+    for ell in (1, 3):
+        for j in (0, 2, 4, 5):
+            manual += max(0.0, 1.0 + float(x[0, j]) - float(x[0, ell]))
+    manual /= 6.0
+    np.testing.assert_allclose(y, [manual], rtol=1e-6, atol=1e-6)
+
+
+def check_empty_prefix_is_zero():
+    x = np.arange(8, dtype=np.float32).reshape(2, 4)
+    target = np.array([[-1, 0, 1, 2], [-5, 3, 3, 1]], dtype=np.int32)
+    y, is_target = reference.impl(x, target, reduction="none")
+    np.testing.assert_array_equal(is_target, np.zeros((2, 4), dtype=np.int32))
+    np.testing.assert_array_equal(y, np.zeros(2, dtype=np.float32))
+
+
+def check_duplicate_weight_and_half():
+    x = np.array([[0.5, -1.0, 2.0, 0.25]], dtype=np.float32)
+    target = np.array([[1, 1, 0, -1]], dtype=np.int32)
+    y, is_target = reference.impl(x, target, reduction="sum")
+    np.testing.assert_array_equal(is_target[0], [1, 2, 0, 0])
+    # cnt[1]=2, cnt[0]=1; 非目标 j={2,3}
+    manual = 0.0
+    for ell, cnt in ((0, 1), (1, 2)):
+        for j in (2, 3):
+            manual += cnt * max(0.0, 1.0 + float(x[0, j]) - float(x[0, ell]))
+    manual /= 4.0
+    np.testing.assert_allclose(y, [manual], rtol=1e-6, atol=1e-6)
+
+    xh = x.astype(np.float16)
+    yh, _ = reference.impl(xh, target, reduction="none")
+    assert yh.dtype == np.float16
+    np.testing.assert_allclose(yh.astype(np.float32), np.float32(manual), rtol=1e-3, atol=1e-3)
+
+
 if __name__ == "__main__":
     check_case_seed42_mean()
     check_none_sum_shapes()
     check_count_truncation()
+    check_out_of_range_does_not_truncate()
+    check_empty_prefix_is_zero()
+    check_duplicate_weight_and_half()
     print("MultilabelMarginLoss local semantic checks: PASS")

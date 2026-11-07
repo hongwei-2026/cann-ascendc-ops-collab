@@ -113,6 +113,7 @@ private:
     int64_t classNum_ = 0;
     int64_t targetLen_ = 0;
     int64_t reduction_ = REDUCTION_MEAN;
+    int64_t usedCores_ = 1;
     int64_t rowsPerCore_ = 1;
     int64_t classTile_ = 0;
     int64_t rowStart_ = 0;
@@ -128,6 +129,7 @@ __aicore__ inline void MultilabelMarginLoss<T>::Init(GM_ADDR x, GM_ADDR target, 
     classNum_ = tilingData->classNum;
     targetLen_ = tilingData->targetLen;
     reduction_ = tilingData->reduction;
+    usedCores_ = tilingData->usedCores;
     rowsPerCore_ = tilingData->rowsPerCore;
     classTile_ = tilingData->classTile > 0 ? tilingData->classTile : classNum_;
     if (classTile_ > classNum_) {
@@ -148,7 +150,10 @@ __aicore__ inline void MultilabelMarginLoss<T>::Init(GM_ADDR x, GM_ADDR target, 
     targetGm_.SetGlobalBuffer((__gm__ int32_t*)target, batchSize_ * targetLen_);
     yGm_.SetGlobalBuffer((__gm__ T*)y, reduction_ == REDUCTION_NONE ? batchSize_ : 1);
     isTargetGm_.SetGlobalBuffer((__gm__ int32_t*)isTarget, batchSize_ * classNum_);
-    rowLossGm_.SetGlobalBuffer((__gm__ float*)GetUserWorkspace(workspace), batchSize_);
+    if (reduction_ != REDUCTION_NONE && usedCores_ > 1) {
+        // Skip framework system prefix; Host reserved WS_SYS_SIZE + losses[N].
+        rowLossGm_.SetGlobalBuffer((__gm__ float*)GetUserWorkspace(workspace), batchSize_);
+    }
 
     const int64_t xElemPerBlock = 32 / static_cast<int64_t>(sizeof(T));
     const int64_t cAlign = AlignUp(classTile_, 8);
@@ -277,13 +282,27 @@ __aicore__ inline float MultilabelMarginLoss<T>::ProcessOneRow(int64_t row)
     prefixLen_ = ScanPrefix();
 
     // ---- 趟 1：按 classTile 写 is_target（计数型，DataCopyPad 写出）----
+    bool hasPos = false;
     for (int64_t c0 = 0; c0 < classNum_; c0 += classTile_) {
         const int64_t len = (c0 + classTile_ <= classNum_) ? classTile_ : (classNum_ - c0);
         BuildCnt(c0, len);
         PipeBarrier<PIPE_ALL>(); // Scalar -> MTE3
+        if (!hasPos) {
+            for (int64_t i = 0; i < len; ++i) {
+                if (cnt.GetValue(i) > 0) {
+                    hasPos = true;
+                    break;
+                }
+            }
+        }
         DataCopyExtParams params = {1, static_cast<uint32_t>(len * sizeof(int32_t)), 0, 0, 0};
         DataCopyPad(isTargetGm_[row * classNum_ + c0], cnt, params);
         PipeBarrier<PIPE_ALL>(); // MTE3 完成后方可复用 cntBuf_
+    }
+
+    // 无正类：is_target 已写出，loss 为 0（仍计入 mean 的 N）
+    if (!hasPos) {
+        return 0.0f;
     }
 
     // ---- 趟 2：沿 j 轴向量化 hinge，按互异目标类 cnt 加权 ----
@@ -293,6 +312,19 @@ __aicore__ inline float MultilabelMarginLoss<T>::ProcessOneRow(int64_t row)
 
         LoadXTile(row, j0, jLen, xjf, 1.0f); // xjf = x_j + 1
         BuildMask(j0, jLen);                 // mask = 1.0 iff cnt[j]==0
+        PipeBarrier<PIPE_ALL>(); // Vector -> Scalar（探测 anyNeg）
+        // 本 j 块若全是目标类，Mul(acc,mask) 必为 0，直接跳过内层 O(C)
+        bool anyNeg = false;
+        for (int64_t jj = 0; jj < jLen; ++jj) {
+            if (mask.GetValue(jj) != 0.0f) {
+                anyNeg = true;
+                break;
+            }
+        }
+        if (!anyNeg) {
+            continue;
+        }
+
         Duplicate(acc, 0.0f, static_cast<int32_t>(jLen));
         PipeBarrier<PIPE_V>();
 
@@ -370,6 +402,8 @@ template <typename T>
 __aicore__ inline void MultilabelMarginLoss<T>::Process()
 {
     const bool hasWork = (rowCount_ > 0 && classNum_ > 0 && targetLen_ > 0);
+    const bool localReduction = (reduction_ != REDUCTION_NONE && usedCores_ == 1);
+    float localAcc = 0.0f;
 
     if (hasWork) {
         for (int64_t i = 0; i < rowCount_; ++i) {
@@ -377,6 +411,9 @@ __aicore__ inline void MultilabelMarginLoss<T>::Process()
             const float loss = ProcessOneRow(row);
             if (reduction_ == REDUCTION_NONE) {
                 StoreY(row, loss);
+            } else if (localReduction) {
+                // Same fp32 row order as core0 Finalize, without a GM roundtrip.
+                localAcc += loss;
             } else {
                 StoreRowLoss(row, loss);
             }
@@ -385,6 +422,14 @@ __aicore__ inline void MultilabelMarginLoss<T>::Process()
 
     if (reduction_ == REDUCTION_NONE) {
         return; // none 各核独占行区间，无需跨核汇总
+    }
+
+    if (localReduction) {
+        if (reduction_ == REDUCTION_MEAN && batchSize_ > 0) {
+            localAcc /= static_cast<float>(batchSize_);
+        }
+        StoreY(0, localAcc);
+        return;
     }
 
     // 注意：无论本核是否有活都必须参与，否则空闲核缺席会让其余核永久等待

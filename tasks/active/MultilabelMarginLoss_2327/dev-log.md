@@ -47,3 +47,10 @@
 ## 2026-11-04 21:08
 - 新日志 EXP_M009_204303：指纹仍是旧 M009，非 M010；多核依旧 507035。
 - 下一闸：云端必须 git pull 到 e1b2de2+ 再 rsync。
+
+## 2026-11-07
+
+- yuhongming 座位补上 M010：none/单核 workspace 0，小 mean/sum 强制 1 核并核内归约；多核保留 16MB 系统前缀。
+- kernel 单测去掉已删除的 `totalNum` / `blockFactor` / `ubFactor`。
+- `local_semantic_check.py` PASS（截断、越界标签、空前缀、重复加权、fp16）。
+- 本机无 NPU，未跑 `build.sh -e`。见 [EXP_M011](explorations/EXP_M011-seat-m010.md)。

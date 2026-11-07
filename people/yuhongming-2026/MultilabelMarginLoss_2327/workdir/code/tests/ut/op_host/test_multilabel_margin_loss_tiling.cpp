@@ -12,6 +12,7 @@ static const std::string OP_NAME = "MultilabelMarginLoss";
 
 struct MultilabelMarginLossTestParam {
     std::string caseName;
+    std::string reduction;
     std::initializer_list<int64_t> xShape;
     ge::DataType xDtype;
     ge::Format xFormat;
@@ -34,16 +35,13 @@ struct MultilabelMarginLossTestParam {
     uint64_t tilingDataMaxSize;
 };
 
-// TODO: 以下期望值基于初始模板实现，修改 tiling 逻辑后请更新：
-//   expectTilingKey:  参考 op_kernel/multilabel_margin_loss_tiling_key.h 和 op_host/multilabel_margin_loss_tiling.cpp 中 tilingKey 的逻辑
-//   expectTilingData: 参考 op_host/multilabel_margin_loss_tiling.cpp 中 TilingData 各字段的赋值
-//   expectWorkspaces: 参考 op_host/multilabel_margin_loss_tiling.cpp 中 GetWorkspaceSize 的逻辑
 static MultilabelMarginLossTestParam testCases[] = {
     // tilingData: batchSize classNum targetLen reduction usedCores rowsPerCore tailRows classTile targetTile
-    // float32 → tilingKey MODE_1=1；N=4：coresCap=min(64,4)=4, rowsPerCore=ceil(4/4)=1,
-    //   usedCores=ceil(4/1)=4, tailRows=4-(4-1)*1=1；整行可装下 → classTile=C, targetTile=K
-    // workspace = 16MB + N*sizeof(float)
-    {"multilabel_margin_loss_0", {4, 6}, ge::DT_FLOAT, ge::FORMAT_ND, {4, 6}, ge::DT_INT32, ge::FORMAT_ND, {1}, ge::DT_FLOAT, ge::FORMAT_ND, {4, 6}, ge::DT_INT32, ge::FORMAT_ND, "Ascend910B", ge::GRAPH_SUCCESS, 1UL, "4 6 6 1 4 1 1 6 6 ", {16UL * 1024UL * 1024UL + 16UL}, 64, 262144, 4096},
+    {"tiny_mean", "mean", {4, 6}, ge::DT_FLOAT, ge::FORMAT_ND, {4, 6}, ge::DT_INT32, ge::FORMAT_ND, {1}, ge::DT_FLOAT, ge::FORMAT_ND, {4, 6}, ge::DT_INT32, ge::FORMAT_ND, "Ascend910B", ge::GRAPH_SUCCESS, 1UL, "4 6 6 1 1 4 4 6 6 ", {0UL}, 64, 262144, 4096},
+    {"none_no_workspace", "none", {4, 6}, ge::DT_FLOAT, ge::FORMAT_ND, {4, 6}, ge::DT_INT32, ge::FORMAT_ND, {4}, ge::DT_FLOAT, ge::FORMAT_ND, {4, 6}, ge::DT_INT32, ge::FORMAT_ND, "Ascend910B", ge::GRAPH_SUCCESS, 1UL, "4 6 6 0 4 1 1 6 6 ", {0UL}, 64, 262144, 4096},
+    {"tiny_sum_bf16", "sum", {4, 6}, ge::DT_BF16, ge::FORMAT_ND, {4, 6}, ge::DT_INT32, ge::FORMAT_ND, {1}, ge::DT_BF16, ge::FORMAT_ND, {4, 6}, ge::DT_INT32, ge::FORMAT_ND, "Ascend910B", ge::GRAPH_SUCCESS, 2UL, "4 6 6 2 1 4 4 6 6 ", {0UL}, 64, 262144, 4096},
+    {"multicore_mean", "mean", {100, 6}, ge::DT_FLOAT, ge::FORMAT_ND, {100, 6}, ge::DT_INT32, ge::FORMAT_ND, {1}, ge::DT_FLOAT, ge::FORMAT_ND, {100, 6}, ge::DT_INT32, ge::FORMAT_ND, "Ascend910B", ge::GRAPH_SUCCESS, 1UL, "100 6 6 1 50 2 2 6 6 ", {16777632UL}, 64, 262144, 4096},
+    {"single_core_fp16", "mean", {1, 257}, ge::DT_FLOAT16, ge::FORMAT_ND, {1, 11}, ge::DT_INT32, ge::FORMAT_ND, {1}, ge::DT_FLOAT16, ge::FORMAT_ND, {1, 257}, ge::DT_INT32, ge::FORMAT_ND, "Ascend910B", ge::GRAPH_SUCCESS, 0UL, "1 257 11 1 1 1 1 257 11 ", {0UL}, 64, 262144, 4096},
 };
 
 class MultilabelMarginLossTilingTest : public testing::TestWithParam<MultilabelMarginLossTestParam> {
@@ -71,7 +69,7 @@ static void TestOneParamCase(const MultilabelMarginLossTestParam &param)
         {{yShape, param.yDtype, param.yFormat},
         {is_targetShape, param.is_targetDtype, param.is_targetFormat}});
     std::vector<gert::TilingContextPara::OpAttr> attrs_;
-    attrs_.push_back(gert::TilingContextPara::OpAttr("reduction", Ops::Math::AnyValue::CreateFrom<std::string>("mean")));
+    attrs_.push_back(gert::TilingContextPara::OpAttr("reduction", Ops::Math::AnyValue::CreateFrom<std::string>(param.reduction)));
     gert::TilingContextPara tilingContextPara(
         OP_NAME,
         inputTensorDesc_,

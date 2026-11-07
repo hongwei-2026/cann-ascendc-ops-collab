@@ -15,6 +15,8 @@
 namespace optiling {
 namespace {
 
+// Multi-core SyncAll still needs the framework system GM prefix (ACL 507035
+// without it). Tiny/none paths keep workspace=0.
 constexpr uint32_t WS_SYS_SIZE = 16U * 1024U * 1024U;
 constexpr int64_t REDUCTION_NONE = 0;
 constexpr int64_t REDUCTION_MEAN = 1;
@@ -60,13 +62,18 @@ ge::graphStatus GetPlatformInfo(gert::TilingContext* context, uint64_t& ubSize, 
     return ge::GRAPH_SUCCESS;
 }
 
-ge::graphStatus SetWorkspace(gert::TilingContext* context, int64_t batchSize)
+ge::graphStatus SetWorkspace(gert::TilingContext* context, int64_t batchSize,
+    int64_t reduction, int64_t usedCores)
 {
     size_t* currentWorkspace = context->GetWorkspaceSizes(1);
     OP_CHECK_NULL_WITH_CONTEXT(context, currentWorkspace);
-    // 每行一份 float32 中间 loss，供多核归约；外加系统预留。
-    const size_t rowLossBytes = static_cast<size_t>(std::max<int64_t>(batchSize, 1)) * sizeof(float);
-    currentWorkspace[0] = WS_SYS_SIZE + rowLossBytes;
+    if (reduction == REDUCTION_NONE || usedCores == 1) {
+        currentWorkspace[0] = 0;
+    } else {
+        // System prefix for SyncAll + 32B-aligned fp32 losses[N] user region.
+        const size_t rowLossBytes = static_cast<size_t>(CeilDivI64(batchSize, 8)) * 32;
+        currentWorkspace[0] = static_cast<size_t>(WS_SYS_SIZE) + rowLossBytes;
+    }
     return ge::GRAPH_SUCCESS;
 }
 
@@ -175,11 +182,6 @@ static ge::graphStatus MultilabelMarginLossTilingFunc(gert::TilingContext* conte
         OP_LOGE(context, "reduction must be none/mean/sum"),
         return ge::GRAPH_FAILED);
 
-    OP_CHECK_IF(
-        SetWorkspace(context, batchSize) != ge::GRAPH_SUCCESS,
-        OP_LOGE(context, "GetWorkspaceSize error"),
-        return ge::GRAPH_FAILED);
-
     MultilabelMarginLossTilingData* tiling = context->GetTilingData<MultilabelMarginLossTilingData>();
     OP_CHECK_NULL_WITH_CONTEXT(context, tiling);
 
@@ -187,10 +189,18 @@ static ge::graphStatus MultilabelMarginLossTilingFunc(gert::TilingContext* conte
     // 若直接用 min(coreNum,N) 当 blockDim，当 ceil(N/rowsPerCore) < min(coreNum,N) 时
     // （如 N=100、coreNum=64 → rowsPerCore=2，只有 50 核有活）会拉起 14 个空闲核；
     // 这些核在 kernel 里拿不到行，一旦提前退出就缺席 SyncAll，使其余核永久等待。
-    const int64_t coresCap = std::min(coreNum, batchSize);
+    // Bound the single-core path by worst-case pair work, independently of
+    // target contents. Larger reductions retain the original row parallelism.
+    const bool tinyReduction = reduction != REDUCTION_NONE && batchSize <= 8 &&
+        classNum <= 32 && targetLen <= 32 && batchSize * classNum * targetLen <= 4096;
+    const int64_t coresCap = tinyReduction ? 1 : std::min(coreNum, batchSize);
     const int64_t rowsPerCore = CeilDivI64(batchSize, coresCap);
     const int64_t usedCores = CeilDivI64(batchSize, rowsPerCore);
     const int64_t rem = batchSize - (usedCores - 1) * rowsPerCore; // 尾核实际行数
+    OP_CHECK_IF(
+        SetWorkspace(context, batchSize, reduction, usedCores) != ge::GRAPH_SUCCESS,
+        OP_LOGE(context, "GetWorkspaceSize error"),
+        return ge::GRAPH_FAILED);
     // 采用均匀前缀分核：核 i 处理 [i*rowsPerCore, min((i+1)*rowsPerCore, N))
     tiling->batchSize = batchSize;
     tiling->classNum = classNum;

@@ -41,7 +41,7 @@
 | **LayerNormV3**（2326） | [tasks/active/LayerNormV3_2326](tasks/active/LayerNormV3_2326) | [yuhongming workdir](people/yuhongming-2026/LayerNormV3_2326/) |
 
 PRelu：实现中（样例精度攻坚；共识坑见 [shared-lessons · PRelu](people/shared-lessons/PReluGradUpdate_2329/)）。  
-MultilabelMarginLoss：实现中（功能基线已落座位；待 CodeArts `-e`）。  
+MultilabelMarginLoss：性能中。2026-11-07 座位对齐按需 workspace，语义自测 PASS；这次未跑设备 `-e`。  
 LayerNormV3：实现中（yuhongming 座位；语义自测已过，910B `-e` 未跑）。
 
 CodeArts 同步：只覆盖**你自己的** `people/<你>/.../workdir/code/` → 题包 `code/`（见题内 `SYNC_CODEARTS.md`）。
