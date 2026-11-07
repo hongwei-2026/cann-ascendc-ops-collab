@@ -1,0 +1,95 @@
+{
+  "source_case": "npu_cases[0]",
+  "function": "impl",
+  "attributes": {
+    "mode": "reflect",
+    "paddings_contiguous": true
+  },
+  "inputs": [
+    {
+      "name": "x",
+      "kind": "required",
+      "tensors": [
+        {
+          "file": "x.bin",
+          "dtype": "float32",
+          "shape": [
+            1,
+            1,
+            8,
+            8
+          ],
+          "bytes": 256,
+          "elements": 64,
+          "range": [
+            -1,
+            1
+          ],
+          "value": null,
+          "value_url": null,
+          "value_sha256": null
+        }
+      ]
+    },
+    {
+      "name": "paddings",
+      "kind": "required",
+      "tensors": [
+        {
+          "file": "paddings.bin",
+          "dtype": "int32",
+          "shape": [
+            4,
+            2
+          ],
+          "bytes": 32,
+          "elements": 8,
+          "range": null,
+          "value": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              2,
+              2
+            ],
+            [
+              2,
+              2
+            ]
+          ],
+          "value_url": null,
+          "value_sha256": null
+        }
+      ]
+    }
+  ],
+  "outputs": [
+    {
+      "name": "y",
+      "kind": "required",
+      "tensors": [
+        {
+          "file": "y.bin",
+          "dtype": "float32",
+          "shape": [
+            1,
+            1,
+            4,
+            4
+          ],
+          "bytes": 64,
+          "elements": 16,
+          "rtol": 0.0001,
+          "atol": 0.0001,
+          "tol": 0.0001
+        }
+      ]
+    }
+  ]
+}

@@ -39,10 +39,12 @@
 | **PReluGradUpdate**（2329） | [tasks/active/PReluGradUpdate_2329](tasks/active/PReluGradUpdate_2329) | [hongwei workdir](people/hongwei-2026/PReluGradUpdate_2329/) · 另两人自建 `people/<你>/PReluGradUpdate_2329/workdir/` |
 | **MultilabelMarginLoss**（2327） | [tasks/active/MultilabelMarginLoss_2327](tasks/active/MultilabelMarginLoss_2327) | [yuhongming workdir](people/yuhongming-2026/MultilabelMarginLoss_2327/) |
 | **LayerNormV3**（2326） | [tasks/active/LayerNormV3_2326](tasks/active/LayerNormV3_2326) | [yuhongming workdir](people/yuhongming-2026/LayerNormV3_2326/) |
+| **PadV3Grad**（2328） | [tasks/active/PadV3Grad_2328](tasks/active/PadV3Grad_2328) | [yuhongming workdir](people/yuhongming-2026/PadV3Grad_2328/) |
 
 PRelu：实现中（样例精度攻坚；共识坑见 [shared-lessons · PRelu](people/shared-lessons/PReluGradUpdate_2329/)）。  
 MultilabelMarginLoss：性能中。2026-11-07 座位对齐按需 workspace，语义自测 PASS；这次未跑设备 `-e`。  
-LayerNormV3：实现中（yuhongming 座位；语义自测已过，910B `-e` 未跑）。
+LayerNormV3：实现中（yuhongming 座位；语义自测已过，910B `-e` 未跑）。  
+PadV3Grad：实现中（yuhongming 座位；语义自测已过，910B `-e` 未跑）。
 
 CodeArts 同步：只覆盖**你自己的** `people/<你>/.../workdir/code/` → 题包 `code/`（见题内 `SYNC_CODEARTS.md`）。
 
