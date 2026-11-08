@@ -36,6 +36,7 @@ private:
         int64_t valid);
     __aicore__ inline void StoreScalar(const GlobalTensor<T>& gm, int64_t index, float value);
     __aicore__ inline float SumAll(const LocalTensor<float>& data);
+    __aicore__ inline float ScalarRsqrt(float x) const;
     __aicore__ inline float RowMean(int64_t row);
     __aicore__ inline float RowRstd(int64_t row, float mean);
     __aicore__ inline void WriteAffine(int64_t row, float mean, float rstd);
@@ -233,6 +234,22 @@ __aicore__ inline float LayerNormV3<T>::SumAll(const LocalTensor<float>& data)
 }
 
 template <typename T>
+__aicore__ inline float LayerNormV3<T>::ScalarRsqrt(float x) const
+{
+    union {
+        float f;
+        uint32_t u;
+    } v;
+    v.f = x;
+    v.u = 0x5f3759dfu - (v.u >> 1);
+    float y = v.f;
+    y = y * (1.5f - 0.5f * x * y * y);
+    y = y * (1.5f - 0.5f * x * y * y);
+    y = y * (1.5f - 0.5f * x * y * y);
+    return y;
+}
+
+template <typename T>
 __aicore__ inline int64_t LayerNormV3<T>::NextValid(int64_t row, int64_t colOff, int64_t& gpos) const
 {
     int64_t valid = tileLength_;
@@ -289,19 +306,17 @@ __aicore__ inline float LayerNormV3<T>::RowRstd(int64_t row, float mean)
         Adds(tmp, xLocal, -mean, static_cast<uint32_t>(tileAlign_));
         PipeBarrier<PIPE_V>();
         Mul(xLocal, tmp, tmp, static_cast<uint32_t>(tileAlign_));
-        PipeBarrier<PIPE_V>();
+        PipeBarrier<PIPE_ALL>();
+        // 对齐尾部原来是 0。减均值再平方后会变成 mean^2，不能算进方差。
+        for (int64_t i = valid; i < tileAlign_; ++i) {
+            xLocal.SetValue(static_cast<int32_t>(i), 0.0f);
+        }
+        PipeBarrier<PIPE_ALL>();
         sumsq += SumAll(xLocal);
         colOff += valid;
     }
     const float var = sumsq / static_cast<float>(colNum_);
-    LocalTensor<float> slot = bufWork_.Get<float>();
-    LocalTensor<float> rstdLocal = bufTmp_.Get<float>();
-    Duplicate(slot, 0.0f, 64);
-    slot.SetValue(0, var + epsilon_);
-    PipeBarrier<PIPE_ALL>();
-    Rsqrt(rstdLocal, slot, 64);
-    PipeBarrier<PIPE_ALL>();
-    return rstdLocal.GetValue(0);
+    return ScalarRsqrt(var + epsilon_);
 }
 
 template <typename T>

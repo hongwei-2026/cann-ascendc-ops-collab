@@ -43,7 +43,7 @@
 
 PRelu：实现中（样例精度攻坚；共识坑见 [shared-lessons · PRelu](people/shared-lessons/PReluGradUpdate_2329/)）。  
 MultilabelMarginLoss：性能中。2026-11-07 座位对齐按需 workspace，语义自测 PASS；这次未跑设备 `-e`。  
-LayerNormV3：实现中（yuhongming 座位；语义自测已过，910B `-e` 未跑）。  
+LayerNormV3：实现中（yuhongming 座位；910B2 样例 `-e` 已通过，泛化未跑）。  
 PadV3Grad：实现中（yuhongming 座位；语义自测已过，910B `-e` 未跑）。
 
 CodeArts 同步：只覆盖**你自己的** `people/<你>/.../workdir/code/` → 题包 `code/`（见题内 `SYNC_CODEARTS.md`）。

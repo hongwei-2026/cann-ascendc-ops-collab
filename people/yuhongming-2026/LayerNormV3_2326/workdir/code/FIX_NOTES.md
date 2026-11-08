@@ -31,4 +31,11 @@ gamma/beta 与 x 的尾维对齐（`begin_params_axis` 起的形状）。IO 为�
 
 `python tests/local_semantic_check.py`：样例、小 tile、负轴、gamma 短于/长于归一化行、标量 gamma、float16 均通过。
 
-本机没有 Ascend NPU，**没有**跑 `bash build.sh -e`。云上功能/精度/性能仍要在 910B 上验证。
+## 910B2 样例
+
+2026-11-08，CANN 9.1.0，`DEVICE_ID=0 bash build.sh -j4 -e`：
+
+- 编译成功，三个 schMode 的 kernel `.o` 都生成了。
+- 样例 float32：`y` 0/192，`mean` 0/4，`rstd` 0/4，总评 PASSED。
+
+第一次设备结果是 mean 对、rstd 全错。原因是 tile 对齐到 64，有效列只有 48，补零在减均值再平方后变成 `mean^2`，被算进了方差。现已在求和前把这段尾部清成 0，`rstd` 用标量牛顿迭代，不再从向量 `Rsqrt` 读回。
