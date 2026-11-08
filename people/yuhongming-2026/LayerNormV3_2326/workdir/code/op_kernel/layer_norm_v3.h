@@ -1,10 +1,11 @@
 /*!
  * \file layer_norm_v3.h
- * \brief LayerNormV3：按行两遍归约，float32 计算，IO 支持 float/half/bf16。
+ * \brief LayerNormV3：按行两遍归约，float32 计算。
  *
  * y = (x - mean) * rstd * gamma + beta
  * mean/var 在 begin_norm_axis 及其后的维度上计算（总体方差，除以 N）。
- * gamma/beta 与 x 的尾维对齐：扁平下标 g 使用 gamma[g % gammaNum]。
+ * gamma/beta/mean/rstd 的类型是 P，x/y 的类型是 T。P 可以是 T，也可以是 float。
+ * gamma/beta 与 x 从 begin_params_axis 起的尾部对齐：扁平下标 g 使用 gamma[g % gammaNum]。
  */
 
 #ifndef LAYERNORMV3_H
@@ -19,7 +20,7 @@ namespace NsLayerNormV3 {
 
 using namespace AscendC;
 
-template <typename T>
+template <typename T, typename P>
 class LayerNormV3 {
 public:
     __aicore__ inline LayerNormV3() {}
@@ -29,12 +30,16 @@ public:
     __aicore__ inline void Process();
 
 private:
+    template <typename U>
+    __aicore__ inline void LoadAsFloat(const GlobalTensor<U>& gm, int64_t offset, const LocalTensor<float>& dst,
+        int64_t valid);
+    template <typename U>
+    __aicore__ inline void StoreFloat(const GlobalTensor<U>& gm, int64_t offset, const LocalTensor<float>& src,
+        int64_t valid);
+    template <typename U>
+    __aicore__ inline void StoreScalar(const GlobalTensor<U>& gm, int64_t index, float value);
+    __aicore__ inline void ZeroFrom(const LocalTensor<float>& dst, int64_t valid);
     __aicore__ inline float BitsToFloat(int64_t bits) const;
-    __aicore__ inline void LoadAsFloat(const GlobalTensor<T>& gm, int64_t offset, const LocalTensor<float>& dst,
-        int64_t valid);
-    __aicore__ inline void StoreFloat(const GlobalTensor<T>& gm, int64_t offset, const LocalTensor<float>& src,
-        int64_t valid);
-    __aicore__ inline void StoreScalar(const GlobalTensor<T>& gm, int64_t index, float value);
     __aicore__ inline float SumAll(const LocalTensor<float>& data);
     __aicore__ inline float ScalarRsqrt(float x) const;
     __aicore__ inline float RowMean(int64_t row);
@@ -52,11 +57,11 @@ private:
     TBuf<QuePosition::VECCALC> bufRaw_;
 
     GlobalTensor<T> xGm_;
-    GlobalTensor<T> gammaGm_;
-    GlobalTensor<T> betaGm_;
+    GlobalTensor<P> gammaGm_;
+    GlobalTensor<P> betaGm_;
     GlobalTensor<T> yGm_;
-    GlobalTensor<T> meanGm_;
-    GlobalTensor<T> rstdGm_;
+    GlobalTensor<P> meanGm_;
+    GlobalTensor<P> rstdGm_;
 
     int64_t rowNum_ = 0;
     int64_t colNum_ = 0;
@@ -72,8 +77,8 @@ private:
     bool active_ = false;
 };
 
-template <typename T>
-__aicore__ inline float LayerNormV3<T>::BitsToFloat(int64_t bits) const
+template <typename T, typename P>
+__aicore__ inline float LayerNormV3<T, P>::BitsToFloat(int64_t bits) const
 {
     union {
         uint32_t u;
@@ -83,8 +88,24 @@ __aicore__ inline float LayerNormV3<T>::BitsToFloat(int64_t bits) const
     return v.f;
 }
 
-template <typename T>
-__aicore__ inline void LayerNormV3<T>::Init(GM_ADDR x, GM_ADDR gamma, GM_ADDR beta, GM_ADDR y, GM_ADDR mean,
+template <typename T, typename P>
+__aicore__ inline void LayerNormV3<T, P>::ZeroFrom(const LocalTensor<float>& dst, int64_t valid)
+{
+    if (valid >= tileAlign_) {
+        return;
+    }
+    if (valid < 0) {
+        valid = 0;
+    }
+    PipeBarrier<PIPE_ALL>();
+    for (int64_t i = valid; i < tileAlign_; ++i) {
+        dst.SetValue(static_cast<int32_t>(i), 0.0f);
+    }
+    PipeBarrier<PIPE_ALL>();
+}
+
+template <typename T, typename P>
+__aicore__ inline void LayerNormV3<T, P>::Init(GM_ADDR x, GM_ADDR gamma, GM_ADDR beta, GM_ADDR y, GM_ADDR mean,
     GM_ADDR rstd, const LayerNormV3TilingData* tilingData)
 {
     rowNum_ = tilingData->rowNum;
@@ -120,11 +141,11 @@ __aicore__ inline void LayerNormV3<T>::Init(GM_ADDR x, GM_ADDR gamma, GM_ADDR be
     active_ = true;
 
     xGm_.SetGlobalBuffer(reinterpret_cast<__gm__ T*>(x), rowNum_ * colNum_);
-    gammaGm_.SetGlobalBuffer(reinterpret_cast<__gm__ T*>(gamma), gammaNum_);
-    betaGm_.SetGlobalBuffer(reinterpret_cast<__gm__ T*>(beta), gammaNum_);
+    gammaGm_.SetGlobalBuffer(reinterpret_cast<__gm__ P*>(gamma), gammaNum_);
+    betaGm_.SetGlobalBuffer(reinterpret_cast<__gm__ P*>(beta), gammaNum_);
     yGm_.SetGlobalBuffer(reinterpret_cast<__gm__ T*>(y), rowNum_ * colNum_);
-    meanGm_.SetGlobalBuffer(reinterpret_cast<__gm__ T*>(mean), rowNum_);
-    rstdGm_.SetGlobalBuffer(reinterpret_cast<__gm__ T*>(rstd), rowNum_);
+    meanGm_.SetGlobalBuffer(reinterpret_cast<__gm__ P*>(mean), rowNum_);
+    rstdGm_.SetGlobalBuffer(reinterpret_cast<__gm__ P*>(rstd), rowNum_);
 
     const uint32_t bytes = static_cast<uint32_t>(tileAlign_ * static_cast<int64_t>(sizeof(float)));
     pipe_.InitBuffer(bufX_, bytes);
@@ -135,75 +156,79 @@ __aicore__ inline void LayerNormV3<T>::Init(GM_ADDR x, GM_ADDR gamma, GM_ADDR be
     pipe_.InitBuffer(bufRaw_, bytes);
 }
 
-template <typename T>
-__aicore__ inline void LayerNormV3<T>::LoadAsFloat(const GlobalTensor<T>& gm, int64_t offset,
+template <typename T, typename P>
+template <typename U>
+__aicore__ inline void LayerNormV3<T, P>::LoadAsFloat(const GlobalTensor<U>& gm, int64_t offset,
     const LocalTensor<float>& dst, int64_t valid)
 {
     Duplicate(dst, 0.0f, static_cast<uint32_t>(tileAlign_));
     PipeBarrier<PIPE_ALL>();
-    if (valid <= 0) {
-        return;
-    }
-    if constexpr (sizeof(T) == sizeof(float)) {
-        DataCopyExtParams p{1, static_cast<uint32_t>(valid * static_cast<int64_t>(sizeof(float))), 0, 0, 0};
-        DataCopyPadExtParams<float> pad{false, 0, 0, 0.0f};
-        DataCopyPad(dst, gm[offset], p, pad);
-    } else {
-        LocalTensor<float> rawFloat = bufRaw_.Get<float>();
-        Duplicate(rawFloat, 0.0f, static_cast<uint32_t>(tileAlign_));
+    if (valid > 0) {
+        if constexpr (sizeof(U) == sizeof(float)) {
+            DataCopyExtParams p{1, static_cast<uint32_t>(valid * static_cast<int64_t>(sizeof(float))), 0, 0, 0};
+            DataCopyPadExtParams<float> pad{false, 0, 0, 0.0f};
+            DataCopyPad(dst, gm[offset], p, pad);
+        } else {
+            LocalTensor<float> rawFloat = bufRaw_.Get<float>();
+            Duplicate(rawFloat, 0.0f, static_cast<uint32_t>(tileAlign_));
+            PipeBarrier<PIPE_ALL>();
+            LocalTensor<U> raw = bufRaw_.Get<U>();
+            DataCopyExtParams p{1, static_cast<uint32_t>(valid * static_cast<int64_t>(sizeof(U))), 0, 0, 0};
+            DataCopyPadExtParams<U> pad{false, 0, 0, static_cast<U>(0)};
+            DataCopyPad(raw, gm[offset], p, pad);
+            PipeBarrier<PIPE_ALL>();
+            Cast(dst, raw, RoundMode::CAST_NONE, static_cast<uint32_t>(tileAlign_));
+        }
         PipeBarrier<PIPE_ALL>();
-        LocalTensor<T> raw = bufRaw_.Get<T>();
-        DataCopyExtParams p{1, static_cast<uint32_t>(valid * static_cast<int64_t>(sizeof(T))), 0, 0, 0};
-        DataCopyPadExtParams<T> pad{false, 0, 0, static_cast<T>(0)};
-        DataCopyPad(raw, gm[offset], p, pad);
-        PipeBarrier<PIPE_ALL>();
-        Cast(dst, raw, RoundMode::CAST_NONE, static_cast<uint32_t>(tileAlign_));
     }
-    PipeBarrier<PIPE_ALL>();
+    // DataCopyPad 会按 32 字节向上取整，多出来的元素不能进归约。
+    ZeroFrom(dst, valid);
 }
 
-template <typename T>
-__aicore__ inline void LayerNormV3<T>::StoreFloat(const GlobalTensor<T>& gm, int64_t offset,
+template <typename T, typename P>
+template <typename U>
+__aicore__ inline void LayerNormV3<T, P>::StoreFloat(const GlobalTensor<U>& gm, int64_t offset,
     const LocalTensor<float>& src, int64_t valid)
 {
     if (valid <= 0) {
         return;
     }
-    if constexpr (sizeof(T) == sizeof(float)) {
+    if constexpr (sizeof(U) == sizeof(float)) {
         DataCopyExtParams p{1, static_cast<uint32_t>(valid * static_cast<int64_t>(sizeof(float))), 0, 0, 0};
         DataCopyPad(gm[offset], src, p);
     } else {
-        LocalTensor<T> raw = bufRaw_.Get<T>();
+        LocalTensor<U> raw = bufRaw_.Get<U>();
         Cast(raw, src, RoundMode::CAST_RINT, static_cast<uint32_t>(tileAlign_));
         PipeBarrier<PIPE_ALL>();
-        DataCopyExtParams p{1, static_cast<uint32_t>(valid * static_cast<int64_t>(sizeof(T))), 0, 0, 0};
+        DataCopyExtParams p{1, static_cast<uint32_t>(valid * static_cast<int64_t>(sizeof(U))), 0, 0, 0};
         DataCopyPad(gm[offset], raw, p);
     }
     PipeBarrier<PIPE_ALL>();
 }
 
-template <typename T>
-__aicore__ inline void LayerNormV3<T>::StoreScalar(const GlobalTensor<T>& gm, int64_t index, float value)
+template <typename T, typename P>
+template <typename U>
+__aicore__ inline void LayerNormV3<T, P>::StoreScalar(const GlobalTensor<U>& gm, int64_t index, float value)
 {
     LocalTensor<float> slot = bufWork_.Get<float>();
     Duplicate(slot, 0.0f, 64);
     slot.SetValue(0, value);
     PipeBarrier<PIPE_ALL>();
-    if constexpr (sizeof(T) == sizeof(float)) {
+    if constexpr (sizeof(U) == sizeof(float)) {
         DataCopyExtParams p{1, static_cast<uint32_t>(sizeof(float)), 0, 0, 0};
         DataCopyPad(gm[index], slot, p);
     } else {
-        LocalTensor<T> raw = bufRaw_.Get<T>();
+        LocalTensor<U> raw = bufRaw_.Get<U>();
         Cast(raw, slot, RoundMode::CAST_RINT, 64);
         PipeBarrier<PIPE_ALL>();
-        DataCopyExtParams p{1, static_cast<uint32_t>(sizeof(T)), 0, 0, 0};
+        DataCopyExtParams p{1, static_cast<uint32_t>(sizeof(U)), 0, 0, 0};
         DataCopyPad(gm[index], raw, p);
     }
     PipeBarrier<PIPE_ALL>();
 }
 
-template <typename T>
-__aicore__ inline float LayerNormV3<T>::SumAll(const LocalTensor<float>& data)
+template <typename T, typename P>
+__aicore__ inline float LayerNormV3<T, P>::SumAll(const LocalTensor<float>& data)
 {
     LocalTensor<float> scratch = bufWork_.Get<float>();
     LocalTensor<float> cur = data;
@@ -233,8 +258,8 @@ __aicore__ inline float LayerNormV3<T>::SumAll(const LocalTensor<float>& data)
     return sum;
 }
 
-template <typename T>
-__aicore__ inline float LayerNormV3<T>::ScalarRsqrt(float x) const
+template <typename T, typename P>
+__aicore__ inline float LayerNormV3<T, P>::ScalarRsqrt(float x) const
 {
     union {
         float f;
@@ -246,11 +271,12 @@ __aicore__ inline float LayerNormV3<T>::ScalarRsqrt(float x) const
     y = y * (1.5f - 0.5f * x * y * y);
     y = y * (1.5f - 0.5f * x * y * y);
     y = y * (1.5f - 0.5f * x * y * y);
+    y = y * (1.5f - 0.5f * x * y * y);
     return y;
 }
 
-template <typename T>
-__aicore__ inline int64_t LayerNormV3<T>::NextValid(int64_t row, int64_t colOff, int64_t& gpos) const
+template <typename T, typename P>
+__aicore__ inline int64_t LayerNormV3<T, P>::NextValid(int64_t row, int64_t colOff, int64_t& gpos) const
 {
     int64_t valid = tileLength_;
     const int64_t remain = colNum_ - colOff;
@@ -270,8 +296,8 @@ __aicore__ inline int64_t LayerNormV3<T>::NextValid(int64_t row, int64_t colOff,
     return valid;
 }
 
-template <typename T>
-__aicore__ inline float LayerNormV3<T>::RowMean(int64_t row)
+template <typename T, typename P>
+__aicore__ inline float LayerNormV3<T, P>::RowMean(int64_t row)
 {
     LocalTensor<float> xLocal = bufX_.Get<float>();
     float sum = 0.0f;
@@ -289,8 +315,8 @@ __aicore__ inline float LayerNormV3<T>::RowMean(int64_t row)
     return sum / static_cast<float>(colNum_);
 }
 
-template <typename T>
-__aicore__ inline float LayerNormV3<T>::RowRstd(int64_t row, float mean)
+template <typename T, typename P>
+__aicore__ inline float LayerNormV3<T, P>::RowRstd(int64_t row, float mean)
 {
     LocalTensor<float> xLocal = bufX_.Get<float>();
     LocalTensor<float> tmp = bufTmp_.Get<float>();
@@ -307,11 +333,8 @@ __aicore__ inline float LayerNormV3<T>::RowRstd(int64_t row, float mean)
         PipeBarrier<PIPE_V>();
         Mul(xLocal, tmp, tmp, static_cast<uint32_t>(tileAlign_));
         PipeBarrier<PIPE_ALL>();
-        // 对齐尾部原来是 0。减均值再平方后会变成 mean^2，不能算进方差。
-        for (int64_t i = valid; i < tileAlign_; ++i) {
-            xLocal.SetValue(static_cast<int32_t>(i), 0.0f);
-        }
-        PipeBarrier<PIPE_ALL>();
+        // 补零在减均值再平方后变成 mean^2，不能算进方差。
+        ZeroFrom(xLocal, valid);
         sumsq += SumAll(xLocal);
         colOff += valid;
     }
@@ -319,8 +342,8 @@ __aicore__ inline float LayerNormV3<T>::RowRstd(int64_t row, float mean)
     return ScalarRsqrt(var + epsilon_);
 }
 
-template <typename T>
-__aicore__ inline void LayerNormV3<T>::WriteAffine(int64_t row, float mean, float rstd)
+template <typename T, typename P>
+__aicore__ inline void LayerNormV3<T, P>::WriteAffine(int64_t row, float mean, float rstd)
 {
     LocalTensor<float> xLocal = bufX_.Get<float>();
     LocalTensor<float> tmp = bufTmp_.Get<float>();
@@ -352,8 +375,8 @@ __aicore__ inline void LayerNormV3<T>::WriteAffine(int64_t row, float mean, floa
     }
 }
 
-template <typename T>
-__aicore__ inline void LayerNormV3<T>::Process()
+template <typename T, typename P>
+__aicore__ inline void LayerNormV3<T, P>::Process()
 {
     if (!active_) {
         return;

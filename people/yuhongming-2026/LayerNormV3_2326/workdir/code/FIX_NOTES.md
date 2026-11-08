@@ -38,4 +38,10 @@ gamma/beta 与 x 的尾维对齐（`begin_params_axis` 起的形状）。IO 为�
 - 编译成功，三个 schMode 的 kernel `.o` 都生成了。
 - 样例 float32：`y` 0/192，`mean` 0/4，`rstd` 0/4，总评 PASSED。
 
-第一次设备结果是 mean 对、rstd 全错。原因是 tile 对齐到 64，有效列只有 48，补零在减均值再平方后变成 `mean^2`，被算进了方差。现已在求和前把这段尾部清成 0，`rstd` 用标量牛顿迭代，不再从向量 `Rsqrt` 读回。
+第一次设备结果是 mean 对、rstd 全错。原因是 tile 对齐到 64，有效列只有 48，补零在减均值再平方后变成 `mean^2`，被算进了方差。现已在求和前把这段尾部清成 0，`rstd` 用标量牛顿迭代。
+
+后来在同一块 910B2 上又测了列长不能按 32 字节对齐的形状。DataCopyPad 会把对齐多读进来的元素留在 UB 里，均值因此全错，y 的错误率接近 100%。装载之后同样把 `[valid, tileAlign)` 清零。单 tile 上限收到 1024，5000 列不再触发 ACL 507035。
+
+mean/rstd 的数据类型跟随 gamma。x 为 fp16 或 bf16 时，gamma/beta 可以是同类型，也可以是 float。
+
+同一块卡上的复测：模板样例，列长 7/24/64/100/5000，axis 0，负轴，params 在 norm 前或后，80 行，标量 gamma，fp16，bf16，以及 x 为 half/bf16、gamma 为 float。这些用例的 y、mean、rstd mismatch 都是 0。平台隐藏用例还没有在 Judge 上复跑。

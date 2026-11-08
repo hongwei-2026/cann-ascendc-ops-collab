@@ -13,3 +13,6 @@
 - 910B2 / CANN 9.1.0 上 `DEVICE_ID=0 bash build.sh -j4 -e`。
 - 第一次：mean 0/4 通过，rstd 4/4 错，y 180/192 错。对齐尾部的 0 在减均值后被平方进方差。
 - 清掉这段尾部，并用标量计算 rstd。复测：y 0/192，mean 0/4，rstd 0/4，PASSED。
+- 样例列数 48 按 32 字节对齐，所以搬入多出来的尾部是 0。列数不能被 8 个 float 整除时，DataCopyPad 的对齐尾部进了均值，mean 和 y 全错。装载后先把 `[valid, tileAlign)` 清零。tile 上限改为 1024，避免 5000 列撑爆 UB（此前 ACL 507035）。
+- gamma 允许为 float，而 x 为 fp16/bf16。mean/rstd 的类型跟随 gamma。
+- 复测：样例、列长 7/24/64/100/5000、axis 0、负轴、params 在 norm 前/后、80 行多核、标量 gamma、fp16、bf16、fp16+fp32 gamma、bf16+fp32 gamma，y/mean/rstd 的 mismatch 都是 0。

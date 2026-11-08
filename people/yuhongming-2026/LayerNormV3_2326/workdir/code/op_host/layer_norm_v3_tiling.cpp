@@ -18,6 +18,7 @@ namespace optiling {
 constexpr uint32_t WS_SYS_SIZE = 16U * 1024U * 1024U;
 constexpr int64_t kBufCount = 6;
 constexpr int64_t kAlign = 64;
+constexpr int64_t kTileCap = 1024;
 constexpr int64_t kUbReserve = 32 * 1024;
 
 static int64_t NormalizeAxis(int64_t axis, int64_t rank)
@@ -75,10 +76,12 @@ static ge::graphStatus LayerNormV3TilingFunc(gert::TilingContext* context)
     const gert::StorageShape* gammaStorage = context->GetInputShape(1);
     const gert::StorageShape* betaStorage = context->GetInputShape(2);
     const auto* xDesc = context->GetInputDesc(0);
+    const auto* gammaDesc = context->GetInputDesc(1);
     OP_CHECK_NULL_WITH_CONTEXT(context, xStorage);
     OP_CHECK_NULL_WITH_CONTEXT(context, gammaStorage);
     OP_CHECK_NULL_WITH_CONTEXT(context, betaStorage);
     OP_CHECK_NULL_WITH_CONTEXT(context, xDesc);
+    OP_CHECK_NULL_WITH_CONTEXT(context, gammaDesc);
 
     const gert::Shape& xShape = xStorage->GetStorageShape();
     const gert::Shape& gammaShape = gammaStorage->GetStorageShape();
@@ -135,6 +138,9 @@ static ge::graphStatus LayerNormV3TilingFunc(gert::TilingContext* context)
     if (maxAlign < kAlign) {
         maxAlign = kAlign;
     }
+    if (maxAlign > kTileCap) {
+        maxAlign = kTileCap;
+    }
     int64_t tileAlign = maxAlign;
     if (colNum < tileAlign) {
         tileAlign = (colNum + kAlign - 1) / kAlign * kAlign;
@@ -166,11 +172,16 @@ static ge::graphStatus LayerNormV3TilingFunc(gert::TilingContext* context)
     tiling->epsilonBits = static_cast<int64_t>(epsBits);
 
     context->SetBlockDim(static_cast<uint32_t>(usedCores));
+    const auto xDtype = xDesc->GetDataType();
+    const auto gammaDtype = gammaDesc->GetDataType();
     uint64_t tilingKey = GET_TPL_TILING_KEY(LAYERNORMV3_TPL_SCH_MODE_1);
-    const auto dtype = xDesc->GetDataType();
-    if (dtype == ge::DT_FLOAT16) {
+    if (xDtype == ge::DT_FLOAT16 && gammaDtype == ge::DT_FLOAT) {
+        tilingKey = GET_TPL_TILING_KEY(LAYERNORMV3_TPL_SCH_MODE_3);
+    } else if (xDtype == ge::DT_BF16 && gammaDtype == ge::DT_FLOAT) {
+        tilingKey = GET_TPL_TILING_KEY(LAYERNORMV3_TPL_SCH_MODE_4);
+    } else if (xDtype == ge::DT_FLOAT16) {
         tilingKey = GET_TPL_TILING_KEY(LAYERNORMV3_TPL_SCH_MODE_0);
-    } else if (dtype == ge::DT_BF16) {
+    } else if (xDtype == ge::DT_BF16) {
         tilingKey = GET_TPL_TILING_KEY(LAYERNORMV3_TPL_SCH_MODE_2);
     }
     context->SetTilingKey(tilingKey);

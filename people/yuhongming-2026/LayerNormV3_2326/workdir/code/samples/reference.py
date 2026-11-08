@@ -10,7 +10,7 @@ def impl(x, gamma, beta, begin_norm_axis=1, begin_params_axis=1, epsilon=1e-5):
     mean、var 在 [begin_norm_axis, rank) 上计算，var 除以 N（ddof=0）。
     rstd = 1 / sqrt(var + epsilon)
     gamma/beta 与 x 的尾维 numpy 广播；begin_params_axis 用来声明 gamma 覆盖的起始轴。
-    计算用 float32，再按 x 的 dtype 回写（half/bf16 由调用方先转成可保存的 dtype）。
+    计算用 float32。y 按 x 的 dtype 回写，mean/rstd 按 gamma 的 dtype 回写。
     """
     x_np = np.asarray(x)
     gamma_np = np.asarray(gamma)
@@ -37,8 +37,7 @@ def impl(x, gamma, beta, begin_norm_axis=1, begin_params_axis=1, epsilon=1e-5):
         var = np.mean(np.square(xf - mean), axis=axes, keepdims=True)
     rstd = 1.0 / np.sqrt(var + np.float32(epsilon))
     y = (xf - mean) * rstd * gf + bf
-    out_dtype = x_np.dtype
-    return y.astype(out_dtype), mean.astype(out_dtype), rstd.astype(out_dtype)
+    return y.astype(x_np.dtype), mean.astype(gamma_np.dtype), rstd.astype(gamma_np.dtype)
 
 
 if __name__ == "__main__":

@@ -43,12 +43,14 @@ struct LayerNormV3TestParam {
 // 样例 x[4,6,8]、begin_norm_axis=1：row=4,col=48,gamma=48。
 // core>=4 时 usedCores=4, rowsPerCore=1, rowRemain=0。
 // col=48 < 64 → tileLength=48, tileAlign=64。epsilon 1e-5 的 float 位型是 925353388。
-// workspace 固定 16MB。key：fp16=0，fp32=1，bf16=2。
+// workspace 固定 16MB。key：fp16=0，fp32=1，bf16=2，fp16+fp32 gamma=3，bf16+fp32 gamma=4。
 static const std::string kSampleTiling = "4 48 48 1 0 4 48 64 925353388 ";
 static LayerNormV3TestParam testCases[] = {
     {"layer_norm_v3_f32", {4, 6, 8}, ge::DT_FLOAT, ge::FORMAT_ND, {6, 8}, ge::DT_FLOAT, ge::FORMAT_ND, {6, 8}, ge::DT_FLOAT, ge::FORMAT_ND, {4, 6, 8}, ge::DT_FLOAT, ge::FORMAT_ND, {4, 1, 1}, ge::DT_FLOAT, ge::FORMAT_ND, {4, 1, 1}, ge::DT_FLOAT, ge::FORMAT_ND, "Ascend910B", ge::GRAPH_SUCCESS, 1UL, kSampleTiling, {16777216}, 64, 262144, 4096},
     {"layer_norm_v3_f16", {4, 6, 8}, ge::DT_FLOAT16, ge::FORMAT_ND, {6, 8}, ge::DT_FLOAT16, ge::FORMAT_ND, {6, 8}, ge::DT_FLOAT16, ge::FORMAT_ND, {4, 6, 8}, ge::DT_FLOAT16, ge::FORMAT_ND, {4, 1, 1}, ge::DT_FLOAT16, ge::FORMAT_ND, {4, 1, 1}, ge::DT_FLOAT16, ge::FORMAT_ND, "Ascend910B", ge::GRAPH_SUCCESS, 0UL, kSampleTiling, {16777216}, 64, 262144, 4096},
     {"layer_norm_v3_bf16", {4, 6, 8}, ge::DT_BF16, ge::FORMAT_ND, {6, 8}, ge::DT_BF16, ge::FORMAT_ND, {6, 8}, ge::DT_BF16, ge::FORMAT_ND, {4, 6, 8}, ge::DT_BF16, ge::FORMAT_ND, {4, 1, 1}, ge::DT_BF16, ge::FORMAT_ND, {4, 1, 1}, ge::DT_BF16, ge::FORMAT_ND, "Ascend910B", ge::GRAPH_SUCCESS, 2UL, kSampleTiling, {16777216}, 64, 262144, 4096},
+    {"layer_norm_v3_f16_f32g", {4, 6, 8}, ge::DT_FLOAT16, ge::FORMAT_ND, {6, 8}, ge::DT_FLOAT, ge::FORMAT_ND, {6, 8}, ge::DT_FLOAT, ge::FORMAT_ND, {4, 6, 8}, ge::DT_FLOAT16, ge::FORMAT_ND, {4, 1, 1}, ge::DT_FLOAT, ge::FORMAT_ND, {4, 1, 1}, ge::DT_FLOAT, ge::FORMAT_ND, "Ascend910B", ge::GRAPH_SUCCESS, 3UL, kSampleTiling, {16777216}, 64, 262144, 4096},
+    {"layer_norm_v3_bf16_f32g", {4, 6, 8}, ge::DT_BF16, ge::FORMAT_ND, {6, 8}, ge::DT_FLOAT, ge::FORMAT_ND, {6, 8}, ge::DT_FLOAT, ge::FORMAT_ND, {4, 6, 8}, ge::DT_BF16, ge::FORMAT_ND, {4, 1, 1}, ge::DT_FLOAT, ge::FORMAT_ND, {4, 1, 1}, ge::DT_FLOAT, ge::FORMAT_ND, "Ascend910B", ge::GRAPH_SUCCESS, 4UL, kSampleTiling, {16777216}, 64, 262144, 4096},
 };
 
 class LayerNormV3TilingTest : public testing::TestWithParam<LayerNormV3TestParam> {

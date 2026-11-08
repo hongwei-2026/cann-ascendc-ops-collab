@@ -4,6 +4,7 @@
  */
 
 #include "register/op_impl_registry.h"
+#include "exe_graph/runtime/infer_datatype_context.h"
 #include "exe_graph/runtime/infer_shape_context.h"
 
 using namespace ge;
@@ -67,6 +68,16 @@ static ge::graphStatus InferShapeLayerNormV3(gert::InferShapeContext* context)
     return ge::GRAPH_SUCCESS;
 }
 
-IMPL_OP_INFERSHAPE(LayerNormV3).InferShape(InferShapeLayerNormV3);
+static ge::graphStatus InferDataTypeLayerNormV3(gert::InferDataTypeContext* context)
+{
+    const ge::DataType xDtype = context->GetInputDataType(0);
+    const ge::DataType gammaDtype = context->GetInputDataType(1);
+    context->SetOutputDataType(0, xDtype);
+    context->SetOutputDataType(1, gammaDtype);
+    context->SetOutputDataType(2, gammaDtype);
+    return ge::GRAPH_SUCCESS;
+}
+
+IMPL_OP_INFERSHAPE(LayerNormV3).InferShape(InferShapeLayerNormV3).InferDataType(InferDataTypeLayerNormV3);
 
 } // namespace ops
