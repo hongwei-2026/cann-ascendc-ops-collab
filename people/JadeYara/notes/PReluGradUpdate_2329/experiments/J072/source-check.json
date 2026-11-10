@@ -1,0 +1,13 @@
+{
+  "compute_body_identical": true,
+  "window_bounds_identical": true,
+  "integer_index_formula_identical": true,
+  "original_UB_allocation_prefix_identical": true,
+  "FP32_UB": 92672,
+  "low_precision_UB": 113152,
+  "usable_budget": 150732,
+  "modified": [
+    "op_kernel/p_relu_grad_update_general.h",
+    "op_host/p_relu_grad_update_tiling.cpp"
+  ]
+}

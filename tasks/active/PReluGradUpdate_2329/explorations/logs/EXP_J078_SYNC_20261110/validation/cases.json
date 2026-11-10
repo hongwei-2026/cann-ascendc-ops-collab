@@ -1,0 +1,3983 @@
+[
+  {
+    "id": "nd_g_broadcast_fp32",
+    "dtype": "fp32",
+    "format": "ND",
+    "gshape": [
+      1,
+      3,
+      5
+    ],
+    "xshape": [
+      17,
+      3,
+      5
+    ],
+    "wshape": [
+      3
+    ],
+    "outshape": [
+      17,
+      3,
+      5
+    ],
+    "weight_mapped_shape": [
+      1,
+      3,
+      1
+    ],
+    "expected_route": "General",
+    "elements": 255,
+    "evidence": "proposed; not device-executed",
+    "origin_formats": [
+      "ND",
+      "ND",
+      "ND",
+      "ND",
+      "ND"
+    ],
+    "storage_formats": [
+      "ND",
+      "ND",
+      "ND",
+      "ND",
+      "ND"
+    ],
+    "kind": "proposed",
+    "input_root": "/mnt/workspace/2329-JadeYara-20261104-1812/J078/validation/inputs/nd_g_broadcast_fp32",
+    "input_hashes": {
+      "grads": "fdbff56746ef066746014e1bd42e4470110337854eebbac0f82f1da36c40b69c",
+      "features": "4c0be8d644989324464a0e71252a19cf81989feaf6213edfb8be10a215f94b9b",
+      "weights": "d879c25b2657e4b8788fcbfdae594df966123369f9e16a671e8896285c4527ed"
+    },
+    "meta_sha256": "018c198a048faafb0ebc6d71777c423f0d0236a9b185b9f19dbd5169909218af"
+  },
+  {
+    "id": "nd_g_broadcast_fp16",
+    "dtype": "fp16",
+    "format": "ND",
+    "gshape": [
+      1,
+      3,
+      5
+    ],
+    "xshape": [
+      17,
+      3,
+      5
+    ],
+    "wshape": [
+      3
+    ],
+    "outshape": [
+      17,
+      3,
+      5
+    ],
+    "weight_mapped_shape": [
+      1,
+      3,
+      1
+    ],
+    "expected_route": "General",
+    "elements": 255,
+    "evidence": "proposed; not device-executed",
+    "origin_formats": [
+      "ND",
+      "ND",
+      "ND",
+      "ND",
+      "ND"
+    ],
+    "storage_formats": [
+      "ND",
+      "ND",
+      "ND",
+      "ND",
+      "ND"
+    ],
+    "kind": "proposed",
+    "input_root": "/mnt/workspace/2329-JadeYara-20261104-1812/J078/validation/inputs/nd_g_broadcast_fp16",
+    "input_hashes": {
+      "grads": "86d86846e2bff97d73a621a823ff16b404cda66593efe63e62a6406470d6cf60",
+      "features": "c86c7024de7850d39aa6cf64ec5210bf2687db47b8d29078a933aa4770a952ff",
+      "weights": "6b17655304f980b355c2bd4a7ea9ba4d475181a7689dea7b357d6fa7aae1b3d6"
+    },
+    "meta_sha256": "8bd7bc2ffdb9c1b73fe8246dde03a79b066d21577c9e091a2185f61cee9a0489"
+  },
+  {
+    "id": "nd_g_broadcast_bf16",
+    "dtype": "bf16",
+    "format": "ND",
+    "gshape": [
+      1,
+      3,
+      5
+    ],
+    "xshape": [
+      17,
+      3,
+      5
+    ],
+    "wshape": [
+      3
+    ],
+    "outshape": [
+      17,
+      3,
+      5
+    ],
+    "weight_mapped_shape": [
+      1,
+      3,
+      1
+    ],
+    "expected_route": "General",
+    "elements": 255,
+    "evidence": "proposed; not device-executed",
+    "origin_formats": [
+      "ND",
+      "ND",
+      "ND",
+      "ND",
+      "ND"
+    ],
+    "storage_formats": [
+      "ND",
+      "ND",
+      "ND",
+      "ND",
+      "ND"
+    ],
+    "kind": "proposed",
+    "input_root": "/mnt/workspace/2329-JadeYara-20261104-1812/J078/validation/inputs/nd_g_broadcast_bf16",
+    "input_hashes": {
+      "grads": "181fd860f2c13ef0e775be10447a568c7e0b7b918ccd73e0b8601533f24c18b9",
+      "features": "876301d1a54b430296aa2d4383345366fcca2def530ba4d3e9f64cb4d13abb18",
+      "weights": "3c3f8745b339afaa6c9f7ba51855123aa682c42f66e9c6415b823fb79edf65c8"
+    },
+    "meta_sha256": "70f23000513a37ff70c4f5913344ecedcb3794dbed68f790d67a25e7b068066f"
+  },
+  {
+    "id": "nd_x_broadcast_fp32",
+    "dtype": "fp32",
+    "format": "ND",
+    "gshape": [
+      17,
+      3,
+      5
+    ],
+    "xshape": [
+      1,
+      3,
+      1
+    ],
+    "wshape": [
+      3
+    ],
+    "outshape": [
+      17,
+      3,
+      5
+    ],
+    "weight_mapped_shape": [
+      1,
+      3,
+      1
+    ],
+    "expected_route": "General",
+    "elements": 255,
+    "evidence": "proposed; not device-executed",
+    "origin_formats": [
+      "ND",
+      "ND",
+      "ND",
+      "ND",
+      "ND"
+    ],
+    "storage_formats": [
+      "ND",
+      "ND",
+      "ND",
+      "ND",
+      "ND"
+    ],
+    "kind": "proposed",
+    "input_root": "/mnt/workspace/2329-JadeYara-20261104-1812/J078/validation/inputs/nd_x_broadcast_fp32",
+    "input_hashes": {
+      "grads": "d81e2fc2f4e146222aee8d93c1ab74b1323f480dab66784bc5fc83731e528461",
+      "features": "665443490b6cbe2658bcb4d4ec6d70f4519eee40e3713f277e9ea75140bc9df7",
+      "weights": "d879c25b2657e4b8788fcbfdae594df966123369f9e16a671e8896285c4527ed"
+    },
+    "meta_sha256": "87720f839950556d7c01c3be330030b5a8ba276cf06a88c73e11ddf5efd922c3"
+  },
+  {
+    "id": "nd_x_broadcast_fp16",
+    "dtype": "fp16",
+    "format": "ND",
+    "gshape": [
+      17,
+      3,
+      5
+    ],
+    "xshape": [
+      1,
+      3,
+      1
+    ],
+    "wshape": [
+      3
+    ],
+    "outshape": [
+      17,
+      3,
+      5
+    ],
+    "weight_mapped_shape": [
+      1,
+      3,
+      1
+    ],
+    "expected_route": "General",
+    "elements": 255,
+    "evidence": "proposed; not device-executed",
+    "origin_formats": [
+      "ND",
+      "ND",
+      "ND",
+      "ND",
+      "ND"
+    ],
+    "storage_formats": [
+      "ND",
+      "ND",
+      "ND",
+      "ND",
+      "ND"
+    ],
+    "kind": "proposed",
+    "input_root": "/mnt/workspace/2329-JadeYara-20261104-1812/J078/validation/inputs/nd_x_broadcast_fp16",
+    "input_hashes": {
+      "grads": "f9de2cb05820c2de2cbda13d69acbbadff2443e31306433947831cca469b1e89",
+      "features": "86c23ee7715793dcfd5b91ad459c0c019078d7d3a70c3a3a1b33177ed256df50",
+      "weights": "6b17655304f980b355c2bd4a7ea9ba4d475181a7689dea7b357d6fa7aae1b3d6"
+    },
+    "meta_sha256": "0bfc043aa3d304d3909efd4faa24218be678726f2abd2e0b4c02b23bd27b1e53"
+  },
+  {
+    "id": "nd_x_broadcast_bf16",
+    "dtype": "bf16",
+    "format": "ND",
+    "gshape": [
+      17,
+      3,
+      5
+    ],
+    "xshape": [
+      1,
+      3,
+      1
+    ],
+    "wshape": [
+      3
+    ],
+    "outshape": [
+      17,
+      3,
+      5
+    ],
+    "weight_mapped_shape": [
+      1,
+      3,
+      1
+    ],
+    "expected_route": "General",
+    "elements": 255,
+    "evidence": "proposed; not device-executed",
+    "origin_formats": [
+      "ND",
+      "ND",
+      "ND",
+      "ND",
+      "ND"
+    ],
+    "storage_formats": [
+      "ND",
+      "ND",
+      "ND",
+      "ND",
+      "ND"
+    ],
+    "kind": "proposed",
+    "input_root": "/mnt/workspace/2329-JadeYara-20261104-1812/J078/validation/inputs/nd_x_broadcast_bf16",
+    "input_hashes": {
+      "grads": "09a06bd77f09b2d2b2308f27b5a93f807385cc2572ae046e7886a57eb077f839",
+      "features": "e8b11b6cc4f9040e967968e8a22c1cd382d3d7617d1c9698c12ebcf6fef4a2f4",
+      "weights": "3c3f8745b339afaa6c9f7ba51855123aa682c42f66e9c6415b823fb79edf65c8"
+    },
+    "meta_sha256": "d5574759080a2ed7e4607de88f0afb95271f23bd71526d8df958d1a644a409f5"
+  },
+  {
+    "id": "nd_complementary_fp32",
+    "dtype": "fp32",
+    "format": "ND",
+    "gshape": [
+      5,
+      1,
+      13,
+      1
+    ],
+    "xshape": [
+      1,
+      7,
+      1,
+      17
+    ],
+    "wshape": [
+      7
+    ],
+    "outshape": [
+      5,
+      7,
+      13,
+      17
+    ],
+    "weight_mapped_shape": [
+      1,
+      7,
+      1,
+      1
+    ],
+    "expected_route": "General",
+    "elements": 7735,
+    "evidence": "proposed; not device-executed",
+    "origin_formats": [
+      "ND",
+      "ND",
+      "ND",
+      "ND",
+      "ND"
+    ],
+    "storage_formats": [
+      "ND",
+      "ND",
+      "ND",
+      "ND",
+      "ND"
+    ],
+    "kind": "proposed",
+    "input_root": "/mnt/workspace/2329-JadeYara-20261104-1812/J078/validation/inputs/nd_complementary_fp32",
+    "input_hashes": {
+      "grads": "2a8a9e6e0449766e242d5fe1d6103b05cf2aa461ad5e70585123dd17cf96beb9",
+      "features": "f5f8487a7cc602b49ef7de40c1c108d19ef2c2920e3a0aee8aa02b2bdc781cb6",
+      "weights": "b6174cad66c1013ba982241223f09f510a129238802efc6037d2f6e569825e45"
+    },
+    "meta_sha256": "102c85a7cfbc0e6c44374672bea9ea188af571774484cded5dae0536aa994148"
+  },
+  {
+    "id": "nd_complementary_fp16",
+    "dtype": "fp16",
+    "format": "ND",
+    "gshape": [
+      5,
+      1,
+      13,
+      1
+    ],
+    "xshape": [
+      1,
+      7,
+      1,
+      17
+    ],
+    "wshape": [
+      7
+    ],
+    "outshape": [
+      5,
+      7,
+      13,
+      17
+    ],
+    "weight_mapped_shape": [
+      1,
+      7,
+      1,
+      1
+    ],
+    "expected_route": "General",
+    "elements": 7735,
+    "evidence": "proposed; not device-executed",
+    "origin_formats": [
+      "ND",
+      "ND",
+      "ND",
+      "ND",
+      "ND"
+    ],
+    "storage_formats": [
+      "ND",
+      "ND",
+      "ND",
+      "ND",
+      "ND"
+    ],
+    "kind": "proposed",
+    "input_root": "/mnt/workspace/2329-JadeYara-20261104-1812/J078/validation/inputs/nd_complementary_fp16",
+    "input_hashes": {
+      "grads": "39a8b00efcbe849135380d9fb6f666f14a7088657a9be7c2354a68cbb85dae9a",
+      "features": "34a18b165d3094c13ebc076596784028581bc4e6277c5f49a721f648367cf3b6",
+      "weights": "b2bd2ed60b234c36ef1d2ecb275c2d1e161c6d20e183eed35be15a6278ac2704"
+    },
+    "meta_sha256": "01af355e01bff6cdde055a6629547839987fcd91e3fbd6cd1033f8cb9bd26610"
+  },
+  {
+    "id": "nd_complementary_bf16",
+    "dtype": "bf16",
+    "format": "ND",
+    "gshape": [
+      5,
+      1,
+      13,
+      1
+    ],
+    "xshape": [
+      1,
+      7,
+      1,
+      17
+    ],
+    "wshape": [
+      7
+    ],
+    "outshape": [
+      5,
+      7,
+      13,
+      17
+    ],
+    "weight_mapped_shape": [
+      1,
+      7,
+      1,
+      1
+    ],
+    "expected_route": "General",
+    "elements": 7735,
+    "evidence": "proposed; not device-executed",
+    "origin_formats": [
+      "ND",
+      "ND",
+      "ND",
+      "ND",
+      "ND"
+    ],
+    "storage_formats": [
+      "ND",
+      "ND",
+      "ND",
+      "ND",
+      "ND"
+    ],
+    "kind": "proposed",
+    "input_root": "/mnt/workspace/2329-JadeYara-20261104-1812/J078/validation/inputs/nd_complementary_bf16",
+    "input_hashes": {
+      "grads": "36917bd33a0845ca8a130f9da93d60f7a5fdb4a15d41012e813cd62e1b258a6c",
+      "features": "8f52a67ff84e275533fa5122f2dd881bc207496a5599b0d1fa53ba7b311122ba",
+      "weights": "193e74cf6519c2ddb7703d821bd84b7aaf75f3817db73458fa4dea2eb329043f"
+    },
+    "meta_sha256": "72bd2ac300ea7d89f6bdfe763e00784118059c97fd68def453857400b96e7db3"
+  },
+  {
+    "id": "nd_spatial_weights_fp32",
+    "dtype": "fp32",
+    "format": "ND",
+    "gshape": [
+      5,
+      7,
+      13,
+      17
+    ],
+    "xshape": [
+      5,
+      7,
+      13,
+      17
+    ],
+    "wshape": [
+      7,
+      13,
+      17
+    ],
+    "outshape": [
+      5,
+      7,
+      13,
+      17
+    ],
+    "weight_mapped_shape": [
+      1,
+      7,
+      13,
+      17
+    ],
+    "expected_route": "General",
+    "elements": 7735,
+    "evidence": "proposed; not device-executed",
+    "origin_formats": [
+      "ND",
+      "ND",
+      "ND",
+      "ND",
+      "ND"
+    ],
+    "storage_formats": [
+      "ND",
+      "ND",
+      "ND",
+      "ND",
+      "ND"
+    ],
+    "kind": "proposed",
+    "input_root": "/mnt/workspace/2329-JadeYara-20261104-1812/J078/validation/inputs/nd_spatial_weights_fp32",
+    "input_hashes": {
+      "grads": "8a56a65a89998b5df2cd2e7c5b6964967539f33dd43c2fb129b090535220c9d0",
+      "features": "c63f9d0b3313fe0501d659c8bad411144937b5e1a481369ccee644292238e896",
+      "weights": "f87a6634ddd84d2dd71abfc036cbd750591def559c36c7d86fe636ccc70c78b4"
+    },
+    "meta_sha256": "ceec31d39f34abf8bb5b012bea63ef28eefb428db42ba3a686125829c469bd1f"
+  },
+  {
+    "id": "nd_spatial_weights_fp16",
+    "dtype": "fp16",
+    "format": "ND",
+    "gshape": [
+      5,
+      7,
+      13,
+      17
+    ],
+    "xshape": [
+      5,
+      7,
+      13,
+      17
+    ],
+    "wshape": [
+      7,
+      13,
+      17
+    ],
+    "outshape": [
+      5,
+      7,
+      13,
+      17
+    ],
+    "weight_mapped_shape": [
+      1,
+      7,
+      13,
+      17
+    ],
+    "expected_route": "General",
+    "elements": 7735,
+    "evidence": "proposed; not device-executed",
+    "origin_formats": [
+      "ND",
+      "ND",
+      "ND",
+      "ND",
+      "ND"
+    ],
+    "storage_formats": [
+      "ND",
+      "ND",
+      "ND",
+      "ND",
+      "ND"
+    ],
+    "kind": "proposed",
+    "input_root": "/mnt/workspace/2329-JadeYara-20261104-1812/J078/validation/inputs/nd_spatial_weights_fp16",
+    "input_hashes": {
+      "grads": "f7ba397be0fafa4f0dea5cccf4551b2462d3960956771f3461957b8eda116332",
+      "features": "e4f85c6dcc10ff304408e7a49bfe2a1bdec113b3c3eb0a3a3c5a384fbc0f5547",
+      "weights": "942ee01b691f4c5bf35759e341483bfadc9c5b75d59536c4d26f6cfaa41989a8"
+    },
+    "meta_sha256": "e7697d45b162aedc74314d74ef581676675b769539fab220702c57777cf6cff5"
+  },
+  {
+    "id": "nd_spatial_weights_bf16",
+    "dtype": "bf16",
+    "format": "ND",
+    "gshape": [
+      5,
+      7,
+      13,
+      17
+    ],
+    "xshape": [
+      5,
+      7,
+      13,
+      17
+    ],
+    "wshape": [
+      7,
+      13,
+      17
+    ],
+    "outshape": [
+      5,
+      7,
+      13,
+      17
+    ],
+    "weight_mapped_shape": [
+      1,
+      7,
+      13,
+      17
+    ],
+    "expected_route": "General",
+    "elements": 7735,
+    "evidence": "proposed; not device-executed",
+    "origin_formats": [
+      "ND",
+      "ND",
+      "ND",
+      "ND",
+      "ND"
+    ],
+    "storage_formats": [
+      "ND",
+      "ND",
+      "ND",
+      "ND",
+      "ND"
+    ],
+    "kind": "proposed",
+    "input_root": "/mnt/workspace/2329-JadeYara-20261104-1812/J078/validation/inputs/nd_spatial_weights_bf16",
+    "input_hashes": {
+      "grads": "8b79b4d8ff79855c90093057e6654a2bec5f52d8c1a80a4b3a174dab4c8ae632",
+      "features": "7ef585b5f5ed6861b88974473ac7a79092d05dbf0a5bf7cb40144b4c7d0ed31f",
+      "weights": "2cbe350bf3aab35302a4116859227a53ea46f049bc84dfa955ef348f2e4115a5"
+    },
+    "meta_sha256": "1ec65ad5c23ed72a87a7787913bf4877fa784e52a2dee459432319cad92015e7"
+  },
+  {
+    "id": "nd_weights_expand_features_not_output_fp32",
+    "dtype": "fp32",
+    "format": "ND",
+    "gshape": [
+      3,
+      7,
+      13,
+      17
+    ],
+    "xshape": [
+      1,
+      1,
+      1,
+      17
+    ],
+    "wshape": [
+      7,
+      13,
+      17
+    ],
+    "outshape": [
+      3,
+      7,
+      13,
+      17
+    ],
+    "weight_mapped_shape": [
+      1,
+      7,
+      13,
+      17
+    ],
+    "expected_route": "General",
+    "elements": 4641,
+    "evidence": "proposed; not device-executed",
+    "origin_formats": [
+      "ND",
+      "ND",
+      "ND",
+      "ND",
+      "ND"
+    ],
+    "storage_formats": [
+      "ND",
+      "ND",
+      "ND",
+      "ND",
+      "ND"
+    ],
+    "kind": "proposed",
+    "input_root": "/mnt/workspace/2329-JadeYara-20261104-1812/J078/validation/inputs/nd_weights_expand_features_not_output_fp32",
+    "input_hashes": {
+      "grads": "a84688ca5b876944ee42b3cc289f86ae0dc5434fc10fd85d170ab21e70d68f32",
+      "features": "5a3a98efe9edf343853c4e6d3cbad9ef6de18075afa8d6ee7ade000906acb815",
+      "weights": "f87a6634ddd84d2dd71abfc036cbd750591def559c36c7d86fe636ccc70c78b4"
+    },
+    "meta_sha256": "3318fc4e4252ce7fd76cfba0a3ffab4a005e162669c22885895939d6c69b66b2"
+  },
+  {
+    "id": "nd_weights_expand_features_not_output_fp16",
+    "dtype": "fp16",
+    "format": "ND",
+    "gshape": [
+      3,
+      7,
+      13,
+      17
+    ],
+    "xshape": [
+      1,
+      1,
+      1,
+      17
+    ],
+    "wshape": [
+      7,
+      13,
+      17
+    ],
+    "outshape": [
+      3,
+      7,
+      13,
+      17
+    ],
+    "weight_mapped_shape": [
+      1,
+      7,
+      13,
+      17
+    ],
+    "expected_route": "General",
+    "elements": 4641,
+    "evidence": "proposed; not device-executed",
+    "origin_formats": [
+      "ND",
+      "ND",
+      "ND",
+      "ND",
+      "ND"
+    ],
+    "storage_formats": [
+      "ND",
+      "ND",
+      "ND",
+      "ND",
+      "ND"
+    ],
+    "kind": "proposed",
+    "input_root": "/mnt/workspace/2329-JadeYara-20261104-1812/J078/validation/inputs/nd_weights_expand_features_not_output_fp16",
+    "input_hashes": {
+      "grads": "dadf6bc9d89e250a24910f3a65e8edd333ac94d91a69d8951e1813339ea0c08d",
+      "features": "7cb8e430a45fe88d30bdba55a64b44dcbb23bac74a7daa385303334ac9bf630c",
+      "weights": "942ee01b691f4c5bf35759e341483bfadc9c5b75d59536c4d26f6cfaa41989a8"
+    },
+    "meta_sha256": "3cc5cf1bbf87d1d4263ec02d9a5de966ead67ee19cb08629a323eefec8e88b86"
+  },
+  {
+    "id": "nd_weights_expand_features_not_output_bf16",
+    "dtype": "bf16",
+    "format": "ND",
+    "gshape": [
+      3,
+      7,
+      13,
+      17
+    ],
+    "xshape": [
+      1,
+      1,
+      1,
+      17
+    ],
+    "wshape": [
+      7,
+      13,
+      17
+    ],
+    "outshape": [
+      3,
+      7,
+      13,
+      17
+    ],
+    "weight_mapped_shape": [
+      1,
+      7,
+      13,
+      17
+    ],
+    "expected_route": "General",
+    "elements": 4641,
+    "evidence": "proposed; not device-executed",
+    "origin_formats": [
+      "ND",
+      "ND",
+      "ND",
+      "ND",
+      "ND"
+    ],
+    "storage_formats": [
+      "ND",
+      "ND",
+      "ND",
+      "ND",
+      "ND"
+    ],
+    "kind": "proposed",
+    "input_root": "/mnt/workspace/2329-JadeYara-20261104-1812/J078/validation/inputs/nd_weights_expand_features_not_output_bf16",
+    "input_hashes": {
+      "grads": "4bf42188b59a06653d4b58a826cf5c50abca4410cf6453689ae13f6541b15aeb",
+      "features": "901b6e623ad1ca98eca856890b5d83bde7d262d4ecd9d331722d071648390dce",
+      "weights": "2cbe350bf3aab35302a4116859227a53ea46f049bc84dfa955ef348f2e4115a5"
+    },
+    "meta_sha256": "ef5e496e0eb84c94bb377a7131c0dfa9a57b6b1e000d1c4a889b0677fe428227"
+  },
+  {
+    "id": "nd_window_boundary_fp32",
+    "dtype": "fp32",
+    "format": "ND",
+    "gshape": [
+      1,
+      17,
+      257
+    ],
+    "xshape": [
+      131,
+      1,
+      1
+    ],
+    "wshape": [
+      17,
+      257
+    ],
+    "outshape": [
+      131,
+      17,
+      257
+    ],
+    "weight_mapped_shape": [
+      1,
+      17,
+      257
+    ],
+    "expected_route": "General",
+    "elements": 572339,
+    "evidence": "proposed; not device-executed",
+    "origin_formats": [
+      "ND",
+      "ND",
+      "ND",
+      "ND",
+      "ND"
+    ],
+    "storage_formats": [
+      "ND",
+      "ND",
+      "ND",
+      "ND",
+      "ND"
+    ],
+    "kind": "proposed",
+    "input_root": "/mnt/workspace/2329-JadeYara-20261104-1812/J078/validation/inputs/nd_window_boundary_fp32",
+    "input_hashes": {
+      "grads": "bef3219dad1ad5773c81d242556eecf49182c4ca8c828f7d89e59688cda65e27",
+      "features": "05dc65dbf61e765bded9607eb650cab21222908e23c73805655cf6220e8d071f",
+      "weights": "9101dd6de0c6e0e7ce5f703d741e8a0cb516841b311a63af2e2c27f7e19cbe5e"
+    },
+    "meta_sha256": "01f06c2911520c741b5d097af33f5d6971909152f9f0b595d94e61361a7885d4"
+  },
+  {
+    "id": "nd_window_boundary_fp16",
+    "dtype": "fp16",
+    "format": "ND",
+    "gshape": [
+      1,
+      17,
+      257
+    ],
+    "xshape": [
+      131,
+      1,
+      1
+    ],
+    "wshape": [
+      17,
+      257
+    ],
+    "outshape": [
+      131,
+      17,
+      257
+    ],
+    "weight_mapped_shape": [
+      1,
+      17,
+      257
+    ],
+    "expected_route": "General",
+    "elements": 572339,
+    "evidence": "proposed; not device-executed",
+    "origin_formats": [
+      "ND",
+      "ND",
+      "ND",
+      "ND",
+      "ND"
+    ],
+    "storage_formats": [
+      "ND",
+      "ND",
+      "ND",
+      "ND",
+      "ND"
+    ],
+    "kind": "proposed",
+    "input_root": "/mnt/workspace/2329-JadeYara-20261104-1812/J078/validation/inputs/nd_window_boundary_fp16",
+    "input_hashes": {
+      "grads": "e9d8666828c1973e4cd3c276beaea24f8b6e95255b0371f4d01a7d0b22f132b3",
+      "features": "43aacbb6a6589188b5629040202b5fd9b95701903629be7c7c46bd21fc88ff80",
+      "weights": "b761eb4d18df1a18c12b7ec7b796854b6dbf43041f21ab3fdcbc0eb20991205f"
+    },
+    "meta_sha256": "146de6c1bc0fc86d2c5b22b535676dc4e27f90c65273f560447e05c509227210"
+  },
+  {
+    "id": "nd_window_boundary_bf16",
+    "dtype": "bf16",
+    "format": "ND",
+    "gshape": [
+      1,
+      17,
+      257
+    ],
+    "xshape": [
+      131,
+      1,
+      1
+    ],
+    "wshape": [
+      17,
+      257
+    ],
+    "outshape": [
+      131,
+      17,
+      257
+    ],
+    "weight_mapped_shape": [
+      1,
+      17,
+      257
+    ],
+    "expected_route": "General",
+    "elements": 572339,
+    "evidence": "proposed; not device-executed",
+    "origin_formats": [
+      "ND",
+      "ND",
+      "ND",
+      "ND",
+      "ND"
+    ],
+    "storage_formats": [
+      "ND",
+      "ND",
+      "ND",
+      "ND",
+      "ND"
+    ],
+    "kind": "proposed",
+    "input_root": "/mnt/workspace/2329-JadeYara-20261104-1812/J078/validation/inputs/nd_window_boundary_bf16",
+    "input_hashes": {
+      "grads": "ddddedca54e1036691ba9cb809f8de96064910a8d020578109e7ec399ff806a9",
+      "features": "079e32f0f3607a4995180a09f9b92c68ba7d98cdddb640f13a2260a81dba3f9c",
+      "weights": "723852ed3f217f40f67b9bcee712019e1a02da931848f54632277837fe7ba622"
+    },
+    "meta_sha256": "8a9609d5c83fe79a542b2e8323d2f3daa292af76a6b9d23b67defd82529ce1f8"
+  },
+  {
+    "id": "nd_last_axis_broadcast_fp32",
+    "dtype": "fp32",
+    "format": "ND",
+    "gshape": [
+      31,
+      7,
+      1
+    ],
+    "xshape": [
+      1,
+      1,
+      257
+    ],
+    "wshape": [
+      7,
+      1
+    ],
+    "outshape": [
+      31,
+      7,
+      257
+    ],
+    "weight_mapped_shape": [
+      1,
+      7,
+      1
+    ],
+    "expected_route": "General",
+    "elements": 55769,
+    "evidence": "proposed; not device-executed",
+    "origin_formats": [
+      "ND",
+      "ND",
+      "ND",
+      "ND",
+      "ND"
+    ],
+    "storage_formats": [
+      "ND",
+      "ND",
+      "ND",
+      "ND",
+      "ND"
+    ],
+    "kind": "proposed",
+    "input_root": "/mnt/workspace/2329-JadeYara-20261104-1812/J078/validation/inputs/nd_last_axis_broadcast_fp32",
+    "input_hashes": {
+      "grads": "a9efdd9b3b0be22f4d7bd30119aa79166502f496ab93cd1842ea42140b79fdda",
+      "features": "fd0193c2a6e74a2c613538902914a0b9eea1221ecc17a51ece2fa886f7b59705",
+      "weights": "b6174cad66c1013ba982241223f09f510a129238802efc6037d2f6e569825e45"
+    },
+    "meta_sha256": "9c65b09a8341bb0b7477d5d2a9465f543e9de7cbf914ffda344210d7ed9a15ad"
+  },
+  {
+    "id": "nd_last_axis_broadcast_fp16",
+    "dtype": "fp16",
+    "format": "ND",
+    "gshape": [
+      31,
+      7,
+      1
+    ],
+    "xshape": [
+      1,
+      1,
+      257
+    ],
+    "wshape": [
+      7,
+      1
+    ],
+    "outshape": [
+      31,
+      7,
+      257
+    ],
+    "weight_mapped_shape": [
+      1,
+      7,
+      1
+    ],
+    "expected_route": "General",
+    "elements": 55769,
+    "evidence": "proposed; not device-executed",
+    "origin_formats": [
+      "ND",
+      "ND",
+      "ND",
+      "ND",
+      "ND"
+    ],
+    "storage_formats": [
+      "ND",
+      "ND",
+      "ND",
+      "ND",
+      "ND"
+    ],
+    "kind": "proposed",
+    "input_root": "/mnt/workspace/2329-JadeYara-20261104-1812/J078/validation/inputs/nd_last_axis_broadcast_fp16",
+    "input_hashes": {
+      "grads": "32d9b2b66e53ae905a5ee0113466f4a02b9d1847cd0bf960fa0ccb47c74d07db",
+      "features": "3f2950ae84322e7cb3f5c5b426d15ee01324e3bd06927d2d73d0b4d81d0b0552",
+      "weights": "b2bd2ed60b234c36ef1d2ecb275c2d1e161c6d20e183eed35be15a6278ac2704"
+    },
+    "meta_sha256": "f7acb1829bfc5aa980eff8ae960a9016b0b15a51d31697ec2b1b560278912d2f"
+  },
+  {
+    "id": "nd_last_axis_broadcast_bf16",
+    "dtype": "bf16",
+    "format": "ND",
+    "gshape": [
+      31,
+      7,
+      1
+    ],
+    "xshape": [
+      1,
+      1,
+      257
+    ],
+    "wshape": [
+      7,
+      1
+    ],
+    "outshape": [
+      31,
+      7,
+      257
+    ],
+    "weight_mapped_shape": [
+      1,
+      7,
+      1
+    ],
+    "expected_route": "General",
+    "elements": 55769,
+    "evidence": "proposed; not device-executed",
+    "origin_formats": [
+      "ND",
+      "ND",
+      "ND",
+      "ND",
+      "ND"
+    ],
+    "storage_formats": [
+      "ND",
+      "ND",
+      "ND",
+      "ND",
+      "ND"
+    ],
+    "kind": "proposed",
+    "input_root": "/mnt/workspace/2329-JadeYara-20261104-1812/J078/validation/inputs/nd_last_axis_broadcast_bf16",
+    "input_hashes": {
+      "grads": "104ab1d2da1db3d8fc575727e36d4213b2755813fa03ed594e45d3c6682c99f9",
+      "features": "1e001738fb5ea05dacb163153054973ea4b8adb5132904d4511dc8c9f9f0d016",
+      "weights": "193e74cf6519c2ddb7703d821bd84b7aaf75f3817db73458fa4dea2eb329043f"
+    },
+    "meta_sha256": "5ab9a47c19e5021257aaa6f3b0adc608634711a7e8188a25944c34dc33f5c5b6"
+  },
+  {
+    "id": "nd_single_lane_tail_fp32",
+    "dtype": "fp32",
+    "format": "ND",
+    "gshape": [
+      257,
+      3,
+      17
+    ],
+    "xshape": [
+      1,
+      3,
+      1
+    ],
+    "wshape": [
+      3
+    ],
+    "outshape": [
+      257,
+      3,
+      17
+    ],
+    "weight_mapped_shape": [
+      1,
+      3,
+      1
+    ],
+    "expected_route": "General",
+    "elements": 13107,
+    "evidence": "proposed; not device-executed",
+    "origin_formats": [
+      "ND",
+      "ND",
+      "ND",
+      "ND",
+      "ND"
+    ],
+    "storage_formats": [
+      "ND",
+      "ND",
+      "ND",
+      "ND",
+      "ND"
+    ],
+    "kind": "proposed",
+    "input_root": "/mnt/workspace/2329-JadeYara-20261104-1812/J078/validation/inputs/nd_single_lane_tail_fp32",
+    "input_hashes": {
+      "grads": "b6517e7c8eb01ca5fcffe7e0f6ea82edd4732370b190d075c2f9708d8bf8cb8b",
+      "features": "665443490b6cbe2658bcb4d4ec6d70f4519eee40e3713f277e9ea75140bc9df7",
+      "weights": "d879c25b2657e4b8788fcbfdae594df966123369f9e16a671e8896285c4527ed"
+    },
+    "meta_sha256": "a5ee4fb3b42d367113282c8a65f3e5480497e1cc25b7d48fcbb4353ae0f277e2"
+  },
+  {
+    "id": "nd_single_lane_tail_fp16",
+    "dtype": "fp16",
+    "format": "ND",
+    "gshape": [
+      257,
+      3,
+      17
+    ],
+    "xshape": [
+      1,
+      3,
+      1
+    ],
+    "wshape": [
+      3
+    ],
+    "outshape": [
+      257,
+      3,
+      17
+    ],
+    "weight_mapped_shape": [
+      1,
+      3,
+      1
+    ],
+    "expected_route": "General",
+    "elements": 13107,
+    "evidence": "proposed; not device-executed",
+    "origin_formats": [
+      "ND",
+      "ND",
+      "ND",
+      "ND",
+      "ND"
+    ],
+    "storage_formats": [
+      "ND",
+      "ND",
+      "ND",
+      "ND",
+      "ND"
+    ],
+    "kind": "proposed",
+    "input_root": "/mnt/workspace/2329-JadeYara-20261104-1812/J078/validation/inputs/nd_single_lane_tail_fp16",
+    "input_hashes": {
+      "grads": "8f4841484bcf3f10fc9596fecafe048efc522215131fe9db008f2ff52646b835",
+      "features": "86c23ee7715793dcfd5b91ad459c0c019078d7d3a70c3a3a1b33177ed256df50",
+      "weights": "6b17655304f980b355c2bd4a7ea9ba4d475181a7689dea7b357d6fa7aae1b3d6"
+    },
+    "meta_sha256": "65bfdb278e6c4d9b88a2ccd1fe37572d75f14d884758ddf4334dd3d759d7a6fc"
+  },
+  {
+    "id": "nd_single_lane_tail_bf16",
+    "dtype": "bf16",
+    "format": "ND",
+    "gshape": [
+      257,
+      3,
+      17
+    ],
+    "xshape": [
+      1,
+      3,
+      1
+    ],
+    "wshape": [
+      3
+    ],
+    "outshape": [
+      257,
+      3,
+      17
+    ],
+    "weight_mapped_shape": [
+      1,
+      3,
+      1
+    ],
+    "expected_route": "General",
+    "elements": 13107,
+    "evidence": "proposed; not device-executed",
+    "origin_formats": [
+      "ND",
+      "ND",
+      "ND",
+      "ND",
+      "ND"
+    ],
+    "storage_formats": [
+      "ND",
+      "ND",
+      "ND",
+      "ND",
+      "ND"
+    ],
+    "kind": "proposed",
+    "input_root": "/mnt/workspace/2329-JadeYara-20261104-1812/J078/validation/inputs/nd_single_lane_tail_bf16",
+    "input_hashes": {
+      "grads": "a8d0cbf476e3cd54ab556f2f6819ad87097d88cd5d86696f6e4ec81550ddd6a7",
+      "features": "e8b11b6cc4f9040e967968e8a22c1cd382d3d7617d1c9698c12ebcf6fef4a2f4",
+      "weights": "3c3f8745b339afaa6c9f7ba51855123aa682c42f66e9c6415b823fb79edf65c8"
+    },
+    "meta_sha256": "aed592775677fa900699a06aab84ba3a0b8e4d302376716e4deb29fc91d75685"
+  },
+  {
+    "id": "nd_rank8_interleaved_fp32",
+    "dtype": "fp32",
+    "format": "ND",
+    "gshape": [
+      2,
+      1,
+      2,
+      1,
+      2,
+      1,
+      2,
+      1
+    ],
+    "xshape": [
+      1,
+      3,
+      1,
+      5,
+      1,
+      7,
+      1,
+      11
+    ],
+    "wshape": [
+      3,
+      1,
+      5,
+      1,
+      7,
+      1,
+      11
+    ],
+    "outshape": [
+      2,
+      3,
+      2,
+      5,
+      2,
+      7,
+      2,
+      11
+    ],
+    "weight_mapped_shape": [
+      1,
+      3,
+      1,
+      5,
+      1,
+      7,
+      1,
+      11
+    ],
+    "expected_route": "General",
+    "elements": 18480,
+    "evidence": "proposed; not device-executed",
+    "origin_formats": [
+      "ND",
+      "ND",
+      "ND",
+      "ND",
+      "ND"
+    ],
+    "storage_formats": [
+      "ND",
+      "ND",
+      "ND",
+      "ND",
+      "ND"
+    ],
+    "kind": "proposed",
+    "input_root": "/mnt/workspace/2329-JadeYara-20261104-1812/J078/validation/inputs/nd_rank8_interleaved_fp32",
+    "input_hashes": {
+      "grads": "8538b76fda67a5fb30407940306e97ff7ab673132e1dfdfeaa4014bca68ea107",
+      "features": "732645760d0198acc09169ffbfc0750eca2ac32c2e36dab7c8361468f4278ba6",
+      "weights": "f9a248d078bc363cfa50617b0e2e35dc2e8d4cc2563349edfc7c3bc1e3973058"
+    },
+    "meta_sha256": "3d46476aee88d83b2ad68adf49edf3fa7f2b21de8b1d0f2c8baecd03aba9c492"
+  },
+  {
+    "id": "nd_rank8_interleaved_fp16",
+    "dtype": "fp16",
+    "format": "ND",
+    "gshape": [
+      2,
+      1,
+      2,
+      1,
+      2,
+      1,
+      2,
+      1
+    ],
+    "xshape": [
+      1,
+      3,
+      1,
+      5,
+      1,
+      7,
+      1,
+      11
+    ],
+    "wshape": [
+      3,
+      1,
+      5,
+      1,
+      7,
+      1,
+      11
+    ],
+    "outshape": [
+      2,
+      3,
+      2,
+      5,
+      2,
+      7,
+      2,
+      11
+    ],
+    "weight_mapped_shape": [
+      1,
+      3,
+      1,
+      5,
+      1,
+      7,
+      1,
+      11
+    ],
+    "expected_route": "General",
+    "elements": 18480,
+    "evidence": "proposed; not device-executed",
+    "origin_formats": [
+      "ND",
+      "ND",
+      "ND",
+      "ND",
+      "ND"
+    ],
+    "storage_formats": [
+      "ND",
+      "ND",
+      "ND",
+      "ND",
+      "ND"
+    ],
+    "kind": "proposed",
+    "input_root": "/mnt/workspace/2329-JadeYara-20261104-1812/J078/validation/inputs/nd_rank8_interleaved_fp16",
+    "input_hashes": {
+      "grads": "4fd1dd68d83f4fc27fa0e1ba37075d83f95b98d310718315bc3c291a95029b03",
+      "features": "7eddb05afa5a1912195b993afc5b6e039df83f4f46aeff35c1b680032848467b",
+      "weights": "3460751fb1816b182a84dbdaef8232fe629006529774cc6740f42f380d7598b6"
+    },
+    "meta_sha256": "dfb56122507e79393c1e8283612aff0f3dd0e6466e1336c5fc5221250a46449b"
+  },
+  {
+    "id": "nd_rank8_interleaved_bf16",
+    "dtype": "bf16",
+    "format": "ND",
+    "gshape": [
+      2,
+      1,
+      2,
+      1,
+      2,
+      1,
+      2,
+      1
+    ],
+    "xshape": [
+      1,
+      3,
+      1,
+      5,
+      1,
+      7,
+      1,
+      11
+    ],
+    "wshape": [
+      3,
+      1,
+      5,
+      1,
+      7,
+      1,
+      11
+    ],
+    "outshape": [
+      2,
+      3,
+      2,
+      5,
+      2,
+      7,
+      2,
+      11
+    ],
+    "weight_mapped_shape": [
+      1,
+      3,
+      1,
+      5,
+      1,
+      7,
+      1,
+      11
+    ],
+    "expected_route": "General",
+    "elements": 18480,
+    "evidence": "proposed; not device-executed",
+    "origin_formats": [
+      "ND",
+      "ND",
+      "ND",
+      "ND",
+      "ND"
+    ],
+    "storage_formats": [
+      "ND",
+      "ND",
+      "ND",
+      "ND",
+      "ND"
+    ],
+    "kind": "proposed",
+    "input_root": "/mnt/workspace/2329-JadeYara-20261104-1812/J078/validation/inputs/nd_rank8_interleaved_bf16",
+    "input_hashes": {
+      "grads": "33c1247be3a24d0cb09378349a5bfc02d07b5a09ad9d371effe10564aafc8eba",
+      "features": "3a112500053ab6e30830d9c4adce001dfbed3c77604ee75734da1a3fa2865d3c",
+      "weights": "5f19c9083773825548b08ff67dd0bbede3e6df58dd72543ce7aee844d1078150"
+    },
+    "meta_sha256": "c3da27bb52d84bdde70499a39c8a58824e6136ec89c0c66a1eb2920ea90965c9"
+  },
+  {
+    "id": "nd_rank8_unit_axes_fp32",
+    "dtype": "fp32",
+    "format": "ND",
+    "gshape": [
+      3,
+      1,
+      1,
+      1,
+      17,
+      1,
+      7,
+      1
+    ],
+    "xshape": [
+      1,
+      1,
+      5,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "wshape": [
+      1,
+      5,
+      1,
+      17,
+      1,
+      7,
+      1
+    ],
+    "outshape": [
+      3,
+      1,
+      5,
+      1,
+      17,
+      1,
+      7,
+      1
+    ],
+    "weight_mapped_shape": [
+      1,
+      1,
+      5,
+      1,
+      17,
+      1,
+      7,
+      1
+    ],
+    "expected_route": "General",
+    "elements": 1785,
+    "evidence": "proposed; not device-executed",
+    "origin_formats": [
+      "ND",
+      "ND",
+      "ND",
+      "ND",
+      "ND"
+    ],
+    "storage_formats": [
+      "ND",
+      "ND",
+      "ND",
+      "ND",
+      "ND"
+    ],
+    "kind": "proposed",
+    "input_root": "/mnt/workspace/2329-JadeYara-20261104-1812/J078/validation/inputs/nd_rank8_unit_axes_fp32",
+    "input_hashes": {
+      "grads": "bb5e53de38ad92db14afdc8fad4f3ba01651a7b644e82455b6bd6edaccce3941",
+      "features": "277e02db708e925a5084b54040e078f94b2b040feaf377eb550cdc322b06dc16",
+      "weights": "c9faa480e11f5d951cb23fdd9d4dc98ca504400c732edcc6f0994fb2313fec16"
+    },
+    "meta_sha256": "a4fb1afb18696585917f4a29d94af348f3e4903027df10d9eef0f32c2d427876"
+  },
+  {
+    "id": "nd_rank8_unit_axes_fp16",
+    "dtype": "fp16",
+    "format": "ND",
+    "gshape": [
+      3,
+      1,
+      1,
+      1,
+      17,
+      1,
+      7,
+      1
+    ],
+    "xshape": [
+      1,
+      1,
+      5,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "wshape": [
+      1,
+      5,
+      1,
+      17,
+      1,
+      7,
+      1
+    ],
+    "outshape": [
+      3,
+      1,
+      5,
+      1,
+      17,
+      1,
+      7,
+      1
+    ],
+    "weight_mapped_shape": [
+      1,
+      1,
+      5,
+      1,
+      17,
+      1,
+      7,
+      1
+    ],
+    "expected_route": "General",
+    "elements": 1785,
+    "evidence": "proposed; not device-executed",
+    "origin_formats": [
+      "ND",
+      "ND",
+      "ND",
+      "ND",
+      "ND"
+    ],
+    "storage_formats": [
+      "ND",
+      "ND",
+      "ND",
+      "ND",
+      "ND"
+    ],
+    "kind": "proposed",
+    "input_root": "/mnt/workspace/2329-JadeYara-20261104-1812/J078/validation/inputs/nd_rank8_unit_axes_fp16",
+    "input_hashes": {
+      "grads": "ce1df7aa976da32e92688ea9edcbeeed82561b70d40900b44ed5e1abcb10f0df",
+      "features": "05c36eb765abc59b62137c4d221d4112e05a1918e38aa575cadaf0a2a591816f",
+      "weights": "db4546845d1c0ddc8401502e1ac1b74dc37aa050210a8da10c5e96c7da61046d"
+    },
+    "meta_sha256": "1484b8e50a7a36b17fb4001295f2f6af17a16b9535f62b19e82f49323135d9c5"
+  },
+  {
+    "id": "nd_rank8_unit_axes_bf16",
+    "dtype": "bf16",
+    "format": "ND",
+    "gshape": [
+      3,
+      1,
+      1,
+      1,
+      17,
+      1,
+      7,
+      1
+    ],
+    "xshape": [
+      1,
+      1,
+      5,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "wshape": [
+      1,
+      5,
+      1,
+      17,
+      1,
+      7,
+      1
+    ],
+    "outshape": [
+      3,
+      1,
+      5,
+      1,
+      17,
+      1,
+      7,
+      1
+    ],
+    "weight_mapped_shape": [
+      1,
+      1,
+      5,
+      1,
+      17,
+      1,
+      7,
+      1
+    ],
+    "expected_route": "General",
+    "elements": 1785,
+    "evidence": "proposed; not device-executed",
+    "origin_formats": [
+      "ND",
+      "ND",
+      "ND",
+      "ND",
+      "ND"
+    ],
+    "storage_formats": [
+      "ND",
+      "ND",
+      "ND",
+      "ND",
+      "ND"
+    ],
+    "kind": "proposed",
+    "input_root": "/mnt/workspace/2329-JadeYara-20261104-1812/J078/validation/inputs/nd_rank8_unit_axes_bf16",
+    "input_hashes": {
+      "grads": "56c688b0632336f70cc93f64183160a50ca2ba063a43676ca5f1352a552acec1",
+      "features": "911d4b9658b0825f67c89418cf424663cd10209101ba13aad2b8a9a4d041ce51",
+      "weights": "671c7ace8d10602f21622c19eeaf6b0ee2e19d83311aa23dc46b4c6c4df66dc0"
+    },
+    "meta_sha256": "6edb2047a75fe07fb329a0a0cd1780673485b0d1587f687846f401762f92613d"
+  },
+  {
+    "id": "nchw_channel_fp32",
+    "dtype": "fp32",
+    "format": "NCHW",
+    "gshape": [
+      3,
+      7,
+      13,
+      17
+    ],
+    "xshape": [
+      3,
+      7,
+      13,
+      17
+    ],
+    "wshape": [
+      7
+    ],
+    "outshape": [
+      3,
+      7,
+      13,
+      17
+    ],
+    "weight_mapped_shape": [
+      1,
+      7,
+      1,
+      1
+    ],
+    "expected_route": "General",
+    "elements": 4641,
+    "evidence": "proposed; not device-executed",
+    "origin_formats": [
+      "NCHW",
+      "NCHW",
+      "ND",
+      "NCHW",
+      "NCHW"
+    ],
+    "storage_formats": [
+      "NCHW",
+      "NCHW",
+      "ND",
+      "NCHW",
+      "NCHW"
+    ],
+    "kind": "proposed",
+    "input_root": "/mnt/workspace/2329-JadeYara-20261104-1812/J078/validation/inputs/nchw_channel_fp32",
+    "input_hashes": {
+      "grads": "a84688ca5b876944ee42b3cc289f86ae0dc5434fc10fd85d170ab21e70d68f32",
+      "features": "1dd990e4e7a5521aa9b5498d369c8e5ad8b08c7094bd4b24766f943e2ad94a31",
+      "weights": "b6174cad66c1013ba982241223f09f510a129238802efc6037d2f6e569825e45"
+    },
+    "meta_sha256": "2bcf9d7d3ce47b42a1bb2652f450148ca9ae70560fa630a5dc5a965d0c9f9100"
+  },
+  {
+    "id": "nchw_channel_fp16",
+    "dtype": "fp16",
+    "format": "NCHW",
+    "gshape": [
+      3,
+      7,
+      13,
+      17
+    ],
+    "xshape": [
+      3,
+      7,
+      13,
+      17
+    ],
+    "wshape": [
+      7
+    ],
+    "outshape": [
+      3,
+      7,
+      13,
+      17
+    ],
+    "weight_mapped_shape": [
+      1,
+      7,
+      1,
+      1
+    ],
+    "expected_route": "General",
+    "elements": 4641,
+    "evidence": "proposed; not device-executed",
+    "origin_formats": [
+      "NCHW",
+      "NCHW",
+      "ND",
+      "NCHW",
+      "NCHW"
+    ],
+    "storage_formats": [
+      "NCHW",
+      "NCHW",
+      "ND",
+      "NCHW",
+      "NCHW"
+    ],
+    "kind": "proposed",
+    "input_root": "/mnt/workspace/2329-JadeYara-20261104-1812/J078/validation/inputs/nchw_channel_fp16",
+    "input_hashes": {
+      "grads": "dadf6bc9d89e250a24910f3a65e8edd333ac94d91a69d8951e1813339ea0c08d",
+      "features": "aad4c3ef3a5a4912fecc8fcdf391b8c173a14140f106316cfb6465b904ac5543",
+      "weights": "b2bd2ed60b234c36ef1d2ecb275c2d1e161c6d20e183eed35be15a6278ac2704"
+    },
+    "meta_sha256": "fee59435f3c5fac48dbb90feb0ca2379fe8f422d679acc8ee0cc977663ec5317"
+  },
+  {
+    "id": "nchw_channel_bf16",
+    "dtype": "bf16",
+    "format": "NCHW",
+    "gshape": [
+      3,
+      7,
+      13,
+      17
+    ],
+    "xshape": [
+      3,
+      7,
+      13,
+      17
+    ],
+    "wshape": [
+      7
+    ],
+    "outshape": [
+      3,
+      7,
+      13,
+      17
+    ],
+    "weight_mapped_shape": [
+      1,
+      7,
+      1,
+      1
+    ],
+    "expected_route": "General",
+    "elements": 4641,
+    "evidence": "proposed; not device-executed",
+    "origin_formats": [
+      "NCHW",
+      "NCHW",
+      "ND",
+      "NCHW",
+      "NCHW"
+    ],
+    "storage_formats": [
+      "NCHW",
+      "NCHW",
+      "ND",
+      "NCHW",
+      "NCHW"
+    ],
+    "kind": "proposed",
+    "input_root": "/mnt/workspace/2329-JadeYara-20261104-1812/J078/validation/inputs/nchw_channel_bf16",
+    "input_hashes": {
+      "grads": "4bf42188b59a06653d4b58a826cf5c50abca4410cf6453689ae13f6541b15aeb",
+      "features": "d4c8a07c9738dc8fd77f2d6ec0fa1f4b752cae0aadf2da6263bc04bec66edf21",
+      "weights": "193e74cf6519c2ddb7703d821bd84b7aaf75f3817db73458fa4dea2eb329043f"
+    },
+    "meta_sha256": "e65d0a721a1b0aaa87fb4651f3700855c207fc8654f9149755dc6e1b56998859"
+  },
+  {
+    "id": "nchw_complementary_fp32",
+    "dtype": "fp32",
+    "format": "NCHW",
+    "gshape": [
+      5,
+      1,
+      13,
+      1
+    ],
+    "xshape": [
+      1,
+      7,
+      1,
+      17
+    ],
+    "wshape": [
+      7
+    ],
+    "outshape": [
+      5,
+      7,
+      13,
+      17
+    ],
+    "weight_mapped_shape": [
+      1,
+      7,
+      1,
+      1
+    ],
+    "expected_route": "General",
+    "elements": 7735,
+    "evidence": "proposed; not device-executed",
+    "origin_formats": [
+      "NCHW",
+      "NCHW",
+      "ND",
+      "NCHW",
+      "NCHW"
+    ],
+    "storage_formats": [
+      "NCHW",
+      "NCHW",
+      "ND",
+      "NCHW",
+      "NCHW"
+    ],
+    "kind": "proposed",
+    "input_root": "/mnt/workspace/2329-JadeYara-20261104-1812/J078/validation/inputs/nchw_complementary_fp32",
+    "input_hashes": {
+      "grads": "2a8a9e6e0449766e242d5fe1d6103b05cf2aa461ad5e70585123dd17cf96beb9",
+      "features": "f5f8487a7cc602b49ef7de40c1c108d19ef2c2920e3a0aee8aa02b2bdc781cb6",
+      "weights": "b6174cad66c1013ba982241223f09f510a129238802efc6037d2f6e569825e45"
+    },
+    "meta_sha256": "759e4befe628d00bc4ad8ef07c370809102076411fe5301ef2899fda7b288d17"
+  },
+  {
+    "id": "nchw_complementary_fp16",
+    "dtype": "fp16",
+    "format": "NCHW",
+    "gshape": [
+      5,
+      1,
+      13,
+      1
+    ],
+    "xshape": [
+      1,
+      7,
+      1,
+      17
+    ],
+    "wshape": [
+      7
+    ],
+    "outshape": [
+      5,
+      7,
+      13,
+      17
+    ],
+    "weight_mapped_shape": [
+      1,
+      7,
+      1,
+      1
+    ],
+    "expected_route": "General",
+    "elements": 7735,
+    "evidence": "proposed; not device-executed",
+    "origin_formats": [
+      "NCHW",
+      "NCHW",
+      "ND",
+      "NCHW",
+      "NCHW"
+    ],
+    "storage_formats": [
+      "NCHW",
+      "NCHW",
+      "ND",
+      "NCHW",
+      "NCHW"
+    ],
+    "kind": "proposed",
+    "input_root": "/mnt/workspace/2329-JadeYara-20261104-1812/J078/validation/inputs/nchw_complementary_fp16",
+    "input_hashes": {
+      "grads": "39a8b00efcbe849135380d9fb6f666f14a7088657a9be7c2354a68cbb85dae9a",
+      "features": "34a18b165d3094c13ebc076596784028581bc4e6277c5f49a721f648367cf3b6",
+      "weights": "b2bd2ed60b234c36ef1d2ecb275c2d1e161c6d20e183eed35be15a6278ac2704"
+    },
+    "meta_sha256": "b308f4ab536ca21d334788a66002d90dcf071c0f9215fd3fb6dfcaf23cd71013"
+  },
+  {
+    "id": "nchw_complementary_bf16",
+    "dtype": "bf16",
+    "format": "NCHW",
+    "gshape": [
+      5,
+      1,
+      13,
+      1
+    ],
+    "xshape": [
+      1,
+      7,
+      1,
+      17
+    ],
+    "wshape": [
+      7
+    ],
+    "outshape": [
+      5,
+      7,
+      13,
+      17
+    ],
+    "weight_mapped_shape": [
+      1,
+      7,
+      1,
+      1
+    ],
+    "expected_route": "General",
+    "elements": 7735,
+    "evidence": "proposed; not device-executed",
+    "origin_formats": [
+      "NCHW",
+      "NCHW",
+      "ND",
+      "NCHW",
+      "NCHW"
+    ],
+    "storage_formats": [
+      "NCHW",
+      "NCHW",
+      "ND",
+      "NCHW",
+      "NCHW"
+    ],
+    "kind": "proposed",
+    "input_root": "/mnt/workspace/2329-JadeYara-20261104-1812/J078/validation/inputs/nchw_complementary_bf16",
+    "input_hashes": {
+      "grads": "36917bd33a0845ca8a130f9da93d60f7a5fdb4a15d41012e813cd62e1b258a6c",
+      "features": "8f52a67ff84e275533fa5122f2dd881bc207496a5599b0d1fa53ba7b311122ba",
+      "weights": "193e74cf6519c2ddb7703d821bd84b7aaf75f3817db73458fa4dea2eb329043f"
+    },
+    "meta_sha256": "60e5ba00d6fd3eedea5a0b94cda41a15ca5af6b5ca5489ee36bc8c69496b4996"
+  },
+  {
+    "id": "nchw_spatial_weights_fp32",
+    "dtype": "fp32",
+    "format": "NCHW",
+    "gshape": [
+      3,
+      7,
+      13,
+      17
+    ],
+    "xshape": [
+      3,
+      7,
+      13,
+      17
+    ],
+    "wshape": [
+      7,
+      13,
+      17
+    ],
+    "outshape": [
+      3,
+      7,
+      13,
+      17
+    ],
+    "weight_mapped_shape": [
+      1,
+      7,
+      13,
+      17
+    ],
+    "expected_route": "General",
+    "elements": 4641,
+    "evidence": "proposed; not device-executed",
+    "origin_formats": [
+      "NCHW",
+      "NCHW",
+      "ND",
+      "NCHW",
+      "NCHW"
+    ],
+    "storage_formats": [
+      "NCHW",
+      "NCHW",
+      "ND",
+      "NCHW",
+      "NCHW"
+    ],
+    "kind": "proposed",
+    "input_root": "/mnt/workspace/2329-JadeYara-20261104-1812/J078/validation/inputs/nchw_spatial_weights_fp32",
+    "input_hashes": {
+      "grads": "a84688ca5b876944ee42b3cc289f86ae0dc5434fc10fd85d170ab21e70d68f32",
+      "features": "1dd990e4e7a5521aa9b5498d369c8e5ad8b08c7094bd4b24766f943e2ad94a31",
+      "weights": "f87a6634ddd84d2dd71abfc036cbd750591def559c36c7d86fe636ccc70c78b4"
+    },
+    "meta_sha256": "d639432e03599be5a5aa2180bc68d926b414980f3e0fc18f05698d1b3a105593"
+  },
+  {
+    "id": "nchw_spatial_weights_fp16",
+    "dtype": "fp16",
+    "format": "NCHW",
+    "gshape": [
+      3,
+      7,
+      13,
+      17
+    ],
+    "xshape": [
+      3,
+      7,
+      13,
+      17
+    ],
+    "wshape": [
+      7,
+      13,
+      17
+    ],
+    "outshape": [
+      3,
+      7,
+      13,
+      17
+    ],
+    "weight_mapped_shape": [
+      1,
+      7,
+      13,
+      17
+    ],
+    "expected_route": "General",
+    "elements": 4641,
+    "evidence": "proposed; not device-executed",
+    "origin_formats": [
+      "NCHW",
+      "NCHW",
+      "ND",
+      "NCHW",
+      "NCHW"
+    ],
+    "storage_formats": [
+      "NCHW",
+      "NCHW",
+      "ND",
+      "NCHW",
+      "NCHW"
+    ],
+    "kind": "proposed",
+    "input_root": "/mnt/workspace/2329-JadeYara-20261104-1812/J078/validation/inputs/nchw_spatial_weights_fp16",
+    "input_hashes": {
+      "grads": "dadf6bc9d89e250a24910f3a65e8edd333ac94d91a69d8951e1813339ea0c08d",
+      "features": "aad4c3ef3a5a4912fecc8fcdf391b8c173a14140f106316cfb6465b904ac5543",
+      "weights": "942ee01b691f4c5bf35759e341483bfadc9c5b75d59536c4d26f6cfaa41989a8"
+    },
+    "meta_sha256": "848c8ff16d650f1252691deaf48e7563ca9fa095a01ce2f00ea65ddc31fde27b"
+  },
+  {
+    "id": "nchw_spatial_weights_bf16",
+    "dtype": "bf16",
+    "format": "NCHW",
+    "gshape": [
+      3,
+      7,
+      13,
+      17
+    ],
+    "xshape": [
+      3,
+      7,
+      13,
+      17
+    ],
+    "wshape": [
+      7,
+      13,
+      17
+    ],
+    "outshape": [
+      3,
+      7,
+      13,
+      17
+    ],
+    "weight_mapped_shape": [
+      1,
+      7,
+      13,
+      17
+    ],
+    "expected_route": "General",
+    "elements": 4641,
+    "evidence": "proposed; not device-executed",
+    "origin_formats": [
+      "NCHW",
+      "NCHW",
+      "ND",
+      "NCHW",
+      "NCHW"
+    ],
+    "storage_formats": [
+      "NCHW",
+      "NCHW",
+      "ND",
+      "NCHW",
+      "NCHW"
+    ],
+    "kind": "proposed",
+    "input_root": "/mnt/workspace/2329-JadeYara-20261104-1812/J078/validation/inputs/nchw_spatial_weights_bf16",
+    "input_hashes": {
+      "grads": "4bf42188b59a06653d4b58a826cf5c50abca4410cf6453689ae13f6541b15aeb",
+      "features": "d4c8a07c9738dc8fd77f2d6ec0fa1f4b752cae0aadf2da6263bc04bec66edf21",
+      "weights": "2cbe350bf3aab35302a4116859227a53ea46f049bc84dfa955ef348f2e4115a5"
+    },
+    "meta_sha256": "48ea86d62465cabcc6f13836b4ca8de9d4d77ca13844bc4f0dfd351cfee281ac"
+  },
+  {
+    "id": "nc1_c19_fp32",
+    "dtype": "fp32",
+    "format": "NC1HWC0",
+    "gshape": [
+      3,
+      2,
+      5,
+      7,
+      16
+    ],
+    "xshape": [
+      3,
+      2,
+      5,
+      7,
+      16
+    ],
+    "wshape": [
+      1,
+      2,
+      1,
+      1,
+      16
+    ],
+    "outshape": [
+      3,
+      2,
+      5,
+      7,
+      16
+    ],
+    "weight_mapped_shape": [
+      1,
+      2,
+      1,
+      1,
+      16
+    ],
+    "expected_route": "General",
+    "elements": 3360,
+    "evidence": "proposed; not device-executed",
+    "gorigin": [
+      3,
+      19,
+      5,
+      7
+    ],
+    "xorigin": [
+      3,
+      19,
+      5,
+      7
+    ],
+    "worigin": [
+      19
+    ],
+    "outorigin": [
+      3,
+      19,
+      5,
+      7
+    ],
+    "origin_formats": [
+      "NCHW",
+      "NCHW",
+      "ND",
+      "NCHW",
+      "NCHW"
+    ],
+    "storage_formats": [
+      "NC1HWC0",
+      "NC1HWC0",
+      "NC1HWC0",
+      "NC1HWC0",
+      "NC1HWC0"
+    ],
+    "kind": "proposed",
+    "input_root": "/mnt/workspace/2329-JadeYara-20261104-1812/J078/validation/inputs/nc1_c19_fp32",
+    "input_hashes": {
+      "grads": "f57fc92b6e236c78851eae56a0fb6ed39663c1a4a70e2d14cd038dee8b25da4f",
+      "features": "6f3d0caa2f17fe091b2c0bd0b8a8a66d32da7c44c4b659c63744f04e40344f41",
+      "weights": "f00012a62dad10fa58336a7af2b3800e2fdbe6a53bbb400f70893680f20a3655"
+    },
+    "meta_sha256": "70fea571b4d6b7a895c198d4d04f2aa6264cd5241938f60aae3941dbfbd93d6e"
+  },
+  {
+    "id": "nc1_c19_fp16",
+    "dtype": "fp16",
+    "format": "NC1HWC0",
+    "gshape": [
+      3,
+      2,
+      5,
+      7,
+      16
+    ],
+    "xshape": [
+      3,
+      2,
+      5,
+      7,
+      16
+    ],
+    "wshape": [
+      1,
+      2,
+      1,
+      1,
+      16
+    ],
+    "outshape": [
+      3,
+      2,
+      5,
+      7,
+      16
+    ],
+    "weight_mapped_shape": [
+      1,
+      2,
+      1,
+      1,
+      16
+    ],
+    "expected_route": "General",
+    "elements": 3360,
+    "evidence": "proposed; not device-executed",
+    "gorigin": [
+      3,
+      19,
+      5,
+      7
+    ],
+    "xorigin": [
+      3,
+      19,
+      5,
+      7
+    ],
+    "worigin": [
+      19
+    ],
+    "outorigin": [
+      3,
+      19,
+      5,
+      7
+    ],
+    "origin_formats": [
+      "NCHW",
+      "NCHW",
+      "ND",
+      "NCHW",
+      "NCHW"
+    ],
+    "storage_formats": [
+      "NC1HWC0",
+      "NC1HWC0",
+      "NC1HWC0",
+      "NC1HWC0",
+      "NC1HWC0"
+    ],
+    "kind": "proposed",
+    "input_root": "/mnt/workspace/2329-JadeYara-20261104-1812/J078/validation/inputs/nc1_c19_fp16",
+    "input_hashes": {
+      "grads": "4df7d72be9fb23597cdcdba829bbc90dd090b2cd98f1038f17efa2800a44e8db",
+      "features": "080eb5555fdc047fa1ffad49494a0395b57b02588b0e0ef7c7da37f5850e857f",
+      "weights": "d0315e23b8239fe688100604520d323d2d2008ad17b8fb9ab26f0c83301e00dc"
+    },
+    "meta_sha256": "ffa5c49e6d3dcdce0064e20b6ee97e539ad9362ede64a37aa4956113b15d1bcc"
+  },
+  {
+    "id": "nc1_c19_bf16",
+    "dtype": "bf16",
+    "format": "NC1HWC0",
+    "gshape": [
+      3,
+      2,
+      5,
+      7,
+      16
+    ],
+    "xshape": [
+      3,
+      2,
+      5,
+      7,
+      16
+    ],
+    "wshape": [
+      1,
+      2,
+      1,
+      1,
+      16
+    ],
+    "outshape": [
+      3,
+      2,
+      5,
+      7,
+      16
+    ],
+    "weight_mapped_shape": [
+      1,
+      2,
+      1,
+      1,
+      16
+    ],
+    "expected_route": "General",
+    "elements": 3360,
+    "evidence": "proposed; not device-executed",
+    "gorigin": [
+      3,
+      19,
+      5,
+      7
+    ],
+    "xorigin": [
+      3,
+      19,
+      5,
+      7
+    ],
+    "worigin": [
+      19
+    ],
+    "outorigin": [
+      3,
+      19,
+      5,
+      7
+    ],
+    "origin_formats": [
+      "NCHW",
+      "NCHW",
+      "ND",
+      "NCHW",
+      "NCHW"
+    ],
+    "storage_formats": [
+      "NC1HWC0",
+      "NC1HWC0",
+      "NC1HWC0",
+      "NC1HWC0",
+      "NC1HWC0"
+    ],
+    "kind": "proposed",
+    "input_root": "/mnt/workspace/2329-JadeYara-20261104-1812/J078/validation/inputs/nc1_c19_bf16",
+    "input_hashes": {
+      "grads": "3638518538222bcd6154d848ca49409dd16b7d78d1cda4edf149f2a9343f0958",
+      "features": "64ce2c57b171775acd5176d0c3f52880e67dbe2870329c403dfdd71ead7b8b56",
+      "weights": "35a8ef6cb00e63807b38b1f79c365bf65924926494e434e3f02e3b9a27e16171"
+    },
+    "meta_sha256": "5e5b6a3344d10a4839b60c3b661460f40b383d210a0cbd40f27f93a4e3074c16"
+  },
+  {
+    "id": "nc1_c19_broadcast_g_fp32",
+    "dtype": "fp32",
+    "format": "NC1HWC0",
+    "gshape": [
+      1,
+      2,
+      1,
+      7,
+      16
+    ],
+    "xshape": [
+      3,
+      2,
+      5,
+      7,
+      16
+    ],
+    "wshape": [
+      1,
+      2,
+      1,
+      1,
+      16
+    ],
+    "outshape": [
+      3,
+      2,
+      5,
+      7,
+      16
+    ],
+    "weight_mapped_shape": [
+      1,
+      2,
+      1,
+      1,
+      16
+    ],
+    "expected_route": "General",
+    "elements": 3360,
+    "evidence": "proposed; not device-executed",
+    "gorigin": [
+      1,
+      19,
+      1,
+      7
+    ],
+    "xorigin": [
+      3,
+      19,
+      5,
+      7
+    ],
+    "worigin": [
+      19
+    ],
+    "outorigin": [
+      3,
+      19,
+      5,
+      7
+    ],
+    "origin_formats": [
+      "NCHW",
+      "NCHW",
+      "ND",
+      "NCHW",
+      "NCHW"
+    ],
+    "storage_formats": [
+      "NC1HWC0",
+      "NC1HWC0",
+      "NC1HWC0",
+      "NC1HWC0",
+      "NC1HWC0"
+    ],
+    "kind": "proposed",
+    "input_root": "/mnt/workspace/2329-JadeYara-20261104-1812/J078/validation/inputs/nc1_c19_broadcast_g_fp32",
+    "input_hashes": {
+      "grads": "c062ae37b5041266d16aacd6a53976b72eac5f0886be25c5e41ab3c83e9a3b5c",
+      "features": "6f3d0caa2f17fe091b2c0bd0b8a8a66d32da7c44c4b659c63744f04e40344f41",
+      "weights": "f00012a62dad10fa58336a7af2b3800e2fdbe6a53bbb400f70893680f20a3655"
+    },
+    "meta_sha256": "8c2fd9061c8052db0c99f15da69ba10a68ab3f562f0836b898261487ca433cab"
+  },
+  {
+    "id": "nc1_c19_broadcast_g_fp16",
+    "dtype": "fp16",
+    "format": "NC1HWC0",
+    "gshape": [
+      1,
+      2,
+      1,
+      7,
+      16
+    ],
+    "xshape": [
+      3,
+      2,
+      5,
+      7,
+      16
+    ],
+    "wshape": [
+      1,
+      2,
+      1,
+      1,
+      16
+    ],
+    "outshape": [
+      3,
+      2,
+      5,
+      7,
+      16
+    ],
+    "weight_mapped_shape": [
+      1,
+      2,
+      1,
+      1,
+      16
+    ],
+    "expected_route": "General",
+    "elements": 3360,
+    "evidence": "proposed; not device-executed",
+    "gorigin": [
+      1,
+      19,
+      1,
+      7
+    ],
+    "xorigin": [
+      3,
+      19,
+      5,
+      7
+    ],
+    "worigin": [
+      19
+    ],
+    "outorigin": [
+      3,
+      19,
+      5,
+      7
+    ],
+    "origin_formats": [
+      "NCHW",
+      "NCHW",
+      "ND",
+      "NCHW",
+      "NCHW"
+    ],
+    "storage_formats": [
+      "NC1HWC0",
+      "NC1HWC0",
+      "NC1HWC0",
+      "NC1HWC0",
+      "NC1HWC0"
+    ],
+    "kind": "proposed",
+    "input_root": "/mnt/workspace/2329-JadeYara-20261104-1812/J078/validation/inputs/nc1_c19_broadcast_g_fp16",
+    "input_hashes": {
+      "grads": "f82ef2a3553702c7f7a5e749e7c29e067c2a494c2ec6acbc406be063980a1b03",
+      "features": "080eb5555fdc047fa1ffad49494a0395b57b02588b0e0ef7c7da37f5850e857f",
+      "weights": "d0315e23b8239fe688100604520d323d2d2008ad17b8fb9ab26f0c83301e00dc"
+    },
+    "meta_sha256": "f8343399691d3822dedb1ecfba9fe20fba31d8c1c6840d31b468e9f4e6af73a1"
+  },
+  {
+    "id": "nc1_c19_broadcast_g_bf16",
+    "dtype": "bf16",
+    "format": "NC1HWC0",
+    "gshape": [
+      1,
+      2,
+      1,
+      7,
+      16
+    ],
+    "xshape": [
+      3,
+      2,
+      5,
+      7,
+      16
+    ],
+    "wshape": [
+      1,
+      2,
+      1,
+      1,
+      16
+    ],
+    "outshape": [
+      3,
+      2,
+      5,
+      7,
+      16
+    ],
+    "weight_mapped_shape": [
+      1,
+      2,
+      1,
+      1,
+      16
+    ],
+    "expected_route": "General",
+    "elements": 3360,
+    "evidence": "proposed; not device-executed",
+    "gorigin": [
+      1,
+      19,
+      1,
+      7
+    ],
+    "xorigin": [
+      3,
+      19,
+      5,
+      7
+    ],
+    "worigin": [
+      19
+    ],
+    "outorigin": [
+      3,
+      19,
+      5,
+      7
+    ],
+    "origin_formats": [
+      "NCHW",
+      "NCHW",
+      "ND",
+      "NCHW",
+      "NCHW"
+    ],
+    "storage_formats": [
+      "NC1HWC0",
+      "NC1HWC0",
+      "NC1HWC0",
+      "NC1HWC0",
+      "NC1HWC0"
+    ],
+    "kind": "proposed",
+    "input_root": "/mnt/workspace/2329-JadeYara-20261104-1812/J078/validation/inputs/nc1_c19_broadcast_g_bf16",
+    "input_hashes": {
+      "grads": "b04d4b16f726f38de192cbd8560cb612f856c2edf887bb3e15091e942ef0f6d4",
+      "features": "64ce2c57b171775acd5176d0c3f52880e67dbe2870329c403dfdd71ead7b8b56",
+      "weights": "35a8ef6cb00e63807b38b1f79c365bf65924926494e434e3f02e3b9a27e16171"
+    },
+    "meta_sha256": "7cad79e991d35c6caf22d0f411f7401510910b7c62532cf77532a1ab8f543c4a"
+  },
+  {
+    "id": "empty_n_fp32",
+    "dtype": "fp32",
+    "format": "ND",
+    "gshape": [
+      1,
+      3,
+      5
+    ],
+    "xshape": [
+      0,
+      3,
+      5
+    ],
+    "wshape": [
+      3
+    ],
+    "outshape": [
+      0,
+      3,
+      5
+    ],
+    "weight_mapped_shape": [
+      1,
+      3,
+      1
+    ],
+    "expected_route": "General",
+    "elements": 0,
+    "evidence": "proposed; not device-executed",
+    "origin_formats": [
+      "ND",
+      "ND",
+      "ND",
+      "ND",
+      "ND"
+    ],
+    "storage_formats": [
+      "ND",
+      "ND",
+      "ND",
+      "ND",
+      "ND"
+    ],
+    "kind": "proposed",
+    "input_root": "/mnt/workspace/2329-JadeYara-20261104-1812/J078/validation/inputs/empty_n_fp32",
+    "input_hashes": {
+      "grads": "fdbff56746ef066746014e1bd42e4470110337854eebbac0f82f1da36c40b69c",
+      "features": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "weights": "d879c25b2657e4b8788fcbfdae594df966123369f9e16a671e8896285c4527ed"
+    },
+    "meta_sha256": "9090123edfc7f87cd4449e7e605f2646aa0b6599871f337304770664d92b4e7c"
+  },
+  {
+    "id": "empty_n_fp16",
+    "dtype": "fp16",
+    "format": "ND",
+    "gshape": [
+      1,
+      3,
+      5
+    ],
+    "xshape": [
+      0,
+      3,
+      5
+    ],
+    "wshape": [
+      3
+    ],
+    "outshape": [
+      0,
+      3,
+      5
+    ],
+    "weight_mapped_shape": [
+      1,
+      3,
+      1
+    ],
+    "expected_route": "General",
+    "elements": 0,
+    "evidence": "proposed; not device-executed",
+    "origin_formats": [
+      "ND",
+      "ND",
+      "ND",
+      "ND",
+      "ND"
+    ],
+    "storage_formats": [
+      "ND",
+      "ND",
+      "ND",
+      "ND",
+      "ND"
+    ],
+    "kind": "proposed",
+    "input_root": "/mnt/workspace/2329-JadeYara-20261104-1812/J078/validation/inputs/empty_n_fp16",
+    "input_hashes": {
+      "grads": "86d86846e2bff97d73a621a823ff16b404cda66593efe63e62a6406470d6cf60",
+      "features": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "weights": "6b17655304f980b355c2bd4a7ea9ba4d475181a7689dea7b357d6fa7aae1b3d6"
+    },
+    "meta_sha256": "a2afff62b28078f6ac9fb071f5fc579c7a2be2d778f9182cf2495b287ca96c66"
+  },
+  {
+    "id": "empty_n_bf16",
+    "dtype": "bf16",
+    "format": "ND",
+    "gshape": [
+      1,
+      3,
+      5
+    ],
+    "xshape": [
+      0,
+      3,
+      5
+    ],
+    "wshape": [
+      3
+    ],
+    "outshape": [
+      0,
+      3,
+      5
+    ],
+    "weight_mapped_shape": [
+      1,
+      3,
+      1
+    ],
+    "expected_route": "General",
+    "elements": 0,
+    "evidence": "proposed; not device-executed",
+    "origin_formats": [
+      "ND",
+      "ND",
+      "ND",
+      "ND",
+      "ND"
+    ],
+    "storage_formats": [
+      "ND",
+      "ND",
+      "ND",
+      "ND",
+      "ND"
+    ],
+    "kind": "proposed",
+    "input_root": "/mnt/workspace/2329-JadeYara-20261104-1812/J078/validation/inputs/empty_n_bf16",
+    "input_hashes": {
+      "grads": "181fd860f2c13ef0e775be10447a568c7e0b7b918ccd73e0b8601533f24c18b9",
+      "features": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "weights": "3c3f8745b339afaa6c9f7ba51855123aa682c42f66e9c6415b823fb79edf65c8"
+    },
+    "meta_sha256": "b9ed741761af079c87de3a3a1c5420770fe414684f2bfe9815fc11b2915f5837"
+  },
+  {
+    "id": "empty_c_fp32",
+    "dtype": "fp32",
+    "format": "ND",
+    "gshape": [
+      2,
+      1,
+      5
+    ],
+    "xshape": [
+      2,
+      0,
+      5
+    ],
+    "wshape": [
+      1
+    ],
+    "outshape": [
+      2,
+      0,
+      5
+    ],
+    "weight_mapped_shape": [
+      1,
+      1,
+      1
+    ],
+    "expected_route": "General",
+    "elements": 0,
+    "evidence": "proposed; not device-executed",
+    "origin_formats": [
+      "ND",
+      "ND",
+      "ND",
+      "ND",
+      "ND"
+    ],
+    "storage_formats": [
+      "ND",
+      "ND",
+      "ND",
+      "ND",
+      "ND"
+    ],
+    "kind": "proposed",
+    "input_root": "/mnt/workspace/2329-JadeYara-20261104-1812/J078/validation/inputs/empty_c_fp32",
+    "input_hashes": {
+      "grads": "e9a49a411dcbfefb8e23a347cbc43d773a17281bf38c004d7ab56c441d924ab4",
+      "features": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "weights": "71426d210d52fa91812d0a39251aa75ded92519c3d746b8ced4e5a02ec97960d"
+    },
+    "meta_sha256": "1607c69a6269191f0a090853fda58f4eb982a53532ec5c7954c62d96025e4d67"
+  },
+  {
+    "id": "empty_c_fp16",
+    "dtype": "fp16",
+    "format": "ND",
+    "gshape": [
+      2,
+      1,
+      5
+    ],
+    "xshape": [
+      2,
+      0,
+      5
+    ],
+    "wshape": [
+      1
+    ],
+    "outshape": [
+      2,
+      0,
+      5
+    ],
+    "weight_mapped_shape": [
+      1,
+      1,
+      1
+    ],
+    "expected_route": "General",
+    "elements": 0,
+    "evidence": "proposed; not device-executed",
+    "origin_formats": [
+      "ND",
+      "ND",
+      "ND",
+      "ND",
+      "ND"
+    ],
+    "storage_formats": [
+      "ND",
+      "ND",
+      "ND",
+      "ND",
+      "ND"
+    ],
+    "kind": "proposed",
+    "input_root": "/mnt/workspace/2329-JadeYara-20261104-1812/J078/validation/inputs/empty_c_fp16",
+    "input_hashes": {
+      "grads": "780b9a550a2c6a3cf1934405930edfadc6db2d1e88717a2dfd35536ad2a9293d",
+      "features": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "weights": "8286ccbaf7188d5a37e0ab2ee7c8b56c3e552ba52940a7cea4c2b00211143324"
+    },
+    "meta_sha256": "f52a6da793e215fa46754fc5803e903f653160e6adf61550aa16c95be8f70839"
+  },
+  {
+    "id": "empty_c_bf16",
+    "dtype": "bf16",
+    "format": "ND",
+    "gshape": [
+      2,
+      1,
+      5
+    ],
+    "xshape": [
+      2,
+      0,
+      5
+    ],
+    "wshape": [
+      1
+    ],
+    "outshape": [
+      2,
+      0,
+      5
+    ],
+    "weight_mapped_shape": [
+      1,
+      1,
+      1
+    ],
+    "expected_route": "General",
+    "elements": 0,
+    "evidence": "proposed; not device-executed",
+    "origin_formats": [
+      "ND",
+      "ND",
+      "ND",
+      "ND",
+      "ND"
+    ],
+    "storage_formats": [
+      "ND",
+      "ND",
+      "ND",
+      "ND",
+      "ND"
+    ],
+    "kind": "proposed",
+    "input_root": "/mnt/workspace/2329-JadeYara-20261104-1812/J078/validation/inputs/empty_c_bf16",
+    "input_hashes": {
+      "grads": "8be2ef29b513b020d8b5db9f10ec95e69e708d4edfb14c106b555267d9690573",
+      "features": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "weights": "0fb652e8c8b3426df2b5cd1ff51536dcf1bc235a5fcc43f3ef0dec5f9051d361"
+    },
+    "meta_sha256": "f8c226994d287caeb43362d3f13147b433af350f58027cdd77b2315ac4e55bfe"
+  },
+  {
+    "id": "empty_s_fp32",
+    "dtype": "fp32",
+    "format": "ND",
+    "gshape": [
+      2,
+      3,
+      1
+    ],
+    "xshape": [
+      2,
+      3,
+      0
+    ],
+    "wshape": [
+      3
+    ],
+    "outshape": [
+      2,
+      3,
+      0
+    ],
+    "weight_mapped_shape": [
+      1,
+      3,
+      1
+    ],
+    "expected_route": "General",
+    "elements": 0,
+    "evidence": "proposed; not device-executed",
+    "origin_formats": [
+      "ND",
+      "ND",
+      "ND",
+      "ND",
+      "ND"
+    ],
+    "storage_formats": [
+      "ND",
+      "ND",
+      "ND",
+      "ND",
+      "ND"
+    ],
+    "kind": "proposed",
+    "input_root": "/mnt/workspace/2329-JadeYara-20261104-1812/J078/validation/inputs/empty_s_fp32",
+    "input_hashes": {
+      "grads": "d82bc4442212bfcab99afabc9644a5850a373ce9904f1121e760f6cd02fa237c",
+      "features": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "weights": "d879c25b2657e4b8788fcbfdae594df966123369f9e16a671e8896285c4527ed"
+    },
+    "meta_sha256": "7550e48df43a9ce9e61a456998a600a76ae37751e07e9d83fb7f58aad6e9d0e4"
+  },
+  {
+    "id": "empty_s_fp16",
+    "dtype": "fp16",
+    "format": "ND",
+    "gshape": [
+      2,
+      3,
+      1
+    ],
+    "xshape": [
+      2,
+      3,
+      0
+    ],
+    "wshape": [
+      3
+    ],
+    "outshape": [
+      2,
+      3,
+      0
+    ],
+    "weight_mapped_shape": [
+      1,
+      3,
+      1
+    ],
+    "expected_route": "General",
+    "elements": 0,
+    "evidence": "proposed; not device-executed",
+    "origin_formats": [
+      "ND",
+      "ND",
+      "ND",
+      "ND",
+      "ND"
+    ],
+    "storage_formats": [
+      "ND",
+      "ND",
+      "ND",
+      "ND",
+      "ND"
+    ],
+    "kind": "proposed",
+    "input_root": "/mnt/workspace/2329-JadeYara-20261104-1812/J078/validation/inputs/empty_s_fp16",
+    "input_hashes": {
+      "grads": "bbe662cef6ae1e6d6bddbda77e84340f012eac69fd9353b1d2785ec55472c59b",
+      "features": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "weights": "6b17655304f980b355c2bd4a7ea9ba4d475181a7689dea7b357d6fa7aae1b3d6"
+    },
+    "meta_sha256": "8e5c4b7d8b3c2d682327430405e17bcabe0a1755fb756a33668f2314613eb084"
+  },
+  {
+    "id": "empty_s_bf16",
+    "dtype": "bf16",
+    "format": "ND",
+    "gshape": [
+      2,
+      3,
+      1
+    ],
+    "xshape": [
+      2,
+      3,
+      0
+    ],
+    "wshape": [
+      3
+    ],
+    "outshape": [
+      2,
+      3,
+      0
+    ],
+    "weight_mapped_shape": [
+      1,
+      3,
+      1
+    ],
+    "expected_route": "General",
+    "elements": 0,
+    "evidence": "proposed; not device-executed",
+    "origin_formats": [
+      "ND",
+      "ND",
+      "ND",
+      "ND",
+      "ND"
+    ],
+    "storage_formats": [
+      "ND",
+      "ND",
+      "ND",
+      "ND",
+      "ND"
+    ],
+    "kind": "proposed",
+    "input_root": "/mnt/workspace/2329-JadeYara-20261104-1812/J078/validation/inputs/empty_s_bf16",
+    "input_hashes": {
+      "grads": "8643782b47127e2f24b385a1602bc972e41d9b28cc239ddbfa3934c33c99181f",
+      "features": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "weights": "3c3f8745b339afaa6c9f7ba51855123aa682c42f66e9c6415b823fb79edf65c8"
+    },
+    "meta_sha256": "f8039dbefa2f9b4cda6a09a36b3b69f6f50c20d038506baef4219214472e1a58"
+  },
+  {
+    "id": "probe_scalar_grads",
+    "dtype": "fp32",
+    "format": "ND",
+    "gshape": [],
+    "xshape": [
+      2,
+      3,
+      5
+    ],
+    "wshape": [
+      3
+    ],
+    "outshape": [
+      2,
+      3,
+      5
+    ],
+    "weight_mapped_shape": [
+      1,
+      3,
+      1
+    ],
+    "expected_route_if_builtin_accepts": "General",
+    "classification": "builtin contract probe first; legal status not device-verified",
+    "action_if_builtin_rejects": "Archive refusal/error and do not relabel the case legal or regenerate its golden",
+    "elements": 30,
+    "kind": "contract_probe",
+    "input_root": "/mnt/workspace/2329-JadeYara-20261104-1812/J078/validation/inputs/probe_scalar_grads",
+    "input_hashes": {
+      "grads": "e4767380eb5e2fc046bce28b8b2a30c81c733be1a56203cd9499066086617f6c",
+      "features": "30e4952a6f93d3d7ff73a0691b3453bb951f98ffdb4268f1eaa063b20903cf31",
+      "weights": "d879c25b2657e4b8788fcbfdae594df966123369f9e16a671e8896285c4527ed"
+    },
+    "meta_sha256": "d013ee1d5011f963bb19998c1e2823e196275301af312d570e23d39b43d4c295"
+  },
+  {
+    "id": "probe_rank1_grads",
+    "dtype": "fp32",
+    "format": "ND",
+    "gshape": [
+      5
+    ],
+    "xshape": [
+      2,
+      3,
+      5
+    ],
+    "wshape": [
+      3
+    ],
+    "outshape": [
+      2,
+      3,
+      5
+    ],
+    "weight_mapped_shape": [
+      1,
+      3,
+      1
+    ],
+    "expected_route_if_builtin_accepts": "General",
+    "classification": "builtin contract probe first; legal status not device-verified",
+    "action_if_builtin_rejects": "Archive refusal/error and do not relabel the case legal or regenerate its golden",
+    "elements": 30,
+    "kind": "contract_probe",
+    "input_root": "/mnt/workspace/2329-JadeYara-20261104-1812/J078/validation/inputs/probe_rank1_grads",
+    "input_hashes": {
+      "grads": "347adc6025bdff364f163ed74299d979e2441ad971dc26353b5ac264fc28f7ab",
+      "features": "30e4952a6f93d3d7ff73a0691b3453bb951f98ffdb4268f1eaa063b20903cf31",
+      "weights": "d879c25b2657e4b8788fcbfdae594df966123369f9e16a671e8896285c4527ed"
+    },
+    "meta_sha256": "77cbf01257eba4592bc4bc96467735d837573477cae56003e158216512daac65"
+  },
+  {
+    "id": "probe_rank1_features_scalar_weight",
+    "dtype": "fp32",
+    "format": "ND",
+    "gshape": [
+      7
+    ],
+    "xshape": [
+      7
+    ],
+    "wshape": [],
+    "outshape": [
+      7
+    ],
+    "weight_mapped_shape": [
+      1
+    ],
+    "expected_route_if_builtin_accepts": "General",
+    "classification": "builtin contract probe first; legal status not device-verified",
+    "action_if_builtin_rejects": "Archive refusal/error and do not relabel the case legal or regenerate its golden",
+    "elements": 7,
+    "kind": "contract_probe",
+    "input_root": "/mnt/workspace/2329-JadeYara-20261104-1812/J078/validation/inputs/probe_rank1_features_scalar_weight",
+    "input_hashes": {
+      "grads": "56f1374ede2d3fd77d78bfa4bfe3d2eb78bf2cc4c2ebecb3762bff21c09f5d3f",
+      "features": "8e9ff4f4a4cb50eb427c9dee199a217085c82b614cb0fe91c73ca9b52f54a360",
+      "weights": "71426d210d52fa91812d0a39251aa75ded92519c3d746b8ced4e5a02ec97960d"
+    },
+    "meta_sha256": "3c879fcfed259bd1664ad859c03d6bc7cafead1a7e605a0e42bf7a400d0acaa4"
+  },
+  {
+    "id": "nd_g_broadcast_fp32_special",
+    "dtype": "fp32",
+    "format": "ND",
+    "gshape": [
+      1,
+      3,
+      5
+    ],
+    "xshape": [
+      17,
+      3,
+      5
+    ],
+    "wshape": [
+      3
+    ],
+    "outshape": [
+      17,
+      3,
+      5
+    ],
+    "weight_mapped_shape": [
+      1,
+      3,
+      1
+    ],
+    "expected_route": "General",
+    "elements": 255,
+    "evidence": "proposed; not device-executed",
+    "origin_formats": [
+      "ND",
+      "ND",
+      "ND",
+      "ND",
+      "ND"
+    ],
+    "storage_formats": [
+      "ND",
+      "ND",
+      "ND",
+      "ND",
+      "ND"
+    ],
+    "kind": "special",
+    "special": true,
+    "input_root": "/mnt/workspace/2329-JadeYara-20261104-1812/J078/validation/inputs/nd_g_broadcast_fp32_special",
+    "input_hashes": {
+      "grads": "667edd6a43cf2f39bb527cebfec2d5f9e825cf4142b80e27899b84a679c87b9b",
+      "features": "0b29b801c348feae8da026ec247af00d7ce9f278c43eb381104468894ddb8ea1",
+      "weights": "63299914a098ef678e84b37d2dbdf2affd3eed2920f2ef8c70f063045e9a521a"
+    },
+    "meta_sha256": "018c198a048faafb0ebc6d71777c423f0d0236a9b185b9f19dbd5169909218af"
+  },
+  {
+    "id": "nc1_c19_fp32_special",
+    "dtype": "fp32",
+    "format": "NC1HWC0",
+    "gshape": [
+      3,
+      2,
+      5,
+      7,
+      16
+    ],
+    "xshape": [
+      3,
+      2,
+      5,
+      7,
+      16
+    ],
+    "wshape": [
+      1,
+      2,
+      1,
+      1,
+      16
+    ],
+    "outshape": [
+      3,
+      2,
+      5,
+      7,
+      16
+    ],
+    "weight_mapped_shape": [
+      1,
+      2,
+      1,
+      1,
+      16
+    ],
+    "expected_route": "General",
+    "elements": 3360,
+    "evidence": "proposed; not device-executed",
+    "gorigin": [
+      3,
+      19,
+      5,
+      7
+    ],
+    "xorigin": [
+      3,
+      19,
+      5,
+      7
+    ],
+    "worigin": [
+      19
+    ],
+    "outorigin": [
+      3,
+      19,
+      5,
+      7
+    ],
+    "origin_formats": [
+      "NCHW",
+      "NCHW",
+      "ND",
+      "NCHW",
+      "NCHW"
+    ],
+    "storage_formats": [
+      "NC1HWC0",
+      "NC1HWC0",
+      "NC1HWC0",
+      "NC1HWC0",
+      "NC1HWC0"
+    ],
+    "kind": "special",
+    "special": true,
+    "input_root": "/mnt/workspace/2329-JadeYara-20261104-1812/J078/validation/inputs/nc1_c19_fp32_special",
+    "input_hashes": {
+      "grads": "11ce6e81613b5bc6e7b31e406590a79ac4be6de1aa9773ed80303bb0511b5753",
+      "features": "ad998375cd0f96fa7237883bfba9211808db6b9a79f8e4b7226f41232732bdf7",
+      "weights": "da1f4e5b0970c0745ffdea48a5d15665f1b6e076ac45ef5ca193745c7f7163c9"
+    },
+    "meta_sha256": "70fea571b4d6b7a895c198d4d04f2aa6264cd5241938f60aae3941dbfbd93d6e"
+  },
+  {
+    "id": "nd_g_broadcast_fp16_special",
+    "dtype": "fp16",
+    "format": "ND",
+    "gshape": [
+      1,
+      3,
+      5
+    ],
+    "xshape": [
+      17,
+      3,
+      5
+    ],
+    "wshape": [
+      3
+    ],
+    "outshape": [
+      17,
+      3,
+      5
+    ],
+    "weight_mapped_shape": [
+      1,
+      3,
+      1
+    ],
+    "expected_route": "General",
+    "elements": 255,
+    "evidence": "proposed; not device-executed",
+    "origin_formats": [
+      "ND",
+      "ND",
+      "ND",
+      "ND",
+      "ND"
+    ],
+    "storage_formats": [
+      "ND",
+      "ND",
+      "ND",
+      "ND",
+      "ND"
+    ],
+    "kind": "special",
+    "special": true,
+    "input_root": "/mnt/workspace/2329-JadeYara-20261104-1812/J078/validation/inputs/nd_g_broadcast_fp16_special",
+    "input_hashes": {
+      "grads": "261dd6237530862c65431e2fb148a71c379ffb02df40842321b7aef6f7d70200",
+      "features": "ab3fb872cb3d9c089f6a934f05004494c4b76a81a0f94d0b13bb70eae16ee8aa",
+      "weights": "638c5ed4f51810f394eb6b1e3829c515d6430ec011c1d232b99b08c68f538b66"
+    },
+    "meta_sha256": "8bd7bc2ffdb9c1b73fe8246dde03a79b066d21577c9e091a2185f61cee9a0489"
+  },
+  {
+    "id": "nc1_c19_fp16_special",
+    "dtype": "fp16",
+    "format": "NC1HWC0",
+    "gshape": [
+      3,
+      2,
+      5,
+      7,
+      16
+    ],
+    "xshape": [
+      3,
+      2,
+      5,
+      7,
+      16
+    ],
+    "wshape": [
+      1,
+      2,
+      1,
+      1,
+      16
+    ],
+    "outshape": [
+      3,
+      2,
+      5,
+      7,
+      16
+    ],
+    "weight_mapped_shape": [
+      1,
+      2,
+      1,
+      1,
+      16
+    ],
+    "expected_route": "General",
+    "elements": 3360,
+    "evidence": "proposed; not device-executed",
+    "gorigin": [
+      3,
+      19,
+      5,
+      7
+    ],
+    "xorigin": [
+      3,
+      19,
+      5,
+      7
+    ],
+    "worigin": [
+      19
+    ],
+    "outorigin": [
+      3,
+      19,
+      5,
+      7
+    ],
+    "origin_formats": [
+      "NCHW",
+      "NCHW",
+      "ND",
+      "NCHW",
+      "NCHW"
+    ],
+    "storage_formats": [
+      "NC1HWC0",
+      "NC1HWC0",
+      "NC1HWC0",
+      "NC1HWC0",
+      "NC1HWC0"
+    ],
+    "kind": "special",
+    "special": true,
+    "input_root": "/mnt/workspace/2329-JadeYara-20261104-1812/J078/validation/inputs/nc1_c19_fp16_special",
+    "input_hashes": {
+      "grads": "58728b8191d5745533c9993e166970c083d35eefd7083dcc71a37404089b4f92",
+      "features": "2bfdc82185fee65d52e28a20b0b27f56d8fa9a80e5a7435479ee39f17108f72a",
+      "weights": "72f19007f124e5ca3ece8797f254e93f826904ea782058a7eb82cbc7d08c31da"
+    },
+    "meta_sha256": "ffa5c49e6d3dcdce0064e20b6ee97e539ad9362ede64a37aa4956113b15d1bcc"
+  },
+  {
+    "id": "nd_g_broadcast_bf16_special",
+    "dtype": "bf16",
+    "format": "ND",
+    "gshape": [
+      1,
+      3,
+      5
+    ],
+    "xshape": [
+      17,
+      3,
+      5
+    ],
+    "wshape": [
+      3
+    ],
+    "outshape": [
+      17,
+      3,
+      5
+    ],
+    "weight_mapped_shape": [
+      1,
+      3,
+      1
+    ],
+    "expected_route": "General",
+    "elements": 255,
+    "evidence": "proposed; not device-executed",
+    "origin_formats": [
+      "ND",
+      "ND",
+      "ND",
+      "ND",
+      "ND"
+    ],
+    "storage_formats": [
+      "ND",
+      "ND",
+      "ND",
+      "ND",
+      "ND"
+    ],
+    "kind": "special",
+    "special": true,
+    "input_root": "/mnt/workspace/2329-JadeYara-20261104-1812/J078/validation/inputs/nd_g_broadcast_bf16_special",
+    "input_hashes": {
+      "grads": "39cf173fe911c4a03e96a0ff0e26ca278d577dcb7c69cb4edfe4c557b44ef7c5",
+      "features": "9076343f9d5e8b4ee41950dbe457a87e44bb9e37fb0c7ac64b6058262a26b417",
+      "weights": "b6b801b38c6d8876a77a27c23ca65fb6f3cfb079af18591412148ae90b1c4659"
+    },
+    "meta_sha256": "70f23000513a37ff70c4f5913344ecedcb3794dbed68f790d67a25e7b068066f"
+  },
+  {
+    "id": "nc1_c19_bf16_special",
+    "dtype": "bf16",
+    "format": "NC1HWC0",
+    "gshape": [
+      3,
+      2,
+      5,
+      7,
+      16
+    ],
+    "xshape": [
+      3,
+      2,
+      5,
+      7,
+      16
+    ],
+    "wshape": [
+      1,
+      2,
+      1,
+      1,
+      16
+    ],
+    "outshape": [
+      3,
+      2,
+      5,
+      7,
+      16
+    ],
+    "weight_mapped_shape": [
+      1,
+      2,
+      1,
+      1,
+      16
+    ],
+    "expected_route": "General",
+    "elements": 3360,
+    "evidence": "proposed; not device-executed",
+    "gorigin": [
+      3,
+      19,
+      5,
+      7
+    ],
+    "xorigin": [
+      3,
+      19,
+      5,
+      7
+    ],
+    "worigin": [
+      19
+    ],
+    "outorigin": [
+      3,
+      19,
+      5,
+      7
+    ],
+    "origin_formats": [
+      "NCHW",
+      "NCHW",
+      "ND",
+      "NCHW",
+      "NCHW"
+    ],
+    "storage_formats": [
+      "NC1HWC0",
+      "NC1HWC0",
+      "NC1HWC0",
+      "NC1HWC0",
+      "NC1HWC0"
+    ],
+    "kind": "special",
+    "special": true,
+    "input_root": "/mnt/workspace/2329-JadeYara-20261104-1812/J078/validation/inputs/nc1_c19_bf16_special",
+    "input_hashes": {
+      "grads": "9939aecbbc79f44393828dc661226b60ca415c4984cc7b5c46acaff63c077264",
+      "features": "0784b9e09286e16e9764b56882d95c0586df48e99cc3013771c12e6de3cc528c",
+      "weights": "076e123d3033d1c1e7fdc7fada0817d585b87c2e996416eaddaf0f7bf9e96180"
+    },
+    "meta_sha256": "5e5b6a3344d10a4839b60c3b661460f40b383d210a0cbd40f27f93a4e3074c16"
+  },
+  {
+    "id": "splitc_true_tbe_special_0",
+    "dtype": "fp32",
+    "format": "ND",
+    "kind": "splitc_actual_TBE_nan_inf_overflow_signedzero_subnormal",
+    "input_root": "/mnt/workspace/2329-JadeYara-20261104-1812/J078/validation/inputs/splitc_true_tbe_special_0",
+    "shape": [
+      81,
+      8128,
+      1
+    ],
+    "wlen": 8128,
+    "iterations": 16,
+    "input_hashes": {
+      "input/grads.bin": "237f5be560d42127ff6029e523c28fa98f534506fe351bcf4259222a5207e458",
+      "input/features.bin": "8565dfe7c7b3811f881624d83800915b95d357318e0afb56b920a9737a749b6c",
+      "input/weights.bin": "c5cc7439d1136a4496853670e74cd77886a0f9ba2d07137e364efc009b8cee74"
+    },
+    "meta_sha256": "acaaed59bd223fcf0a41e1343d189a6ea2f2392b9029839135cbc8f6132f2a59"
+  },
+  {
+    "id": "splitc_true_tbe_special_1",
+    "dtype": "fp32",
+    "format": "ND",
+    "kind": "splitc_actual_TBE_nan_inf_overflow_signedzero_subnormal",
+    "input_root": "/mnt/workspace/2329-JadeYara-20261104-1812/J078/validation/inputs/splitc_true_tbe_special_1",
+    "shape": [
+      127,
+      8192,
+      1
+    ],
+    "wlen": 8192,
+    "iterations": 16,
+    "input_hashes": {
+      "input/grads.bin": "68a8390a658e8f48f1a25b363e8e0e6b5068a96531e16b1a7b0c7e57ad076c5d",
+      "input/features.bin": "d7a670308c1cd84a8fa50e24ab9ed96e5fd7e65b3ee542a6d320d8a7ea1de447",
+      "input/weights.bin": "104c399b03bccaecba5fa7a33c0e17b6d5a034ae1ed8886de9cb4f05dab0eb39"
+    },
+    "meta_sha256": "0cfb160b0e51ef683c57e9929c1c8033208a77003828f0643fa3363f24371766"
+  },
+  {
+    "id": "splitc_true_tbe_special_2",
+    "dtype": "fp32",
+    "format": "ND",
+    "kind": "splitc_actual_TBE_nan_inf_overflow_signedzero_subnormal",
+    "input_root": "/mnt/workspace/2329-JadeYara-20261104-1812/J078/validation/inputs/splitc_true_tbe_special_2",
+    "shape": [
+      127,
+      12104,
+      1
+    ],
+    "wlen": 12104,
+    "iterations": 16,
+    "input_hashes": {
+      "input/grads.bin": "2136d8d1c82d439084d9da3e803c0531a9c4403857f6995fe70c1b7e3f842b56",
+      "input/features.bin": "a87f84c2d54d5c39ab772b3f440524b802b9e5bac23126a3bfa75d0b09cb95ad",
+      "input/weights.bin": "df8e8a29fd35a6a2bacb75cf25218c5245d1110695f5c56d4570077c0555d46e"
+    },
+    "meta_sha256": "db4d3e20fe77c904610056b1af2771da83f229b8b445ab370ea0c463e08e7052"
+  },
+  {
+    "id": "splitc_true_tbe_special_3",
+    "dtype": "fp32",
+    "format": "ND",
+    "kind": "splitc_actual_TBE_nan_inf_overflow_signedzero_subnormal",
+    "input_root": "/mnt/workspace/2329-JadeYara-20261104-1812/J078/validation/inputs/splitc_true_tbe_special_3",
+    "shape": [
+      257,
+      8192,
+      1
+    ],
+    "wlen": 8192,
+    "iterations": 16,
+    "input_hashes": {
+      "input/grads.bin": "026a8475f4e9e612acfdb4b4bc76e933e159c7786aec2f65a5e654f1e7dc3931",
+      "input/features.bin": "dda20db3d211a2325c4391f7f0d402ab622f220d102b27b8b462da71e9ad8fcd",
+      "input/weights.bin": "104c399b03bccaecba5fa7a33c0e17b6d5a034ae1ed8886de9cb4f05dab0eb39"
+    },
+    "meta_sha256": "79d26ec493b302366ec65f21ddb53d07f006f32d813a795a668f16537cdc08ca"
+  },
+  {
+    "id": "nd_g_broadcast_allbits_fp16",
+    "dtype": "fp16",
+    "format": "ND",
+    "kind": "all_65536_feature_bits",
+    "gshape": [
+      1,
+      256,
+      128
+    ],
+    "xshape": [
+      2,
+      256,
+      128
+    ],
+    "wshape": [
+      256
+    ],
+    "outshape": [
+      2,
+      256,
+      128
+    ],
+    "input_root": "/mnt/workspace/2329-JadeYara-20261104-1812/J078/validation/inputs/nd_g_broadcast_allbits_fp16",
+    "input_hashes": {
+      "grads": "e4e09d7340944d9bfb16881d4087d77518f48c971864502fac272dbaf36f8457",
+      "features": "68e419472d25e0b85e9917ccf692fd58245c5e95e9a46f07d1df81d2e9da246b",
+      "weights": "c20753926a22194db49201712d2808de2f64240dfd790a3488f31cf09646bbbb"
+    },
+    "meta_sha256": "c75da43bbe8aac0065668ba420a4882c094830cdc8e2eede511d291f079e6f8b"
+  },
+  {
+    "id": "nd_g_broadcast_allbits_bf16",
+    "dtype": "bf16",
+    "format": "ND",
+    "kind": "all_65536_feature_bits",
+    "gshape": [
+      1,
+      256,
+      128
+    ],
+    "xshape": [
+      2,
+      256,
+      128
+    ],
+    "wshape": [
+      256
+    ],
+    "outshape": [
+      2,
+      256,
+      128
+    ],
+    "input_root": "/mnt/workspace/2329-JadeYara-20261104-1812/J078/validation/inputs/nd_g_broadcast_allbits_bf16",
+    "input_hashes": {
+      "grads": "9d5300b5f8ce5d0a2f0c750382f5eebb4d02ba35da2141e407ea3c99872a07d9",
+      "features": "68e419472d25e0b85e9917ccf692fd58245c5e95e9a46f07d1df81d2e9da246b",
+      "weights": "47ffcf7cff117b22e9b2b4bdea095f733aebdbc309656630c321e0851a8cbd54"
+    },
+    "meta_sha256": "967e036b5410a442a3ba89a9e76e2a234356c00f8022ff685f836f79255d7ebd"
+  }
+]

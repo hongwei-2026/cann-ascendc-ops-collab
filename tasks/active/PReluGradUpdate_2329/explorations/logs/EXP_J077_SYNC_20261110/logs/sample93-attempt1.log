@@ -1,0 +1,426 @@
+----------------------------------------------------------------
+[INFO] Configuring project...
+[INFO] CMAKE_ARGS: -DASCEND_COMPUTE_UNIT=ascend910_93 -DCANNJUDGE_COMPILE_JOBS=4
+-- The C compiler identification is GNU 9.4.0
+-- The CXX compiler identification is GNU 9.4.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- set package config: INSTALL_PATH;/mnt/workspace/2329-JadeYara-20261104-1812/J077/candidate/code/build
+-- Opbuild generating sources
+-- Opbuild generating sources - done
+INFO target name: cust_optiling
+INFO target name: cust_op_proto
+INFO target name: cust_opapi
+INFO target name: ascendc_kernels
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /mnt/workspace/2329-JadeYara-20261104-1812/J077/candidate/code/build
+----------------------------------------------------------------
+[INFO] Building project with 4 threads...
+[  6%] Generating scripts/install.sh, scripts/upgrade.sh, scripts/uninstall.sh
+[ 13%] Building CXX object op_host/CMakeFiles/cust_opapi.dir/__/autogen/aclnn_p_relu_grad_update.cpp.o
+[ 20%] Building CXX object op_host/CMakeFiles/cust_op_proto.dir/p_relu_grad_update_def.cpp.o
+[ 20%] Built target gen_version_info
+[ 26%] Building CXX object op_host/CMakeFiles/cust_optiling.dir/p_relu_grad_update_def.cpp.o
+[ 26%] Built target modify_vendor
+[ 33%] Building CXX object op_host/CMakeFiles/cust_op_proto.dir/p_relu_grad_update_infershape.cpp.o
+[ 33%] Built target cust_opapi
+[ 40%] Generating ../autogen/copy_kernel_src.timestamp
+[ 40%] Built target ascendc_kernels_copy_kernel_srcs
+[ 46%] Building CXX object op_host/CMakeFiles/cust_op_proto.dir/p_relu_grad_update_tiling.cpp.o
+In file included from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/external/ge_common/api_error_codes.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/continuous_vector.h:20,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/runtime_attrs.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/infer_shape_context.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/register/op_impl_registry.h:19,
+                 from /mnt/workspace/2329-JadeYara-20261104-1812/J077/candidate/code/op_host/p_relu_grad_update_infershape.cpp:1:
+/home/developer/Ascend/cann-9.3.0/aarch64-linux/include/external/ge_common/ge_error_codes.h:15:122: note: #pragma message: Warning: ge_error_codes.h is deprecated and will be removed after 2027-06. Include "graph/error_codes.h" instead.
+   15 |     "Warning: ge_error_codes.h is deprecated and will be removed after 2027-06. Include \"graph/error_codes.h\" instead.")
+      |                                                                                                                          ^
+In file included from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/external/ge_common/api_error_codes.h:17,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/continuous_vector.h:20,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/runtime_attrs.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/infer_shape_context.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/register/op_impl_registry.h:19,
+                 from /mnt/workspace/2329-JadeYara-20261104-1812/J077/candidate/code/op_host/p_relu_grad_update_infershape.cpp:1:
+/home/developer/Ascend/cann-9.3.0/aarch64-linux/include/external/ge_common/ge_api_types.h:15:122: note: #pragma message: Warning: ge_api_types.h is deprecated and will be removed after 2027-06. Include "ge_common_api_types.h" instead.
+   15 |     "Warning: ge_api_types.h is deprecated and will be removed after 2027-06. Include \"ge_common_api_types.h\" instead.")
+      |                                                                                                                          ^
+In file included from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/external/ge_common/api_error_codes.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/continuous_vector.h:20,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/runtime_attrs.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/infer_shape_context.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/register/op_impl_registry.h:19,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/register/op_def.h:19,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/register/op_def_registry.h:14,
+                 from /mnt/workspace/2329-JadeYara-20261104-1812/J077/candidate/code/op_host/p_relu_grad_update_def.cpp:5:
+/home/developer/Ascend/cann-9.3.0/aarch64-linux/include/external/ge_common/ge_error_codes.h:15:122: note: #pragma message: Warning: ge_error_codes.h is deprecated and will be removed after 2027-06. Include "graph/error_codes.h" instead.
+   15 |     "Warning: ge_error_codes.h is deprecated and will be removed after 2027-06. Include \"graph/error_codes.h\" instead.")
+      |                                                                                                                          ^
+In file included from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/external/ge_common/api_error_codes.h:17,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/continuous_vector.h:20,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/runtime_attrs.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/infer_shape_context.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/register/op_impl_registry.h:19,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/register/op_def.h:19,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/register/op_def_registry.h:14,
+                 from /mnt/workspace/2329-JadeYara-20261104-1812/J077/candidate/code/op_host/p_relu_grad_update_def.cpp:5:
+/home/developer/Ascend/cann-9.3.0/aarch64-linux/include/external/ge_common/ge_api_types.h:15:122: note: #pragma message: Warning: ge_api_types.h is deprecated and will be removed after 2027-06. Include "ge_common_api_types.h" instead.
+   15 |     "Warning: ge_api_types.h is deprecated and will be removed after 2027-06. Include \"ge_common_api_types.h\" instead.")
+      |                                                                                                                          ^
+In file included from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/external/ge_common/api_error_codes.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/continuous_vector.h:20,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/runtime_attrs.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/infer_shape_context.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/register/op_impl_registry.h:19,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/register/op_def.h:19,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/register/op_def_registry.h:14,
+                 from /mnt/workspace/2329-JadeYara-20261104-1812/J077/candidate/code/op_host/p_relu_grad_update_def.cpp:5:
+/home/developer/Ascend/cann-9.3.0/aarch64-linux/include/external/ge_common/ge_error_codes.h:15:122: note: #pragma message: Warning: ge_error_codes.h is deprecated and will be removed after 2027-06. Include "graph/error_codes.h" instead.
+   15 |     "Warning: ge_error_codes.h is deprecated and will be removed after 2027-06. Include \"graph/error_codes.h\" instead.")
+      |                                                                                                                          ^
+In file included from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/external/ge_common/api_error_codes.h:17,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/continuous_vector.h:20,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/runtime_attrs.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/infer_shape_context.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/register/op_impl_registry.h:19,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/register/op_def.h:19,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/register/op_def_registry.h:14,
+                 from /mnt/workspace/2329-JadeYara-20261104-1812/J077/candidate/code/op_host/p_relu_grad_update_def.cpp:5:
+/home/developer/Ascend/cann-9.3.0/aarch64-linux/include/external/ge_common/ge_api_types.h:15:122: note: #pragma message: Warning: ge_api_types.h is deprecated and will be removed after 2027-06. Include "ge_common_api_types.h" instead.
+   15 |     "Warning: ge_api_types.h is deprecated and will be removed after 2027-06. Include \"ge_common_api_types.h\" instead.")
+      |                                                                                                                          ^
+In file included from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/external/ge_common/api_error_codes.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/continuous_vector.h:20,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/runtime_attrs.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/infer_shape_context.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/register/op_impl_registry.h:19,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/register/op_def.h:19,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/register/op_def_registry.h:14,
+                 from /mnt/workspace/2329-JadeYara-20261104-1812/J077/candidate/code/op_host/p_relu_grad_update_tiling.cpp:11:
+/home/developer/Ascend/cann-9.3.0/aarch64-linux/include/external/ge_common/ge_error_codes.h:15:122: note: #pragma message: Warning: ge_error_codes.h is deprecated and will be removed after 2027-06. Include "graph/error_codes.h" instead.
+   15 |     "Warning: ge_error_codes.h is deprecated and will be removed after 2027-06. Include \"graph/error_codes.h\" instead.")
+      |                                                                                                                          ^
+In file included from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/external/ge_common/api_error_codes.h:17,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/continuous_vector.h:20,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/runtime_attrs.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/infer_shape_context.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/register/op_impl_registry.h:19,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/register/op_def.h:19,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/register/op_def_registry.h:14,
+                 from /mnt/workspace/2329-JadeYara-20261104-1812/J077/candidate/code/op_host/p_relu_grad_update_tiling.cpp:11:
+/home/developer/Ascend/cann-9.3.0/aarch64-linux/include/external/ge_common/ge_api_types.h:15:122: note: #pragma message: Warning: ge_api_types.h is deprecated and will be removed after 2027-06. Include "ge_common_api_types.h" instead.
+   15 |     "Warning: ge_api_types.h is deprecated and will be removed after 2027-06. Include \"ge_common_api_types.h\" instead.")
+      |                                                                                                                          ^
+[ 53%] Building CXX object op_host/CMakeFiles/cust_optiling.dir/p_relu_grad_update_infershape.cpp.o
+In file included from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/op_common/log/log.h:25,
+                 from /mnt/workspace/2329-JadeYara-20261104-1812/J077/candidate/code/op_host/p_relu_grad_update_tiling.cpp:12:
+/home/developer/Ascend/cann-9.3.0/aarch64-linux/include/graph/ge_error_codes.h:15:122: note: #pragma message: Warning: ge_error_codes.h is deprecated and will be removed after 2027-06. Include "graph/error_codes.h" instead.
+   15 |     "Warning: ge_error_codes.h is deprecated and will be removed after 2027-06. Include \"graph/error_codes.h\" instead.")
+      |                                                                                                                          ^
+[ 60%] Building CXX object op_host/CMakeFiles/cust_optiling.dir/p_relu_grad_update_tiling.cpp.o
+[ 66%] Generating ascendc_kernels/tbe/op_info_cfg/ai_core/npu_supported_ops.json
+/mnt/workspace/2329-JadeYara-20261104-1812/J077/candidate/code/build/autogen /mnt/workspace/2329-JadeYara-20261104-1812/J077/candidate/code/build/op_kernel/ascendc_kernels/tbe/op_info_cfg/ai_core
+[INFO] Succeeded generated /mnt/workspace/2329-JadeYara-20261104-1812/J077/candidate/code/build/op_kernel/ascendc_kernels/tbe/op_info_cfg/ai_core/npu_supported_ops.json
+[ 66%] Built target p_relu_grad_update_custom_npu_supported_ops
+[ 73%] Building CXX object op_host/CMakeFiles/cust_op_proto.dir/__/autogen/op_proto.cc.o
+In file included from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/external/ge_common/api_error_codes.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/continuous_vector.h:20,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/runtime_attrs.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/infer_shape_context.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/register/op_impl_registry.h:19,
+                 from /mnt/workspace/2329-JadeYara-20261104-1812/J077/candidate/code/op_host/p_relu_grad_update_infershape.cpp:1:
+/home/developer/Ascend/cann-9.3.0/aarch64-linux/include/external/ge_common/ge_error_codes.h:15:122: note: #pragma message: Warning: ge_error_codes.h is deprecated and will be removed after 2027-06. Include "graph/error_codes.h" instead.
+   15 |     "Warning: ge_error_codes.h is deprecated and will be removed after 2027-06. Include \"graph/error_codes.h\" instead.")
+      |                                                                                                                          ^
+In file included from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/external/ge_common/api_error_codes.h:17,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/continuous_vector.h:20,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/runtime_attrs.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/infer_shape_context.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/register/op_impl_registry.h:19,
+                 from /mnt/workspace/2329-JadeYara-20261104-1812/J077/candidate/code/op_host/p_relu_grad_update_infershape.cpp:1:
+/home/developer/Ascend/cann-9.3.0/aarch64-linux/include/external/ge_common/ge_api_types.h:15:122: note: #pragma message: Warning: ge_api_types.h is deprecated and will be removed after 2027-06. Include "ge_common_api_types.h" instead.
+   15 |     "Warning: ge_api_types.h is deprecated and will be removed after 2027-06. Include \"ge_common_api_types.h\" instead.")
+      |                                                                                                                          ^
+In file included from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/external/ge_common/api_error_codes.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/continuous_vector.h:20,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/runtime_attrs.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/infer_shape_context.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/register/op_impl_registry.h:19,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/register/op_def.h:19,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/register/op_def_registry.h:14,
+                 from /mnt/workspace/2329-JadeYara-20261104-1812/J077/candidate/code/op_host/p_relu_grad_update_tiling.cpp:11:
+/home/developer/Ascend/cann-9.3.0/aarch64-linux/include/external/ge_common/ge_error_codes.h:15:122: note: #pragma message: Warning: ge_error_codes.h is deprecated and will be removed after 2027-06. Include "graph/error_codes.h" instead.
+   15 |     "Warning: ge_error_codes.h is deprecated and will be removed after 2027-06. Include \"graph/error_codes.h\" instead.")
+      |                                                                                                                          ^
+In file included from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/external/ge_common/api_error_codes.h:17,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/continuous_vector.h:20,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/runtime_attrs.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/infer_shape_context.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/register/op_impl_registry.h:19,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/register/op_def.h:19,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/register/op_def_registry.h:14,
+                 from /mnt/workspace/2329-JadeYara-20261104-1812/J077/candidate/code/op_host/p_relu_grad_update_tiling.cpp:11:
+/home/developer/Ascend/cann-9.3.0/aarch64-linux/include/external/ge_common/ge_api_types.h:15:122: note: #pragma message: Warning: ge_api_types.h is deprecated and will be removed after 2027-06. Include "ge_common_api_types.h" instead.
+   15 |     "Warning: ge_api_types.h is deprecated and will be removed after 2027-06. Include \"ge_common_api_types.h\" instead.")
+      |                                                                                                                          ^
+In file included from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/external/ge_common/api_error_codes.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/continuous_vector.h:20,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/runtime_attrs.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/infer_shape_context.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/register/op_impl_registry.h:19,
+                 from /mnt/workspace/2329-JadeYara-20261104-1812/J077/candidate/code/build/autogen/op_proto.h:5,
+                 from /mnt/workspace/2329-JadeYara-20261104-1812/J077/candidate/code/build/autogen/op_proto.cc:1:
+/home/developer/Ascend/cann-9.3.0/aarch64-linux/include/external/ge_common/ge_error_codes.h:15:122: note: #pragma message: Warning: ge_error_codes.h is deprecated and will be removed after 2027-06. Include "graph/error_codes.h" instead.
+   15 |     "Warning: ge_error_codes.h is deprecated and will be removed after 2027-06. Include \"graph/error_codes.h\" instead.")
+      |                                                                                                                          ^
+In file included from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/external/ge_common/api_error_codes.h:17,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/continuous_vector.h:20,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/runtime_attrs.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/infer_shape_context.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/register/op_impl_registry.h:19,
+                 from /mnt/workspace/2329-JadeYara-20261104-1812/J077/candidate/code/build/autogen/op_proto.h:5,
+                 from /mnt/workspace/2329-JadeYara-20261104-1812/J077/candidate/code/build/autogen/op_proto.cc:1:
+/home/developer/Ascend/cann-9.3.0/aarch64-linux/include/external/ge_common/ge_api_types.h:15:122: note: #pragma message: Warning: ge_api_types.h is deprecated and will be removed after 2027-06. Include "ge_common_api_types.h" instead.
+   15 |     "Warning: ge_api_types.h is deprecated and will be removed after 2027-06. Include \"ge_common_api_types.h\" instead.")
+      |                                                                                                                          ^
+[ 73%] Built target p_relu_grad_update_custom_update_so_names
+[ 80%] Linking CXX shared library libcust_opapi.so
+In file included from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/op_common/log/log.h:25,
+                 from /mnt/workspace/2329-JadeYara-20261104-1812/J077/candidate/code/op_host/p_relu_grad_update_tiling.cpp:12:
+/home/developer/Ascend/cann-9.3.0/aarch64-linux/include/graph/ge_error_codes.h:15:122: note: #pragma message: Warning: ge_error_codes.h is deprecated and will be removed after 2027-06. Include "graph/error_codes.h" instead.
+   15 |     "Warning: ge_error_codes.h is deprecated and will be removed after 2027-06. Include \"graph/error_codes.h\" instead.")
+      |                                                                                                                          ^
+[ 80%] Built target p_relu_grad_update_custom_ascendc_cust_opapi
+[ 86%] Generating ascendc_kernels/tbe/op_info_cfg/ai_core/ascend910_93/aic-ascend910_93-ops-info.json
+
+
+==============check valid for ops info start==============
+==============check valid for ops info end================
+
+
+Compile op info cfg successfully.
+[ 86%] Built target ascendc_kernels_ops_info_gen_ascend910_93
+[ 86%] Built target cust_op_proto
+[ 93%] Linking CXX shared library libcust_opsproto_rt2.0.so
+[ 93%] Built target p_relu_grad_update_custom_ascendc_cust_op_proto
+[ 93%] Built target cust_optiling
+[100%] Linking CXX shared library libcust_opmaster_rt2.0.so
+[100%] Built target p_relu_grad_update_custom_ascendc_cust_optiling
+[100%] Built target optiling_compat
+[ 16%] Built target ascendc_kernels_copy_kernel_srcs
+Consolidate compiler generated dependencies of target cust_optiling
+[ 66%] Built target cust_optiling
+[ 83%] Built target ascendc_kernels_ops_info_gen_ascend910_93
+[100%] Built target p_relu_grad_update_custom_ascendc_cust_optiling
+[ascend910_93] Generating PReluGradUpdate_f2768884efe8e6b7f77046bb06e3ea42 ...
+[ascend910_93] Generating PReluGradUpdate_f1d58239eefed44e09f094c28cf20f04 ...
+[ascend910_93] Generating PReluGradUpdate_599588aa57378985d89e91ae7759ebed ...
+[ascend910_93] Generating PReluGradUpdate_54601d1ae52903292cf521ea93fcac6e ...
+Opc tool start working now, please wait for a moment.
+[ascend910_93] Generating PReluGradUpdate_f1d58239eefed44e09f094c28cf20f04 Done
+[ascend910_93] Generating PReluGradUpdate_b03f5e3721c8a40142b563bba85fcf7f ...
+Opc tool start working now, please wait for a moment.
+[ascend910_93] Generating PReluGradUpdate_54601d1ae52903292cf521ea93fcac6e Done
+[ascend910_93] Generating PReluGradUpdate_40c7c86afed688dc3472607bbb5e140b ...
+Opc tool start working now, please wait for a moment.
+[ascend910_93] Generating PReluGradUpdate_f2768884efe8e6b7f77046bb06e3ea42 Done
+[ascend910_93] Generating PReluGradUpdate_dbc2acd140c6d91700d9834a129a8153 ...
+Opc tool start working now, please wait for a moment.
+[ascend910_93] Generating PReluGradUpdate_599588aa57378985d89e91ae7759ebed Done
+[ascend910_93] Generating PReluGradUpdate_e149eea416cbf8bd8da03e99dd32ec92 ...
+Opc tool start working now, please wait for a moment.
+[ascend910_93] Generating PReluGradUpdate_b03f5e3721c8a40142b563bba85fcf7f Done
+[ascend910_93] Generating PReluGradUpdate_7d1e7472ff1adf7c5d7627c5477d529a ...
+Opc tool start working now, please wait for a moment.
+[ascend910_93] Generating PReluGradUpdate_40c7c86afed688dc3472607bbb5e140b Done
+Opc tool start working now, please wait for a moment.
+[ascend910_93] Generating PReluGradUpdate_e149eea416cbf8bd8da03e99dd32ec92 Done
+Opc tool start working now, please wait for a moment.
+[ascend910_93] Generating PReluGradUpdate_dbc2acd140c6d91700d9834a129a8153 Done
+Opc tool start working now, please wait for a moment.
+[ascend910_93] Generating PReluGradUpdate_7d1e7472ff1adf7c5d7627c5477d529a Done
+[100%] Built target PReluGradUpdate_ascend910_93
+[100%] Built target ascendc_kernels_ascendc_bin_ascend910_93_gen_ops_config
+[100%] Built target binary
+Consolidate compiler generated dependencies of target cust_opapi
+Consolidate compiler generated dependencies of target cust_op_proto
+[  6%] Built target cust_opapi
+[ 13%] Built target modify_vendor
+[ 13%] Built target gen_version_info
+[ 40%] Built target cust_op_proto
+[ 46%] Built target ascendc_kernels_copy_kernel_srcs
+[ 53%] Built target p_relu_grad_update_custom_npu_supported_ops
+[ 73%] Built target cust_optiling
+[ 80%] Built target p_relu_grad_update_custom_ascendc_cust_opapi
+[ 86%] Built target p_relu_grad_update_custom_ascendc_cust_op_proto
+[ 93%] Built target ascendc_kernels_ops_info_gen_ascend910_93
+[ 93%] Built target p_relu_grad_update_custom_update_so_names
+[100%] Built target p_relu_grad_update_custom_ascendc_cust_optiling
+[100%] Built target optiling_compat
+Run CPack packaging tool...
+CPack: Create package using External
+CPack: Install projects
+CPack: - Run preinstall target for: p_relu_grad_update_op_prj
+CPack: - Install project: p_relu_grad_update_op_prj []
+CPack: Create package
+
+About to compress 2528 KB of data...
+Adding files to archive named "custom_opp_ubuntu_aarch64.run"...
+./help.info
+./install.sh
+./packages/vendors/p_relu_grad_update_custom/framework/tensorflow/npu_supported_ops.json
+./packages/vendors/p_relu_grad_update_custom/op_api/include/aclnn_p_relu_grad_update.h
+./packages/vendors/p_relu_grad_update_custom/op_api/lib/libcust_opapi.so
+./packages/vendors/p_relu_grad_update_custom/op_impl/ai_core/tbe/config/ascend910_93/aic-ascend910_93-ops-info.json
+./packages/vendors/p_relu_grad_update_custom/op_impl/ai_core/tbe/kernel/ascend910_93/p_relu_grad_update/PReluGradUpdate_40c7c86afed688dc3472607bbb5e140b.json
+./packages/vendors/p_relu_grad_update_custom/op_impl/ai_core/tbe/kernel/ascend910_93/p_relu_grad_update/PReluGradUpdate_40c7c86afed688dc3472607bbb5e140b.o
+./packages/vendors/p_relu_grad_update_custom/op_impl/ai_core/tbe/kernel/ascend910_93/p_relu_grad_update/PReluGradUpdate_54601d1ae52903292cf521ea93fcac6e.json
+./packages/vendors/p_relu_grad_update_custom/op_impl/ai_core/tbe/kernel/ascend910_93/p_relu_grad_update/PReluGradUpdate_54601d1ae52903292cf521ea93fcac6e.o
+./packages/vendors/p_relu_grad_update_custom/op_impl/ai_core/tbe/kernel/ascend910_93/p_relu_grad_update/PReluGradUpdate_599588aa57378985d89e91ae7759ebed.json
+./packages/vendors/p_relu_grad_update_custom/op_impl/ai_core/tbe/kernel/ascend910_93/p_relu_grad_update/PReluGradUpdate_599588aa57378985d89e91ae7759ebed.o
+./packages/vendors/p_relu_grad_update_custom/op_impl/ai_core/tbe/kernel/ascend910_93/p_relu_grad_update/PReluGradUpdate_7d1e7472ff1adf7c5d7627c5477d529a.json
+./packages/vendors/p_relu_grad_update_custom/op_impl/ai_core/tbe/kernel/ascend910_93/p_relu_grad_update/PReluGradUpdate_7d1e7472ff1adf7c5d7627c5477d529a.o
+./packages/vendors/p_relu_grad_update_custom/op_impl/ai_core/tbe/kernel/ascend910_93/p_relu_grad_update/PReluGradUpdate_b03f5e3721c8a40142b563bba85fcf7f.json
+./packages/vendors/p_relu_grad_update_custom/op_impl/ai_core/tbe/kernel/ascend910_93/p_relu_grad_update/PReluGradUpdate_b03f5e3721c8a40142b563bba85fcf7f.o
+./packages/vendors/p_relu_grad_update_custom/op_impl/ai_core/tbe/kernel/ascend910_93/p_relu_grad_update/PReluGradUpdate_dbc2acd140c6d91700d9834a129a8153.json
+./packages/vendors/p_relu_grad_update_custom/op_impl/ai_core/tbe/kernel/ascend910_93/p_relu_grad_update/PReluGradUpdate_dbc2acd140c6d91700d9834a129a8153.o
+./packages/vendors/p_relu_grad_update_custom/op_impl/ai_core/tbe/kernel/ascend910_93/p_relu_grad_update/PReluGradUpdate_e149eea416cbf8bd8da03e99dd32ec92.json
+./packages/vendors/p_relu_grad_update_custom/op_impl/ai_core/tbe/kernel/ascend910_93/p_relu_grad_update/PReluGradUpdate_e149eea416cbf8bd8da03e99dd32ec92.o
+./packages/vendors/p_relu_grad_update_custom/op_impl/ai_core/tbe/kernel/ascend910_93/p_relu_grad_update/PReluGradUpdate_f1d58239eefed44e09f094c28cf20f04.json
+./packages/vendors/p_relu_grad_update_custom/op_impl/ai_core/tbe/kernel/ascend910_93/p_relu_grad_update/PReluGradUpdate_f1d58239eefed44e09f094c28cf20f04.o
+./packages/vendors/p_relu_grad_update_custom/op_impl/ai_core/tbe/kernel/ascend910_93/p_relu_grad_update/PReluGradUpdate_f2768884efe8e6b7f77046bb06e3ea42.json
+./packages/vendors/p_relu_grad_update_custom/op_impl/ai_core/tbe/kernel/ascend910_93/p_relu_grad_update/PReluGradUpdate_f2768884efe8e6b7f77046bb06e3ea42.o
+./packages/vendors/p_relu_grad_update_custom/op_impl/ai_core/tbe/kernel/config/ascend910_93/binary_info_config.json
+./packages/vendors/p_relu_grad_update_custom/op_impl/ai_core/tbe/kernel/config/ascend910_93/p_relu_grad_update.json
+./packages/vendors/p_relu_grad_update_custom/op_impl/ai_core/tbe/op_tiling/lib/linux/aarch64/libcust_opmaster_rt2.0.so
+./packages/vendors/p_relu_grad_update_custom/op_impl/ai_core/tbe/op_tiling/liboptiling.so
+./packages/vendors/p_relu_grad_update_custom/op_impl/ai_core/tbe/p_relu_grad_update_custom_impl/dynamic/p_relu_grad_update.cpp
+./packages/vendors/p_relu_grad_update_custom/op_impl/ai_core/tbe/p_relu_grad_update_custom_impl/dynamic/p_relu_grad_update.h
+./packages/vendors/p_relu_grad_update_custom/op_impl/ai_core/tbe/p_relu_grad_update_custom_impl/dynamic/p_relu_grad_update.py
+./packages/vendors/p_relu_grad_update_custom/op_impl/ai_core/tbe/p_relu_grad_update_custom_impl/dynamic/p_relu_grad_update_full_pipeline.h
+./packages/vendors/p_relu_grad_update_custom/op_impl/ai_core/tbe/p_relu_grad_update_custom_impl/dynamic/p_relu_grad_update_gather.h
+./packages/vendors/p_relu_grad_update_custom/op_impl/ai_core/tbe/p_relu_grad_update_custom_impl/dynamic/p_relu_grad_update_gather_tiling.h
+./packages/vendors/p_relu_grad_update_custom/op_impl/ai_core/tbe/p_relu_grad_update_custom_impl/dynamic/p_relu_grad_update_general.h
+./packages/vendors/p_relu_grad_update_custom/op_impl/ai_core/tbe/p_relu_grad_update_custom_impl/dynamic/p_relu_grad_update_general_tiling.h
+./packages/vendors/p_relu_grad_update_custom/op_impl/ai_core/tbe/p_relu_grad_update_custom_impl/dynamic/p_relu_grad_update_merged.h
+./packages/vendors/p_relu_grad_update_custom/op_impl/ai_core/tbe/p_relu_grad_update_custom_impl/dynamic/p_relu_grad_update_resident.h
+./packages/vendors/p_relu_grad_update_custom/op_impl/ai_core/tbe/p_relu_grad_update_custom_impl/dynamic/p_relu_grad_update_s1.h
+./packages/vendors/p_relu_grad_update_custom/op_impl/ai_core/tbe/p_relu_grad_update_custom_impl/dynamic/p_relu_grad_update_splitc.h
+./packages/vendors/p_relu_grad_update_custom/op_impl/ai_core/tbe/p_relu_grad_update_custom_impl/dynamic/p_relu_grad_update_tiling_data.h
+./packages/vendors/p_relu_grad_update_custom/op_impl/ai_core/tbe/p_relu_grad_update_custom_impl/dynamic/p_relu_grad_update_tiling_key.h
+./packages/vendors/p_relu_grad_update_custom/op_proto/inc/op_proto.h
+./packages/vendors/p_relu_grad_update_custom/op_proto/lib/linux/aarch64/libcust_opsproto_rt2.0.so
+./packages/vendors/p_relu_grad_update_custom/version.info
+./uninstall.sh
+./upgrade.sh
+CRC: 3143772546
+SHA256: 33e49ad9966af5188e8591cc797e9e54590ea5f75ca6615e2545fca2ba442c3b
+Skipping md5sum at user request
+
+Self-extractable archive "custom_opp_ubuntu_aarch64.run" successfully created.
+Copy /mnt/workspace/2329-JadeYara-20261104-1812/J077/candidate/code/build/_CPack_Packages/Linux/External/custom_opp_ubuntu_aarch64.run/custom_opp_ubuntu_aarch64.run to /mnt/workspace/2329-JadeYara-20261104-1812/J077/candidate/code/build/
+CPack: - package: /mnt/workspace/2329-JadeYara-20261104-1812/J077/candidate/code/build/custom_opp_ubuntu_aarch64.run.json generated.
+CPack: - package: /mnt/workspace/2329-JadeYara-20261104-1812/J077/candidate/code/build/custom_opp_ubuntu_aarch64.run generated.
+[  6%] Built target cust_opapi
+[ 13%] Built target modify_vendor
+[ 13%] Built target gen_version_info
+[ 40%] Built target cust_op_proto
+[ 46%] Built target ascendc_kernels_copy_kernel_srcs
+[ 53%] Built target p_relu_grad_update_custom_npu_supported_ops
+[ 73%] Built target cust_optiling
+[ 80%] Built target p_relu_grad_update_custom_ascendc_cust_opapi
+[ 86%] Built target p_relu_grad_update_custom_ascendc_cust_op_proto
+[ 86%] Built target p_relu_grad_update_custom_update_so_names
+[ 93%] Built target ascendc_kernels_ops_info_gen_ascend910_93
+[100%] Built target p_relu_grad_update_custom_ascendc_cust_optiling
+[100%] Built target optiling_compat
+Install the project...
+-- Install configuration: ""
+-- Up-to-date: /mnt/workspace/2329-JadeYara-20261104-1812/J077/candidate/code/build/.
+-- Installing: /mnt/workspace/2329-JadeYara-20261104-1812/J077/candidate/code/build/./uninstall.sh
+-- Installing: /mnt/workspace/2329-JadeYara-20261104-1812/J077/candidate/code/build/./install.sh
+-- Installing: /mnt/workspace/2329-JadeYara-20261104-1812/J077/candidate/code/build/./help.info
+-- Installing: /mnt/workspace/2329-JadeYara-20261104-1812/J077/candidate/code/build/./upgrade.sh
+-- Installing: /mnt/workspace/2329-JadeYara-20261104-1812/J077/candidate/code/build/packages/vendors/p_relu_grad_update_custom/version.info
+-- Installing: /mnt/workspace/2329-JadeYara-20261104-1812/J077/candidate/code/build/packages/vendors/p_relu_grad_update_custom/op_impl/ai_core/tbe/op_tiling/lib/linux/aarch64/libcust_opmaster_rt2.0.so
+-- Set runtime path of "/mnt/workspace/2329-JadeYara-20261104-1812/J077/candidate/code/build/packages/vendors/p_relu_grad_update_custom/op_impl/ai_core/tbe/op_tiling/lib/linux/aarch64/libcust_opmaster_rt2.0.so" to ""
+-- Installing: /mnt/workspace/2329-JadeYara-20261104-1812/J077/candidate/code/build/packages/vendors/p_relu_grad_update_custom/op_impl/ai_core/tbe/op_tiling/liboptiling.so
+-- Installing: /mnt/workspace/2329-JadeYara-20261104-1812/J077/candidate/code/build/packages/vendors/p_relu_grad_update_custom/op_proto/lib/linux/aarch64/libcust_opsproto_rt2.0.so
+-- Set runtime path of "/mnt/workspace/2329-JadeYara-20261104-1812/J077/candidate/code/build/packages/vendors/p_relu_grad_update_custom/op_proto/lib/linux/aarch64/libcust_opsproto_rt2.0.so" to ""
+-- Installing: /mnt/workspace/2329-JadeYara-20261104-1812/J077/candidate/code/build/packages/vendors/p_relu_grad_update_custom/op_proto/inc/op_proto.h
+-- Installing: /mnt/workspace/2329-JadeYara-20261104-1812/J077/candidate/code/build/packages/vendors/p_relu_grad_update_custom/op_api/lib/libcust_opapi.so
+-- Set runtime path of "/mnt/workspace/2329-JadeYara-20261104-1812/J077/candidate/code/build/packages/vendors/p_relu_grad_update_custom/op_api/lib/libcust_opapi.so" to ""
+-- Installing: /mnt/workspace/2329-JadeYara-20261104-1812/J077/candidate/code/build/packages/vendors/p_relu_grad_update_custom/op_api/include/aclnn_p_relu_grad_update.h
+-- Installing: /mnt/workspace/2329-JadeYara-20261104-1812/J077/candidate/code/build/packages/vendors/p_relu_grad_update_custom/op_impl/ai_core/tbe/p_relu_grad_update_custom_impl/dynamic/
+-- Installing: /mnt/workspace/2329-JadeYara-20261104-1812/J077/candidate/code/build/packages/vendors/p_relu_grad_update_custom/op_impl/ai_core/tbe/p_relu_grad_update_custom_impl/dynamic//p_relu_grad_update_tiling_key.h
+-- Installing: /mnt/workspace/2329-JadeYara-20261104-1812/J077/candidate/code/build/packages/vendors/p_relu_grad_update_custom/op_impl/ai_core/tbe/p_relu_grad_update_custom_impl/dynamic//p_relu_grad_update_s1.h
+-- Installing: /mnt/workspace/2329-JadeYara-20261104-1812/J077/candidate/code/build/packages/vendors/p_relu_grad_update_custom/op_impl/ai_core/tbe/p_relu_grad_update_custom_impl/dynamic//p_relu_grad_update.h
+-- Installing: /mnt/workspace/2329-JadeYara-20261104-1812/J077/candidate/code/build/packages/vendors/p_relu_grad_update_custom/op_impl/ai_core/tbe/p_relu_grad_update_custom_impl/dynamic//p_relu_grad_update_full_pipeline.h
+-- Installing: /mnt/workspace/2329-JadeYara-20261104-1812/J077/candidate/code/build/packages/vendors/p_relu_grad_update_custom/op_impl/ai_core/tbe/p_relu_grad_update_custom_impl/dynamic//p_relu_grad_update_general.h
+-- Installing: /mnt/workspace/2329-JadeYara-20261104-1812/J077/candidate/code/build/packages/vendors/p_relu_grad_update_custom/op_impl/ai_core/tbe/p_relu_grad_update_custom_impl/dynamic//p_relu_grad_update_gather_tiling.h
+-- Installing: /mnt/workspace/2329-JadeYara-20261104-1812/J077/candidate/code/build/packages/vendors/p_relu_grad_update_custom/op_impl/ai_core/tbe/p_relu_grad_update_custom_impl/dynamic//p_relu_grad_update.cpp
+-- Installing: /mnt/workspace/2329-JadeYara-20261104-1812/J077/candidate/code/build/packages/vendors/p_relu_grad_update_custom/op_impl/ai_core/tbe/p_relu_grad_update_custom_impl/dynamic//p_relu_grad_update_gather.h
+-- Installing: /mnt/workspace/2329-JadeYara-20261104-1812/J077/candidate/code/build/packages/vendors/p_relu_grad_update_custom/op_impl/ai_core/tbe/p_relu_grad_update_custom_impl/dynamic//p_relu_grad_update_general_tiling.h
+-- Installing: /mnt/workspace/2329-JadeYara-20261104-1812/J077/candidate/code/build/packages/vendors/p_relu_grad_update_custom/op_impl/ai_core/tbe/p_relu_grad_update_custom_impl/dynamic//p_relu_grad_update_merged.h
+-- Installing: /mnt/workspace/2329-JadeYara-20261104-1812/J077/candidate/code/build/packages/vendors/p_relu_grad_update_custom/op_impl/ai_core/tbe/p_relu_grad_update_custom_impl/dynamic//p_relu_grad_update_resident.h
+-- Installing: /mnt/workspace/2329-JadeYara-20261104-1812/J077/candidate/code/build/packages/vendors/p_relu_grad_update_custom/op_impl/ai_core/tbe/p_relu_grad_update_custom_impl/dynamic//p_relu_grad_update.py
+-- Installing: /mnt/workspace/2329-JadeYara-20261104-1812/J077/candidate/code/build/packages/vendors/p_relu_grad_update_custom/op_impl/ai_core/tbe/p_relu_grad_update_custom_impl/dynamic//p_relu_grad_update_splitc.h
+-- Installing: /mnt/workspace/2329-JadeYara-20261104-1812/J077/candidate/code/build/packages/vendors/p_relu_grad_update_custom/op_impl/ai_core/tbe/p_relu_grad_update_custom_impl/dynamic//p_relu_grad_update_tiling_data.h
+-- Installing: /mnt/workspace/2329-JadeYara-20261104-1812/J077/candidate/code/build/packages/vendors/p_relu_grad_update_custom/op_impl/ai_core/tbe//kernel/ascend910_93/
+-- Installing: /mnt/workspace/2329-JadeYara-20261104-1812/J077/candidate/code/build/packages/vendors/p_relu_grad_update_custom/op_impl/ai_core/tbe//kernel/ascend910_93//p_relu_grad_update
+-- Installing: /mnt/workspace/2329-JadeYara-20261104-1812/J077/candidate/code/build/packages/vendors/p_relu_grad_update_custom/op_impl/ai_core/tbe//kernel/ascend910_93//p_relu_grad_update/PReluGradUpdate_b03f5e3721c8a40142b563bba85fcf7f.json
+-- Installing: /mnt/workspace/2329-JadeYara-20261104-1812/J077/candidate/code/build/packages/vendors/p_relu_grad_update_custom/op_impl/ai_core/tbe//kernel/ascend910_93//p_relu_grad_update/PReluGradUpdate_f1d58239eefed44e09f094c28cf20f04.o
+-- Installing: /mnt/workspace/2329-JadeYara-20261104-1812/J077/candidate/code/build/packages/vendors/p_relu_grad_update_custom/op_impl/ai_core/tbe//kernel/ascend910_93//p_relu_grad_update/PReluGradUpdate_40c7c86afed688dc3472607bbb5e140b.o
+-- Installing: /mnt/workspace/2329-JadeYara-20261104-1812/J077/candidate/code/build/packages/vendors/p_relu_grad_update_custom/op_impl/ai_core/tbe//kernel/ascend910_93//p_relu_grad_update/PReluGradUpdate_dbc2acd140c6d91700d9834a129a8153.json
+-- Installing: /mnt/workspace/2329-JadeYara-20261104-1812/J077/candidate/code/build/packages/vendors/p_relu_grad_update_custom/op_impl/ai_core/tbe//kernel/ascend910_93//p_relu_grad_update/PReluGradUpdate_f1d58239eefed44e09f094c28cf20f04.json
+-- Installing: /mnt/workspace/2329-JadeYara-20261104-1812/J077/candidate/code/build/packages/vendors/p_relu_grad_update_custom/op_impl/ai_core/tbe//kernel/ascend910_93//p_relu_grad_update/PReluGradUpdate_599588aa57378985d89e91ae7759ebed.json
+-- Installing: /mnt/workspace/2329-JadeYara-20261104-1812/J077/candidate/code/build/packages/vendors/p_relu_grad_update_custom/op_impl/ai_core/tbe//kernel/ascend910_93//p_relu_grad_update/PReluGradUpdate_f2768884efe8e6b7f77046bb06e3ea42.o
+-- Installing: /mnt/workspace/2329-JadeYara-20261104-1812/J077/candidate/code/build/packages/vendors/p_relu_grad_update_custom/op_impl/ai_core/tbe//kernel/ascend910_93//p_relu_grad_update/PReluGradUpdate_40c7c86afed688dc3472607bbb5e140b.json
+-- Installing: /mnt/workspace/2329-JadeYara-20261104-1812/J077/candidate/code/build/packages/vendors/p_relu_grad_update_custom/op_impl/ai_core/tbe//kernel/ascend910_93//p_relu_grad_update/PReluGradUpdate_b03f5e3721c8a40142b563bba85fcf7f.o
+-- Installing: /mnt/workspace/2329-JadeYara-20261104-1812/J077/candidate/code/build/packages/vendors/p_relu_grad_update_custom/op_impl/ai_core/tbe//kernel/ascend910_93//p_relu_grad_update/PReluGradUpdate_54601d1ae52903292cf521ea93fcac6e.o
+-- Installing: /mnt/workspace/2329-JadeYara-20261104-1812/J077/candidate/code/build/packages/vendors/p_relu_grad_update_custom/op_impl/ai_core/tbe//kernel/ascend910_93//p_relu_grad_update/PReluGradUpdate_e149eea416cbf8bd8da03e99dd32ec92.o
+-- Installing: /mnt/workspace/2329-JadeYara-20261104-1812/J077/candidate/code/build/packages/vendors/p_relu_grad_update_custom/op_impl/ai_core/tbe//kernel/ascend910_93//p_relu_grad_update/PReluGradUpdate_f2768884efe8e6b7f77046bb06e3ea42.json
+-- Installing: /mnt/workspace/2329-JadeYara-20261104-1812/J077/candidate/code/build/packages/vendors/p_relu_grad_update_custom/op_impl/ai_core/tbe//kernel/ascend910_93//p_relu_grad_update/PReluGradUpdate_e149eea416cbf8bd8da03e99dd32ec92.json
+-- Installing: /mnt/workspace/2329-JadeYara-20261104-1812/J077/candidate/code/build/packages/vendors/p_relu_grad_update_custom/op_impl/ai_core/tbe//kernel/ascend910_93//p_relu_grad_update/PReluGradUpdate_dbc2acd140c6d91700d9834a129a8153.o
+-- Installing: /mnt/workspace/2329-JadeYara-20261104-1812/J077/candidate/code/build/packages/vendors/p_relu_grad_update_custom/op_impl/ai_core/tbe//kernel/ascend910_93//p_relu_grad_update/PReluGradUpdate_54601d1ae52903292cf521ea93fcac6e.json
+-- Installing: /mnt/workspace/2329-JadeYara-20261104-1812/J077/candidate/code/build/packages/vendors/p_relu_grad_update_custom/op_impl/ai_core/tbe//kernel/ascend910_93//p_relu_grad_update/PReluGradUpdate_7d1e7472ff1adf7c5d7627c5477d529a.json
+-- Installing: /mnt/workspace/2329-JadeYara-20261104-1812/J077/candidate/code/build/packages/vendors/p_relu_grad_update_custom/op_impl/ai_core/tbe//kernel/ascend910_93//p_relu_grad_update/PReluGradUpdate_7d1e7472ff1adf7c5d7627c5477d529a.o
+-- Installing: /mnt/workspace/2329-JadeYara-20261104-1812/J077/candidate/code/build/packages/vendors/p_relu_grad_update_custom/op_impl/ai_core/tbe//kernel/ascend910_93//p_relu_grad_update/PReluGradUpdate_599588aa57378985d89e91ae7759ebed.o
+-- Installing: /mnt/workspace/2329-JadeYara-20261104-1812/J077/candidate/code/build/packages/vendors/p_relu_grad_update_custom/op_impl/ai_core/tbe//kernel/config/
+-- Installing: /mnt/workspace/2329-JadeYara-20261104-1812/J077/candidate/code/build/packages/vendors/p_relu_grad_update_custom/op_impl/ai_core/tbe//kernel/config//ascend910_93
+-- Installing: /mnt/workspace/2329-JadeYara-20261104-1812/J077/candidate/code/build/packages/vendors/p_relu_grad_update_custom/op_impl/ai_core/tbe//kernel/config//ascend910_93/p_relu_grad_update.json
+-- Installing: /mnt/workspace/2329-JadeYara-20261104-1812/J077/candidate/code/build/packages/vendors/p_relu_grad_update_custom/op_impl/ai_core/tbe//kernel/config//ascend910_93/binary_info_config.json
+-- Installing: /mnt/workspace/2329-JadeYara-20261104-1812/J077/candidate/code/build/packages/vendors/p_relu_grad_update_custom/op_impl/ai_core/tbe/config/ascend910_93/aic-ascend910_93-ops-info.json
+-- Installing: /mnt/workspace/2329-JadeYara-20261104-1812/J077/candidate/code/build/packages/vendors/p_relu_grad_update_custom/framework/tensorflow/npu_supported_ops.json
+----------------------------------------------------------------
+[INFO] Build completed successfully!
+[INFO] Kernel binary: /mnt/workspace/2329-JadeYara-20261104-1812/J077/candidate/code/build/op_kernel/ascendc_kernels/binary/ascend910_93/p_relu_grad_update/PReluGradUpdate_f1d58239eefed44e09f094c28cf20f04.o
+[INFO] Package: /mnt/workspace/2329-JadeYara-20261104-1812/J077/candidate/code/build/custom_opp_ubuntu_aarch64.run
+----------------------------------------------------------------
+[INFO] Running examples...
+-- The CXX compiler identification is GNU 9.4.0
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /mnt/workspace/2329-JadeYara-20261104-1812/J077/candidate/code/examples/build
+[ 50%] Building CXX object CMakeFiles/sample.dir/test_aclnn_p_relu_grad_update.cpp.o
+[100%] Linking CXX executable sample
+[100%] Built target sample
+Sample data generated.
+PASS: dx.bin, mismatched=0/192
+PASS: update.bin, mismatched=0/192
+PASSED
+[INFO] Example completed successfully!

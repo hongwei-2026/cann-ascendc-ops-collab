@@ -1,0 +1,4 @@
+Device_id,OP Type,Core Type,Count,Total Time(us),Min Time(us),Avg Time(us),Max Time(us),Ratio(%)
+0,PReluGradUpdateA,AI_VECTOR_CORE,21000,261312.64,6.96,12.443,47.6,50.016
+0,PReluGradUpdateC,AI_VECTOR_CORE,10500,130621.12,6.98,12.44,48.96,25.001
+0,PReluGradUpdateB,AI_VECTOR_CORE,10500,130523.58,6.94,12.431,51.68,24.983

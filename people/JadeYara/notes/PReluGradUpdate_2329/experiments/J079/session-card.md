@@ -1,0 +1,16 @@
+# J079 — BF16 unchanged-path diagnostic
+
+2026-11-08 Asia/Shanghai. JadeYara sole implementer. User authorized the next optimization step; immediate single goal: isolate why J078 B is slower on unchanged BF16 bodies. Scope: personal experiments/J079, personal ledgers/dev-log/README and task-specific diagnostic note/logs. Official1221802/J077/J078 frozen; no production or historical writes, no official submission or public push. Existing personal performance-stage authorization supersedes the stale other-owner shared STATUS.
+
+Start with read-only J078 raw-profile, source, full ELF/metadata and loaded tiling inspection. Then bounded controlled diagnostics on existing representative inputs; no new shape search and no reclassification of J078 performance as passed. Modify only independent diagnostic copies. One causal variable per follow-up; inspect actual host/kernel selection, launch keys/blocks, binary content and load/address/order effects. Preserve all attempts and full logs. Budget90active minutes. If unresolved, record the exact remaining uncertainty; no speculative performance candidate on an unstable baseline. Arithmetic TBE chain and low-precision quantization fixed.
+
+Phase1 result: all BF16 .text/.data identical, no helpers omitted, tiling keys/blocks/workspace and package selection agree. SmallBF16 B still~1.17us slower; scalar~1.3us longer.
+Phase2 causal hypothesis: slow path follows first-load position/address, not B arithmetic. Swap only the first A1/B windows in a new process; subsequent windows/binaries/input hashes fixed. Predict A now slower if second-load position is responsible. Debug traces separate from timings. Input110 actual launch key2 (S257 conventional), not a Gather route despite inherited historical gather_model annotation; actual launch evidence takes precedence.
+
+Phase2: BF16 control differences vanished but ALL dtype scalar times dropped ~0.42us, so second-slot hypothesis not confirmed. Phase3 restores the exact original plan in a fresh process; tests reversible order effect against session/time drift, not candidate acceptance.
+
+Phase3: original addresses returned, B-specific BF16 penalty did not. Controls29/30; one window A/A spread0.12us. Reject deterministic second-load/virtual-address explanation. Phase4 final bounded factor: --ai-core=off (task-time retained) then PipeUtilization restored, original frozen plan. No acceptance from a favorable individual process. Device metadata reports1650MHz in all first3runs; this is a metadata snapshot, not continuous frequency proof.
+
+Phase4 task-only30/30, PipeUtilization-return30/30 controls. Task-only Task medians lower~1.0–1.5us than adjacent pipeline captures. This supports separating timing from diagnosis; it does NOT identify the original B-specific cause. Final fixed validation: task-only swapped-first-load, then task-only original-order, each5inputs/6rounds/120windows. Keep all3 task-only runs, no rerun-to-pass or selection; stop after these. No kernel candidate this diagnostic.
+
+Completed: fixed7process profiles, no additional retry.294000calls,840correctness windows+45tracecalls pass;controls155/210,AA207/210. Phase5 shows second-load-associated BF16 bias remains with counters off. Underlying mechanism unresolved. Diagnostic scripts/report/DEC/next-method draft saved; frozen runtime maintained.

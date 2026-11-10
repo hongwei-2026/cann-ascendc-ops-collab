@@ -22,6 +22,7 @@ usage() {
   echo "  -j[n]                   Compile thread nums, default is ${CORE_NUMS}, eg: -j8"
   echo "  --make_clean            Clean build artifacts"
   echo "  -u, --ut                Run UT (Unit Tests)"
+  echo "  --soc TARGET            ascend910b (default) or ascend910_93"
   echo "  -e, --example           Run examples (requires NPU)"
   echo ""
   echo "Examples:"
@@ -47,7 +48,7 @@ clean_build_out() {
 }
 
 THREAD_NUM=${CORE_NUMS}
-COMPUTE_UNIT="ascend910b"
+COMPUTE_UNIT="${ASCEND_COMPUTE_UNIT:-ascend910b}"
 ENABLE_CLEAN=FALSE
 RUN_UT=FALSE
 RUN_EXAMPLE=FALSE
@@ -64,6 +65,11 @@ while [[ $# -gt 0 ]]; do
         THREAD_NUM=${CORE_NUMS}
       fi
       shift
+      ;;
+    --soc)
+      [[ $# -ge 2 ]] || { echo "[ERROR] --soc requires a target"; exit 2; }
+      COMPUTE_UNIT="$2"
+      shift 2
       ;;
     -u|--ut)
       RUN_UT=true
@@ -89,6 +95,12 @@ while [[ $# -gt 0 ]]; do
       ;;
   esac
 done
+
+case "$COMPUTE_UNIT" in
+  ascend910b|ascend910_93) ;;
+  *) echo "[ERROR] Unsupported target: $COMPUTE_UNIT"; exit 2 ;;
+esac
+export ASCEND_COMPUTE_UNIT="$COMPUTE_UNIT"
 
 if [ "$ENABLE_CLEAN" = "TRUE" ]; then
   clean_build
@@ -121,7 +133,7 @@ fi
 
 echo "----------------------------------------------------------------"
 SOURCE_FINGERPRINT=$(
-  { printf '%s\n' "$ASCEND_HOME_PATH";
+  { printf '%s\n' "$ASCEND_HOME_PATH" "$COMPUTE_UNIT";
     for d in op_host op_kernel op_api; do
       if [ -d "$BASE_PATH/$d" ]; then find "$BASE_PATH/$d" -type f -print0; fi
     done | sort -z | xargs -0 sha256sum;

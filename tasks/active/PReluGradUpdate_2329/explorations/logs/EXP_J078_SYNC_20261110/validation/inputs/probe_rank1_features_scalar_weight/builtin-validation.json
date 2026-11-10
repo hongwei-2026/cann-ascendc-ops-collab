@@ -1,0 +1,11 @@
+{
+  "accepted": false,
+  "exit": 1,
+  "input_hashes": {
+    "grads": "56f1374ede2d3fd77d78bfa4bfe3d2eb78bf2cc4c2ebecb3762bff21c09f5d3f",
+    "features": "8e9ff4f4a4cb50eb427c9dee199a217085c82b614cb0fe91c73ca9b52f54a360",
+    "weights": "71426d210d52fa91812d0a39251aa75ded92519c3d746b8ced4e5a02ec97960d"
+  },
+  "meta_sha256": "3c879fcfed259bd1664ad859c03d6bc7cafead1a7e605a0e42bf7a400d0acaa4",
+  "golden_hashes": {}
+}

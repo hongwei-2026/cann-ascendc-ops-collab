@@ -1,0 +1,183 @@
+2026-11-08 19:58:07 [INFO] [228114] [228114] [py_init_parser.cpp:149] Start C pipeline, prof path: /mnt/workspace/2329-JadeYara-20261104-1812/J079/taskonly/profile/PROF_000001_20261108195754606_00227994AIFDLIEC, flags: 0x13.
+2026-11-08 19:58:07 [INFO] [228114] [228114] [py_init_parser.cpp:156] The exported msprof db already exists, skip DB export, prof path: /mnt/workspace/2329-JadeYara-20261104-1812/J079/taskonly/profile/PROF_000001_20261108195754606_00227994AIFDLIEC.
+2026-11-08 19:58:07 [INFO] [228114] [228114] [py_init_parser.cpp:168] Python parse is complete, skip host data parsing.
+2026-11-08 19:58:07 [INFO] [228114] [228114] [py_init_parser.cpp:180] Python parse is complete, skip device data parsing.
+2026-11-08 19:58:07 [INFO] [228114] [228114] [py_init_parser.cpp:214] Start summary export, prof path: /mnt/workspace/2329-JadeYara-20261104-1812/J079/taskonly/profile/PROF_000001_20261108195754606_00227994AIFDLIEC, export DB: false.
+2026-11-08 19:58:07 [INFO] [228114] [228114] [export_manager.cpp:133] Start to load data!
+2026-11-08 19:58:07 [INFO] [228114] [228114] [export_manager.cpp:236] The report parameter is not used.
+2026-11-08 19:58:07 [INFO] [228114] [228115] [data_processor.cpp:39] NPU_MEM Run. Dir is /mnt/workspace/2329-JadeYara-20261104-1812/J079/taskonly/profile/PROF_000001_20261108195754606_00227994AIFDLIEC
+2026-11-08 19:58:07 [INFO] [228114] [228116] [data_processor.cpp:39] HOST_TASK Run. Dir is /mnt/workspace/2329-JadeYara-20261104-1812/J079/taskonly/profile/PROF_000001_20261108195754606_00227994AIFDLIEC
+2026-11-08 19:58:07 [INFO] [228114] [228117] [data_processor.cpp:39] PAGE_FAULT Run. Dir is /mnt/workspace/2329-JadeYara-20261104-1812/J079/taskonly/profile/PROF_000001_20261108195754606_00227994AIFDLIEC
+2026-11-08 19:58:07 [INFO] [228114] [228118] [data_processor.cpp:39] PMU Run. Dir is /mnt/workspace/2329-JadeYara-20261104-1812/J079/taskonly/profile/PROF_000001_20261108195754606_00227994AIFDLIEC
+2026-11-08 19:58:07 [INFO] [228114] [228119] [data_processor.cpp:39] TASK Run. Dir is /mnt/workspace/2329-JadeYara-20261104-1812/J079/taskonly/profile/PROF_000001_20261108195754606_00227994AIFDLIEC
+2026-11-08 19:58:07 [INFO] [228114] [228121] [data_processor.cpp:39] API Run. Dir is /mnt/workspace/2329-JadeYara-20261104-1812/J079/taskonly/profile/PROF_000001_20261108195754606_00227994AIFDLIEC
+2026-11-08 19:58:07 [INFO] [228114] [228122] [data_processor.cpp:39] FUSION_OP Run. Dir is /mnt/workspace/2329-JadeYara-20261104-1812/J079/taskonly/profile/PROF_000001_20261108195754606_00227994AIFDLIEC
+2026-11-08 19:58:07 [WARN] [228114] [228122] [data_processor.cpp:52] Can't find the db, the path is /mnt/workspace/2329-JadeYara-20261104-1812/J079/taskonly/profile/PROF_000001_20261108195754606_00227994AIFDLIEC/host/sqlite/ge_model_info.db.
+2026-11-08 19:58:07 [INFO] [228114] [228123] [data_processor.cpp:39] STEP_TRACE Run. Dir is /mnt/workspace/2329-JadeYara-20261104-1812/J079/taskonly/profile/PROF_000001_20261108195754606_00227994AIFDLIEC
+2026-11-08 19:58:07 [INFO] [228114] [228124] [data_processor.cpp:39] NPU_MODULE_MEM Run. Dir is /mnt/workspace/2329-JadeYara-20261104-1812/J079/taskonly/profile/PROF_000001_20261108195754606_00227994AIFDLIEC
+2026-11-08 19:58:07 [WARN] [228114] [228115] [data_processor.cpp:52] Can't find the db, the path is /mnt/workspace/2329-JadeYara-20261104-1812/J079/taskonly/profile/PROF_000001_20261108195754606_00227994AIFDLIEC/device_0/sqlite/npu_mem.db.
+2026-11-08 19:58:07 [INFO] [228114] [228122] [process_control.cpp:333] Level[0]Release Data Types: 
+2026-11-08 19:58:07 [INFO] [228114] [228115] [data_processor.h:85] Save NPU_MEM data into dataInventory
+2026-11-08 19:58:07 [INFO] [228114] [228120] [data_processor.cpp:39] HASH_INIT Run. Dir is /mnt/workspace/2329-JadeYara-20261104-1812/J079/taskonly/profile/PROF_000001_20261108195754606_00227994AIFDLIEC
+2026-11-08 19:58:07 [WARN] [228114] [228115] [data_processor.h:88] NPU_MEM no data to inject to dataInventory
+2026-11-08 19:58:07 [INFO] [228114] [228122] [data_processor.cpp:39] COMMUNICATION_STATISTIC Run. Dir is /mnt/workspace/2329-JadeYara-20261104-1812/J079/taskonly/profile/PROF_000001_20261108195754606_00227994AIFDLIEC
+2026-11-08 19:58:07 [INFO] [228114] [228115] [process_control.cpp:333] Level[1]Release Data Types: 
+2026-11-08 19:58:07 [INFO] [228114] [228118] [metric_processor.cpp:125] TaskBasedProcess, dir is /mnt/workspace/2329-JadeYara-20261104-1812/J079/taskonly/profile/PROF_000001_20261108195754606_00227994AIFDLIEC
+2026-11-08 19:58:07 [WARN] [228114] [228120] [data_processor.cpp:52] Can't find the db, the path is /mnt/workspace/2329-JadeYara-20261104-1812/J079/taskonly/profile/PROF_000001_20261108195754606_00227994AIFDLIEC/host/sqlite/ge_logic_stream_info.db.
+2026-11-08 19:58:07 [INFO] [228114] [228115] [data_processor.cpp:39] MODEL_NAME Run. Dir is /mnt/workspace/2329-JadeYara-20261104-1812/J079/taskonly/profile/PROF_000001_20261108195754606_00227994AIFDLIEC
+2026-11-08 19:58:07 [INFO] [228114] [228120] [hash_init_processor.cpp:70] Init Hash data, dir is /mnt/workspace/2329-JadeYara-20261104-1812/J079/taskonly/profile/PROF_000001_20261108195754606_00227994AIFDLIEC
+2026-11-08 19:58:07 [WARN] [228114] [228115] [data_processor.cpp:52] Can't find the db, the path is /mnt/workspace/2329-JadeYara-20261104-1812/J079/taskonly/profile/PROF_000001_20261108195754606_00227994AIFDLIEC/host/sqlite/ge_model_info.db.
+2026-11-08 19:58:07 [INFO] [228114] [228115] [process_control.cpp:333] Level[2]Release Data Types: 
+2026-11-08 19:58:07 [WARN] [228114] [228118] [data_processor.cpp:52] Can't find the db, the path is /mnt/workspace/2329-JadeYara-20261104-1812/J079/taskonly/profile/PROF_000001_20261108195754606_00227994AIFDLIEC/device_0/sqlite/metric_summary.db.
+2026-11-08 19:58:07 [INFO] [228114] [228118] [metric_processor.cpp:160] There is no db to export, prof path is /mnt/workspace/2329-JadeYara-20261104-1812/J079/taskonly/profile/PROF_000001_20261108195754606_00227994AIFDLIEC.
+2026-11-08 19:58:07 [INFO] [228114] [228115] [summary_assembler.h:42] Begin to Assemble NPU_MEM data
+2026-11-08 19:58:07 [INFO] [228114] [228118] [process_control.cpp:333] Level[3]Release Data Types: 
+2026-11-08 19:58:07 [WARN] [228114] [228115] [npu_memory_assembler.cpp:42] No data to export npu memory summary
+2026-11-08 19:58:07 [WARN] [228114] [228115] [summary_assembler.h:51] No need to Export NPU_MEM data
+2026-11-08 19:58:07 [INFO] [228114] [228115] [process_control.cpp:333] Level[4]Release Data Types: 
+2026-11-08 19:58:07 [WARN] [228114] [228122] [data_processor.cpp:52] Can't find the db, the path is /mnt/workspace/2329-JadeYara-20261104-1812/J079/taskonly/profile/PROF_000001_20261108195754606_00227994AIFDLIEC/device_0/sqlite/hccl_single_device.db.
+2026-11-08 19:58:07 [WARN] [228114] [228122] [data_processor.cpp:52] Can't find the db, the path is /mnt/workspace/2329-JadeYara-20261104-1812/J079/taskonly/profile/PROF_000001_20261108195754606_00227994AIFDLIEC/device_0/sqlite/hccl_single_device.db.
+2026-11-08 19:58:07 [INFO] [228114] [228122] [hccl_statistic_processor.cpp:132] Hccl Statistics original data is empty, skip this device. DBPath is /mnt/workspace/2329-JadeYara-20261104-1812/J079/taskonly/profile/PROF_000001_20261108195754606_00227994AIFDLIEC/device_0
+2026-11-08 19:58:07 [INFO] [228114] [228122] [data_processor.h:85] Save COMMUNICATION_STATISTIC data into dataInventory
+2026-11-08 19:58:07 [WARN] [228114] [228122] [data_processor.h:88] COMMUNICATION_STATISTIC no data to inject to dataInventory
+2026-11-08 19:58:07 [INFO] [228114] [228122] [process_control.cpp:333] Level[5]Release Data Types: 
+2026-11-08 19:58:07 [INFO] [228114] [228116] [db_runner.h:91] Start query data
+2026-11-08 19:58:07 [INFO] [228114] [228118] [summary_assembler.h:42] Begin to Assemble COMMUNICATION_STATISTIC data
+2026-11-08 19:58:07 [WARN] [228114] [228124] [data_processor.cpp:52] Can't find the db, the path is /mnt/workspace/2329-JadeYara-20261104-1812/J079/taskonly/profile/PROF_000001_20261108195754606_00227994AIFDLIEC/device_0/sqlite/npu_module_mem.db.
+2026-11-08 19:58:07 [INFO] [228114] [228124] [data_processor.h:85] Save NPU_MODULE_MEM data into dataInventory
+2026-11-08 19:58:07 [WARN] [228114] [228124] [data_processor.h:88] NPU_MODULE_MEM no data to inject to dataInventory
+2026-11-08 19:58:07 [INFO] [228114] [228124] [process_control.cpp:333] Level[6]Release Data Types: 
+2026-11-08 19:58:07 [INFO] [228114] [228119] [data_processor.cpp:73] Check /mnt/workspace/2329-JadeYara-20261104-1812/J079/taskonly/profile/PROF_000001_20261108195754606_00227994AIFDLIEC/device_0/sqlite/ascend_task.db and AscendTask success.
+2026-11-08 19:58:07 [INFO] [228114] [228115] [summary_assembler.h:42] Begin to Assemble NPU_MODULE_MEM data
+2026-11-08 19:58:07 [WARN] [228114] [228115] [npu_module_mem_assembler.cpp:53] No data to export npu module memory summary
+2026-11-08 19:58:07 [WARN] [228114] [228115] [summary_assembler.h:51] No need to Export NPU_MODULE_MEM data
+2026-11-08 19:58:07 [WARN] [228114] [228118] [comm_statistic_assembler.cpp:72] Communication Statistic data not exist.
+2026-11-08 19:58:07 [WARN] [228114] [228118] [summary_assembler.h:51] No need to Export COMMUNICATION_STATISTIC data
+2026-11-08 19:58:07 [INFO] [228114] [228115] [process_control.cpp:333] Level[7]Release Data Types: 
+2026-11-08 19:58:07 [INFO] [228114] [228117] [data_processor.cpp:73] Check /mnt/workspace/2329-JadeYara-20261104-1812/J079/taskonly/profile/PROF_000001_20261108195754606_00227994AIFDLIEC/host/sqlite/ge_info.db and TaskInfo success.
+2026-11-08 19:58:07 [INFO] [228114] [228117] [db_runner.h:91] Start query data
+2026-11-08 19:58:07 [INFO] [228114] [228118] [process_control.cpp:333] Level[8]Release Data Types: 
+2026-11-08 19:58:07 [INFO] [228114] [228121] [data_processor.cpp:73] Check /mnt/workspace/2329-JadeYara-20261104-1812/J079/taskonly/profile/PROF_000001_20261108195754606_00227994AIFDLIEC/host/sqlite/api_event.db and ApiData success.
+2026-11-08 19:58:07 [INFO] [228114] [228121] [db_runner.cpp:206] Start get ApiData headers
+2026-11-08 19:58:07 [INFO] [228114] [228119] [db_runner.h:91] Start query data
+2026-11-08 19:58:07 [INFO] [228114] [228120] [data_processor.cpp:73] Check /mnt/workspace/2329-JadeYara-20261104-1812/J079/taskonly/profile/PROF_000001_20261108195754606_00227994AIFDLIEC/host/sqlite/ge_hash.db and GeHashInfo success.
+2026-11-08 19:58:07 [INFO] [228114] [228120] [db_runner.h:91] Start query data
+2026-11-08 19:58:07 [INFO] [228114] [228123] [data_processor.cpp:73] Check /mnt/workspace/2329-JadeYara-20261104-1812/J079/taskonly/profile/PROF_000001_20261108195754606_00227994AIFDLIEC/device_0/sqlite/trace.db and training_trace success.
+2026-11-08 19:58:07 [INFO] [228114] [228121] [db_runner.cpp:221] Get ApiData columns success
+2026-11-08 19:58:07 [INFO] [228114] [228123] [db_runner.h:91] Start query data
+2026-11-08 19:58:07 [INFO] [228114] [228120] [db_runner.h:104] Query data success: SELECT hash_key, hash_value FROM GeHashInfo
+2026-11-08 19:58:07 [INFO] [228114] [228121] [db_runner.h:91] Start query data
+2026-11-08 19:58:07 [INFO] [228114] [228120] [process_control.cpp:333] Level[9]Release Data Types: 
+2026-11-08 19:58:07 [INFO] [228114] [228122] [data_processor.cpp:39] COMMUNICATION Run. Dir is /mnt/workspace/2329-JadeYara-20261104-1812/J079/taskonly/profile/PROF_000001_20261108195754606_00227994AIFDLIEC
+2026-11-08 19:58:07 [INFO] [228114] [228115] [data_processor.cpp:39] COMPUTE_TASK_INFO Run. Dir is /mnt/workspace/2329-JadeYara-20261104-1812/J079/taskonly/profile/PROF_000001_20261108195754606_00227994AIFDLIEC
+2026-11-08 19:58:07 [INFO] [228114] [228124] [summary_assembler.h:42] Begin to Assemble FUSION_OP data
+2026-11-08 19:58:07 [WARN] [228114] [228124] [fusion_op_assembler.cpp:89] fusion op data not exist.
+2026-11-08 19:58:07 [WARN] [228114] [228124] [summary_assembler.h:51] No need to Export FUSION_OP data
+2026-11-08 19:58:07 [INFO] [228114] [228124] [process_control.cpp:333] Level[10]Release Data Types: 
+2026-11-08 19:58:07 [INFO] [228114] [228123] [db_runner.h:104] Query data success: SELECT model_id, iteration_id, FP_start, BP_end, iteration_end, iteration_time, fp_bp_time, grad_refresh_bound, data_aug_bound FROM training_trace
+2026-11-08 19:58:07 [WARN] [228114] [228122] [data_processor.cpp:52] Can't find the db, the path is /mnt/workspace/2329-JadeYara-20261104-1812/J079/taskonly/profile/PROF_000001_20261108195754606_00227994AIFDLIEC/device_0/sqlite/hccl_single_device.db.
+2026-11-08 19:58:07 [WARN] [228114] [228122] [data_processor.cpp:52] Can't find the db, the path is /mnt/workspace/2329-JadeYara-20261104-1812/J079/taskonly/profile/PROF_000001_20261108195754606_00227994AIFDLIEC/device_0/sqlite/hccl_single_device.db.
+2026-11-08 19:58:07 [WARN] [228114] [228122] [data_processor.cpp:52] Can't find the db, the path is /mnt/workspace/2329-JadeYara-20261104-1812/J079/taskonly/profile/PROF_000001_20261108195754606_00227994AIFDLIEC/device_0/sqlite/hccl_single_device.db.
+2026-11-08 19:58:07 [WARN] [228114] [228122] [data_processor.cpp:52] Can't find the db, the path is /mnt/workspace/2329-JadeYara-20261104-1812/J079/taskonly/profile/PROF_000001_20261108195754606_00227994AIFDLIEC/device_0/sqlite/hccl_single_device.db.
+2026-11-08 19:58:07 [INFO] [228114] [228122] [data_processor.h:73] There are 0 records before COMMUNICATION_TASK_INFO data filtering, filterTime is 1794139075283702000.
+2026-11-08 19:58:07 [INFO] [228114] [228122] [data_processor.h:78] There are 0 records after COMMUNICATION_TASK_INFO data filtering.
+2026-11-08 19:58:07 [INFO] [228114] [228122] [data_processor.h:73] There are 0 records before COMMUNICATION_TASK_INFO data filtering, filterTime is 1794139075283702000.
+2026-11-08 19:58:07 [INFO] [228114] [228122] [data_processor.h:78] There are 0 records after COMMUNICATION_TASK_INFO data filtering.
+2026-11-08 19:58:07 [INFO] [228114] [228122] [data_processor.h:85] Save COMMUNICATION_TASK_INFO data into dataInventory
+2026-11-08 19:58:07 [WARN] [228114] [228122] [data_processor.h:88] COMMUNICATION_TASK_INFO no data to inject to dataInventory
+2026-11-08 19:58:07 [INFO] [228114] [228122] [data_processor.h:85] Save COMMUNICATION_OP data into dataInventory
+2026-11-08 19:58:07 [WARN] [228114] [228122] [data_processor.h:88] COMMUNICATION_OP no data to inject to dataInventory
+2026-11-08 19:58:07 [INFO] [228114] [228122] [process_control.cpp:333] Level[11]Release Data Types: 
+2026-11-08 19:58:07 [WARN] [228114] [228123] [step_trace_processor.h:92] training_trace, has no data
+2026-11-08 19:58:07 [INFO] [228114] [228123] [data_processor.h:73] There are 0 records before STEP_TRACE data filtering, filterTime is 1794139075283702000.
+2026-11-08 19:58:07 [INFO] [228114] [228123] [data_processor.h:78] There are 0 records after STEP_TRACE data filtering.
+2026-11-08 19:58:07 [INFO] [228114] [228115] [data_processor.cpp:73] Check /mnt/workspace/2329-JadeYara-20261104-1812/J079/taskonly/profile/PROF_000001_20261108195754606_00227994AIFDLIEC/host/sqlite/ge_info.db and TaskInfo success.
+2026-11-08 19:58:07 [INFO] [228114] [228115] [db_runner.h:91] Start query data
+2026-11-08 19:58:07 [WARN] [228114] [228123] [data_processor.cpp:69] Check get_next not exists
+2026-11-08 19:58:07 [INFO] [228114] [228123] [data_processor.h:73] There are 0 records before STEP_TRACE data filtering, filterTime is 1794139075283702000.
+2026-11-08 19:58:07 [INFO] [228114] [228123] [data_processor.h:78] There are 0 records after STEP_TRACE data filtering.
+2026-11-08 19:58:07 [WARN] [228114] [228123] [data_processor.cpp:69] Check all_reduce not exists
+2026-11-08 19:58:07 [INFO] [228114] [228123] [data_processor.h:73] There are 0 records before STEP_TRACE data filtering, filterTime is 1794139075283702000.
+2026-11-08 19:58:07 [INFO] [228114] [228123] [data_processor.h:78] There are 0 records after STEP_TRACE data filtering.
+2026-11-08 19:58:07 [INFO] [228114] [228123] [data_processor.h:85] Save STEP_TRACE data into dataInventory
+2026-11-08 19:58:07 [WARN] [228114] [228123] [data_processor.h:88] STEP_TRACE no data to inject to dataInventory
+2026-11-08 19:58:07 [INFO] [228114] [228123] [data_processor.h:85] Save STEP_TRACE data into dataInventory
+2026-11-08 19:58:07 [WARN] [228114] [228123] [data_processor.h:88] STEP_TRACE no data to inject to dataInventory
+2026-11-08 19:58:07 [INFO] [228114] [228123] [data_processor.h:85] Save STEP_TRACE data into dataInventory
+2026-11-08 19:58:07 [WARN] [228114] [228123] [data_processor.h:88] STEP_TRACE no data to inject to dataInventory
+2026-11-08 19:58:07 [INFO] [228114] [228123] [process_control.cpp:333] Level[12]Release Data Types: 
+2026-11-08 19:58:07 [INFO] [228114] [228118] [summary_assembler.h:42] Begin to Assemble STEP_TRACE data
+2026-11-08 19:58:07 [WARN] [228114] [228118] [summary_step_trace_assembler.cpp:78] trainTraceData not exists, can't export step trace data.
+2026-11-08 19:58:07 [WARN] [228114] [228118] [summary_assembler.h:51] No need to Export STEP_TRACE data
+2026-11-08 19:58:07 [INFO] [228114] [228118] [process_control.cpp:333] Level[13]Release Data Types: 
+2026-11-08 19:58:07 [INFO] [228114] [228117] [db_runner.h:104] Query data success: SELECT op_name, stream_id, task_id, device_id FROM TaskInfo
+2026-11-08 19:58:07 [WARN] [228114] [228117] [data_processor.cpp:52] Can't find the db, the path is /mnt/workspace/2329-JadeYara-20261104-1812/J079/taskonly/profile/PROF_000001_20261108195754606_00227994AIFDLIEC/device_0/sqlite/soc_pmu.db.
+2026-11-08 19:58:07 [INFO] [228114] [228117] [data_processor.h:85] Save PAGE_FAULT data into dataInventory
+2026-11-08 19:58:07 [WARN] [228114] [228117] [data_processor.h:88] PAGE_FAULT no data to inject to dataInventory
+2026-11-08 19:58:07 [INFO] [228114] [228117] [process_control.cpp:333] Level[14]Release Data Types: 
+2026-11-08 19:58:07 [INFO] [228114] [228120] [summary_assembler.h:42] Begin to Assemble PAGE_FAULT data
+2026-11-08 19:58:07 [WARN] [228114] [228120] [page_fault_assembler.cpp:42] No data to export page fault summary
+2026-11-08 19:58:07 [WARN] [228114] [228120] [summary_assembler.h:51] No need to Export PAGE_FAULT data
+2026-11-08 19:58:07 [INFO] [228114] [228120] [process_control.cpp:333] Level[15]Release Data Types: 
+2026-11-08 19:58:07 [INFO] [228114] [228119] [db_runner.h:104] Query data success: SELECT a.start_time, a.duration, a.model_id, a.index_id, a.stream_id, a.task_id, a.context_id,a.batch_id, a.connection_id, a.host_task_type, a.device_task_type FROM AscendTask a WHERE a.device_task_type != 'UNKNOWN'
+2026-11-08 19:58:07 [INFO] [228114] [228116] [db_runner.h:104] Query data success: SELECT stream_id, request_id, batch_id, task_id, context_ids, model_id, task_type, kernel_name, connection_id, device_id FROM HostTask
+2026-11-08 19:58:07 [INFO] [228114] [228116] [data_processor.h:85] Save HOST_TASK data into dataInventory
+2026-11-08 19:58:07 [INFO] [228114] [228116] [process_control.cpp:333] Level[16]Release Data Types: 
+2026-11-08 19:58:07 [INFO] [228114] [228115] [db_runner.h:104] Query data success: SELECT hashid, model_id, op_name, stream_id, task_id, block_num, mix_block_num, task_type, op_type, op_flag, batch_id, IFNULL(input_formats, 'NULL'), IFNULL(input_data_types, 'NULL'), IFNULL(input_shapes, 'NULL'), IFNULL(output_formats, 'NULL'), IFNULL(output_data_types, 'NULL'), IFNULL(output_shapes, 'NULL'), device_id, context_id, (case when op_state is 'N/A' then 'N/A' when op_state is '1' then 'dynamic' when op_state is '0' then 'static' end), IFNULL(grid_dim, 'N/A'), IFNULL(block_dim, 'N/A') FROM TaskInfo
+2026-11-08 19:58:07 [INFO] [228114] [228115] [data_processor.h:85] Save COMPUTE_TASK_INFO data into dataInventory
+2026-11-08 19:58:07 [INFO] [228114] [228115] [process_control.cpp:333] Level[17]Release Data Types: St13unordered_mapISsSsSt4hashISsESt8equal_toISsESaISt4pairIKSsSsEEE 
+2026-11-08 19:58:07 [INFO] [228114] [228119] [data_processor.h:73] There are 42005 records before TASK data filtering, filterTime is 1794139075283702000.
+2026-11-08 19:58:07 [INFO] [228114] [228119] [data_processor.h:78] There are 42005 records after TASK data filtering.
+2026-11-08 19:58:08 [INFO] [228114] [228119] [data_processor.h:85] Save TASK data into dataInventory
+2026-11-08 19:58:08 [INFO] [228114] [228119] [process_control.cpp:333] Level[18]Release Data Types: 
+2026-11-08 19:58:08 [INFO] [228114] [228122] [summary_assembler.h:42] Begin to Assemble TASK_TIME_SUMMARY data
+2026-11-08 19:58:08 [INFO] [228114] [228124] [data_processor.cpp:39] TASK_ASSOCIATION Run. Dir is /mnt/workspace/2329-JadeYara-20261104-1812/J079/taskonly/profile/PROF_000001_20261108195754606_00227994AIFDLIEC
+2026-11-08 19:58:08 [INFO] [228114] [228123] [data_processor.cpp:39] AICPU Run. Dir is /mnt/workspace/2329-JadeYara-20261104-1812/J079/taskonly/profile/PROF_000001_20261108195754606_00227994AIFDLIEC
+2026-11-08 19:58:08 [WARN] [228114] [228123] [data_processor.cpp:52] Can't find the db, the path is /mnt/workspace/2329-JadeYara-20261104-1812/J079/taskonly/profile/PROF_000001_20261108195754606_00227994AIFDLIEC/device_0/sqlite/ai_cpu.db.
+2026-11-08 19:58:08 [WARN] [228114] [228123] [data_processor.cpp:52] Can't find the db, the path is /mnt/workspace/2329-JadeYara-20261104-1812/J079/taskonly/profile/PROF_000001_20261108195754606_00227994AIFDLIEC/device_0/sqlite/ai_cpu.db.
+2026-11-08 19:58:08 [WARN] [228114] [228123] [data_processor.cpp:52] Can't find the db, the path is /mnt/workspace/2329-JadeYara-20261104-1812/J079/taskonly/profile/PROF_000001_20261108195754606_00227994AIFDLIEC/device_0/sqlite/data_preprocess.db.
+2026-11-08 19:58:08 [INFO] [228114] [228123] [data_processor.h:85] Save AICPU data into dataInventory
+2026-11-08 19:58:08 [WARN] [228114] [228123] [data_processor.h:88] AICPU no data to inject to dataInventory
+2026-11-08 19:58:08 [INFO] [228114] [228123] [data_processor.h:85] Save AICPU data into dataInventory
+2026-11-08 19:58:08 [WARN] [228114] [228123] [data_processor.h:88] AICPU no data to inject to dataInventory
+2026-11-08 19:58:08 [INFO] [228114] [228123] [data_processor.h:85] Save AICPU data into dataInventory
+2026-11-08 19:58:08 [WARN] [228114] [228123] [data_processor.h:88] AICPU no data to inject to dataInventory
+2026-11-08 19:58:08 [INFO] [228114] [228123] [process_control.cpp:333] Level[19]Release Data Types: 
+2026-11-08 19:58:08 [INFO] [228114] [228118] [summary_assembler.h:42] Begin to Assemble AICPU data
+2026-11-08 19:58:08 [WARN] [228114] [228118] [aicpu_assembler.cpp:60] No data to export aicpu/dp/aicpu_mi summary
+2026-11-08 19:58:08 [WARN] [228114] [228118] [summary_assembler.h:51] No need to Export AICPU data
+2026-11-08 19:58:08 [INFO] [228114] [228118] [process_control.cpp:333] Level[20]Release Data Types: 
+2026-11-08 19:58:08 [INFO] [228114] [228124] [task_association_processor.cpp:112] Task association matched 42000 records.
+2026-11-08 19:58:08 [INFO] [228114] [228124] [process_control.cpp:333] Level[21]Release Data Types: 
+2026-11-08 19:58:08 [INFO] [228114] [228120] [summary_assembler.h:42] Begin to Assemble OP_SUMMARY data
+2026-11-08 19:58:08 [INFO] [228114] [228124] [data_processor.cpp:39] OP_STATISTIC Run. Dir is /mnt/workspace/2329-JadeYara-20261104-1812/J079/taskonly/profile/PROF_000001_20261108195754606_00227994AIFDLIEC
+2026-11-08 19:58:08 [INFO] [228114] [228124] [data_processor.h:85] Save OP_STATISTIC data into dataInventory
+2026-11-08 19:58:08 [INFO] [228114] [228124] [process_control.cpp:333] Level[22]Release Data Types: 
+2026-11-08 19:58:08 [INFO] [228114] [228116] [summary_assembler.h:42] Begin to Assemble OP_STATISTIC data
+2026-11-08 19:58:08 [INFO] [228114] [228116] [csv_writer.cpp:94] Start dump /mnt/workspace/2329-JadeYara-20261104-1812/J079/taskonly/profile/PROF_000001_20261108195754606_00227994AIFDLIEC/mindstudio_profiler_output/op_statistic.csv, timestamp is 20261108195808.
+2026-11-08 19:58:08 [INFO] [228114] [228116] [file.cpp:503] The file not exists: /mnt/workspace/2329-JadeYara-20261104-1812/J079/taskonly/profile/PROF_000001_20261108195754606_00227994AIFDLIEC/mindstudio_profiler_output/op_statistic_20261108195808.csv.
+2026-11-08 19:58:08 [INFO] [228114] [228116] [csv_writer.cpp:102] Generate /mnt/workspace/2329-JadeYara-20261104-1812/J079/taskonly/profile/PROF_000001_20261108195754606_00227994AIFDLIEC/mindstudio_profiler_output/op_statistic.csv finished, timestamp is 20261108195808.
+2026-11-08 19:58:08 [INFO] [228114] [228116] [summary_assembler.h:46] Assemble and export OP_STATISTIC data success
+2026-11-08 19:58:08 [INFO] [228114] [228116] [process_control.cpp:333] Level[23]Release Data Types: St6vectorIN8Analysis6Domain15OpStatisticDataESaIS2_EE 
+2026-11-08 19:58:08 [INFO] [228114] [228121] [db_runner.h:104] Query data success: SELECT struct_type, id, level, thread_id, item_id, start, end, connection_id, key FROM ApiData
+2026-11-08 19:58:08 [INFO] [228114] [228122] [csv_writer.cpp:94] Start dump /mnt/workspace/2329-JadeYara-20261104-1812/J079/taskonly/profile/PROF_000001_20261108195754606_00227994AIFDLIEC/mindstudio_profiler_output/task_time.csv, timestamp is 20261108195808.
+2026-11-08 19:58:08 [INFO] [228114] [228122] [file.cpp:503] The file not exists: /mnt/workspace/2329-JadeYara-20261104-1812/J079/taskonly/profile/PROF_000001_20261108195754606_00227994AIFDLIEC/mindstudio_profiler_output/task_time_20261108195808.csv.
+2026-11-08 19:58:08 [INFO] [228114] [228122] [csv_writer.cpp:102] Generate /mnt/workspace/2329-JadeYara-20261104-1812/J079/taskonly/profile/PROF_000001_20261108195754606_00227994AIFDLIEC/mindstudio_profiler_output/task_time.csv finished, timestamp is 20261108195808.
+2026-11-08 19:58:08 [INFO] [228114] [228122] [summary_assembler.h:46] Assemble and export TASK_TIME_SUMMARY data success
+2026-11-08 19:58:08 [INFO] [228114] [228120] [csv_writer.cpp:94] Start dump /mnt/workspace/2329-JadeYara-20261104-1812/J079/taskonly/profile/PROF_000001_20261108195754606_00227994AIFDLIEC/mindstudio_profiler_output/op_summary.csv, timestamp is 20261108195808.
+2026-11-08 19:58:08 [INFO] [228114] [228120] [file.cpp:503] The file not exists: /mnt/workspace/2329-JadeYara-20261104-1812/J079/taskonly/profile/PROF_000001_20261108195754606_00227994AIFDLIEC/mindstudio_profiler_output/op_summary_20261108195808.csv.
+2026-11-08 19:58:08 [INFO] [228114] [228120] [csv_writer.cpp:102] Generate /mnt/workspace/2329-JadeYara-20261104-1812/J079/taskonly/profile/PROF_000001_20261108195754606_00227994AIFDLIEC/mindstudio_profiler_output/op_summary.csv finished, timestamp is 20261108195808.
+2026-11-08 19:58:08 [INFO] [228114] [228120] [summary_assembler.h:46] Assemble and export OP_SUMMARY data success
+2026-11-08 19:58:08 [INFO] [228114] [228122] [process_control.cpp:333] Level[24]Release Data Types: St6vectorIN8Analysis6Domain12TaskInfoDataESaIS2_EE St6vectorIN8Analysis6Domain14AscendTaskDataESaIS2_EE St6vectorIN8Analysis6Domain8HostTaskESaIS2_EE 
+2026-11-08 19:58:08 [INFO] [228114] [228120] [process_control.cpp:333] Level[25]Release Data Types: N8Analysis6Domain24AssociatedTaskCollectionE 
+2026-11-08 19:58:10 [INFO] [228114] [228121] [data_processor.h:73] There are 336586 records before API data filtering, filterTime is 1794139075281839000.
+2026-11-08 19:58:10 [INFO] [228114] [228121] [data_processor.h:78] There are 336586 records after API data filtering.
+2026-11-08 19:58:10 [INFO] [228114] [228121] [data_processor.h:85] Save API data into dataInventory
+2026-11-08 19:58:10 [INFO] [228114] [228121] [process_control.cpp:333] Level[26]Release Data Types: 
+2026-11-08 19:58:10 [INFO] [228114] [228115] [summary_assembler.h:42] Begin to Assemble API data
+2026-11-08 19:58:10 [INFO] [228114] [228115] [csv_writer.cpp:94] Start dump /mnt/workspace/2329-JadeYara-20261104-1812/J079/taskonly/profile/PROF_000001_20261108195754606_00227994AIFDLIEC/mindstudio_profiler_output/api_statistic.csv, timestamp is 20261108195808.
+2026-11-08 19:58:10 [INFO] [228114] [228115] [file.cpp:503] The file not exists: /mnt/workspace/2329-JadeYara-20261104-1812/J079/taskonly/profile/PROF_000001_20261108195754606_00227994AIFDLIEC/mindstudio_profiler_output/api_statistic_20261108195808.csv.
+2026-11-08 19:58:10 [INFO] [228114] [228115] [csv_writer.cpp:102] Generate /mnt/workspace/2329-JadeYara-20261104-1812/J079/taskonly/profile/PROF_000001_20261108195754606_00227994AIFDLIEC/mindstudio_profiler_output/api_statistic.csv finished, timestamp is 20261108195808.
+2026-11-08 19:58:10 [INFO] [228114] [228115] [summary_assembler.h:46] Assemble and export API data success
+2026-11-08 19:58:10 [INFO] [228114] [228115] [process_control.cpp:333] Level[27]Release Data Types: St6vectorIN8Analysis6Domain7ApiDataESaIS2_EE 
+2026-11-08 19:58:10 [INFO] [228114] [228114] [py_init_parser.cpp:220] C pipeline finished, prof path: /mnt/workspace/2329-JadeYara-20261104-1812/J079/taskonly/profile/PROF_000001_20261108195754606_00227994AIFDLIEC, flags: 0x13.

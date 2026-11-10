@@ -2,7 +2,8 @@
 set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/../.." && pwd)"
 BUILD="$ROOT/tests/ut/build"
-cmake -S "$ROOT/tests/ut" -B "$BUILD" -DGTEST_SOURCE_DIR="${GTEST_SOURCE_DIR:-}" -DENABLE_INNER_KERNEL_UT="${ENABLE_INNER_KERNEL_UT:-OFF}"
+cmake -S "$ROOT/tests/ut" -B "$BUILD" -DGTEST_SOURCE_DIR="${GTEST_SOURCE_DIR:-}" -DSOC_VERSION="${ASCEND_COMPUTE_UNIT:-ascend910b}"
+python3 "$ROOT/samples/test_reference.py"
 cmake --build "$BUILD" --parallel "${CANNJUDGE_COMPILE_JOBS:-4}"
 "$BUILD/op_host/p_relu_grad_update_op_host_ut"
 python3 "$ROOT/samples/sample.py" generate --directory "$ROOT/samples/build-cpu"

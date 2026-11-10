@@ -1,0 +1,8 @@
+# J072: batched General input preparation
+
+2026-11-08. Seat JadeYara, sole implementer. Performance phase.
+One variable: General source preparation changes from three serial Copy/sync/Expand stages sharing compact/raw scratch to independent per-source compact/raw buffers, three queued copies and one MTE2/V completion barrier. Window bounds, integer Gather indices, true-TBE Compute, tile2048, core routing and all J071 fastpaths stay unchanged. A/C freeze J071; B and standard are candidate.
+Evidence: J070 General12 measured10 regressions vs builtinTBE; window-boundary27.84-30.01us vs14.85-15.32us. Existing General::Expand serializes Copy/sync/index/Gather separately for each source. Batching eliminates two source-by-source DMA barriers without changing data or arithmetic. Not J046 repeated weights, not J060 queue merge, not J065 externalTPipe, no phase/index/tiling sweep.
+UB: append two compact FP32 buffers and two low-precision raw buffers after original allocation order. FP32 92672B; FP16/BF16 113152B, both below measured188416B available and80%Host budget. Existing binary source phases retained.
+Allowed paths: this experiment and JadeYara personal ledger/dev-log. J035/J070/J071 frozen; no official submission/commit/push. Original strict-pinned910C and project-only transfer authorized.
+Validation: current65 accepted TBE cases plus two all-bit feature cases; inherited1067 regression standard+ABC. Perf: General12 same-process customA/A/B/C plus builtinT/T, six balanced custom orders,350 discard200; legacy127 unchanged controls, originalprotocol. One candidate,90min active-work budget, no retries to force gates. Archive all failures and logs.

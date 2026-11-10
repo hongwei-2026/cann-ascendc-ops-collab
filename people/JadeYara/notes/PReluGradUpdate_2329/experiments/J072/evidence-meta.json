@@ -1,0 +1,10 @@
+{
+  "path": "/mnt/workspace/2329-JadeYara-20261104-1812/J072/device-evidence.zip",
+  "bytes": 65124628,
+  "sha256": "523ea64f509999793273a471e2918d705ef45788c3d97c7d3764c55427e383ed",
+  "files": 1418,
+  "all_manifest_entries_verified": true,
+  "standard_and_alias_sources_equal_cloud": true,
+  "production46files_unchanged": true,
+  "J071_frozen_source_unchanged": true
+}

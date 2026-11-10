@@ -1,0 +1,320 @@
+{
+  "baseline_submission": 1221802,
+  "runtime_changes": [
+    {
+      "path": "op_kernel/p_relu_grad_update.h",
+      "before_sha256": "35cdb93212984cb048bdc00c96a5eee20ad798363c33e21858d9ed9834c1c51e",
+      "after_sha256": "62753f80d313845f37f8844f55aeae13d6470dea3862613a7999a0e2e4a22654",
+      "equal": false
+    },
+    {
+      "path": "op_kernel/p_relu_grad_update_merged.h",
+      "before_sha256": "8fb4c7e004d5401c1abe5c989a66e775a8ff7b44e1657fb1dc3923e51be971de",
+      "after_sha256": "2784c1d6dae6b496dfed544b08ef5385748d69518e6085cb06a66c64b79f4589",
+      "equal": false
+    },
+    {
+      "path": "op_kernel/p_relu_grad_update_resident.h",
+      "before_sha256": "dc79299b7461c5a6efd61a01893daf746745068915f4488714578a15d0e41af2",
+      "after_sha256": "3a258ce71e160883d9eb173b2eed2af72c734f0776723ef915964a634e7c057d",
+      "equal": false
+    },
+    {
+      "path": "op_kernel/p_relu_grad_update_s1.h",
+      "before_sha256": "d90411e0a84874eb7c699b43e05cb9b9750692e11a23d7124857496d32103c36",
+      "after_sha256": "88e8906555affa094dc75a2874464d9c88e02c48797c43d2f83749dc3114e798",
+      "equal": false
+    }
+  ],
+  "host_unchanged": true,
+  "files": [
+    {
+      "path": "build.sh",
+      "before_sha256": "f7dcb013694c59e8ef8cb8713919f0c0919c941df16ef8c468b69e4d5a5cbb3c",
+      "after_sha256": "7838cbf4d4e118260a18b882bdc760780d403536f07f8ee364f525858d43fbd7",
+      "equal": false
+    },
+    {
+      "path": "CMakeLists.txt",
+      "before_sha256": "85103159ac84fce4fe67ad82fe5ba2f6974a9f28d8205f138bbb9212079deb90",
+      "after_sha256": "85103159ac84fce4fe67ad82fe5ba2f6974a9f28d8205f138bbb9212079deb90",
+      "equal": true
+    },
+    {
+      "path": "examples/CMakeLists.txt",
+      "before_sha256": "ee4f416c5ff131568142e7e9187c9c8d6c94bdee4e8992cea45500fa8e2b2309",
+      "after_sha256": "ee4f416c5ff131568142e7e9187c9c8d6c94bdee4e8992cea45500fa8e2b2309",
+      "equal": true
+    },
+    {
+      "path": "examples/run.sh",
+      "before_sha256": "11b8d3fff5f5d6d98536e80a1e64bc8292328bb759a49f9219a3b94c080b63aa",
+      "after_sha256": "11b8d3fff5f5d6d98536e80a1e64bc8292328bb759a49f9219a3b94c080b63aa",
+      "equal": true
+    },
+    {
+      "path": "examples/sample_support.h",
+      "before_sha256": "3af9ffac518aac44ec947fbc9fbbe947d68a6c53a080f28b7f926037fbb8e31e",
+      "after_sha256": "3af9ffac518aac44ec947fbc9fbbe947d68a6c53a080f28b7f926037fbb8e31e",
+      "equal": true
+    },
+    {
+      "path": "examples/test_aclnn_p_relu_grad_update.cpp",
+      "before_sha256": "aad97eab6aa435bddbfa8c3e424a02159dd4c6a9e1571f3d071c5f1aa82058e4",
+      "after_sha256": "aad97eab6aa435bddbfa8c3e424a02159dd4c6a9e1571f3d071c5f1aa82058e4",
+      "equal": true
+    },
+    {
+      "path": "op_host/CMakeLists.txt",
+      "before_sha256": "1de444d1f669aabeb63b73b636b64a1532d74d7e056956150ba1465073aed96b",
+      "after_sha256": "1de444d1f669aabeb63b73b636b64a1532d74d7e056956150ba1465073aed96b",
+      "equal": true
+    },
+    {
+      "path": "op_host/p_relu_grad_update_def.cpp",
+      "before_sha256": "5e230620c23b7327c5b5573311a3a8ddd5edfe013dc655684b48c32bba04494d",
+      "after_sha256": "5e230620c23b7327c5b5573311a3a8ddd5edfe013dc655684b48c32bba04494d",
+      "equal": true
+    },
+    {
+      "path": "op_host/p_relu_grad_update_infershape.cpp",
+      "before_sha256": "3fac38836f1179caf5179476fcc7eede05761a9ea192a71764d82409f0af6d14",
+      "after_sha256": "3fac38836f1179caf5179476fcc7eede05761a9ea192a71764d82409f0af6d14",
+      "equal": true
+    },
+    {
+      "path": "op_host/p_relu_grad_update_shape_utils.h",
+      "before_sha256": "0ee8c90cea7eddf40bd999568269783c46317e05266840ddc19c2609f165b89f",
+      "after_sha256": "0ee8c90cea7eddf40bd999568269783c46317e05266840ddc19c2609f165b89f",
+      "equal": true
+    },
+    {
+      "path": "op_host/p_relu_grad_update_tiling.cpp",
+      "before_sha256": "89b161e2f198d81a232cce57cd1294a8881b44e316152b20e5ae4db1fbdeaf07",
+      "after_sha256": "89b161e2f198d81a232cce57cd1294a8881b44e316152b20e5ae4db1fbdeaf07",
+      "equal": true
+    },
+    {
+      "path": "op_kernel/CMakeLists.txt",
+      "before_sha256": "803fb189cb5bb83c1003e43e7df99db42fc838fa53ea8f0fce9dc6ccd3561d6b",
+      "after_sha256": "803fb189cb5bb83c1003e43e7df99db42fc838fa53ea8f0fce9dc6ccd3561d6b",
+      "equal": true
+    },
+    {
+      "path": "op_kernel/p_relu_grad_update.cpp",
+      "before_sha256": "f066eb9cefab78834944cebfe530d31b9f59ed6fc8a4d17b66c60f94df2b87a4",
+      "after_sha256": "f066eb9cefab78834944cebfe530d31b9f59ed6fc8a4d17b66c60f94df2b87a4",
+      "equal": true
+    },
+    {
+      "path": "op_kernel/p_relu_grad_update.h",
+      "before_sha256": "35cdb93212984cb048bdc00c96a5eee20ad798363c33e21858d9ed9834c1c51e",
+      "after_sha256": "62753f80d313845f37f8844f55aeae13d6470dea3862613a7999a0e2e4a22654",
+      "equal": false
+    },
+    {
+      "path": "op_kernel/p_relu_grad_update_full_pipeline.h",
+      "before_sha256": "12a7b53f87d3492d058dbbf25f7559f50e4d81bdbf2d8106641e0e6309d37e20",
+      "after_sha256": "12a7b53f87d3492d058dbbf25f7559f50e4d81bdbf2d8106641e0e6309d37e20",
+      "equal": true
+    },
+    {
+      "path": "op_kernel/p_relu_grad_update_gather.h",
+      "before_sha256": "21464f1a522ef17b6cb5ebd3ae09fc9800b58f7784d715883ba9435b1199db30",
+      "after_sha256": "21464f1a522ef17b6cb5ebd3ae09fc9800b58f7784d715883ba9435b1199db30",
+      "equal": true
+    },
+    {
+      "path": "op_kernel/p_relu_grad_update_gather_tiling.h",
+      "before_sha256": "0442d86f58b96bbf0e3dc091314bbd7d7fda0b6e243f13134cbfafada596b0f5",
+      "after_sha256": "0442d86f58b96bbf0e3dc091314bbd7d7fda0b6e243f13134cbfafada596b0f5",
+      "equal": true
+    },
+    {
+      "path": "op_kernel/p_relu_grad_update_general.h",
+      "before_sha256": "5a5d89f3da347c0b2dd112d19632f0bd600f33641745beeb0fd4f54d572fea2c",
+      "after_sha256": "5a5d89f3da347c0b2dd112d19632f0bd600f33641745beeb0fd4f54d572fea2c",
+      "equal": true
+    },
+    {
+      "path": "op_kernel/p_relu_grad_update_general_tiling.h",
+      "before_sha256": "5d55b9990653596d199a02d3f4395d63f25141c2d4e6d80279e66dd1b7ba4f13",
+      "after_sha256": "5d55b9990653596d199a02d3f4395d63f25141c2d4e6d80279e66dd1b7ba4f13",
+      "equal": true
+    },
+    {
+      "path": "op_kernel/p_relu_grad_update_merged.h",
+      "before_sha256": "8fb4c7e004d5401c1abe5c989a66e775a8ff7b44e1657fb1dc3923e51be971de",
+      "after_sha256": "2784c1d6dae6b496dfed544b08ef5385748d69518e6085cb06a66c64b79f4589",
+      "equal": false
+    },
+    {
+      "path": "op_kernel/p_relu_grad_update_resident.h",
+      "before_sha256": "dc79299b7461c5a6efd61a01893daf746745068915f4488714578a15d0e41af2",
+      "after_sha256": "3a258ce71e160883d9eb173b2eed2af72c734f0776723ef915964a634e7c057d",
+      "equal": false
+    },
+    {
+      "path": "op_kernel/p_relu_grad_update_s1.h",
+      "before_sha256": "d90411e0a84874eb7c699b43e05cb9b9750692e11a23d7124857496d32103c36",
+      "after_sha256": "88e8906555affa094dc75a2874464d9c88e02c48797c43d2f83749dc3114e798",
+      "equal": false
+    },
+    {
+      "path": "op_kernel/p_relu_grad_update_splitc.h",
+      "before_sha256": "16b2754f68ccd7a93c184fd6bd515abdbd08d101251f97fbf81ba5658f9fa086",
+      "after_sha256": "16b2754f68ccd7a93c184fd6bd515abdbd08d101251f97fbf81ba5658f9fa086",
+      "equal": true
+    },
+    {
+      "path": "op_kernel/p_relu_grad_update_tiling_data.h",
+      "before_sha256": "42a68f7aa17548e8c9397b65bb9d50869ec34369750167dfc02cd431823c20ed",
+      "after_sha256": "42a68f7aa17548e8c9397b65bb9d50869ec34369750167dfc02cd431823c20ed",
+      "equal": true
+    },
+    {
+      "path": "op_kernel/p_relu_grad_update_tiling_key.h",
+      "before_sha256": "d0e15b3fc22d135a24d622d97469c48ac9c50b2fe2ec9cc82a4a9761bcb8ced3",
+      "after_sha256": "d0e15b3fc22d135a24d622d97469c48ac9c50b2fe2ec9cc82a4a9761bcb8ced3",
+      "equal": true
+    },
+    {
+      "path": "README.md",
+      "before_sha256": "7f9bf3a841a3988ffb551f5ad168d00abc24e8f043be996c856d06c9d508e1a4",
+      "after_sha256": "74f1d51ab3a54baa4422da575e2bc39e17996bd1b01d6d206fecb593b7ee816f",
+      "equal": false
+    },
+    {
+      "path": "samples/case.json",
+      "before_sha256": "3e80ef774455fad621b320312f935d4a1ad4733e12ce5aa9a60d67dc3aa43315",
+      "after_sha256": "3e80ef774455fad621b320312f935d4a1ad4733e12ce5aa9a60d67dc3aa43315",
+      "equal": true
+    },
+    {
+      "path": "samples/reference.py",
+      "before_sha256": "fe44f69b6e181031a349e25a8da18a06d3cee8913f6b7692c512f7fa28972028",
+      "after_sha256": "6fc31520df413e038152845ecb1ecf6bf026331395e3c4a79f648fa1eb236dac",
+      "equal": false
+    },
+    {
+      "path": "samples/sample.py",
+      "before_sha256": "f8b63b30a32b450576e93d2e4fbecb7fd5e4b177de2027cdaf781c957c217a7b",
+      "after_sha256": "f8b63b30a32b450576e93d2e4fbecb7fd5e4b177de2027cdaf781c957c217a7b",
+      "equal": true
+    },
+    {
+      "path": "tests/ut/cmake/BuildGoogleTest.cmake",
+      "before_sha256": "51270daff5b349ce5f21f73e18d0b561f179541864158cafdef440ac7f81de93",
+      "after_sha256": "51270daff5b349ce5f21f73e18d0b561f179541864158cafdef440ac7f81de93",
+      "equal": true
+    },
+    {
+      "path": "tests/ut/CMakeLists.txt",
+      "before_sha256": "40dcb7f41a7c8997a91b9e65da428bb15ca9b11ce00f1b11381949d3a9407a56",
+      "after_sha256": "244bcf43b10e05e24c4d1214e181387967b71eb05365d7ad688bd618e700b125",
+      "equal": false
+    },
+    {
+      "path": "tests/ut/common/any_value.h",
+      "before_sha256": "94c3bc4b66b984c67565fa140a780154fc2423ee37164397590fc08dc57d07ca",
+      "after_sha256": "94c3bc4b66b984c67565fa140a780154fc2423ee37164397590fc08dc57d07ca",
+      "equal": true
+    },
+    {
+      "path": "tests/ut/common/infershape_case_executor.cpp",
+      "before_sha256": "daa97c41fc64e205aa845f9cf248401d945424bc10da5893c286a87cb1a2866f",
+      "after_sha256": "daa97c41fc64e205aa845f9cf248401d945424bc10da5893c286a87cb1a2866f",
+      "equal": true
+    },
+    {
+      "path": "tests/ut/common/infershape_case_executor.h",
+      "before_sha256": "94b126cff506fe0340a887c135685b7ac2e3779cf20b1fcdf496e50924474423",
+      "after_sha256": "94b126cff506fe0340a887c135685b7ac2e3779cf20b1fcdf496e50924474423",
+      "equal": true
+    },
+    {
+      "path": "tests/ut/common/infershape_context_faker.cpp",
+      "before_sha256": "98e57a09b514b9473c712e3df49b74278519b4b433c0c70ef8fc07f09390bd94",
+      "after_sha256": "98e57a09b514b9473c712e3df49b74278519b4b433c0c70ef8fc07f09390bd94",
+      "equal": true
+    },
+    {
+      "path": "tests/ut/common/infershape_context_faker.h",
+      "before_sha256": "9acca6cc6c3078fc4734a6d5ca12a65c2db1af5664b0371793f89cd2bb0b4415",
+      "after_sha256": "9acca6cc6c3078fc4734a6d5ca12a65c2db1af5664b0371793f89cd2bb0b4415",
+      "equal": true
+    },
+    {
+      "path": "tests/ut/common/tiling_case_executor.cpp",
+      "before_sha256": "c3e1fbc6c8bbd9ac4e1e4816e114a93ebf4bf226c13d051971cb4b1f86494516",
+      "after_sha256": "c3e1fbc6c8bbd9ac4e1e4816e114a93ebf4bf226c13d051971cb4b1f86494516",
+      "equal": true
+    },
+    {
+      "path": "tests/ut/common/tiling_case_executor.h",
+      "before_sha256": "3046db4183f72778f3a4162617fde703d613dc9d7b5fbcbadf9cb45357ee4e5c",
+      "after_sha256": "3046db4183f72778f3a4162617fde703d613dc9d7b5fbcbadf9cb45357ee4e5c",
+      "equal": true
+    },
+    {
+      "path": "tests/ut/common/tiling_context_faker.cpp",
+      "before_sha256": "62f60bb4fc01448dbe88383c0e383a9446c95b3ca3662cb1b41a16e4c4a5d192",
+      "after_sha256": "62f60bb4fc01448dbe88383c0e383a9446c95b3ca3662cb1b41a16e4c4a5d192",
+      "equal": true
+    },
+    {
+      "path": "tests/ut/common/tiling_context_faker.h",
+      "before_sha256": "32fdc0c5bf68133fb37482413ae24dd3c0bda2cf314e9607fc6d8e174fc36ef3",
+      "after_sha256": "32fdc0c5bf68133fb37482413ae24dd3c0bda2cf314e9607fc6d8e174fc36ef3",
+      "equal": true
+    },
+    {
+      "path": "tests/ut/op_host/CMakeLists.txt",
+      "before_sha256": "d1cac3f47a77496540876eb5c79aecb57b46a1353b6e8aa359c2104284bbe44b",
+      "after_sha256": "4e319ede8297250259aa759e64b46818a18836988982725dd1a50d537ca73f74",
+      "equal": false
+    },
+    {
+      "path": "tests/ut/op_host/test_op_host_main.cpp",
+      "before_sha256": "63fd175be4db9c9adcf8652db640451103bc536b18ca5c0bc489139346c7a998",
+      "after_sha256": "63fd175be4db9c9adcf8652db640451103bc536b18ca5c0bc489139346c7a998",
+      "equal": true
+    },
+    {
+      "path": "tests/ut/op_host/test_p_relu_grad_update_tiling.cpp",
+      "before_sha256": "76ae4f6ccd614460d8d0635eaa3b768ee2fe07eb64b832b272749476d33bdf03",
+      "after_sha256": "7a852640c11b88d808509766c8a5df75fdb79d6bc5b9b67a887dca50fe064310",
+      "equal": false
+    },
+    {
+      "path": "tests/ut/op_kernel/CMakeLists.txt",
+      "before_sha256": "4be89a8f04bbc30a58034aec988c99f1b2dbf3965dd0e9570201c69a23f28492",
+      "after_sha256": "4be89a8f04bbc30a58034aec988c99f1b2dbf3965dd0e9570201c69a23f28492",
+      "equal": true
+    },
+    {
+      "path": "tests/ut/op_kernel/p_relu_grad_update_data/README.md",
+      "before_sha256": "ffd9bb0b039727b52ed5ea3df627fb669ccd53b6752297d93bc8de786f76a934",
+      "after_sha256": "ffd9bb0b039727b52ed5ea3df627fb669ccd53b6752297d93bc8de786f76a934",
+      "equal": true
+    },
+    {
+      "path": "tests/ut/op_kernel/p_relu_grad_update_tiling.h",
+      "before_sha256": "8289b95c12f3fa81197cbd7640662c839061151fecf66d1f57ab2ebf1ae7310d",
+      "after_sha256": "5ecd4ac1393f261a954b4a457bd534f73d1dc76bd4729fded8f3b881ad646726",
+      "equal": false
+    },
+    {
+      "path": "tests/ut/op_kernel/test_p_relu_grad_update.cpp",
+      "before_sha256": "1063919d320eb9a1b323b902d5165588ceb0d3da3bd4fb3d20c392e448572a73",
+      "after_sha256": "9ed8b1000d815d5a0fc1afb7fb01311076d518567a31411d33787dc1d9fde3e7",
+      "equal": false
+    },
+    {
+      "path": "tests/ut/run.sh",
+      "before_sha256": "08529ac59892bf6d4e7bf6c817741904bf1f1aeb35138989a342a91dd07e5347",
+      "after_sha256": "d8ed2c7fc3d65025364d684ece16d85414c0729c5f4e264d1433e02e5441477b",
+      "equal": false
+    }
+  ]
+}

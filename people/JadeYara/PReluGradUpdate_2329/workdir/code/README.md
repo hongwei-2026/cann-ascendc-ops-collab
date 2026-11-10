@@ -1,14 +1,33 @@
-# 算子工程调测
+# PReluGradUpdate_2329：J077 复现与 UT 修复版
 
-加载 CANN 9.0.0 或 9.1.0 环境，安装 Python 参考实现需要的 numpy、ml_dtypes（以及参考文件实际使用的 torch/tensorflow）。
+基线为官方提交 1221802；本修复版不修改 op_host/op_kernel。
+
+已验证环境：CANN 9.3.0-beta.1、设备 Ascend910_9362、构建目标 ascend910_93。需要本地 GoogleTest 源码、nlohmann/json 头文件、SDK tikicpulib，以及 Python numpy。读取 bfloat16 数组时需要 ml_dtypes。
 
 ```bash
-source /path/to/cann/set_env.sh
-bash build.sh -j4       # 构建 RUN 包
-DEVICE_ID=0 bash build.sh -j4 -e  # 构建并运行首个测试点、比较输出
-NLOHMANN_JSON_INCLUDE_DIR=/path/to/json/include GTEST_SOURCE_DIR=/path/to/googletest bash build.sh -j4 -u # 本地 UT
+source /home/developer/Ascend/cann/set_env.sh
+export LD_LIBRARY_PATH=/usr/local/Ascend/driver/lib64/common:/usr/local/Ascend/driver/lib64/driver:/usr/local/Ascend/driver/lib64:${LD_LIBRARY_PATH:-}
+export GTEST_SOURCE_DIR=/usr/src/googletest
+export NLOHMANN_JSON_INCLUDE_DIR=/home/developer/opensource/json/include
+
+bash build.sh --soc ascend910_93 -j4
+bash build.sh --soc ascend910_93 -j4 -u
+DEVICE_ID=0 bash build.sh --soc ascend910_93 -j4 -e
 ```
 
-GoogleTest 使用本地源码（建议1.14.0），nlohmann/json 头文件建议3.11.3（include目录下应有nlohmann/json.hpp），不自动下载。CPU 调测还需要工具链的 tikicpulib。修改 op_host、op_kernel，以及存在时的 op_api。kernel为空时输出校验失败是正常现象。samples 只包含第一个 NPU 测试点。输入按题目规范生成，比较前检查文件大小。
+build.sh 默认目标仍为 ascend910b，可用 --soc 或 ASCEND_COMPUTE_UNIT 指定实际目标。切换目标会使构建指纹失效。当前 910C 上，910b-only 包会加载自定义 Host 却回退到内置 TBE 内核，造成 80 字节自定义 tiling 与内置 kernel 混用并报 507035；显式构建 ascend910_93 已通过。不要把修改包目录名作为通用跨型号适配方案。
 
-opapi 工程的完整结果由外层 NPU example 校验；内层 CPU UT 的 fixture 需要按实际内外层转换关系自行提供，不能直接套外层 GT。默认 -u 明确跳过内层数值断言。准备并编辑内层 fixture 后可使用 `ENABLE_INNER_KERNEL_UT=ON bash build.sh -u` 启用；其结果需按内层语义自行断言。API UT 需要设备上下文，默认明确跳过；先构建 RUN，再使用 `RUN_OP_API_UT=1 DEVICE_ID=0 bash build.sh -u` 执行外层 workspace 接口测试，该测试不代替 -e 的数值校验。若修改 tiling 结构，也需要同步调整 kernel UT 的 tiling fixture。
+-u 实际执行 7 项 Python 数值链测试、9 项 Host UT、1 项 float Kernel CPU 模拟器 UT，并校验模拟器的两个输出；不再使用旧模板的“默认跳过内层断言”说明。CPU 模拟器型号为 Ascend910B1，不等同于当前设备实测。-e 运行 [4,6,8]、通道权重 [6] 的 float 设备样例，并校验 dx/update；单个样例不代表完整输入覆盖。
+
+samples/reference.py 是真实 TBE 算术顺序的 CPU 模型：
+
+```text
+neg = select(x > 0, 0, 1)
+pos = select(x > 0, 1, 0)
+dx = cast_output_dtype((pos + neg * w) * g)
+update = cast_output_dtype((neg * x) * g + float32(dx) * 0)
+```
+
+不能用 where 跳过掩码乘法产生的异常值，也不能删除低精度 dx 量化和回读。update 逐元素、不归约。ND/NCHW/NC1HWC0 使用物理存储形状，不执行布局转换；权重按真实 TBE 分支次序 reshape 后只能广播到 grads/features 的输出形状。
+
+J077 已核验：上述 UT 和设备样例通过；CPU 模型对 67 个已接受的真实 TBE 归档金标准为零逻辑差异，2 个被 TBE 拒绝的描述另记拒绝。完整日志、首次失败记录、目标包对照与哈希在上级实验目录 README.md 和 device-evidence.zip；CPU 模型不替代设备 oracle。

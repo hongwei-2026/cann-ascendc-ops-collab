@@ -1,0 +1,47 @@
+[
+  {
+    "path": "model-vs-actualTBE.json",
+    "bytes": 20972,
+    "sha256": "cec7a0099475c3cf71130ecd5e963ed3988a89834eb2450a0c475b090ef94586"
+  },
+  {
+    "path": "logs/launcher2.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "logs/sample93-attempt1.log",
+    "bytes": 46992,
+    "sha256": "fa95e5f53261af35155f4a4977dfa4f5874a8de111f6255faf744d80fe546816"
+  },
+  {
+    "path": "logs/target-launch.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "logs/target-probe.log",
+    "bytes": 535,
+    "sha256": "ab4b3fb55f172138aa02f12fc0b2cb8fbb2b8eb6fc7a1a79a37ff22f430f40c9"
+  },
+  {
+    "path": "logs/ut-attempt1.log",
+    "bytes": 45878,
+    "sha256": "b163733ca89a82f8ca529cc570c617937b1114a0474d2255b1d21e014c533254"
+  },
+  {
+    "path": "logs/ut-attempt2.log",
+    "bytes": 5342,
+    "sha256": "054be5e73f58e615fbb07b7d979b1062df1e3f02e802c6cf086b483e733a7dde"
+  },
+  {
+    "path": "target-probe/metadata-transform.json",
+    "bytes": 3417,
+    "sha256": "ca97f6141af36b73ce8bc2e06a36807310397ee3568beaa98ac8cd41f411ceca"
+  },
+  {
+    "path": "target-probe/results.json",
+    "bytes": 606,
+    "sha256": "4db0ab2c7c904dd90817ec7e59552237f5c7eff881d7aafe87c61ca7250d5b8c"
+  }
+]

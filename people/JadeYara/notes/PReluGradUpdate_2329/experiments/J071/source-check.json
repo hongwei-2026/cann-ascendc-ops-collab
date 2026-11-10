@@ -1,0 +1,90 @@
+{
+  "compute_body_identical": true,
+  "host_identical": true,
+  "ub_bytes": 185088,
+  "available_ub": 188416,
+  "allocations": [
+    {
+      "name": "grads0",
+      "offset": 0,
+      "bytes": 16384,
+      "phase": 0
+    },
+    {
+      "name": "grads1",
+      "offset": 16384,
+      "bytes": 16384,
+      "phase": 0
+    },
+    {
+      "name": "inputPhasePad",
+      "offset": 32768,
+      "bytes": 256,
+      "phase": 0
+    },
+    {
+      "name": "features0",
+      "offset": 33024,
+      "bytes": 16384,
+      "phase": 256
+    },
+    {
+      "name": "features1",
+      "offset": 49408,
+      "bytes": 16384,
+      "phase": 256
+    },
+    {
+      "name": "weights",
+      "offset": 65792,
+      "bytes": 16640,
+      "phase": 256
+    },
+    {
+      "name": "dx0",
+      "offset": 82432,
+      "bytes": 16384,
+      "phase": 0
+    },
+    {
+      "name": "dx1",
+      "offset": 98816,
+      "bytes": 16384,
+      "phase": 0
+    },
+    {
+      "name": "update0",
+      "offset": 115200,
+      "bytes": 16384,
+      "phase": 0
+    },
+    {
+      "name": "update1",
+      "offset": 131584,
+      "bytes": 16384,
+      "phase": 0
+    },
+    {
+      "name": "mask",
+      "offset": 147968,
+      "bytes": 4352,
+      "phase": 0
+    },
+    {
+      "name": "neg",
+      "offset": 152320,
+      "bytes": 16384,
+      "phase": 256
+    },
+    {
+      "name": "fg",
+      "offset": 168704,
+      "bytes": 16384,
+      "phase": 256
+    }
+  ],
+  "modified_standard_files": [
+    "op_kernel/p_relu_grad_update.cpp",
+    "op_kernel/p_relu_grad_update_full_pipeline.h"
+  ]
+}

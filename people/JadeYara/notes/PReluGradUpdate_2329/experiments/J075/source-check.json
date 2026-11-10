@@ -1,0 +1,8 @@
+{
+  "modified": [
+    "op_kernel/p_relu_grad_update_general.h"
+  ],
+  "compute_identical": true,
+  "host_identical": true,
+  "UB_allocations_identical": true
+}

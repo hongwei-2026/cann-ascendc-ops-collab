@@ -1,0 +1,30 @@
+{
+  "json_changes": [
+    "op_impl/ai_core/tbe/kernel/ascend910b/p_relu_grad_update/PReluGradUpdate_b03f5e3721c8a40142b563bba85fcf7f.json",
+    "op_impl/ai_core/tbe/kernel/ascend910b/p_relu_grad_update/PReluGradUpdate_dbc2acd140c6d91700d9834a129a8153.json",
+    "op_impl/ai_core/tbe/kernel/ascend910b/p_relu_grad_update/PReluGradUpdate_f1d58239eefed44e09f094c28cf20f04.json",
+    "op_impl/ai_core/tbe/kernel/ascend910b/p_relu_grad_update/PReluGradUpdate_599588aa57378985d89e91ae7759ebed.json",
+    "op_impl/ai_core/tbe/kernel/ascend910b/p_relu_grad_update/PReluGradUpdate_40c7c86afed688dc3472607bbb5e140b.json",
+    "op_impl/ai_core/tbe/kernel/ascend910b/p_relu_grad_update/PReluGradUpdate_f2768884efe8e6b7f77046bb06e3ea42.json",
+    "op_impl/ai_core/tbe/kernel/ascend910b/p_relu_grad_update/PReluGradUpdate_e149eea416cbf8bd8da03e99dd32ec92.json",
+    "op_impl/ai_core/tbe/kernel/ascend910b/p_relu_grad_update/PReluGradUpdate_54601d1ae52903292cf521ea93fcac6e.json",
+    "op_impl/ai_core/tbe/kernel/ascend910b/p_relu_grad_update/PReluGradUpdate_7d1e7472ff1adf7c5d7627c5477d529a.json",
+    "op_impl/ai_core/tbe/kernel/config/ascend910b/p_relu_grad_update.json",
+    "op_impl/ai_core/tbe/kernel/config/ascend910b/binary_info_config.json"
+  ],
+  "unchanged_binaries": {
+    "op_impl/ai_core/tbe/kernel/ascend910b/p_relu_grad_update/PReluGradUpdate_f1d58239eefed44e09f094c28cf20f04.o": "b1e6431f6a45bfa0ffa75ccb177f93f6f6fb66c95f8bf4751debc2a4bc367152",
+    "op_impl/ai_core/tbe/kernel/ascend910b/p_relu_grad_update/PReluGradUpdate_40c7c86afed688dc3472607bbb5e140b.o": "a7a8319bf9b7423ec243b006f0e4843f5b2ae9a1c906c9c27cfe6b03052396c3",
+    "op_impl/ai_core/tbe/kernel/ascend910b/p_relu_grad_update/PReluGradUpdate_f2768884efe8e6b7f77046bb06e3ea42.o": "d6405c8c34eb1535fe4bdfb2db1eec20274d2a8527a04ae691bf43701eb26918",
+    "op_impl/ai_core/tbe/kernel/ascend910b/p_relu_grad_update/PReluGradUpdate_b03f5e3721c8a40142b563bba85fcf7f.o": "c54a8d319899d6388b8c63bc4efb5567782d22e20f02572c90c32ca7dbf9a294",
+    "op_impl/ai_core/tbe/kernel/ascend910b/p_relu_grad_update/PReluGradUpdate_54601d1ae52903292cf521ea93fcac6e.o": "6bce270ea3795f02c75da093b94a4dff3a3ec85fdab323bbd95123ffd1059dd6",
+    "op_impl/ai_core/tbe/kernel/ascend910b/p_relu_grad_update/PReluGradUpdate_e149eea416cbf8bd8da03e99dd32ec92.o": "e3c882ca776de84aab1ff54d357d5d83672204b02136be1472b5184c4f4a7468",
+    "op_impl/ai_core/tbe/kernel/ascend910b/p_relu_grad_update/PReluGradUpdate_dbc2acd140c6d91700d9834a129a8153.o": "1749965ebac38b133b58d28ea6ad1c530d00f6705a928b5c60d98da8eaf20caa",
+    "op_impl/ai_core/tbe/kernel/ascend910b/p_relu_grad_update/PReluGradUpdate_7d1e7472ff1adf7c5d7627c5477d529a.o": "1fe7a0dfbc7a82a5eca5c6a8a9e5cfe4a30edeb45ba9415aea7ef8c13eaf8078",
+    "op_impl/ai_core/tbe/kernel/ascend910b/p_relu_grad_update/PReluGradUpdate_599588aa57378985d89e91ae7759ebed.o": "6bd9bb41f34b762e655768b81b9d1a3d5bd49868bb0d3c35669dbc57ac82ca2e",
+    "op_impl/ai_core/tbe/op_tiling/liboptiling.so": "4725603cecf0baa6f60ea88acc962dd9f0de3afeca5da04adca23860a05d1f23",
+    "op_impl/ai_core/tbe/op_tiling/lib/linux/aarch64/libcust_opmaster_rt2.0.so": "4725603cecf0baa6f60ea88acc962dd9f0de3afeca5da04adca23860a05d1f23",
+    "op_proto/lib/linux/aarch64/libcust_opsproto_rt2.0.so": "07ebae1ba853b36dfc6995fa4b59d019b53d3d2bde874ee55a98ae10e8c92228",
+    "op_api/lib/libcust_opapi.so": "3d8a32b6eba2c860bf5327f1588cb7859f03c01304f59a2340d9fcc142860731"
+  }
+}

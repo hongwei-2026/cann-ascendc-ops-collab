@@ -1,0 +1,91 @@
+[  8%] Built target ascendc_kernels_copy_kernel_srcs
+[ 16%] Built target ascendc_kernels_ops_info_gen_ascend910_93
+Consolidate compiler generated dependencies of target cust_optiling
+[ 91%] Built target cust_optiling
+[100%] Built target j078_abc_custom_ascendc_cust_optiling
+[ascend910_93] Generating PReluGradUpdateC_a128ac00b9d688b98e2eef527773c45e ...
+[ascend910_93] Generating PReluGradUpdateC_61dd9ce940c60c66d4588b2d6e14c795 ...
+[ascend910_93] Generating PReluGradUpdateA_09d908be4b4ec54694e82e9505aa57a3 ...
+[ascend910_93] Generating PReluGradUpdateB_41de9ad330db1b72c556307cce9a6afc ...
+Opc tool start working now, please wait for a moment.
+[ascend910_93] Generating PReluGradUpdateB_41de9ad330db1b72c556307cce9a6afc Done
+[ascend910_93] Generating PReluGradUpdateB_f69081995c82e5809030cf1bb9c57449 ...
+Opc tool start working now, please wait for a moment.
+[ascend910_93] Generating PReluGradUpdateC_a128ac00b9d688b98e2eef527773c45e Done
+[ascend910_93] Generating PReluGradUpdateB_bf496ea42057ec5e84f4affb68b07c9c ...
+Opc tool start working now, please wait for a moment.
+[ascend910_93] Generating PReluGradUpdateC_61dd9ce940c60c66d4588b2d6e14c795 Done
+[ascend910_93] Generating PReluGradUpdateC_53a4a7e47baf80a0c016f3c94ef10fd8 ...
+Opc tool start working now, please wait for a moment.
+[ascend910_93] Generating PReluGradUpdateA_09d908be4b4ec54694e82e9505aa57a3 Done
+[ascend910_93] Generating PReluGradUpdateA_4a5e3258075fca44d259957351ab1123 ...
+Opc tool start working now, please wait for a moment.
+[ascend910_93] Generating PReluGradUpdateB_f69081995c82e5809030cf1bb9c57449 Done
+[ascend910_93] Generating PReluGradUpdateB_a508726901502f85b6a56ba2d1dc45e8 ...
+Opc tool start working now, please wait for a moment.
+[ascend910_93] Generating PReluGradUpdateB_bf496ea42057ec5e84f4affb68b07c9c Done
+[ascend910_93] Generating PReluGradUpdateC_4571069864fa979058a4281945acd833 ...
+Opc tool start working now, please wait for a moment.
+[ascend910_93] Generating PReluGradUpdateA_4a5e3258075fca44d259957351ab1123 Done
+[ascend910_93] Generating PReluGradUpdateA_a4c9eaf903eae3d2267b083c3699b21a ...
+Opc tool start working now, please wait for a moment.
+[ascend910_93] Generating PReluGradUpdateC_53a4a7e47baf80a0c016f3c94ef10fd8 Done
+[ascend910_93] Generating PReluGradUpdateA_7b139b8bdb43bfc15e2164894991754d ...
+Opc tool start working now, please wait for a moment.
+[ascend910_93] Generating PReluGradUpdateB_a508726901502f85b6a56ba2d1dc45e8 Done
+[ascend910_93] Generating PReluGradUpdateB_90c013d153549d96c852e25678bc3921 ...
+Opc tool start working now, please wait for a moment.
+[ascend910_93] Generating PReluGradUpdateC_4571069864fa979058a4281945acd833 Done
+[ascend910_93] Generating PReluGradUpdateC_3026b58e344556aac167fc2c67a3f90b ...
+Opc tool start working now, please wait for a moment.
+[ascend910_93] Generating PReluGradUpdateA_a4c9eaf903eae3d2267b083c3699b21a Done
+[ascend910_93] Generating PReluGradUpdateC_e825e48a1070bd8a30c7554dc05ec8f0 ...
+Opc tool start working now, please wait for a moment.
+[ascend910_93] Generating PReluGradUpdateA_7b139b8bdb43bfc15e2164894991754d Done
+[ascend910_93] Generating PReluGradUpdateA_fd6c6c327224fce82e4d49e2cbe74516 ...
+Opc tool start working now, please wait for a moment.
+[ascend910_93] Generating PReluGradUpdateB_90c013d153549d96c852e25678bc3921 Done
+[ascend910_93] Generating PReluGradUpdateB_23f0fcca5827adbb03e35362ce90ad44 ...
+Opc tool start working now, please wait for a moment.
+[ascend910_93] Generating PReluGradUpdateC_3026b58e344556aac167fc2c67a3f90b Done
+[ascend910_93] Generating PReluGradUpdateB_e35fbd1c83df8303b3fb40d86acfc312 ...
+Opc tool start working now, please wait for a moment.
+[ascend910_93] Generating PReluGradUpdateC_e825e48a1070bd8a30c7554dc05ec8f0 Done
+[ascend910_93] Generating PReluGradUpdateC_5ae00f05e4425d350b336f35733a74af ...
+Opc tool start working now, please wait for a moment.
+[ascend910_93] Generating PReluGradUpdateA_fd6c6c327224fce82e4d49e2cbe74516 Done
+[ascend910_93] Generating PReluGradUpdateA_91d8758da41b0a940e57a2e36ce8d2e0 ...
+Opc tool start working now, please wait for a moment.
+[ascend910_93] Generating PReluGradUpdateB_23f0fcca5827adbb03e35362ce90ad44 Done
+[ascend910_93] Generating PReluGradUpdateA_a524cee78314da0880df38668c3c2b0c ...
+Opc tool start working now, please wait for a moment.
+[ascend910_93] Generating PReluGradUpdateB_e35fbd1c83df8303b3fb40d86acfc312 Done
+[ascend910_93] Generating PReluGradUpdateB_bf8ec1f2a4cbe4b0cfbafd3839335280 ...
+Opc tool start working now, please wait for a moment.
+[ascend910_93] Generating PReluGradUpdateC_5ae00f05e4425d350b336f35733a74af Done
+[ascend910_93] Generating PReluGradUpdateC_7fe9b18e79ca2d45cdfc95a2312fcdc7 ...
+Opc tool start working now, please wait for a moment.
+[ascend910_93] Generating PReluGradUpdateA_91d8758da41b0a940e57a2e36ce8d2e0 Done
+[ascend910_93] Generating PReluGradUpdateC_6f0d5e89bf2d3aff6ccab17dfea4e4f5 ...
+Opc tool start working now, please wait for a moment.
+[ascend910_93] Generating PReluGradUpdateA_a524cee78314da0880df38668c3c2b0c Done
+[ascend910_93] Generating PReluGradUpdateA_1a2910b7719131fec39ae2bcb71fd4cd ...
+Opc tool start working now, please wait for a moment.
+[ascend910_93] Generating PReluGradUpdateB_bf8ec1f2a4cbe4b0cfbafd3839335280 Done
+[ascend910_93] Generating PReluGradUpdateB_94ba037c15ac5f67acec81e0fac0c4d7 ...
+Opc tool start working now, please wait for a moment.
+[ascend910_93] Generating PReluGradUpdateC_7fe9b18e79ca2d45cdfc95a2312fcdc7 Done
+[ascend910_93] Generating PReluGradUpdateA_382b319720bc63e31cdb632c28322b17 ...
+Opc tool start working now, please wait for a moment.
+[ascend910_93] Generating PReluGradUpdateC_6f0d5e89bf2d3aff6ccab17dfea4e4f5 Done
+[100%] Built target PReluGradUpdateC_ascend910_93
+Opc tool start working now, please wait for a moment.
+[ascend910_93] Generating PReluGradUpdateA_1a2910b7719131fec39ae2bcb71fd4cd Done
+Opc tool start working now, please wait for a moment.
+[ascend910_93] Generating PReluGradUpdateA_382b319720bc63e31cdb632c28322b17 Done
+[100%] Built target PReluGradUpdateA_ascend910_93
+Opc tool start working now, please wait for a moment.
+[ascend910_93] Generating PReluGradUpdateB_94ba037c15ac5f67acec81e0fac0c4d7 Done
+[100%] Built target PReluGradUpdateB_ascend910_93
+[100%] Built target ascendc_kernels_ascendc_bin_ascend910_93_gen_ops_config
+[100%] Built target binary

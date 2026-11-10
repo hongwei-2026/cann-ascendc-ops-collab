@@ -1,0 +1,7448 @@
+{
+  "windows": [
+    {
+      "case": "37",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/142",
+      "dtype": "bf16",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "wlen": 64,
+      "round": 1,
+      "label": "A1",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 0,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c0019000",
+        "0x12c0c001d000",
+        "0x12c0c001e000",
+        "0x12c0c0022000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 7.24,
+        "min": 7.16,
+        "max": 7.68
+      },
+      "aiv_time(us)": {
+        "median": 4.9035,
+        "min": 4.276,
+        "max": 5.022
+      },
+      "aiv_scalar_time(us)": {
+        "median": 2.3555,
+        "min": 2.255,
+        "max": 3.661
+      },
+      "aiv_vec_time(us)": {
+        "median": 0.348,
+        "min": 0.348,
+        "max": 0.348
+      },
+      "aiv_mte2_time(us)": {
+        "median": 2.457,
+        "min": 0.614,
+        "max": 2.571
+      },
+      "aiv_mte3_time(us)": {
+        "median": 0.3155,
+        "min": 0.215,
+        "max": 0.408
+      }
+    },
+    {
+      "case": "37",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/142",
+      "dtype": "bf16",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "wlen": 64,
+      "round": 1,
+      "label": "B",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 1,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c0019000",
+        "0x12c0c001d000",
+        "0x12c0c001e000",
+        "0x12c0c0022000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 7.26,
+        "min": 7.16,
+        "max": 7.68
+      },
+      "aiv_time(us)": {
+        "median": 4.8965,
+        "min": 4.324,
+        "max": 5.049
+      },
+      "aiv_scalar_time(us)": {
+        "median": 2.3594999999999997,
+        "min": 2.264,
+        "max": 3.531
+      },
+      "aiv_vec_time(us)": {
+        "median": 0.348,
+        "min": 0.348,
+        "max": 0.349
+      },
+      "aiv_mte2_time(us)": {
+        "median": 2.4465000000000003,
+        "min": 0.769,
+        "max": 2.574
+      },
+      "aiv_mte3_time(us)": {
+        "median": 0.3045,
+        "min": 0.215,
+        "max": 0.414
+      }
+    },
+    {
+      "case": "37",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/142",
+      "dtype": "bf16",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "wlen": 64,
+      "round": 1,
+      "label": "C",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 2,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c0019000",
+        "0x12c0c001d000",
+        "0x12c0c001e000",
+        "0x12c0c0022000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 7.24,
+        "min": 7.16,
+        "max": 7.76
+      },
+      "aiv_time(us)": {
+        "median": 4.903499999999999,
+        "min": 4.299,
+        "max": 5.046
+      },
+      "aiv_scalar_time(us)": {
+        "median": 2.36,
+        "min": 2.273,
+        "max": 3.527
+      },
+      "aiv_vec_time(us)": {
+        "median": 0.348,
+        "min": 0.348,
+        "max": 0.349
+      },
+      "aiv_mte2_time(us)": {
+        "median": 2.4465000000000003,
+        "min": 0.767,
+        "max": 2.569
+      },
+      "aiv_mte3_time(us)": {
+        "median": 0.3105,
+        "min": 0.219,
+        "max": 0.393
+      }
+    },
+    {
+      "case": "37",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/142",
+      "dtype": "bf16",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "wlen": 64,
+      "round": 1,
+      "label": "A2",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 3,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c0019000",
+        "0x12c0c001d000",
+        "0x12c0c001e000",
+        "0x12c0c0022000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 7.22,
+        "min": 7.14,
+        "max": 7.68
+      },
+      "aiv_time(us)": {
+        "median": 4.9185,
+        "min": 4.325,
+        "max": 5.036
+      },
+      "aiv_scalar_time(us)": {
+        "median": 2.355,
+        "min": 2.28,
+        "max": 3.501
+      },
+      "aiv_vec_time(us)": {
+        "median": 0.348,
+        "min": 0.348,
+        "max": 0.349
+      },
+      "aiv_mte2_time(us)": {
+        "median": 2.4555,
+        "min": 0.817,
+        "max": 2.569
+      },
+      "aiv_mte3_time(us)": {
+        "median": 0.325,
+        "min": 0.224,
+        "max": 0.403
+      }
+    },
+    {
+      "case": "37",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/142",
+      "dtype": "bf16",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "wlen": 64,
+      "round": 2,
+      "label": "C",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 4,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c0019000",
+        "0x12c0c001d000",
+        "0x12c0c001e000",
+        "0x12c0c0022000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 7.24,
+        "min": 7.18,
+        "max": 7.82
+      },
+      "aiv_time(us)": {
+        "median": 4.918,
+        "min": 4.296,
+        "max": 5.035
+      },
+      "aiv_scalar_time(us)": {
+        "median": 2.359,
+        "min": 2.267,
+        "max": 3.603
+      },
+      "aiv_vec_time(us)": {
+        "median": 0.348,
+        "min": 0.348,
+        "max": 0.349
+      },
+      "aiv_mte2_time(us)": {
+        "median": 2.4495,
+        "min": 0.694,
+        "max": 2.585
+      },
+      "aiv_mte3_time(us)": {
+        "median": 0.326,
+        "min": 0.213,
+        "max": 0.402
+      }
+    },
+    {
+      "case": "37",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/142",
+      "dtype": "bf16",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "wlen": 64,
+      "round": 2,
+      "label": "A1",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 5,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c0019000",
+        "0x12c0c001d000",
+        "0x12c0c001e000",
+        "0x12c0c0022000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 7.24,
+        "min": 7.16,
+        "max": 7.74
+      },
+      "aiv_time(us)": {
+        "median": 4.8955,
+        "min": 4.281,
+        "max": 5.024
+      },
+      "aiv_scalar_time(us)": {
+        "median": 2.3600000000000003,
+        "min": 2.268,
+        "max": 3.656
+      },
+      "aiv_vec_time(us)": {
+        "median": 0.348,
+        "min": 0.348,
+        "max": 0.349
+      },
+      "aiv_mte2_time(us)": {
+        "median": 2.451,
+        "min": 0.622,
+        "max": 2.571
+      },
+      "aiv_mte3_time(us)": {
+        "median": 0.3045,
+        "min": 0.216,
+        "max": 0.4
+      }
+    },
+    {
+      "case": "37",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/142",
+      "dtype": "bf16",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "wlen": 64,
+      "round": 2,
+      "label": "A2",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 6,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c0019000",
+        "0x12c0c001d000",
+        "0x12c0c001e000",
+        "0x12c0c0022000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 7.24,
+        "min": 7.16,
+        "max": 7.7
+      },
+      "aiv_time(us)": {
+        "median": 4.915,
+        "min": 4.291,
+        "max": 5.042
+      },
+      "aiv_scalar_time(us)": {
+        "median": 2.3535000000000004,
+        "min": 2.261,
+        "max": 3.638
+      },
+      "aiv_vec_time(us)": {
+        "median": 0.348,
+        "min": 0.348,
+        "max": 0.349
+      },
+      "aiv_mte2_time(us)": {
+        "median": 2.454,
+        "min": 0.648,
+        "max": 2.585
+      },
+      "aiv_mte3_time(us)": {
+        "median": 0.323,
+        "min": 0.22,
+        "max": 0.406
+      }
+    },
+    {
+      "case": "37",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/142",
+      "dtype": "bf16",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "wlen": 64,
+      "round": 2,
+      "label": "B",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 7,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c0019000",
+        "0x12c0c001d000",
+        "0x12c0c001e000",
+        "0x12c0c0022000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 7.24,
+        "min": 7.16,
+        "max": 7.7
+      },
+      "aiv_time(us)": {
+        "median": 4.9030000000000005,
+        "min": 4.315,
+        "max": 5.022
+      },
+      "aiv_scalar_time(us)": {
+        "median": 2.3585000000000003,
+        "min": 2.264,
+        "max": 3.644
+      },
+      "aiv_vec_time(us)": {
+        "median": 0.348,
+        "min": 0.348,
+        "max": 0.349
+      },
+      "aiv_mte2_time(us)": {
+        "median": 2.4535,
+        "min": 0.658,
+        "max": 2.581
+      },
+      "aiv_mte3_time(us)": {
+        "median": 0.3055,
+        "min": 0.228,
+        "max": 0.399
+      }
+    },
+    {
+      "case": "37",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/142",
+      "dtype": "bf16",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "wlen": 64,
+      "round": 3,
+      "label": "B",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 8,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c0019000",
+        "0x12c0c001d000",
+        "0x12c0c001e000",
+        "0x12c0c0022000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 7.24,
+        "min": 7.16,
+        "max": 7.7
+      },
+      "aiv_time(us)": {
+        "median": 4.9125,
+        "min": 4.298,
+        "max": 5.029
+      },
+      "aiv_scalar_time(us)": {
+        "median": 2.356,
+        "min": 2.274,
+        "max": 3.632
+      },
+      "aiv_vec_time(us)": {
+        "median": 0.348,
+        "min": 0.348,
+        "max": 0.349
+      },
+      "aiv_mte2_time(us)": {
+        "median": 2.456,
+        "min": 0.665,
+        "max": 2.577
+      },
+      "aiv_mte3_time(us)": {
+        "median": 0.325,
+        "min": 0.215,
+        "max": 0.401
+      }
+    },
+    {
+      "case": "37",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/142",
+      "dtype": "bf16",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "wlen": 64,
+      "round": 3,
+      "label": "A1",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 9,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c0019000",
+        "0x12c0c001d000",
+        "0x12c0c001e000",
+        "0x12c0c0022000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 7.24,
+        "min": 7.16,
+        "max": 7.7
+      },
+      "aiv_time(us)": {
+        "median": 4.9025,
+        "min": 4.292,
+        "max": 5.026
+      },
+      "aiv_scalar_time(us)": {
+        "median": 2.3555,
+        "min": 2.267,
+        "max": 3.62
+      },
+      "aiv_vec_time(us)": {
+        "median": 0.348,
+        "min": 0.348,
+        "max": 0.349
+      },
+      "aiv_mte2_time(us)": {
+        "median": 2.4539999999999997,
+        "min": 0.669,
+        "max": 2.569
+      },
+      "aiv_mte3_time(us)": {
+        "median": 0.3095,
+        "min": 0.216,
+        "max": 0.398
+      }
+    },
+    {
+      "case": "37",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/142",
+      "dtype": "bf16",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "wlen": 64,
+      "round": 3,
+      "label": "C",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 10,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c0019000",
+        "0x12c0c001d000",
+        "0x12c0c001e000",
+        "0x12c0c0022000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 7.24,
+        "min": 7.18,
+        "max": 7.72
+      },
+      "aiv_time(us)": {
+        "median": 4.917,
+        "min": 4.293,
+        "max": 5.025
+      },
+      "aiv_scalar_time(us)": {
+        "median": 2.357,
+        "min": 2.263,
+        "max": 3.639
+      },
+      "aiv_vec_time(us)": {
+        "median": 0.348,
+        "min": 0.348,
+        "max": 0.349
+      },
+      "aiv_mte2_time(us)": {
+        "median": 2.458,
+        "min": 0.652,
+        "max": 2.586
+      },
+      "aiv_mte3_time(us)": {
+        "median": 0.325,
+        "min": 0.216,
+        "max": 0.403
+      }
+    },
+    {
+      "case": "37",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/142",
+      "dtype": "bf16",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "wlen": 64,
+      "round": 3,
+      "label": "A2",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 11,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c0019000",
+        "0x12c0c001d000",
+        "0x12c0c001e000",
+        "0x12c0c0022000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 7.24,
+        "min": 7.16,
+        "max": 7.74
+      },
+      "aiv_time(us)": {
+        "median": 4.905,
+        "min": 4.295,
+        "max": 5.053
+      },
+      "aiv_scalar_time(us)": {
+        "median": 2.357,
+        "min": 2.276,
+        "max": 3.604
+      },
+      "aiv_vec_time(us)": {
+        "median": 0.348,
+        "min": 0.348,
+        "max": 0.348
+      },
+      "aiv_mte2_time(us)": {
+        "median": 2.4555,
+        "min": 0.691,
+        "max": 2.572
+      },
+      "aiv_mte3_time(us)": {
+        "median": 0.307,
+        "min": 0.215,
+        "max": 0.408
+      }
+    },
+    {
+      "case": "37",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/142",
+      "dtype": "bf16",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "wlen": 64,
+      "round": 4,
+      "label": "A1",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 12,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c0019000",
+        "0x12c0c001d000",
+        "0x12c0c001e000",
+        "0x12c0c0022000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 7.22,
+        "min": 7.14,
+        "max": 7.68
+      },
+      "aiv_time(us)": {
+        "median": 4.927,
+        "min": 4.287,
+        "max": 5.022
+      },
+      "aiv_scalar_time(us)": {
+        "median": 2.349,
+        "min": 2.284,
+        "max": 3.656
+      },
+      "aiv_vec_time(us)": {
+        "median": 0.348,
+        "min": 0.348,
+        "max": 0.349
+      },
+      "aiv_mte2_time(us)": {
+        "median": 2.464,
+        "min": 0.63,
+        "max": 2.557
+      },
+      "aiv_mte3_time(us)": {
+        "median": 0.33,
+        "min": 0.215,
+        "max": 0.398
+      }
+    },
+    {
+      "case": "37",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/142",
+      "dtype": "bf16",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "wlen": 64,
+      "round": 4,
+      "label": "C",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 13,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c0019000",
+        "0x12c0c001d000",
+        "0x12c0c001e000",
+        "0x12c0c0022000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 7.24,
+        "min": 7.18,
+        "max": 7.82
+      },
+      "aiv_time(us)": {
+        "median": 4.903499999999999,
+        "min": 4.301,
+        "max": 5.022
+      },
+      "aiv_scalar_time(us)": {
+        "median": 2.3575,
+        "min": 2.268,
+        "max": 3.597
+      },
+      "aiv_vec_time(us)": {
+        "median": 0.348,
+        "min": 0.348,
+        "max": 0.349
+      },
+      "aiv_mte2_time(us)": {
+        "median": 2.4555,
+        "min": 0.704,
+        "max": 2.59
+      },
+      "aiv_mte3_time(us)": {
+        "median": 0.305,
+        "min": 0.214,
+        "max": 0.399
+      }
+    },
+    {
+      "case": "37",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/142",
+      "dtype": "bf16",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "wlen": 64,
+      "round": 4,
+      "label": "B",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 14,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c0019000",
+        "0x12c0c001d000",
+        "0x12c0c001e000",
+        "0x12c0c0022000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 7.24,
+        "min": 7.14,
+        "max": 7.74
+      },
+      "aiv_time(us)": {
+        "median": 4.910500000000001,
+        "min": 4.303,
+        "max": 5.028
+      },
+      "aiv_scalar_time(us)": {
+        "median": 2.358,
+        "min": 2.265,
+        "max": 3.641
+      },
+      "aiv_vec_time(us)": {
+        "median": 0.348,
+        "min": 0.348,
+        "max": 0.349
+      },
+      "aiv_mte2_time(us)": {
+        "median": 2.4575,
+        "min": 0.66,
+        "max": 2.585
+      },
+      "aiv_mte3_time(us)": {
+        "median": 0.316,
+        "min": 0.212,
+        "max": 0.407
+      }
+    },
+    {
+      "case": "37",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/142",
+      "dtype": "bf16",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "wlen": 64,
+      "round": 4,
+      "label": "A2",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 15,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c0019000",
+        "0x12c0c001d000",
+        "0x12c0c001e000",
+        "0x12c0c0022000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 7.22,
+        "min": 7.16,
+        "max": 7.68
+      },
+      "aiv_time(us)": {
+        "median": 4.926,
+        "min": 4.296,
+        "max": 5.03
+      },
+      "aiv_scalar_time(us)": {
+        "median": 2.35,
+        "min": 2.263,
+        "max": 3.608
+      },
+      "aiv_vec_time(us)": {
+        "median": 0.348,
+        "min": 0.348,
+        "max": 0.349
+      },
+      "aiv_mte2_time(us)": {
+        "median": 2.4669999999999996,
+        "min": 0.676,
+        "max": 2.58
+      },
+      "aiv_mte3_time(us)": {
+        "median": 0.3275,
+        "min": 0.217,
+        "max": 0.401
+      }
+    },
+    {
+      "case": "37",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/142",
+      "dtype": "bf16",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "wlen": 64,
+      "round": 5,
+      "label": "B",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 16,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c0019000",
+        "0x12c0c001d000",
+        "0x12c0c001e000",
+        "0x12c0c0022000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 7.24,
+        "min": 7.16,
+        "max": 7.7
+      },
+      "aiv_time(us)": {
+        "median": 4.917999999999999,
+        "min": 4.314,
+        "max": 5.028
+      },
+      "aiv_scalar_time(us)": {
+        "median": 2.3555,
+        "min": 2.269,
+        "max": 3.499
+      },
+      "aiv_vec_time(us)": {
+        "median": 0.348,
+        "min": 0.348,
+        "max": 0.349
+      },
+      "aiv_mte2_time(us)": {
+        "median": 2.46,
+        "min": 0.822,
+        "max": 2.568
+      },
+      "aiv_mte3_time(us)": {
+        "median": 0.3225,
+        "min": 0.215,
+        "max": 0.404
+      }
+    },
+    {
+      "case": "37",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/142",
+      "dtype": "bf16",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "wlen": 64,
+      "round": 5,
+      "label": "A1",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 17,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c0019000",
+        "0x12c0c001d000",
+        "0x12c0c001e000",
+        "0x12c0c0022000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 7.24,
+        "min": 7.16,
+        "max": 7.72
+      },
+      "aiv_time(us)": {
+        "median": 4.9045000000000005,
+        "min": 4.331,
+        "max": 5.022
+      },
+      "aiv_scalar_time(us)": {
+        "median": 2.354,
+        "min": 2.281,
+        "max": 3.535
+      },
+      "aiv_vec_time(us)": {
+        "median": 0.348,
+        "min": 0.348,
+        "max": 0.348
+      },
+      "aiv_mte2_time(us)": {
+        "median": 2.4555,
+        "min": 0.78,
+        "max": 2.556
+      },
+      "aiv_mte3_time(us)": {
+        "median": 0.3035,
+        "min": 0.22,
+        "max": 0.402
+      }
+    },
+    {
+      "case": "37",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/142",
+      "dtype": "bf16",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "wlen": 64,
+      "round": 5,
+      "label": "A2",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 18,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c0019000",
+        "0x12c0c001d000",
+        "0x12c0c001e000",
+        "0x12c0c0022000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 7.22,
+        "min": 7.14,
+        "max": 7.66
+      },
+      "aiv_time(us)": {
+        "median": 4.9075,
+        "min": 4.294,
+        "max": 5.02
+      },
+      "aiv_scalar_time(us)": {
+        "median": 2.3555,
+        "min": 2.264,
+        "max": 3.633
+      },
+      "aiv_vec_time(us)": {
+        "median": 0.348,
+        "min": 0.348,
+        "max": 0.349
+      },
+      "aiv_mte2_time(us)": {
+        "median": 2.4515000000000002,
+        "min": 0.656,
+        "max": 2.579
+      },
+      "aiv_mte3_time(us)": {
+        "median": 0.3155,
+        "min": 0.217,
+        "max": 0.392
+      }
+    },
+    {
+      "case": "37",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/142",
+      "dtype": "bf16",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "wlen": 64,
+      "round": 5,
+      "label": "C",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 19,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c0019000",
+        "0x12c0c001d000",
+        "0x12c0c001e000",
+        "0x12c0c0022000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 7.24,
+        "min": 7.18,
+        "max": 7.7
+      },
+      "aiv_time(us)": {
+        "median": 4.9079999999999995,
+        "min": 4.293,
+        "max": 5.037
+      },
+      "aiv_scalar_time(us)": {
+        "median": 2.3575,
+        "min": 2.265,
+        "max": 3.645
+      },
+      "aiv_vec_time(us)": {
+        "median": 0.348,
+        "min": 0.348,
+        "max": 0.349
+      },
+      "aiv_mte2_time(us)": {
+        "median": 2.458,
+        "min": 0.644,
+        "max": 2.575
+      },
+      "aiv_mte3_time(us)": {
+        "median": 0.314,
+        "min": 0.214,
+        "max": 0.406
+      }
+    },
+    {
+      "case": "37",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/142",
+      "dtype": "bf16",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "wlen": 64,
+      "round": 6,
+      "label": "C",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 20,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c0019000",
+        "0x12c0c001d000",
+        "0x12c0c001e000",
+        "0x12c0c0022000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 7.24,
+        "min": 7.18,
+        "max": 7.72
+      },
+      "aiv_time(us)": {
+        "median": 4.905,
+        "min": 4.287,
+        "max": 5.031
+      },
+      "aiv_scalar_time(us)": {
+        "median": 2.363,
+        "min": 2.291,
+        "max": 3.665
+      },
+      "aiv_vec_time(us)": {
+        "median": 0.348,
+        "min": 0.348,
+        "max": 0.349
+      },
+      "aiv_mte2_time(us)": {
+        "median": 2.4524999999999997,
+        "min": 0.623,
+        "max": 2.554
+      },
+      "aiv_mte3_time(us)": {
+        "median": 0.306,
+        "min": 0.213,
+        "max": 0.399
+      }
+    },
+    {
+      "case": "37",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/142",
+      "dtype": "bf16",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "wlen": 64,
+      "round": 6,
+      "label": "A1",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 21,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c0019000",
+        "0x12c0c001d000",
+        "0x12c0c001e000",
+        "0x12c0c0022000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 7.22,
+        "min": 7.16,
+        "max": 7.68
+      },
+      "aiv_time(us)": {
+        "median": 4.895,
+        "min": 4.292,
+        "max": 5.026
+      },
+      "aiv_scalar_time(us)": {
+        "median": 2.359,
+        "min": 2.272,
+        "max": 3.65
+      },
+      "aiv_vec_time(us)": {
+        "median": 0.348,
+        "min": 0.348,
+        "max": 0.349
+      },
+      "aiv_mte2_time(us)": {
+        "median": 2.447,
+        "min": 0.638,
+        "max": 2.575
+      },
+      "aiv_mte3_time(us)": {
+        "median": 0.302,
+        "min": 0.218,
+        "max": 0.403
+      }
+    },
+    {
+      "case": "37",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/142",
+      "dtype": "bf16",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "wlen": 64,
+      "round": 6,
+      "label": "B",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 22,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c0019000",
+        "0x12c0c001d000",
+        "0x12c0c001e000",
+        "0x12c0c0022000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 7.24,
+        "min": 7.14,
+        "max": 7.7
+      },
+      "aiv_time(us)": {
+        "median": 4.912,
+        "min": 4.339,
+        "max": 5.028
+      },
+      "aiv_scalar_time(us)": {
+        "median": 2.356,
+        "min": 2.273,
+        "max": 3.417
+      },
+      "aiv_vec_time(us)": {
+        "median": 0.348,
+        "min": 0.348,
+        "max": 0.349
+      },
+      "aiv_mte2_time(us)": {
+        "median": 2.461,
+        "min": 0.924,
+        "max": 2.571
+      },
+      "aiv_mte3_time(us)": {
+        "median": 0.313,
+        "min": 0.213,
+        "max": 0.401
+      }
+    },
+    {
+      "case": "37",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/142",
+      "dtype": "bf16",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "wlen": 64,
+      "round": 6,
+      "label": "A2",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 23,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c0019000",
+        "0x12c0c001d000",
+        "0x12c0c001e000",
+        "0x12c0c0022000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 7.24,
+        "min": 7.14,
+        "max": 7.74
+      },
+      "aiv_time(us)": {
+        "median": 4.896,
+        "min": 4.295,
+        "max": 5.03
+      },
+      "aiv_scalar_time(us)": {
+        "median": 2.358,
+        "min": 2.27,
+        "max": 3.658
+      },
+      "aiv_vec_time(us)": {
+        "median": 0.348,
+        "min": 0.348,
+        "max": 0.348
+      },
+      "aiv_mte2_time(us)": {
+        "median": 2.4475,
+        "min": 0.621,
+        "max": 2.565
+      },
+      "aiv_mte3_time(us)": {
+        "median": 0.305,
+        "min": 0.217,
+        "max": 0.402
+      }
+    },
+    {
+      "case": "97",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/143",
+      "dtype": "bf16",
+      "shape": [
+        127,
+        8192,
+        1
+      ],
+      "wlen": 8192,
+      "round": 1,
+      "label": "A1",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 24,
+      "addresses": [
+        "0x12c081400000",
+        "0x12c081600000",
+        "0x12c0c0015000",
+        "0x12c081800000",
+        "0x12c081a00000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 17.0,
+        "min": 16.56,
+        "max": 17.26
+      },
+      "aiv_time(us)": {
+        "median": 14.4195,
+        "min": 13.206,
+        "max": 14.577
+      },
+      "aiv_scalar_time(us)": {
+        "median": 5.494,
+        "min": 5.407,
+        "max": 6.618
+      },
+      "aiv_vec_time(us)": {
+        "median": 7.76,
+        "min": 7.76,
+        "max": 7.76
+      },
+      "aiv_mte2_time(us)": {
+        "median": 4.208,
+        "min": 1.867,
+        "max": 4.458
+      },
+      "aiv_mte3_time(us)": {
+        "median": 1.263,
+        "min": 1.223,
+        "max": 1.285
+      }
+    },
+    {
+      "case": "97",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/143",
+      "dtype": "bf16",
+      "shape": [
+        127,
+        8192,
+        1
+      ],
+      "wlen": 8192,
+      "round": 1,
+      "label": "B",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 25,
+      "addresses": [
+        "0x12c081400000",
+        "0x12c081600000",
+        "0x12c0c0015000",
+        "0x12c081800000",
+        "0x12c081a00000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 17.02,
+        "min": 16.52,
+        "max": 17.2
+      },
+      "aiv_time(us)": {
+        "median": 14.4175,
+        "min": 13.146,
+        "max": 14.594
+      },
+      "aiv_scalar_time(us)": {
+        "median": 5.493,
+        "min": 5.384,
+        "max": 6.736
+      },
+      "aiv_vec_time(us)": {
+        "median": 7.76,
+        "min": 7.76,
+        "max": 7.76
+      },
+      "aiv_mte2_time(us)": {
+        "median": 4.211,
+        "min": 1.689,
+        "max": 4.508
+      },
+      "aiv_mte3_time(us)": {
+        "median": 1.261,
+        "min": 1.223,
+        "max": 1.284
+      }
+    },
+    {
+      "case": "97",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/143",
+      "dtype": "bf16",
+      "shape": [
+        127,
+        8192,
+        1
+      ],
+      "wlen": 8192,
+      "round": 1,
+      "label": "C",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 26,
+      "addresses": [
+        "0x12c081400000",
+        "0x12c081600000",
+        "0x12c0c0015000",
+        "0x12c081800000",
+        "0x12c081a00000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 17.04,
+        "min": 16.54,
+        "max": 17.24
+      },
+      "aiv_time(us)": {
+        "median": 14.411999999999999,
+        "min": 13.142,
+        "max": 14.564
+      },
+      "aiv_scalar_time(us)": {
+        "median": 5.501,
+        "min": 5.417,
+        "max": 6.76
+      },
+      "aiv_vec_time(us)": {
+        "median": 7.76,
+        "min": 7.76,
+        "max": 7.76
+      },
+      "aiv_mte2_time(us)": {
+        "median": 4.201,
+        "min": 1.661,
+        "max": 4.426
+      },
+      "aiv_mte3_time(us)": {
+        "median": 1.26,
+        "min": 1.223,
+        "max": 1.289
+      }
+    },
+    {
+      "case": "97",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/143",
+      "dtype": "bf16",
+      "shape": [
+        127,
+        8192,
+        1
+      ],
+      "wlen": 8192,
+      "round": 1,
+      "label": "A2",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 27,
+      "addresses": [
+        "0x12c081400000",
+        "0x12c081600000",
+        "0x12c0c0015000",
+        "0x12c081800000",
+        "0x12c081a00000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 17.0,
+        "min": 16.56,
+        "max": 17.18
+      },
+      "aiv_time(us)": {
+        "median": 14.413499999999999,
+        "min": 13.137,
+        "max": 14.551
+      },
+      "aiv_scalar_time(us)": {
+        "median": 5.4895,
+        "min": 5.408,
+        "max": 6.759
+      },
+      "aiv_vec_time(us)": {
+        "median": 7.76,
+        "min": 7.76,
+        "max": 7.76
+      },
+      "aiv_mte2_time(us)": {
+        "median": 4.215,
+        "min": 1.658,
+        "max": 4.423
+      },
+      "aiv_mte3_time(us)": {
+        "median": 1.261,
+        "min": 1.222,
+        "max": 1.288
+      }
+    },
+    {
+      "case": "97",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/143",
+      "dtype": "bf16",
+      "shape": [
+        127,
+        8192,
+        1
+      ],
+      "wlen": 8192,
+      "round": 2,
+      "label": "C",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 28,
+      "addresses": [
+        "0x12c081400000",
+        "0x12c081600000",
+        "0x12c0c0015000",
+        "0x12c081800000",
+        "0x12c081a00000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 17.04,
+        "min": 16.54,
+        "max": 17.24
+      },
+      "aiv_time(us)": {
+        "median": 14.415,
+        "min": 13.2,
+        "max": 14.569
+      },
+      "aiv_scalar_time(us)": {
+        "median": 5.495,
+        "min": 5.417,
+        "max": 6.654
+      },
+      "aiv_vec_time(us)": {
+        "median": 7.76,
+        "min": 7.76,
+        "max": 7.76
+      },
+      "aiv_mte2_time(us)": {
+        "median": 4.204000000000001,
+        "min": 1.826,
+        "max": 4.44
+      },
+      "aiv_mte3_time(us)": {
+        "median": 1.259,
+        "min": 1.223,
+        "max": 1.296
+      }
+    },
+    {
+      "case": "97",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/143",
+      "dtype": "bf16",
+      "shape": [
+        127,
+        8192,
+        1
+      ],
+      "wlen": 8192,
+      "round": 2,
+      "label": "A1",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 29,
+      "addresses": [
+        "0x12c081400000",
+        "0x12c081600000",
+        "0x12c0c0015000",
+        "0x12c081800000",
+        "0x12c081a00000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 17.0,
+        "min": 16.54,
+        "max": 17.2
+      },
+      "aiv_time(us)": {
+        "median": 14.4205,
+        "min": 13.141,
+        "max": 14.576
+      },
+      "aiv_scalar_time(us)": {
+        "median": 5.489,
+        "min": 5.41,
+        "max": 6.766
+      },
+      "aiv_vec_time(us)": {
+        "median": 7.76,
+        "min": 7.76,
+        "max": 7.76
+      },
+      "aiv_mte2_time(us)": {
+        "median": 4.229,
+        "min": 1.652,
+        "max": 4.443
+      },
+      "aiv_mte3_time(us)": {
+        "median": 1.259,
+        "min": 1.224,
+        "max": 1.285
+      }
+    },
+    {
+      "case": "97",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/143",
+      "dtype": "bf16",
+      "shape": [
+        127,
+        8192,
+        1
+      ],
+      "wlen": 8192,
+      "round": 2,
+      "label": "A2",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 30,
+      "addresses": [
+        "0x12c081400000",
+        "0x12c081600000",
+        "0x12c0c0015000",
+        "0x12c081800000",
+        "0x12c081a00000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 17.0,
+        "min": 16.56,
+        "max": 17.2
+      },
+      "aiv_time(us)": {
+        "median": 14.4195,
+        "min": 13.24,
+        "max": 14.558
+      },
+      "aiv_scalar_time(us)": {
+        "median": 5.492,
+        "min": 5.386,
+        "max": 6.633
+      },
+      "aiv_vec_time(us)": {
+        "median": 7.76,
+        "min": 7.76,
+        "max": 7.76
+      },
+      "aiv_mte2_time(us)": {
+        "median": 4.212,
+        "min": 1.886,
+        "max": 4.473
+      },
+      "aiv_mte3_time(us)": {
+        "median": 1.2605,
+        "min": 1.224,
+        "max": 1.291
+      }
+    },
+    {
+      "case": "97",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/143",
+      "dtype": "bf16",
+      "shape": [
+        127,
+        8192,
+        1
+      ],
+      "wlen": 8192,
+      "round": 2,
+      "label": "B",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 31,
+      "addresses": [
+        "0x12c081400000",
+        "0x12c081600000",
+        "0x12c0c0015000",
+        "0x12c081800000",
+        "0x12c081a00000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 17.02,
+        "min": 16.52,
+        "max": 17.26
+      },
+      "aiv_time(us)": {
+        "median": 14.4125,
+        "min": 13.126,
+        "max": 14.563
+      },
+      "aiv_scalar_time(us)": {
+        "median": 5.493,
+        "min": 5.406,
+        "max": 6.776
+      },
+      "aiv_vec_time(us)": {
+        "median": 7.76,
+        "min": 7.76,
+        "max": 7.76
+      },
+      "aiv_mte2_time(us)": {
+        "median": 4.21,
+        "min": 1.627,
+        "max": 4.447
+      },
+      "aiv_mte3_time(us)": {
+        "median": 1.26,
+        "min": 1.223,
+        "max": 1.281
+      }
+    },
+    {
+      "case": "97",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/143",
+      "dtype": "bf16",
+      "shape": [
+        127,
+        8192,
+        1
+      ],
+      "wlen": 8192,
+      "round": 3,
+      "label": "B",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 32,
+      "addresses": [
+        "0x12c081400000",
+        "0x12c081600000",
+        "0x12c0c0015000",
+        "0x12c081800000",
+        "0x12c081a00000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 17.02,
+        "min": 16.54,
+        "max": 17.24
+      },
+      "aiv_time(us)": {
+        "median": 14.42,
+        "min": 13.134,
+        "max": 14.541
+      },
+      "aiv_scalar_time(us)": {
+        "median": 5.494,
+        "min": 5.421,
+        "max": 6.768
+      },
+      "aiv_vec_time(us)": {
+        "median": 7.76,
+        "min": 7.76,
+        "max": 7.76
+      },
+      "aiv_mte2_time(us)": {
+        "median": 4.2255,
+        "min": 1.65,
+        "max": 4.405
+      },
+      "aiv_mte3_time(us)": {
+        "median": 1.26,
+        "min": 1.222,
+        "max": 1.289
+      }
+    },
+    {
+      "case": "97",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/143",
+      "dtype": "bf16",
+      "shape": [
+        127,
+        8192,
+        1
+      ],
+      "wlen": 8192,
+      "round": 3,
+      "label": "A1",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 33,
+      "addresses": [
+        "0x12c081400000",
+        "0x12c081600000",
+        "0x12c0c0015000",
+        "0x12c081800000",
+        "0x12c081a00000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 17.0,
+        "min": 16.52,
+        "max": 17.2
+      },
+      "aiv_time(us)": {
+        "median": 14.409,
+        "min": 13.136,
+        "max": 14.57
+      },
+      "aiv_scalar_time(us)": {
+        "median": 5.493,
+        "min": 5.409,
+        "max": 6.738
+      },
+      "aiv_vec_time(us)": {
+        "median": 7.76,
+        "min": 7.76,
+        "max": 7.76
+      },
+      "aiv_mte2_time(us)": {
+        "median": 4.2135,
+        "min": 1.677,
+        "max": 4.426
+      },
+      "aiv_mte3_time(us)": {
+        "median": 1.261,
+        "min": 1.222,
+        "max": 1.291
+      }
+    },
+    {
+      "case": "97",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/143",
+      "dtype": "bf16",
+      "shape": [
+        127,
+        8192,
+        1
+      ],
+      "wlen": 8192,
+      "round": 3,
+      "label": "C",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 34,
+      "addresses": [
+        "0x12c081400000",
+        "0x12c081600000",
+        "0x12c0c0015000",
+        "0x12c081800000",
+        "0x12c081a00000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 17.04,
+        "min": 16.52,
+        "max": 17.2
+      },
+      "aiv_time(us)": {
+        "median": 14.4215,
+        "min": 13.21,
+        "max": 14.553
+      },
+      "aiv_scalar_time(us)": {
+        "median": 5.492,
+        "min": 5.41,
+        "max": 6.658
+      },
+      "aiv_vec_time(us)": {
+        "median": 7.76,
+        "min": 7.76,
+        "max": 7.76
+      },
+      "aiv_mte2_time(us)": {
+        "median": 4.2255,
+        "min": 1.831,
+        "max": 4.412
+      },
+      "aiv_mte3_time(us)": {
+        "median": 1.2605,
+        "min": 1.222,
+        "max": 1.287
+      }
+    },
+    {
+      "case": "97",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/143",
+      "dtype": "bf16",
+      "shape": [
+        127,
+        8192,
+        1
+      ],
+      "wlen": 8192,
+      "round": 3,
+      "label": "A2",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 35,
+      "addresses": [
+        "0x12c081400000",
+        "0x12c081600000",
+        "0x12c0c0015000",
+        "0x12c081800000",
+        "0x12c081a00000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 17.0,
+        "min": 16.56,
+        "max": 17.2
+      },
+      "aiv_time(us)": {
+        "median": 14.407,
+        "min": 13.135,
+        "max": 14.542
+      },
+      "aiv_scalar_time(us)": {
+        "median": 5.4905,
+        "min": 5.414,
+        "max": 6.766
+      },
+      "aiv_vec_time(us)": {
+        "median": 7.76,
+        "min": 7.76,
+        "max": 7.76
+      },
+      "aiv_mte2_time(us)": {
+        "median": 4.207,
+        "min": 1.646,
+        "max": 4.411
+      },
+      "aiv_mte3_time(us)": {
+        "median": 1.2595,
+        "min": 1.222,
+        "max": 1.287
+      }
+    },
+    {
+      "case": "97",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/143",
+      "dtype": "bf16",
+      "shape": [
+        127,
+        8192,
+        1
+      ],
+      "wlen": 8192,
+      "round": 4,
+      "label": "A1",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 36,
+      "addresses": [
+        "0x12c081400000",
+        "0x12c081600000",
+        "0x12c0c0015000",
+        "0x12c081800000",
+        "0x12c081a00000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 17.02,
+        "min": 16.56,
+        "max": 17.3
+      },
+      "aiv_time(us)": {
+        "median": 14.4155,
+        "min": 13.2,
+        "max": 14.54
+      },
+      "aiv_scalar_time(us)": {
+        "median": 5.492,
+        "min": 5.399,
+        "max": 6.648
+      },
+      "aiv_vec_time(us)": {
+        "median": 7.76,
+        "min": 7.76,
+        "max": 7.76
+      },
+      "aiv_mte2_time(us)": {
+        "median": 4.2195,
+        "min": 1.832,
+        "max": 4.41
+      },
+      "aiv_mte3_time(us)": {
+        "median": 1.261,
+        "min": 1.223,
+        "max": 1.289
+      }
+    },
+    {
+      "case": "97",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/143",
+      "dtype": "bf16",
+      "shape": [
+        127,
+        8192,
+        1
+      ],
+      "wlen": 8192,
+      "round": 4,
+      "label": "C",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 37,
+      "addresses": [
+        "0x12c081400000",
+        "0x12c081600000",
+        "0x12c0c0015000",
+        "0x12c081800000",
+        "0x12c081a00000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 17.04,
+        "min": 16.52,
+        "max": 17.24
+      },
+      "aiv_time(us)": {
+        "median": 14.4085,
+        "min": 13.189,
+        "max": 14.596
+      },
+      "aiv_scalar_time(us)": {
+        "median": 5.4945,
+        "min": 5.409,
+        "max": 6.64
+      },
+      "aiv_vec_time(us)": {
+        "median": 7.76,
+        "min": 7.76,
+        "max": 7.76
+      },
+      "aiv_mte2_time(us)": {
+        "median": 4.2010000000000005,
+        "min": 1.827,
+        "max": 4.459
+      },
+      "aiv_mte3_time(us)": {
+        "median": 1.258,
+        "min": 1.225,
+        "max": 1.294
+      }
+    },
+    {
+      "case": "97",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/143",
+      "dtype": "bf16",
+      "shape": [
+        127,
+        8192,
+        1
+      ],
+      "wlen": 8192,
+      "round": 4,
+      "label": "B",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 38,
+      "addresses": [
+        "0x12c081400000",
+        "0x12c081600000",
+        "0x12c0c0015000",
+        "0x12c081800000",
+        "0x12c081a00000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 17.02,
+        "min": 16.52,
+        "max": 17.22
+      },
+      "aiv_time(us)": {
+        "median": 14.428,
+        "min": 13.166,
+        "max": 14.572
+      },
+      "aiv_scalar_time(us)": {
+        "median": 5.4885,
+        "min": 5.395,
+        "max": 6.738
+      },
+      "aiv_vec_time(us)": {
+        "median": 7.76,
+        "min": 7.76,
+        "max": 7.76
+      },
+      "aiv_mte2_time(us)": {
+        "median": 4.2330000000000005,
+        "min": 1.706,
+        "max": 4.451
+      },
+      "aiv_mte3_time(us)": {
+        "median": 1.26,
+        "min": 1.222,
+        "max": 1.286
+      }
+    },
+    {
+      "case": "97",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/143",
+      "dtype": "bf16",
+      "shape": [
+        127,
+        8192,
+        1
+      ],
+      "wlen": 8192,
+      "round": 4,
+      "label": "A2",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 39,
+      "addresses": [
+        "0x12c081400000",
+        "0x12c081600000",
+        "0x12c0c0015000",
+        "0x12c081800000",
+        "0x12c081a00000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 17.0,
+        "min": 16.54,
+        "max": 17.24
+      },
+      "aiv_time(us)": {
+        "median": 14.4075,
+        "min": 13.135,
+        "max": 14.545
+      },
+      "aiv_scalar_time(us)": {
+        "median": 5.493,
+        "min": 5.41,
+        "max": 6.766
+      },
+      "aiv_vec_time(us)": {
+        "median": 7.76,
+        "min": 7.76,
+        "max": 7.76
+      },
+      "aiv_mte2_time(us)": {
+        "median": 4.1975,
+        "min": 1.646,
+        "max": 4.424
+      },
+      "aiv_mte3_time(us)": {
+        "median": 1.261,
+        "min": 1.222,
+        "max": 1.284
+      }
+    },
+    {
+      "case": "97",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/143",
+      "dtype": "bf16",
+      "shape": [
+        127,
+        8192,
+        1
+      ],
+      "wlen": 8192,
+      "round": 5,
+      "label": "B",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 40,
+      "addresses": [
+        "0x12c081400000",
+        "0x12c081600000",
+        "0x12c0c0015000",
+        "0x12c081800000",
+        "0x12c081a00000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 17.02,
+        "min": 16.52,
+        "max": 17.24
+      },
+      "aiv_time(us)": {
+        "median": 14.403500000000001,
+        "min": 13.143,
+        "max": 14.561
+      },
+      "aiv_scalar_time(us)": {
+        "median": 5.4975000000000005,
+        "min": 5.418,
+        "max": 6.771
+      },
+      "aiv_vec_time(us)": {
+        "median": 7.76,
+        "min": 7.76,
+        "max": 7.76
+      },
+      "aiv_mte2_time(us)": {
+        "median": 4.203,
+        "min": 1.649,
+        "max": 4.427
+      },
+      "aiv_mte3_time(us)": {
+        "median": 1.259,
+        "min": 1.223,
+        "max": 1.287
+      }
+    },
+    {
+      "case": "97",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/143",
+      "dtype": "bf16",
+      "shape": [
+        127,
+        8192,
+        1
+      ],
+      "wlen": 8192,
+      "round": 5,
+      "label": "A1",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 41,
+      "addresses": [
+        "0x12c081400000",
+        "0x12c081600000",
+        "0x12c0c0015000",
+        "0x12c081800000",
+        "0x12c081a00000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 17.02,
+        "min": 16.8,
+        "max": 17.36
+      },
+      "aiv_time(us)": {
+        "median": 14.4315,
+        "min": 13.194,
+        "max": 14.565
+      },
+      "aiv_scalar_time(us)": {
+        "median": 5.485,
+        "min": 5.403,
+        "max": 6.692
+      },
+      "aiv_vec_time(us)": {
+        "median": 7.76,
+        "min": 7.76,
+        "max": 7.76
+      },
+      "aiv_mte2_time(us)": {
+        "median": 4.233499999999999,
+        "min": 1.778,
+        "max": 4.453
+      },
+      "aiv_mte3_time(us)": {
+        "median": 1.2614999999999998,
+        "min": 1.225,
+        "max": 1.28
+      }
+    },
+    {
+      "case": "97",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/143",
+      "dtype": "bf16",
+      "shape": [
+        127,
+        8192,
+        1
+      ],
+      "wlen": 8192,
+      "round": 5,
+      "label": "A2",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 42,
+      "addresses": [
+        "0x12c081400000",
+        "0x12c081600000",
+        "0x12c0c0015000",
+        "0x12c081800000",
+        "0x12c081a00000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 17.0,
+        "min": 16.56,
+        "max": 17.22
+      },
+      "aiv_time(us)": {
+        "median": 14.412500000000001,
+        "min": 13.182,
+        "max": 14.543
+      },
+      "aiv_scalar_time(us)": {
+        "median": 5.49,
+        "min": 5.409,
+        "max": 6.675
+      },
+      "aiv_vec_time(us)": {
+        "median": 7.76,
+        "min": 7.76,
+        "max": 7.76
+      },
+      "aiv_mte2_time(us)": {
+        "median": 4.2204999999999995,
+        "min": 1.785,
+        "max": 4.411
+      },
+      "aiv_mte3_time(us)": {
+        "median": 1.26,
+        "min": 1.222,
+        "max": 1.281
+      }
+    },
+    {
+      "case": "97",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/143",
+      "dtype": "bf16",
+      "shape": [
+        127,
+        8192,
+        1
+      ],
+      "wlen": 8192,
+      "round": 5,
+      "label": "C",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 43,
+      "addresses": [
+        "0x12c081400000",
+        "0x12c081600000",
+        "0x12c0c0015000",
+        "0x12c081800000",
+        "0x12c081a00000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 17.02,
+        "min": 16.86,
+        "max": 17.26
+      },
+      "aiv_time(us)": {
+        "median": 14.4225,
+        "min": 13.124,
+        "max": 14.553
+      },
+      "aiv_scalar_time(us)": {
+        "median": 5.488,
+        "min": 5.418,
+        "max": 6.767
+      },
+      "aiv_vec_time(us)": {
+        "median": 7.76,
+        "min": 7.76,
+        "max": 7.76
+      },
+      "aiv_mte2_time(us)": {
+        "median": 4.234,
+        "min": 1.634,
+        "max": 4.42
+      },
+      "aiv_mte3_time(us)": {
+        "median": 1.26,
+        "min": 1.222,
+        "max": 1.284
+      }
+    },
+    {
+      "case": "97",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/143",
+      "dtype": "bf16",
+      "shape": [
+        127,
+        8192,
+        1
+      ],
+      "wlen": 8192,
+      "round": 6,
+      "label": "C",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 44,
+      "addresses": [
+        "0x12c081400000",
+        "0x12c081600000",
+        "0x12c0c0015000",
+        "0x12c081800000",
+        "0x12c081a00000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 17.02,
+        "min": 16.5,
+        "max": 17.26
+      },
+      "aiv_time(us)": {
+        "median": 14.4155,
+        "min": 13.175,
+        "max": 14.557
+      },
+      "aiv_scalar_time(us)": {
+        "median": 5.494,
+        "min": 5.414,
+        "max": 6.709
+      },
+      "aiv_vec_time(us)": {
+        "median": 7.76,
+        "min": 7.76,
+        "max": 7.76
+      },
+      "aiv_mte2_time(us)": {
+        "median": 4.2075,
+        "min": 1.743,
+        "max": 4.431
+      },
+      "aiv_mte3_time(us)": {
+        "median": 1.258,
+        "min": 1.223,
+        "max": 1.28
+      }
+    },
+    {
+      "case": "97",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/143",
+      "dtype": "bf16",
+      "shape": [
+        127,
+        8192,
+        1
+      ],
+      "wlen": 8192,
+      "round": 6,
+      "label": "A1",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 45,
+      "addresses": [
+        "0x12c081400000",
+        "0x12c081600000",
+        "0x12c0c0015000",
+        "0x12c081800000",
+        "0x12c081a00000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 17.0,
+        "min": 16.52,
+        "max": 17.26
+      },
+      "aiv_time(us)": {
+        "median": 14.422,
+        "min": 13.15,
+        "max": 14.582
+      },
+      "aiv_scalar_time(us)": {
+        "median": 5.4825,
+        "min": 5.376,
+        "max": 6.71
+      },
+      "aiv_vec_time(us)": {
+        "median": 7.76,
+        "min": 7.76,
+        "max": 7.76
+      },
+      "aiv_mte2_time(us)": {
+        "median": 4.2265,
+        "min": 1.718,
+        "max": 4.503
+      },
+      "aiv_mte3_time(us)": {
+        "median": 1.2595,
+        "min": 1.222,
+        "max": 1.286
+      }
+    },
+    {
+      "case": "97",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/143",
+      "dtype": "bf16",
+      "shape": [
+        127,
+        8192,
+        1
+      ],
+      "wlen": 8192,
+      "round": 6,
+      "label": "B",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 46,
+      "addresses": [
+        "0x12c081400000",
+        "0x12c081600000",
+        "0x12c0c0015000",
+        "0x12c081800000",
+        "0x12c081a00000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 17.02,
+        "min": 16.56,
+        "max": 17.34
+      },
+      "aiv_time(us)": {
+        "median": 14.424,
+        "min": 13.171,
+        "max": 14.56
+      },
+      "aiv_scalar_time(us)": {
+        "median": 5.4905,
+        "min": 5.405,
+        "max": 6.691
+      },
+      "aiv_vec_time(us)": {
+        "median": 7.76,
+        "min": 7.76,
+        "max": 7.76
+      },
+      "aiv_mte2_time(us)": {
+        "median": 4.232,
+        "min": 1.759,
+        "max": 4.444
+      },
+      "aiv_mte3_time(us)": {
+        "median": 1.261,
+        "min": 1.223,
+        "max": 1.301
+      }
+    },
+    {
+      "case": "97",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/143",
+      "dtype": "bf16",
+      "shape": [
+        127,
+        8192,
+        1
+      ],
+      "wlen": 8192,
+      "round": 6,
+      "label": "A2",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 47,
+      "addresses": [
+        "0x12c081400000",
+        "0x12c081600000",
+        "0x12c0c0015000",
+        "0x12c081800000",
+        "0x12c081a00000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 17.0,
+        "min": 16.54,
+        "max": 17.2
+      },
+      "aiv_time(us)": {
+        "median": 14.425,
+        "min": 13.135,
+        "max": 14.545
+      },
+      "aiv_scalar_time(us)": {
+        "median": 5.483,
+        "min": 5.408,
+        "max": 6.747
+      },
+      "aiv_vec_time(us)": {
+        "median": 7.76,
+        "min": 7.76,
+        "max": 7.76
+      },
+      "aiv_mte2_time(us)": {
+        "median": 4.2385,
+        "min": 1.666,
+        "max": 4.432
+      },
+      "aiv_mte3_time(us)": {
+        "median": 1.261,
+        "min": 1.223,
+        "max": 1.282
+      }
+    },
+    {
+      "case": "110",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J069/new-inputs/finite_51",
+      "dtype": "bf16",
+      "shape": [
+        16,
+        63,
+        257
+      ],
+      "wlen": 63,
+      "round": 1,
+      "label": "A1",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 48,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c0094000",
+        "0x12c0c0113000",
+        "0x12c0c0114000",
+        "0x12c0c0200000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 23.92,
+        "min": 23.26,
+        "max": 24.06
+      },
+      "aiv_time(us)": {
+        "median": 20.7075,
+        "min": 19.957,
+        "max": 20.799
+      },
+      "aiv_scalar_time(us)": {
+        "median": 13.0085,
+        "min": 12.926,
+        "max": 14.272
+      },
+      "aiv_vec_time(us)": {
+        "median": 9.136,
+        "min": 9.135,
+        "max": 9.137
+      },
+      "aiv_mte2_time(us)": {
+        "median": 7.0875,
+        "min": 5.056,
+        "max": 7.251
+      },
+      "aiv_mte3_time(us)": {
+        "median": 5.487,
+        "min": 5.47,
+        "max": 5.501
+      }
+    },
+    {
+      "case": "110",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J069/new-inputs/finite_51",
+      "dtype": "bf16",
+      "shape": [
+        16,
+        63,
+        257
+      ],
+      "wlen": 63,
+      "round": 1,
+      "label": "B",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 49,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c0094000",
+        "0x12c0c0113000",
+        "0x12c0c0114000",
+        "0x12c0c0200000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 23.94,
+        "min": 23.28,
+        "max": 24.12
+      },
+      "aiv_time(us)": {
+        "median": 20.7025,
+        "min": 19.942,
+        "max": 20.77
+      },
+      "aiv_scalar_time(us)": {
+        "median": 13.015,
+        "min": 12.923,
+        "max": 14.287
+      },
+      "aiv_vec_time(us)": {
+        "median": 9.136,
+        "min": 9.135,
+        "max": 9.137
+      },
+      "aiv_mte2_time(us)": {
+        "median": 7.0835,
+        "min": 5.035,
+        "max": 7.233
+      },
+      "aiv_mte3_time(us)": {
+        "median": 5.486,
+        "min": 5.469,
+        "max": 5.5
+      }
+    },
+    {
+      "case": "110",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J069/new-inputs/finite_51",
+      "dtype": "bf16",
+      "shape": [
+        16,
+        63,
+        257
+      ],
+      "wlen": 63,
+      "round": 1,
+      "label": "C",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 50,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c0094000",
+        "0x12c0c0113000",
+        "0x12c0c0114000",
+        "0x12c0c0200000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 23.94,
+        "min": 23.18,
+        "max": 24.06
+      },
+      "aiv_time(us)": {
+        "median": 20.712,
+        "min": 20.092,
+        "max": 20.776
+      },
+      "aiv_scalar_time(us)": {
+        "median": 13.016,
+        "min": 12.928,
+        "max": 14.002
+      },
+      "aiv_vec_time(us)": {
+        "median": 9.136,
+        "min": 9.135,
+        "max": 9.137
+      },
+      "aiv_mte2_time(us)": {
+        "median": 7.0885,
+        "min": 5.466,
+        "max": 7.242
+      },
+      "aiv_mte3_time(us)": {
+        "median": 5.488,
+        "min": 5.471,
+        "max": 5.504
+      }
+    },
+    {
+      "case": "110",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J069/new-inputs/finite_51",
+      "dtype": "bf16",
+      "shape": [
+        16,
+        63,
+        257
+      ],
+      "wlen": 63,
+      "round": 1,
+      "label": "A2",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 51,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c0094000",
+        "0x12c0c0113000",
+        "0x12c0c0114000",
+        "0x12c0c0200000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 23.9,
+        "min": 23.26,
+        "max": 24.06
+      },
+      "aiv_time(us)": {
+        "median": 20.705,
+        "min": 19.974,
+        "max": 20.816
+      },
+      "aiv_scalar_time(us)": {
+        "median": 13.011,
+        "min": 12.928,
+        "max": 14.169
+      },
+      "aiv_vec_time(us)": {
+        "median": 9.136,
+        "min": 9.135,
+        "max": 9.137
+      },
+      "aiv_mte2_time(us)": {
+        "median": 7.092,
+        "min": 5.182,
+        "max": 7.242
+      },
+      "aiv_mte3_time(us)": {
+        "median": 5.488,
+        "min": 5.469,
+        "max": 5.502
+      }
+    },
+    {
+      "case": "110",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J069/new-inputs/finite_51",
+      "dtype": "bf16",
+      "shape": [
+        16,
+        63,
+        257
+      ],
+      "wlen": 63,
+      "round": 2,
+      "label": "C",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 52,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c0094000",
+        "0x12c0c0113000",
+        "0x12c0c0114000",
+        "0x12c0c0200000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 23.94,
+        "min": 23.28,
+        "max": 24.1
+      },
+      "aiv_time(us)": {
+        "median": 20.7105,
+        "min": 20.018,
+        "max": 20.81
+      },
+      "aiv_scalar_time(us)": {
+        "median": 13.0175,
+        "min": 12.925,
+        "max": 14.156
+      },
+      "aiv_vec_time(us)": {
+        "median": 9.136,
+        "min": 9.135,
+        "max": 9.137
+      },
+      "aiv_mte2_time(us)": {
+        "median": 7.084,
+        "min": 5.249,
+        "max": 7.257
+      },
+      "aiv_mte3_time(us)": {
+        "median": 5.487,
+        "min": 5.469,
+        "max": 5.514
+      }
+    },
+    {
+      "case": "110",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J069/new-inputs/finite_51",
+      "dtype": "bf16",
+      "shape": [
+        16,
+        63,
+        257
+      ],
+      "wlen": 63,
+      "round": 2,
+      "label": "A1",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 53,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c0094000",
+        "0x12c0c0113000",
+        "0x12c0c0114000",
+        "0x12c0c0200000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 23.92,
+        "min": 23.12,
+        "max": 24.04
+      },
+      "aiv_time(us)": {
+        "median": 20.708,
+        "min": 19.96,
+        "max": 20.816
+      },
+      "aiv_scalar_time(us)": {
+        "median": 13.0095,
+        "min": 12.921,
+        "max": 14.294
+      },
+      "aiv_vec_time(us)": {
+        "median": 9.136,
+        "min": 9.135,
+        "max": 9.137
+      },
+      "aiv_mte2_time(us)": {
+        "median": 7.087,
+        "min": 5.04,
+        "max": 7.271
+      },
+      "aiv_mte3_time(us)": {
+        "median": 5.487,
+        "min": 5.47,
+        "max": 5.504
+      }
+    },
+    {
+      "case": "110",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J069/new-inputs/finite_51",
+      "dtype": "bf16",
+      "shape": [
+        16,
+        63,
+        257
+      ],
+      "wlen": 63,
+      "round": 2,
+      "label": "A2",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 54,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c0094000",
+        "0x12c0c0113000",
+        "0x12c0c0114000",
+        "0x12c0c0200000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 23.94,
+        "min": 23.26,
+        "max": 24.08
+      },
+      "aiv_time(us)": {
+        "median": 20.709,
+        "min": 19.948,
+        "max": 20.791
+      },
+      "aiv_scalar_time(us)": {
+        "median": 13.0105,
+        "min": 12.927,
+        "max": 14.298
+      },
+      "aiv_vec_time(us)": {
+        "median": 9.136,
+        "min": 9.135,
+        "max": 9.137
+      },
+      "aiv_mte2_time(us)": {
+        "median": 7.090999999999999,
+        "min": 5.029,
+        "max": 7.232
+      },
+      "aiv_mte3_time(us)": {
+        "median": 5.487,
+        "min": 5.469,
+        "max": 5.505
+      }
+    },
+    {
+      "case": "110",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J069/new-inputs/finite_51",
+      "dtype": "bf16",
+      "shape": [
+        16,
+        63,
+        257
+      ],
+      "wlen": 63,
+      "round": 2,
+      "label": "B",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 55,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c0094000",
+        "0x12c0c0113000",
+        "0x12c0c0114000",
+        "0x12c0c0200000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 23.94,
+        "min": 23.2,
+        "max": 24.1
+      },
+      "aiv_time(us)": {
+        "median": 20.7,
+        "min": 19.95,
+        "max": 20.77
+      },
+      "aiv_scalar_time(us)": {
+        "median": 13.011,
+        "min": 12.924,
+        "max": 14.306
+      },
+      "aiv_vec_time(us)": {
+        "median": 9.136,
+        "min": 9.135,
+        "max": 9.137
+      },
+      "aiv_mte2_time(us)": {
+        "median": 7.080500000000001,
+        "min": 5.021,
+        "max": 7.238
+      },
+      "aiv_mte3_time(us)": {
+        "median": 5.487,
+        "min": 5.471,
+        "max": 5.501
+      }
+    },
+    {
+      "case": "110",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J069/new-inputs/finite_51",
+      "dtype": "bf16",
+      "shape": [
+        16,
+        63,
+        257
+      ],
+      "wlen": 63,
+      "round": 3,
+      "label": "B",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 56,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c0094000",
+        "0x12c0c0113000",
+        "0x12c0c0114000",
+        "0x12c0c0200000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 23.98,
+        "min": 23.14,
+        "max": 24.08
+      },
+      "aiv_time(us)": {
+        "median": 20.7055,
+        "min": 19.945,
+        "max": 20.793
+      },
+      "aiv_scalar_time(us)": {
+        "median": 13.0215,
+        "min": 12.9,
+        "max": 14.307
+      },
+      "aiv_vec_time(us)": {
+        "median": 9.136,
+        "min": 9.135,
+        "max": 9.137
+      },
+      "aiv_mte2_time(us)": {
+        "median": 7.0785,
+        "min": 5.016,
+        "max": 7.277
+      },
+      "aiv_mte3_time(us)": {
+        "median": 5.486,
+        "min": 5.47,
+        "max": 5.5
+      }
+    },
+    {
+      "case": "110",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J069/new-inputs/finite_51",
+      "dtype": "bf16",
+      "shape": [
+        16,
+        63,
+        257
+      ],
+      "wlen": 63,
+      "round": 3,
+      "label": "A1",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 57,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c0094000",
+        "0x12c0c0113000",
+        "0x12c0c0114000",
+        "0x12c0c0200000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 23.92,
+        "min": 23.26,
+        "max": 24.08
+      },
+      "aiv_time(us)": {
+        "median": 20.709,
+        "min": 19.935,
+        "max": 20.789
+      },
+      "aiv_scalar_time(us)": {
+        "median": 13.0085,
+        "min": 12.919,
+        "max": 14.299
+      },
+      "aiv_vec_time(us)": {
+        "median": 9.136,
+        "min": 9.135,
+        "max": 9.137
+      },
+      "aiv_mte2_time(us)": {
+        "median": 7.0954999999999995,
+        "min": 5.007,
+        "max": 7.233
+      },
+      "aiv_mte3_time(us)": {
+        "median": 5.487,
+        "min": 5.471,
+        "max": 5.504
+      }
+    },
+    {
+      "case": "110",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J069/new-inputs/finite_51",
+      "dtype": "bf16",
+      "shape": [
+        16,
+        63,
+        257
+      ],
+      "wlen": 63,
+      "round": 3,
+      "label": "C",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 58,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c0094000",
+        "0x12c0c0113000",
+        "0x12c0c0114000",
+        "0x12c0c0200000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 23.94,
+        "min": 23.16,
+        "max": 24.06
+      },
+      "aiv_time(us)": {
+        "median": 20.709,
+        "min": 19.955,
+        "max": 20.815
+      },
+      "aiv_scalar_time(us)": {
+        "median": 13.016,
+        "min": 12.921,
+        "max": 14.287
+      },
+      "aiv_vec_time(us)": {
+        "median": 9.136,
+        "min": 9.135,
+        "max": 9.137
+      },
+      "aiv_mte2_time(us)": {
+        "median": 7.0845,
+        "min": 5.049,
+        "max": 7.245
+      },
+      "aiv_mte3_time(us)": {
+        "median": 5.487,
+        "min": 5.469,
+        "max": 5.505
+      }
+    },
+    {
+      "case": "110",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J069/new-inputs/finite_51",
+      "dtype": "bf16",
+      "shape": [
+        16,
+        63,
+        257
+      ],
+      "wlen": 63,
+      "round": 3,
+      "label": "A2",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 59,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c0094000",
+        "0x12c0c0113000",
+        "0x12c0c0114000",
+        "0x12c0c0200000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 23.96,
+        "min": 23.08,
+        "max": 24.06
+      },
+      "aiv_time(us)": {
+        "median": 20.7,
+        "min": 19.949,
+        "max": 20.779
+      },
+      "aiv_scalar_time(us)": {
+        "median": 13.019,
+        "min": 12.925,
+        "max": 14.293
+      },
+      "aiv_vec_time(us)": {
+        "median": 9.136,
+        "min": 9.135,
+        "max": 9.137
+      },
+      "aiv_mte2_time(us)": {
+        "median": 7.076,
+        "min": 5.034,
+        "max": 7.225
+      },
+      "aiv_mte3_time(us)": {
+        "median": 5.4864999999999995,
+        "min": 5.468,
+        "max": 5.502
+      }
+    },
+    {
+      "case": "110",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J069/new-inputs/finite_51",
+      "dtype": "bf16",
+      "shape": [
+        16,
+        63,
+        257
+      ],
+      "wlen": 63,
+      "round": 4,
+      "label": "A1",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 60,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c0094000",
+        "0x12c0c0113000",
+        "0x12c0c0114000",
+        "0x12c0c0200000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 23.92,
+        "min": 23.26,
+        "max": 24.06
+      },
+      "aiv_time(us)": {
+        "median": 20.708,
+        "min": 19.935,
+        "max": 20.791
+      },
+      "aiv_scalar_time(us)": {
+        "median": 13.011,
+        "min": 12.927,
+        "max": 14.306
+      },
+      "aiv_vec_time(us)": {
+        "median": 9.136,
+        "min": 9.135,
+        "max": 9.137
+      },
+      "aiv_mte2_time(us)": {
+        "median": 7.093,
+        "min": 5.006,
+        "max": 7.219
+      },
+      "aiv_mte3_time(us)": {
+        "median": 5.487,
+        "min": 5.469,
+        "max": 5.5
+      }
+    },
+    {
+      "case": "110",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J069/new-inputs/finite_51",
+      "dtype": "bf16",
+      "shape": [
+        16,
+        63,
+        257
+      ],
+      "wlen": 63,
+      "round": 4,
+      "label": "C",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 61,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c0094000",
+        "0x12c0c0113000",
+        "0x12c0c0114000",
+        "0x12c0c0200000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 23.89,
+        "min": 23.28,
+        "max": 24.04
+      },
+      "aiv_time(us)": {
+        "median": 20.711,
+        "min": 19.951,
+        "max": 20.793
+      },
+      "aiv_scalar_time(us)": {
+        "median": 13.0145,
+        "min": 12.931,
+        "max": 14.287
+      },
+      "aiv_vec_time(us)": {
+        "median": 9.136,
+        "min": 9.135,
+        "max": 9.137
+      },
+      "aiv_mte2_time(us)": {
+        "median": 7.0954999999999995,
+        "min": 5.05,
+        "max": 7.231
+      },
+      "aiv_mte3_time(us)": {
+        "median": 5.486,
+        "min": 5.469,
+        "max": 5.498
+      }
+    },
+    {
+      "case": "110",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J069/new-inputs/finite_51",
+      "dtype": "bf16",
+      "shape": [
+        16,
+        63,
+        257
+      ],
+      "wlen": 63,
+      "round": 4,
+      "label": "B",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 62,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c0094000",
+        "0x12c0c0113000",
+        "0x12c0c0114000",
+        "0x12c0c0200000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 23.92,
+        "min": 23.22,
+        "max": 24.06
+      },
+      "aiv_time(us)": {
+        "median": 20.7065,
+        "min": 19.932,
+        "max": 20.797
+      },
+      "aiv_scalar_time(us)": {
+        "median": 13.0095,
+        "min": 12.904,
+        "max": 14.314
+      },
+      "aiv_vec_time(us)": {
+        "median": 9.136,
+        "min": 9.135,
+        "max": 9.137
+      },
+      "aiv_mte2_time(us)": {
+        "median": 7.091,
+        "min": 5.0,
+        "max": 7.286
+      },
+      "aiv_mte3_time(us)": {
+        "median": 5.485,
+        "min": 5.469,
+        "max": 5.502
+      }
+    },
+    {
+      "case": "110",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J069/new-inputs/finite_51",
+      "dtype": "bf16",
+      "shape": [
+        16,
+        63,
+        257
+      ],
+      "wlen": 63,
+      "round": 4,
+      "label": "A2",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 63,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c0094000",
+        "0x12c0c0113000",
+        "0x12c0c0114000",
+        "0x12c0c0200000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 23.96,
+        "min": 23.24,
+        "max": 24.06
+      },
+      "aiv_time(us)": {
+        "median": 20.7095,
+        "min": 19.96,
+        "max": 20.773
+      },
+      "aiv_scalar_time(us)": {
+        "median": 13.0095,
+        "min": 12.918,
+        "max": 14.172
+      },
+      "aiv_vec_time(us)": {
+        "median": 9.136,
+        "min": 9.135,
+        "max": 9.137
+      },
+      "aiv_mte2_time(us)": {
+        "median": 7.0954999999999995,
+        "min": 5.166,
+        "max": 7.231
+      },
+      "aiv_mte3_time(us)": {
+        "median": 5.487,
+        "min": 5.471,
+        "max": 5.502
+      }
+    },
+    {
+      "case": "110",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J069/new-inputs/finite_51",
+      "dtype": "bf16",
+      "shape": [
+        16,
+        63,
+        257
+      ],
+      "wlen": 63,
+      "round": 5,
+      "label": "B",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 64,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c0094000",
+        "0x12c0c0113000",
+        "0x12c0c0114000",
+        "0x12c0c0200000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 23.98,
+        "min": 23.28,
+        "max": 24.06
+      },
+      "aiv_time(us)": {
+        "median": 20.7035,
+        "min": 19.959,
+        "max": 20.846
+      },
+      "aiv_scalar_time(us)": {
+        "median": 13.02,
+        "min": 12.928,
+        "max": 14.29
+      },
+      "aiv_vec_time(us)": {
+        "median": 9.136,
+        "min": 9.135,
+        "max": 9.137
+      },
+      "aiv_mte2_time(us)": {
+        "median": 7.0794999999999995,
+        "min": 5.053,
+        "max": 7.299
+      },
+      "aiv_mte3_time(us)": {
+        "median": 5.486,
+        "min": 5.47,
+        "max": 5.501
+      }
+    },
+    {
+      "case": "110",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J069/new-inputs/finite_51",
+      "dtype": "bf16",
+      "shape": [
+        16,
+        63,
+        257
+      ],
+      "wlen": 63,
+      "round": 5,
+      "label": "A1",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 65,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c0094000",
+        "0x12c0c0113000",
+        "0x12c0c0114000",
+        "0x12c0c0200000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 23.82,
+        "min": 23.26,
+        "max": 24.04
+      },
+      "aiv_time(us)": {
+        "median": 20.7075,
+        "min": 19.948,
+        "max": 20.801
+      },
+      "aiv_scalar_time(us)": {
+        "median": 13.0095,
+        "min": 12.932,
+        "max": 14.299
+      },
+      "aiv_vec_time(us)": {
+        "median": 9.136,
+        "min": 9.135,
+        "max": 9.137
+      },
+      "aiv_mte2_time(us)": {
+        "median": 7.0905000000000005,
+        "min": 5.029,
+        "max": 7.224
+      },
+      "aiv_mte3_time(us)": {
+        "median": 5.488,
+        "min": 5.469,
+        "max": 5.501
+      }
+    },
+    {
+      "case": "110",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J069/new-inputs/finite_51",
+      "dtype": "bf16",
+      "shape": [
+        16,
+        63,
+        257
+      ],
+      "wlen": 63,
+      "round": 5,
+      "label": "A2",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 66,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c0094000",
+        "0x12c0c0113000",
+        "0x12c0c0114000",
+        "0x12c0c0200000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 23.94,
+        "min": 23.14,
+        "max": 24.06
+      },
+      "aiv_time(us)": {
+        "median": 20.709,
+        "min": 19.941,
+        "max": 20.801
+      },
+      "aiv_scalar_time(us)": {
+        "median": 13.012,
+        "min": 12.928,
+        "max": 14.28
+      },
+      "aiv_vec_time(us)": {
+        "median": 9.136,
+        "min": 9.135,
+        "max": 9.137
+      },
+      "aiv_mte2_time(us)": {
+        "median": 7.087,
+        "min": 5.039,
+        "max": 7.252
+      },
+      "aiv_mte3_time(us)": {
+        "median": 5.487,
+        "min": 5.47,
+        "max": 5.503
+      }
+    },
+    {
+      "case": "110",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J069/new-inputs/finite_51",
+      "dtype": "bf16",
+      "shape": [
+        16,
+        63,
+        257
+      ],
+      "wlen": 63,
+      "round": 5,
+      "label": "C",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 67,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c0094000",
+        "0x12c0c0113000",
+        "0x12c0c0114000",
+        "0x12c0c0200000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 23.96,
+        "min": 23.28,
+        "max": 24.06
+      },
+      "aiv_time(us)": {
+        "median": 20.709,
+        "min": 19.959,
+        "max": 20.795
+      },
+      "aiv_scalar_time(us)": {
+        "median": 13.024,
+        "min": 12.94,
+        "max": 14.289
+      },
+      "aiv_vec_time(us)": {
+        "median": 9.136,
+        "min": 9.135,
+        "max": 9.137
+      },
+      "aiv_mte2_time(us)": {
+        "median": 7.0785,
+        "min": 5.052,
+        "max": 7.239
+      },
+      "aiv_mte3_time(us)": {
+        "median": 5.487,
+        "min": 5.471,
+        "max": 5.503
+      }
+    },
+    {
+      "case": "110",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J069/new-inputs/finite_51",
+      "dtype": "bf16",
+      "shape": [
+        16,
+        63,
+        257
+      ],
+      "wlen": 63,
+      "round": 6,
+      "label": "C",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 68,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c0094000",
+        "0x12c0c0113000",
+        "0x12c0c0114000",
+        "0x12c0c0200000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 23.92,
+        "min": 23.26,
+        "max": 24.06
+      },
+      "aiv_time(us)": {
+        "median": 20.7095,
+        "min": 19.953,
+        "max": 20.802
+      },
+      "aiv_scalar_time(us)": {
+        "median": 13.013,
+        "min": 12.933,
+        "max": 14.276
+      },
+      "aiv_vec_time(us)": {
+        "median": 9.136,
+        "min": 9.135,
+        "max": 9.137
+      },
+      "aiv_mte2_time(us)": {
+        "median": 7.086,
+        "min": 5.047,
+        "max": 7.236
+      },
+      "aiv_mte3_time(us)": {
+        "median": 5.4864999999999995,
+        "min": 5.471,
+        "max": 5.499
+      }
+    },
+    {
+      "case": "110",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J069/new-inputs/finite_51",
+      "dtype": "bf16",
+      "shape": [
+        16,
+        63,
+        257
+      ],
+      "wlen": 63,
+      "round": 6,
+      "label": "A1",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 69,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c0094000",
+        "0x12c0c0113000",
+        "0x12c0c0114000",
+        "0x12c0c0200000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 23.94,
+        "min": 23.26,
+        "max": 24.06
+      },
+      "aiv_time(us)": {
+        "median": 20.706,
+        "min": 19.931,
+        "max": 20.789
+      },
+      "aiv_scalar_time(us)": {
+        "median": 13.0095,
+        "min": 12.915,
+        "max": 14.305
+      },
+      "aiv_vec_time(us)": {
+        "median": 9.136,
+        "min": 9.135,
+        "max": 9.137
+      },
+      "aiv_mte2_time(us)": {
+        "median": 7.093,
+        "min": 4.998,
+        "max": 7.268
+      },
+      "aiv_mte3_time(us)": {
+        "median": 5.4864999999999995,
+        "min": 5.471,
+        "max": 5.51
+      }
+    },
+    {
+      "case": "110",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J069/new-inputs/finite_51",
+      "dtype": "bf16",
+      "shape": [
+        16,
+        63,
+        257
+      ],
+      "wlen": 63,
+      "round": 6,
+      "label": "B",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 70,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c0094000",
+        "0x12c0c0113000",
+        "0x12c0c0114000",
+        "0x12c0c0200000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 23.94,
+        "min": 23.14,
+        "max": 24.12
+      },
+      "aiv_time(us)": {
+        "median": 20.701,
+        "min": 19.989,
+        "max": 20.769
+      },
+      "aiv_scalar_time(us)": {
+        "median": 13.01,
+        "min": 12.918,
+        "max": 14.169
+      },
+      "aiv_vec_time(us)": {
+        "median": 9.136,
+        "min": 9.135,
+        "max": 9.137
+      },
+      "aiv_mte2_time(us)": {
+        "median": 7.0845,
+        "min": 5.209,
+        "max": 7.236
+      },
+      "aiv_mte3_time(us)": {
+        "median": 5.486,
+        "min": 5.47,
+        "max": 5.501
+      }
+    },
+    {
+      "case": "110",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J069/new-inputs/finite_51",
+      "dtype": "bf16",
+      "shape": [
+        16,
+        63,
+        257
+      ],
+      "wlen": 63,
+      "round": 6,
+      "label": "A2",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 71,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c0094000",
+        "0x12c0c0113000",
+        "0x12c0c0114000",
+        "0x12c0c0200000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 23.92,
+        "min": 23.28,
+        "max": 24.08
+      },
+      "aiv_time(us)": {
+        "median": 20.708,
+        "min": 19.956,
+        "max": 20.811
+      },
+      "aiv_scalar_time(us)": {
+        "median": 13.0115,
+        "min": 12.932,
+        "max": 14.299
+      },
+      "aiv_vec_time(us)": {
+        "median": 9.136,
+        "min": 9.135,
+        "max": 9.137
+      },
+      "aiv_mte2_time(us)": {
+        "median": 7.085,
+        "min": 5.035,
+        "max": 7.238
+      },
+      "aiv_mte3_time(us)": {
+        "median": 5.487,
+        "min": 5.469,
+        "max": 5.496
+      }
+    },
+    {
+      "case": "107",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/46",
+      "dtype": "fp32",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "wlen": 64,
+      "round": 1,
+      "label": "A1",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 72,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c001d000",
+        "0x12c0c0025000",
+        "0x12c0c0026000",
+        "0x12c0c002e000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 7.1,
+        "min": 7.0,
+        "max": 7.62
+      },
+      "aiv_time(us)": {
+        "median": 4.767,
+        "min": 4.108,
+        "max": 4.862
+      },
+      "aiv_scalar_time(us)": {
+        "median": 2.2455,
+        "min": 2.162,
+        "max": 3.551
+      },
+      "aiv_vec_time(us)": {
+        "median": 0.256,
+        "min": 0.256,
+        "max": 0.256
+      },
+      "aiv_mte2_time(us)": {
+        "median": 2.5069999999999997,
+        "min": 0.61,
+        "max": 2.688
+      },
+      "aiv_mte3_time(us)": {
+        "median": 0.2555,
+        "min": 0.187,
+        "max": 0.284
+      }
+    },
+    {
+      "case": "107",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/46",
+      "dtype": "fp32",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "wlen": 64,
+      "round": 1,
+      "label": "B",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 73,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c001d000",
+        "0x12c0c0025000",
+        "0x12c0c0026000",
+        "0x12c0c002e000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 7.12,
+        "min": 7.04,
+        "max": 7.56
+      },
+      "aiv_time(us)": {
+        "median": 4.765,
+        "min": 4.119,
+        "max": 4.843
+      },
+      "aiv_scalar_time(us)": {
+        "median": 2.25,
+        "min": 2.17,
+        "max": 3.541
+      },
+      "aiv_vec_time(us)": {
+        "median": 0.256,
+        "min": 0.256,
+        "max": 0.256
+      },
+      "aiv_mte2_time(us)": {
+        "median": 2.5025,
+        "min": 0.635,
+        "max": 2.675
+      },
+      "aiv_mte3_time(us)": {
+        "median": 0.258,
+        "min": 0.186,
+        "max": 0.288
+      }
+    },
+    {
+      "case": "107",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/46",
+      "dtype": "fp32",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "wlen": 64,
+      "round": 1,
+      "label": "C",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 74,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c001d000",
+        "0x12c0c0025000",
+        "0x12c0c0026000",
+        "0x12c0c002e000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 7.12,
+        "min": 7.04,
+        "max": 7.58
+      },
+      "aiv_time(us)": {
+        "median": 4.765499999999999,
+        "min": 4.151,
+        "max": 4.84
+      },
+      "aiv_scalar_time(us)": {
+        "median": 2.25,
+        "min": 2.154,
+        "max": 3.538
+      },
+      "aiv_vec_time(us)": {
+        "median": 0.256,
+        "min": 0.256,
+        "max": 0.256
+      },
+      "aiv_mte2_time(us)": {
+        "median": 2.4995000000000003,
+        "min": 0.666,
+        "max": 2.659
+      },
+      "aiv_mte3_time(us)": {
+        "median": 0.257,
+        "min": 0.19,
+        "max": 0.287
+      }
+    },
+    {
+      "case": "107",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/46",
+      "dtype": "fp32",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "wlen": 64,
+      "round": 1,
+      "label": "A2",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 75,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c001d000",
+        "0x12c0c0025000",
+        "0x12c0c0026000",
+        "0x12c0c002e000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 7.1,
+        "min": 7.0,
+        "max": 7.66
+      },
+      "aiv_time(us)": {
+        "median": 4.77,
+        "min": 4.139,
+        "max": 4.847
+      },
+      "aiv_scalar_time(us)": {
+        "median": 2.243,
+        "min": 2.157,
+        "max": 3.547
+      },
+      "aiv_vec_time(us)": {
+        "median": 0.256,
+        "min": 0.256,
+        "max": 0.256
+      },
+      "aiv_mte2_time(us)": {
+        "median": 2.5069999999999997,
+        "min": 0.639,
+        "max": 2.68
+      },
+      "aiv_mte3_time(us)": {
+        "median": 0.257,
+        "min": 0.19,
+        "max": 0.286
+      }
+    },
+    {
+      "case": "107",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/46",
+      "dtype": "fp32",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "wlen": 64,
+      "round": 2,
+      "label": "C",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 76,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c001d000",
+        "0x12c0c0025000",
+        "0x12c0c0026000",
+        "0x12c0c002e000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 7.12,
+        "min": 7.04,
+        "max": 7.6
+      },
+      "aiv_time(us)": {
+        "median": 4.769,
+        "min": 4.158,
+        "max": 4.85
+      },
+      "aiv_scalar_time(us)": {
+        "median": 2.25,
+        "min": 2.169,
+        "max": 3.402
+      },
+      "aiv_vec_time(us)": {
+        "median": 0.256,
+        "min": 0.256,
+        "max": 0.256
+      },
+      "aiv_mte2_time(us)": {
+        "median": 2.502,
+        "min": 0.8,
+        "max": 2.664
+      },
+      "aiv_mte3_time(us)": {
+        "median": 0.258,
+        "min": 0.189,
+        "max": 0.288
+      }
+    },
+    {
+      "case": "107",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/46",
+      "dtype": "fp32",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "wlen": 64,
+      "round": 2,
+      "label": "A1",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 77,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c001d000",
+        "0x12c0c0025000",
+        "0x12c0c0026000",
+        "0x12c0c002e000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 7.12,
+        "min": 7.0,
+        "max": 7.5
+      },
+      "aiv_time(us)": {
+        "median": 4.763,
+        "min": 4.133,
+        "max": 4.866
+      },
+      "aiv_scalar_time(us)": {
+        "median": 2.2455,
+        "min": 2.156,
+        "max": 3.519
+      },
+      "aiv_vec_time(us)": {
+        "median": 0.256,
+        "min": 0.256,
+        "max": 0.256
+      },
+      "aiv_mte2_time(us)": {
+        "median": 2.5004999999999997,
+        "min": 0.669,
+        "max": 2.704
+      },
+      "aiv_mte3_time(us)": {
+        "median": 0.257,
+        "min": 0.189,
+        "max": 0.286
+      }
+    },
+    {
+      "case": "107",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/46",
+      "dtype": "fp32",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "wlen": 64,
+      "round": 2,
+      "label": "A2",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 78,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c001d000",
+        "0x12c0c0025000",
+        "0x12c0c0026000",
+        "0x12c0c002e000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 7.1,
+        "min": 7.02,
+        "max": 7.62
+      },
+      "aiv_time(us)": {
+        "median": 4.771,
+        "min": 4.121,
+        "max": 4.849
+      },
+      "aiv_scalar_time(us)": {
+        "median": 2.2424999999999997,
+        "min": 2.163,
+        "max": 3.542
+      },
+      "aiv_vec_time(us)": {
+        "median": 0.256,
+        "min": 0.256,
+        "max": 0.256
+      },
+      "aiv_mte2_time(us)": {
+        "median": 2.5075000000000003,
+        "min": 0.631,
+        "max": 2.663
+      },
+      "aiv_mte3_time(us)": {
+        "median": 0.26,
+        "min": 0.194,
+        "max": 0.288
+      }
+    },
+    {
+      "case": "107",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/46",
+      "dtype": "fp32",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "wlen": 64,
+      "round": 2,
+      "label": "B",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 79,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c001d000",
+        "0x12c0c0025000",
+        "0x12c0c0026000",
+        "0x12c0c002e000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 7.12,
+        "min": 7.04,
+        "max": 7.64
+      },
+      "aiv_time(us)": {
+        "median": 4.766,
+        "min": 4.13,
+        "max": 4.841
+      },
+      "aiv_scalar_time(us)": {
+        "median": 2.251,
+        "min": 2.157,
+        "max": 3.521
+      },
+      "aiv_vec_time(us)": {
+        "median": 0.256,
+        "min": 0.256,
+        "max": 0.256
+      },
+      "aiv_mte2_time(us)": {
+        "median": 2.4975,
+        "min": 0.665,
+        "max": 2.68
+      },
+      "aiv_mte3_time(us)": {
+        "median": 0.257,
+        "min": 0.189,
+        "max": 0.284
+      }
+    },
+    {
+      "case": "107",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/46",
+      "dtype": "fp32",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "wlen": 64,
+      "round": 3,
+      "label": "B",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 80,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c001d000",
+        "0x12c0c0025000",
+        "0x12c0c0026000",
+        "0x12c0c002e000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 7.12,
+        "min": 7.02,
+        "max": 7.56
+      },
+      "aiv_time(us)": {
+        "median": 4.768,
+        "min": 4.135,
+        "max": 4.843
+      },
+      "aiv_scalar_time(us)": {
+        "median": 2.243,
+        "min": 2.148,
+        "max": 3.54
+      },
+      "aiv_vec_time(us)": {
+        "median": 0.256,
+        "min": 0.256,
+        "max": 0.256
+      },
+      "aiv_mte2_time(us)": {
+        "median": 2.51,
+        "min": 0.644,
+        "max": 2.688
+      },
+      "aiv_mte3_time(us)": {
+        "median": 0.257,
+        "min": 0.186,
+        "max": 0.284
+      }
+    },
+    {
+      "case": "107",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/46",
+      "dtype": "fp32",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "wlen": 64,
+      "round": 3,
+      "label": "A1",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 81,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c001d000",
+        "0x12c0c0025000",
+        "0x12c0c0026000",
+        "0x12c0c002e000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 7.1,
+        "min": 7.0,
+        "max": 7.64
+      },
+      "aiv_time(us)": {
+        "median": 4.769,
+        "min": 4.153,
+        "max": 4.842
+      },
+      "aiv_scalar_time(us)": {
+        "median": 2.242,
+        "min": 2.155,
+        "max": 3.46
+      },
+      "aiv_vec_time(us)": {
+        "median": 0.256,
+        "min": 0.256,
+        "max": 0.256
+      },
+      "aiv_mte2_time(us)": {
+        "median": 2.5155000000000003,
+        "min": 0.741,
+        "max": 2.694
+      },
+      "aiv_mte3_time(us)": {
+        "median": 0.255,
+        "min": 0.189,
+        "max": 0.287
+      }
+    },
+    {
+      "case": "107",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/46",
+      "dtype": "fp32",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "wlen": 64,
+      "round": 3,
+      "label": "C",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 82,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c001d000",
+        "0x12c0c0025000",
+        "0x12c0c0026000",
+        "0x12c0c002e000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 7.12,
+        "min": 7.04,
+        "max": 7.6
+      },
+      "aiv_time(us)": {
+        "median": 4.764,
+        "min": 4.14,
+        "max": 4.833
+      },
+      "aiv_scalar_time(us)": {
+        "median": 2.245,
+        "min": 2.148,
+        "max": 3.491
+      },
+      "aiv_vec_time(us)": {
+        "median": 0.256,
+        "min": 0.256,
+        "max": 0.256
+      },
+      "aiv_mte2_time(us)": {
+        "median": 2.5025,
+        "min": 0.697,
+        "max": 2.671
+      },
+      "aiv_mte3_time(us)": {
+        "median": 0.257,
+        "min": 0.188,
+        "max": 0.283
+      }
+    },
+    {
+      "case": "107",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/46",
+      "dtype": "fp32",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "wlen": 64,
+      "round": 3,
+      "label": "A2",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 83,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c001d000",
+        "0x12c0c0025000",
+        "0x12c0c0026000",
+        "0x12c0c002e000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 7.1,
+        "min": 7.0,
+        "max": 7.58
+      },
+      "aiv_time(us)": {
+        "median": 4.766,
+        "min": 4.121,
+        "max": 4.849
+      },
+      "aiv_scalar_time(us)": {
+        "median": 2.25,
+        "min": 2.148,
+        "max": 3.529
+      },
+      "aiv_vec_time(us)": {
+        "median": 0.256,
+        "min": 0.256,
+        "max": 0.256
+      },
+      "aiv_mte2_time(us)": {
+        "median": 2.4965,
+        "min": 0.651,
+        "max": 2.693
+      },
+      "aiv_mte3_time(us)": {
+        "median": 0.26,
+        "min": 0.189,
+        "max": 0.29
+      }
+    },
+    {
+      "case": "107",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/46",
+      "dtype": "fp32",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "wlen": 64,
+      "round": 4,
+      "label": "A1",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 84,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c001d000",
+        "0x12c0c0025000",
+        "0x12c0c0026000",
+        "0x12c0c002e000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 7.09,
+        "min": 7.0,
+        "max": 7.6
+      },
+      "aiv_time(us)": {
+        "median": 4.7725,
+        "min": 4.143,
+        "max": 4.846
+      },
+      "aiv_scalar_time(us)": {
+        "median": 2.24,
+        "min": 2.171,
+        "max": 3.534
+      },
+      "aiv_vec_time(us)": {
+        "median": 0.256,
+        "min": 0.256,
+        "max": 0.256
+      },
+      "aiv_mte2_time(us)": {
+        "median": 2.5175,
+        "min": 0.663,
+        "max": 2.648
+      },
+      "aiv_mte3_time(us)": {
+        "median": 0.256,
+        "min": 0.192,
+        "max": 0.302
+      }
+    },
+    {
+      "case": "107",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/46",
+      "dtype": "fp32",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "wlen": 64,
+      "round": 4,
+      "label": "C",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 85,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c001d000",
+        "0x12c0c0025000",
+        "0x12c0c0026000",
+        "0x12c0c002e000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 7.12,
+        "min": 7.04,
+        "max": 7.56
+      },
+      "aiv_time(us)": {
+        "median": 4.7725,
+        "min": 4.165,
+        "max": 4.859
+      },
+      "aiv_scalar_time(us)": {
+        "median": 2.242,
+        "min": 2.168,
+        "max": 3.412
+      },
+      "aiv_vec_time(us)": {
+        "median": 0.256,
+        "min": 0.256,
+        "max": 0.256
+      },
+      "aiv_mte2_time(us)": {
+        "median": 2.5125,
+        "min": 0.815,
+        "max": 2.666
+      },
+      "aiv_mte3_time(us)": {
+        "median": 0.258,
+        "min": 0.187,
+        "max": 0.288
+      }
+    },
+    {
+      "case": "107",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/46",
+      "dtype": "fp32",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "wlen": 64,
+      "round": 4,
+      "label": "B",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 86,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c001d000",
+        "0x12c0c0025000",
+        "0x12c0c0026000",
+        "0x12c0c002e000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 7.12,
+        "min": 7.04,
+        "max": 7.6
+      },
+      "aiv_time(us)": {
+        "median": 4.769,
+        "min": 4.157,
+        "max": 4.841
+      },
+      "aiv_scalar_time(us)": {
+        "median": 2.2504999999999997,
+        "min": 2.158,
+        "max": 3.423
+      },
+      "aiv_vec_time(us)": {
+        "median": 0.256,
+        "min": 0.256,
+        "max": 0.256
+      },
+      "aiv_mte2_time(us)": {
+        "median": 2.503,
+        "min": 0.781,
+        "max": 2.69
+      },
+      "aiv_mte3_time(us)": {
+        "median": 0.256,
+        "min": 0.187,
+        "max": 0.283
+      }
+    },
+    {
+      "case": "107",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/46",
+      "dtype": "fp32",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "wlen": 64,
+      "round": 4,
+      "label": "A2",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 87,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c001d000",
+        "0x12c0c0025000",
+        "0x12c0c0026000",
+        "0x12c0c002e000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 7.1,
+        "min": 7.0,
+        "max": 7.68
+      },
+      "aiv_time(us)": {
+        "median": 4.766,
+        "min": 4.187,
+        "max": 4.862
+      },
+      "aiv_scalar_time(us)": {
+        "median": 2.244,
+        "min": 2.157,
+        "max": 3.294
+      },
+      "aiv_vec_time(us)": {
+        "median": 0.256,
+        "min": 0.256,
+        "max": 0.256
+      },
+      "aiv_mte2_time(us)": {
+        "median": 2.506,
+        "min": 0.949,
+        "max": 2.688
+      },
+      "aiv_mte3_time(us)": {
+        "median": 0.26,
+        "min": 0.19,
+        "max": 0.287
+      }
+    },
+    {
+      "case": "107",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/46",
+      "dtype": "fp32",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "wlen": 64,
+      "round": 5,
+      "label": "B",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 88,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c001d000",
+        "0x12c0c0025000",
+        "0x12c0c0026000",
+        "0x12c0c002e000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 7.12,
+        "min": 7.04,
+        "max": 7.64
+      },
+      "aiv_time(us)": {
+        "median": 4.769,
+        "min": 4.124,
+        "max": 4.845
+      },
+      "aiv_scalar_time(us)": {
+        "median": 2.245,
+        "min": 2.162,
+        "max": 3.538
+      },
+      "aiv_vec_time(us)": {
+        "median": 0.256,
+        "min": 0.256,
+        "max": 0.256
+      },
+      "aiv_mte2_time(us)": {
+        "median": 2.5065,
+        "min": 0.64,
+        "max": 2.681
+      },
+      "aiv_mte3_time(us)": {
+        "median": 0.2525,
+        "min": 0.19,
+        "max": 0.286
+      }
+    },
+    {
+      "case": "107",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/46",
+      "dtype": "fp32",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "wlen": 64,
+      "round": 5,
+      "label": "A1",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 89,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c001d000",
+        "0x12c0c0025000",
+        "0x12c0c0026000",
+        "0x12c0c002e000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 7.12,
+        "min": 7.0,
+        "max": 7.72
+      },
+      "aiv_time(us)": {
+        "median": 4.766500000000001,
+        "min": 4.135,
+        "max": 4.841
+      },
+      "aiv_scalar_time(us)": {
+        "median": 2.243,
+        "min": 2.154,
+        "max": 3.523
+      },
+      "aiv_vec_time(us)": {
+        "median": 0.256,
+        "min": 0.256,
+        "max": 0.256
+      },
+      "aiv_mte2_time(us)": {
+        "median": 2.508,
+        "min": 0.66,
+        "max": 2.69
+      },
+      "aiv_mte3_time(us)": {
+        "median": 0.255,
+        "min": 0.189,
+        "max": 0.285
+      }
+    },
+    {
+      "case": "107",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/46",
+      "dtype": "fp32",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "wlen": 64,
+      "round": 5,
+      "label": "A2",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 90,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c001d000",
+        "0x12c0c0025000",
+        "0x12c0c0026000",
+        "0x12c0c002e000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 7.1,
+        "min": 7.02,
+        "max": 7.6
+      },
+      "aiv_time(us)": {
+        "median": 4.7735,
+        "min": 4.123,
+        "max": 4.844
+      },
+      "aiv_scalar_time(us)": {
+        "median": 2.242,
+        "min": 2.173,
+        "max": 3.563
+      },
+      "aiv_vec_time(us)": {
+        "median": 0.256,
+        "min": 0.256,
+        "max": 0.256
+      },
+      "aiv_mte2_time(us)": {
+        "median": 2.5095,
+        "min": 0.603,
+        "max": 2.659
+      },
+      "aiv_mte3_time(us)": {
+        "median": 0.2545,
+        "min": 0.189,
+        "max": 0.301
+      }
+    },
+    {
+      "case": "107",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/46",
+      "dtype": "fp32",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "wlen": 64,
+      "round": 5,
+      "label": "C",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 91,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c001d000",
+        "0x12c0c0025000",
+        "0x12c0c0026000",
+        "0x12c0c002e000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 7.12,
+        "min": 7.04,
+        "max": 7.56
+      },
+      "aiv_time(us)": {
+        "median": 4.768,
+        "min": 4.136,
+        "max": 4.858
+      },
+      "aiv_scalar_time(us)": {
+        "median": 2.246,
+        "min": 2.159,
+        "max": 3.551
+      },
+      "aiv_vec_time(us)": {
+        "median": 0.256,
+        "min": 0.256,
+        "max": 0.256
+      },
+      "aiv_mte2_time(us)": {
+        "median": 2.5115,
+        "min": 0.642,
+        "max": 2.682
+      },
+      "aiv_mte3_time(us)": {
+        "median": 0.255,
+        "min": 0.189,
+        "max": 0.302
+      }
+    },
+    {
+      "case": "107",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/46",
+      "dtype": "fp32",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "wlen": 64,
+      "round": 6,
+      "label": "C",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 92,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c001d000",
+        "0x12c0c0025000",
+        "0x12c0c0026000",
+        "0x12c0c002e000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 7.12,
+        "min": 7.04,
+        "max": 7.58
+      },
+      "aiv_time(us)": {
+        "median": 4.766500000000001,
+        "min": 4.152,
+        "max": 4.832
+      },
+      "aiv_scalar_time(us)": {
+        "median": 2.249,
+        "min": 2.153,
+        "max": 3.489
+      },
+      "aiv_vec_time(us)": {
+        "median": 0.256,
+        "min": 0.256,
+        "max": 0.256
+      },
+      "aiv_mte2_time(us)": {
+        "median": 2.4985,
+        "min": 0.708,
+        "max": 2.673
+      },
+      "aiv_mte3_time(us)": {
+        "median": 0.257,
+        "min": 0.189,
+        "max": 0.293
+      }
+    },
+    {
+      "case": "107",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/46",
+      "dtype": "fp32",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "wlen": 64,
+      "round": 6,
+      "label": "A1",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 93,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c001d000",
+        "0x12c0c0025000",
+        "0x12c0c0026000",
+        "0x12c0c002e000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 7.12,
+        "min": 7.0,
+        "max": 7.56
+      },
+      "aiv_time(us)": {
+        "median": 4.7705,
+        "min": 4.128,
+        "max": 4.848
+      },
+      "aiv_scalar_time(us)": {
+        "median": 2.2445000000000004,
+        "min": 2.159,
+        "max": 3.555
+      },
+      "aiv_vec_time(us)": {
+        "median": 0.256,
+        "min": 0.256,
+        "max": 0.256
+      },
+      "aiv_mte2_time(us)": {
+        "median": 2.503,
+        "min": 0.627,
+        "max": 2.694
+      },
+      "aiv_mte3_time(us)": {
+        "median": 0.2565,
+        "min": 0.191,
+        "max": 0.292
+      }
+    },
+    {
+      "case": "107",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/46",
+      "dtype": "fp32",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "wlen": 64,
+      "round": 6,
+      "label": "B",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 94,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c001d000",
+        "0x12c0c0025000",
+        "0x12c0c0026000",
+        "0x12c0c002e000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 7.12,
+        "min": 7.04,
+        "max": 7.58
+      },
+      "aiv_time(us)": {
+        "median": 4.7765,
+        "min": 4.14,
+        "max": 4.842
+      },
+      "aiv_scalar_time(us)": {
+        "median": 2.242,
+        "min": 2.16,
+        "max": 3.414
+      },
+      "aiv_vec_time(us)": {
+        "median": 0.256,
+        "min": 0.256,
+        "max": 0.256
+      },
+      "aiv_mte2_time(us)": {
+        "median": 2.5105,
+        "min": 0.772,
+        "max": 2.671
+      },
+      "aiv_mte3_time(us)": {
+        "median": 0.255,
+        "min": 0.19,
+        "max": 0.282
+      }
+    },
+    {
+      "case": "107",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/46",
+      "dtype": "fp32",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "wlen": 64,
+      "round": 6,
+      "label": "A2",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 95,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c001d000",
+        "0x12c0c0025000",
+        "0x12c0c0026000",
+        "0x12c0c002e000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 7.12,
+        "min": 7.0,
+        "max": 7.7
+      },
+      "aiv_time(us)": {
+        "median": 4.771,
+        "min": 4.143,
+        "max": 4.868
+      },
+      "aiv_scalar_time(us)": {
+        "median": 2.24,
+        "min": 2.153,
+        "max": 3.545
+      },
+      "aiv_vec_time(us)": {
+        "median": 0.256,
+        "min": 0.256,
+        "max": 0.256
+      },
+      "aiv_mte2_time(us)": {
+        "median": 2.511,
+        "min": 0.642,
+        "max": 2.691
+      },
+      "aiv_mte3_time(us)": {
+        "median": 0.2585,
+        "min": 0.191,
+        "max": 0.286
+      }
+    },
+    {
+      "case": "5",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/94",
+      "dtype": "fp16",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "wlen": 64,
+      "round": 1,
+      "label": "A1",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 96,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c0019000",
+        "0x12c0c001d000",
+        "0x12c0c001e000",
+        "0x12c0c0022000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 7.1,
+        "min": 7.04,
+        "max": 7.64
+      },
+      "aiv_time(us)": {
+        "median": 4.8004999999999995,
+        "min": 4.172,
+        "max": 4.919
+      },
+      "aiv_scalar_time(us)": {
+        "median": 2.295,
+        "min": 2.221,
+        "max": 3.545
+      },
+      "aiv_vec_time(us)": {
+        "median": 0.249,
+        "min": 0.249,
+        "max": 0.249
+      },
+      "aiv_mte2_time(us)": {
+        "median": 2.46,
+        "min": 0.693,
+        "max": 2.572
+      },
+      "aiv_mte3_time(us)": {
+        "median": 0.3305,
+        "min": 0.212,
+        "max": 0.41
+      }
+    },
+    {
+      "case": "5",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/94",
+      "dtype": "fp16",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "wlen": 64,
+      "round": 1,
+      "label": "B",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 97,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c0019000",
+        "0x12c0c001d000",
+        "0x12c0c001e000",
+        "0x12c0c0022000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 7.08,
+        "min": 7.0,
+        "max": 7.56
+      },
+      "aiv_time(us)": {
+        "median": 4.7495,
+        "min": 4.136,
+        "max": 4.886
+      },
+      "aiv_scalar_time(us)": {
+        "median": 2.229,
+        "min": 2.141,
+        "max": 3.455
+      },
+      "aiv_vec_time(us)": {
+        "median": 0.249,
+        "min": 0.249,
+        "max": 0.249
+      },
+      "aiv_mte2_time(us)": {
+        "median": 2.4635,
+        "min": 0.722,
+        "max": 2.585
+      },
+      "aiv_mte3_time(us)": {
+        "median": 0.307,
+        "min": 0.213,
+        "max": 0.412
+      }
+    },
+    {
+      "case": "5",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/94",
+      "dtype": "fp16",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "wlen": 64,
+      "round": 1,
+      "label": "C",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 98,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c0019000",
+        "0x12c0c001d000",
+        "0x12c0c001e000",
+        "0x12c0c0022000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 7.12,
+        "min": 7.06,
+        "max": 7.66
+      },
+      "aiv_time(us)": {
+        "median": 4.802,
+        "min": 4.18,
+        "max": 4.929
+      },
+      "aiv_scalar_time(us)": {
+        "median": 2.298,
+        "min": 2.215,
+        "max": 3.591
+      },
+      "aiv_vec_time(us)": {
+        "median": 0.249,
+        "min": 0.249,
+        "max": 0.249
+      },
+      "aiv_mte2_time(us)": {
+        "median": 2.4515000000000002,
+        "min": 0.65,
+        "max": 2.567
+      },
+      "aiv_mte3_time(us)": {
+        "median": 0.3365,
+        "min": 0.215,
+        "max": 0.424
+      }
+    },
+    {
+      "case": "5",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/94",
+      "dtype": "fp16",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "wlen": 64,
+      "round": 1,
+      "label": "A2",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 99,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c0019000",
+        "0x12c0c001d000",
+        "0x12c0c001e000",
+        "0x12c0c0022000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 7.12,
+        "min": 7.02,
+        "max": 7.76
+      },
+      "aiv_time(us)": {
+        "median": 4.801,
+        "min": 4.177,
+        "max": 4.919
+      },
+      "aiv_scalar_time(us)": {
+        "median": 2.2935,
+        "min": 2.193,
+        "max": 3.593
+      },
+      "aiv_vec_time(us)": {
+        "median": 0.249,
+        "min": 0.249,
+        "max": 0.249
+      },
+      "aiv_mte2_time(us)": {
+        "median": 2.4555,
+        "min": 0.646,
+        "max": 2.585
+      },
+      "aiv_mte3_time(us)": {
+        "median": 0.327,
+        "min": 0.213,
+        "max": 0.405
+      }
+    },
+    {
+      "case": "5",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/94",
+      "dtype": "fp16",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "wlen": 64,
+      "round": 2,
+      "label": "C",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 100,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c0019000",
+        "0x12c0c001d000",
+        "0x12c0c001e000",
+        "0x12c0c0022000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 7.12,
+        "min": 7.04,
+        "max": 7.64
+      },
+      "aiv_time(us)": {
+        "median": 4.7925,
+        "min": 4.189,
+        "max": 4.898
+      },
+      "aiv_scalar_time(us)": {
+        "median": 2.297,
+        "min": 2.206,
+        "max": 3.466
+      },
+      "aiv_vec_time(us)": {
+        "median": 0.249,
+        "min": 0.249,
+        "max": 0.249
+      },
+      "aiv_mte2_time(us)": {
+        "median": 2.458,
+        "min": 0.8,
+        "max": 2.573
+      },
+      "aiv_mte3_time(us)": {
+        "median": 0.323,
+        "min": 0.214,
+        "max": 0.404
+      }
+    },
+    {
+      "case": "5",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/94",
+      "dtype": "fp16",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "wlen": 64,
+      "round": 2,
+      "label": "A1",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 101,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c0019000",
+        "0x12c0c001d000",
+        "0x12c0c001e000",
+        "0x12c0c0022000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 7.12,
+        "min": 7.04,
+        "max": 7.82
+      },
+      "aiv_time(us)": {
+        "median": 4.782,
+        "min": 4.167,
+        "max": 4.909
+      },
+      "aiv_scalar_time(us)": {
+        "median": 2.301,
+        "min": 2.208,
+        "max": 3.583
+      },
+      "aiv_vec_time(us)": {
+        "median": 0.249,
+        "min": 0.249,
+        "max": 0.249
+      },
+      "aiv_mte2_time(us)": {
+        "median": 2.451,
+        "min": 0.642,
+        "max": 2.575
+      },
+      "aiv_mte3_time(us)": {
+        "median": 0.3155,
+        "min": 0.216,
+        "max": 0.407
+      }
+    },
+    {
+      "case": "5",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/94",
+      "dtype": "fp16",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "wlen": 64,
+      "round": 2,
+      "label": "A2",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 102,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c0019000",
+        "0x12c0c001d000",
+        "0x12c0c001e000",
+        "0x12c0c0022000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 7.1,
+        "min": 7.04,
+        "max": 7.74
+      },
+      "aiv_time(us)": {
+        "median": 4.7925,
+        "min": 4.176,
+        "max": 4.916
+      },
+      "aiv_scalar_time(us)": {
+        "median": 2.2960000000000003,
+        "min": 2.215,
+        "max": 3.588
+      },
+      "aiv_vec_time(us)": {
+        "median": 0.249,
+        "min": 0.249,
+        "max": 0.249
+      },
+      "aiv_mte2_time(us)": {
+        "median": 2.462,
+        "min": 0.654,
+        "max": 2.559
+      },
+      "aiv_mte3_time(us)": {
+        "median": 0.3125,
+        "min": 0.212,
+        "max": 0.417
+      }
+    },
+    {
+      "case": "5",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/94",
+      "dtype": "fp16",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "wlen": 64,
+      "round": 2,
+      "label": "B",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 103,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c0019000",
+        "0x12c0c001d000",
+        "0x12c0c001e000",
+        "0x12c0c0022000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 7.08,
+        "min": 6.98,
+        "max": 7.52
+      },
+      "aiv_time(us)": {
+        "median": 4.745,
+        "min": 4.122,
+        "max": 4.878
+      },
+      "aiv_scalar_time(us)": {
+        "median": 2.237,
+        "min": 2.145,
+        "max": 3.515
+      },
+      "aiv_vec_time(us)": {
+        "median": 0.249,
+        "min": 0.249,
+        "max": 0.249
+      },
+      "aiv_mte2_time(us)": {
+        "median": 2.447,
+        "min": 0.644,
+        "max": 2.576
+      },
+      "aiv_mte3_time(us)": {
+        "median": 0.3105,
+        "min": 0.214,
+        "max": 0.41
+      }
+    },
+    {
+      "case": "5",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/94",
+      "dtype": "fp16",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "wlen": 64,
+      "round": 3,
+      "label": "B",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 104,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c0019000",
+        "0x12c0c001d000",
+        "0x12c0c001e000",
+        "0x12c0c0022000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 7.08,
+        "min": 6.98,
+        "max": 7.52
+      },
+      "aiv_time(us)": {
+        "median": 4.750500000000001,
+        "min": 4.127,
+        "max": 4.871
+      },
+      "aiv_scalar_time(us)": {
+        "median": 2.234,
+        "min": 2.115,
+        "max": 3.527
+      },
+      "aiv_vec_time(us)": {
+        "median": 0.249,
+        "min": 0.249,
+        "max": 0.249
+      },
+      "aiv_mte2_time(us)": {
+        "median": 2.456,
+        "min": 0.636,
+        "max": 2.62
+      },
+      "aiv_mte3_time(us)": {
+        "median": 0.3225,
+        "min": 0.213,
+        "max": 0.415
+      }
+    },
+    {
+      "case": "5",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/94",
+      "dtype": "fp16",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "wlen": 64,
+      "round": 3,
+      "label": "A1",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 105,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c0019000",
+        "0x12c0c001d000",
+        "0x12c0c001e000",
+        "0x12c0c0022000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 7.12,
+        "min": 7.04,
+        "max": 7.74
+      },
+      "aiv_time(us)": {
+        "median": 4.802,
+        "min": 4.174,
+        "max": 4.922
+      },
+      "aiv_scalar_time(us)": {
+        "median": 2.292,
+        "min": 2.202,
+        "max": 3.577
+      },
+      "aiv_vec_time(us)": {
+        "median": 0.249,
+        "min": 0.249,
+        "max": 0.249
+      },
+      "aiv_mte2_time(us)": {
+        "median": 2.463,
+        "min": 0.665,
+        "max": 2.586
+      },
+      "aiv_mte3_time(us)": {
+        "median": 0.33,
+        "min": 0.211,
+        "max": 0.41
+      }
+    },
+    {
+      "case": "5",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/94",
+      "dtype": "fp16",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "wlen": 64,
+      "round": 3,
+      "label": "C",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 106,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c0019000",
+        "0x12c0c001d000",
+        "0x12c0c001e000",
+        "0x12c0c0022000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 7.14,
+        "min": 7.06,
+        "max": 7.64
+      },
+      "aiv_time(us)": {
+        "median": 4.7895,
+        "min": 4.186,
+        "max": 4.919
+      },
+      "aiv_scalar_time(us)": {
+        "median": 2.3015,
+        "min": 2.207,
+        "max": 3.575
+      },
+      "aiv_vec_time(us)": {
+        "median": 0.249,
+        "min": 0.249,
+        "max": 0.249
+      },
+      "aiv_mte2_time(us)": {
+        "median": 2.4485,
+        "min": 0.655,
+        "max": 2.576
+      },
+      "aiv_mte3_time(us)": {
+        "median": 0.318,
+        "min": 0.213,
+        "max": 0.418
+      }
+    },
+    {
+      "case": "5",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/94",
+      "dtype": "fp16",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "wlen": 64,
+      "round": 3,
+      "label": "A2",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 107,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c0019000",
+        "0x12c0c001d000",
+        "0x12c0c001e000",
+        "0x12c0c0022000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 7.14,
+        "min": 7.04,
+        "max": 7.76
+      },
+      "aiv_time(us)": {
+        "median": 4.79,
+        "min": 4.189,
+        "max": 4.903
+      },
+      "aiv_scalar_time(us)": {
+        "median": 2.29,
+        "min": 2.215,
+        "max": 3.567
+      },
+      "aiv_vec_time(us)": {
+        "median": 0.249,
+        "min": 0.249,
+        "max": 0.249
+      },
+      "aiv_mte2_time(us)": {
+        "median": 2.466,
+        "min": 0.688,
+        "max": 2.558
+      },
+      "aiv_mte3_time(us)": {
+        "median": 0.3135,
+        "min": 0.21,
+        "max": 0.408
+      }
+    },
+    {
+      "case": "5",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/94",
+      "dtype": "fp16",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "wlen": 64,
+      "round": 4,
+      "label": "A1",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 108,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c0019000",
+        "0x12c0c001d000",
+        "0x12c0c001e000",
+        "0x12c0c0022000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 7.1,
+        "min": 7.02,
+        "max": 7.68
+      },
+      "aiv_time(us)": {
+        "median": 4.791,
+        "min": 4.16,
+        "max": 4.908
+      },
+      "aiv_scalar_time(us)": {
+        "median": 2.297,
+        "min": 2.216,
+        "max": 3.567
+      },
+      "aiv_vec_time(us)": {
+        "median": 0.249,
+        "min": 0.249,
+        "max": 0.249
+      },
+      "aiv_mte2_time(us)": {
+        "median": 2.4555,
+        "min": 0.656,
+        "max": 2.575
+      },
+      "aiv_mte3_time(us)": {
+        "median": 0.3115,
+        "min": 0.212,
+        "max": 0.42
+      }
+    },
+    {
+      "case": "5",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/94",
+      "dtype": "fp16",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "wlen": 64,
+      "round": 4,
+      "label": "C",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 109,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c0019000",
+        "0x12c0c001d000",
+        "0x12c0c001e000",
+        "0x12c0c0022000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 7.12,
+        "min": 7.06,
+        "max": 7.58
+      },
+      "aiv_time(us)": {
+        "median": 4.7925,
+        "min": 4.154,
+        "max": 4.914
+      },
+      "aiv_scalar_time(us)": {
+        "median": 2.304,
+        "min": 2.203,
+        "max": 3.6
+      },
+      "aiv_vec_time(us)": {
+        "median": 0.249,
+        "min": 0.249,
+        "max": 0.249
+      },
+      "aiv_mte2_time(us)": {
+        "median": 2.4364999999999997,
+        "min": 0.623,
+        "max": 2.569
+      },
+      "aiv_mte3_time(us)": {
+        "median": 0.3335,
+        "min": 0.212,
+        "max": 0.416
+      }
+    },
+    {
+      "case": "5",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/94",
+      "dtype": "fp16",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "wlen": 64,
+      "round": 4,
+      "label": "B",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 110,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c0019000",
+        "0x12c0c001d000",
+        "0x12c0c001e000",
+        "0x12c0c0022000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 7.08,
+        "min": 6.98,
+        "max": 7.54
+      },
+      "aiv_time(us)": {
+        "median": 4.7555,
+        "min": 4.135,
+        "max": 4.888
+      },
+      "aiv_scalar_time(us)": {
+        "median": 2.232,
+        "min": 2.155,
+        "max": 3.471
+      },
+      "aiv_vec_time(us)": {
+        "median": 0.249,
+        "min": 0.249,
+        "max": 0.249
+      },
+      "aiv_mte2_time(us)": {
+        "median": 2.457,
+        "min": 0.705,
+        "max": 2.567
+      },
+      "aiv_mte3_time(us)": {
+        "median": 0.317,
+        "min": 0.213,
+        "max": 0.415
+      }
+    },
+    {
+      "case": "5",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/94",
+      "dtype": "fp16",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "wlen": 64,
+      "round": 4,
+      "label": "A2",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 111,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c0019000",
+        "0x12c0c001d000",
+        "0x12c0c001e000",
+        "0x12c0c0022000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 7.13,
+        "min": 7.02,
+        "max": 7.7
+      },
+      "aiv_time(us)": {
+        "median": 4.797,
+        "min": 4.174,
+        "max": 4.917
+      },
+      "aiv_scalar_time(us)": {
+        "median": 2.295,
+        "min": 2.205,
+        "max": 3.591
+      },
+      "aiv_vec_time(us)": {
+        "median": 0.249,
+        "min": 0.249,
+        "max": 0.249
+      },
+      "aiv_mte2_time(us)": {
+        "median": 2.454,
+        "min": 0.644,
+        "max": 2.578
+      },
+      "aiv_mte3_time(us)": {
+        "median": 0.3295,
+        "min": 0.214,
+        "max": 0.41
+      }
+    },
+    {
+      "case": "5",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/94",
+      "dtype": "fp16",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "wlen": 64,
+      "round": 5,
+      "label": "B",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 112,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c0019000",
+        "0x12c0c001d000",
+        "0x12c0c001e000",
+        "0x12c0c0022000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 7.12,
+        "min": 6.98,
+        "max": 7.6
+      },
+      "aiv_time(us)": {
+        "median": 4.7535,
+        "min": 4.132,
+        "max": 4.873
+      },
+      "aiv_scalar_time(us)": {
+        "median": 2.232,
+        "min": 2.138,
+        "max": 3.516
+      },
+      "aiv_vec_time(us)": {
+        "median": 0.249,
+        "min": 0.249,
+        "max": 0.249
+      },
+      "aiv_mte2_time(us)": {
+        "median": 2.4539999999999997,
+        "min": 0.653,
+        "max": 2.581
+      },
+      "aiv_mte3_time(us)": {
+        "median": 0.3235,
+        "min": 0.216,
+        "max": 0.412
+      }
+    },
+    {
+      "case": "5",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/94",
+      "dtype": "fp16",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "wlen": 64,
+      "round": 5,
+      "label": "A1",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 113,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c0019000",
+        "0x12c0c001d000",
+        "0x12c0c001e000",
+        "0x12c0c0022000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 7.14,
+        "min": 7.04,
+        "max": 7.74
+      },
+      "aiv_time(us)": {
+        "median": 4.776,
+        "min": 4.159,
+        "max": 4.915
+      },
+      "aiv_scalar_time(us)": {
+        "median": 2.303,
+        "min": 2.219,
+        "max": 3.581
+      },
+      "aiv_vec_time(us)": {
+        "median": 0.249,
+        "min": 0.249,
+        "max": 0.249
+      },
+      "aiv_mte2_time(us)": {
+        "median": 2.4450000000000003,
+        "min": 0.642,
+        "max": 2.573
+      },
+      "aiv_mte3_time(us)": {
+        "median": 0.305,
+        "min": 0.213,
+        "max": 0.401
+      }
+    },
+    {
+      "case": "5",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/94",
+      "dtype": "fp16",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "wlen": 64,
+      "round": 5,
+      "label": "A2",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 114,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c0019000",
+        "0x12c0c001d000",
+        "0x12c0c001e000",
+        "0x12c0c0022000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 7.1,
+        "min": 7.04,
+        "max": 7.7
+      },
+      "aiv_time(us)": {
+        "median": 4.786,
+        "min": 4.171,
+        "max": 4.916
+      },
+      "aiv_scalar_time(us)": {
+        "median": 2.2965,
+        "min": 2.218,
+        "max": 3.584
+      },
+      "aiv_vec_time(us)": {
+        "median": 0.249,
+        "min": 0.249,
+        "max": 0.249
+      },
+      "aiv_mte2_time(us)": {
+        "median": 2.455,
+        "min": 0.647,
+        "max": 2.571
+      },
+      "aiv_mte3_time(us)": {
+        "median": 0.3115,
+        "min": 0.213,
+        "max": 0.41
+      }
+    },
+    {
+      "case": "5",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/94",
+      "dtype": "fp16",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "wlen": 64,
+      "round": 5,
+      "label": "C",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 115,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c0019000",
+        "0x12c0c001d000",
+        "0x12c0c001e000",
+        "0x12c0c0022000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 7.12,
+        "min": 7.06,
+        "max": 7.6
+      },
+      "aiv_time(us)": {
+        "median": 4.797000000000001,
+        "min": 4.208,
+        "max": 4.904
+      },
+      "aiv_scalar_time(us)": {
+        "median": 2.299,
+        "min": 2.213,
+        "max": 3.465
+      },
+      "aiv_vec_time(us)": {
+        "median": 0.249,
+        "min": 0.249,
+        "max": 0.249
+      },
+      "aiv_mte2_time(us)": {
+        "median": 2.452,
+        "min": 0.799,
+        "max": 2.56
+      },
+      "aiv_mte3_time(us)": {
+        "median": 0.325,
+        "min": 0.215,
+        "max": 0.408
+      }
+    },
+    {
+      "case": "5",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/94",
+      "dtype": "fp16",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "wlen": 64,
+      "round": 6,
+      "label": "C",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 116,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c0019000",
+        "0x12c0c001d000",
+        "0x12c0c001e000",
+        "0x12c0c0022000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 7.12,
+        "min": 7.06,
+        "max": 7.6
+      },
+      "aiv_time(us)": {
+        "median": 4.7905,
+        "min": 4.197,
+        "max": 4.919
+      },
+      "aiv_scalar_time(us)": {
+        "median": 2.3,
+        "min": 2.212,
+        "max": 3.455
+      },
+      "aiv_vec_time(us)": {
+        "median": 0.249,
+        "min": 0.249,
+        "max": 0.249
+      },
+      "aiv_mte2_time(us)": {
+        "median": 2.4515000000000002,
+        "min": 0.789,
+        "max": 2.573
+      },
+      "aiv_mte3_time(us)": {
+        "median": 0.3205,
+        "min": 0.229,
+        "max": 0.417
+      }
+    },
+    {
+      "case": "5",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/94",
+      "dtype": "fp16",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "wlen": 64,
+      "round": 6,
+      "label": "A1",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 117,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c0019000",
+        "0x12c0c001d000",
+        "0x12c0c001e000",
+        "0x12c0c0022000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 7.12,
+        "min": 7.02,
+        "max": 7.72
+      },
+      "aiv_time(us)": {
+        "median": 4.781,
+        "min": 4.173,
+        "max": 4.913
+      },
+      "aiv_scalar_time(us)": {
+        "median": 2.303,
+        "min": 2.221,
+        "max": 3.591
+      },
+      "aiv_vec_time(us)": {
+        "median": 0.249,
+        "min": 0.249,
+        "max": 0.249
+      },
+      "aiv_mte2_time(us)": {
+        "median": 2.447,
+        "min": 0.645,
+        "max": 2.561
+      },
+      "aiv_mte3_time(us)": {
+        "median": 0.303,
+        "min": 0.213,
+        "max": 0.404
+      }
+    },
+    {
+      "case": "5",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/94",
+      "dtype": "fp16",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "wlen": 64,
+      "round": 6,
+      "label": "B",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 118,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c0019000",
+        "0x12c0c001d000",
+        "0x12c0c001e000",
+        "0x12c0c0022000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 7.1,
+        "min": 6.98,
+        "max": 7.6
+      },
+      "aiv_time(us)": {
+        "median": 4.7575,
+        "min": 4.127,
+        "max": 4.886
+      },
+      "aiv_scalar_time(us)": {
+        "median": 2.233,
+        "min": 2.147,
+        "max": 3.529
+      },
+      "aiv_vec_time(us)": {
+        "median": 0.249,
+        "min": 0.249,
+        "max": 0.249
+      },
+      "aiv_mte2_time(us)": {
+        "median": 2.4545000000000003,
+        "min": 0.632,
+        "max": 2.573
+      },
+      "aiv_mte3_time(us)": {
+        "median": 0.3215,
+        "min": 0.218,
+        "max": 0.408
+      }
+    },
+    {
+      "case": "5",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/94",
+      "dtype": "fp16",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "wlen": 64,
+      "round": 6,
+      "label": "A2",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 119,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c0019000",
+        "0x12c0c001d000",
+        "0x12c0c001e000",
+        "0x12c0c0022000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 7.12,
+        "min": 7.02,
+        "max": 7.62
+      },
+      "aiv_time(us)": {
+        "median": 4.806,
+        "min": 4.167,
+        "max": 4.905
+      },
+      "aiv_scalar_time(us)": {
+        "median": 2.2925,
+        "min": 2.208,
+        "max": 3.543
+      },
+      "aiv_vec_time(us)": {
+        "median": 0.249,
+        "min": 0.249,
+        "max": 0.249
+      },
+      "aiv_mte2_time(us)": {
+        "median": 2.4565,
+        "min": 0.687,
+        "max": 2.574
+      },
+      "aiv_mte3_time(us)": {
+        "median": 0.3405,
+        "min": 0.215,
+        "max": 0.406
+      }
+    }
+  ],
+  "comparisons": [
+    {
+      "case": "37",
+      "round": 1,
+      "dtype": "bf16",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "group": "short_s",
+      "median_us": {
+        "A1": 7.24,
+        "B": 7.26,
+        "C": 7.24,
+        "A2": 7.22
+      },
+      "aa_spread_us": 0.020000000000000462,
+      "aa_spread_fraction": 0.0027662517289073945,
+      "aa_stable": true,
+      "unchanged_control": true,
+      "controls_stable": true,
+      "c_gain_vs_b_us": 0.019999999999999574,
+      "c_gain_vs_a_us": -0.009999999999999787
+    },
+    {
+      "case": "37",
+      "round": 2,
+      "dtype": "bf16",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "group": "short_s",
+      "median_us": {
+        "C": 7.24,
+        "A1": 7.24,
+        "A2": 7.24,
+        "B": 7.24
+      },
+      "aa_spread_us": 0.0,
+      "aa_spread_fraction": 0.0,
+      "aa_stable": true,
+      "unchanged_control": true,
+      "controls_stable": true,
+      "c_gain_vs_b_us": 0.0,
+      "c_gain_vs_a_us": 0.0
+    },
+    {
+      "case": "37",
+      "round": 3,
+      "dtype": "bf16",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "group": "short_s",
+      "median_us": {
+        "B": 7.24,
+        "A1": 7.24,
+        "C": 7.24,
+        "A2": 7.24
+      },
+      "aa_spread_us": 0.0,
+      "aa_spread_fraction": 0.0,
+      "aa_stable": true,
+      "unchanged_control": true,
+      "controls_stable": true,
+      "c_gain_vs_b_us": 0.0,
+      "c_gain_vs_a_us": 0.0
+    },
+    {
+      "case": "37",
+      "round": 4,
+      "dtype": "bf16",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "group": "short_s",
+      "median_us": {
+        "A1": 7.22,
+        "C": 7.24,
+        "B": 7.24,
+        "A2": 7.22
+      },
+      "aa_spread_us": 0.0,
+      "aa_spread_fraction": 0.0,
+      "aa_stable": true,
+      "unchanged_control": true,
+      "controls_stable": true,
+      "c_gain_vs_b_us": 0.0,
+      "c_gain_vs_a_us": -0.020000000000000462
+    },
+    {
+      "case": "37",
+      "round": 5,
+      "dtype": "bf16",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "group": "short_s",
+      "median_us": {
+        "B": 7.24,
+        "A1": 7.24,
+        "A2": 7.22,
+        "C": 7.24
+      },
+      "aa_spread_us": 0.020000000000000462,
+      "aa_spread_fraction": 0.0027662517289073945,
+      "aa_stable": true,
+      "unchanged_control": true,
+      "controls_stable": true,
+      "c_gain_vs_b_us": 0.0,
+      "c_gain_vs_a_us": -0.009999999999999787
+    },
+    {
+      "case": "37",
+      "round": 6,
+      "dtype": "bf16",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "group": "short_s",
+      "median_us": {
+        "C": 7.24,
+        "A1": 7.22,
+        "B": 7.24,
+        "A2": 7.24
+      },
+      "aa_spread_us": 0.020000000000000462,
+      "aa_spread_fraction": 0.0027662517289073945,
+      "aa_stable": true,
+      "unchanged_control": true,
+      "controls_stable": true,
+      "c_gain_vs_b_us": 0.0,
+      "c_gain_vs_a_us": -0.009999999999999787
+    },
+    {
+      "case": "97",
+      "round": 1,
+      "dtype": "bf16",
+      "shape": [
+        127,
+        8192,
+        1
+      ],
+      "group": "short_s",
+      "median_us": {
+        "A1": 17.0,
+        "B": 17.02,
+        "C": 17.04,
+        "A2": 17.0
+      },
+      "aa_spread_us": 0.0,
+      "aa_spread_fraction": 0.0,
+      "aa_stable": true,
+      "unchanged_control": true,
+      "controls_stable": true,
+      "c_gain_vs_b_us": -0.019999999999999574,
+      "c_gain_vs_a_us": -0.03999999999999915
+    },
+    {
+      "case": "97",
+      "round": 2,
+      "dtype": "bf16",
+      "shape": [
+        127,
+        8192,
+        1
+      ],
+      "group": "short_s",
+      "median_us": {
+        "C": 17.04,
+        "A1": 17.0,
+        "A2": 17.0,
+        "B": 17.02
+      },
+      "aa_spread_us": 0.0,
+      "aa_spread_fraction": 0.0,
+      "aa_stable": true,
+      "unchanged_control": true,
+      "controls_stable": true,
+      "c_gain_vs_b_us": -0.019999999999999574,
+      "c_gain_vs_a_us": -0.03999999999999915
+    },
+    {
+      "case": "97",
+      "round": 3,
+      "dtype": "bf16",
+      "shape": [
+        127,
+        8192,
+        1
+      ],
+      "group": "short_s",
+      "median_us": {
+        "B": 17.02,
+        "A1": 17.0,
+        "C": 17.04,
+        "A2": 17.0
+      },
+      "aa_spread_us": 0.0,
+      "aa_spread_fraction": 0.0,
+      "aa_stable": true,
+      "unchanged_control": true,
+      "controls_stable": true,
+      "c_gain_vs_b_us": -0.019999999999999574,
+      "c_gain_vs_a_us": -0.03999999999999915
+    },
+    {
+      "case": "97",
+      "round": 4,
+      "dtype": "bf16",
+      "shape": [
+        127,
+        8192,
+        1
+      ],
+      "group": "short_s",
+      "median_us": {
+        "A1": 17.02,
+        "C": 17.04,
+        "B": 17.02,
+        "A2": 17.0
+      },
+      "aa_spread_us": 0.019999999999999574,
+      "aa_spread_fraction": 0.0011757789535567064,
+      "aa_stable": true,
+      "unchanged_control": true,
+      "controls_stable": true,
+      "c_gain_vs_b_us": -0.019999999999999574,
+      "c_gain_vs_a_us": -0.030000000000001137
+    },
+    {
+      "case": "97",
+      "round": 5,
+      "dtype": "bf16",
+      "shape": [
+        127,
+        8192,
+        1
+      ],
+      "group": "short_s",
+      "median_us": {
+        "B": 17.02,
+        "A1": 17.02,
+        "A2": 17.0,
+        "C": 17.02
+      },
+      "aa_spread_us": 0.019999999999999574,
+      "aa_spread_fraction": 0.0011757789535567064,
+      "aa_stable": true,
+      "unchanged_control": true,
+      "controls_stable": true,
+      "c_gain_vs_b_us": 0.0,
+      "c_gain_vs_a_us": -0.010000000000001563
+    },
+    {
+      "case": "97",
+      "round": 6,
+      "dtype": "bf16",
+      "shape": [
+        127,
+        8192,
+        1
+      ],
+      "group": "short_s",
+      "median_us": {
+        "C": 17.02,
+        "A1": 17.0,
+        "B": 17.02,
+        "A2": 17.0
+      },
+      "aa_spread_us": 0.0,
+      "aa_spread_fraction": 0.0,
+      "aa_stable": true,
+      "unchanged_control": true,
+      "controls_stable": true,
+      "c_gain_vs_b_us": 0.0,
+      "c_gain_vs_a_us": -0.019999999999999574
+    },
+    {
+      "case": "110",
+      "round": 1,
+      "dtype": "bf16",
+      "shape": [
+        16,
+        63,
+        257
+      ],
+      "group": "gather_phase_window_finite",
+      "median_us": {
+        "A1": 23.92,
+        "B": 23.94,
+        "C": 23.94,
+        "A2": 23.9
+      },
+      "aa_spread_us": 0.020000000000003126,
+      "aa_spread_fraction": 0.0008364700961941918,
+      "aa_stable": true,
+      "unchanged_control": true,
+      "controls_stable": true,
+      "c_gain_vs_b_us": 0.0,
+      "c_gain_vs_a_us": -0.030000000000001137
+    },
+    {
+      "case": "110",
+      "round": 2,
+      "dtype": "bf16",
+      "shape": [
+        16,
+        63,
+        257
+      ],
+      "group": "gather_phase_window_finite",
+      "median_us": {
+        "C": 23.94,
+        "A1": 23.92,
+        "A2": 23.94,
+        "B": 23.94
+      },
+      "aa_spread_us": 0.019999999999999574,
+      "aa_spread_fraction": 0.0008357709987463257,
+      "aa_stable": true,
+      "unchanged_control": true,
+      "controls_stable": true,
+      "c_gain_vs_b_us": 0.0,
+      "c_gain_vs_a_us": -0.010000000000001563
+    },
+    {
+      "case": "110",
+      "round": 3,
+      "dtype": "bf16",
+      "shape": [
+        16,
+        63,
+        257
+      ],
+      "group": "gather_phase_window_finite",
+      "median_us": {
+        "B": 23.98,
+        "A1": 23.92,
+        "C": 23.94,
+        "A2": 23.96
+      },
+      "aa_spread_us": 0.03999999999999915,
+      "aa_spread_fraction": 0.0016708437761068983,
+      "aa_stable": true,
+      "unchanged_control": true,
+      "controls_stable": true,
+      "c_gain_vs_b_us": 0.03999999999999915,
+      "c_gain_vs_a_us": 0.0
+    },
+    {
+      "case": "110",
+      "round": 4,
+      "dtype": "bf16",
+      "shape": [
+        16,
+        63,
+        257
+      ],
+      "group": "gather_phase_window_finite",
+      "median_us": {
+        "A1": 23.92,
+        "C": 23.89,
+        "B": 23.92,
+        "A2": 23.96
+      },
+      "aa_spread_us": 0.03999999999999915,
+      "aa_spread_fraction": 0.0016708437761068983,
+      "aa_stable": true,
+      "unchanged_control": true,
+      "controls_stable": true,
+      "c_gain_vs_b_us": 0.030000000000001137,
+      "c_gain_vs_a_us": 0.05000000000000071
+    },
+    {
+      "case": "110",
+      "round": 5,
+      "dtype": "bf16",
+      "shape": [
+        16,
+        63,
+        257
+      ],
+      "group": "gather_phase_window_finite",
+      "median_us": {
+        "B": 23.98,
+        "A1": 23.82,
+        "A2": 23.94,
+        "C": 23.96
+      },
+      "aa_spread_us": 0.120000000000001,
+      "aa_spread_fraction": 0.005025125628140744,
+      "aa_stable": false,
+      "unchanged_control": true,
+      "controls_stable": false,
+      "c_gain_vs_b_us": 0.019999999999999574,
+      "c_gain_vs_a_us": -0.0799999999999983
+    },
+    {
+      "case": "110",
+      "round": 6,
+      "dtype": "bf16",
+      "shape": [
+        16,
+        63,
+        257
+      ],
+      "group": "gather_phase_window_finite",
+      "median_us": {
+        "C": 23.92,
+        "A1": 23.94,
+        "B": 23.94,
+        "A2": 23.92
+      },
+      "aa_spread_us": 0.019999999999999574,
+      "aa_spread_fraction": 0.0008357709987463257,
+      "aa_stable": true,
+      "unchanged_control": true,
+      "controls_stable": true,
+      "c_gain_vs_b_us": 0.019999999999999574,
+      "c_gain_vs_a_us": 0.00999999999999801
+    },
+    {
+      "case": "107",
+      "round": 1,
+      "dtype": "fp32",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "group": "short_s",
+      "median_us": {
+        "A1": 7.1,
+        "B": 7.12,
+        "C": 7.12,
+        "A2": 7.1
+      },
+      "aa_spread_us": 0.0,
+      "aa_spread_fraction": 0.0,
+      "aa_stable": true,
+      "unchanged_control": true,
+      "controls_stable": true,
+      "c_gain_vs_b_us": 0.0,
+      "c_gain_vs_a_us": -0.020000000000000462
+    },
+    {
+      "case": "107",
+      "round": 2,
+      "dtype": "fp32",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "group": "short_s",
+      "median_us": {
+        "C": 7.12,
+        "A1": 7.12,
+        "A2": 7.1,
+        "B": 7.12
+      },
+      "aa_spread_us": 0.020000000000000462,
+      "aa_spread_fraction": 0.0028129395218003464,
+      "aa_stable": true,
+      "unchanged_control": true,
+      "controls_stable": true,
+      "c_gain_vs_b_us": 0.0,
+      "c_gain_vs_a_us": -0.010000000000000675
+    },
+    {
+      "case": "107",
+      "round": 3,
+      "dtype": "fp32",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "group": "short_s",
+      "median_us": {
+        "B": 7.12,
+        "A1": 7.1,
+        "C": 7.12,
+        "A2": 7.1
+      },
+      "aa_spread_us": 0.0,
+      "aa_spread_fraction": 0.0,
+      "aa_stable": true,
+      "unchanged_control": true,
+      "controls_stable": true,
+      "c_gain_vs_b_us": 0.0,
+      "c_gain_vs_a_us": -0.020000000000000462
+    },
+    {
+      "case": "107",
+      "round": 4,
+      "dtype": "fp32",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "group": "short_s",
+      "median_us": {
+        "A1": 7.09,
+        "C": 7.12,
+        "B": 7.12,
+        "A2": 7.1
+      },
+      "aa_spread_us": 0.009999999999999787,
+      "aa_spread_fraction": 0.001409443269908356,
+      "aa_stable": true,
+      "unchanged_control": true,
+      "controls_stable": true,
+      "c_gain_vs_b_us": 0.0,
+      "c_gain_vs_a_us": -0.025000000000000355
+    },
+    {
+      "case": "107",
+      "round": 5,
+      "dtype": "fp32",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "group": "short_s",
+      "median_us": {
+        "B": 7.12,
+        "A1": 7.12,
+        "A2": 7.1,
+        "C": 7.12
+      },
+      "aa_spread_us": 0.020000000000000462,
+      "aa_spread_fraction": 0.0028129395218003464,
+      "aa_stable": true,
+      "unchanged_control": true,
+      "controls_stable": true,
+      "c_gain_vs_b_us": 0.0,
+      "c_gain_vs_a_us": -0.010000000000000675
+    },
+    {
+      "case": "107",
+      "round": 6,
+      "dtype": "fp32",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "group": "short_s",
+      "median_us": {
+        "C": 7.12,
+        "A1": 7.12,
+        "B": 7.12,
+        "A2": 7.12
+      },
+      "aa_spread_us": 0.0,
+      "aa_spread_fraction": 0.0,
+      "aa_stable": true,
+      "unchanged_control": true,
+      "controls_stable": true,
+      "c_gain_vs_b_us": 0.0,
+      "c_gain_vs_a_us": 0.0
+    },
+    {
+      "case": "5",
+      "round": 1,
+      "dtype": "fp16",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "group": "short_s",
+      "median_us": {
+        "A1": 7.1,
+        "B": 7.08,
+        "C": 7.12,
+        "A2": 7.12
+      },
+      "aa_spread_us": 0.020000000000000462,
+      "aa_spread_fraction": 0.0028129395218003464,
+      "aa_stable": true,
+      "unchanged_control": false,
+      "controls_stable": true,
+      "c_gain_vs_b_us": -0.040000000000000036,
+      "c_gain_vs_a_us": -0.010000000000000675
+    },
+    {
+      "case": "5",
+      "round": 2,
+      "dtype": "fp16",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "group": "short_s",
+      "median_us": {
+        "C": 7.12,
+        "A1": 7.12,
+        "A2": 7.1,
+        "B": 7.08
+      },
+      "aa_spread_us": 0.020000000000000462,
+      "aa_spread_fraction": 0.0028129395218003464,
+      "aa_stable": true,
+      "unchanged_control": false,
+      "controls_stable": true,
+      "c_gain_vs_b_us": -0.040000000000000036,
+      "c_gain_vs_a_us": -0.010000000000000675
+    },
+    {
+      "case": "5",
+      "round": 3,
+      "dtype": "fp16",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "group": "short_s",
+      "median_us": {
+        "B": 7.08,
+        "A1": 7.12,
+        "C": 7.14,
+        "A2": 7.14
+      },
+      "aa_spread_us": 0.019999999999999574,
+      "aa_spread_fraction": 0.0028050490883589864,
+      "aa_stable": true,
+      "unchanged_control": false,
+      "controls_stable": true,
+      "c_gain_vs_b_us": -0.05999999999999961,
+      "c_gain_vs_a_us": -0.009999999999999787
+    },
+    {
+      "case": "5",
+      "round": 4,
+      "dtype": "fp16",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "group": "short_s",
+      "median_us": {
+        "A1": 7.1,
+        "C": 7.12,
+        "B": 7.08,
+        "A2": 7.13
+      },
+      "aa_spread_us": 0.03000000000000025,
+      "aa_spread_fraction": 0.004216444132115285,
+      "aa_stable": true,
+      "unchanged_control": false,
+      "controls_stable": true,
+      "c_gain_vs_b_us": -0.040000000000000036,
+      "c_gain_vs_a_us": -0.004999999999999893
+    },
+    {
+      "case": "5",
+      "round": 5,
+      "dtype": "fp16",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "group": "short_s",
+      "median_us": {
+        "B": 7.12,
+        "A1": 7.14,
+        "A2": 7.1,
+        "C": 7.12
+      },
+      "aa_spread_us": 0.040000000000000036,
+      "aa_spread_fraction": 0.0056179775280898936,
+      "aa_stable": true,
+      "unchanged_control": false,
+      "controls_stable": true,
+      "c_gain_vs_b_us": 0.0,
+      "c_gain_vs_a_us": -8.881784197001252e-16
+    },
+    {
+      "case": "5",
+      "round": 6,
+      "dtype": "fp16",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "group": "short_s",
+      "median_us": {
+        "C": 7.12,
+        "A1": 7.12,
+        "B": 7.1,
+        "A2": 7.12
+      },
+      "aa_spread_us": 0.0,
+      "aa_spread_fraction": 0.0,
+      "aa_stable": true,
+      "unchanged_control": false,
+      "controls_stable": true,
+      "c_gain_vs_b_us": -0.020000000000000462,
+      "c_gain_vs_a_us": 0.0
+    }
+  ],
+  "all_controls_stable": false,
+  "status": "measurement only; compiled function-body correspondence still requires separate evidence; no promotion"
+}

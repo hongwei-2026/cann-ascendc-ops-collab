@@ -4,7 +4,10 @@
  */
 
 #include <algorithm>
+#include "p_relu_grad_update_shape_utils.h"
+#include "../op_kernel/p_relu_grad_update_general_tiling.h"
 #include <cstdint>
+#include "../op_kernel/p_relu_grad_update_gather_tiling.h"
 #include "register/op_def_registry.h"
 #include "op_common/log/log.h"
 #include "op_common/op_host/util/platform_util.h"
@@ -54,6 +57,39 @@ bool SameShape(const gert::Shape& lhs, const gert::Shape& rhs)
     return true;
 }
 
+
+bool GatherMagic(uint64_t d,uint64_t x,uint64_t& m,uint64_t& shift)
+{
+ if(d==1){m=1;shift=0;return true;}
+ uint64_t scale=1;shift=0;while(scale<x*d){scale<<=1;++shift;}
+ m=(scale+d-1)/d;return x*m<=0x7fffffffULL;
+}
+bool TryGather(gert::TilingContext* context,int64_t total,int64_t channel,int64_t inner,int64_t weightLen,
+ ge::DataType dtype,int64_t blockFactor,int64_t cores,uint64_t available)
+{
+ if(total<=0||weightLen<=1||channel<=1||inner<=0||inner>256)return false;
+ const int64_t width=dtype==ge::DT_FLOAT?4:2;
+ if(inner==1 && channel%(32/width)==0)return false;
+ const int64_t cap=dtype==ge::DT_FLOAT?4096:3072;
+ const int64_t tile=AlignUpI64(std::min(blockFactor,cap),128);
+ const int64_t segment=inner==1?channel:inner;
+ if(blockFactor<8*segment||tile<8*segment)return false;
+ const uint64_t budget=dtype==ge::DT_FLOAT?32*static_cast<uint64_t>(tile)+AlignUpI64(tile,512)+1024:43*static_cast<uint64_t>(tile)+704;
+ if(budget>available)return false;
+ const uint64_t qcap=(inner+tile-2)/inner+1;const bool cache=static_cast<uint64_t>(channel)<=qcap;
+ uint64_t ms=0,ks=0,mc=0,kc=0;
+ if(!GatherMagic(inner,inner+tile-2,ms,ks))return false;
+ if(cache&&!GatherMagic(channel,channel+qcap-2,mc,kc))return false;
+ auto* t=context->GetTilingData<PReluGradUpdateGatherTilingData>();if(t==nullptr)return false;
+ t->totalNum=total;t->blockSpan=blockFactor;t->tileLen=tile;t->channelNum=channel;t->innerSize=inner;
+ t->qCap=qcap;t->cacheWeights=cache?1:0;t->magicS=ms;t->shiftS=ks;t->magicC=mc;t->shiftC=kc;
+ context->SetBlockDim(static_cast<uint32_t>(cores));
+ if(dtype==ge::DT_FLOAT)context->SetTilingKey(GET_TPL_TILING_KEY(PRELUGRADUPDATE_TPL_FLOAT_GATHER));
+ else if(dtype==ge::DT_FLOAT16)context->SetTilingKey(GET_TPL_TILING_KEY(PRELUGRADUPDATE_TPL_FLOAT16_GATHER));
+ else context->SetTilingKey(GET_TPL_TILING_KEY(PRELUGRADUPDATE_TPL_BF16_GATHER));
+ return true;
+}
+
 ge::graphStatus GetPlatformInfo(gert::TilingContext* context, uint64_t& ubSize, int64_t& coreNum)
 {
     fe::PlatFormInfos* platformInfo = context->GetPlatformInfo();
@@ -87,7 +123,7 @@ ge::graphStatus SetWorkspace(gert::TilingContext* context)
 
 } // namespace
 
-static ge::graphStatus PReluGradUpdateTilingFunc(gert::TilingContext* context)
+static ge::graphStatus PReluGradUpdateLegacyTilingFunc(gert::TilingContext* context)
 {
     if (context == nullptr) {
         return ge::GRAPH_FAILED;
@@ -252,6 +288,8 @@ static ge::graphStatus PReluGradUpdateTilingFunc(gert::TilingContext* context)
         }
     }
 
+    if (TryGather(context,totalNum,channelNum,innerSize,weightLen,dtype,blockFactor,usedCores,usableUb)) return ge::GRAPH_SUCCESS;
+
     PReluGradUpdateTilingData* tiling = context->GetTilingData<PReluGradUpdateTilingData>();
     if (tiling == nullptr) {
         OP_LOGE(context, "tiling data pointer is null");
@@ -270,6 +308,96 @@ static ge::graphStatus PReluGradUpdateTilingFunc(gert::TilingContext* context)
 
     context->SetBlockDim(static_cast<uint32_t>(usedCores));
     context->SetTilingKey(tilingKey);
+    return ge::GRAPH_SUCCESS;
+}
+
+
+// General input normalization is deliberately separate from the unchanged J069
+// fastpath selector. Existing valid positive ND shapes receive its exact metadata.
+static JadeYaraShape::Dims StorageDims(const gert::StorageShape* s) {
+    JadeYaraShape::Dims d;
+    if (s) for(size_t j=0;j<s->GetStorageShape().GetDimNum();++j) d.push_back(s->GetStorageShape().GetDim(j));
+    return d;
+}
+static ge::graphStatus PReluGradUpdateTilingFunc(gert::TilingContext* context) {
+    if(!context)return ge::GRAPH_FAILED;
+    for(size_t i=0;i<3;++i)if(!context->GetInputShape(i)||!context->GetInputDesc(i))return ge::GRAPH_FAILED;
+    for(size_t i=0;i<2;++i)if(!context->GetOutputShape(i)||!context->GetOutputDesc(i))return ge::GRAPH_FAILED;
+    const auto dtype=context->GetInputDesc(0)->GetDataType();
+    const auto format=ge::GetPrimaryFormat(context->GetInputDesc(1)->GetStorageFormat());
+    const auto wf=ge::GetPrimaryFormat(context->GetInputDesc(2)->GetStorageFormat());
+    if(ge::GetPrimaryFormat(context->GetInputDesc(0)->GetStorageFormat())!=format)return ge::GRAPH_FAILED;
+    if(format!=ge::FORMAT_ND && format!=ge::FORMAT_NCHW && format!=ge::FORMAT_NC1HWC0)return ge::GRAPH_FAILED;
+    // GE may propagate NCHW to plain ND weights without changing their storage
+    // shape (observed rank1 [7] in public ACL). Both labels denote the same
+    // compact unblocked storage; NC1HWC0 still requires its blocked layout.
+    const bool plainWeight=(wf==ge::FORMAT_ND)||(format==ge::FORMAT_NCHW && wf==ge::FORMAT_NCHW);
+    if(format==ge::FORMAT_NC1HWC0 ? wf!=ge::FORMAT_NC1HWC0 : !plainWeight)return ge::GRAPH_FAILED;
+    for(size_t i=1;i<3;++i)if(context->GetInputDesc(i)->GetDataType()!=dtype)return ge::GRAPH_FAILED;
+    for(size_t i=0;i<2;++i)if(context->GetOutputDesc(i)->GetDataType()!=dtype || ge::GetPrimaryFormat(context->GetOutputDesc(i)->GetStorageFormat())!=format)return ge::GRAPH_FAILED;
+    uint64_t width=0,key=0;
+    if(dtype==ge::DT_FLOAT){width=4;key=GET_TPL_TILING_KEY(PRELUGRADUPDATE_TPL_FLOAT_GENERAL);}
+#if PRELU_ENABLE_FP16
+    else if(dtype==ge::DT_FLOAT16){width=2;key=GET_TPL_TILING_KEY(PRELUGRADUPDATE_TPL_FLOAT16_GENERAL);}
+#endif
+#if PRELU_ENABLE_BF16
+    else if(dtype==ge::DT_BF16){width=2;key=GET_TPL_TILING_KEY(PRELUGRADUPDATE_TPL_BF16_GENERAL);}
+#endif
+    else return ge::GRAPH_FAILED;
+    const auto g=StorageDims(context->GetInputShape(0)),x=StorageDims(context->GetInputShape(1)),w=StorageDims(context->GetInputShape(2));
+    JadeYaraShape::Dims out,mapped;
+    if(!JadeYaraShape::Normalize(g,x,w,format==ge::FORMAT_NC1HWC0,true,out,mapped)){
+        OP_LOGE(context,"unsupported or incompatible physical broadcast descriptors");return ge::GRAPH_FAILED;
+    }
+    if(StorageDims(context->GetOutputShape(0))!=out || StorageDims(context->GetOutputShape(1))!=out)return ge::GRAPH_FAILED;
+    uint64_t total=0,sourceN[3]={};
+    if(!JadeYaraShape::Product(out,total)||!JadeYaraShape::Product(g,sourceN[0])||!JadeYaraShape::Product(x,sourceN[1])||!JadeYaraShape::Product(mapped,sourceN[2]))return ge::GRAPH_FAILED;
+    const uint64_t maxElements=static_cast<uint64_t>(std::numeric_limits<int64_t>::max())/width;
+    if(total>maxElements || sourceN[0]>maxElements || sourceN[1]>maxElements || sourceN[2]>maxElements)return ge::GRAPH_FAILED;
+    if(format==ge::FORMAT_ND && total>0 && g==x && g.size()>=2 && w.size()==1 && (w[0]==1||w[0]==g[1])) {
+        return PReluGradUpdateLegacyTilingFunc(context);
+    }
+    uint64_t ubSize=0;int64_t cores=0;
+    if(GetPlatformInfo(context,ubSize,cores)!=ge::GRAPH_SUCCESS||SetWorkspace(context)!=ge::GRAPH_SUCCESS)return ge::GRAPH_FAILED;
+    // Nine FP32 arrays: g,x,w,dx,up,pos,compact/ramp/lanes; mask is one byte/lane.
+    // Low precision adds one reusable raw input and two raw outputs. Two 256B
+    // phase pads separate all critical binary arithmetic source pairs modulo512.
+    constexpr uint64_t tile=PRELU_GENERAL_TILE;
+    const uint64_t ubBytes=37*tile+512+(width==2?6*tile:0);
+    if(ubBytes>ubSize*UB_USAGE_NUMERATOR/UB_USAGE_DENOMINATOR)return ge::GRAPH_FAILED;
+    auto* t=context->GetTilingData<PReluGradUpdateGeneralTilingData>();if(!t)return ge::GRAPH_FAILED;
+    *t={};t->totalNum=total;t->tileLen=tile;t->rank=out.size();
+    for(size_t q=0;q<3;++q)t->sourceElements[q]=sourceN[q];
+    for(size_t j=0;j<out.size();++j)t->dims[j]=static_cast<uint64_t>(out[j]);
+    context->SetTilingKey(key);
+    // No division, modulo, suffix calculation or GM copy for an empty tensor.
+    if(total==0){context->SetBlockDim(1);return ge::GRAPH_SUCCESS;}
+    const uint64_t alignment=32/width,coreLimit=static_cast<uint64_t>(cores);
+    const uint64_t perCore=total/coreLimit+(total%coreLimit!=0);
+    t->blockSpan=(perCore/alignment+(perCore%alignment!=0))*alignment;
+    const uint64_t used=total/t->blockSpan+(total%t->blockSpan!=0);
+    context->SetBlockDim(static_cast<uint32_t>(used));
+    t->splitPeriod=total;
+    uint64_t period=1;
+    for(size_t r=out.size();r>0;--r){const size_t j=r-1;t->periods[j]=period;
+        if(period>=tile && period<t->splitPeriod)t->splitPeriod=period;
+        period*=static_cast<uint64_t>(out[j]);
+        if(t->periods[j]<tile){uint64_t m=0,k=0;
+            if(!GatherMagic(t->periods[j],t->periods[j]+tile-2,m,k))return ge::GRAPH_FAILED;
+            t->multiplier[j]=static_cast<int32_t>(m);t->shift[j]=static_cast<int32_t>(k);
+        }
+    }
+    JadeYaraShape::Dims sources[3]={g,x,mapped};
+    for(size_t q=0;q<3;++q){
+        sources[q].insert(sources[q].begin(),out.size()-sources[q].size(),1);
+        t->identity[q]=sources[q]==out?1:0;uint64_t step=1;
+        for(size_t r=out.size();r>0;--r){const size_t j=r-1;t->suffix[q][j]=step;
+            t->strides[q][j]=sources[q][j]==1?0:step;step*=static_cast<uint64_t>(sources[q][j]);}
+        for(size_t j=0;j+1<out.size();++j)if(t->periods[j]<tile){
+            const int64_t coefficient=static_cast<int64_t>(t->strides[q][j])-static_cast<int64_t>(t->dims[j+1]*t->strides[q][j+1]);
+            t->coefficient[q][j]=static_cast<int32_t>(coefficient);
+        }
+    }
     return ge::GRAPH_SUCCESS;
 }
 

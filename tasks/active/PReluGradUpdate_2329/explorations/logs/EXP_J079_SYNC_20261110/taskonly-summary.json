@@ -1,0 +1,4448 @@
+{
+  "windows": [
+    {
+      "case": "37",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/142",
+      "dtype": "bf16",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "wlen": 64,
+      "round": 1,
+      "label": "A1",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 0,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c0019000",
+        "0x12c0c001d000",
+        "0x12c0c001e000",
+        "0x12c0c0022000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 5.74,
+        "min": 5.62,
+        "max": 6.22
+      }
+    },
+    {
+      "case": "37",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/142",
+      "dtype": "bf16",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "wlen": 64,
+      "round": 1,
+      "label": "B",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 1,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c0019000",
+        "0x12c0c001d000",
+        "0x12c0c001e000",
+        "0x12c0c0022000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 5.76,
+        "min": 5.64,
+        "max": 6.24
+      }
+    },
+    {
+      "case": "37",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/142",
+      "dtype": "bf16",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "wlen": 64,
+      "round": 1,
+      "label": "C",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 2,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c0019000",
+        "0x12c0c001d000",
+        "0x12c0c001e000",
+        "0x12c0c0022000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 5.74,
+        "min": 5.64,
+        "max": 6.26
+      }
+    },
+    {
+      "case": "37",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/142",
+      "dtype": "bf16",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "wlen": 64,
+      "round": 1,
+      "label": "A2",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 3,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c0019000",
+        "0x12c0c001d000",
+        "0x12c0c001e000",
+        "0x12c0c0022000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 5.74,
+        "min": 5.62,
+        "max": 6.32
+      }
+    },
+    {
+      "case": "37",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/142",
+      "dtype": "bf16",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "wlen": 64,
+      "round": 2,
+      "label": "C",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 4,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c0019000",
+        "0x12c0c001d000",
+        "0x12c0c001e000",
+        "0x12c0c0022000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 5.74,
+        "min": 5.62,
+        "max": 6.22
+      }
+    },
+    {
+      "case": "37",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/142",
+      "dtype": "bf16",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "wlen": 64,
+      "round": 2,
+      "label": "A1",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 5,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c0019000",
+        "0x12c0c001d000",
+        "0x12c0c001e000",
+        "0x12c0c0022000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 5.74,
+        "min": 5.62,
+        "max": 6.2
+      }
+    },
+    {
+      "case": "37",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/142",
+      "dtype": "bf16",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "wlen": 64,
+      "round": 2,
+      "label": "A2",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 6,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c0019000",
+        "0x12c0c001d000",
+        "0x12c0c001e000",
+        "0x12c0c0022000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 5.72,
+        "min": 5.62,
+        "max": 6.32
+      }
+    },
+    {
+      "case": "37",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/142",
+      "dtype": "bf16",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "wlen": 64,
+      "round": 2,
+      "label": "B",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 7,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c0019000",
+        "0x12c0c001d000",
+        "0x12c0c001e000",
+        "0x12c0c0022000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 5.74,
+        "min": 5.64,
+        "max": 6.24
+      }
+    },
+    {
+      "case": "37",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/142",
+      "dtype": "bf16",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "wlen": 64,
+      "round": 3,
+      "label": "B",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 8,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c0019000",
+        "0x12c0c001d000",
+        "0x12c0c001e000",
+        "0x12c0c0022000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 5.74,
+        "min": 5.62,
+        "max": 6.24
+      }
+    },
+    {
+      "case": "37",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/142",
+      "dtype": "bf16",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "wlen": 64,
+      "round": 3,
+      "label": "A1",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 9,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c0019000",
+        "0x12c0c001d000",
+        "0x12c0c001e000",
+        "0x12c0c0022000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 5.72,
+        "min": 5.62,
+        "max": 6.32
+      }
+    },
+    {
+      "case": "37",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/142",
+      "dtype": "bf16",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "wlen": 64,
+      "round": 3,
+      "label": "C",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 10,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c0019000",
+        "0x12c0c001d000",
+        "0x12c0c001e000",
+        "0x12c0c0022000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 5.74,
+        "min": 5.62,
+        "max": 6.22
+      }
+    },
+    {
+      "case": "37",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/142",
+      "dtype": "bf16",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "wlen": 64,
+      "round": 3,
+      "label": "A2",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 11,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c0019000",
+        "0x12c0c001d000",
+        "0x12c0c001e000",
+        "0x12c0c0022000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 5.74,
+        "min": 5.62,
+        "max": 6.22
+      }
+    },
+    {
+      "case": "37",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/142",
+      "dtype": "bf16",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "wlen": 64,
+      "round": 4,
+      "label": "A1",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 12,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c0019000",
+        "0x12c0c001d000",
+        "0x12c0c001e000",
+        "0x12c0c0022000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 5.74,
+        "min": 5.62,
+        "max": 6.16
+      }
+    },
+    {
+      "case": "37",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/142",
+      "dtype": "bf16",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "wlen": 64,
+      "round": 4,
+      "label": "C",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 13,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c0019000",
+        "0x12c0c001d000",
+        "0x12c0c001e000",
+        "0x12c0c0022000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 5.74,
+        "min": 5.62,
+        "max": 6.1
+      }
+    },
+    {
+      "case": "37",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/142",
+      "dtype": "bf16",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "wlen": 64,
+      "round": 4,
+      "label": "B",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 14,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c0019000",
+        "0x12c0c001d000",
+        "0x12c0c001e000",
+        "0x12c0c0022000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 5.74,
+        "min": 5.66,
+        "max": 6.26
+      }
+    },
+    {
+      "case": "37",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/142",
+      "dtype": "bf16",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "wlen": 64,
+      "round": 4,
+      "label": "A2",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 15,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c0019000",
+        "0x12c0c001d000",
+        "0x12c0c001e000",
+        "0x12c0c0022000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 5.74,
+        "min": 5.62,
+        "max": 6.38
+      }
+    },
+    {
+      "case": "37",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/142",
+      "dtype": "bf16",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "wlen": 64,
+      "round": 5,
+      "label": "B",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 16,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c0019000",
+        "0x12c0c001d000",
+        "0x12c0c001e000",
+        "0x12c0c0022000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 5.74,
+        "min": 5.64,
+        "max": 6.24
+      }
+    },
+    {
+      "case": "37",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/142",
+      "dtype": "bf16",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "wlen": 64,
+      "round": 5,
+      "label": "A1",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 17,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c0019000",
+        "0x12c0c001d000",
+        "0x12c0c001e000",
+        "0x12c0c0022000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 5.74,
+        "min": 5.62,
+        "max": 6.22
+      }
+    },
+    {
+      "case": "37",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/142",
+      "dtype": "bf16",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "wlen": 64,
+      "round": 5,
+      "label": "A2",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 18,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c0019000",
+        "0x12c0c001d000",
+        "0x12c0c001e000",
+        "0x12c0c0022000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 5.74,
+        "min": 5.6,
+        "max": 6.22
+      }
+    },
+    {
+      "case": "37",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/142",
+      "dtype": "bf16",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "wlen": 64,
+      "round": 5,
+      "label": "C",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 19,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c0019000",
+        "0x12c0c001d000",
+        "0x12c0c001e000",
+        "0x12c0c0022000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 5.74,
+        "min": 5.6,
+        "max": 6.3
+      }
+    },
+    {
+      "case": "37",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/142",
+      "dtype": "bf16",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "wlen": 64,
+      "round": 6,
+      "label": "C",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 20,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c0019000",
+        "0x12c0c001d000",
+        "0x12c0c001e000",
+        "0x12c0c0022000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 5.74,
+        "min": 5.62,
+        "max": 6.18
+      }
+    },
+    {
+      "case": "37",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/142",
+      "dtype": "bf16",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "wlen": 64,
+      "round": 6,
+      "label": "A1",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 21,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c0019000",
+        "0x12c0c001d000",
+        "0x12c0c001e000",
+        "0x12c0c0022000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 5.74,
+        "min": 5.62,
+        "max": 6.26
+      }
+    },
+    {
+      "case": "37",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/142",
+      "dtype": "bf16",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "wlen": 64,
+      "round": 6,
+      "label": "B",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 22,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c0019000",
+        "0x12c0c001d000",
+        "0x12c0c001e000",
+        "0x12c0c0022000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 5.74,
+        "min": 5.62,
+        "max": 6.24
+      }
+    },
+    {
+      "case": "37",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/142",
+      "dtype": "bf16",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "wlen": 64,
+      "round": 6,
+      "label": "A2",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 23,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c0019000",
+        "0x12c0c001d000",
+        "0x12c0c001e000",
+        "0x12c0c0022000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 5.74,
+        "min": 5.64,
+        "max": 6.2
+      }
+    },
+    {
+      "case": "97",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/143",
+      "dtype": "bf16",
+      "shape": [
+        127,
+        8192,
+        1
+      ],
+      "wlen": 8192,
+      "round": 1,
+      "label": "A1",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 24,
+      "addresses": [
+        "0x12c081400000",
+        "0x12c081600000",
+        "0x12c0c0015000",
+        "0x12c081800000",
+        "0x12c081a00000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 15.48,
+        "min": 15.18,
+        "max": 15.66
+      }
+    },
+    {
+      "case": "97",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/143",
+      "dtype": "bf16",
+      "shape": [
+        127,
+        8192,
+        1
+      ],
+      "wlen": 8192,
+      "round": 1,
+      "label": "B",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 25,
+      "addresses": [
+        "0x12c081400000",
+        "0x12c081600000",
+        "0x12c0c0015000",
+        "0x12c081800000",
+        "0x12c081a00000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 15.52,
+        "min": 15.3,
+        "max": 15.78
+      }
+    },
+    {
+      "case": "97",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/143",
+      "dtype": "bf16",
+      "shape": [
+        127,
+        8192,
+        1
+      ],
+      "wlen": 8192,
+      "round": 1,
+      "label": "C",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 26,
+      "addresses": [
+        "0x12c081400000",
+        "0x12c081600000",
+        "0x12c0c0015000",
+        "0x12c081800000",
+        "0x12c081a00000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 15.5,
+        "min": 15.16,
+        "max": 15.78
+      }
+    },
+    {
+      "case": "97",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/143",
+      "dtype": "bf16",
+      "shape": [
+        127,
+        8192,
+        1
+      ],
+      "wlen": 8192,
+      "round": 1,
+      "label": "A2",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 27,
+      "addresses": [
+        "0x12c081400000",
+        "0x12c081600000",
+        "0x12c0c0015000",
+        "0x12c081800000",
+        "0x12c081a00000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 15.46,
+        "min": 15.32,
+        "max": 15.64
+      }
+    },
+    {
+      "case": "97",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/143",
+      "dtype": "bf16",
+      "shape": [
+        127,
+        8192,
+        1
+      ],
+      "wlen": 8192,
+      "round": 2,
+      "label": "C",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 28,
+      "addresses": [
+        "0x12c081400000",
+        "0x12c081600000",
+        "0x12c0c0015000",
+        "0x12c081800000",
+        "0x12c081a00000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 15.5,
+        "min": 15.12,
+        "max": 15.8
+      }
+    },
+    {
+      "case": "97",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/143",
+      "dtype": "bf16",
+      "shape": [
+        127,
+        8192,
+        1
+      ],
+      "wlen": 8192,
+      "round": 2,
+      "label": "A1",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 29,
+      "addresses": [
+        "0x12c081400000",
+        "0x12c081600000",
+        "0x12c0c0015000",
+        "0x12c081800000",
+        "0x12c081a00000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 15.5,
+        "min": 15.18,
+        "max": 15.68
+      }
+    },
+    {
+      "case": "97",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/143",
+      "dtype": "bf16",
+      "shape": [
+        127,
+        8192,
+        1
+      ],
+      "wlen": 8192,
+      "round": 2,
+      "label": "A2",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 30,
+      "addresses": [
+        "0x12c081400000",
+        "0x12c081600000",
+        "0x12c0c0015000",
+        "0x12c081800000",
+        "0x12c081a00000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 15.5,
+        "min": 15.3,
+        "max": 15.66
+      }
+    },
+    {
+      "case": "97",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/143",
+      "dtype": "bf16",
+      "shape": [
+        127,
+        8192,
+        1
+      ],
+      "wlen": 8192,
+      "round": 2,
+      "label": "B",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 31,
+      "addresses": [
+        "0x12c081400000",
+        "0x12c081600000",
+        "0x12c0c0015000",
+        "0x12c081800000",
+        "0x12c081a00000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 15.52,
+        "min": 15.16,
+        "max": 15.66
+      }
+    },
+    {
+      "case": "97",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/143",
+      "dtype": "bf16",
+      "shape": [
+        127,
+        8192,
+        1
+      ],
+      "wlen": 8192,
+      "round": 3,
+      "label": "B",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 32,
+      "addresses": [
+        "0x12c081400000",
+        "0x12c081600000",
+        "0x12c0c0015000",
+        "0x12c081800000",
+        "0x12c081a00000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 15.52,
+        "min": 15.18,
+        "max": 15.74
+      }
+    },
+    {
+      "case": "97",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/143",
+      "dtype": "bf16",
+      "shape": [
+        127,
+        8192,
+        1
+      ],
+      "wlen": 8192,
+      "round": 3,
+      "label": "A1",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 33,
+      "addresses": [
+        "0x12c081400000",
+        "0x12c081600000",
+        "0x12c0c0015000",
+        "0x12c081800000",
+        "0x12c081a00000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 15.5,
+        "min": 15.16,
+        "max": 15.66
+      }
+    },
+    {
+      "case": "97",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/143",
+      "dtype": "bf16",
+      "shape": [
+        127,
+        8192,
+        1
+      ],
+      "wlen": 8192,
+      "round": 3,
+      "label": "C",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 34,
+      "addresses": [
+        "0x12c081400000",
+        "0x12c081600000",
+        "0x12c0c0015000",
+        "0x12c081800000",
+        "0x12c081a00000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 15.5,
+        "min": 15.34,
+        "max": 15.7
+      }
+    },
+    {
+      "case": "97",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/143",
+      "dtype": "bf16",
+      "shape": [
+        127,
+        8192,
+        1
+      ],
+      "wlen": 8192,
+      "round": 3,
+      "label": "A2",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 35,
+      "addresses": [
+        "0x12c081400000",
+        "0x12c081600000",
+        "0x12c0c0015000",
+        "0x12c081800000",
+        "0x12c081a00000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 15.47,
+        "min": 15.18,
+        "max": 15.7
+      }
+    },
+    {
+      "case": "97",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/143",
+      "dtype": "bf16",
+      "shape": [
+        127,
+        8192,
+        1
+      ],
+      "wlen": 8192,
+      "round": 4,
+      "label": "A1",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 36,
+      "addresses": [
+        "0x12c081400000",
+        "0x12c081600000",
+        "0x12c0c0015000",
+        "0x12c081800000",
+        "0x12c081a00000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 15.5,
+        "min": 15.2,
+        "max": 15.96
+      }
+    },
+    {
+      "case": "97",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/143",
+      "dtype": "bf16",
+      "shape": [
+        127,
+        8192,
+        1
+      ],
+      "wlen": 8192,
+      "round": 4,
+      "label": "C",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 37,
+      "addresses": [
+        "0x12c081400000",
+        "0x12c081600000",
+        "0x12c0c0015000",
+        "0x12c081800000",
+        "0x12c081a00000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 15.5,
+        "min": 15.16,
+        "max": 15.76
+      }
+    },
+    {
+      "case": "97",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/143",
+      "dtype": "bf16",
+      "shape": [
+        127,
+        8192,
+        1
+      ],
+      "wlen": 8192,
+      "round": 4,
+      "label": "B",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 38,
+      "addresses": [
+        "0x12c081400000",
+        "0x12c081600000",
+        "0x12c0c0015000",
+        "0x12c081800000",
+        "0x12c081a00000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 15.52,
+        "min": 15.14,
+        "max": 15.7
+      }
+    },
+    {
+      "case": "97",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/143",
+      "dtype": "bf16",
+      "shape": [
+        127,
+        8192,
+        1
+      ],
+      "wlen": 8192,
+      "round": 4,
+      "label": "A2",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 39,
+      "addresses": [
+        "0x12c081400000",
+        "0x12c081600000",
+        "0x12c0c0015000",
+        "0x12c081800000",
+        "0x12c081a00000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 15.5,
+        "min": 15.18,
+        "max": 15.66
+      }
+    },
+    {
+      "case": "97",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/143",
+      "dtype": "bf16",
+      "shape": [
+        127,
+        8192,
+        1
+      ],
+      "wlen": 8192,
+      "round": 5,
+      "label": "B",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 40,
+      "addresses": [
+        "0x12c081400000",
+        "0x12c081600000",
+        "0x12c0c0015000",
+        "0x12c081800000",
+        "0x12c081a00000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 15.52,
+        "min": 15.14,
+        "max": 15.8
+      }
+    },
+    {
+      "case": "97",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/143",
+      "dtype": "bf16",
+      "shape": [
+        127,
+        8192,
+        1
+      ],
+      "wlen": 8192,
+      "round": 5,
+      "label": "A1",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 41,
+      "addresses": [
+        "0x12c081400000",
+        "0x12c081600000",
+        "0x12c0c0015000",
+        "0x12c081800000",
+        "0x12c081a00000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 15.5,
+        "min": 15.18,
+        "max": 15.66
+      }
+    },
+    {
+      "case": "97",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/143",
+      "dtype": "bf16",
+      "shape": [
+        127,
+        8192,
+        1
+      ],
+      "wlen": 8192,
+      "round": 5,
+      "label": "A2",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 42,
+      "addresses": [
+        "0x12c081400000",
+        "0x12c081600000",
+        "0x12c0c0015000",
+        "0x12c081800000",
+        "0x12c081a00000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 15.5,
+        "min": 15.18,
+        "max": 15.74
+      }
+    },
+    {
+      "case": "97",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/143",
+      "dtype": "bf16",
+      "shape": [
+        127,
+        8192,
+        1
+      ],
+      "wlen": 8192,
+      "round": 5,
+      "label": "C",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 43,
+      "addresses": [
+        "0x12c081400000",
+        "0x12c081600000",
+        "0x12c0c0015000",
+        "0x12c081800000",
+        "0x12c081a00000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 15.52,
+        "min": 15.36,
+        "max": 15.8
+      }
+    },
+    {
+      "case": "97",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/143",
+      "dtype": "bf16",
+      "shape": [
+        127,
+        8192,
+        1
+      ],
+      "wlen": 8192,
+      "round": 6,
+      "label": "C",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 44,
+      "addresses": [
+        "0x12c081400000",
+        "0x12c081600000",
+        "0x12c0c0015000",
+        "0x12c081800000",
+        "0x12c081a00000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 15.5,
+        "min": 15.12,
+        "max": 15.74
+      }
+    },
+    {
+      "case": "97",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/143",
+      "dtype": "bf16",
+      "shape": [
+        127,
+        8192,
+        1
+      ],
+      "wlen": 8192,
+      "round": 6,
+      "label": "A1",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 45,
+      "addresses": [
+        "0x12c081400000",
+        "0x12c081600000",
+        "0x12c0c0015000",
+        "0x12c081800000",
+        "0x12c081a00000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 15.47,
+        "min": 15.18,
+        "max": 15.76
+      }
+    },
+    {
+      "case": "97",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/143",
+      "dtype": "bf16",
+      "shape": [
+        127,
+        8192,
+        1
+      ],
+      "wlen": 8192,
+      "round": 6,
+      "label": "B",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 46,
+      "addresses": [
+        "0x12c081400000",
+        "0x12c081600000",
+        "0x12c0c0015000",
+        "0x12c081800000",
+        "0x12c081a00000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 15.51,
+        "min": 15.14,
+        "max": 15.74
+      }
+    },
+    {
+      "case": "97",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/143",
+      "dtype": "bf16",
+      "shape": [
+        127,
+        8192,
+        1
+      ],
+      "wlen": 8192,
+      "round": 6,
+      "label": "A2",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 47,
+      "addresses": [
+        "0x12c081400000",
+        "0x12c081600000",
+        "0x12c0c0015000",
+        "0x12c081800000",
+        "0x12c081a00000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 15.46,
+        "min": 15.18,
+        "max": 15.84
+      }
+    },
+    {
+      "case": "110",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J069/new-inputs/finite_51",
+      "dtype": "bf16",
+      "shape": [
+        16,
+        63,
+        257
+      ],
+      "wlen": 63,
+      "round": 1,
+      "label": "A1",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 48,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c0094000",
+        "0x12c0c0113000",
+        "0x12c0c0114000",
+        "0x12c0c0200000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 22.4,
+        "min": 21.7,
+        "max": 22.5
+      }
+    },
+    {
+      "case": "110",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J069/new-inputs/finite_51",
+      "dtype": "bf16",
+      "shape": [
+        16,
+        63,
+        257
+      ],
+      "wlen": 63,
+      "round": 1,
+      "label": "B",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 49,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c0094000",
+        "0x12c0c0113000",
+        "0x12c0c0114000",
+        "0x12c0c0200000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 22.44,
+        "min": 21.7,
+        "max": 22.52
+      }
+    },
+    {
+      "case": "110",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J069/new-inputs/finite_51",
+      "dtype": "bf16",
+      "shape": [
+        16,
+        63,
+        257
+      ],
+      "wlen": 63,
+      "round": 1,
+      "label": "C",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 50,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c0094000",
+        "0x12c0c0113000",
+        "0x12c0c0114000",
+        "0x12c0c0200000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 22.38,
+        "min": 21.7,
+        "max": 22.48
+      }
+    },
+    {
+      "case": "110",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J069/new-inputs/finite_51",
+      "dtype": "bf16",
+      "shape": [
+        16,
+        63,
+        257
+      ],
+      "wlen": 63,
+      "round": 1,
+      "label": "A2",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 51,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c0094000",
+        "0x12c0c0113000",
+        "0x12c0c0114000",
+        "0x12c0c0200000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 22.4,
+        "min": 21.68,
+        "max": 22.52
+      }
+    },
+    {
+      "case": "110",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J069/new-inputs/finite_51",
+      "dtype": "bf16",
+      "shape": [
+        16,
+        63,
+        257
+      ],
+      "wlen": 63,
+      "round": 2,
+      "label": "C",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 52,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c0094000",
+        "0x12c0c0113000",
+        "0x12c0c0114000",
+        "0x12c0c0200000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 22.4,
+        "min": 21.7,
+        "max": 22.52
+      }
+    },
+    {
+      "case": "110",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J069/new-inputs/finite_51",
+      "dtype": "bf16",
+      "shape": [
+        16,
+        63,
+        257
+      ],
+      "wlen": 63,
+      "round": 2,
+      "label": "A1",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 53,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c0094000",
+        "0x12c0c0113000",
+        "0x12c0c0114000",
+        "0x12c0c0200000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 22.42,
+        "min": 21.66,
+        "max": 22.5
+      }
+    },
+    {
+      "case": "110",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J069/new-inputs/finite_51",
+      "dtype": "bf16",
+      "shape": [
+        16,
+        63,
+        257
+      ],
+      "wlen": 63,
+      "round": 2,
+      "label": "A2",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 54,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c0094000",
+        "0x12c0c0113000",
+        "0x12c0c0114000",
+        "0x12c0c0200000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 22.4,
+        "min": 21.66,
+        "max": 22.52
+      }
+    },
+    {
+      "case": "110",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J069/new-inputs/finite_51",
+      "dtype": "bf16",
+      "shape": [
+        16,
+        63,
+        257
+      ],
+      "wlen": 63,
+      "round": 2,
+      "label": "B",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 55,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c0094000",
+        "0x12c0c0113000",
+        "0x12c0c0114000",
+        "0x12c0c0200000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 22.44,
+        "min": 21.66,
+        "max": 22.52
+      }
+    },
+    {
+      "case": "110",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J069/new-inputs/finite_51",
+      "dtype": "bf16",
+      "shape": [
+        16,
+        63,
+        257
+      ],
+      "wlen": 63,
+      "round": 3,
+      "label": "B",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 56,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c0094000",
+        "0x12c0c0113000",
+        "0x12c0c0114000",
+        "0x12c0c0200000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 22.44,
+        "min": 21.66,
+        "max": 22.52
+      }
+    },
+    {
+      "case": "110",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J069/new-inputs/finite_51",
+      "dtype": "bf16",
+      "shape": [
+        16,
+        63,
+        257
+      ],
+      "wlen": 63,
+      "round": 3,
+      "label": "A1",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 57,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c0094000",
+        "0x12c0c0113000",
+        "0x12c0c0114000",
+        "0x12c0c0200000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 22.42,
+        "min": 21.66,
+        "max": 22.54
+      }
+    },
+    {
+      "case": "110",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J069/new-inputs/finite_51",
+      "dtype": "bf16",
+      "shape": [
+        16,
+        63,
+        257
+      ],
+      "wlen": 63,
+      "round": 3,
+      "label": "C",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 58,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c0094000",
+        "0x12c0c0113000",
+        "0x12c0c0114000",
+        "0x12c0c0200000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 22.4,
+        "min": 21.7,
+        "max": 22.52
+      }
+    },
+    {
+      "case": "110",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J069/new-inputs/finite_51",
+      "dtype": "bf16",
+      "shape": [
+        16,
+        63,
+        257
+      ],
+      "wlen": 63,
+      "round": 3,
+      "label": "A2",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 59,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c0094000",
+        "0x12c0c0113000",
+        "0x12c0c0114000",
+        "0x12c0c0200000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 22.4,
+        "min": 21.68,
+        "max": 22.5
+      }
+    },
+    {
+      "case": "110",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J069/new-inputs/finite_51",
+      "dtype": "bf16",
+      "shape": [
+        16,
+        63,
+        257
+      ],
+      "wlen": 63,
+      "round": 4,
+      "label": "A1",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 60,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c0094000",
+        "0x12c0c0113000",
+        "0x12c0c0114000",
+        "0x12c0c0200000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 22.38,
+        "min": 21.68,
+        "max": 22.5
+      }
+    },
+    {
+      "case": "110",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J069/new-inputs/finite_51",
+      "dtype": "bf16",
+      "shape": [
+        16,
+        63,
+        257
+      ],
+      "wlen": 63,
+      "round": 4,
+      "label": "C",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 61,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c0094000",
+        "0x12c0c0113000",
+        "0x12c0c0114000",
+        "0x12c0c0200000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 22.4,
+        "min": 21.7,
+        "max": 22.52
+      }
+    },
+    {
+      "case": "110",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J069/new-inputs/finite_51",
+      "dtype": "bf16",
+      "shape": [
+        16,
+        63,
+        257
+      ],
+      "wlen": 63,
+      "round": 4,
+      "label": "B",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 62,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c0094000",
+        "0x12c0c0113000",
+        "0x12c0c0114000",
+        "0x12c0c0200000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 22.44,
+        "min": 21.64,
+        "max": 22.52
+      }
+    },
+    {
+      "case": "110",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J069/new-inputs/finite_51",
+      "dtype": "bf16",
+      "shape": [
+        16,
+        63,
+        257
+      ],
+      "wlen": 63,
+      "round": 4,
+      "label": "A2",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 63,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c0094000",
+        "0x12c0c0113000",
+        "0x12c0c0114000",
+        "0x12c0c0200000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 22.4,
+        "min": 21.66,
+        "max": 22.52
+      }
+    },
+    {
+      "case": "110",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J069/new-inputs/finite_51",
+      "dtype": "bf16",
+      "shape": [
+        16,
+        63,
+        257
+      ],
+      "wlen": 63,
+      "round": 5,
+      "label": "B",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 64,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c0094000",
+        "0x12c0c0113000",
+        "0x12c0c0114000",
+        "0x12c0c0200000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 22.44,
+        "min": 21.68,
+        "max": 22.54
+      }
+    },
+    {
+      "case": "110",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J069/new-inputs/finite_51",
+      "dtype": "bf16",
+      "shape": [
+        16,
+        63,
+        257
+      ],
+      "wlen": 63,
+      "round": 5,
+      "label": "A1",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 65,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c0094000",
+        "0x12c0c0113000",
+        "0x12c0c0114000",
+        "0x12c0c0200000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 22.4,
+        "min": 21.66,
+        "max": 22.52
+      }
+    },
+    {
+      "case": "110",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J069/new-inputs/finite_51",
+      "dtype": "bf16",
+      "shape": [
+        16,
+        63,
+        257
+      ],
+      "wlen": 63,
+      "round": 5,
+      "label": "A2",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 66,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c0094000",
+        "0x12c0c0113000",
+        "0x12c0c0114000",
+        "0x12c0c0200000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 22.4,
+        "min": 21.66,
+        "max": 22.5
+      }
+    },
+    {
+      "case": "110",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J069/new-inputs/finite_51",
+      "dtype": "bf16",
+      "shape": [
+        16,
+        63,
+        257
+      ],
+      "wlen": 63,
+      "round": 5,
+      "label": "C",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 67,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c0094000",
+        "0x12c0c0113000",
+        "0x12c0c0114000",
+        "0x12c0c0200000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 22.4,
+        "min": 21.68,
+        "max": 22.52
+      }
+    },
+    {
+      "case": "110",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J069/new-inputs/finite_51",
+      "dtype": "bf16",
+      "shape": [
+        16,
+        63,
+        257
+      ],
+      "wlen": 63,
+      "round": 6,
+      "label": "C",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 68,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c0094000",
+        "0x12c0c0113000",
+        "0x12c0c0114000",
+        "0x12c0c0200000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 22.4,
+        "min": 21.7,
+        "max": 22.52
+      }
+    },
+    {
+      "case": "110",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J069/new-inputs/finite_51",
+      "dtype": "bf16",
+      "shape": [
+        16,
+        63,
+        257
+      ],
+      "wlen": 63,
+      "round": 6,
+      "label": "A1",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 69,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c0094000",
+        "0x12c0c0113000",
+        "0x12c0c0114000",
+        "0x12c0c0200000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 22.38,
+        "min": 21.68,
+        "max": 22.5
+      }
+    },
+    {
+      "case": "110",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J069/new-inputs/finite_51",
+      "dtype": "bf16",
+      "shape": [
+        16,
+        63,
+        257
+      ],
+      "wlen": 63,
+      "round": 6,
+      "label": "B",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 70,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c0094000",
+        "0x12c0c0113000",
+        "0x12c0c0114000",
+        "0x12c0c0200000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 22.46,
+        "min": 21.7,
+        "max": 22.54
+      }
+    },
+    {
+      "case": "110",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J069/new-inputs/finite_51",
+      "dtype": "bf16",
+      "shape": [
+        16,
+        63,
+        257
+      ],
+      "wlen": 63,
+      "round": 6,
+      "label": "A2",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 71,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c0094000",
+        "0x12c0c0113000",
+        "0x12c0c0114000",
+        "0x12c0c0200000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 22.4,
+        "min": 21.68,
+        "max": 22.5
+      }
+    },
+    {
+      "case": "107",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/46",
+      "dtype": "fp32",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "wlen": 64,
+      "round": 1,
+      "label": "A1",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 72,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c001d000",
+        "0x12c0c0025000",
+        "0x12c0c0026000",
+        "0x12c0c002e000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 5.62,
+        "min": 5.5,
+        "max": 6.0
+      }
+    },
+    {
+      "case": "107",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/46",
+      "dtype": "fp32",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "wlen": 64,
+      "round": 1,
+      "label": "B",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 73,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c001d000",
+        "0x12c0c0025000",
+        "0x12c0c0026000",
+        "0x12c0c002e000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 5.64,
+        "min": 5.5,
+        "max": 6.06
+      }
+    },
+    {
+      "case": "107",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/46",
+      "dtype": "fp32",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "wlen": 64,
+      "round": 1,
+      "label": "C",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 74,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c001d000",
+        "0x12c0c0025000",
+        "0x12c0c0026000",
+        "0x12c0c002e000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 5.63,
+        "min": 5.5,
+        "max": 6.0
+      }
+    },
+    {
+      "case": "107",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/46",
+      "dtype": "fp32",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "wlen": 64,
+      "round": 1,
+      "label": "A2",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 75,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c001d000",
+        "0x12c0c0025000",
+        "0x12c0c0026000",
+        "0x12c0c002e000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 5.62,
+        "min": 5.48,
+        "max": 6.0
+      }
+    },
+    {
+      "case": "107",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/46",
+      "dtype": "fp32",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "wlen": 64,
+      "round": 2,
+      "label": "C",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 76,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c001d000",
+        "0x12c0c0025000",
+        "0x12c0c0026000",
+        "0x12c0c002e000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 5.64,
+        "min": 5.5,
+        "max": 6.02
+      }
+    },
+    {
+      "case": "107",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/46",
+      "dtype": "fp32",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "wlen": 64,
+      "round": 2,
+      "label": "A1",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 77,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c001d000",
+        "0x12c0c0025000",
+        "0x12c0c0026000",
+        "0x12c0c002e000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 5.62,
+        "min": 5.48,
+        "max": 5.98
+      }
+    },
+    {
+      "case": "107",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/46",
+      "dtype": "fp32",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "wlen": 64,
+      "round": 2,
+      "label": "A2",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 78,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c001d000",
+        "0x12c0c0025000",
+        "0x12c0c0026000",
+        "0x12c0c002e000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 5.64,
+        "min": 5.5,
+        "max": 6.0
+      }
+    },
+    {
+      "case": "107",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/46",
+      "dtype": "fp32",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "wlen": 64,
+      "round": 2,
+      "label": "B",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 79,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c001d000",
+        "0x12c0c0025000",
+        "0x12c0c0026000",
+        "0x12c0c002e000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 5.64,
+        "min": 5.5,
+        "max": 6.02
+      }
+    },
+    {
+      "case": "107",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/46",
+      "dtype": "fp32",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "wlen": 64,
+      "round": 3,
+      "label": "B",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 80,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c001d000",
+        "0x12c0c0025000",
+        "0x12c0c0026000",
+        "0x12c0c002e000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 5.64,
+        "min": 5.5,
+        "max": 6.0
+      }
+    },
+    {
+      "case": "107",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/46",
+      "dtype": "fp32",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "wlen": 64,
+      "round": 3,
+      "label": "A1",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 81,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c001d000",
+        "0x12c0c0025000",
+        "0x12c0c0026000",
+        "0x12c0c002e000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 5.62,
+        "min": 5.48,
+        "max": 6.0
+      }
+    },
+    {
+      "case": "107",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/46",
+      "dtype": "fp32",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "wlen": 64,
+      "round": 3,
+      "label": "C",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 82,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c001d000",
+        "0x12c0c0025000",
+        "0x12c0c0026000",
+        "0x12c0c002e000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 5.64,
+        "min": 5.5,
+        "max": 6.02
+      }
+    },
+    {
+      "case": "107",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/46",
+      "dtype": "fp32",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "wlen": 64,
+      "round": 3,
+      "label": "A2",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 83,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c001d000",
+        "0x12c0c0025000",
+        "0x12c0c0026000",
+        "0x12c0c002e000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 5.64,
+        "min": 5.48,
+        "max": 6.02
+      }
+    },
+    {
+      "case": "107",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/46",
+      "dtype": "fp32",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "wlen": 64,
+      "round": 4,
+      "label": "A1",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 84,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c001d000",
+        "0x12c0c0025000",
+        "0x12c0c0026000",
+        "0x12c0c002e000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 5.64,
+        "min": 5.48,
+        "max": 6.0
+      }
+    },
+    {
+      "case": "107",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/46",
+      "dtype": "fp32",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "wlen": 64,
+      "round": 4,
+      "label": "C",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 85,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c001d000",
+        "0x12c0c0025000",
+        "0x12c0c0026000",
+        "0x12c0c002e000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 5.64,
+        "min": 5.48,
+        "max": 6.08
+      }
+    },
+    {
+      "case": "107",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/46",
+      "dtype": "fp32",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "wlen": 64,
+      "round": 4,
+      "label": "B",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 86,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c001d000",
+        "0x12c0c0025000",
+        "0x12c0c0026000",
+        "0x12c0c002e000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 5.64,
+        "min": 5.5,
+        "max": 6.08
+      }
+    },
+    {
+      "case": "107",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/46",
+      "dtype": "fp32",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "wlen": 64,
+      "round": 4,
+      "label": "A2",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 87,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c001d000",
+        "0x12c0c0025000",
+        "0x12c0c0026000",
+        "0x12c0c002e000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 5.62,
+        "min": 5.48,
+        "max": 6.08
+      }
+    },
+    {
+      "case": "107",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/46",
+      "dtype": "fp32",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "wlen": 64,
+      "round": 5,
+      "label": "B",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 88,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c001d000",
+        "0x12c0c0025000",
+        "0x12c0c0026000",
+        "0x12c0c002e000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 5.64,
+        "min": 5.5,
+        "max": 6.02
+      }
+    },
+    {
+      "case": "107",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/46",
+      "dtype": "fp32",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "wlen": 64,
+      "round": 5,
+      "label": "A1",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 89,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c001d000",
+        "0x12c0c0025000",
+        "0x12c0c0026000",
+        "0x12c0c002e000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 5.62,
+        "min": 5.46,
+        "max": 5.94
+      }
+    },
+    {
+      "case": "107",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/46",
+      "dtype": "fp32",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "wlen": 64,
+      "round": 5,
+      "label": "A2",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 90,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c001d000",
+        "0x12c0c0025000",
+        "0x12c0c0026000",
+        "0x12c0c002e000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 5.64,
+        "min": 5.48,
+        "max": 6.02
+      }
+    },
+    {
+      "case": "107",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/46",
+      "dtype": "fp32",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "wlen": 64,
+      "round": 5,
+      "label": "C",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 91,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c001d000",
+        "0x12c0c0025000",
+        "0x12c0c0026000",
+        "0x12c0c002e000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 5.62,
+        "min": 5.48,
+        "max": 6.0
+      }
+    },
+    {
+      "case": "107",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/46",
+      "dtype": "fp32",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "wlen": 64,
+      "round": 6,
+      "label": "C",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 92,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c001d000",
+        "0x12c0c0025000",
+        "0x12c0c0026000",
+        "0x12c0c002e000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 5.64,
+        "min": 5.5,
+        "max": 6.0
+      }
+    },
+    {
+      "case": "107",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/46",
+      "dtype": "fp32",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "wlen": 64,
+      "round": 6,
+      "label": "A1",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 93,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c001d000",
+        "0x12c0c0025000",
+        "0x12c0c0026000",
+        "0x12c0c002e000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 5.62,
+        "min": 5.48,
+        "max": 6.02
+      }
+    },
+    {
+      "case": "107",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/46",
+      "dtype": "fp32",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "wlen": 64,
+      "round": 6,
+      "label": "B",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 94,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c001d000",
+        "0x12c0c0025000",
+        "0x12c0c0026000",
+        "0x12c0c002e000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 5.64,
+        "min": 5.5,
+        "max": 6.02
+      }
+    },
+    {
+      "case": "107",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/46",
+      "dtype": "fp32",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "wlen": 64,
+      "round": 6,
+      "label": "A2",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 95,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c001d000",
+        "0x12c0c0025000",
+        "0x12c0c0026000",
+        "0x12c0c002e000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 5.62,
+        "min": 5.48,
+        "max": 6.0
+      }
+    },
+    {
+      "case": "5",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/94",
+      "dtype": "fp16",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "wlen": 64,
+      "round": 1,
+      "label": "A1",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 96,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c0019000",
+        "0x12c0c001d000",
+        "0x12c0c001e000",
+        "0x12c0c0022000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 5.62,
+        "min": 5.5,
+        "max": 6.18
+      }
+    },
+    {
+      "case": "5",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/94",
+      "dtype": "fp16",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "wlen": 64,
+      "round": 1,
+      "label": "B",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 97,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c0019000",
+        "0x12c0c001d000",
+        "0x12c0c001e000",
+        "0x12c0c0022000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 5.6,
+        "min": 5.46,
+        "max": 6.0
+      }
+    },
+    {
+      "case": "5",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/94",
+      "dtype": "fp16",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "wlen": 64,
+      "round": 1,
+      "label": "C",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 98,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c0019000",
+        "0x12c0c001d000",
+        "0x12c0c001e000",
+        "0x12c0c0022000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 5.62,
+        "min": 5.5,
+        "max": 6.06
+      }
+    },
+    {
+      "case": "5",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/94",
+      "dtype": "fp16",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "wlen": 64,
+      "round": 1,
+      "label": "A2",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 99,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c0019000",
+        "0x12c0c001d000",
+        "0x12c0c001e000",
+        "0x12c0c0022000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 5.609999999999999,
+        "min": 5.5,
+        "max": 6.06
+      }
+    },
+    {
+      "case": "5",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/94",
+      "dtype": "fp16",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "wlen": 64,
+      "round": 2,
+      "label": "C",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 100,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c0019000",
+        "0x12c0c001d000",
+        "0x12c0c001e000",
+        "0x12c0c0022000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 5.62,
+        "min": 5.5,
+        "max": 6.08
+      }
+    },
+    {
+      "case": "5",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/94",
+      "dtype": "fp16",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "wlen": 64,
+      "round": 2,
+      "label": "A1",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 101,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c0019000",
+        "0x12c0c001d000",
+        "0x12c0c001e000",
+        "0x12c0c0022000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 5.62,
+        "min": 5.48,
+        "max": 6.02
+      }
+    },
+    {
+      "case": "5",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/94",
+      "dtype": "fp16",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "wlen": 64,
+      "round": 2,
+      "label": "A2",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 102,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c0019000",
+        "0x12c0c001d000",
+        "0x12c0c001e000",
+        "0x12c0c0022000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 5.62,
+        "min": 5.48,
+        "max": 6.08
+      }
+    },
+    {
+      "case": "5",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/94",
+      "dtype": "fp16",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "wlen": 64,
+      "round": 2,
+      "label": "B",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 103,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c0019000",
+        "0x12c0c001d000",
+        "0x12c0c001e000",
+        "0x12c0c0022000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 5.609999999999999,
+        "min": 5.46,
+        "max": 6.08
+      }
+    },
+    {
+      "case": "5",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/94",
+      "dtype": "fp16",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "wlen": 64,
+      "round": 3,
+      "label": "B",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 104,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c0019000",
+        "0x12c0c001d000",
+        "0x12c0c001e000",
+        "0x12c0c0022000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 5.6,
+        "min": 5.48,
+        "max": 6.08
+      }
+    },
+    {
+      "case": "5",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/94",
+      "dtype": "fp16",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "wlen": 64,
+      "round": 3,
+      "label": "A1",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 105,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c0019000",
+        "0x12c0c001d000",
+        "0x12c0c001e000",
+        "0x12c0c0022000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 5.6,
+        "min": 5.48,
+        "max": 6.08
+      }
+    },
+    {
+      "case": "5",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/94",
+      "dtype": "fp16",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "wlen": 64,
+      "round": 3,
+      "label": "C",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 106,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c0019000",
+        "0x12c0c001d000",
+        "0x12c0c001e000",
+        "0x12c0c0022000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 5.62,
+        "min": 5.52,
+        "max": 6.04
+      }
+    },
+    {
+      "case": "5",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/94",
+      "dtype": "fp16",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "wlen": 64,
+      "round": 3,
+      "label": "A2",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 107,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c0019000",
+        "0x12c0c001d000",
+        "0x12c0c001e000",
+        "0x12c0c0022000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 5.62,
+        "min": 5.5,
+        "max": 6.08
+      }
+    },
+    {
+      "case": "5",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/94",
+      "dtype": "fp16",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "wlen": 64,
+      "round": 4,
+      "label": "A1",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 108,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c0019000",
+        "0x12c0c001d000",
+        "0x12c0c001e000",
+        "0x12c0c0022000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 5.62,
+        "min": 5.5,
+        "max": 6.08
+      }
+    },
+    {
+      "case": "5",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/94",
+      "dtype": "fp16",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "wlen": 64,
+      "round": 4,
+      "label": "C",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 109,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c0019000",
+        "0x12c0c001d000",
+        "0x12c0c001e000",
+        "0x12c0c0022000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 5.62,
+        "min": 5.5,
+        "max": 6.1
+      }
+    },
+    {
+      "case": "5",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/94",
+      "dtype": "fp16",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "wlen": 64,
+      "round": 4,
+      "label": "B",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 110,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c0019000",
+        "0x12c0c001d000",
+        "0x12c0c001e000",
+        "0x12c0c0022000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 5.6,
+        "min": 5.44,
+        "max": 6.04
+      }
+    },
+    {
+      "case": "5",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/94",
+      "dtype": "fp16",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "wlen": 64,
+      "round": 4,
+      "label": "A2",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 111,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c0019000",
+        "0x12c0c001d000",
+        "0x12c0c001e000",
+        "0x12c0c0022000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 5.62,
+        "min": 5.48,
+        "max": 6.08
+      }
+    },
+    {
+      "case": "5",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/94",
+      "dtype": "fp16",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "wlen": 64,
+      "round": 5,
+      "label": "B",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 112,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c0019000",
+        "0x12c0c001d000",
+        "0x12c0c001e000",
+        "0x12c0c0022000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 5.6,
+        "min": 5.48,
+        "max": 6.08
+      }
+    },
+    {
+      "case": "5",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/94",
+      "dtype": "fp16",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "wlen": 64,
+      "round": 5,
+      "label": "A1",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 113,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c0019000",
+        "0x12c0c001d000",
+        "0x12c0c001e000",
+        "0x12c0c0022000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 5.62,
+        "min": 5.46,
+        "max": 6.16
+      }
+    },
+    {
+      "case": "5",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/94",
+      "dtype": "fp16",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "wlen": 64,
+      "round": 5,
+      "label": "A2",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 114,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c0019000",
+        "0x12c0c001d000",
+        "0x12c0c001e000",
+        "0x12c0c0022000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 5.62,
+        "min": 5.48,
+        "max": 6.12
+      }
+    },
+    {
+      "case": "5",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/94",
+      "dtype": "fp16",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "wlen": 64,
+      "round": 5,
+      "label": "C",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 115,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c0019000",
+        "0x12c0c001d000",
+        "0x12c0c001e000",
+        "0x12c0c0022000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 5.62,
+        "min": 5.5,
+        "max": 6.08
+      }
+    },
+    {
+      "case": "5",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/94",
+      "dtype": "fp16",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "wlen": 64,
+      "round": 6,
+      "label": "C",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 116,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c0019000",
+        "0x12c0c001d000",
+        "0x12c0c001e000",
+        "0x12c0c0022000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 5.62,
+        "min": 5.48,
+        "max": 6.04
+      }
+    },
+    {
+      "case": "5",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/94",
+      "dtype": "fp16",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "wlen": 64,
+      "round": 6,
+      "label": "A1",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 117,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c0019000",
+        "0x12c0c001d000",
+        "0x12c0c001e000",
+        "0x12c0c0022000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 5.6,
+        "min": 5.48,
+        "max": 6.18
+      }
+    },
+    {
+      "case": "5",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/94",
+      "dtype": "fp16",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "wlen": 64,
+      "round": 6,
+      "label": "B",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 118,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c0019000",
+        "0x12c0c001d000",
+        "0x12c0c001e000",
+        "0x12c0c0022000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 5.6,
+        "min": 5.44,
+        "max": 6.06
+      }
+    },
+    {
+      "case": "5",
+      "input_root": "/home/developer/2329-JadeYara-20261104-1812/J062/inputs/94",
+      "dtype": "fp16",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "wlen": 64,
+      "round": 6,
+      "label": "A2",
+      "iterations": 350,
+      "check_every": 0,
+      "ordinal": 119,
+      "addresses": [
+        "0x12c0c0015000",
+        "0x12c0c0019000",
+        "0x12c0c001d000",
+        "0x12c0c001e000",
+        "0x12c0c0022000"
+      ],
+      "block_nums": [
+        40
+      ],
+      "Task Duration(us)": {
+        "median": 5.6,
+        "min": 5.5,
+        "max": 6.08
+      }
+    }
+  ],
+  "comparisons": [
+    {
+      "case": "37",
+      "round": 1,
+      "dtype": "bf16",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "group": "short_s",
+      "median_us": {
+        "A1": 5.74,
+        "B": 5.76,
+        "C": 5.74,
+        "A2": 5.74
+      },
+      "aa_spread_us": 0.0,
+      "aa_spread_fraction": 0.0,
+      "aa_stable": true,
+      "unchanged_control": true,
+      "controls_stable": true,
+      "c_gain_vs_b_us": 0.019999999999999574,
+      "c_gain_vs_a_us": 0.0
+    },
+    {
+      "case": "37",
+      "round": 2,
+      "dtype": "bf16",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "group": "short_s",
+      "median_us": {
+        "C": 5.74,
+        "A1": 5.74,
+        "A2": 5.72,
+        "B": 5.74
+      },
+      "aa_spread_us": 0.020000000000000462,
+      "aa_spread_fraction": 0.0034904013961606388,
+      "aa_stable": true,
+      "unchanged_control": true,
+      "controls_stable": true,
+      "c_gain_vs_b_us": 0.0,
+      "c_gain_vs_a_us": -0.009999999999999787
+    },
+    {
+      "case": "37",
+      "round": 3,
+      "dtype": "bf16",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "group": "short_s",
+      "median_us": {
+        "B": 5.74,
+        "A1": 5.72,
+        "C": 5.74,
+        "A2": 5.74
+      },
+      "aa_spread_us": 0.020000000000000462,
+      "aa_spread_fraction": 0.0034904013961606388,
+      "aa_stable": true,
+      "unchanged_control": true,
+      "controls_stable": true,
+      "c_gain_vs_b_us": 0.0,
+      "c_gain_vs_a_us": -0.009999999999999787
+    },
+    {
+      "case": "37",
+      "round": 4,
+      "dtype": "bf16",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "group": "short_s",
+      "median_us": {
+        "A1": 5.74,
+        "C": 5.74,
+        "B": 5.74,
+        "A2": 5.74
+      },
+      "aa_spread_us": 0.0,
+      "aa_spread_fraction": 0.0,
+      "aa_stable": true,
+      "unchanged_control": true,
+      "controls_stable": true,
+      "c_gain_vs_b_us": 0.0,
+      "c_gain_vs_a_us": 0.0
+    },
+    {
+      "case": "37",
+      "round": 5,
+      "dtype": "bf16",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "group": "short_s",
+      "median_us": {
+        "B": 5.74,
+        "A1": 5.74,
+        "A2": 5.74,
+        "C": 5.74
+      },
+      "aa_spread_us": 0.0,
+      "aa_spread_fraction": 0.0,
+      "aa_stable": true,
+      "unchanged_control": true,
+      "controls_stable": true,
+      "c_gain_vs_b_us": 0.0,
+      "c_gain_vs_a_us": 0.0
+    },
+    {
+      "case": "37",
+      "round": 6,
+      "dtype": "bf16",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "group": "short_s",
+      "median_us": {
+        "C": 5.74,
+        "A1": 5.74,
+        "B": 5.74,
+        "A2": 5.74
+      },
+      "aa_spread_us": 0.0,
+      "aa_spread_fraction": 0.0,
+      "aa_stable": true,
+      "unchanged_control": true,
+      "controls_stable": true,
+      "c_gain_vs_b_us": 0.0,
+      "c_gain_vs_a_us": 0.0
+    },
+    {
+      "case": "97",
+      "round": 1,
+      "dtype": "bf16",
+      "shape": [
+        127,
+        8192,
+        1
+      ],
+      "group": "short_s",
+      "median_us": {
+        "A1": 15.48,
+        "B": 15.52,
+        "C": 15.5,
+        "A2": 15.46
+      },
+      "aa_spread_us": 0.019999999999999574,
+      "aa_spread_fraction": 0.0012928248222365594,
+      "aa_stable": true,
+      "unchanged_control": true,
+      "controls_stable": true,
+      "c_gain_vs_b_us": 0.019999999999999574,
+      "c_gain_vs_a_us": -0.02999999999999936
+    },
+    {
+      "case": "97",
+      "round": 2,
+      "dtype": "bf16",
+      "shape": [
+        127,
+        8192,
+        1
+      ],
+      "group": "short_s",
+      "median_us": {
+        "C": 15.5,
+        "A1": 15.5,
+        "A2": 15.5,
+        "B": 15.52
+      },
+      "aa_spread_us": 0.0,
+      "aa_spread_fraction": 0.0,
+      "aa_stable": true,
+      "unchanged_control": true,
+      "controls_stable": true,
+      "c_gain_vs_b_us": 0.019999999999999574,
+      "c_gain_vs_a_us": 0.0
+    },
+    {
+      "case": "97",
+      "round": 3,
+      "dtype": "bf16",
+      "shape": [
+        127,
+        8192,
+        1
+      ],
+      "group": "short_s",
+      "median_us": {
+        "B": 15.52,
+        "A1": 15.5,
+        "C": 15.5,
+        "A2": 15.47
+      },
+      "aa_spread_us": 0.02999999999999936,
+      "aa_spread_fraction": 0.001937358734258919,
+      "aa_stable": true,
+      "unchanged_control": true,
+      "controls_stable": true,
+      "c_gain_vs_b_us": 0.019999999999999574,
+      "c_gain_vs_a_us": -0.015000000000000568
+    },
+    {
+      "case": "97",
+      "round": 4,
+      "dtype": "bf16",
+      "shape": [
+        127,
+        8192,
+        1
+      ],
+      "group": "short_s",
+      "median_us": {
+        "A1": 15.5,
+        "C": 15.5,
+        "B": 15.52,
+        "A2": 15.5
+      },
+      "aa_spread_us": 0.0,
+      "aa_spread_fraction": 0.0,
+      "aa_stable": true,
+      "unchanged_control": true,
+      "controls_stable": true,
+      "c_gain_vs_b_us": 0.019999999999999574,
+      "c_gain_vs_a_us": 0.0
+    },
+    {
+      "case": "97",
+      "round": 5,
+      "dtype": "bf16",
+      "shape": [
+        127,
+        8192,
+        1
+      ],
+      "group": "short_s",
+      "median_us": {
+        "B": 15.52,
+        "A1": 15.5,
+        "A2": 15.5,
+        "C": 15.52
+      },
+      "aa_spread_us": 0.0,
+      "aa_spread_fraction": 0.0,
+      "aa_stable": true,
+      "unchanged_control": true,
+      "controls_stable": true,
+      "c_gain_vs_b_us": 0.0,
+      "c_gain_vs_a_us": -0.019999999999999574
+    },
+    {
+      "case": "97",
+      "round": 6,
+      "dtype": "bf16",
+      "shape": [
+        127,
+        8192,
+        1
+      ],
+      "group": "short_s",
+      "median_us": {
+        "C": 15.5,
+        "A1": 15.47,
+        "B": 15.51,
+        "A2": 15.46
+      },
+      "aa_spread_us": 0.009999999999999787,
+      "aa_spread_fraction": 0.0006466214031684312,
+      "aa_stable": true,
+      "unchanged_control": true,
+      "controls_stable": true,
+      "c_gain_vs_b_us": 0.009999999999999787,
+      "c_gain_vs_a_us": -0.03500000000000014
+    },
+    {
+      "case": "110",
+      "round": 1,
+      "dtype": "bf16",
+      "shape": [
+        16,
+        63,
+        257
+      ],
+      "group": "gather_phase_window_finite",
+      "median_us": {
+        "A1": 22.4,
+        "B": 22.44,
+        "C": 22.38,
+        "A2": 22.4
+      },
+      "aa_spread_us": 0.0,
+      "aa_spread_fraction": 0.0,
+      "aa_stable": true,
+      "unchanged_control": true,
+      "controls_stable": true,
+      "c_gain_vs_b_us": 0.060000000000002274,
+      "c_gain_vs_a_us": 0.019999999999999574
+    },
+    {
+      "case": "110",
+      "round": 2,
+      "dtype": "bf16",
+      "shape": [
+        16,
+        63,
+        257
+      ],
+      "group": "gather_phase_window_finite",
+      "median_us": {
+        "C": 22.4,
+        "A1": 22.42,
+        "A2": 22.4,
+        "B": 22.44
+      },
+      "aa_spread_us": 0.020000000000003126,
+      "aa_spread_fraction": 0.0008924587237841645,
+      "aa_stable": true,
+      "unchanged_control": true,
+      "controls_stable": true,
+      "c_gain_vs_b_us": 0.0400000000000027,
+      "c_gain_vs_a_us": 0.010000000000001563
+    },
+    {
+      "case": "110",
+      "round": 3,
+      "dtype": "bf16",
+      "shape": [
+        16,
+        63,
+        257
+      ],
+      "group": "gather_phase_window_finite",
+      "median_us": {
+        "B": 22.44,
+        "A1": 22.42,
+        "C": 22.4,
+        "A2": 22.4
+      },
+      "aa_spread_us": 0.020000000000003126,
+      "aa_spread_fraction": 0.0008924587237841645,
+      "aa_stable": true,
+      "unchanged_control": true,
+      "controls_stable": true,
+      "c_gain_vs_b_us": 0.0400000000000027,
+      "c_gain_vs_a_us": 0.010000000000001563
+    },
+    {
+      "case": "110",
+      "round": 4,
+      "dtype": "bf16",
+      "shape": [
+        16,
+        63,
+        257
+      ],
+      "group": "gather_phase_window_finite",
+      "median_us": {
+        "A1": 22.38,
+        "C": 22.4,
+        "B": 22.44,
+        "A2": 22.4
+      },
+      "aa_spread_us": 0.019999999999999574,
+      "aa_spread_fraction": 0.0008932559178204365,
+      "aa_stable": true,
+      "unchanged_control": true,
+      "controls_stable": true,
+      "c_gain_vs_b_us": 0.0400000000000027,
+      "c_gain_vs_a_us": -0.00999999999999801
+    },
+    {
+      "case": "110",
+      "round": 5,
+      "dtype": "bf16",
+      "shape": [
+        16,
+        63,
+        257
+      ],
+      "group": "gather_phase_window_finite",
+      "median_us": {
+        "B": 22.44,
+        "A1": 22.4,
+        "A2": 22.4,
+        "C": 22.4
+      },
+      "aa_spread_us": 0.0,
+      "aa_spread_fraction": 0.0,
+      "aa_stable": true,
+      "unchanged_control": true,
+      "controls_stable": true,
+      "c_gain_vs_b_us": 0.0400000000000027,
+      "c_gain_vs_a_us": 0.0
+    },
+    {
+      "case": "110",
+      "round": 6,
+      "dtype": "bf16",
+      "shape": [
+        16,
+        63,
+        257
+      ],
+      "group": "gather_phase_window_finite",
+      "median_us": {
+        "C": 22.4,
+        "A1": 22.38,
+        "B": 22.46,
+        "A2": 22.4
+      },
+      "aa_spread_us": 0.019999999999999574,
+      "aa_spread_fraction": 0.0008932559178204365,
+      "aa_stable": true,
+      "unchanged_control": true,
+      "controls_stable": true,
+      "c_gain_vs_b_us": 0.060000000000002274,
+      "c_gain_vs_a_us": -0.00999999999999801
+    },
+    {
+      "case": "107",
+      "round": 1,
+      "dtype": "fp32",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "group": "short_s",
+      "median_us": {
+        "A1": 5.62,
+        "B": 5.64,
+        "C": 5.63,
+        "A2": 5.62
+      },
+      "aa_spread_us": 0.0,
+      "aa_spread_fraction": 0.0,
+      "aa_stable": true,
+      "unchanged_control": true,
+      "controls_stable": true,
+      "c_gain_vs_b_us": 0.009999999999999787,
+      "c_gain_vs_a_us": -0.009999999999999787
+    },
+    {
+      "case": "107",
+      "round": 2,
+      "dtype": "fp32",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "group": "short_s",
+      "median_us": {
+        "C": 5.64,
+        "A1": 5.62,
+        "A2": 5.64,
+        "B": 5.64
+      },
+      "aa_spread_us": 0.019999999999999574,
+      "aa_spread_fraction": 0.003552397868561203,
+      "aa_stable": true,
+      "unchanged_control": true,
+      "controls_stable": true,
+      "c_gain_vs_b_us": 0.0,
+      "c_gain_vs_a_us": -0.009999999999999787
+    },
+    {
+      "case": "107",
+      "round": 3,
+      "dtype": "fp32",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "group": "short_s",
+      "median_us": {
+        "B": 5.64,
+        "A1": 5.62,
+        "C": 5.64,
+        "A2": 5.64
+      },
+      "aa_spread_us": 0.019999999999999574,
+      "aa_spread_fraction": 0.003552397868561203,
+      "aa_stable": true,
+      "unchanged_control": true,
+      "controls_stable": true,
+      "c_gain_vs_b_us": 0.0,
+      "c_gain_vs_a_us": -0.009999999999999787
+    },
+    {
+      "case": "107",
+      "round": 4,
+      "dtype": "fp32",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "group": "short_s",
+      "median_us": {
+        "A1": 5.64,
+        "C": 5.64,
+        "B": 5.64,
+        "A2": 5.62
+      },
+      "aa_spread_us": 0.019999999999999574,
+      "aa_spread_fraction": 0.003552397868561203,
+      "aa_stable": true,
+      "unchanged_control": true,
+      "controls_stable": true,
+      "c_gain_vs_b_us": 0.0,
+      "c_gain_vs_a_us": -0.009999999999999787
+    },
+    {
+      "case": "107",
+      "round": 5,
+      "dtype": "fp32",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "group": "short_s",
+      "median_us": {
+        "B": 5.64,
+        "A1": 5.62,
+        "A2": 5.64,
+        "C": 5.62
+      },
+      "aa_spread_us": 0.019999999999999574,
+      "aa_spread_fraction": 0.003552397868561203,
+      "aa_stable": true,
+      "unchanged_control": true,
+      "controls_stable": true,
+      "c_gain_vs_b_us": 0.019999999999999574,
+      "c_gain_vs_a_us": 0.009999999999999787
+    },
+    {
+      "case": "107",
+      "round": 6,
+      "dtype": "fp32",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "group": "short_s",
+      "median_us": {
+        "C": 5.64,
+        "A1": 5.62,
+        "B": 5.64,
+        "A2": 5.62
+      },
+      "aa_spread_us": 0.0,
+      "aa_spread_fraction": 0.0,
+      "aa_stable": true,
+      "unchanged_control": true,
+      "controls_stable": true,
+      "c_gain_vs_b_us": 0.0,
+      "c_gain_vs_a_us": -0.019999999999999574
+    },
+    {
+      "case": "5",
+      "round": 1,
+      "dtype": "fp16",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "group": "short_s",
+      "median_us": {
+        "A1": 5.62,
+        "B": 5.6,
+        "C": 5.62,
+        "A2": 5.609999999999999
+      },
+      "aa_spread_us": 0.010000000000000675,
+      "aa_spread_fraction": 0.0017809439002672617,
+      "aa_stable": true,
+      "unchanged_control": false,
+      "controls_stable": true,
+      "c_gain_vs_b_us": -0.020000000000000462,
+      "c_gain_vs_a_us": -0.004999999999999893
+    },
+    {
+      "case": "5",
+      "round": 2,
+      "dtype": "fp16",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "group": "short_s",
+      "median_us": {
+        "C": 5.62,
+        "A1": 5.62,
+        "A2": 5.62,
+        "B": 5.609999999999999
+      },
+      "aa_spread_us": 0.0,
+      "aa_spread_fraction": 0.0,
+      "aa_stable": true,
+      "unchanged_control": false,
+      "controls_stable": true,
+      "c_gain_vs_b_us": -0.010000000000000675,
+      "c_gain_vs_a_us": 0.0
+    },
+    {
+      "case": "5",
+      "round": 3,
+      "dtype": "fp16",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "group": "short_s",
+      "median_us": {
+        "B": 5.6,
+        "A1": 5.6,
+        "C": 5.62,
+        "A2": 5.62
+      },
+      "aa_spread_us": 0.020000000000000462,
+      "aa_spread_fraction": 0.003565062388591883,
+      "aa_stable": true,
+      "unchanged_control": false,
+      "controls_stable": true,
+      "c_gain_vs_b_us": -0.020000000000000462,
+      "c_gain_vs_a_us": -0.010000000000000675
+    },
+    {
+      "case": "5",
+      "round": 4,
+      "dtype": "fp16",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "group": "short_s",
+      "median_us": {
+        "A1": 5.62,
+        "C": 5.62,
+        "B": 5.6,
+        "A2": 5.62
+      },
+      "aa_spread_us": 0.0,
+      "aa_spread_fraction": 0.0,
+      "aa_stable": true,
+      "unchanged_control": false,
+      "controls_stable": true,
+      "c_gain_vs_b_us": -0.020000000000000462,
+      "c_gain_vs_a_us": 0.0
+    },
+    {
+      "case": "5",
+      "round": 5,
+      "dtype": "fp16",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "group": "short_s",
+      "median_us": {
+        "B": 5.6,
+        "A1": 5.62,
+        "A2": 5.62,
+        "C": 5.62
+      },
+      "aa_spread_us": 0.0,
+      "aa_spread_fraction": 0.0,
+      "aa_stable": true,
+      "unchanged_control": false,
+      "controls_stable": true,
+      "c_gain_vs_b_us": -0.020000000000000462,
+      "c_gain_vs_a_us": 0.0
+    },
+    {
+      "case": "5",
+      "round": 6,
+      "dtype": "fp16",
+      "shape": [
+        127,
+        64,
+        1
+      ],
+      "group": "short_s",
+      "median_us": {
+        "C": 5.62,
+        "A1": 5.6,
+        "B": 5.6,
+        "A2": 5.6
+      },
+      "aa_spread_us": 0.0,
+      "aa_spread_fraction": 0.0,
+      "aa_stable": true,
+      "unchanged_control": false,
+      "controls_stable": true,
+      "c_gain_vs_b_us": -0.020000000000000462,
+      "c_gain_vs_a_us": -0.020000000000000462
+    }
+  ],
+  "all_controls_stable": true,
+  "status": "measurement only; compiled function-body correspondence still requires separate evidence; no promotion"
+}

@@ -1,0 +1,167 @@
+--- official/p_relu_grad_update.h
++++ J076/p_relu_grad_update.h
+@@ -187,9 +187,8 @@
+     PipeBarrier<PIPE_V>();
+     // True TBE chain: negative mask multiplies x/w; do not select away invalid products.
+     Mul(featuresLocal, updateLocal, featuresLocal, currentNum);
+-    Muls(fgLocal, updateLocal, static_cast<T>(-1.0f), currentNum);
+-    PipeBarrier<PIPE_V>();
+-    Adds(fgLocal, fgLocal, static_cast<T>(1.0f), currentNum);
++    // J076: preserve exact0/1 complement and exceptional product ordering.
++    Sub(fgLocal, fgLocal, updateLocal, currentNum);
+     Muls(dxLocal, updateLocal, scalarWeight, currentNum);
+     PipeBarrier<PIPE_V>();
+     Add(dxLocal, dxLocal, fgLocal, currentNum);
+@@ -291,9 +290,8 @@
+     Select(updateFloat, maskLocal, dxFloat, fgLocal, SELMODE::VSEL_TENSOR_TENSOR_MODE, static_cast<uint32_t>(cmpCount));
+     PipeBarrier<PIPE_V>();
+     Mul(featuresFloat, updateFloat, featuresFloat, currentNum);
+-    Muls(fgLocal, updateFloat, -1.0f, currentNum);
+-    PipeBarrier<PIPE_V>();
+-    Adds(fgLocal, fgLocal, 1.0f, currentNum);
++    // J076: neg is exactly0/1; reuse ones to form1-neg in one stage.
++    Sub(fgLocal, fgLocal, updateFloat, currentNum);
+     Muls(dxFloat, updateFloat, scalarWeight, currentNum);
+     PipeBarrier<PIPE_V>();
+     Add(dxFloat, dxFloat, fgLocal, currentNum);
+--- official/p_relu_grad_update_s1.h
++++ J076/p_relu_grad_update_s1.h
+@@ -206,9 +206,8 @@
+     PipeBarrier<PIPE_V>();
+     // True TBE chain: negative mask multiplies x/w; do not select away invalid products.
+     Mul(featuresLocal, updateLocal, featuresLocal, currentNum);
+-    Muls(fgLocal, updateLocal, static_cast<T>(-1.0f), currentNum);
+-    PipeBarrier<PIPE_V>();
+-    Adds(fgLocal, fgLocal, static_cast<T>(1.0f), currentNum);
++    // J076: preserve exact0/1 complement and exceptional product ordering.
++    Sub(fgLocal, fgLocal, updateLocal, currentNum);
+     if (vectorWeights_) Mul(dxLocal, updateLocal, weightsLocal, currentNum);
+     else Muls(dxLocal, updateLocal, scalarWeight, currentNum);
+     PipeBarrier<PIPE_V>();
+@@ -328,9 +327,8 @@
+     Select(updateFloat, maskLocal, dxFloat, fgLocal, SELMODE::VSEL_TENSOR_TENSOR_MODE, static_cast<uint32_t>(cmpCount));
+     PipeBarrier<PIPE_V>();
+     Mul(featuresFloat, updateFloat, featuresFloat, currentNum);
+-    Muls(fgLocal, updateFloat, -1.0f, currentNum);
+-    PipeBarrier<PIPE_V>();
+-    Adds(fgLocal, fgLocal, 1.0f, currentNum);
++    // J076: neg is exactly0/1; reuse ones to form1-neg in one stage.
++    Sub(fgLocal, fgLocal, updateFloat, currentNum);
+     if (vectorWeights_) Mul(dxFloat, updateFloat, weightFloat, currentNum);
+     else Muls(dxFloat, updateFloat, scalarWeight, currentNum);
+     PipeBarrier<PIPE_V>();
+--- official/p_relu_grad_update_merged.h
++++ J076/p_relu_grad_update_merged.h
+@@ -237,9 +237,8 @@
+     PipeBarrier<PIPE_V>();
+     // True TBE chain: negative mask multiplies x/w; do not select away invalid products.
+     Mul(featuresLocal, updateLocal, featuresLocal, currentNum);
+-    Muls(fgLocal, updateLocal, static_cast<T>(-1.0f), currentNum);
+-    PipeBarrier<PIPE_V>();
+-    Adds(fgLocal, fgLocal, static_cast<T>(1.0f), currentNum);
++    // J076: preserve exact0/1 complement and exceptional product ordering.
++    Sub(fgLocal, fgLocal, updateLocal, currentNum);
+     if (vectorWeights_) Mul(dxLocal, updateLocal, weightsLocal, currentNum);
+     else Muls(dxLocal, updateLocal, scalarWeight, currentNum);
+     PipeBarrier<PIPE_V>();
+@@ -369,9 +368,8 @@
+     Select(updateFloat, maskLocal, dxFloat, fgLocal, SELMODE::VSEL_TENSOR_TENSOR_MODE, static_cast<uint32_t>(cmpCount));
+     PipeBarrier<PIPE_V>();
+     Mul(featuresFloat, updateFloat, featuresFloat, currentNum);
+-    Muls(fgLocal, updateFloat, -1.0f, currentNum);
+-    PipeBarrier<PIPE_V>();
+-    Adds(fgLocal, fgLocal, 1.0f, currentNum);
++    // J076: neg is exactly0/1; reuse ones to form1-neg in one stage.
++    Sub(fgLocal, fgLocal, updateFloat, currentNum);
+     if (vectorWeights_) Mul(dxFloat, updateFloat, weightFloat, currentNum);
+     else Muls(dxFloat, updateFloat, scalarWeight, currentNum);
+     PipeBarrier<PIPE_V>();
+--- official/p_relu_grad_update_resident.h
++++ J076/p_relu_grad_update_resident.h
+@@ -245,9 +245,8 @@
+     PipeBarrier<PIPE_V>();
+     // True TBE chain: negative mask multiplies x/w; do not select away invalid products.
+     Mul(featuresLocal, updateLocal, featuresLocal, currentNum);
+-    Muls(fgLocal, updateLocal, static_cast<T>(-1.0f), currentNum);
+-    PipeBarrier<PIPE_V>();
+-    Adds(fgLocal, fgLocal, static_cast<T>(1.0f), currentNum);
++    // J076: preserve exact0/1 complement and exceptional product ordering.
++    Sub(fgLocal, fgLocal, updateLocal, currentNum);
+     if (vectorWeights_) Mul(dxLocal, updateLocal, weightsLocal, currentNum);
+     else Muls(dxLocal, updateLocal, scalarWeight, currentNum);
+     PipeBarrier<PIPE_V>();
+@@ -382,9 +381,8 @@
+     Select(updateFloat, maskLocal, dxFloat, fgLocal, SELMODE::VSEL_TENSOR_TENSOR_MODE, static_cast<uint32_t>(cmpCount));
+     PipeBarrier<PIPE_V>();
+     Mul(featuresFloat, updateFloat, featuresFloat, currentNum);
+-    Muls(fgLocal, updateFloat, -1.0f, currentNum);
+-    PipeBarrier<PIPE_V>();
+-    Adds(fgLocal, fgLocal, 1.0f, currentNum);
++    // J076: neg is exactly0/1; reuse ones to form1-neg in one stage.
++    Sub(fgLocal, fgLocal, updateFloat, currentNum);
+     if (vectorWeights_) Mul(dxFloat, updateFloat, weightFloat, currentNum);
+     else Muls(dxFloat, updateFloat, scalarWeight, currentNum);
+     PipeBarrier<PIPE_V>();
+--- official/p_relu_grad_update_splitc.h
++++ J076/p_relu_grad_update_splitc.h
+@@ -260,9 +260,8 @@
+     PipeBarrier<PIPE_V>();
+     // True TBE chain: negative mask multiplies x/w; do not select away invalid products.
+     Mul(featuresLocal, updateLocal, featuresLocal, currentNum);
+-    Muls(fgLocal, updateLocal, static_cast<T>(-1.0f), currentNum);
+-    PipeBarrier<PIPE_V>();
+-    Adds(fgLocal, fgLocal, static_cast<T>(1.0f), currentNum);
++    // J076: preserve exact0/1 complement and exceptional product ordering.
++    Sub(fgLocal, fgLocal, updateLocal, currentNum);
+     if (vectorWeights_) Mul(dxLocal, updateLocal, weightsLocal, currentNum);
+     else Muls(dxLocal, updateLocal, scalarWeight, currentNum);
+     PipeBarrier<PIPE_V>();
+@@ -397,9 +396,8 @@
+     Select(updateFloat, maskLocal, dxFloat, fgLocal, SELMODE::VSEL_TENSOR_TENSOR_MODE, static_cast<uint32_t>(cmpCount));
+     PipeBarrier<PIPE_V>();
+     Mul(featuresFloat, updateFloat, featuresFloat, currentNum);
+-    Muls(fgLocal, updateFloat, -1.0f, currentNum);
+-    PipeBarrier<PIPE_V>();
+-    Adds(fgLocal, fgLocal, 1.0f, currentNum);
++    // J076: neg is exactly0/1; reuse ones to form1-neg in one stage.
++    Sub(fgLocal, fgLocal, updateFloat, currentNum);
+     if (vectorWeights_) Mul(dxFloat, updateFloat, weightFloat, currentNum);
+     else Muls(dxFloat, updateFloat, scalarWeight, currentNum);
+     PipeBarrier<PIPE_V>();
+--- official/p_relu_grad_update_full_pipeline.h
++++ J076/p_relu_grad_update_full_pipeline.h
+@@ -266,9 +266,8 @@
+     PipeBarrier<PIPE_V>();
+     // True TBE chain: negative mask multiplies x/w; do not select away invalid products.
+     Mul(featuresLocal, updateLocal, featuresLocal, currentNum);
+-    Muls(fgLocal, updateLocal, static_cast<T>(-1.0f), currentNum);
+-    PipeBarrier<PIPE_V>();
+-    Adds(fgLocal, fgLocal, static_cast<T>(1.0f), currentNum);
++    // J076: preserve exact0/1 complement and exceptional product ordering.
++    Sub(fgLocal, fgLocal, updateLocal, currentNum);
+     if (vectorWeights_) Mul(dxLocal, updateLocal, weightsLocal, currentNum);
+     else Muls(dxLocal, updateLocal, scalarWeight, currentNum);
+     PipeBarrier<PIPE_V>();
+@@ -403,9 +402,8 @@
+     Select(updateFloat, maskLocal, dxFloat, fgLocal, SELMODE::VSEL_TENSOR_TENSOR_MODE, static_cast<uint32_t>(cmpCount));
+     PipeBarrier<PIPE_V>();
+     Mul(featuresFloat, updateFloat, featuresFloat, currentNum);
+-    Muls(fgLocal, updateFloat, -1.0f, currentNum);
+-    PipeBarrier<PIPE_V>();
+-    Adds(fgLocal, fgLocal, 1.0f, currentNum);
++    // J076: neg is exactly0/1; reuse ones to form1-neg in one stage.
++    Sub(fgLocal, fgLocal, updateFloat, currentNum);
+     if (vectorWeights_) Mul(dxFloat, updateFloat, weightFloat, currentNum);
+     else Muls(dxFloat, updateFloat, scalarWeight, currentNum);
+     PipeBarrier<PIPE_V>();
+--- official/p_relu_grad_update_gather.h
++++ J076/p_relu_grad_update_gather.h
+@@ -97,7 +97,7 @@
+   Duplicate(dx,0.0f,static_cast<int32_t>(count));Duplicate(pos,1.0f,static_cast<int32_t>(count));PipeBarrier<PIPE_V>();
+   Compare(mask,x,dx,CMPMODE::GT,static_cast<uint32_t>(count));PipeBarrier<PIPE_V>();
+   Select(up,mask,dx,pos,SELMODE::VSEL_TENSOR_TENSOR_MODE,static_cast<uint32_t>(count));PipeBarrier<PIPE_V>();
+-  Mul(x,up,x,n);Muls(pos,up,-1.0f,n);PipeBarrier<PIPE_V>();Adds(pos,pos,1.0f,n);
++  Mul(x,up,x,n);Sub(pos,pos,up,n); // J076: exact1-neg using existing ones
+   Mul(dx,up,wExpanded_.Get<float>(),n);PipeBarrier<PIPE_V>();Add(dx,dx,pos,n);PipeBarrier<PIPE_V>();
+   Mul(dx,dx,g,n);Mul(up,x,g,n);PipeBarrier<PIPE_V>();
+   if constexpr(!std::is_same<T,float>::value){Cast(dxRaw_.Get<T>(),dx,RoundMode::CAST_RINT,n);PipeBarrier<PIPE_V>();Cast(dx,dxRaw_.Get<T>(),RoundMode::CAST_NONE,n);PipeBarrier<PIPE_V>();}

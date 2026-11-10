@@ -11,6 +11,10 @@ endif()
 
 message(STATUS "ASCEND_HOME_PATH: $ENV{ASCEND_HOME_PATH}")
 
+if(NOT CMAKE_BUILD_TYPE)
+    set(CMAKE_BUILD_TYPE Debug)
+endif()
+
 include(${CMAKE_CURRENT_SOURCE_DIR}/cmake/BuildGoogleTest.cmake)
 
 # DTYPE 宏定义（根据算子原型和测试用例生成）
@@ -57,9 +61,6 @@ add_compile_options(
     -fno-access-control
 )
 
-if(NOT CMAKE_BUILD_TYPE)
-    set(CMAKE_BUILD_TYPE Debug)
-endif()
 
 message(STATUS "Build Type: ${CMAKE_BUILD_TYPE}")
 

@@ -1,0 +1,1216 @@
+2026-11-08 19:52:04 [INFO] [227110] [227110] [py_init_parser.cpp:149] Start C pipeline, prof path: /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF, flags: 0xb.
+2026-11-08 19:52:04 [INFO] [227110] [227110] [py_init_parser.cpp:69] Start host CANN trace parsing, path: /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF/host.
+2026-11-08 19:52:04 [INFO] [227110] [227110] [kernel_parser_worker.cpp:55] Start run KernelParserWorker
+2026-11-08 19:52:04 [INFO] [227110] [227110] [kernel_parser_worker.cpp:64] Start parse hash data
+2026-11-08 19:52:04 [INFO] [227110] [227110] [kernel_parser_worker.cpp:81] Hash data load from path: /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF/host/data
+2026-11-08 19:52:04 [INFO] [227110] [227110] [kernel_parser_worker.cpp:84] success get hash data
+2026-11-08 19:52:04 [INFO] [227110] [227110] [kernel_parser_worker.cpp:92] success get hashDbDumper
+2026-11-08 19:52:04 [INFO] [227110] [227110] [db_runner.cpp:69] Start create GeHashInfo, sql is CREATE TABLE IF NOT EXISTS GeHashInfo (hash_key TEXT, hash_value TEXT);.
+2026-11-08 19:52:04 [INFO] [227110] [227110] [db_runner.cpp:82] create GeHashInfo success
+2026-11-08 19:52:04 [INFO] [227110] [227110] [db_runner.h:71] Start insert data to GeHashInfo
+2026-11-08 19:52:04 [INFO] [227110] [227110] [db_runner.h:84] insert data to GeHashInfo success
+2026-11-08 19:52:04 [INFO] [227110] [227110] [base_dumper.h:62] Dump GeHashInfo data success
+2026-11-08 19:52:04 [INFO] [227110] [227110] [kernel_parser_worker.cpp:66] Start parse type info data
+2026-11-08 19:52:04 [INFO] [227110] [227110] [kernel_parser_worker.cpp:103] Typeinfo data load from path: /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF/host/data
+2026-11-08 19:52:04 [INFO] [227110] [227110] [db_runner.cpp:69] Start create TypeHashInfo, sql is CREATE TABLE IF NOT EXISTS TypeHashInfo (hash_key TEXT, hash_value TEXT, level TEXT);.
+2026-11-08 19:52:04 [INFO] [227110] [227110] [db_runner.cpp:82] create TypeHashInfo success
+2026-11-08 19:52:04 [INFO] [227110] [227110] [db_runner.h:71] Start insert data to TypeHashInfo
+2026-11-08 19:52:04 [INFO] [227110] [227110] [db_runner.h:84] insert data to TypeHashInfo success
+2026-11-08 19:52:04 [INFO] [227110] [227110] [base_dumper.h:62] Dump TypeHashInfo data success
+2026-11-08 19:52:04 [INFO] [227110] [227110] [time_logger.h:32] HostTraceWorker start
+2026-11-08 19:52:04 [INFO] [227110] [227110] [time_logger.h:32] Group all events start
+2026-11-08 19:52:04 [INFO] [227110] [227111] [time_logger.h:32] Group Kernel start
+2026-11-08 19:52:04 [INFO] [227110] [227112] [time_logger.h:32] Group FusionOpInfo start
+2026-11-08 19:52:04 [INFO] [227110] [227113] [time_logger.h:32] Group NodeBasicInfo start
+2026-11-08 19:52:04 [INFO] [227110] [227114] [time_logger.h:32] Group NodeAttrInfo start
+2026-11-08 19:52:04 [INFO] [227110] [227115] [time_logger.h:32] Group TensorInfo start
+2026-11-08 19:52:04 [INFO] [227110] [227112] [time_logger.h:39] Group FusionOpInfo end, cost time = 0 ms
+2026-11-08 19:52:04 [INFO] [227110] [227114] [time_logger.h:39] Group NodeAttrInfo end, cost time = 0 ms
+2026-11-08 19:52:04 [INFO] [227110] [227117] [time_logger.h:32] Group ContextId start
+2026-11-08 19:52:04 [INFO] [227110] [227118] [time_logger.h:32] Group HcclInfo start
+2026-11-08 19:52:04 [INFO] [227110] [227119] [time_logger.h:32] Group TaskTrack start
+2026-11-08 19:52:04 [INFO] [227110] [227118] [time_logger.h:39] Group HcclInfo end, cost time = 0 ms
+2026-11-08 19:52:04 [INFO] [227110] [227117] [time_logger.h:39] Group ContextId end, cost time = 0 ms
+2026-11-08 19:52:04 [INFO] [227110] [227120] [time_logger.h:32] Group HcclOpInfo start
+2026-11-08 19:52:04 [INFO] [227110] [227112] [time_logger.h:32] Group CcuAddInfo start
+2026-11-08 19:52:04 [INFO] [227110] [227116] [time_logger.h:32] Group DpuTaskTrack start
+2026-11-08 19:52:04 [INFO] [227110] [227117] [time_logger.h:32] Group CaptureStreamInfo start
+2026-11-08 19:52:04 [INFO] [227110] [227114] [time_logger.h:32] Group Mc2CommInfo start
+2026-11-08 19:52:04 [INFO] [227110] [227120] [time_logger.h:39] Group HcclOpInfo end, cost time = 0 ms
+2026-11-08 19:52:04 [INFO] [227110] [227118] [time_logger.h:32] Group GraphIdMap start
+2026-11-08 19:52:04 [INFO] [227110] [227120] [time_logger.h:32] Group MemcpyInfo start
+2026-11-08 19:52:04 [INFO] [227110] [227112] [ccu_add_info_parser.cpp:106] Found 0 pending CCU add-info files
+2026-11-08 19:52:04 [INFO] [227110] [227116] [time_logger.h:39] Group DpuTaskTrack end, cost time = 0 ms
+2026-11-08 19:52:04 [INFO] [227110] [227114] [time_logger.h:39] Group Mc2CommInfo end, cost time = 0 ms
+2026-11-08 19:52:04 [INFO] [227110] [227118] [time_logger.h:39] Group GraphIdMap end, cost time = 0 ms
+2026-11-08 19:52:04 [INFO] [227110] [227120] [time_logger.h:39] Group MemcpyInfo end, cost time = 0 ms
+2026-11-08 19:52:04 [INFO] [227110] [227112] [ccu_add_info_parser.cpp:106] Found 0 pending CCU add-info files
+2026-11-08 19:52:04 [INFO] [227110] [227116] [time_logger.h:32] Group StreamExpandSpec start
+2026-11-08 19:52:04 [INFO] [227110] [227117] [time_logger.h:39] Group CaptureStreamInfo end, cost time = 0 ms
+2026-11-08 19:52:04 [INFO] [227110] [227112] [ccu_add_info_parser.cpp:106] Found 0 pending CCU add-info files
+2026-11-08 19:52:04 [INFO] [227110] [227112] [time_logger.h:39] Group CcuAddInfo end, cost time = 0 ms
+2026-11-08 19:52:04 [INFO] [227110] [227116] [time_logger.h:39] Group StreamExpandSpec end, cost time = 0 ms
+2026-11-08 19:52:04 [INFO] [227110] [227113] [time_logger.h:39] Group NodeBasicInfo end, cost time = 51 ms
+2026-11-08 19:52:04 [INFO] [227110] [227119] [time_logger.h:39] Group TaskTrack end, cost time = 58 ms
+2026-11-08 19:52:04 [INFO] [227110] [227115] [time_logger.h:39] Group TensorInfo end, cost time = 101 ms
+2026-11-08 19:52:05 [INFO] [227110] [227111] [time_logger.h:39] Group Kernel end, cost time = 236 ms
+2026-11-08 19:52:05 [INFO] [227110] [227110] [event_grouper.cpp:301] After group events, Kernel: 168558, GraphId: 0, FusionOp: 0, NodeBasic: 42000, NodeAttr: 0, Tensor: 42000, ContextId: 0, HcclInfo: 0, TaskTrack: 42004, HcclOpInfo: 0, thread: 227072
+2026-11-08 19:52:05 [INFO] [227110] [227110] [time_logger.h:39] Group all events end, cost time = 251 ms
+2026-11-08 19:52:05 [INFO] [227110] [227130] [time_logger.h:32] Dump dpu task track data start start
+2026-11-08 19:52:05 [INFO] [227110] [227124] [host_trace_worker.cpp:200] Start parse host system profile data
+2026-11-08 19:52:05 [INFO] [227110] [227123] [time_logger.h:32] Dump stream expand spec data start start
+2026-11-08 19:52:05 [INFO] [227110] [227123] [db_runner.cpp:69] Start create StreamExpandSpec, sql is CREATE TABLE IF NOT EXISTS StreamExpandSpec (expand_status NUMERIC);.
+2026-11-08 19:52:05 [INFO] [227110] [227125] [time_logger.h:32] Dump api data start start
+2026-11-08 19:52:05 [INFO] [227110] [227128] [time_logger.h:32] Dump flip tasks data start start
+2026-11-08 19:52:05 [INFO] [227110] [227129] [time_logger.h:32] Multi thread build tree start
+2026-11-08 19:52:05 [WARN] [227110] [227130] [base_dumper.h:45] Input data is empty, pass dump
+2026-11-08 19:52:05 [INFO] [227110] [227128] [db_runner.cpp:69] Start create HostTaskFlip, sql is CREATE TABLE IF NOT EXISTS HostTaskFlip (stream_id INTEGER, timestamp NUMERIC, task_id INTEGER, flip_num INTEGER);.
+2026-11-08 19:52:05 [INFO] [227110] [227126] [time_logger.h:32] Dump CCU add-info data start start
+2026-11-08 19:52:05 [INFO] [227110] [227127] [time_logger.h:32] Dump model name data start start
+2026-11-08 19:52:05 [INFO] [227110] [227124] [host_cpu_freq_parser.cpp:75] No host cpu freq files found under /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF/host/data.
+2026-11-08 19:52:05 [INFO] [227110] [227130] [time_logger.h:39] Dump dpu task track data start end, cost time = 0 ms
+2026-11-08 19:52:05 [INFO] [227110] [227126] [time_logger.h:39] Dump CCU add-info data start end, cost time = 0 ms
+2026-11-08 19:52:05 [WARN] [227110] [227127] [base_dumper.h:45] Input data is empty, pass dump
+2026-11-08 19:52:05 [INFO] [227110] [227127] [time_logger.h:39] Dump model name data start end, cost time = 0 ms
+2026-11-08 19:52:05 [INFO] [227110] [227123] [db_runner.cpp:82] create StreamExpandSpec success
+2026-11-08 19:52:05 [INFO] [227110] [227131] [host_trace_worker.cpp:219] Start multi thread build tree, threadId = 227072
+2026-11-08 19:52:05 [INFO] [227110] [227123] [db_runner.h:71] Start insert data to StreamExpandSpec
+2026-11-08 19:52:05 [INFO] [227110] [227128] [db_runner.cpp:82] create HostTaskFlip success
+2026-11-08 19:52:05 [INFO] [227110] [227128] [db_runner.h:71] Start insert data to HostTaskFlip
+2026-11-08 19:52:05 [INFO] [227110] [227123] [db_runner.h:84] insert data to StreamExpandSpec success
+2026-11-08 19:52:05 [INFO] [227110] [227123] [base_dumper.h:62] Dump StreamExpandSpec data success
+2026-11-08 19:52:05 [INFO] [227110] [227123] [time_logger.h:39] Dump stream expand spec data start end, cost time = 0 ms
+2026-11-08 19:52:05 [INFO] [227110] [227128] [db_runner.h:84] insert data to HostTaskFlip success
+2026-11-08 19:52:05 [INFO] [227110] [227128] [base_dumper.h:62] Dump HostTaskFlip data success
+2026-11-08 19:52:05 [INFO] [227110] [227128] [time_logger.h:39] Dump flip tasks data start end, cost time = 0 ms
+2026-11-08 19:52:05 [INFO] [227110] [227125] [db_runner.cpp:69] Start create ApiData, sql is CREATE TABLE IF NOT EXISTS ApiData (struct_type TEXT, id TEXT, level TEXT, thread_id INTEGER, item_id TEXT, start INTEGER, end INTEGER, connection_id INTEGER, key INTEGER);.
+2026-11-08 19:52:05 [INFO] [227110] [227125] [db_runner.cpp:82] create ApiData success
+2026-11-08 19:52:05 [INFO] [227110] [227131] [event_queue.cpp:80] EventQueue for thread 227072 is empty
+2026-11-08 19:52:05 [INFO] [227110] [227131] [event_queue.cpp:80] EventQueue for thread 227072 is empty
+2026-11-08 19:52:05 [WARN] [227110] [227142] [tree_builder.cpp:267] No Events, event type: 8, threadId = 227072
+2026-11-08 19:52:05 [WARN] [227110] [227141] [tree_builder.cpp:267] No Events, event type: 6, threadId = 227072
+2026-11-08 19:52:05 [WARN] [227110] [227141] [tree_builder.cpp:267] No Events, event type: 5, threadId = 227072
+2026-11-08 19:52:05 [INFO] [227110] [227143] [tree_builder.cpp:317] Add LevelEvents done, threadId = 227072, event type: 2, matchCnt = 42000, mismatchCnt = 0 
+2026-11-08 19:52:05 [WARN] [227110] [227143] [tree_builder.cpp:267] No Events, event type: 3, threadId = 227072
+2026-11-08 19:52:05 [INFO] [227110] [227143] [tree_builder.cpp:317] Add LevelEvents done, threadId = 227072, event type: 4, matchCnt = 42000, mismatchCnt = 0 
+2026-11-08 19:52:05 [WARN] [227110] [227143] [tree_builder.cpp:267] No Events, event type: 10, threadId = 227072
+2026-11-08 19:52:05 [INFO] [227110] [227125] [db_runner.h:71] Start insert data to ApiData
+2026-11-08 19:52:05 [INFO] [227110] [227131] [tree_builder.cpp:144] Build Tree End, ThreadId = 227072
+2026-11-08 19:52:05 [INFO] [227110] [227131] [host_trace_worker.cpp:230] Multi thread build tree done, threadId = 227072
+2026-11-08 19:52:05 [INFO] [227110] [227129] [time_logger.h:39] Multi thread build tree end, cost time = 153 ms
+2026-11-08 19:52:05 [INFO] [227110] [227129] [time_logger.h:32] Multi thread analyze tree and dump data start
+2026-11-08 19:52:05 [INFO] [227110] [227144] [host_trace_worker.cpp:249] Start analyze tree and dump data, threadId = 227072
+2026-11-08 19:52:05 [INFO] [227110] [227144] [time_logger.h:32] Dump CANN data start
+2026-11-08 19:52:05 [INFO] [227110] [227155] [cann_trace_db_dumper.cpp:184] Empty hccl OPs
+2026-11-08 19:52:05 [INFO] [227110] [227154] [cann_trace_db_dumper.cpp:594] Empty geFusionOps
+2026-11-08 19:52:05 [INFO] [227110] [227155] [cann_trace_db_dumper.cpp:536] Empty hccl tasks
+2026-11-08 19:52:05 [INFO] [227110] [227156] [time_logger.h:32] DumpOpDesc Start start
+2026-11-08 19:52:05 [INFO] [227110] [227157] [time_logger.h:32] Dump host tasks start
+2026-11-08 19:52:05 [INFO] [227110] [227157] [db_runner.cpp:69] Start create HostTask, sql is CREATE TABLE IF NOT EXISTS HostTask (model_id INTEGER, request_id INTEGER, stream_id INTEGER, task_id INTEGER, context_ids TEXT, batch_id INTEGER, task_type TEXT, kernel_name TEXT, device_id INTEGER, timestamp NUMERIC, connection_id INTEGER, thread_id NUMERIC);.
+2026-11-08 19:52:05 [INFO] [227110] [227157] [db_runner.cpp:82] create HostTask success
+2026-11-08 19:52:05 [INFO] [227110] [227157] [db_runner.h:71] Start insert data to HostTask
+2026-11-08 19:52:05 [INFO] [227110] [227157] [db_runner.h:84] insert data to HostTask success
+2026-11-08 19:52:05 [INFO] [227110] [227157] [time_logger.h:39] Dump host tasks end, cost time = 71 ms
+2026-11-08 19:52:05 [INFO] [227110] [227125] [db_runner.h:84] insert data to ApiData success
+2026-11-08 19:52:05 [INFO] [227110] [227125] [base_dumper.h:62] Dump ApiData data success
+2026-11-08 19:52:05 [INFO] [227110] [227125] [time_logger.h:39] Dump api data start end, cost time = 547 ms
+2026-11-08 19:52:05 [WARN] [227110] [227156] [cann_trace_db_dumper.cpp:344] Can't get task's kernel name, streamId is 48, taskId is 3, batch id is 0, timestamp is 15468097855830.
+2026-11-08 19:52:05 [WARN] [227110] [227156] [cann_trace_db_dumper.cpp:344] Can't get task's kernel name, streamId is 48, taskId is 4, batch id is 0, timestamp is 15468097876060.
+2026-11-08 19:52:05 [INFO] [227110] [227156] [db_runner.cpp:69] Start create TaskInfo, sql is CREATE TABLE IF NOT EXISTS TaskInfo (model_id INTEGER, op_name TEXT, stream_id INTEGER, task_id INTEGER, block_num INTEGER, mix_block_num INTEGER, op_state TEXT, task_type TEXT, op_type TEXT, index_id INTEGER, thread_id INTEGER, timestamp NUMERIC, batch_id INTEGER, tensor_num INTEGER, input_formats TEXT, input_data_types TEXT, input_shapes TEXT, output_formats TEXT, output_data_types TEXT, output_shapes TEXT, device_id INTEGER, context_id INTEGER, op_flag TEXT, hashid TEXT, grid_dim TEXT, block_dim TEXT);.
+2026-11-08 19:52:05 [INFO] [227110] [227156] [db_runner.cpp:82] create TaskInfo success
+2026-11-08 19:52:05 [INFO] [227110] [227156] [db_runner.h:71] Start insert data to TaskInfo
+2026-11-08 19:52:05 [INFO] [227110] [227156] [db_runner.h:84] insert data to TaskInfo success
+2026-11-08 19:52:05 [INFO] [227110] [227156] [time_logger.h:39] DumpOpDesc Start end, cost time = 513 ms
+2026-11-08 19:52:05 [INFO] [227110] [227144] [time_logger.h:39] Dump CANN data end, cost time = 521 ms
+2026-11-08 19:52:05 [INFO] [227110] [227144] [host_trace_worker.cpp:258] Dump cann trace data done, threadId = 227072
+2026-11-08 19:52:05 [INFO] [227110] [227129] [time_logger.h:39] Multi thread analyze tree and dump data end, cost time = 673 ms
+2026-11-08 19:52:05 [INFO] [227110] [227110] [time_logger.h:32] Dump memcpy info data start start
+2026-11-08 19:52:05 [WARN] [227110] [227110] [base_dumper.h:45] Input data is empty, pass dump
+2026-11-08 19:52:05 [INFO] [227110] [227110] [time_logger.h:39] Dump memcpy info data start end, cost time = 0 ms
+2026-11-08 19:52:05 [INFO] [227110] [227110] [time_logger.h:39] HostTraceWorker end, cost time = 1105 ms
+2026-11-08 19:52:05 [INFO] [227110] [227110] [py_init_parser.cpp:72] Host CANN trace parsing finished, path: /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF/host, ret: 0.
+2026-11-08 19:52:05 [INFO] [227110] [227110] [py_init_parser.cpp:84] Start device data parsing, path: /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF.
+2026-11-08 19:52:05 [INFO] [227110] [227110] [time_logger.h:32] DeviceContextEntry  start
+2026-11-08 19:52:05 [INFO] [227110] [227161] [npu_mem_persistence.cpp:45] NPU_MEM raw data is absent, skip persistence.
+2026-11-08 19:52:05 [INFO] [227110] [227163] [npu_module_mem_persistence.cpp:48] NPU_MODULE_MEM raw data is absent, skip persistence.
+2026-11-08 19:52:05 [INFO] [227110] [227160] [process_control.cpp:333] Level[0]Release Data Types: 
+2026-11-08 19:52:05 [INFO] [227110] [227162] [parser.cpp:140] notify: no files pattern, don't need to parse
+2026-11-08 19:52:05 [INFO] [227110] [227165] [parser.cpp:140] notify: no files pattern, don't need to parse
+2026-11-08 19:52:05 [INFO] [227110] [227164] [parser.cpp:65] loop: /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF/device_0/data/lpmInfoConv.data.0.slice_0, file size: 2664
+2026-11-08 19:52:05 [INFO] [227110] [227161] [process_control.cpp:333] Level[1]Release Data Types: 
+2026-11-08 19:52:05 [INFO] [227110] [227164] [parser.cpp:68] total size: 2664
+2026-11-08 19:52:05 [INFO] [227110] [227162] [parser.cpp:210] Parser is completed!
+2026-11-08 19:52:05 [INFO] [227110] [227164] [parser.cpp:183] Parse filePrefix is: lpmFreqConv.,lpmInfoConv., the number of files is: 1, and the total size of all files is: 2664
+2026-11-08 19:52:05 [INFO] [227110] [227165] [stars_soc_profile_parser.cpp:87] StarsSocProfile structCount: 0
+2026-11-08 19:52:05 [INFO] [227110] [227159] [db_runner.h:91] Start query data
+2026-11-08 19:52:05 [INFO] [227110] [227165] [parser.cpp:210] Parser is completed!
+2026-11-08 19:52:05 [INFO] [227110] [227163] [process_control.cpp:333] Level[2]Release Data Types: 
+2026-11-08 19:52:05 [INFO] [227110] [227164] [parser.cpp:105] Data has been read to the memory successfully!
+2026-11-08 19:52:05 [INFO] [227110] [227164] [lpm_info_parser.cpp:99] LpmInfo structCount is: 3
+2026-11-08 19:52:05 [INFO] [227110] [227162] [process_control.cpp:333] Level[3]Release Data Types: 
+2026-11-08 19:52:05 [INFO] [227110] [227164] [parser.cpp:210] Parser is completed!
+2026-11-08 19:52:05 [INFO] [227110] [227165] [process_control.cpp:333] Level[4]Release Data Types: 
+2026-11-08 19:52:05 [INFO] [227110] [227159] [db_runner.h:104] Query data success: SELECT expand_status from StreamExpandSpec LIMIT 1
+2026-11-08 19:52:05 [INFO] [227110] [227166] [sio_persistence.cpp:86] start c model sio data process
+2026-11-08 19:52:05 [INFO] [227110] [227166] [sio_persistence.cpp:94] Sio data is empty, no persistence is required
+2026-11-08 19:52:05 [INFO] [227110] [227167] [qos_persistence.cpp:82] start c model qos data process
+2026-11-08 19:52:05 [INFO] [227110] [227164] [process_control.cpp:333] Level[5]Release Data Types: 
+2026-11-08 19:52:05 [INFO] [227110] [227160] [db_runner.cpp:69] Start create PaLinkInfo, sql is CREATE TABLE IF NOT EXISTS PaLinkInfo (pa_link_id INTEGER, pa_link_traffic_monit_rx TEXT, pa_link_traffic_monit_tx TEXT, sys_time REAL);.
+2026-11-08 19:52:05 [INFO] [227110] [227166] [process_control.cpp:333] Level[6]Release Data Types: 
+2026-11-08 19:52:05 [INFO] [227110] [227161] [persistence_utils.h:46] Processor Save FreqParse Data.
+2026-11-08 19:52:05 [INFO] [227110] [227161] [db_runner.cpp:69] Start create FreqParse, sql is CREATE TABLE IF NOT EXISTS FreqParse (syscnt INTEGER, freq INTEGER);.
+2026-11-08 19:52:05 [INFO] [227110] [227159] [process_control.cpp:333] Level[7]Release Data Types: 
+2026-11-08 19:52:05 [INFO] [227110] [227168] [inter_soc_persistence.cpp:72] start c model inter soc data process
+2026-11-08 19:52:05 [INFO] [227110] [227162] [parser.cpp:65] loop: /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF/device_0/data/ts_track.data.0.slice_0, file size: 80
+2026-11-08 19:52:05 [INFO] [227110] [227168] [inter_soc_persistence.cpp:80] InterSoc data is empty, no persistence is required
+2026-11-08 19:52:05 [INFO] [227110] [227164] [parser.cpp:140] notify: no files pattern, don't need to parse
+2026-11-08 19:52:05 [INFO] [227110] [227167] [process_control.cpp:333] Level[8]Release Data Types: St6vectorIN8Analysis6Domain12HalQosBwDataESaIS2_EE 
+2026-11-08 19:52:05 [INFO] [227110] [227164] [aicpu_parser.cpp:84] aicpu structCount: 0
+2026-11-08 19:52:05 [INFO] [227110] [227163] [parser.cpp:65] loop: /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF/device_0/data/stars_soc.data.0.slice_0, file size: 2103360
+2026-11-08 19:52:05 [INFO] [227110] [227164] [aicpu_parser.cpp:106] AicpuParser inject streamIdMap, size=0.
+2026-11-08 19:52:05 [INFO] [227110] [227162] [parser.cpp:68] total size: 80
+2026-11-08 19:52:05 [INFO] [227110] [227164] [aicpu_parser.cpp:111] AicpuParser inject aicpuData, count=0.
+2026-11-08 19:52:05 [INFO] [227110] [227162] [parser.cpp:183] Parse filePrefix is: ts_track., the number of files is: 1, and the total size of all files is: 80
+2026-11-08 19:52:05 [INFO] [227110] [227164] [parser.cpp:210] Parser is completed!
+2026-11-08 19:52:05 [INFO] [227110] [227165] [parser.cpp:65] loop: /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF/device_0/data/ffts_profile.data.0.slice_0, file size: 2097152
+2026-11-08 19:52:05 [INFO] [227110] [227163] [parser.cpp:65] loop: /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF/device_0/data/stars_soc.data.0.slice_1, file size: 2097472
+2026-11-08 19:52:05 [INFO] [227110] [227162] [parser.cpp:105] Data has been read to the memory successfully!
+2026-11-08 19:52:05 [INFO] [227110] [227165] [parser.cpp:65] loop: /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF/device_0/data/ffts_profile.data.0.slice_1, file size: 2097152
+2026-11-08 19:52:05 [INFO] [227110] [227162] [ts_track_parser.cpp:90] TsTrack structCount: 2
+2026-11-08 19:52:05 [INFO] [227110] [227160] [db_runner.cpp:82] create PaLinkInfo success
+2026-11-08 19:52:05 [INFO] [227110] [227163] [parser.cpp:65] loop: /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF/device_0/data/stars_soc.data.0.slice_2, file size: 1175808
+2026-11-08 19:52:05 [INFO] [227110] [227165] [parser.cpp:65] loop: /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF/device_0/data/ffts_profile.data.0.slice_2, file size: 1181696
+2026-11-08 19:52:05 [INFO] [227110] [227163] [parser.cpp:68] total size: 5376640
+2026-11-08 19:52:05 [INFO] [227110] [227162] [parser.cpp:210] Parser is completed!
+2026-11-08 19:52:05 [INFO] [227110] [227163] [parser.cpp:183] Parse filePrefix is: stars_soc., the number of files is: 3, and the total size of all files is: 5376640
+2026-11-08 19:52:05 [INFO] [227110] [227161] [db_runner.cpp:82] create FreqParse success
+2026-11-08 19:52:05 [INFO] [227110] [227165] [parser.cpp:68] total size: 5376000
+2026-11-08 19:52:05 [INFO] [227110] [227160] [db_runner.cpp:69] Start create PcieInfo, sql is CREATE TABLE IF NOT EXISTS PcieInfo (pcie_id INTEGER, pcie_write_bandwidth INTEGER, pcie_read_bandwidth INTEGER, sys_time REAL);.
+2026-11-08 19:52:05 [INFO] [227110] [227165] [parser.cpp:183] Parse filePrefix is: ffts_profile, the number of files is: 3, and the total size of all files is: 5376000
+2026-11-08 19:52:05 [INFO] [227110] [227161] [db_runner.h:71] Start insert data to FreqParse
+2026-11-08 19:52:05 [INFO] [227110] [227161] [db_runner.h:84] insert data to FreqParse success
+2026-11-08 19:52:05 [INFO] [227110] [227160] [db_runner.cpp:82] create PcieInfo success
+2026-11-08 19:52:05 [INFO] [227110] [227161] [persistence_utils.h:46] Processor Save AicVoltage Data.
+2026-11-08 19:52:05 [INFO] [227110] [227161] [db_runner.cpp:69] Start create AicVoltage, sql is CREATE TABLE IF NOT EXISTS AicVoltage (syscnt INTEGER, voltage INTEGER);.
+2026-11-08 19:52:05 [INFO] [227110] [227161] [db_runner.cpp:82] create AicVoltage success
+2026-11-08 19:52:05 [INFO] [227110] [227161] [db_runner.h:71] Start insert data to AicVoltage
+2026-11-08 19:52:05 [INFO] [227110] [227163] [parser.cpp:105] Data has been read to the memory successfully!
+2026-11-08 19:52:05 [INFO] [227110] [227163] [stars_soc_parser.cpp:97] StarsSoc structCount: 84010
+2026-11-08 19:52:05 [INFO] [227110] [227161] [db_runner.h:84] insert data to AicVoltage success
+2026-11-08 19:52:05 [INFO] [227110] [227161] [persistence_utils.h:46] Processor Save BusVoltage Data.
+2026-11-08 19:52:05 [INFO] [227110] [227161] [db_runner.cpp:69] Start create BusVoltage, sql is CREATE TABLE IF NOT EXISTS BusVoltage (syscnt INTEGER, voltage INTEGER);.
+2026-11-08 19:52:05 [INFO] [227110] [227161] [db_runner.cpp:82] create BusVoltage success
+2026-11-08 19:52:05 [INFO] [227110] [227161] [db_runner.h:71] Start insert data to BusVoltage
+2026-11-08 19:52:05 [INFO] [227110] [227161] [db_runner.h:84] insert data to BusVoltage success
+2026-11-08 19:52:05 [INFO] [227110] [227168] [process_control.cpp:333] Level[9]Release Data Types: 
+2026-11-08 19:52:05 [INFO] [227110] [227164] [process_control.cpp:333] Level[10]Release Data Types: 
+2026-11-08 19:52:05 [INFO] [227110] [227160] [process_control.cpp:333] Level[11]Release Data Types: 
+2026-11-08 19:52:05 [INFO] [227110] [227162] [process_control.cpp:333] Level[12]Release Data Types: 
+2026-11-08 19:52:05 [INFO] [227110] [227165] [parser.cpp:105] Data has been read to the memory successfully!
+2026-11-08 19:52:05 [INFO] [227110] [227166] [step_trace_process.cpp:230] Start to process step trace data
+2026-11-08 19:52:05 [INFO] [227110] [227165] [ffts_profile_parser.cpp:94] FftsProfileData structCount is : 42000
+2026-11-08 19:52:05 [WARN] [227110] [227166] [step_trace_process.cpp:243] stepData is empty
+2026-11-08 19:52:05 [INFO] [227110] [227161] [process_control.cpp:333] Level[13]Release Data Types: N8Analysis6Domain14HalLpmInfoDataE 
+2026-11-08 19:52:05 [INFO] [227110] [227159] [persistence_utils.h:46] Processor Save DeviceTaskFlip Data.
+2026-11-08 19:52:05 [INFO] [227110] [227159] [db_runner.cpp:69] Start create DeviceTaskFlip, sql is CREATE TABLE IF NOT EXISTS DeviceTaskFlip (stream_id INTEGER, timestamp NUMERIC, task_id INTEGER, flip_num INTEGER);.
+2026-11-08 19:52:05 [INFO] [227110] [227166] [process_control.cpp:333] Level[14]Release Data Types: 
+2026-11-08 19:52:05 [INFO] [227110] [227167] [step_trace_persistence.cpp:113] Start to process /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF/device_0/sqlite/step_trace.db.
+2026-11-08 19:52:05 [INFO] [227110] [227168] [trace_persistence.cpp:362] Start to process /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF/device_0/sqlite/trace.db.
+2026-11-08 19:52:05 [WARN] [227110] [227167] [step_trace_persistence.cpp:67] StepTraceTasks is empty.
+2026-11-08 19:52:05 [WARN] [227110] [227168] [trace_persistence.cpp:248] StepTraceTasks is empty.
+2026-11-08 19:52:05 [WARN] [227110] [227167] [step_trace_persistence.cpp:94] StepTime data is empty.
+2026-11-08 19:52:05 [WARN] [227110] [227168] [trace_persistence.cpp:290] StepTraceTasks is empty.
+2026-11-08 19:52:05 [WARN] [227110] [227168] [trace_persistence.cpp:216] StepTime data is empty.
+2026-11-08 19:52:05 [WARN] [227110] [227168] [trace_persistence.cpp:337] TrainingTrace data is empty.
+2026-11-08 19:52:05 [INFO] [227110] [227168] [db_runner.cpp:69] Start create training_trace, sql is CREATE TABLE IF NOT EXISTS training_trace (device_id INTEGER, model_id INTEGER, iteration_id INTEGER, FP_start INTEGER, BP_end INTEGER, iteration_end INTEGER, iteration_time INTEGER, fp_bp_time INTEGER, grad_refresh_bound INTEGER, data_aug_bound INTEGER);.
+2026-11-08 19:52:05 [INFO] [227110] [227167] [process_control.cpp:333] Level[15]Release Data Types: 
+2026-11-08 19:52:05 [INFO] [227110] [227159] [db_runner.cpp:82] create DeviceTaskFlip success
+2026-11-08 19:52:05 [INFO] [227110] [227159] [db_runner.h:71] Start insert data to DeviceTaskFlip
+2026-11-08 19:52:05 [INFO] [227110] [227168] [db_runner.cpp:82] create training_trace success
+2026-11-08 19:52:05 [INFO] [227110] [227159] [db_runner.h:84] insert data to DeviceTaskFlip success
+2026-11-08 19:52:05 [INFO] [227110] [227168] [process_control.cpp:333] Level[16]Release Data Types: 
+2026-11-08 19:52:05 [INFO] [227110] [227159] [ts_track_persistence.cpp:149] Process done!, type is 0, status is 1
+2026-11-08 19:52:05 [INFO] [227110] [227159] [ts_track_persistence.cpp:177] Save tsTrack data success, size is 2
+2026-11-08 19:52:05 [INFO] [227110] [227159] [process_control.cpp:333] Level[17]Release Data Types: 
+2026-11-08 19:52:06 [INFO] [227110] [227165] [ffts_profile_parser.cpp:111] Ffts_profile.data parser is completed, begin to save data into dataInventory!
+2026-11-08 19:52:06 [INFO] [227110] [227165] [parser.cpp:210] Parser is completed!
+2026-11-08 19:52:06 [INFO] [227110] [227165] [process_control.cpp:333] Level[18]Release Data Types: 
+2026-11-08 19:52:06 [INFO] [227110] [227164] [pmu_modeling.cpp:62] PMU modeling has done!
+2026-11-08 19:52:06 [INFO] [227110] [227164] [process_control.cpp:333] Level[19]Release Data Types: 
+2026-11-08 19:52:06 [INFO] [227110] [227163] [parser.cpp:210] Parser is completed!
+2026-11-08 19:52:06 [INFO] [227110] [227163] [process_control.cpp:333] Level[20]Release Data Types: N8Analysis6Domain16StreamExpandSpecE 
+2026-11-08 19:52:06 [INFO] [227110] [227162] [time_logger.h:32] LogModeling::SplitLogGroups  start
+2026-11-08 19:52:06 [INFO] [227110] [227160] [acc_pmu_persistence.cpp:82] There is no acc pmu data don't need to persistence!
+2026-11-08 19:52:06 [INFO] [227110] [227160] [process_control.cpp:333] Level[21]Release Data Types: N8Analysis6Domain17HalSocProfileDataE 
+2026-11-08 19:52:06 [INFO] [227110] [227162] [time_logger.h:39] LogModeling::SplitLogGroups  end, cost time = 3 ms
+2026-11-08 19:52:06 [INFO] [227110] [227162] [log_modeling.cpp:170] HalLogData size:84010
+2026-11-08 19:52:06 [INFO] [227110] [227162] [log_modeling.cpp:171] acsqS stream:2, total:42005
+2026-11-08 19:52:06 [INFO] [227110] [227162] [log_modeling.cpp:172] acsqE stream:2, total:42005
+2026-11-08 19:52:06 [INFO] [227110] [227162] [log_modeling.cpp:173] fftsS stream:0, total:0
+2026-11-08 19:52:06 [INFO] [227110] [227162] [log_modeling.cpp:174] fftsE stream:0, total:0
+2026-11-08 19:52:06 [INFO] [227110] [227162] [time_logger.h:32] LogModeling::AddToDeviceTask  start
+2026-11-08 19:52:06 [INFO] [227110] [227162] [log_modeling.cpp:253] ACSQ matched count:42005
+2026-11-08 19:52:06 [INFO] [227110] [227162] [log_modeling.cpp:264] FFTS matched count:0
+2026-11-08 19:52:06 [INFO] [227110] [227162] [time_logger.h:39] LogModeling::AddToDeviceTask  end, cost time = 35 ms
+2026-11-08 19:52:06 [INFO] [227110] [227162] [process_control.cpp:333] Level[22]Release Data Types: St6vectorIN8Analysis6Domain10HalLogDataESaIS2_EE 
+2026-11-08 19:52:06 [INFO] [227110] [227161] [db_runner.h:91] Start query data
+2026-11-08 19:52:06 [INFO] [227110] [227161] [db_runner.h:104] Query data success: SELECT stream_id, request_id, batch_id, task_id, context_ids, model_id, task_type, kernel_name, connection_id, device_id FROM HostTask WHERE device_id IN (0)
+2026-11-08 19:52:06 [INFO] [227110] [227161] [db_runner.h:91] Start query data
+2026-11-08 19:52:06 [INFO] [227110] [227161] [db_runner.h:104] Query data success: SELECT stream_id, batch_id, task_id, context_id, block_num, mix_block_num FROM TaskInfo where device_id = 0
+2026-11-08 19:52:06 [INFO] [227110] [227161] [load_host_data.cpp:147] Read host GE info 0 not in table.
+2026-11-08 19:52:06 [WARN] [227110] [227161] [load_host_data.cpp:67] There is no /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF/device_0/../host/sqlite/hccl.db
+2026-11-08 19:52:06 [WARN] [227110] [227161] [load_host_data.cpp:67] There is no /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF/device_0/../host/sqlite/hccl.db
+2026-11-08 19:52:06 [INFO] [227110] [227161] [db_runner.h:91] Start query data
+2026-11-08 19:52:06 [INFO] [227110] [227161] [db_runner.h:104] Query data success: SELECT hash_key, hash_value FROM GeHashInfo
+2026-11-08 19:52:06 [INFO] [227110] [227161] [db_runner.h:91] Start query data
+2026-11-08 19:52:06 [INFO] [227110] [227161] [db_runner.h:104] Query data success: SELECT stream_id, batch_id, task_id, context_id, op_name FROM TaskInfo WHERE device_id = 0 AND op_name LIKE '%AicpuKernel%'
+2026-11-08 19:52:06 [WARN] [227110] [227161] [load_host_data.cpp:67] There is no /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF/device_0/../host/sqlite/mc2_comm_info.db
+2026-11-08 19:52:06 [INFO] [227110] [227161] [process_control.cpp:333] Level[23]Release Data Types: 
+2026-11-08 19:52:06 [INFO] [227110] [227166] [aicpu_persistence.cpp:750] Start to process aicpu data for device, path /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF/device_0.
+2026-11-08 19:52:06 [INFO] [227110] [227166] [process_control.cpp:333] Level[24]Release Data Types: N8Analysis6Domain16DeviceStreamInfoE St13unordered_mapISsSsSt4hashISsESt8equal_toISsESaISt4pairIKSsSsEEE St6vectorIN8Analysis6Domain12HalTrackDataESaIS2_EE St6vectorIN8Analysis6Domain9AicpuDataESaIS2_EE 
+2026-11-08 19:52:06 [INFO] [227110] [227167] [ascend_task_association.cpp:187] Found 42004 host device matched task, generate 42005 topDownTask
+2026-11-08 19:52:06 [INFO] [227110] [227167] [process_control.cpp:333] Level[25]Release Data Types: St3mapIN8Analysis6Domain6TaskIdESt6vectorINS1_8HostTaskESaIS4_EESt4lessIS2_ESaISt4pairIKS2_S6_EEE 
+2026-11-08 19:52:06 [INFO] [227110] [227168] [hccl_calculator.cpp:57] Start Hccl calculator ProcessEntry.
+2026-11-08 19:52:06 [INFO] [227110] [227168] [hccl_calculator.cpp:91] Start Hccl calculator GetHcclData.
+2026-11-08 19:52:06 [INFO] [227110] [227168] [hccl_calculator.cpp:124] Start merge hccl task and ascend task.
+2026-11-08 19:52:06 [INFO] [227110] [227167] [pmu_association.cpp:53] context pmu count is : 42000
+2026-11-08 19:52:06 [INFO] [227110] [227167] [pmu_association.cpp:54] block pmu count is : 0
+2026-11-08 19:52:06 [INFO] [227110] [227167] [pmu_association.cpp:461] The acceleratorType of PMU is MIX
+2026-11-08 19:52:06 [INFO] [227110] [227168] [hccl_calculator.cpp:166] There are 0 records before HcclTask data filtering, filterTime is 1.54648e+14.
+2026-11-08 19:52:06 [INFO] [227110] [227168] [hccl_calculator.cpp:172] There are 0 records after HcclTask data filtering.
+2026-11-08 19:52:06 [INFO] [227110] [227168] [hccl_calculator.cpp:348] Start merge hccl op data.
+2026-11-08 19:52:06 [INFO] [227110] [227168] [hccl_calculator.cpp:417] Start UpdateHcclOpNameByGroupName.
+2026-11-08 19:52:06 [INFO] [227110] [227168] [hccl_calculator.cpp:423] Start UpdateHcclBandwidth.
+2026-11-08 19:52:06 [INFO] [227110] [227168] [hccl_calculator.cpp:521] Start GetHcclStatisticsData.
+2026-11-08 19:52:06 [INFO] [227110] [227168] [hccl_calculator.cpp:532] Start inject hccl data.
+2026-11-08 19:52:06 [INFO] [227110] [227168] [process_control.cpp:333] Level[26]Release Data Types: St6vectorIN8Analysis6Domain8HcclTaskESaIS2_EE 
+2026-11-08 19:52:06 [INFO] [227110] [227165] [ascend_task_persistence.cpp:89] Start to process /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF/device_0/sqlite/ascend_task.db.
+2026-11-08 19:52:06 [INFO] [227110] [227165] [persistence_utils.h:46] Processor Save AscendTask Data.
+2026-11-08 19:52:06 [INFO] [227110] [227165] [db_runner.cpp:69] Start create AscendTask, sql is CREATE TABLE IF NOT EXISTS AscendTask (model_id INTEGER, index_id INTEGER, stream_id INTEGER, task_id INTEGER, context_id INTEGER, batch_id INTEGER, start_time NUMERIC, duration NUMERIC, host_task_type TEXT, device_task_type TEXT, connection_id INTEGER);.
+2026-11-08 19:52:06 [INFO] [227110] [227165] [db_runner.cpp:82] create AscendTask success
+2026-11-08 19:52:06 [INFO] [227110] [227165] [db_runner.h:71] Start insert data to AscendTask
+2026-11-08 19:52:06 [INFO] [227110] [227165] [db_runner.h:84] insert data to AscendTask success
+2026-11-08 19:52:06 [INFO] [227110] [227165] [ascend_task_persistence.cpp:100] Process AscendTask done!
+2026-11-08 19:52:06 [INFO] [227110] [227165] [process_control.cpp:333] Level[27]Release Data Types: 
+2026-11-08 19:52:06 [INFO] [227110] [227164] [kfc_calculator.cpp:64] Start Kfc calculator ProcessEntry.
+2026-11-08 19:52:06 [INFO] [227110] [227164] [hccl_calculator.h:160] There are 0 records before kfc master stream data filtering, filterTime is 1.54648e+14.
+2026-11-08 19:52:06 [INFO] [227110] [227164] [hccl_calculator.h:164] There are 0 records after kfc master stream data filtering.
+2026-11-08 19:52:06 [WARN] [227110] [227164] [kfc_calculator.cpp:78] Failed to build kfc upstream data, skip kfc calculation.
+2026-11-08 19:52:06 [INFO] [227110] [227164] [process_control.cpp:333] Level[28]Release Data Types: St3mapIN8Analysis6Domain6TaskIdESsSt4lessIS2_ESaISt4pairIKS2_SsEEE St6vectorI11TopDownTaskSaIS0_EE St6vectorIN8Analysis6Domain11KfcInfoDataESaIS2_EE St6vectorIN8Analysis6Domain11Mc2CommInfoESaIS2_EE St6vectorIN8Analysis6Domain20MasterStreamTaskDataESaIS2_EE St6vectorIN8Analysis6Domain6HcclOpESaIS2_EE 
+2026-11-08 19:52:06 [INFO] [227110] [227163] [device_hccl_persistence.cpp:254] Start to dump device hccl data.
+2026-11-08 19:52:06 [WARN] [227110] [227163] [device_hccl_persistence.cpp:76] Hccl op data is empty.
+2026-11-08 19:52:06 [WARN] [227110] [227163] [device_hccl_persistence.cpp:109] Hccl task data is empty.
+2026-11-08 19:52:06 [WARN] [227110] [227163] [device_hccl_persistence.cpp:144] Hccl statistics data is empty.
+2026-11-08 19:52:06 [WARN] [227110] [227163] [device_hccl_persistence.cpp:171] No kfc task data, skip saving kfc task data.
+2026-11-08 19:52:06 [WARN] [227110] [227163] [device_hccl_persistence.cpp:202] No kfc op data, skip saving kfc op data.
+2026-11-08 19:52:06 [WARN] [227110] [227163] [device_hccl_persistence.cpp:231] No kfc op report data, skip saving kfc op report data.
+2026-11-08 19:52:06 [INFO] [227110] [227163] [process_control.cpp:333] Level[29]Release Data Types: St6vectorIN8Analysis6Domain12DeviceHcclOpESaIS2_EE St6vectorIN8Analysis6Domain14DeviceHcclTaskESaIS2_EE St6vectorIN8Analysis6Domain14HcclStatisticsESaIS2_EE 
+2026-11-08 19:52:06 [INFO] [227110] [227167] [pmu_association.cpp:359] Context PMU has been calculated!
+2026-11-08 19:52:06 [INFO] [227110] [227167] [process_control.cpp:333] Level[30]Release Data Types: 
+2026-11-08 19:52:06 [INFO] [227110] [227160] [metric_summary_persistence.cpp:397] Start to process /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF/device_0/sqlite/metric_summary.db.
+2026-11-08 19:52:06 [INFO] [227110] [227160] [db_runner.cpp:69] Start create MetricSummary, sql is CREATE TABLE IF NOT EXISTS MetricSummary (task_id INTEGER, stream_id INTEGER, subtask_id INTEGER, batch_id INTEGER, aic_total_time NUMERIC, aic_total_cycles NUMERIC, aic_mac_time NUMERIC, aic_mac_ratio_extra NUMERIC, aic_scalar_time NUMERIC, aic_scalar_ratio NUMERIC, aic_mte1_time NUMERIC, aic_mte1_ratio_extra NUMERIC, aic_mte2_time NUMERIC, aic_mte2_ratio NUMERIC, aic_fixpipe_time NUMERIC, aic_fixpipe_ratio NUMERIC, aic_icache_miss_rate NUMERIC, aiv_total_time NUMERIC, aiv_total_cycles NUMERIC, aiv_vec_time NUMERIC, aiv_vec_ratio NUMERIC, aiv_mac_time NUMERIC, aiv_mac_ratio NUMERIC, aiv_scalar_time NUMERIC, aiv_scalar_ratio NUMERIC, aiv_mte1_time NUMERIC, aiv_mte1_ratio NUMERIC, aiv_mte2_time NUMERIC, aiv_mte2_ratio NUMERIC, aiv_mte3_time NUMERIC, aiv_mte3_ratio NUMERIC, aiv_icache_miss_rate NUMERIC, end_time INTEGER);.
+2026-11-08 19:52:06 [INFO] [227110] [227160] [db_runner.cpp:82] create MetricSummary success
+2026-11-08 19:52:06 [INFO] [227110] [227160] [metric_summary_persistence.cpp:407] Process MetricSummary done!
+2026-11-08 19:52:06 [INFO] [227110] [227160] [process_control.cpp:333] Level[31]Release Data Types: N8Analysis6Domain14HostStreamInfoE St3mapIN8Analysis6Domain6TaskIdESt6vectorINS1_10DeviceTaskESaIS4_EESt4lessIS2_ESaISt4pairIKS2_S6_EEE St6vectorIN8Analysis6Domain10HalPmuDataESaIS2_EE 
+2026-11-08 19:52:06 [INFO] [227110] [227110] [device_context.cpp:171] stat info: ===============================================================================
+deivce file in /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF/device_0
+chip id: 5, process levels:9
+-------------------------------------------------------------------------------
+level[0] generalResult:true, process num:7
+	process0[DeviceTaskProcess]:return: 0x0, mandatory:true
+		dependProcessNames: 
+		startTime:154657688728 us, duration: 3 us
+	process1[NpuMemPersistence]:return: 0x0, mandatory:true
+		dependProcessNames: 
+		startTime:154657688744 us, duration: 25 us
+	process2[NpuModuleMemPersistence]:return: 0x0, mandatory:true
+		dependProcessNames: 
+		startTime:154657688765 us, duration: 19 us
+	process3[QosParser]:return: 0x0, mandatory:false
+		dependProcessNames: 
+		startTime:154657688763 us, duration: 128 us
+	process4[StarsSocProfileParser]:return: 0x0, mandatory:false
+		dependProcessNames: 
+		startTime:154657688780 us, duration: 141 us
+	process5[LpmInfoParser]:return: 0x0, mandatory:true
+		dependProcessNames: 
+		startTime:154657688787 us, duration: 184 us
+	process6[LoadStreamExpandSpec]:return: 0x0, mandatory:true
+		dependProcessNames: 
+		startTime:154657688710 us, duration: 306 us
+-------------------------------------------------------------------------------
+level[1] generalResult:true, process num:9
+	process0[SioPersistence]:return: 0x0, mandatory:false
+		dependProcessNames: StarsSocProfileParser, 
+		startTime:154657689004 us, duration: 26 us
+	process1[QosPersistence]:return: 0x0, mandatory:false
+		dependProcessNames: QosParser, StarsSocProfileParser, 
+		startTime:154657689327 us, duration: 29 us
+	process2[InterSocPersistence]:return: 0x0, mandatory:false
+		dependProcessNames: StarsSocProfileParser, 
+		startTime:154657689295 us, duration: 327 us
+	process3[AicpuParser]:return: 0x0, mandatory:true
+		dependProcessNames: LoadStreamExpandSpec, 
+		startTime:154657689495 us, duration: 193 us
+	process4[ChipTransPersistence]:return: 0x0, mandatory:false
+		dependProcessNames: StarsSocProfileParser, 
+		startTime:154657689337 us, duration: 755 us
+	process5[TsTrackParser]:return: 0x0, mandatory:true
+		dependProcessNames: LoadStreamExpandSpec, 
+		startTime:154657689469 us, duration: 280 us
+	process6[LpmInfoPersistence]:return: 0x0, mandatory:true
+		dependProcessNames: LpmInfoParser, 
+		startTime:154657689385 us, duration: 1386 us
+	process7[FftsProfileParser]:return: 0x0, mandatory:true
+		dependProcessNames: LoadStreamExpandSpec, 
+		startTime:154657689498 us, duration: 124377 us
+	process8[StarsSocParser]:return: 0x0, mandatory:true
+		dependProcessNames: LoadStreamExpandSpec, 
+		startTime:154657689477 us, duration: 251685 us
+-------------------------------------------------------------------------------
+level[2] generalResult:true, process num:5
+	process0[StepTraceProcess]:return: 0x0, mandatory:false
+		dependProcessNames: TsTrackParser, 
+		startTime:154657691110 us, duration: 31 us
+	process1[TsTrackPersistence]:return: 0x0, mandatory:true
+		dependProcessNames: TsTrackParser, 
+		startTime:154657691107 us, duration: 613 us
+	process2[PmuModeling]:return: 0x0, mandatory:true
+		dependProcessNames: FftsProfileParser, TsTrackParser, 
+		startTime:154657813906 us, duration: 2625 us
+	process3[AccPmuPersistence]:return: 0x0, mandatory:true
+		dependProcessNames: StarsSocParser, StarsSocProfileParser, 
+		startTime:154657941215 us, duration: 331 us
+	process4[Domain::LogModeling]:return: 0x0, mandatory:true
+		dependProcessNames: StarsSocParser, TsTrackParser, 
+		startTime:154657941210 us, duration: 40671 us
+-------------------------------------------------------------------------------
+level[3] generalResult:true, process num:3
+	process0[StepTracePersistence]:return: 0x0, mandatory:true
+		dependProcessNames: StepTraceProcess, TsTrackParser, 
+		startTime:154657691205 us, duration: 64 us
+	process1[TracePersistence]:return: 0x0, mandatory:true
+		dependProcessNames: StepTraceProcess, TsTrackParser, 
+		startTime:154657691204 us, duration: 481 us
+	process2[LoadHostData]:return: 0x0, mandatory:false
+		dependProcessNames: Domain::LogModeling, 
+		startTime:154657981927 us, duration: 87041 us
+-------------------------------------------------------------------------------
+level[4] generalResult:true, process num:2
+	process0[AicpuPersistence]:return: 0x0, mandatory:true
+		dependProcessNames: AicpuParser, LoadHostData, TsTrackParser, 
+		startTime:154658069012 us, duration: 64 us
+	process1[AscendTaskAssociation]:return: 0x0, mandatory:true
+		dependProcessNames: LoadHostData, 
+		startTime:154658069032 us, duration: 223509 us
+-------------------------------------------------------------------------------
+level[5] generalResult:true, process num:2
+	process0[HcclCalculator]:return: 0x0, mandatory:true
+		dependProcessNames: AscendTaskAssociation, LoadHostData, 
+		startTime:154658299661 us, duration: 24771 us
+	process1[PmuAssociation]:return: 0x0, mandatory:true
+		dependProcessNames: LoadHostData, AscendTaskAssociation, PmuModeling, 
+		startTime:154658299658 us, duration: 191343 us
+-------------------------------------------------------------------------------
+level[6] generalResult:true, process num:2
+	process0[AscendTaskPersistence]:return: 0x0, mandatory:true
+		dependProcessNames: HcclCalculator, 
+		startTime:154658324475 us, duration: 49735 us
+	process1[MetricSummaryPersistence]:return: 0x0, mandatory:false
+		dependProcessNames: PmuAssociation, 
+		startTime:154658491067 us, duration: 99732 us
+-------------------------------------------------------------------------------
+level[7] generalResult:true, process num:1
+	process0[KfcCalculator]:return: 0x0, mandatory:true
+		dependProcessNames: AicpuPersistence, AscendTaskPersistence, 
+		startTime:154658374242 us, duration: 153 us
+-------------------------------------------------------------------------------
+level[8] generalResult:true, process num:1
+	process0[DeviceHcclPersistence]:return: 0x0, mandatory:true
+		dependProcessNames: HcclCalculator, KfcCalculator, 
+		startTime:154658377920 us, duration: 59 us
+
+
+2026-11-08 19:52:06 [INFO] [227110] [227110] [time_logger.h:39] DeviceContextEntry  end, cost time = 913 ms
+2026-11-08 19:52:06 [INFO] [227110] [227110] [py_init_parser.cpp:86] Device data parsing finished, path: /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF.
+2026-11-08 19:52:06 [INFO] [227110] [227110] [py_init_parser.cpp:201] Start timeline export, prof path: /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF, export DB: true.
+2026-11-08 19:52:06 [INFO] [227110] [227110] [export_manager.cpp:133] Start to load data!
+2026-11-08 19:52:06 [INFO] [227110] [227110] [export_manager.cpp:236] The report parameter is not used.
+2026-11-08 19:52:06 [INFO] [227110] [227170] [data_processor.cpp:39] DEVICE_MSTX Run. Dir is /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF
+2026-11-08 19:52:06 [INFO] [227110] [227169] [data_processor.cpp:39] LLC Run. Dir is /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF
+2026-11-08 19:52:06 [INFO] [227110] [227172] [data_processor.cpp:39] CPU_USAGE Run. Dir is /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF
+2026-11-08 19:52:06 [INFO] [227110] [227174] [data_processor.cpp:39] BLOCK_DETAIL Run. Dir is /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF
+2026-11-08 19:52:06 [INFO] [227110] [227175] [data_processor.cpp:39] QOS Run. Dir is /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF
+2026-11-08 19:52:06 [INFO] [227110] [227172] [host_usage_processor.cpp:34] Start process CPU_USAGE.
+2026-11-08 19:52:06 [INFO] [227110] [227176] [data_processor.cpp:39] LOW_POWER Run. Dir is /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF
+2026-11-08 19:52:06 [INFO] [227110] [227177] [data_processor.cpp:39] HCCS Run. Dir is /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF
+2026-11-08 19:52:06 [INFO] [227110] [227178] [data_processor.cpp:39] AICORE_FREQ Run. Dir is /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF
+2026-11-08 19:52:06 [INFO] [227110] [227173] [data_processor.cpp:39] BIU_PERF Run. Dir is /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF
+2026-11-08 19:52:06 [WARN] [227110] [227170] [data_processor.cpp:69] Check StepTrace not exists
+2026-11-08 19:52:06 [INFO] [227110] [227170] [data_processor.h:85] Save TASK data into dataInventory
+2026-11-08 19:52:06 [WARN] [227110] [227170] [data_processor.h:88] TASK no data to inject to dataInventory
+2026-11-08 19:52:06 [INFO] [227110] [227170] [process_control.cpp:333] Level[0]Release Data Types: 
+2026-11-08 19:52:06 [INFO] [227110] [227170] [data_processor.cpp:39] SIO Run. Dir is /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF
+2026-11-08 19:52:06 [WARN] [227110] [227176] [low_power_processor.cpp:37] This platformVersion: 5 does not support the processing of low power data.
+2026-11-08 19:52:06 [WARN] [227110] [227175] [data_processor.cpp:52] Can't find the db, the path is /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF/device_0/sqlite/qos.db.
+2026-11-08 19:52:06 [WARN] [227110] [227177] [data_processor.cpp:52] Can't find the db, the path is /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF/device_0/sqlite/hccs.db.
+2026-11-08 19:52:06 [INFO] [227110] [227175] [data_processor.h:85] Save QOS data into dataInventory
+2026-11-08 19:52:06 [INFO] [227110] [227177] [data_processor.h:85] Save HCCS data into dataInventory
+2026-11-08 19:52:06 [INFO] [227110] [227176] [process_control.cpp:333] Level[1]Release Data Types: 
+2026-11-08 19:52:06 [WARN] [227110] [227177] [data_processor.h:88] HCCS no data to inject to dataInventory
+2026-11-08 19:52:06 [WARN] [227110] [227175] [data_processor.h:88] QOS no data to inject to dataInventory
+2026-11-08 19:52:06 [INFO] [227110] [227177] [data_processor.h:85] Save HCCS data into dataInventory
+2026-11-08 19:52:06 [INFO] [227110] [227176] [data_processor.cpp:39] NIC Run. Dir is /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF
+2026-11-08 19:52:06 [WARN] [227110] [227177] [data_processor.h:88] HCCS no data to inject to dataInventory
+2026-11-08 19:52:06 [INFO] [227110] [227175] [process_control.cpp:333] Level[2]Release Data Types: 
+2026-11-08 19:52:06 [WARN] [227110] [227169] [data_processor.cpp:52] Can't find the db, the path is /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF/device_0/sqlite/llc.db.
+2026-11-08 19:52:06 [INFO] [227110] [227169] [data_processor.h:85] Save LLC data into dataInventory
+2026-11-08 19:52:06 [INFO] [227110] [227175] [data_processor.cpp:39] CPU_FREQ Run. Dir is /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF
+2026-11-08 19:52:06 [WARN] [227110] [227169] [data_processor.h:88] LLC no data to inject to dataInventory
+2026-11-08 19:52:06 [INFO] [227110] [227175] [host_usage_processor.cpp:34] Start process CPU_FREQ.
+2026-11-08 19:52:06 [INFO] [227110] [227177] [process_control.cpp:333] Level[3]Release Data Types: 
+2026-11-08 19:52:06 [INFO] [227110] [227169] [data_processor.h:85] Save LLC data into dataInventory
+2026-11-08 19:52:06 [WARN] [227110] [227169] [data_processor.h:88] LLC no data to inject to dataInventory
+2026-11-08 19:52:06 [INFO] [227110] [227177] [data_processor.cpp:39] NETWORK_USAGE Run. Dir is /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF
+2026-11-08 19:52:06 [INFO] [227110] [227177] [host_usage_processor.cpp:34] Start process NETWORK_USAGE.
+2026-11-08 19:52:06 [INFO] [227110] [227169] [process_control.cpp:333] Level[4]Release Data Types: 
+2026-11-08 19:52:06 [INFO] [227110] [227169] [data_processor.cpp:39] STEP_TRACE Run. Dir is /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF
+2026-11-08 19:52:06 [WARN] [227110] [227174] [data_processor.cpp:69] Check V6BlockPmu not exists
+2026-11-08 19:52:06 [INFO] [227110] [227174] [data_processor.h:85] Save BLOCK_DETAIL data into dataInventory
+2026-11-08 19:52:06 [WARN] [227110] [227174] [data_processor.h:88] BLOCK_DETAIL no data to inject to dataInventory
+2026-11-08 19:52:06 [INFO] [227110] [227174] [process_control.cpp:333] Level[5]Release Data Types: 
+2026-11-08 19:52:06 [INFO] [227110] [227174] [data_processor.cpp:39] MEM_USAGE Run. Dir is /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF
+2026-11-08 19:52:06 [INFO] [227110] [227174] [host_usage_processor.cpp:34] Start process MEM_USAGE.
+2026-11-08 19:52:06 [WARN] [227110] [227176] [data_processor.cpp:52] Can't find the db, the path is /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF/device_0/sqlite/nic.db.
+2026-11-08 19:52:06 [WARN] [227110] [227176] [data_processor.cpp:52] Can't find the db, the path is /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF/device_0/sqlite/nic.db.
+2026-11-08 19:52:06 [WARN] [227110] [227175] [data_processor.cpp:52] Can't find the db, the path is /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF/host/sqlite/host_cpu_freq.db.
+2026-11-08 19:52:06 [WARN] [227110] [227170] [data_processor.cpp:52] Can't find the db, the path is /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF/device_0/sqlite/sio.db.
+2026-11-08 19:52:06 [WARN] [227110] [227177] [data_processor.cpp:52] Can't find the db, the path is /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF/host/sqlite/host_network_usage.db.
+2026-11-08 19:52:06 [INFO] [227110] [227170] [data_processor.h:85] Save SIO data into dataInventory
+2026-11-08 19:52:06 [WARN] [227110] [227170] [data_processor.h:88] SIO no data to inject to dataInventory
+2026-11-08 19:52:06 [INFO] [227110] [227176] [process_control.cpp:333] Level[6]Release Data Types: 
+2026-11-08 19:52:06 [INFO] [227110] [227176] [data_processor.cpp:39] TASK Run. Dir is /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF
+2026-11-08 19:52:06 [INFO] [227110] [227175] [process_control.cpp:333] Level[7]Release Data Types: 
+2026-11-08 19:52:06 [INFO] [227110] [227175] [data_processor.cpp:39] ROCE Run. Dir is /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF
+2026-11-08 19:52:06 [WARN] [227110] [227174] [data_processor.cpp:52] Can't find the db, the path is /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF/host/sqlite/host_mem_usage.db.
+2026-11-08 19:52:06 [INFO] [227110] [227170] [process_control.cpp:333] Level[8]Release Data Types: 
+2026-11-08 19:52:06 [INFO] [227110] [227170] [data_processor.cpp:39] DDR Run. Dir is /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF
+2026-11-08 19:52:06 [INFO] [227110] [227177] [process_control.cpp:333] Level[9]Release Data Types: 
+2026-11-08 19:52:06 [INFO] [227110] [227177] [data_processor.cpp:39] SOC Run. Dir is /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF
+2026-11-08 19:52:06 [INFO] [227110] [227178] [data_processor.cpp:73] Check /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF/device_0/sqlite/freq.db and FreqParse success.
+2026-11-08 19:52:06 [INFO] [227110] [227178] [aicore_freq_processor.cpp:117] AicoreFreqProcessor GetData, dir is /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF/device_0/sqlite/freq.db
+2026-11-08 19:52:06 [INFO] [227110] [227171] [data_processor.cpp:39] UNIFIED_PMU Run. Dir is /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF
+2026-11-08 19:52:06 [INFO] [227110] [227174] [process_control.cpp:333] Level[10]Release Data Types: 
+2026-11-08 19:52:06 [INFO] [227110] [227178] [db_runner.h:91] Start query data
+2026-11-08 19:52:06 [INFO] [227110] [227174] [data_processor.cpp:39] ACC_PMU Run. Dir is /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF
+2026-11-08 19:52:06 [WARN] [227110] [227175] [data_processor.cpp:52] Can't find the db, the path is /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF/device_0/sqlite/roce.db.
+2026-11-08 19:52:06 [INFO] [227110] [227176] [data_processor.cpp:73] Check /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF/device_0/sqlite/ascend_task.db and AscendTask success.
+2026-11-08 19:52:06 [WARN] [227110] [227175] [data_processor.cpp:52] Can't find the db, the path is /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF/device_0/sqlite/roce.db.
+2026-11-08 19:52:06 [INFO] [227110] [227175] [process_control.cpp:333] Level[11]Release Data Types: 
+2026-11-08 19:52:06 [INFO] [227110] [227178] [db_runner.h:104] Query data success: SELECT syscnt, freq FROM FreqParse
+2026-11-08 19:52:06 [INFO] [227110] [227175] [data_processor.cpp:39] API Run. Dir is /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF
+2026-11-08 19:52:06 [WARN] [227110] [227177] [data_processor.cpp:52] Can't find the db, the path is /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF/device_0/sqlite/soc_profiler.db.
+2026-11-08 19:52:06 [INFO] [227110] [227177] [data_processor.h:85] Save SOC data into dataInventory
+2026-11-08 19:52:06 [INFO] [227110] [227169] [data_processor.cpp:73] Check /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF/device_0/sqlite/trace.db and training_trace success.
+2026-11-08 19:52:06 [WARN] [227110] [227177] [data_processor.h:88] SOC no data to inject to dataInventory
+2026-11-08 19:52:06 [INFO] [227110] [227169] [db_runner.h:91] Start query data
+2026-11-08 19:52:06 [INFO] [227110] [227178] [aicore_freq_processor.cpp:138] AicoreFreqProcessor FormatData.
+2026-11-08 19:52:06 [INFO] [227110] [227177] [process_control.cpp:333] Level[12]Release Data Types: 
+2026-11-08 19:52:06 [WARN] [227110] [227174] [data_processor.cpp:52] Can't find the db, the path is /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF/device_0/sqlite/acc_pmu.db.
+2026-11-08 19:52:06 [INFO] [227110] [227177] [data_processor.cpp:39] PCIE Run. Dir is /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF
+2026-11-08 19:52:06 [INFO] [227110] [227174] [data_processor.h:85] Save ACC_PMU data into dataInventory
+2026-11-08 19:52:06 [INFO] [227110] [227177] [pcie_processor.cpp:55] PCIeProcessor Process, dir is /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF
+2026-11-08 19:52:06 [WARN] [227110] [227174] [data_processor.h:88] ACC_PMU no data to inject to dataInventory
+2026-11-08 19:52:06 [INFO] [227110] [227176] [db_runner.h:91] Start query data
+2026-11-08 19:52:06 [INFO] [227110] [227174] [process_control.cpp:333] Level[13]Release Data Types: 
+2026-11-08 19:52:06 [INFO] [227110] [227174] [data_processor.cpp:39] ROCE_TIMELINE Run. Dir is /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF
+2026-11-08 19:52:06 [INFO] [227110] [227171] [unified_pmu_processor.cpp:101] TaskBasedProcess, dir is /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF
+2026-11-08 19:52:06 [INFO] [227110] [227169] [db_runner.h:104] Query data success: SELECT model_id, iteration_id, FP_start, BP_end, iteration_end, iteration_time, fp_bp_time, grad_refresh_bound, data_aug_bound FROM training_trace
+2026-11-08 19:52:06 [INFO] [227110] [227175] [data_processor.cpp:73] Check /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF/host/sqlite/api_event.db and ApiData success.
+2026-11-08 19:52:06 [INFO] [227110] [227178] [data_processor.h:85] Save AICORE_FREQ data into dataInventory
+2026-11-08 19:52:06 [INFO] [227110] [227175] [db_runner.cpp:206] Start get ApiData headers
+2026-11-08 19:52:06 [INFO] [227110] [227178] [process_control.cpp:333] Level[14]Release Data Types: 
+2026-11-08 19:52:06 [WARN] [227110] [227170] [data_processor.cpp:52] Can't find the db, the path is /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF/device_0/sqlite/ddr.db.
+2026-11-08 19:52:06 [WARN] [227110] [227169] [step_trace_processor.h:92] training_trace, has no data
+2026-11-08 19:52:06 [INFO] [227110] [227170] [data_processor.h:85] Save DDR data into dataInventory
+2026-11-08 19:52:06 [INFO] [227110] [227178] [db_assembler.cpp:1676] Begin to save DB:HOST_INFO data.
+2026-11-08 19:52:06 [INFO] [227110] [227169] [data_processor.h:73] There are 0 records before STEP_TRACE data filtering, filterTime is 1794138718101968000.
+2026-11-08 19:52:06 [WARN] [227110] [227170] [data_processor.h:88] DDR no data to inject to dataInventory
+2026-11-08 19:52:06 [INFO] [227110] [227169] [data_processor.h:78] There are 0 records after STEP_TRACE data filtering.
+2026-11-08 19:52:06 [INFO] [227110] [227170] [process_control.cpp:333] Level[15]Release Data Types: 
+2026-11-08 19:52:06 [INFO] [227110] [227170] [data_processor.cpp:39] MEMCPY_INFO Run. Dir is /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF
+2026-11-08 19:52:06 [INFO] [227110] [227175] [db_runner.cpp:221] Get ApiData columns success
+2026-11-08 19:52:06 [WARN] [227110] [227173] [data_processor.cpp:52] Can't find the db, the path is /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF/device_0/sqlite/biu_perf.db.
+2026-11-08 19:52:06 [INFO] [227110] [227173] [data_processor.h:85] Save NPU_MEM data into dataInventory
+2026-11-08 19:52:06 [WARN] [227110] [227173] [data_processor.h:88] NPU_MEM no data to inject to dataInventory
+2026-11-08 19:52:06 [INFO] [227110] [227175] [db_runner.h:91] Start query data
+2026-11-08 19:52:06 [INFO] [227110] [227173] [process_control.cpp:333] Level[16]Release Data Types: 
+2026-11-08 19:52:06 [INFO] [227110] [227173] [data_processor.cpp:39] KFC_TASK Run. Dir is /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF
+2026-11-08 19:52:06 [INFO] [227110] [227171] [data_processor.cpp:73] Check /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF/device_0/sqlite/metric_summary.db and MetricSummary success.
+2026-11-08 19:52:06 [INFO] [227110] [227171] [unified_pmu_processor.cpp:155] GetAndCheckTableColumns.
+2026-11-08 19:52:06 [INFO] [227110] [227171] [db_runner.cpp:206] Start get MetricSummary headers
+2026-11-08 19:52:06 [INFO] [227110] [227178] [db_assembler.h:59] DBAssembler Save HOST_INFO Data.
+2026-11-08 19:52:06 [INFO] [227110] [227178] [db_runner.cpp:69] Start create HOST_INFO, sql is CREATE TABLE IF NOT EXISTS HOST_INFO (hostUid TEXT, hostName TEXT);.
+2026-11-08 19:52:06 [WARN] [227110] [227177] [data_processor.cpp:52] Can't find the db, the path is /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF/device_0/sqlite/pcie.db.
+2026-11-08 19:52:06 [INFO] [227110] [227177] [data_processor.h:85] Save PCIE data into dataInventory
+2026-11-08 19:52:06 [WARN] [227110] [227177] [data_processor.h:88] PCIE no data to inject to dataInventory
+2026-11-08 19:52:06 [INFO] [227110] [227177] [process_control.cpp:333] Level[17]Release Data Types: 
+2026-11-08 19:52:06 [WARN] [227110] [227174] [data_processor.cpp:52] Can't find the db, the path is /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF/device_0/sqlite/rocereceivesend_table.db.
+2026-11-08 19:52:06 [INFO] [227110] [227177] [data_processor.cpp:39] NETDEV_STATS Run. Dir is /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF
+2026-11-08 19:52:06 [WARN] [227110] [227174] [sys_io_processor.cpp:281] No ROCE_TIMELINE data to save into dataInventory
+2026-11-08 19:52:06 [INFO] [227110] [227174] [process_control.cpp:333] Level[18]Release Data Types: 
+2026-11-08 19:52:06 [INFO] [227110] [227174] [data_processor.cpp:39] FUSION_TASK Run. Dir is /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF
+2026-11-08 19:52:06 [WARN] [227110] [227170] [data_processor.cpp:69] Check MemcpyInfo not exists
+2026-11-08 19:52:06 [INFO] [227110] [227170] [process_control.cpp:333] Level[19]Release Data Types: 
+2026-11-08 19:52:06 [INFO] [227110] [227170] [data_processor.cpp:39] NPU_MEM Run. Dir is /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF
+2026-11-08 19:52:06 [WARN] [227110] [227169] [data_processor.cpp:69] Check get_next not exists
+2026-11-08 19:52:06 [WARN] [227110] [227172] [data_processor.cpp:52] Can't find the db, the path is /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF/host/sqlite/host_cpu_usage.db.
+2026-11-08 19:52:06 [INFO] [227110] [227169] [data_processor.h:73] There are 0 records before STEP_TRACE data filtering, filterTime is 1794138718101968000.
+2026-11-08 19:52:06 [INFO] [227110] [227171] [db_runner.cpp:221] Get MetricSummary columns success
+2026-11-08 19:52:06 [INFO] [227110] [227169] [data_processor.h:78] There are 0 records after STEP_TRACE data filtering.
+2026-11-08 19:52:06 [INFO] [227110] [227172] [process_control.cpp:333] Level[20]Release Data Types: 
+2026-11-08 19:52:06 [INFO] [227110] [227172] [data_processor.cpp:39] CCU_MISSION Run. Dir is /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF
+2026-11-08 19:52:06 [WARN] [227110] [227173] [data_processor.cpp:52] Can't find the db, the path is /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF/device_0/sqlite/kfc_info.db.
+2026-11-08 19:52:06 [WARN] [227110] [227173] [data_processor.cpp:52] Can't find the db, the path is /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF/device_0/sqlite/kfc_info.db.
+2026-11-08 19:52:06 [INFO] [227110] [227173] [data_processor.h:85] Save KFC_TASK data into dataInventory
+2026-11-08 19:52:06 [WARN] [227110] [227177] [data_processor.cpp:52] Can't find the db, the path is /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF/device_0/sqlite/netdev_stats.db.
+2026-11-08 19:52:06 [WARN] [227110] [227172] [data_processor.cpp:52] Can't find the db, the path is /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF/host/sqlite/ccu_add_info.db.
+2026-11-08 19:52:06 [WARN] [227110] [227173] [data_processor.h:88] KFC_TASK no data to inject to dataInventory
+2026-11-08 19:52:06 [WARN] [227110] [227172] [data_processor.cpp:52] Can't find the db, the path is /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF/host/sqlite/ccu_add_info.db.
+2026-11-08 19:52:06 [INFO] [227110] [227177] [data_processor.h:85] Save NETDEV_STATS data into dataInventory
+2026-11-08 19:52:06 [WARN] [227110] [227174] [data_processor.cpp:52] Can't find the db, the path is /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF/device_0/sqlite/fusion_task.db.
+2026-11-08 19:52:06 [INFO] [227110] [227178] [db_runner.cpp:82] create HOST_INFO success
+2026-11-08 19:52:06 [INFO] [227110] [227174] [data_processor.h:85] Save FUSION_TASK data into dataInventory
+2026-11-08 19:52:06 [WARN] [227110] [227177] [data_processor.h:88] NETDEV_STATS no data to inject to dataInventory
+2026-11-08 19:52:06 [INFO] [227110] [227173] [process_control.cpp:333] Level[21]Release Data Types: 
+2026-11-08 19:52:06 [WARN] [227110] [227174] [data_processor.h:88] FUSION_TASK no data to inject to dataInventory
+2026-11-08 19:52:06 [INFO] [227110] [227178] [db_runner.h:71] Start insert data to HOST_INFO
+2026-11-08 19:52:06 [INFO] [227110] [227173] [db_assembler.cpp:1676] Begin to save DB:SESSION_TIME_INFO data.
+2026-11-08 19:52:06 [WARN] [227110] [227170] [data_processor.cpp:52] Can't find the db, the path is /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF/device_0/sqlite/npu_mem.db.
+2026-11-08 19:52:06 [INFO] [227110] [227170] [data_processor.h:85] Save NPU_MEM data into dataInventory
+2026-11-08 19:52:06 [INFO] [227110] [227177] [process_control.cpp:333] Level[22]Release Data Types: 
+2026-11-08 19:52:06 [WARN] [227110] [227170] [data_processor.h:88] NPU_MEM no data to inject to dataInventory
+2026-11-08 19:52:06 [INFO] [227110] [227177] [data_processor.cpp:39] HOST_PLATFORM Run. Dir is /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF
+2026-11-08 19:52:06 [INFO] [227110] [227174] [process_control.cpp:333] Level[23]Release Data Types: 
+2026-11-08 19:52:06 [INFO] [227110] [227171] [unified_pmu_processor.cpp:223] This column[task_id] does not need to be processed.
+2026-11-08 19:52:06 [INFO] [227110] [227177] [data_processor.h:85] Save HOST_PLATFORM data into dataInventory
+2026-11-08 19:52:06 [INFO] [227110] [227174] [data_processor.cpp:39] NPU_MODULE_MEM Run. Dir is /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF
+2026-11-08 19:52:06 [INFO] [227110] [227170] [process_control.cpp:333] Level[24]Release Data Types: 
+2026-11-08 19:52:06 [INFO] [227110] [227171] [unified_pmu_processor.cpp:223] This column[stream_id] does not need to be processed.
+2026-11-08 19:52:06 [WARN] [227110] [227177] [data_processor.h:88] HOST_PLATFORM no data to inject to dataInventory
+2026-11-08 19:52:06 [INFO] [227110] [227171] [unified_pmu_processor.cpp:223] This column[subtask_id] does not need to be processed.
+2026-11-08 19:52:06 [INFO] [227110] [227170] [db_assembler.cpp:1676] Begin to save DB:ENUM data.
+2026-11-08 19:52:06 [INFO] [227110] [227177] [data_processor.h:85] Save HOST_PLATFORM data into dataInventory
+2026-11-08 19:52:06 [INFO] [227110] [227170] [db_assembler.cpp:410] EnumProcessor Process.
+2026-11-08 19:52:06 [INFO] [227110] [227171] [unified_pmu_processor.cpp:223] This column[batch_id] does not need to be processed.
+2026-11-08 19:52:06 [WARN] [227110] [227177] [data_processor.h:88] HOST_PLATFORM no data to inject to dataInventory
+2026-11-08 19:52:06 [INFO] [227110] [227171] [unified_pmu_processor.cpp:238] GetTaskBasedData, dbPath is /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF/device_0/sqlite/metric_summary.db, column name is aic_total_time.
+2026-11-08 19:52:06 [INFO] [227110] [227170] [db_assembler.h:59] DBAssembler Save ENUM_OVERLAP_ANALYSIS_TYPE Data.
+2026-11-08 19:52:06 [WARN] [227110] [227169] [data_processor.cpp:69] Check all_reduce not exists
+2026-11-08 19:52:06 [INFO] [227110] [227178] [db_runner.h:84] insert data to HOST_INFO success
+2026-11-08 19:52:06 [INFO] [227110] [227169] [data_processor.h:73] There are 0 records before STEP_TRACE data filtering, filterTime is 1794138718101968000.
+2026-11-08 19:52:06 [INFO] [227110] [227177] [data_processor.h:85] Save HOST_PLATFORM data into dataInventory
+2026-11-08 19:52:06 [INFO] [227110] [227170] [db_runner.cpp:69] Start create ENUM_OVERLAP_ANALYSIS_TYPE, sql is CREATE TABLE IF NOT EXISTS ENUM_OVERLAP_ANALYSIS_TYPE (id INTEGER PRIMARY KEY, name TEXT);.
+2026-11-08 19:52:06 [WARN] [227110] [227177] [data_processor.h:88] HOST_PLATFORM no data to inject to dataInventory
+2026-11-08 19:52:06 [INFO] [227110] [227169] [data_processor.h:78] There are 0 records after STEP_TRACE data filtering.
+2026-11-08 19:52:06 [INFO] [227110] [227177] [data_processor.h:85] Save HOST_PLATFORM data into dataInventory
+2026-11-08 19:52:06 [INFO] [227110] [227169] [data_processor.h:85] Save STEP_TRACE data into dataInventory
+2026-11-08 19:52:06 [INFO] [227110] [227173] [db_assembler.h:59] DBAssembler Save SESSION_TIME_INFO Data.
+2026-11-08 19:52:06 [WARN] [227110] [227177] [data_processor.h:88] HOST_PLATFORM no data to inject to dataInventory
+2026-11-08 19:52:06 [INFO] [227110] [227173] [db_runner.cpp:69] Start create SESSION_TIME_INFO, sql is CREATE TABLE IF NOT EXISTS SESSION_TIME_INFO (startTimeNs INTEGER, endTimeNs INTEGER);.
+2026-11-08 19:52:06 [WARN] [227110] [227169] [data_processor.h:88] STEP_TRACE no data to inject to dataInventory
+2026-11-08 19:52:06 [INFO] [227110] [227177] [data_processor.h:85] Save HOST_PLATFORM data into dataInventory
+2026-11-08 19:52:06 [INFO] [227110] [227178] [process_control.cpp:333] Level[25]Release Data Types: 
+2026-11-08 19:52:06 [WARN] [227110] [227177] [data_processor.h:88] HOST_PLATFORM no data to inject to dataInventory
+2026-11-08 19:52:06 [INFO] [227110] [227177] [data_processor.h:85] Save HOST_PLATFORM data into dataInventory
+2026-11-08 19:52:06 [INFO] [227110] [227169] [data_processor.h:85] Save STEP_TRACE data into dataInventory
+2026-11-08 19:52:06 [INFO] [227110] [227178] [db_assembler.cpp:1676] Begin to save DB:META_DATA data.
+2026-11-08 19:52:06 [WARN] [227110] [227177] [data_processor.h:88] HOST_PLATFORM no data to inject to dataInventory
+2026-11-08 19:52:06 [INFO] [227110] [227178] [db_assembler.h:59] DBAssembler Save META_DATA Data.
+2026-11-08 19:52:06 [WARN] [227110] [227169] [data_processor.h:88] STEP_TRACE no data to inject to dataInventory
+2026-11-08 19:52:06 [INFO] [227110] [227178] [db_runner.cpp:69] Start create META_DATA, sql is CREATE TABLE IF NOT EXISTS META_DATA (name TEXT, value TEXT);.
+2026-11-08 19:52:06 [INFO] [227110] [227177] [data_processor.h:85] Save HOST_PLATFORM data into dataInventory
+2026-11-08 19:52:06 [INFO] [227110] [227169] [data_processor.h:85] Save STEP_TRACE data into dataInventory
+2026-11-08 19:52:06 [WARN] [227110] [227177] [data_processor.h:88] HOST_PLATFORM no data to inject to dataInventory
+2026-11-08 19:52:06 [WARN] [227110] [227169] [data_processor.h:88] STEP_TRACE no data to inject to dataInventory
+2026-11-08 19:52:06 [INFO] [227110] [227177] [data_processor.h:85] Save HOST_PLATFORM data into dataInventory
+2026-11-08 19:52:06 [WARN] [227110] [227177] [data_processor.h:88] HOST_PLATFORM no data to inject to dataInventory
+2026-11-08 19:52:06 [INFO] [227110] [227169] [process_control.cpp:333] Level[26]Release Data Types: 
+2026-11-08 19:52:06 [INFO] [227110] [227171] [db_runner.h:91] Start query data
+2026-11-08 19:52:06 [WARN] [227110] [227172] [data_processor.cpp:52] Can't find the db, the path is /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF/device_0/sqlite/ccu.db.
+2026-11-08 19:52:06 [INFO] [227110] [227169] [data_processor.cpp:39] DPU Run. Dir is /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF
+2026-11-08 19:52:06 [INFO] [227110] [227172] [data_processor.h:73] There are 0 records before CCU_MISSION data filtering, filterTime is 1794138718101968000.
+2026-11-08 19:52:06 [INFO] [227110] [227177] [process_control.cpp:333] Level[27]Release Data Types: 
+2026-11-08 19:52:06 [INFO] [227110] [227169] [dpu_processor.cpp:34] Start DPU Processor
+2026-11-08 19:52:06 [INFO] [227110] [227177] [data_processor.cpp:39] OSRT_API Run. Dir is /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF
+2026-11-08 19:52:06 [INFO] [227110] [227172] [data_processor.h:78] There are 0 records after CCU_MISSION data filtering.
+2026-11-08 19:52:06 [INFO] [227110] [227177] [host_usage_processor.cpp:34] Start process OSRT_API.
+2026-11-08 19:52:06 [INFO] [227110] [227172] [data_processor.h:85] Save CCU_MISSION data into dataInventory
+2026-11-08 19:52:06 [WARN] [227110] [227172] [data_processor.h:88] CCU_MISSION no data to inject to dataInventory
+2026-11-08 19:52:06 [WARN] [227110] [227174] [data_processor.cpp:52] Can't find the db, the path is /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF/device_0/sqlite/npu_module_mem.db.
+2026-11-08 19:52:06 [INFO] [227110] [227172] [process_control.cpp:333] Level[28]Release Data Types: 
+2026-11-08 19:52:06 [INFO] [227110] [227174] [data_processor.h:85] Save NPU_MODULE_MEM data into dataInventory
+2026-11-08 19:52:06 [WARN] [227110] [227174] [data_processor.h:88] NPU_MODULE_MEM no data to inject to dataInventory
+2026-11-08 19:52:06 [INFO] [227110] [227172] [data_processor.cpp:39] HBM Run. Dir is /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF
+2026-11-08 19:52:06 [INFO] [227110] [227174] [process_control.cpp:333] Level[29]Release Data Types: 
+2026-11-08 19:52:06 [INFO] [227110] [227174] [data_processor.cpp:39] MSTX Run. Dir is /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF
+2026-11-08 19:52:06 [INFO] [227110] [227170] [db_runner.cpp:82] create ENUM_OVERLAP_ANALYSIS_TYPE success
+2026-11-08 19:52:06 [INFO] [227110] [227170] [db_runner.h:71] Start insert data to ENUM_OVERLAP_ANALYSIS_TYPE
+2026-11-08 19:52:06 [WARN] [227110] [227177] [data_processor.cpp:52] Can't find the db, the path is /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF/host/sqlite/host_runtime_api.db.
+2026-11-08 19:52:06 [INFO] [227110] [227177] [process_control.cpp:333] Level[30]Release Data Types: 
+2026-11-08 19:52:06 [INFO] [227110] [227177] [data_processor.cpp:39] UB Run. Dir is /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF
+2026-11-08 19:52:06 [WARN] [227110] [227172] [data_processor.cpp:52] Can't find the db, the path is /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF/device_0/sqlite/hbm.db.
+2026-11-08 19:52:06 [INFO] [227110] [227172] [data_processor.h:85] Save HBM data into dataInventory
+2026-11-08 19:52:06 [WARN] [227110] [227172] [data_processor.h:88] HBM no data to inject to dataInventory
+2026-11-08 19:52:06 [INFO] [227110] [227172] [data_processor.h:85] Save HBM data into dataInventory
+2026-11-08 19:52:06 [WARN] [227110] [227172] [data_processor.h:88] HBM no data to inject to dataInventory
+2026-11-08 19:52:06 [INFO] [227110] [227172] [process_control.cpp:333] Level[31]Release Data Types: 
+2026-11-08 19:52:06 [INFO] [227110] [227172] [db_assembler.cpp:1676] Begin to save DB:NPU_INFO data.
+2026-11-08 19:52:06 [WARN] [227110] [227169] [data_processor.cpp:52] Can't find the db, the path is /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF/host/sqlite/dpu.db.
+2026-11-08 19:52:06 [WARN] [227110] [227169] [data_processor.cpp:52] Can't find the db, the path is /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF/host/sqlite/dpu.db.
+2026-11-08 19:52:06 [WARN] [227110] [227169] [dpu_processor.cpp:53] No dpu data found.
+2026-11-08 19:52:06 [INFO] [227110] [227169] [process_control.cpp:333] Level[32]Release Data Types: 
+2026-11-08 19:52:06 [INFO] [227110] [227173] [db_runner.cpp:82] create SESSION_TIME_INFO success
+2026-11-08 19:52:06 [INFO] [227110] [227169] [data_processor.cpp:39] DISK_USAGE Run. Dir is /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF
+2026-11-08 19:52:06 [INFO] [227110] [227169] [host_usage_processor.cpp:34] Start process DISK_USAGE.
+2026-11-08 19:52:06 [INFO] [227110] [227173] [db_runner.h:71] Start insert data to SESSION_TIME_INFO
+2026-11-08 19:52:06 [WARN] [227110] [227174] [data_processor.cpp:52] Can't find the db, the path is /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF/host/sqlite/msproftx.db.
+2026-11-08 19:52:06 [WARN] [227110] [227174] [data_processor.cpp:52] Can't find the db, the path is /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF/host/sqlite/msproftx.db.
+2026-11-08 19:52:06 [WARN] [227110] [227174] [msproftx_host_processor.cpp:98] msprofTx in /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF is not exists, return
+2026-11-08 19:52:06 [INFO] [227110] [227174] [process_control.cpp:333] Level[33]Release Data Types: 
+2026-11-08 19:52:06 [INFO] [227110] [227174] [data_processor.cpp:39] CHIP_TRAINS Run. Dir is /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF
+2026-11-08 19:52:06 [INFO] [227110] [227172] [db_assembler.cpp:599] Chip type key: 5 in /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF/device_0
+2026-11-08 19:52:06 [INFO] [227110] [227172] [db_assembler.h:59] DBAssembler Save NPU_INFO Data.
+2026-11-08 19:52:06 [INFO] [227110] [227172] [db_runner.cpp:69] Start create NPU_INFO, sql is CREATE TABLE IF NOT EXISTS NPU_INFO (id INTEGER, name TEXT);.
+2026-11-08 19:52:06 [INFO] [227110] [227173] [db_runner.h:84] insert data to SESSION_TIME_INFO success
+2026-11-08 19:52:06 [WARN] [227110] [227169] [data_processor.cpp:52] Can't find the db, the path is /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF/host/sqlite/host_disk_usage.db.
+2026-11-08 19:52:06 [INFO] [227110] [227169] [process_control.cpp:333] Level[34]Release Data Types: 
+2026-11-08 19:52:06 [INFO] [227110] [227169] [data_processor.cpp:39] HASH_INIT Run. Dir is /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF
+2026-11-08 19:52:06 [WARN] [227110] [227169] [data_processor.cpp:52] Can't find the db, the path is /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF/host/sqlite/ge_logic_stream_info.db.
+2026-11-08 19:52:06 [INFO] [227110] [227169] [hash_init_processor.cpp:70] Init Hash data, dir is /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF
+2026-11-08 19:52:06 [INFO] [227110] [227173] [process_control.cpp:333] Level[35]Release Data Types: 
+2026-11-08 19:52:06 [INFO] [227110] [227173] [data_processor.cpp:39] NIC_TIMELINE Run. Dir is /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF
+2026-11-08 19:52:06 [WARN] [227110] [227177] [data_processor.cpp:52] Can't find the db, the path is /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF/device_0/sqlite/ub.db.
+2026-11-08 19:52:06 [INFO] [227110] [227177] [data_processor.h:85] Save UB data into dataInventory
+2026-11-08 19:52:06 [WARN] [227110] [227177] [data_processor.h:88] UB no data to inject to dataInventory
+2026-11-08 19:52:06 [INFO] [227110] [227169] [data_processor.cpp:73] Check /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF/host/sqlite/ge_hash.db and GeHashInfo success.
+2026-11-08 19:52:06 [INFO] [227110] [227177] [process_control.cpp:333] Level[36]Release Data Types: 
+2026-11-08 19:52:06 [INFO] [227110] [227169] [db_runner.h:91] Start query data
+2026-11-08 19:52:06 [INFO] [227110] [227177] [db_assembler.cpp:1676] Begin to save DB:QOS data.
+2026-11-08 19:52:06 [WARN] [227110] [227177] [db_assembler.cpp:1251] QOS data not exist.
+2026-11-08 19:52:06 [INFO] [227110] [227177] [process_control.cpp:333] Level[37]Release Data Types: 
+2026-11-08 19:52:06 [INFO] [227110] [227177] [db_assembler.cpp:1676] Begin to save DB:HCCS data.
+2026-11-08 19:52:06 [WARN] [227110] [227177] [db_assembler.cpp:451] HCCS data not exist.
+2026-11-08 19:52:06 [INFO] [227110] [227177] [process_control.cpp:333] Level[38]Release Data Types: 
+2026-11-08 19:52:06 [INFO] [227110] [227177] [db_assembler.cpp:1676] Begin to save DB:LLC data.
+2026-11-08 19:52:06 [WARN] [227110] [227177] [db_assembler.cpp:530] LLC data not exist.
+2026-11-08 19:52:06 [INFO] [227110] [227172] [db_runner.cpp:82] create NPU_INFO success
+2026-11-08 19:52:06 [INFO] [227110] [227177] [process_control.cpp:333] Level[39]Release Data Types: 
+2026-11-08 19:52:06 [INFO] [227110] [227177] [db_assembler.cpp:1676] Begin to save DB:NIC data.
+2026-11-08 19:52:06 [WARN] [227110] [227177] [db_assembler.cpp:945] SysIO NIC data not exist.
+2026-11-08 19:52:06 [INFO] [227110] [227177] [process_control.cpp:333] Level[40]Release Data Types: 
+2026-11-08 19:52:06 [INFO] [227110] [227177] [db_assembler.cpp:1676] Begin to save DB:CPU_FREQ data.
+2026-11-08 19:52:06 [WARN] [227110] [227177] [db_assembler.cpp:1114] Host cpu freq data not exist.
+2026-11-08 19:52:06 [INFO] [227110] [227177] [process_control.cpp:333] Level[41]Release Data Types: 
+2026-11-08 19:52:06 [INFO] [227110] [227177] [db_assembler.cpp:1676] Begin to save DB:SIO data.
+2026-11-08 19:52:06 [WARN] [227110] [227177] [db_assembler.cpp:1373] SIO data not exist.
+2026-11-08 19:52:06 [INFO] [227110] [227172] [db_runner.h:71] Start insert data to NPU_INFO
+2026-11-08 19:52:06 [INFO] [227110] [227169] [db_runner.h:104] Query data success: SELECT hash_key, hash_value FROM GeHashInfo
+2026-11-08 19:52:06 [INFO] [227110] [227177] [process_control.cpp:333] Level[42]Release Data Types: 
+2026-11-08 19:52:06 [INFO] [227110] [227177] [db_assembler.cpp:1676] Begin to save DB:NETWORK_USAGE data.
+2026-11-08 19:52:06 [WARN] [227110] [227173] [data_processor.cpp:52] Can't find the db, the path is /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF/device_0/sqlite/nicreceivesend_table.db.
+2026-11-08 19:52:06 [WARN] [227110] [227177] [db_assembler.cpp:1184] Host network usage data not exist.
+2026-11-08 19:52:06 [WARN] [227110] [227173] [sys_io_processor.cpp:281] No NIC_TIMELINE data to save into dataInventory
+2026-11-08 19:52:06 [INFO] [227110] [227177] [process_control.cpp:333] Level[43]Release Data Types: 
+2026-11-08 19:52:06 [INFO] [227110] [227177] [db_assembler.cpp:1676] Begin to save DB:MEM_USAGE data.
+2026-11-08 19:52:06 [WARN] [227110] [227177] [db_assembler.cpp:1141] Host mem usage data not exist.
+2026-11-08 19:52:06 [INFO] [227110] [227173] [process_control.cpp:333] Level[44]Release Data Types: 
+2026-11-08 19:52:06 [INFO] [227110] [227173] [db_assembler.cpp:1676] Begin to save DB:ROCE data.
+2026-11-08 19:52:06 [WARN] [227110] [227173] [db_assembler.cpp:945] SysIO ROCE data not exist.
+2026-11-08 19:52:06 [INFO] [227110] [227169] [process_control.cpp:333] Level[45]Release Data Types: 
+2026-11-08 19:52:06 [INFO] [227110] [227169] [db_assembler.cpp:1676] Begin to save DB:SOC data.
+2026-11-08 19:52:06 [WARN] [227110] [227169] [db_assembler.cpp:786] Soc data not exist.
+2026-11-08 19:52:06 [INFO] [227110] [227177] [process_control.cpp:333] Level[46]Release Data Types: 
+2026-11-08 19:52:06 [INFO] [227110] [227177] [db_assembler.cpp:1676] Begin to save DB:ACC_PMU data.
+2026-11-08 19:52:06 [WARN] [227110] [227177] [db_assembler.cpp:321] Acc pmu data not exist.
+2026-11-08 19:52:06 [INFO] [227110] [227173] [process_control.cpp:333] Level[47]Release Data Types: 
+2026-11-08 19:52:06 [INFO] [227110] [227173] [db_assembler.cpp:1676] Begin to save DB:AICORE_FREQ data.
+2026-11-08 19:52:06 [INFO] [227110] [227174] [data_processor.cpp:73] Check /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF/device_0/sqlite/chip_trans.db and PaLinkInfo success.
+2026-11-08 19:52:06 [INFO] [227110] [227174] [db_runner.h:91] Start query data
+2026-11-08 19:52:06 [INFO] [227110] [227169] [process_control.cpp:333] Level[48]Release Data Types: 
+2026-11-08 19:52:06 [INFO] [227110] [227173] [db_assembler.h:59] DBAssembler Save AICORE_FREQ Data.
+2026-11-08 19:52:06 [INFO] [227110] [227173] [db_runner.cpp:69] Start create AICORE_FREQ, sql is CREATE TABLE IF NOT EXISTS AICORE_FREQ (deviceId INTEGER, timestampNs NUMERIC, freq INTEGER, dieId NUMERIC);.
+2026-11-08 19:52:06 [INFO] [227110] [227169] [db_assembler.cpp:1676] Begin to save DB:DDR data.
+2026-11-08 19:52:06 [INFO] [227110] [227177] [process_control.cpp:333] Level[49]Release Data Types: 
+2026-11-08 19:52:06 [WARN] [227110] [227169] [db_assembler.cpp:372] DDR data not exist.
+2026-11-08 19:52:06 [INFO] [227110] [227177] [db_assembler.cpp:1676] Begin to save DB:PCIE data.
+2026-11-08 19:52:06 [WARN] [227110] [227177] [db_assembler.cpp:744] PCIe data not exist.
+2026-11-08 19:52:06 [INFO] [227110] [227169] [process_control.cpp:333] Level[50]Release Data Types: 
+2026-11-08 19:52:06 [INFO] [227110] [227169] [db_assembler.cpp:1676] Begin to save DB:MEMCPY_INFO data.
+2026-11-08 19:52:06 [WARN] [227110] [227169] [db_assembler.cpp:198] MemcpyInfo data not exist.
+2026-11-08 19:52:06 [INFO] [227110] [227177] [process_control.cpp:333] Level[51]Release Data Types: 
+2026-11-08 19:52:06 [INFO] [227110] [227177] [db_assembler.cpp:1676] Begin to save DB:CPU_USAGE data.
+2026-11-08 19:52:06 [WARN] [227110] [227177] [db_assembler.cpp:1068] Cpu usage data not exist.
+2026-11-08 19:52:06 [INFO] [227110] [227169] [process_control.cpp:333] Level[52]Release Data Types: 
+2026-11-08 19:52:06 [INFO] [227110] [227172] [db_runner.h:84] insert data to NPU_INFO success
+2026-11-08 19:52:06 [INFO] [227110] [227169] [db_assembler.cpp:1676] Begin to save DB:NETDEV_STATS data.
+2026-11-08 19:52:06 [INFO] [227110] [227177] [process_control.cpp:333] Level[53]Release Data Types: 
+2026-11-08 19:52:06 [WARN] [227110] [227169] [db_assembler.cpp:481] NetDevStats data not exist.
+2026-11-08 19:52:06 [INFO] [227110] [227177] [db_assembler.cpp:1676] Begin to save DB:NPU_MEM data.
+2026-11-08 19:52:06 [WARN] [227110] [227177] [db_assembler.cpp:643] NpuMem data not exist.
+2026-11-08 19:52:06 [INFO] [227110] [227169] [process_control.cpp:333] Level[54]Release Data Types: 
+2026-11-08 19:52:06 [INFO] [227110] [227169] [db_assembler.cpp:1676] Begin to save DB:HOST_PLATFORM data.
+2026-11-08 19:52:06 [INFO] [227110] [227177] [process_control.cpp:333] Level[55]Release Data Types: 
+2026-11-08 19:52:06 [INFO] [227110] [227174] [db_runner.h:104] Query data success: SELECT pa_link_id, pa_link_traffic_monit_rx, pa_link_traffic_monit_tx, sys_time FROM PaLinkInfo
+2026-11-08 19:52:06 [INFO] [227110] [227172] [db_assembler.h:59] DBAssembler Save RANK_DEVICE_MAP Data.
+2026-11-08 19:52:06 [INFO] [227110] [227177] [db_assembler.cpp:1676] Begin to save DB:CCU_MISSION data.
+2026-11-08 19:52:06 [WARN] [227110] [227177] [db_assembler.cpp:1431] CCU mission data not exist.
+2026-11-08 19:52:06 [INFO] [227110] [227172] [db_runner.cpp:69] Start create RANK_DEVICE_MAP, sql is CREATE TABLE IF NOT EXISTS RANK_DEVICE_MAP (rankId INTEGER, deviceId INTEGER);.
+2026-11-08 19:52:06 [INFO] [227110] [227169] [process_control.cpp:333] Level[56]Release Data Types: 
+2026-11-08 19:52:06 [INFO] [227110] [227169] [db_assembler.cpp:1676] Begin to save DB:NPU_MODULE_MEM data.
+2026-11-08 19:52:06 [WARN] [227110] [227169] [db_assembler.cpp:716] NpuModuleMem data not exist.
+2026-11-08 19:52:06 [INFO] [227110] [227177] [process_control.cpp:333] Level[57]Release Data Types: 
+2026-11-08 19:52:06 [INFO] [227110] [227177] [db_assembler.cpp:1676] Begin to save DB:OSRT_API data.
+2026-11-08 19:52:06 [WARN] [227110] [227177] [db_assembler.cpp:1205] OS runtime api data not exist.
+2026-11-08 19:52:06 [INFO] [227110] [227169] [process_control.cpp:333] Level[58]Release Data Types: 
+2026-11-08 19:52:06 [INFO] [227110] [227169] [db_assembler.cpp:1676] Begin to save DB:HBM data.
+2026-11-08 19:52:06 [WARN] [227110] [227169] [db_assembler.cpp:426] HBM data not exist.
+2026-11-08 19:52:06 [INFO] [227110] [227177] [process_control.cpp:333] Level[59]Release Data Types: 
+2026-11-08 19:52:06 [INFO] [227110] [227177] [db_assembler.cpp:1676] Begin to save DB:DPU data.
+2026-11-08 19:52:06 [WARN] [227110] [227177] [db_assembler.cpp:1298] Can't get dpuData from dataInventory
+2026-11-08 19:52:06 [INFO] [227110] [227169] [process_control.cpp:333] Level[60]Release Data Types: 
+2026-11-08 19:52:06 [INFO] [227110] [227169] [db_assembler.cpp:1676] Begin to save DB:MSTX data.
+2026-11-08 19:52:06 [WARN] [227110] [227169] [db_assembler.cpp:572] MsprofTx data not exist.
+2026-11-08 19:52:06 [INFO] [227110] [227177] [process_control.cpp:333] Level[61]Release Data Types: 
+2026-11-08 19:52:06 [INFO] [227110] [227177] [timeline_manager.cpp:201] Start exporting timeline!
+2026-11-08 19:52:06 [INFO] [227110] [227169] [process_control.cpp:333] Level[62]Release Data Types: 
+2026-11-08 19:52:06 [INFO] [227110] [227169] [db_assembler.cpp:1676] Begin to save DB:DISK_USAGE data.
+2026-11-08 19:52:06 [WARN] [227110] [227169] [db_assembler.cpp:1162] Host disk usage data not exist.
+2026-11-08 19:52:06 [INFO] [227110] [227177] [file.cpp:503] The file not exists: /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF/mindstudio_profiler_output/msprof_20261108195206.json.
+2026-11-08 19:52:06 [INFO] [227110] [227173] [db_runner.cpp:82] create AICORE_FREQ success
+2026-11-08 19:52:06 [INFO] [227110] [227169] [process_control.cpp:333] Level[63]Release Data Types: 
+2026-11-08 19:52:06 [INFO] [227110] [227169] [db_assembler.cpp:1676] Begin to save DB:UB data.
+2026-11-08 19:52:06 [WARN] [227110] [227169] [db_assembler.cpp:1405] UB data not exist.
+2026-11-08 19:52:06 [INFO] [227110] [227177] [file.cpp:503] The file not exists: /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF/mindstudio_profiler_output/step_trace_20261108195206.json.
+2026-11-08 19:52:06 [INFO] [227110] [227169] [process_control.cpp:333] Level[64]Release Data Types: 
+2026-11-08 19:52:06 [INFO] [227110] [227173] [db_runner.h:71] Start insert data to AICORE_FREQ
+2026-11-08 19:52:06 [INFO] [227110] [227174] [data_processor.cpp:73] Check /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF/device_0/sqlite/chip_trans.db and PcieInfo success.
+2026-11-08 19:52:06 [INFO] [227110] [227174] [db_runner.h:91] Start query data
+2026-11-08 19:52:06 [INFO] [227110] [227169] [data_processor.cpp:39] NPU_OP_MEM Run. Dir is /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF
+2026-11-08 19:52:06 [INFO] [227110] [227177] [process_control.cpp:333] Level[65]Release Data Types: 
+2026-11-08 19:52:06 [WARN] [227110] [227169] [data_processor.cpp:52] Can't find the db, the path is /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF/host/sqlite/task_memory.db.
+2026-11-08 19:52:06 [INFO] [227110] [227177] [data_processor.cpp:39] COMPUTE_TASK_INFO Run. Dir is /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF
+2026-11-08 19:52:06 [INFO] [227110] [227169] [process_control.cpp:333] Level[66]Release Data Types: 
+2026-11-08 19:52:06 [INFO] [227110] [227169] [data_processor.cpp:39] COMMUNICATION Run. Dir is /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF
+2026-11-08 19:52:06 [INFO] [227110] [227174] [db_runner.h:104] Query data success: SELECT pcie_id, pcie_write_bandwidth, pcie_read_bandwidth, sys_time FROM PcieInfo
+2026-11-08 19:52:06 [INFO] [227110] [227174] [data_processor.h:73] There are 0 records before PA_LINK_INFO data filtering, filterTime is 1794138718101968000.
+2026-11-08 19:52:06 [INFO] [227110] [227174] [data_processor.h:78] There are 0 records after PA_LINK_INFO data filtering.
+2026-11-08 19:52:06 [INFO] [227110] [227174] [data_processor.h:73] There are 0 records before ENUM_PCIE_INFO data filtering, filterTime is 1794138718101968000.
+2026-11-08 19:52:06 [INFO] [227110] [227174] [data_processor.h:78] There are 0 records after ENUM_PCIE_INFO data filtering.
+2026-11-08 19:52:06 [INFO] [227110] [227174] [data_processor.h:85] Save PA_LINK_INFO data into dataInventory
+2026-11-08 19:52:06 [WARN] [227110] [227174] [data_processor.h:88] PA_LINK_INFO no data to inject to dataInventory
+2026-11-08 19:52:06 [INFO] [227110] [227174] [data_processor.h:85] Save ENUM_PCIE_INFO data into dataInventory
+2026-11-08 19:52:06 [INFO] [227110] [227173] [db_runner.h:84] insert data to AICORE_FREQ success
+2026-11-08 19:52:06 [WARN] [227110] [227174] [data_processor.h:88] ENUM_PCIE_INFO no data to inject to dataInventory
+2026-11-08 19:52:06 [INFO] [227110] [227174] [process_control.cpp:333] Level[67]Release Data Types: 
+2026-11-08 19:52:06 [INFO] [227110] [227174] [json_assembler.cpp:35] Begin to Assemble NPU MEM data
+2026-11-08 19:52:06 [WARN] [227110] [227174] [npu_mem_assembler.cpp:76] Can't get npuMemData from dataInventory
+2026-11-08 19:52:06 [WARN] [227110] [227174] [json_assembler.cpp:50] No NPU MEM data, don't export deliverable!
+2026-11-08 19:52:06 [INFO] [227110] [227174] [process_control.cpp:333] Level[68]Release Data Types: 
+2026-11-08 19:52:06 [INFO] [227110] [227174] [json_assembler.cpp:35] Begin to Assemble LLC data
+2026-11-08 19:52:06 [INFO] [227110] [227173] [process_control.cpp:333] Level[69]Release Data Types: 
+2026-11-08 19:52:06 [WARN] [227110] [227169] [data_processor.cpp:52] Can't find the db, the path is /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF/device_0/sqlite/hccl_single_device.db.
+2026-11-08 19:52:06 [WARN] [227110] [227174] [llc_assembler.cpp:81] Can't get LLcData from dataInventory
+2026-11-08 19:52:06 [INFO] [227110] [227177] [data_processor.cpp:73] Check /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF/host/sqlite/ge_info.db and TaskInfo success.
+2026-11-08 19:52:06 [WARN] [227110] [227169] [data_processor.cpp:52] Can't find the db, the path is /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF/device_0/sqlite/hccl_single_device.db.
+2026-11-08 19:52:06 [INFO] [227110] [227177] [db_runner.h:91] Start query data
+2026-11-08 19:52:06 [WARN] [227110] [227174] [json_assembler.cpp:50] No LLC data, don't export deliverable!
+2026-11-08 19:52:06 [INFO] [227110] [227173] [json_assembler.cpp:35] Begin to Assemble Step Trace data
+2026-11-08 19:52:06 [WARN] [227110] [227169] [data_processor.cpp:52] Can't find the db, the path is /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF/device_0/sqlite/hccl_single_device.db.
+2026-11-08 19:52:06 [INFO] [227110] [227174] [process_control.cpp:333] Level[70]Release Data Types: 
+2026-11-08 19:52:06 [WARN] [227110] [227173] [step_trace_assembler.cpp:271] Can't get step trace data from dataInventory
+2026-11-08 19:52:06 [WARN] [227110] [227169] [data_processor.cpp:52] Can't find the db, the path is /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF/device_0/sqlite/hccl_single_device.db.
+2026-11-08 19:52:06 [WARN] [227110] [227173] [json_assembler.cpp:50] No Step Trace data, don't export deliverable!
+2026-11-08 19:52:06 [INFO] [227110] [227169] [data_processor.h:73] There are 0 records before COMMUNICATION_TASK_INFO data filtering, filterTime is 1794138718101968000.
+2026-11-08 19:52:06 [INFO] [227110] [227174] [json_assembler.cpp:35] Begin to Assemble SIO data
+2026-11-08 19:52:06 [INFO] [227110] [227169] [data_processor.h:78] There are 0 records after COMMUNICATION_TASK_INFO data filtering.
+2026-11-08 19:52:06 [WARN] [227110] [227174] [sio_assembler.cpp:82] Can't get sioData from dataInventory
+2026-11-08 19:52:06 [INFO] [227110] [227169] [data_processor.h:73] There are 0 records before COMMUNICATION_TASK_INFO data filtering, filterTime is 1794138718101968000.
+2026-11-08 19:52:06 [INFO] [227110] [227173] [process_control.cpp:333] Level[71]Release Data Types: 
+2026-11-08 19:52:06 [WARN] [227110] [227174] [json_assembler.cpp:50] No SIO data, don't export deliverable!
+2026-11-08 19:52:06 [INFO] [227110] [227169] [data_processor.h:78] There are 0 records after COMMUNICATION_TASK_INFO data filtering.
+2026-11-08 19:52:06 [INFO] [227110] [227169] [data_processor.h:85] Save COMMUNICATION_TASK_INFO data into dataInventory
+2026-11-08 19:52:06 [INFO] [227110] [227174] [process_control.cpp:333] Level[72]Release Data Types: 
+2026-11-08 19:52:06 [INFO] [227110] [227173] [json_assembler.cpp:35] Begin to Assemble Acc PMU data
+2026-11-08 19:52:06 [WARN] [227110] [227169] [data_processor.h:88] COMMUNICATION_TASK_INFO no data to inject to dataInventory
+2026-11-08 19:52:06 [INFO] [227110] [227174] [json_assembler.cpp:35] Begin to Assemble NIC data
+2026-11-08 19:52:06 [WARN] [227110] [227173] [acc_pmu_assembler.cpp:102] Can't get accPmuData from dataInventory
+2026-11-08 19:52:06 [WARN] [227110] [227174] [sys_io_assembler.cpp:93] Can't get SysIOReceiveSendData from dataInventory
+2026-11-08 19:52:06 [INFO] [227110] [227169] [data_processor.h:85] Save COMMUNICATION_OP data into dataInventory
+2026-11-08 19:52:06 [WARN] [227110] [227174] [json_assembler.cpp:50] No NIC data, don't export deliverable!
+2026-11-08 19:52:06 [WARN] [227110] [227173] [json_assembler.cpp:50] No Acc PMU data, don't export deliverable!
+2026-11-08 19:52:06 [WARN] [227110] [227169] [data_processor.h:88] COMMUNICATION_OP no data to inject to dataInventory
+2026-11-08 19:52:06 [INFO] [227110] [227174] [process_control.cpp:333] Level[73]Release Data Types: 
+2026-11-08 19:52:06 [INFO] [227110] [227174] [json_assembler.cpp:35] Begin to Assemble QoS data
+2026-11-08 19:52:06 [INFO] [227110] [227173] [process_control.cpp:333] Level[74]Release Data Types: 
+2026-11-08 19:52:06 [WARN] [227110] [227174] [qos_assembler.cpp:126] Can't get qosData from dataInventory
+2026-11-08 19:52:06 [WARN] [227110] [227174] [json_assembler.cpp:50] No QoS data, don't export deliverable!
+2026-11-08 19:52:06 [INFO] [227110] [227173] [json_assembler.cpp:35] Begin to Assemble MsprofTx data
+2026-11-08 19:52:06 [INFO] [227110] [227169] [process_control.cpp:333] Level[75]Release Data Types: 
+2026-11-08 19:52:06 [WARN] [227110] [227173] [msprof_tx_assembler.cpp:137] Can't get msprof_host_tx data from dataInventory
+2026-11-08 19:52:06 [WARN] [227110] [227173] [json_assembler.cpp:50] No MsprofTx data, don't export deliverable!
+2026-11-08 19:52:06 [INFO] [227110] [227169] [json_assembler.cpp:35] Begin to Assemble PCIe data
+2026-11-08 19:52:06 [INFO] [227110] [227174] [process_control.cpp:333] Level[76]Release Data Types: 
+2026-11-08 19:52:06 [INFO] [227110] [227169] [pcie_assembler.cpp:79] Begin to assemble PCIe data.
+2026-11-08 19:52:06 [WARN] [227110] [227169] [pcie_assembler.cpp:83] Can't get PCIe Data from dataInventory
+2026-11-08 19:52:06 [WARN] [227110] [227169] [json_assembler.cpp:50] No PCIe data, don't export deliverable!
+2026-11-08 19:52:06 [INFO] [227110] [227173] [process_control.cpp:333] Level[77]Release Data Types: 
+2026-11-08 19:52:06 [INFO] [227110] [227174] [json_assembler.cpp:35] Begin to Assemble CPU Usage data
+2026-11-08 19:52:06 [INFO] [227110] [227174] [host_usage_assembler.cpp:175] Begin to assemble CPU Usage data.
+2026-11-08 19:52:06 [INFO] [227110] [227173] [json_assembler.cpp:35] Begin to Assemble DDR data
+2026-11-08 19:52:06 [INFO] [227110] [227169] [process_control.cpp:333] Level[78]Release Data Types: 
+2026-11-08 19:52:06 [WARN] [227110] [227173] [ddr_assembler.cpp:66] Can't get ddrData from dataInventory
+2026-11-08 19:52:06 [WARN] [227110] [227173] [json_assembler.cpp:50] No DDR data, don't export deliverable!
+2026-11-08 19:52:06 [INFO] [227110] [227169] [json_assembler.cpp:35] Begin to Assemble Low Power data
+2026-11-08 19:52:06 [INFO] [227110] [227173] [process_control.cpp:333] Level[79]Release Data Types: 
+2026-11-08 19:52:06 [INFO] [227110] [227169] [low_power_assembler.cpp:57] Begin to assemble Low Power data.
+2026-11-08 19:52:06 [INFO] [227110] [227173] [json_assembler.cpp:35] Begin to Assemble Memory Usage data
+2026-11-08 19:52:06 [INFO] [227110] [227173] [host_usage_assembler.cpp:175] Begin to assemble Memory Usage data.
+2026-11-08 19:52:06 [INFO] [227110] [227178] [db_runner.cpp:82] create META_DATA success
+2026-11-08 19:52:06 [WARN] [227110] [227174] [host_usage_assembler.cpp:134] Can't get host cpu data from dataInventory
+2026-11-08 19:52:06 [INFO] [227110] [227178] [db_runner.h:71] Start insert data to META_DATA
+2026-11-08 19:52:06 [WARN] [227110] [227174] [json_assembler.cpp:50] No CPU Usage data, don't export deliverable!
+2026-11-08 19:52:06 [INFO] [227110] [227174] [process_control.cpp:333] Level[80]Release Data Types: 
+2026-11-08 19:52:06 [INFO] [227110] [227174] [json_assembler.cpp:35] Begin to Assemble RoCE data
+2026-11-08 19:52:06 [WARN] [227110] [227174] [sys_io_assembler.cpp:107] Can't get SysIOReceiveSendData from dataInventory
+2026-11-08 19:52:06 [WARN] [227110] [227174] [json_assembler.cpp:50] No RoCE data, don't export deliverable!
+2026-11-08 19:52:06 [WARN] [227110] [227173] [host_usage_assembler.cpp:114] Can't get host memory data from dataInventory
+2026-11-08 19:52:06 [INFO] [227110] [227174] [process_control.cpp:333] Level[81]Release Data Types: 
+2026-11-08 19:52:06 [WARN] [227110] [227173] [json_assembler.cpp:50] No Memory Usage data, don't export deliverable!
+2026-11-08 19:52:06 [INFO] [227110] [227174] [json_assembler.cpp:35] Begin to Assemble CPU Freq data
+2026-11-08 19:52:06 [INFO] [227110] [227174] [host_usage_assembler.cpp:175] Begin to assemble CPU Freq data.
+2026-11-08 19:52:06 [INFO] [227110] [227173] [process_control.cpp:333] Level[82]Release Data Types: 
+2026-11-08 19:52:06 [INFO] [227110] [227169] [low_power_assembler.cpp:78] Assemble Low Power data success.
+2026-11-08 19:52:06 [INFO] [227110] [227169] [json_assembler.cpp:44] Assemble Low Power data success, begin to export
+2026-11-08 19:52:06 [INFO] [227110] [227173] [json_assembler.cpp:35] Begin to Assemble Network Usage data
+2026-11-08 19:52:06 [INFO] [227110] [227173] [host_usage_assembler.cpp:175] Begin to assemble Network Usage data.
+2026-11-08 19:52:06 [INFO] [227110] [227169] [process_control.cpp:333] Level[83]Release Data Types: St6vectorIN8Analysis6Domain12LowPowerDataESaIS2_EE 
+2026-11-08 19:52:06 [INFO] [227110] [227169] [json_assembler.cpp:35] Begin to Assemble HBM data
+2026-11-08 19:52:06 [WARN] [227110] [227169] [hbm_assembler.cpp:66] Can't get hbmData from dataInventory
+2026-11-08 19:52:06 [WARN] [227110] [227169] [json_assembler.cpp:50] No HBM data, don't export deliverable!
+2026-11-08 19:52:06 [INFO] [227110] [227169] [process_control.cpp:333] Level[84]Release Data Types: 
+2026-11-08 19:52:06 [INFO] [227110] [227169] [json_assembler.cpp:35] Begin to Assemble FUSION_TASK data
+2026-11-08 19:52:06 [WARN] [227110] [227169] [fusion_task_assembler.cpp:84] Can't get fusion task data from dataInventory
+2026-11-08 19:52:06 [WARN] [227110] [227169] [json_assembler.cpp:50] No FUSION_TASK data, don't export deliverable!
+2026-11-08 19:52:06 [INFO] [227110] [227169] [process_control.cpp:333] Level[85]Release Data Types: 
+2026-11-08 19:52:06 [WARN] [227110] [227173] [host_usage_assembler.cpp:74] Can't get host network data from dataInventory.
+2026-11-08 19:52:06 [WARN] [227110] [227174] [host_usage_assembler.cpp:154] Can't get host cpu freq data from dataInventory
+2026-11-08 19:52:06 [INFO] [227110] [227169] [json_assembler.cpp:35] Begin to Assemble CCU_MISSION data
+2026-11-08 19:52:06 [WARN] [227110] [227173] [json_assembler.cpp:50] No Network Usage data, don't export deliverable!
+2026-11-08 19:52:06 [WARN] [227110] [227174] [json_assembler.cpp:50] No CPU Freq data, don't export deliverable!
+2026-11-08 19:52:06 [WARN] [227110] [227169] [ccu_assembler.cpp:106] Can't get ccu mission data from dataInventory
+2026-11-08 19:52:06 [INFO] [227110] [227173] [process_control.cpp:333] Level[86]Release Data Types: 
+2026-11-08 19:52:06 [WARN] [227110] [227169] [json_assembler.cpp:50] No CCU_MISSION data, don't export deliverable!
+2026-11-08 19:52:06 [INFO] [227110] [227173] [json_assembler.cpp:35] Begin to Assemble Disk Usage data
+2026-11-08 19:52:06 [INFO] [227110] [227174] [process_control.cpp:333] Level[87]Release Data Types: 
+2026-11-08 19:52:06 [INFO] [227110] [227173] [host_usage_assembler.cpp:175] Begin to assemble Disk Usage data.
+2026-11-08 19:52:06 [INFO] [227110] [227169] [process_control.cpp:333] Level[88]Release Data Types: 
+2026-11-08 19:52:06 [INFO] [227110] [227174] [json_assembler.cpp:35] Begin to Assemble Ub data
+2026-11-08 19:52:06 [WARN] [227110] [227174] [ub_assembler.cpp:61] Can't get ub data from dataInventory
+2026-11-08 19:52:06 [WARN] [227110] [227174] [json_assembler.cpp:50] No Ub data, don't export deliverable!
+2026-11-08 19:52:06 [INFO] [227110] [227169] [json_assembler.cpp:35] Begin to Assemble Biu Perf data
+2026-11-08 19:52:06 [WARN] [227110] [227169] [biu_perf_assembler.cpp:85] Can't get biuPerf data from dataInventory
+2026-11-08 19:52:06 [INFO] [227110] [227174] [process_control.cpp:333] Level[89]Release Data Types: 
+2026-11-08 19:52:06 [WARN] [227110] [227169] [json_assembler.cpp:50] No Biu Perf data, don't export deliverable!
+2026-11-08 19:52:06 [INFO] [227110] [227169] [process_control.cpp:333] Level[90]Release Data Types: 
+2026-11-08 19:52:06 [INFO] [227110] [227174] [json_assembler.cpp:35] Begin to Assemble MsprofTx data
+2026-11-08 19:52:06 [WARN] [227110] [227174] [device_tx_assembler.cpp:87] Can't get device_tx data from dataInventory
+2026-11-08 19:52:06 [WARN] [227110] [227174] [json_assembler.cpp:50] No MsprofTx data, don't export deliverable!
+2026-11-08 19:52:06 [INFO] [227110] [227169] [json_assembler.cpp:35] Begin to Assemble Stars Soc Info data
+2026-11-08 19:52:06 [WARN] [227110] [227169] [stars_soc_assembler.cpp:65] Can't get socBandwidthData from dataInventory
+2026-11-08 19:52:06 [WARN] [227110] [227173] [host_usage_assembler.cpp:94] Can't get host disk data from dataInventory.
+2026-11-08 19:52:06 [WARN] [227110] [227169] [json_assembler.cpp:50] No Stars Soc Info data, don't export deliverable!
+2026-11-08 19:52:06 [INFO] [227110] [227174] [process_control.cpp:333] Level[91]Release Data Types: 
+2026-11-08 19:52:06 [WARN] [227110] [227173] [json_assembler.cpp:50] No Disk Usage data, don't export deliverable!
+2026-11-08 19:52:06 [INFO] [227110] [227174] [json_assembler.cpp:35] Begin to Assemble OS Runtime API data
+2026-11-08 19:52:06 [INFO] [227110] [227169] [process_control.cpp:333] Level[92]Release Data Types: 
+2026-11-08 19:52:06 [INFO] [227110] [227174] [host_usage_assembler.cpp:175] Begin to assemble OS Runtime API data.
+2026-11-08 19:52:06 [INFO] [227110] [227173] [process_control.cpp:333] Level[93]Release Data Types: 
+2026-11-08 19:52:06 [INFO] [227110] [227169] [json_assembler.cpp:35] Begin to Assemble DPU data
+2026-11-08 19:52:06 [INFO] [227110] [227169] [dpu_assembler.cpp:153] Start DPU Assembler
+2026-11-08 19:52:06 [WARN] [227110] [227169] [dpu_assembler.cpp:157] Can't get dpuData from dataInventory
+2026-11-08 19:52:06 [INFO] [227110] [227173] [json_assembler.cpp:35] Begin to Assemble HCCS data
+2026-11-08 19:52:06 [WARN] [227110] [227169] [json_assembler.cpp:50] No DPU data, don't export deliverable!
+2026-11-08 19:52:06 [WARN] [227110] [227173] [hccs_assembler.cpp:66] Can't get hccsData from dataInventory
+2026-11-08 19:52:06 [WARN] [227110] [227173] [json_assembler.cpp:50] No HCCS data, don't export deliverable!
+2026-11-08 19:52:06 [INFO] [227110] [227169] [process_control.cpp:333] Level[94]Release Data Types: 
+2026-11-08 19:52:06 [INFO] [227110] [227169] [db_assembler.cpp:1676] Begin to save DB:NPU_OP_MEM data.
+2026-11-08 19:52:06 [WARN] [227110] [227169] [db_assembler.cpp:686] NpuOpMem data not exist.
+2026-11-08 19:52:06 [INFO] [227110] [227173] [process_control.cpp:333] Level[95]Release Data Types: 
+2026-11-08 19:52:06 [WARN] [227110] [227174] [host_usage_assembler.cpp:43] Can't get host runtime api data from dataInventory.
+2026-11-08 19:52:06 [WARN] [227110] [227174] [json_assembler.cpp:50] No OS Runtime API data, don't export deliverable!
+2026-11-08 19:52:06 [INFO] [227110] [227169] [process_control.cpp:333] Level[96]Release Data Types: 
+2026-11-08 19:52:06 [INFO] [227110] [227173] [json_assembler.cpp:35] Begin to Assemble Stars Chip Trans data
+2026-11-08 19:52:06 [INFO] [227110] [227169] [db_assembler.cpp:1676] Begin to save DB:COMMUNICATION data.
+2026-11-08 19:52:06 [INFO] [227110] [227174] [process_control.cpp:333] Level[97]Release Data Types: 
+2026-11-08 19:52:06 [WARN] [227110] [227169] [db_assembler.cpp:241] Communication op data not exist.
+2026-11-08 19:52:06 [WARN] [227110] [227169] [db_assembler.cpp:292] Communication task data not exist.
+2026-11-08 19:52:06 [INFO] [227110] [227174] [json_assembler.cpp:35] Begin to Assemble Communication data
+2026-11-08 19:52:06 [INFO] [227110] [227169] [process_control.cpp:333] Level[98]Release Data Types: 
+2026-11-08 19:52:06 [WARN] [227110] [227174] [hccl_assembler.cpp:172] Can't get hccl task data and hccl op data from dataInventory
+2026-11-08 19:52:06 [WARN] [227110] [227174] [json_assembler.cpp:50] No Communication data, don't export deliverable!
+2026-11-08 19:52:06 [INFO] [227110] [227174] [process_control.cpp:333] Level[99]Release Data Types: 
+2026-11-08 19:52:06 [WARN] [227110] [227173] [chip_trans_assembler.cpp:110] Can't get paLinkInfoData from dataInventory
+2026-11-08 19:52:06 [WARN] [227110] [227173] [json_assembler.cpp:50] No Stars Chip Trans data, don't export deliverable!
+2026-11-08 19:52:06 [INFO] [227110] [227173] [process_control.cpp:333] Level[100]Release Data Types: 
+2026-11-08 19:52:06 [INFO] [227110] [227178] [db_runner.h:84] insert data to META_DATA success
+2026-11-08 19:52:06 [INFO] [227110] [227178] [process_control.cpp:333] Level[101]Release Data Types: 
+2026-11-08 19:52:06 [INFO] [227110] [227172] [db_runner.cpp:82] create RANK_DEVICE_MAP success
+2026-11-08 19:52:06 [INFO] [227110] [227172] [db_runner.h:71] Start insert data to RANK_DEVICE_MAP
+2026-11-08 19:52:06 [INFO] [227110] [227172] [db_runner.h:84] insert data to RANK_DEVICE_MAP success
+2026-11-08 19:52:06 [INFO] [227110] [227172] [process_control.cpp:333] Level[102]Release Data Types: 
+2026-11-08 19:52:06 [INFO] [227110] [227170] [db_runner.h:84] insert data to ENUM_OVERLAP_ANALYSIS_TYPE success
+2026-11-08 19:52:06 [INFO] [227110] [227170] [db_assembler.h:59] DBAssembler Save ENUM_HCCL_RDMA_TYPE Data.
+2026-11-08 19:52:06 [INFO] [227110] [227170] [db_runner.cpp:69] Start create ENUM_HCCL_RDMA_TYPE, sql is CREATE TABLE IF NOT EXISTS ENUM_HCCL_RDMA_TYPE (id INTEGER PRIMARY KEY, name TEXT);.
+2026-11-08 19:52:06 [INFO] [227110] [227170] [db_runner.cpp:82] create ENUM_HCCL_RDMA_TYPE success
+2026-11-08 19:52:06 [INFO] [227110] [227170] [db_runner.h:71] Start insert data to ENUM_HCCL_RDMA_TYPE
+2026-11-08 19:52:06 [INFO] [227110] [227170] [db_runner.h:84] insert data to ENUM_HCCL_RDMA_TYPE success
+2026-11-08 19:52:06 [INFO] [227110] [227170] [db_assembler.h:59] DBAssembler Save ENUM_MSTX_EVENT_TYPE Data.
+2026-11-08 19:52:06 [INFO] [227110] [227170] [db_runner.cpp:69] Start create ENUM_MSTX_EVENT_TYPE, sql is CREATE TABLE IF NOT EXISTS ENUM_MSTX_EVENT_TYPE (id INTEGER PRIMARY KEY, name TEXT);.
+2026-11-08 19:52:06 [INFO] [227110] [227170] [db_runner.cpp:82] create ENUM_MSTX_EVENT_TYPE success
+2026-11-08 19:52:06 [INFO] [227110] [227170] [db_runner.h:71] Start insert data to ENUM_MSTX_EVENT_TYPE
+2026-11-08 19:52:06 [INFO] [227110] [227170] [db_runner.h:84] insert data to ENUM_MSTX_EVENT_TYPE success
+2026-11-08 19:52:06 [INFO] [227110] [227170] [db_assembler.h:59] DBAssembler Save ENUM_HCCL_TRANSPORT_TYPE Data.
+2026-11-08 19:52:06 [INFO] [227110] [227170] [db_runner.cpp:69] Start create ENUM_HCCL_TRANSPORT_TYPE, sql is CREATE TABLE IF NOT EXISTS ENUM_HCCL_TRANSPORT_TYPE (id INTEGER PRIMARY KEY, name TEXT);.
+2026-11-08 19:52:06 [INFO] [227110] [227170] [db_runner.cpp:82] create ENUM_HCCL_TRANSPORT_TYPE success
+2026-11-08 19:52:06 [INFO] [227110] [227170] [db_runner.h:71] Start insert data to ENUM_HCCL_TRANSPORT_TYPE
+2026-11-08 19:52:06 [INFO] [227110] [227170] [db_runner.h:84] insert data to ENUM_HCCL_TRANSPORT_TYPE success
+2026-11-08 19:52:06 [INFO] [227110] [227170] [db_assembler.h:59] DBAssembler Save ENUM_HCCL_LINK_TYPE Data.
+2026-11-08 19:52:06 [INFO] [227110] [227170] [db_runner.cpp:69] Start create ENUM_HCCL_LINK_TYPE, sql is CREATE TABLE IF NOT EXISTS ENUM_HCCL_LINK_TYPE (id INTEGER PRIMARY KEY, name TEXT);.
+2026-11-08 19:52:06 [INFO] [227110] [227170] [db_runner.cpp:82] create ENUM_HCCL_LINK_TYPE success
+2026-11-08 19:52:06 [INFO] [227110] [227170] [db_runner.h:71] Start insert data to ENUM_HCCL_LINK_TYPE
+2026-11-08 19:52:06 [INFO] [227110] [227170] [db_runner.h:84] insert data to ENUM_HCCL_LINK_TYPE success
+2026-11-08 19:52:06 [INFO] [227110] [227170] [db_assembler.h:59] DBAssembler Save ENUM_MEMCPY_OPERATION Data.
+2026-11-08 19:52:06 [INFO] [227110] [227170] [db_runner.cpp:69] Start create ENUM_MEMCPY_OPERATION, sql is CREATE TABLE IF NOT EXISTS ENUM_MEMCPY_OPERATION (id INTEGER PRIMARY KEY, name TEXT);.
+2026-11-08 19:52:06 [INFO] [227110] [227170] [db_runner.cpp:82] create ENUM_MEMCPY_OPERATION success
+2026-11-08 19:52:06 [INFO] [227110] [227170] [db_runner.h:71] Start insert data to ENUM_MEMCPY_OPERATION
+2026-11-08 19:52:06 [INFO] [227110] [227170] [db_runner.h:84] insert data to ENUM_MEMCPY_OPERATION success
+2026-11-08 19:52:06 [INFO] [227110] [227170] [db_assembler.h:59] DBAssembler Save ENUM_HCCL_DATA_TYPE Data.
+2026-11-08 19:52:06 [INFO] [227110] [227170] [db_runner.cpp:69] Start create ENUM_HCCL_DATA_TYPE, sql is CREATE TABLE IF NOT EXISTS ENUM_HCCL_DATA_TYPE (id INTEGER PRIMARY KEY, name TEXT);.
+2026-11-08 19:52:06 [INFO] [227110] [227170] [db_runner.cpp:82] create ENUM_HCCL_DATA_TYPE success
+2026-11-08 19:52:06 [INFO] [227110] [227170] [db_runner.h:71] Start insert data to ENUM_HCCL_DATA_TYPE
+2026-11-08 19:52:06 [INFO] [227110] [227170] [db_runner.h:84] insert data to ENUM_HCCL_DATA_TYPE success
+2026-11-08 19:52:06 [INFO] [227110] [227170] [db_assembler.h:59] DBAssembler Save ENUM_MODULE Data.
+2026-11-08 19:52:06 [INFO] [227110] [227170] [db_runner.cpp:69] Start create ENUM_MODULE, sql is CREATE TABLE IF NOT EXISTS ENUM_MODULE (id INTEGER PRIMARY KEY, name TEXT);.
+2026-11-08 19:52:06 [INFO] [227110] [227170] [db_runner.cpp:82] create ENUM_MODULE success
+2026-11-08 19:52:06 [INFO] [227110] [227170] [db_runner.h:71] Start insert data to ENUM_MODULE
+2026-11-08 19:52:06 [INFO] [227110] [227170] [db_runner.h:84] insert data to ENUM_MODULE success
+2026-11-08 19:52:06 [INFO] [227110] [227170] [db_assembler.h:59] DBAssembler Save ENUM_API_TYPE Data.
+2026-11-08 19:52:06 [INFO] [227110] [227170] [db_runner.cpp:69] Start create ENUM_API_TYPE, sql is CREATE TABLE IF NOT EXISTS ENUM_API_TYPE (id INTEGER PRIMARY KEY, name TEXT);.
+2026-11-08 19:52:06 [INFO] [227110] [227170] [db_runner.cpp:82] create ENUM_API_TYPE success
+2026-11-08 19:52:06 [INFO] [227110] [227170] [db_runner.h:71] Start insert data to ENUM_API_TYPE
+2026-11-08 19:52:06 [INFO] [227110] [227170] [db_runner.h:84] insert data to ENUM_API_TYPE success
+2026-11-08 19:52:06 [INFO] [227110] [227170] [process_control.cpp:333] Level[103]Release Data Types: 
+2026-11-08 19:52:06 [INFO] [227110] [227171] [db_runner.h:104] Query data success: SELECT stream_id, task_id, subtask_id,  batch_id, aic_total_time, end_time FROM MetricSummary
+2026-11-08 19:52:06 [INFO] [227110] [227171] [unified_pmu_processor.cpp:303] FormatTaskBasedData.
+2026-11-08 19:52:06 [INFO] [227110] [227176] [db_runner.h:104] Query data success: SELECT a.start_time, a.duration, a.model_id, a.index_id, a.stream_id, a.task_id, a.context_id,a.batch_id, a.connection_id, a.host_task_type, a.device_task_type FROM AscendTask a WHERE a.device_task_type != 'UNKNOWN'
+2026-11-08 19:52:06 [INFO] [227110] [227171] [unified_pmu_processor.cpp:238] GetTaskBasedData, dbPath is /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF/device_0/sqlite/metric_summary.db, column name is aic_total_cycles.
+2026-11-08 19:52:06 [INFO] [227110] [227171] [db_runner.h:91] Start query data
+2026-11-08 19:52:06 [INFO] [227110] [227171] [db_runner.h:104] Query data success: SELECT stream_id, task_id, subtask_id,  batch_id, aic_total_cycles, end_time FROM MetricSummary
+2026-11-08 19:52:06 [INFO] [227110] [227171] [unified_pmu_processor.cpp:303] FormatTaskBasedData.
+2026-11-08 19:52:06 [INFO] [227110] [227177] [db_runner.h:104] Query data success: SELECT hashid, model_id, op_name, stream_id, task_id, block_num, mix_block_num, task_type, op_type, op_flag, batch_id, IFNULL(input_formats, 'NULL'), IFNULL(input_data_types, 'NULL'), IFNULL(input_shapes, 'NULL'), IFNULL(output_formats, 'NULL'), IFNULL(output_data_types, 'NULL'), IFNULL(output_shapes, 'NULL'), device_id, context_id, (case when op_state is 'N/A' then 'N/A' when op_state is '1' then 'dynamic' when op_state is '0' then 'static' end), IFNULL(grid_dim, 'N/A'), IFNULL(block_dim, 'N/A') FROM TaskInfo
+2026-11-08 19:52:07 [INFO] [227110] [227171] [unified_pmu_processor.cpp:238] GetTaskBasedData, dbPath is /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF/device_0/sqlite/metric_summary.db, column name is aic_mac_time.
+2026-11-08 19:52:07 [INFO] [227110] [227171] [db_runner.h:91] Start query data
+2026-11-08 19:52:07 [INFO] [227110] [227171] [db_runner.h:104] Query data success: SELECT stream_id, task_id, subtask_id,  batch_id, aic_mac_time, end_time FROM MetricSummary
+2026-11-08 19:52:07 [INFO] [227110] [227171] [unified_pmu_processor.cpp:303] FormatTaskBasedData.
+2026-11-08 19:52:07 [INFO] [227110] [227177] [data_processor.h:85] Save COMPUTE_TASK_INFO data into dataInventory
+2026-11-08 19:52:07 [INFO] [227110] [227177] [process_control.cpp:333] Level[104]Release Data Types: St13unordered_mapISsSsSt4hashISsESt8equal_toISsESaISt4pairIKSsSsEEE 
+2026-11-08 19:52:07 [INFO] [227110] [227169] [db_assembler.cpp:1676] Begin to save DB:COMPUTE_TASK_INFO data.
+2026-11-08 19:52:07 [INFO] [227110] [227171] [unified_pmu_processor.cpp:238] GetTaskBasedData, dbPath is /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF/device_0/sqlite/metric_summary.db, column name is aic_mac_ratio_extra.
+2026-11-08 19:52:07 [INFO] [227110] [227171] [db_runner.h:91] Start query data
+2026-11-08 19:52:07 [INFO] [227110] [227176] [data_processor.h:73] There are 42005 records before TASK data filtering, filterTime is 1794138718101968000.
+2026-11-08 19:52:07 [INFO] [227110] [227176] [data_processor.h:78] There are 42005 records after TASK data filtering.
+2026-11-08 19:52:07 [INFO] [227110] [227171] [db_runner.h:104] Query data success: SELECT stream_id, task_id, subtask_id,  batch_id, aic_mac_ratio_extra, end_time FROM MetricSummary
+2026-11-08 19:52:07 [INFO] [227110] [227171] [unified_pmu_processor.cpp:303] FormatTaskBasedData.
+2026-11-08 19:52:07 [INFO] [227110] [227176] [data_processor.h:85] Save TASK data into dataInventory
+2026-11-08 19:52:07 [INFO] [227110] [227176] [process_control.cpp:333] Level[105]Release Data Types: 
+2026-11-08 19:52:07 [INFO] [227110] [227173] [data_processor.cpp:39] OVERLAP_ANALYSIS Run. Dir is /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF
+2026-11-08 19:52:07 [INFO] [227110] [227174] [json_assembler.cpp:35] Begin to Assemble Block Detail data
+2026-11-08 19:52:07 [WARN] [227110] [227173] [overlap_analysis_processor.cpp:73] No comm task data found
+2026-11-08 19:52:07 [WARN] [227110] [227174] [block_detail_assembler.cpp:60] Can't get blockDetailData from dataInventory.
+2026-11-08 19:52:07 [WARN] [227110] [227174] [json_assembler.cpp:50] No Block Detail data, don't export deliverable!
+2026-11-08 19:52:07 [INFO] [227110] [227178] [db_assembler.cpp:1676] Begin to save DB:TASK data.
+2026-11-08 19:52:07 [WARN] [227110] [227173] [overlap_analysis_processor.cpp:78] No kfc comm info found
+2026-11-08 19:52:07 [INFO] [227110] [227174] [process_control.cpp:333] Level[106]Release Data Types: 
+2026-11-08 19:52:07 [INFO] [227110] [227171] [unified_pmu_processor.cpp:238] GetTaskBasedData, dbPath is /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF/device_0/sqlite/metric_summary.db, column name is aic_scalar_time.
+2026-11-08 19:52:07 [INFO] [227110] [227171] [db_runner.h:91] Start query data
+2026-11-08 19:52:07 [INFO] [227110] [227173] [overlap_analysis_processor.cpp:176] Find 0 comp tasks not in all tasks.
+2026-11-08 19:52:07 [INFO] [227110] [227173] [time_logger.h:32] sort and union all comp task in overlap analysis for device 0 start
+2026-11-08 19:52:07 [INFO] [227110] [227173] [time_logger.h:39] sort and union all comp task in overlap analysis for device 0 end, cost time = 1 ms
+2026-11-08 19:52:07 [INFO] [227110] [227175] [db_runner.h:104] Query data success: SELECT struct_type, id, level, thread_id, item_id, start, end, connection_id, key FROM ApiData
+2026-11-08 19:52:07 [INFO] [227110] [227173] [data_processor.h:85] Save OVERLAP_ANALYSIS data into dataInventory
+2026-11-08 19:52:07 [INFO] [227110] [227173] [process_control.cpp:333] Level[107]Release Data Types: 
+2026-11-08 19:52:07 [INFO] [227110] [227173] [db_assembler.cpp:1676] Begin to save DB:OVERLAP_ANALYSIS data.
+2026-11-08 19:52:07 [INFO] [227110] [227170] [json_assembler.cpp:35] Begin to Assemble Overlap Analysis data
+2026-11-08 19:52:07 [INFO] [227110] [227173] [db_assembler.h:59] DBAssembler Save OVERLAP_ANALYSIS Data.
+2026-11-08 19:52:07 [INFO] [227110] [227173] [db_runner.cpp:69] Start create OVERLAP_ANALYSIS, sql is CREATE TABLE IF NOT EXISTS OVERLAP_ANALYSIS (id INTEGER PRIMARY KEY, deviceId INTEGER, startNs NUMERIC, endNs NUMERIC, type INTEGER);.
+2026-11-08 19:52:07 [INFO] [227110] [227170] [time_logger.h:32] Generate overlap analysis events start
+2026-11-08 19:52:07 [INFO] [227110] [227173] [db_runner.cpp:82] create OVERLAP_ANALYSIS success
+2026-11-08 19:52:07 [INFO] [227110] [227173] [db_runner.h:71] Start insert data to OVERLAP_ANALYSIS
+2026-11-08 19:52:07 [INFO] [227110] [227171] [db_runner.h:104] Query data success: SELECT stream_id, task_id, subtask_id,  batch_id, aic_scalar_time, end_time FROM MetricSummary
+2026-11-08 19:52:07 [INFO] [227110] [227171] [unified_pmu_processor.cpp:303] FormatTaskBasedData.
+2026-11-08 19:52:07 [INFO] [227110] [227170] [time_logger.h:39] Generate overlap analysis events end, cost time = 31 ms
+2026-11-08 19:52:07 [INFO] [227110] [227170] [time_logger.h:32] Dump overlap analysis events start
+2026-11-08 19:52:07 [INFO] [227110] [227173] [db_runner.h:84] insert data to OVERLAP_ANALYSIS success
+2026-11-08 19:52:07 [INFO] [227110] [227173] [process_control.cpp:333] Level[108]Release Data Types: 
+2026-11-08 19:52:07 [INFO] [227110] [227171] [unified_pmu_processor.cpp:238] GetTaskBasedData, dbPath is /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF/device_0/sqlite/metric_summary.db, column name is aic_scalar_ratio.
+2026-11-08 19:52:07 [INFO] [227110] [227171] [db_runner.h:91] Start query data
+2026-11-08 19:52:07 [INFO] [227110] [227170] [time_logger.h:39] Dump overlap analysis events end, cost time = 24 ms
+2026-11-08 19:52:07 [INFO] [227110] [227171] [db_runner.h:104] Query data success: SELECT stream_id, task_id, subtask_id,  batch_id, aic_scalar_ratio, end_time FROM MetricSummary
+2026-11-08 19:52:07 [INFO] [227110] [227171] [unified_pmu_processor.cpp:303] FormatTaskBasedData.
+2026-11-08 19:52:07 [INFO] [227110] [227170] [json_assembler.cpp:44] Assemble Overlap Analysis data success, begin to export
+2026-11-08 19:52:07 [INFO] [227110] [227170] [process_control.cpp:333] Level[109]Release Data Types: St6vectorIN8Analysis6Domain19OverlapAnalysisDataESaIS2_EE 
+2026-11-08 19:52:07 [INFO] [227110] [227171] [unified_pmu_processor.cpp:238] GetTaskBasedData, dbPath is /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF/device_0/sqlite/metric_summary.db, column name is aic_mte1_time.
+2026-11-08 19:52:07 [INFO] [227110] [227171] [db_runner.h:91] Start query data
+2026-11-08 19:52:07 [INFO] [227110] [227171] [db_runner.h:104] Query data success: SELECT stream_id, task_id, subtask_id,  batch_id, aic_mte1_time, end_time FROM MetricSummary
+2026-11-08 19:52:07 [INFO] [227110] [227171] [unified_pmu_processor.cpp:303] FormatTaskBasedData.
+2026-11-08 19:52:07 [INFO] [227110] [227169] [db_assembler.h:59] DBAssembler Save COMPUTE_TASK_INFO Data.
+2026-11-08 19:52:07 [INFO] [227110] [227169] [db_runner.cpp:69] Start create COMPUTE_TASK_INFO, sql is CREATE TABLE IF NOT EXISTS COMPUTE_TASK_INFO (name INTEGER, globalTaskId INTEGER PRIMARY KEY, blockNum INTEGER, mixBlockNum INTEGER, taskType INTEGER, opType INTEGER, inputFormats INTEGER, inputDataTypes INTEGER, inputShapes INTEGER, outputFormats INTEGER, outputDataTypes INTEGER, outputShapes INTEGER, attrInfo INTEGER, opState INTEGER, hf32Eligible INTEGER, gridDim INTEGER, blockDim INTEGER);.
+2026-11-08 19:52:07 [INFO] [227110] [227169] [db_runner.cpp:82] create COMPUTE_TASK_INFO success
+2026-11-08 19:52:07 [INFO] [227110] [227169] [db_runner.h:71] Start insert data to COMPUTE_TASK_INFO
+2026-11-08 19:52:07 [INFO] [227110] [227178] [db_assembler.h:59] DBAssembler Save TASK Data.
+2026-11-08 19:52:07 [INFO] [227110] [227178] [db_runner.cpp:69] Start create TASK, sql is CREATE TABLE IF NOT EXISTS TASK (startNs INTEGER, endNs INTEGER, deviceId INTEGER, connectionId INTEGER, globalTaskId INTEGER, globalPid INTEGER, taskType INTEGER, contextId INTEGER, streamId INTEGER, taskId INTEGER, modelId INTEGER);.
+2026-11-08 19:52:07 [INFO] [227110] [227171] [unified_pmu_processor.cpp:238] GetTaskBasedData, dbPath is /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF/device_0/sqlite/metric_summary.db, column name is aic_mte1_ratio_extra.
+2026-11-08 19:52:07 [INFO] [227110] [227171] [db_runner.h:91] Start query data
+2026-11-08 19:52:07 [INFO] [227110] [227169] [db_runner.h:84] insert data to COMPUTE_TASK_INFO success
+2026-11-08 19:52:07 [INFO] [227110] [227169] [process_control.cpp:333] Level[110]Release Data Types: 
+2026-11-08 19:52:07 [INFO] [227110] [227178] [db_runner.cpp:82] create TASK success
+2026-11-08 19:52:07 [INFO] [227110] [227178] [db_runner.h:71] Start insert data to TASK
+2026-11-08 19:52:07 [INFO] [227110] [227171] [db_runner.h:104] Query data success: SELECT stream_id, task_id, subtask_id,  batch_id, aic_mte1_ratio_extra, end_time FROM MetricSummary
+2026-11-08 19:52:07 [INFO] [227110] [227171] [unified_pmu_processor.cpp:303] FormatTaskBasedData.
+2026-11-08 19:52:07 [INFO] [227110] [227178] [db_runner.h:84] insert data to TASK success
+2026-11-08 19:52:07 [INFO] [227110] [227178] [db_assembler.cpp:155] Processor CreateTableIndex, table is TASK , indexName is TaskIndex.
+2026-11-08 19:52:07 [INFO] [227110] [227178] [db_runner.cpp:124] Start create TASK index, sql is CREATE INDEX IF NOT EXISTS TaskIndex ON TASK (startNs,globalTaskId);.
+2026-11-08 19:52:07 [INFO] [227110] [227178] [db_runner.cpp:137] create TASK index success
+2026-11-08 19:52:07 [INFO] [227110] [227178] [process_control.cpp:333] Level[111]Release Data Types: 
+2026-11-08 19:52:07 [INFO] [227110] [227171] [unified_pmu_processor.cpp:238] GetTaskBasedData, dbPath is /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF/device_0/sqlite/metric_summary.db, column name is aic_mte2_time.
+2026-11-08 19:52:07 [INFO] [227110] [227171] [db_runner.h:91] Start query data
+2026-11-08 19:52:07 [INFO] [227110] [227171] [db_runner.h:104] Query data success: SELECT stream_id, task_id, subtask_id,  batch_id, aic_mte2_time, end_time FROM MetricSummary
+2026-11-08 19:52:07 [INFO] [227110] [227171] [unified_pmu_processor.cpp:303] FormatTaskBasedData.
+2026-11-08 19:52:07 [INFO] [227110] [227171] [unified_pmu_processor.cpp:238] GetTaskBasedData, dbPath is /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF/device_0/sqlite/metric_summary.db, column name is aic_mte2_ratio.
+2026-11-08 19:52:07 [INFO] [227110] [227171] [db_runner.h:91] Start query data
+2026-11-08 19:52:07 [INFO] [227110] [227171] [db_runner.h:104] Query data success: SELECT stream_id, task_id, subtask_id,  batch_id, aic_mte2_ratio, end_time FROM MetricSummary
+2026-11-08 19:52:07 [INFO] [227110] [227171] [unified_pmu_processor.cpp:303] FormatTaskBasedData.
+2026-11-08 19:52:07 [INFO] [227110] [227171] [unified_pmu_processor.cpp:238] GetTaskBasedData, dbPath is /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF/device_0/sqlite/metric_summary.db, column name is aic_fixpipe_time.
+2026-11-08 19:52:07 [INFO] [227110] [227171] [db_runner.h:91] Start query data
+2026-11-08 19:52:07 [INFO] [227110] [227171] [db_runner.h:104] Query data success: SELECT stream_id, task_id, subtask_id,  batch_id, aic_fixpipe_time, end_time FROM MetricSummary
+2026-11-08 19:52:07 [INFO] [227110] [227171] [unified_pmu_processor.cpp:303] FormatTaskBasedData.
+2026-11-08 19:52:07 [INFO] [227110] [227171] [unified_pmu_processor.cpp:238] GetTaskBasedData, dbPath is /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF/device_0/sqlite/metric_summary.db, column name is aic_fixpipe_ratio.
+2026-11-08 19:52:07 [INFO] [227110] [227171] [db_runner.h:91] Start query data
+2026-11-08 19:52:07 [INFO] [227110] [227171] [db_runner.h:104] Query data success: SELECT stream_id, task_id, subtask_id,  batch_id, aic_fixpipe_ratio, end_time FROM MetricSummary
+2026-11-08 19:52:07 [INFO] [227110] [227171] [unified_pmu_processor.cpp:303] FormatTaskBasedData.
+2026-11-08 19:52:07 [INFO] [227110] [227171] [unified_pmu_processor.cpp:238] GetTaskBasedData, dbPath is /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF/device_0/sqlite/metric_summary.db, column name is aic_icache_miss_rate.
+2026-11-08 19:52:07 [INFO] [227110] [227171] [db_runner.h:91] Start query data
+2026-11-08 19:52:07 [INFO] [227110] [227171] [db_runner.h:104] Query data success: SELECT stream_id, task_id, subtask_id,  batch_id, aic_icache_miss_rate, end_time FROM MetricSummary
+2026-11-08 19:52:07 [INFO] [227110] [227171] [unified_pmu_processor.cpp:303] FormatTaskBasedData.
+2026-11-08 19:52:07 [INFO] [227110] [227171] [unified_pmu_processor.cpp:238] GetTaskBasedData, dbPath is /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF/device_0/sqlite/metric_summary.db, column name is aiv_total_time.
+2026-11-08 19:52:07 [INFO] [227110] [227171] [db_runner.h:91] Start query data
+2026-11-08 19:52:07 [INFO] [227110] [227171] [db_runner.h:104] Query data success: SELECT stream_id, task_id, subtask_id,  batch_id, aiv_total_time, end_time FROM MetricSummary
+2026-11-08 19:52:07 [INFO] [227110] [227171] [unified_pmu_processor.cpp:303] FormatTaskBasedData.
+2026-11-08 19:52:07 [INFO] [227110] [227171] [unified_pmu_processor.cpp:238] GetTaskBasedData, dbPath is /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF/device_0/sqlite/metric_summary.db, column name is aiv_total_cycles.
+2026-11-08 19:52:07 [INFO] [227110] [227171] [db_runner.h:91] Start query data
+2026-11-08 19:52:07 [INFO] [227110] [227171] [db_runner.h:104] Query data success: SELECT stream_id, task_id, subtask_id,  batch_id, aiv_total_cycles, end_time FROM MetricSummary
+2026-11-08 19:52:07 [INFO] [227110] [227171] [unified_pmu_processor.cpp:303] FormatTaskBasedData.
+2026-11-08 19:52:07 [INFO] [227110] [227171] [unified_pmu_processor.cpp:238] GetTaskBasedData, dbPath is /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF/device_0/sqlite/metric_summary.db, column name is aiv_vec_time.
+2026-11-08 19:52:07 [INFO] [227110] [227171] [db_runner.h:91] Start query data
+2026-11-08 19:52:07 [INFO] [227110] [227171] [db_runner.h:104] Query data success: SELECT stream_id, task_id, subtask_id,  batch_id, aiv_vec_time, end_time FROM MetricSummary
+2026-11-08 19:52:07 [INFO] [227110] [227171] [unified_pmu_processor.cpp:303] FormatTaskBasedData.
+2026-11-08 19:52:07 [INFO] [227110] [227171] [unified_pmu_processor.cpp:238] GetTaskBasedData, dbPath is /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF/device_0/sqlite/metric_summary.db, column name is aiv_vec_ratio.
+2026-11-08 19:52:07 [INFO] [227110] [227171] [db_runner.h:91] Start query data
+2026-11-08 19:52:07 [INFO] [227110] [227171] [db_runner.h:104] Query data success: SELECT stream_id, task_id, subtask_id,  batch_id, aiv_vec_ratio, end_time FROM MetricSummary
+2026-11-08 19:52:07 [INFO] [227110] [227171] [unified_pmu_processor.cpp:303] FormatTaskBasedData.
+2026-11-08 19:52:07 [INFO] [227110] [227171] [unified_pmu_processor.cpp:238] GetTaskBasedData, dbPath is /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF/device_0/sqlite/metric_summary.db, column name is aiv_mac_time.
+2026-11-08 19:52:07 [INFO] [227110] [227171] [db_runner.h:91] Start query data
+2026-11-08 19:52:07 [INFO] [227110] [227171] [db_runner.h:104] Query data success: SELECT stream_id, task_id, subtask_id,  batch_id, aiv_mac_time, end_time FROM MetricSummary
+2026-11-08 19:52:07 [INFO] [227110] [227171] [unified_pmu_processor.cpp:303] FormatTaskBasedData.
+2026-11-08 19:52:08 [INFO] [227110] [227171] [unified_pmu_processor.cpp:238] GetTaskBasedData, dbPath is /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF/device_0/sqlite/metric_summary.db, column name is aiv_mac_ratio.
+2026-11-08 19:52:08 [INFO] [227110] [227171] [db_runner.h:91] Start query data
+2026-11-08 19:52:08 [INFO] [227110] [227171] [db_runner.h:104] Query data success: SELECT stream_id, task_id, subtask_id,  batch_id, aiv_mac_ratio, end_time FROM MetricSummary
+2026-11-08 19:52:08 [INFO] [227110] [227171] [unified_pmu_processor.cpp:303] FormatTaskBasedData.
+2026-11-08 19:52:08 [INFO] [227110] [227171] [unified_pmu_processor.cpp:238] GetTaskBasedData, dbPath is /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF/device_0/sqlite/metric_summary.db, column name is aiv_scalar_time.
+2026-11-08 19:52:08 [INFO] [227110] [227171] [db_runner.h:91] Start query data
+2026-11-08 19:52:08 [INFO] [227110] [227171] [db_runner.h:104] Query data success: SELECT stream_id, task_id, subtask_id,  batch_id, aiv_scalar_time, end_time FROM MetricSummary
+2026-11-08 19:52:08 [INFO] [227110] [227171] [unified_pmu_processor.cpp:303] FormatTaskBasedData.
+2026-11-08 19:52:08 [INFO] [227110] [227171] [unified_pmu_processor.cpp:238] GetTaskBasedData, dbPath is /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF/device_0/sqlite/metric_summary.db, column name is aiv_scalar_ratio.
+2026-11-08 19:52:08 [INFO] [227110] [227171] [db_runner.h:91] Start query data
+2026-11-08 19:52:08 [INFO] [227110] [227171] [db_runner.h:104] Query data success: SELECT stream_id, task_id, subtask_id,  batch_id, aiv_scalar_ratio, end_time FROM MetricSummary
+2026-11-08 19:52:08 [INFO] [227110] [227171] [unified_pmu_processor.cpp:303] FormatTaskBasedData.
+2026-11-08 19:52:08 [INFO] [227110] [227171] [unified_pmu_processor.cpp:238] GetTaskBasedData, dbPath is /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF/device_0/sqlite/metric_summary.db, column name is aiv_mte1_time.
+2026-11-08 19:52:08 [INFO] [227110] [227171] [db_runner.h:91] Start query data
+2026-11-08 19:52:08 [INFO] [227110] [227171] [db_runner.h:104] Query data success: SELECT stream_id, task_id, subtask_id,  batch_id, aiv_mte1_time, end_time FROM MetricSummary
+2026-11-08 19:52:08 [INFO] [227110] [227171] [unified_pmu_processor.cpp:303] FormatTaskBasedData.
+2026-11-08 19:52:08 [INFO] [227110] [227171] [unified_pmu_processor.cpp:238] GetTaskBasedData, dbPath is /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF/device_0/sqlite/metric_summary.db, column name is aiv_mte1_ratio.
+2026-11-08 19:52:08 [INFO] [227110] [227171] [db_runner.h:91] Start query data
+2026-11-08 19:52:08 [INFO] [227110] [227171] [db_runner.h:104] Query data success: SELECT stream_id, task_id, subtask_id,  batch_id, aiv_mte1_ratio, end_time FROM MetricSummary
+2026-11-08 19:52:08 [INFO] [227110] [227171] [unified_pmu_processor.cpp:303] FormatTaskBasedData.
+2026-11-08 19:52:08 [INFO] [227110] [227171] [unified_pmu_processor.cpp:238] GetTaskBasedData, dbPath is /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF/device_0/sqlite/metric_summary.db, column name is aiv_mte2_time.
+2026-11-08 19:52:08 [INFO] [227110] [227171] [db_runner.h:91] Start query data
+2026-11-08 19:52:08 [INFO] [227110] [227171] [db_runner.h:104] Query data success: SELECT stream_id, task_id, subtask_id,  batch_id, aiv_mte2_time, end_time FROM MetricSummary
+2026-11-08 19:52:08 [INFO] [227110] [227171] [unified_pmu_processor.cpp:303] FormatTaskBasedData.
+2026-11-08 19:52:08 [INFO] [227110] [227171] [unified_pmu_processor.cpp:238] GetTaskBasedData, dbPath is /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF/device_0/sqlite/metric_summary.db, column name is aiv_mte2_ratio.
+2026-11-08 19:52:08 [INFO] [227110] [227171] [db_runner.h:91] Start query data
+2026-11-08 19:52:08 [INFO] [227110] [227171] [db_runner.h:104] Query data success: SELECT stream_id, task_id, subtask_id,  batch_id, aiv_mte2_ratio, end_time FROM MetricSummary
+2026-11-08 19:52:08 [INFO] [227110] [227171] [unified_pmu_processor.cpp:303] FormatTaskBasedData.
+2026-11-08 19:52:08 [INFO] [227110] [227171] [unified_pmu_processor.cpp:238] GetTaskBasedData, dbPath is /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF/device_0/sqlite/metric_summary.db, column name is aiv_mte3_time.
+2026-11-08 19:52:08 [INFO] [227110] [227171] [db_runner.h:91] Start query data
+2026-11-08 19:52:08 [INFO] [227110] [227171] [db_runner.h:104] Query data success: SELECT stream_id, task_id, subtask_id,  batch_id, aiv_mte3_time, end_time FROM MetricSummary
+2026-11-08 19:52:08 [INFO] [227110] [227171] [unified_pmu_processor.cpp:303] FormatTaskBasedData.
+2026-11-08 19:52:08 [INFO] [227110] [227171] [unified_pmu_processor.cpp:238] GetTaskBasedData, dbPath is /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF/device_0/sqlite/metric_summary.db, column name is aiv_mte3_ratio.
+2026-11-08 19:52:08 [INFO] [227110] [227171] [db_runner.h:91] Start query data
+2026-11-08 19:52:08 [INFO] [227110] [227171] [db_runner.h:104] Query data success: SELECT stream_id, task_id, subtask_id,  batch_id, aiv_mte3_ratio, end_time FROM MetricSummary
+2026-11-08 19:52:08 [INFO] [227110] [227171] [unified_pmu_processor.cpp:303] FormatTaskBasedData.
+2026-11-08 19:52:08 [INFO] [227110] [227171] [unified_pmu_processor.cpp:238] GetTaskBasedData, dbPath is /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF/device_0/sqlite/metric_summary.db, column name is aiv_icache_miss_rate.
+2026-11-08 19:52:08 [INFO] [227110] [227171] [db_runner.h:91] Start query data
+2026-11-08 19:52:08 [INFO] [227110] [227171] [db_runner.h:104] Query data success: SELECT stream_id, task_id, subtask_id,  batch_id, aiv_icache_miss_rate, end_time FROM MetricSummary
+2026-11-08 19:52:08 [INFO] [227110] [227171] [unified_pmu_processor.cpp:303] FormatTaskBasedData.
+2026-11-08 19:52:08 [INFO] [227110] [227171] [unified_pmu_processor.cpp:223] This column[end_time] does not need to be processed.
+2026-11-08 19:52:08 [INFO] [227110] [227171] [data_processor.h:85] Save TASK_PMU_INFO data into dataInventory
+2026-11-08 19:52:08 [INFO] [227110] [227171] [process_control.cpp:333] Level[112]Release Data Types: 
+2026-11-08 19:52:08 [INFO] [227110] [227176] [db_assembler.cpp:1676] Begin to save DB:SAMPLE_PMU_TIMELINE data.
+2026-11-08 19:52:08 [INFO] [227110] [227177] [db_assembler.cpp:1676] Begin to save DB:SAMPLE_PMU_SUMMARY data.
+2026-11-08 19:52:08 [WARN] [227110] [227176] [db_assembler.cpp:1018] UnifiedSampleTimelinePmu data not exist.
+2026-11-08 19:52:08 [INFO] [227110] [227174] [db_assembler.cpp:1676] Begin to save DB:TASK_PMU_INFO data.
+2026-11-08 19:52:08 [INFO] [227110] [227176] [process_control.cpp:333] Level[113]Release Data Types: 
+2026-11-08 19:52:08 [WARN] [227110] [227177] [db_assembler.cpp:1045] UnifiedSampleSummaryPmu data not exist.
+2026-11-08 19:52:08 [INFO] [227110] [227177] [process_control.cpp:333] Level[114]Release Data Types: 
+2026-11-08 19:52:09 [INFO] [227110] [227175] [data_processor.h:73] There are 336586 records before API data filtering, filterTime is 1794138718100241000.
+2026-11-08 19:52:09 [INFO] [227110] [227175] [data_processor.h:78] There are 336586 records after API data filtering.
+2026-11-08 19:52:09 [INFO] [227110] [227175] [data_processor.h:85] Save API data into dataInventory
+2026-11-08 19:52:09 [INFO] [227110] [227175] [process_control.cpp:333] Level[115]Release Data Types: 
+2026-11-08 19:52:09 [INFO] [227110] [227172] [json_assembler.cpp:35] Begin to Assemble Api data
+2026-11-08 19:52:09 [INFO] [227110] [227170] [db_assembler.cpp:1676] Begin to save DB:API data.
+2026-11-08 19:52:09 [INFO] [227110] [227175] [json_assembler.cpp:35] Begin to Assemble Task Scheduler data
+2026-11-08 19:52:09 [INFO] [227110] [227170] [db_assembler.h:59] DBAssembler Save CANN_API Data.
+2026-11-08 19:52:09 [INFO] [227110] [227170] [db_runner.cpp:69] Start create CANN_API, sql is CREATE TABLE IF NOT EXISTS CANN_API (startNs INTEGER, endNs INTEGER, type INTEGER, globalTid INTEGER, connectionId INTEGER PRIMARY KEY, name INTEGER);.
+2026-11-08 19:52:09 [INFO] [227110] [227170] [db_runner.cpp:82] create CANN_API success
+2026-11-08 19:52:09 [INFO] [227110] [227170] [db_runner.h:71] Start insert data to CANN_API
+2026-11-08 19:52:09 [INFO] [227110] [227175] [json_assembler.cpp:44] Assemble Task Scheduler data success, begin to export
+2026-11-08 19:52:09 [INFO] [227110] [227175] [process_control.cpp:333] Level[116]Release Data Types: St6vectorIN8Analysis6Domain12TaskInfoDataESaIS2_EE 
+2026-11-08 19:52:09 [INFO] [227110] [227170] [db_runner.h:84] insert data to CANN_API success
+2026-11-08 19:52:09 [INFO] [227110] [227170] [process_control.cpp:333] Level[117]Release Data Types: 
+2026-11-08 19:52:09 [INFO] [227110] [227172] [json_assembler.cpp:44] Assemble Api data success, begin to export
+2026-11-08 19:52:10 [INFO] [227110] [227174] [db_assembler.h:59] DBAssembler Save TASK_PMU_INFO Data.
+2026-11-08 19:52:10 [INFO] [227110] [227174] [db_runner.cpp:69] Start create TASK_PMU_INFO, sql is CREATE TABLE IF NOT EXISTS TASK_PMU_INFO (timestampNs INTEGER, globalTaskId INTEGER, name INTEGER, value NUMERIC);.
+2026-11-08 19:52:10 [INFO] [227110] [227174] [db_runner.cpp:82] create TASK_PMU_INFO success
+2026-11-08 19:52:10 [INFO] [227110] [227174] [db_runner.h:71] Start insert data to TASK_PMU_INFO
+2026-11-08 19:52:10 [INFO] [227110] [227172] [process_control.cpp:333] Level[118]Release Data Types: St6vectorIN8Analysis6Domain14AscendTaskDataESaIS2_EE St6vectorIN8Analysis6Domain7ApiDataESaIS2_EE 
+2026-11-08 19:52:10 [INFO] [227110] [227169] [process_control.cpp:333] Level[119]Release Data Types: 
+2026-11-08 19:52:10 [INFO] [227110] [227174] [db_runner.h:84] insert data to TASK_PMU_INFO success
+2026-11-08 19:52:10 [INFO] [227110] [227174] [process_control.cpp:333] Level[120]Release Data Types: St6vectorIN8Analysis6Domain14UnifiedTaskPmuESaIS2_EE 
+2026-11-08 19:52:10 [INFO] [227110] [227178] [db_assembler.h:59] DBAssembler Save STRING_IDS Data.
+2026-11-08 19:52:10 [INFO] [227110] [227178] [db_runner.cpp:69] Start create STRING_IDS, sql is CREATE TABLE IF NOT EXISTS STRING_IDS (id INTEGER PRIMARY KEY, value TEXT);.
+2026-11-08 19:52:10 [INFO] [227110] [227178] [db_runner.cpp:82] create STRING_IDS success
+2026-11-08 19:52:10 [INFO] [227110] [227178] [db_runner.h:71] Start insert data to STRING_IDS
+2026-11-08 19:52:10 [INFO] [227110] [227178] [db_runner.h:84] insert data to STRING_IDS success
+2026-11-08 19:52:10 [INFO] [227110] [227178] [process_control.cpp:333] Level[121]Release Data Types: 
+2026-11-08 19:52:10 [INFO] [227110] [227110] [py_init_parser.cpp:220] C pipeline finished, prof path: /mnt/workspace/2329-JadeYara-20261104-1812/J079/swapped/profile/PROF_000001_20261108195157648_00227072HAICMNNF, flags: 0xb.

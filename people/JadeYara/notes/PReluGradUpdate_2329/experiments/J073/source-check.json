@@ -1,0 +1,9 @@
+{
+  "modified": [
+    "op_host/p_relu_grad_update_tiling.cpp"
+  ],
+  "kernel_files_identical": true,
+  "J072_host_diff_only_general_budget": true,
+  "partition_model_checks": 140112,
+  "core_rule": "min(hw,max(4,ceil(total/2048)))"
+}

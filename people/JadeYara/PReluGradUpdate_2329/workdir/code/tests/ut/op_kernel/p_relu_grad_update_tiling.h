@@ -27,9 +27,10 @@
 #define __ubuf__
 #endif
 
-inline void InitTilingData(uint8_t *tiling, PReluGradUpdateTilingData *constData)
+template <typename TilingData>
+inline void InitTilingData(uint8_t *tiling, TilingData *constData)
 {
-    memcpy(constData, tiling, sizeof(PReluGradUpdateTilingData));
+    memcpy(constData, tiling, sizeof(TilingData));
 }
 
 #define GET_TILING_DATA_WITH_STRUCT(tilingStruct, tilingData, tilingArg) \

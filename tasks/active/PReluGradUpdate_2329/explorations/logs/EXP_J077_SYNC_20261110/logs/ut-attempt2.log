@@ -1,0 +1,110 @@
+[INFO] Running UT tests...
+-- ASCEND_HOME_PATH: /home/developer/Ascend/cann-9.3.0
+CMake Deprecation Warning at /usr/src/googletest/CMakeLists.txt:4 (cmake_minimum_required):
+  Compatibility with CMake < 2.8.12 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value or use a ...<max> suffix to tell
+  CMake that the project does not need compatibility with older versions.
+
+
+CMake Deprecation Warning at /usr/src/googletest/googlemock/CMakeLists.txt:45 (cmake_minimum_required):
+  Compatibility with CMake < 2.8.12 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value or use a ...<max> suffix to tell
+  CMake that the project does not need compatibility with older versions.
+
+
+CMake Deprecation Warning at /usr/src/googletest/googletest/CMakeLists.txt:56 (cmake_minimum_required):
+  Compatibility with CMake < 2.8.12 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value or use a ...<max> suffix to tell
+  CMake that the project does not need compatibility with older versions.
+
+
+-- Build Type: Debug
+-- Building UT for SOC_VERSION: ascend910_93
+-- Building op_kernel UT for: p_relu_grad_update
+-- Using CANN_HOME: /home/developer/Ascend/cann-9.3.0
+--   Kernel UT executable: p_relu_grad_update_op_kernel_ut
+--   CANN Home: /home/developer/Ascend/cann-9.3.0
+--   SOC Version: Ascend910B1
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /mnt/workspace/2329-JadeYara-20261104-1812/J077/candidate/code/tests/ut/build
+.......
+----------------------------------------------------------------------
+Ran 7 tests in 0.016s
+
+OK
+Consolidate compiler generated dependencies of target gtest
+Consolidate compiler generated dependencies of target p_relu_grad_update_op_host_ut_lib
+[  5%] Building CXX object gtest/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.o
+[ 29%] Built target p_relu_grad_update_op_host_ut_lib
+[ 35%] Linking CXX static library ../../lib/libgtestd.a
+[ 35%] Built target gtest
+Consolidate compiler generated dependencies of target gtest_main
+[ 41%] Building CXX object gtest/googletest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.o
+[ 47%] Linking CXX static library ../../lib/libgtest_maind.a
+[ 47%] Built target gtest_main
+Consolidate compiler generated dependencies of target p_relu_grad_update_op_host_ut
+Consolidate compiler generated dependencies of target p_relu_grad_update_op_kernel_ut
+[ 52%] Linking CXX executable p_relu_grad_update_op_host_ut
+[ 58%] Linking CXX executable p_relu_grad_update_op_kernel_ut
+[ 64%] Built target p_relu_grad_update_op_kernel_ut
+[100%] Built target p_relu_grad_update_op_host_ut
+[==========] Running 9 tests from 2 test suites.
+[----------] Global test environment set-up.
+Global Environment SetUp.
+Loading op_host .so from: /mnt/workspace/2329-JadeYara-20261104-1812/J077/candidate/code/tests/ut/build/op_host/libp_relu_grad_update_op_host_ut_lib.so
+OpImplSpaceRegistryV2 initialized successfully
+[----------] 3 tests from GeneralTiling
+[ RUN      ] GeneralTiling.BroadcastUsesItsOwnMetadata
+[       OK ] GeneralTiling.BroadcastUsesItsOwnMetadata (0 ms)
+[ RUN      ] GeneralTiling.EmptyOutputIsOneBlockNoOp
+[       OK ] GeneralTiling.EmptyOutputIsOneBlockNoOp (0 ms)
+[ RUN      ] GeneralTiling.RejectsWeightExpansionAndWrongOutput
+[       OK ] GeneralTiling.RejectsWeightExpansionAndWrongOutput (4 ms)
+[----------] 3 tests from GeneralTiling (4 ms total)
+
+[----------] 6 tests from Dtypes/LegacyTiling
+[ RUN      ] Dtypes/LegacyTiling.ChannelSampleCoversEveryElement/0
+[       OK ] Dtypes/LegacyTiling.ChannelSampleCoversEveryElement/0 (0 ms)
+[ RUN      ] Dtypes/LegacyTiling.ChannelSampleCoversEveryElement/1
+[       OK ] Dtypes/LegacyTiling.ChannelSampleCoversEveryElement/1 (0 ms)
+[ RUN      ] Dtypes/LegacyTiling.ChannelSampleCoversEveryElement/2
+[       OK ] Dtypes/LegacyTiling.ChannelSampleCoversEveryElement/2 (0 ms)
+[ RUN      ] Dtypes/LegacyTiling.ScalarWeightUsesFourCores/0
+[       OK ] Dtypes/LegacyTiling.ScalarWeightUsesFourCores/0 (1 ms)
+[ RUN      ] Dtypes/LegacyTiling.ScalarWeightUsesFourCores/1
+[       OK ] Dtypes/LegacyTiling.ScalarWeightUsesFourCores/1 (0 ms)
+[ RUN      ] Dtypes/LegacyTiling.ScalarWeightUsesFourCores/2
+[       OK ] Dtypes/LegacyTiling.ScalarWeightUsesFourCores/2 (0 ms)
+[----------] 6 tests from Dtypes/LegacyTiling (1 ms total)
+
+[----------] Global test environment tear-down
+Global Environment TearDown
+[==========] 9 tests from 2 test suites ran. (8 ms total)
+[  PASSED  ] 9 tests.
+Sample data generated.
+Running main() from /usr/src/googletest/googletest/src/gtest_main.cc
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from PReluGradUpdateKernelTest
+PReluGradUpdateKernelTest SetUp
+[ RUN      ] PReluGradUpdateKernelTest.test_kernel_run
+[TmSim]: Run in serial mode.
+[SUCCESS][CORE_0][pid 179089] exit success!
+[       OK ] PReluGradUpdateKernelTest.test_kernel_run (700 ms)
+PReluGradUpdateKernelTest TearDown
+[----------] 1 test from PReluGradUpdateKernelTest (700 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (700 ms total)
+[  PASSED  ] 1 test.
+PASS: dx.bin, mismatched=0/192
+PASS: update.bin, mismatched=0/192
+PASSED
+[INFO] UT command completed; see PASS/SKIPPED results above.

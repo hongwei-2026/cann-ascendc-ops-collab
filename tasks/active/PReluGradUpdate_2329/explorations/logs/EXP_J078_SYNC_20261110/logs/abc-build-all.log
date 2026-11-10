@@ -1,0 +1,473 @@
+[  3%] Generating scripts/install.sh, scripts/upgrade.sh, scripts/uninstall.sh
+[ 10%] Building CXX object op_host/CMakeFiles/cust_opapi.dir/__/autogen/aclnn_p_relu_grad_update_a.cpp.o
+[ 10%] Building CXX object op_host/CMakeFiles/cust_optiling.dir/p_relu_grad_update_a_def.cpp.o
+[ 10%] Built target gen_version_info
+[ 13%] Building CXX object op_host/CMakeFiles/cust_opapi.dir/__/autogen/aclnn_p_relu_grad_update_b.cpp.o
+[ 13%] Built target modify_vendor
+[ 17%] Building CXX object op_host/CMakeFiles/cust_opapi.dir/__/autogen/aclnn_p_relu_grad_update_c.cpp.o
+[ 20%] Building CXX object op_host/CMakeFiles/cust_op_proto.dir/p_relu_grad_update_a_def.cpp.o
+[ 24%] Building CXX object op_host/CMakeFiles/cust_op_proto.dir/p_relu_grad_update_b_def.cpp.o
+[ 24%] Built target cust_opapi
+[ 27%] Building CXX object op_host/CMakeFiles/cust_op_proto.dir/p_relu_grad_update_c_def.cpp.o
+In file included from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/external/ge_common/api_error_codes.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/continuous_vector.h:20,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/runtime_attrs.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/infer_shape_context.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/register/op_impl_registry.h:19,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/register/op_def.h:19,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/register/op_def_registry.h:14,
+                 from /mnt/workspace/2329-JadeYara-20261104-1812/J078/abc/code/op_host/p_relu_grad_update_a_def.cpp:5:
+/home/developer/Ascend/cann-9.3.0/aarch64-linux/include/external/ge_common/ge_error_codes.h:15:122: note: #pragma message: Warning: ge_error_codes.h is deprecated and will be removed after 2027-06. Include "graph/error_codes.h" instead.
+   15 |     "Warning: ge_error_codes.h is deprecated and will be removed after 2027-06. Include \"graph/error_codes.h\" instead.")
+      |                                                                                                                          ^
+In file included from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/external/ge_common/api_error_codes.h:17,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/continuous_vector.h:20,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/runtime_attrs.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/infer_shape_context.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/register/op_impl_registry.h:19,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/register/op_def.h:19,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/register/op_def_registry.h:14,
+                 from /mnt/workspace/2329-JadeYara-20261104-1812/J078/abc/code/op_host/p_relu_grad_update_a_def.cpp:5:
+/home/developer/Ascend/cann-9.3.0/aarch64-linux/include/external/ge_common/ge_api_types.h:15:122: note: #pragma message: Warning: ge_api_types.h is deprecated and will be removed after 2027-06. Include "ge_common_api_types.h" instead.
+   15 |     "Warning: ge_api_types.h is deprecated and will be removed after 2027-06. Include \"ge_common_api_types.h\" instead.")
+      |                                                                                                                          ^
+In file included from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/external/ge_common/api_error_codes.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/continuous_vector.h:20,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/runtime_attrs.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/infer_shape_context.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/register/op_impl_registry.h:19,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/register/op_def.h:19,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/register/op_def_registry.h:14,
+                 from /mnt/workspace/2329-JadeYara-20261104-1812/J078/abc/code/op_host/p_relu_grad_update_a_def.cpp:5:
+/home/developer/Ascend/cann-9.3.0/aarch64-linux/include/external/ge_common/ge_error_codes.h:15:122: note: #pragma message: Warning: ge_error_codes.h is deprecated and will be removed after 2027-06. Include "graph/error_codes.h" instead.
+   15 |     "Warning: ge_error_codes.h is deprecated and will be removed after 2027-06. Include \"graph/error_codes.h\" instead.")
+      |                                                                                                                          ^
+In file included from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/external/ge_common/api_error_codes.h:17,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/continuous_vector.h:20,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/runtime_attrs.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/infer_shape_context.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/register/op_impl_registry.h:19,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/register/op_def.h:19,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/register/op_def_registry.h:14,
+                 from /mnt/workspace/2329-JadeYara-20261104-1812/J078/abc/code/op_host/p_relu_grad_update_a_def.cpp:5:
+/home/developer/Ascend/cann-9.3.0/aarch64-linux/include/external/ge_common/ge_api_types.h:15:122: note: #pragma message: Warning: ge_api_types.h is deprecated and will be removed after 2027-06. Include "ge_common_api_types.h" instead.
+   15 |     "Warning: ge_api_types.h is deprecated and will be removed after 2027-06. Include \"ge_common_api_types.h\" instead.")
+      |                                                                                                                          ^
+In file included from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/external/ge_common/api_error_codes.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/continuous_vector.h:20,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/runtime_attrs.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/infer_shape_context.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/register/op_impl_registry.h:19,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/register/op_def.h:19,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/register/op_def_registry.h:14,
+                 from /mnt/workspace/2329-JadeYara-20261104-1812/J078/abc/code/op_host/p_relu_grad_update_b_def.cpp:5:
+/home/developer/Ascend/cann-9.3.0/aarch64-linux/include/external/ge_common/ge_error_codes.h:15:122: note: #pragma message: Warning: ge_error_codes.h is deprecated and will be removed after 2027-06. Include "graph/error_codes.h" instead.
+   15 |     "Warning: ge_error_codes.h is deprecated and will be removed after 2027-06. Include \"graph/error_codes.h\" instead.")
+      |                                                                                                                          ^
+In file included from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/external/ge_common/api_error_codes.h:17,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/continuous_vector.h:20,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/runtime_attrs.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/infer_shape_context.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/register/op_impl_registry.h:19,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/register/op_def.h:19,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/register/op_def_registry.h:14,
+                 from /mnt/workspace/2329-JadeYara-20261104-1812/J078/abc/code/op_host/p_relu_grad_update_b_def.cpp:5:
+/home/developer/Ascend/cann-9.3.0/aarch64-linux/include/external/ge_common/ge_api_types.h:15:122: note: #pragma message: Warning: ge_api_types.h is deprecated and will be removed after 2027-06. Include "ge_common_api_types.h" instead.
+   15 |     "Warning: ge_api_types.h is deprecated and will be removed after 2027-06. Include \"ge_common_api_types.h\" instead.")
+      |                                                                                                                          ^
+In file included from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/external/ge_common/api_error_codes.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/continuous_vector.h:20,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/runtime_attrs.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/infer_shape_context.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/register/op_impl_registry.h:19,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/register/op_def.h:19,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/register/op_def_registry.h:14,
+                 from /mnt/workspace/2329-JadeYara-20261104-1812/J078/abc/code/op_host/p_relu_grad_update_c_def.cpp:5:
+/home/developer/Ascend/cann-9.3.0/aarch64-linux/include/external/ge_common/ge_error_codes.h:15:122: note: #pragma message: Warning: ge_error_codes.h is deprecated and will be removed after 2027-06. Include "graph/error_codes.h" instead.
+   15 |     "Warning: ge_error_codes.h is deprecated and will be removed after 2027-06. Include \"graph/error_codes.h\" instead.")
+      |                                                                                                                          ^
+In file included from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/external/ge_common/api_error_codes.h:17,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/continuous_vector.h:20,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/runtime_attrs.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/infer_shape_context.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/register/op_impl_registry.h:19,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/register/op_def.h:19,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/register/op_def_registry.h:14,
+                 from /mnt/workspace/2329-JadeYara-20261104-1812/J078/abc/code/op_host/p_relu_grad_update_c_def.cpp:5:
+/home/developer/Ascend/cann-9.3.0/aarch64-linux/include/external/ge_common/ge_api_types.h:15:122: note: #pragma message: Warning: ge_api_types.h is deprecated and will be removed after 2027-06. Include "ge_common_api_types.h" instead.
+   15 |     "Warning: ge_api_types.h is deprecated and will be removed after 2027-06. Include \"ge_common_api_types.h\" instead.")
+      |                                                                                                                          ^
+[ 31%] Building CXX object op_host/CMakeFiles/cust_optiling.dir/p_relu_grad_update_b_def.cpp.o
+[ 34%] Building CXX object op_host/CMakeFiles/cust_optiling.dir/p_relu_grad_update_c_def.cpp.o
+[ 37%] Building CXX object op_host/CMakeFiles/cust_optiling.dir/p_relu_grad_update_a_infershape.cpp.o
+[ 41%] Building CXX object op_host/CMakeFiles/cust_op_proto.dir/p_relu_grad_update_a_infershape.cpp.o
+In file included from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/external/ge_common/api_error_codes.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/continuous_vector.h:20,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/runtime_attrs.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/infer_shape_context.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/register/op_impl_registry.h:19,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/register/op_def.h:19,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/register/op_def_registry.h:14,
+                 from /mnt/workspace/2329-JadeYara-20261104-1812/J078/abc/code/op_host/p_relu_grad_update_b_def.cpp:5:
+/home/developer/Ascend/cann-9.3.0/aarch64-linux/include/external/ge_common/ge_error_codes.h:15:122: note: #pragma message: Warning: ge_error_codes.h is deprecated and will be removed after 2027-06. Include "graph/error_codes.h" instead.
+   15 |     "Warning: ge_error_codes.h is deprecated and will be removed after 2027-06. Include \"graph/error_codes.h\" instead.")
+      |                                                                                                                          ^
+In file included from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/external/ge_common/api_error_codes.h:17,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/continuous_vector.h:20,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/runtime_attrs.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/infer_shape_context.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/register/op_impl_registry.h:19,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/register/op_def.h:19,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/register/op_def_registry.h:14,
+                 from /mnt/workspace/2329-JadeYara-20261104-1812/J078/abc/code/op_host/p_relu_grad_update_b_def.cpp:5:
+/home/developer/Ascend/cann-9.3.0/aarch64-linux/include/external/ge_common/ge_api_types.h:15:122: note: #pragma message: Warning: ge_api_types.h is deprecated and will be removed after 2027-06. Include "ge_common_api_types.h" instead.
+   15 |     "Warning: ge_api_types.h is deprecated and will be removed after 2027-06. Include \"ge_common_api_types.h\" instead.")
+      |                                                                                                                          ^
+In file included from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/external/ge_common/api_error_codes.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/continuous_vector.h:20,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/runtime_attrs.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/infer_shape_context.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/register/op_impl_registry.h:19,
+                 from /mnt/workspace/2329-JadeYara-20261104-1812/J078/abc/code/op_host/p_relu_grad_update_a_infershape.cpp:1:
+/home/developer/Ascend/cann-9.3.0/aarch64-linux/include/external/ge_common/ge_error_codes.h:15:122: note: #pragma message: Warning: ge_error_codes.h is deprecated and will be removed after 2027-06. Include "graph/error_codes.h" instead.
+   15 |     "Warning: ge_error_codes.h is deprecated and will be removed after 2027-06. Include \"graph/error_codes.h\" instead.")
+      |                                                                                                                          ^
+In file included from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/external/ge_common/api_error_codes.h:17,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/continuous_vector.h:20,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/runtime_attrs.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/infer_shape_context.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/register/op_impl_registry.h:19,
+                 from /mnt/workspace/2329-JadeYara-20261104-1812/J078/abc/code/op_host/p_relu_grad_update_a_infershape.cpp:1:
+/home/developer/Ascend/cann-9.3.0/aarch64-linux/include/external/ge_common/ge_api_types.h:15:122: note: #pragma message: Warning: ge_api_types.h is deprecated and will be removed after 2027-06. Include "ge_common_api_types.h" instead.
+   15 |     "Warning: ge_api_types.h is deprecated and will be removed after 2027-06. Include \"ge_common_api_types.h\" instead.")
+      |                                                                                                                          ^
+In file included from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/external/ge_common/api_error_codes.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/continuous_vector.h:20,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/runtime_attrs.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/infer_shape_context.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/register/op_impl_registry.h:19,
+                 from /mnt/workspace/2329-JadeYara-20261104-1812/J078/abc/code/op_host/p_relu_grad_update_a_infershape.cpp:1:
+/home/developer/Ascend/cann-9.3.0/aarch64-linux/include/external/ge_common/ge_error_codes.h:15:122: note: #pragma message: Warning: ge_error_codes.h is deprecated and will be removed after 2027-06. Include "graph/error_codes.h" instead.
+   15 |     "Warning: ge_error_codes.h is deprecated and will be removed after 2027-06. Include \"graph/error_codes.h\" instead.")
+      |                                                                                                                          ^
+In file included from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/external/ge_common/api_error_codes.h:17,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/continuous_vector.h:20,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/runtime_attrs.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/infer_shape_context.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/register/op_impl_registry.h:19,
+                 from /mnt/workspace/2329-JadeYara-20261104-1812/J078/abc/code/op_host/p_relu_grad_update_a_infershape.cpp:1:
+/home/developer/Ascend/cann-9.3.0/aarch64-linux/include/external/ge_common/ge_api_types.h:15:122: note: #pragma message: Warning: ge_api_types.h is deprecated and will be removed after 2027-06. Include "ge_common_api_types.h" instead.
+   15 |     "Warning: ge_api_types.h is deprecated and will be removed after 2027-06. Include \"ge_common_api_types.h\" instead.")
+      |                                                                                                                          ^
+In file included from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/external/ge_common/api_error_codes.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/continuous_vector.h:20,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/runtime_attrs.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/infer_shape_context.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/register/op_impl_registry.h:19,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/register/op_def.h:19,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/register/op_def_registry.h:14,
+                 from /mnt/workspace/2329-JadeYara-20261104-1812/J078/abc/code/op_host/p_relu_grad_update_c_def.cpp:5:
+/home/developer/Ascend/cann-9.3.0/aarch64-linux/include/external/ge_common/ge_error_codes.h:15:122: note: #pragma message: Warning: ge_error_codes.h is deprecated and will be removed after 2027-06. Include "graph/error_codes.h" instead.
+   15 |     "Warning: ge_error_codes.h is deprecated and will be removed after 2027-06. Include \"graph/error_codes.h\" instead.")
+      |                                                                                                                          ^
+In file included from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/external/ge_common/api_error_codes.h:17,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/continuous_vector.h:20,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/runtime_attrs.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/infer_shape_context.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/register/op_impl_registry.h:19,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/register/op_def.h:19,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/register/op_def_registry.h:14,
+                 from /mnt/workspace/2329-JadeYara-20261104-1812/J078/abc/code/op_host/p_relu_grad_update_c_def.cpp:5:
+/home/developer/Ascend/cann-9.3.0/aarch64-linux/include/external/ge_common/ge_api_types.h:15:122: note: #pragma message: Warning: ge_api_types.h is deprecated and will be removed after 2027-06. Include "ge_common_api_types.h" instead.
+   15 |     "Warning: ge_api_types.h is deprecated and will be removed after 2027-06. Include \"ge_common_api_types.h\" instead.")
+      |                                                                                                                          ^
+[ 44%] Building CXX object op_host/CMakeFiles/cust_op_proto.dir/p_relu_grad_update_b_infershape.cpp.o
+[ 48%] Generating ascendc_kernels/tbe/op_info_cfg/ai_core/npu_supported_ops.json
+/mnt/workspace/2329-JadeYara-20261104-1812/J078/build-abc/autogen /mnt/workspace/2329-JadeYara-20261104-1812/J078/build-abc/op_kernel/ascendc_kernels/tbe/op_info_cfg/ai_core
+[ 51%] Generating ../autogen/copy_kernel_src.timestamp
+[INFO] Succeeded generated /mnt/workspace/2329-JadeYara-20261104-1812/J078/build-abc/op_kernel/ascendc_kernels/tbe/op_info_cfg/ai_core/npu_supported_ops.json
+[ 51%] Built target j078_abc_custom_npu_supported_ops
+[ 55%] Building CXX object op_host/CMakeFiles/cust_op_proto.dir/p_relu_grad_update_c_infershape.cpp.o
+[ 55%] Built target ascendc_kernels_copy_kernel_srcs
+[ 55%] Built target j078_abc_custom_update_so_names
+[ 58%] Building CXX object op_host/CMakeFiles/cust_op_proto.dir/p_relu_grad_update_a_tiling.cpp.o
+[ 62%] Building CXX object op_host/CMakeFiles/cust_optiling.dir/p_relu_grad_update_b_infershape.cpp.o
+In file included from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/external/ge_common/api_error_codes.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/continuous_vector.h:20,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/runtime_attrs.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/infer_shape_context.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/register/op_impl_registry.h:19,
+                 from /mnt/workspace/2329-JadeYara-20261104-1812/J078/abc/code/op_host/p_relu_grad_update_b_infershape.cpp:1:
+/home/developer/Ascend/cann-9.3.0/aarch64-linux/include/external/ge_common/ge_error_codes.h:15:122: note: #pragma message: Warning: ge_error_codes.h is deprecated and will be removed after 2027-06. Include "graph/error_codes.h" instead.
+   15 |     "Warning: ge_error_codes.h is deprecated and will be removed after 2027-06. Include \"graph/error_codes.h\" instead.")
+      |                                                                                                                          ^
+In file included from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/external/ge_common/api_error_codes.h:17,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/continuous_vector.h:20,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/runtime_attrs.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/infer_shape_context.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/register/op_impl_registry.h:19,
+                 from /mnt/workspace/2329-JadeYara-20261104-1812/J078/abc/code/op_host/p_relu_grad_update_b_infershape.cpp:1:
+/home/developer/Ascend/cann-9.3.0/aarch64-linux/include/external/ge_common/ge_api_types.h:15:122: note: #pragma message: Warning: ge_api_types.h is deprecated and will be removed after 2027-06. Include "ge_common_api_types.h" instead.
+   15 |     "Warning: ge_api_types.h is deprecated and will be removed after 2027-06. Include \"ge_common_api_types.h\" instead.")
+      |                                                                                                                          ^
+In file included from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/external/ge_common/api_error_codes.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/continuous_vector.h:20,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/runtime_attrs.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/infer_shape_context.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/register/op_impl_registry.h:19,
+                 from /mnt/workspace/2329-JadeYara-20261104-1812/J078/abc/code/op_host/p_relu_grad_update_c_infershape.cpp:1:
+/home/developer/Ascend/cann-9.3.0/aarch64-linux/include/external/ge_common/ge_error_codes.h:15:122: note: #pragma message: Warning: ge_error_codes.h is deprecated and will be removed after 2027-06. Include "graph/error_codes.h" instead.
+   15 |     "Warning: ge_error_codes.h is deprecated and will be removed after 2027-06. Include \"graph/error_codes.h\" instead.")
+      |                                                                                                                          ^
+In file included from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/external/ge_common/api_error_codes.h:17,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/continuous_vector.h:20,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/runtime_attrs.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/infer_shape_context.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/register/op_impl_registry.h:19,
+                 from /mnt/workspace/2329-JadeYara-20261104-1812/J078/abc/code/op_host/p_relu_grad_update_c_infershape.cpp:1:
+/home/developer/Ascend/cann-9.3.0/aarch64-linux/include/external/ge_common/ge_api_types.h:15:122: note: #pragma message: Warning: ge_api_types.h is deprecated and will be removed after 2027-06. Include "ge_common_api_types.h" instead.
+   15 |     "Warning: ge_api_types.h is deprecated and will be removed after 2027-06. Include \"ge_common_api_types.h\" instead.")
+      |                                                                                                                          ^
+In file included from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/external/ge_common/api_error_codes.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/continuous_vector.h:20,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/runtime_attrs.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/infer_shape_context.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/register/op_impl_registry.h:19,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/register/op_def.h:19,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/register/op_def_registry.h:14,
+                 from /mnt/workspace/2329-JadeYara-20261104-1812/J078/abc/code/op_host/p_relu_grad_update_a_tiling.cpp:11:
+/home/developer/Ascend/cann-9.3.0/aarch64-linux/include/external/ge_common/ge_error_codes.h:15:122: note: #pragma message: Warning: ge_error_codes.h is deprecated and will be removed after 2027-06. Include "graph/error_codes.h" instead.
+   15 |     "Warning: ge_error_codes.h is deprecated and will be removed after 2027-06. Include \"graph/error_codes.h\" instead.")
+      |                                                                                                                          ^
+In file included from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/external/ge_common/api_error_codes.h:17,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/continuous_vector.h:20,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/runtime_attrs.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/infer_shape_context.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/register/op_impl_registry.h:19,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/register/op_def.h:19,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/register/op_def_registry.h:14,
+                 from /mnt/workspace/2329-JadeYara-20261104-1812/J078/abc/code/op_host/p_relu_grad_update_a_tiling.cpp:11:
+/home/developer/Ascend/cann-9.3.0/aarch64-linux/include/external/ge_common/ge_api_types.h:15:122: note: #pragma message: Warning: ge_api_types.h is deprecated and will be removed after 2027-06. Include "ge_common_api_types.h" instead.
+   15 |     "Warning: ge_api_types.h is deprecated and will be removed after 2027-06. Include \"ge_common_api_types.h\" instead.")
+      |                                                                                                                          ^
+In file included from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/external/ge_common/api_error_codes.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/continuous_vector.h:20,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/runtime_attrs.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/infer_shape_context.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/register/op_impl_registry.h:19,
+                 from /mnt/workspace/2329-JadeYara-20261104-1812/J078/abc/code/op_host/p_relu_grad_update_b_infershape.cpp:1:
+/home/developer/Ascend/cann-9.3.0/aarch64-linux/include/external/ge_common/ge_error_codes.h:15:122: note: #pragma message: Warning: ge_error_codes.h is deprecated and will be removed after 2027-06. Include "graph/error_codes.h" instead.
+   15 |     "Warning: ge_error_codes.h is deprecated and will be removed after 2027-06. Include \"graph/error_codes.h\" instead.")
+      |                                                                                                                          ^
+In file included from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/external/ge_common/api_error_codes.h:17,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/continuous_vector.h:20,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/runtime_attrs.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/infer_shape_context.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/register/op_impl_registry.h:19,
+                 from /mnt/workspace/2329-JadeYara-20261104-1812/J078/abc/code/op_host/p_relu_grad_update_b_infershape.cpp:1:
+/home/developer/Ascend/cann-9.3.0/aarch64-linux/include/external/ge_common/ge_api_types.h:15:122: note: #pragma message: Warning: ge_api_types.h is deprecated and will be removed after 2027-06. Include "ge_common_api_types.h" instead.
+   15 |     "Warning: ge_api_types.h is deprecated and will be removed after 2027-06. Include \"ge_common_api_types.h\" instead.")
+      |                                                                                                                          ^
+[ 65%] Building CXX object op_host/CMakeFiles/cust_optiling.dir/p_relu_grad_update_c_infershape.cpp.o
+In file included from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/op_common/log/log.h:25,
+                 from /mnt/workspace/2329-JadeYara-20261104-1812/J078/abc/code/op_host/p_relu_grad_update_a_tiling.cpp:12:
+/home/developer/Ascend/cann-9.3.0/aarch64-linux/include/graph/ge_error_codes.h:15:122: note: #pragma message: Warning: ge_error_codes.h is deprecated and will be removed after 2027-06. Include "graph/error_codes.h" instead.
+   15 |     "Warning: ge_error_codes.h is deprecated and will be removed after 2027-06. Include \"graph/error_codes.h\" instead.")
+      |                                                                                                                          ^
+[ 68%] Building CXX object op_host/CMakeFiles/cust_optiling.dir/p_relu_grad_update_a_tiling.cpp.o
+[ 72%] Linking CXX shared library libcust_opapi.so
+In file included from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/external/ge_common/api_error_codes.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/continuous_vector.h:20,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/runtime_attrs.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/infer_shape_context.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/register/op_impl_registry.h:19,
+                 from /mnt/workspace/2329-JadeYara-20261104-1812/J078/abc/code/op_host/p_relu_grad_update_c_infershape.cpp:1:
+/home/developer/Ascend/cann-9.3.0/aarch64-linux/include/external/ge_common/ge_error_codes.h:15:122: note: #pragma message: Warning: ge_error_codes.h is deprecated and will be removed after 2027-06. Include "graph/error_codes.h" instead.
+   15 |     "Warning: ge_error_codes.h is deprecated and will be removed after 2027-06. Include \"graph/error_codes.h\" instead.")
+      |                                                                                                                          ^
+In file included from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/external/ge_common/api_error_codes.h:17,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/continuous_vector.h:20,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/runtime_attrs.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/infer_shape_context.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/register/op_impl_registry.h:19,
+                 from /mnt/workspace/2329-JadeYara-20261104-1812/J078/abc/code/op_host/p_relu_grad_update_c_infershape.cpp:1:
+/home/developer/Ascend/cann-9.3.0/aarch64-linux/include/external/ge_common/ge_api_types.h:15:122: note: #pragma message: Warning: ge_api_types.h is deprecated and will be removed after 2027-06. Include "ge_common_api_types.h" instead.
+   15 |     "Warning: ge_api_types.h is deprecated and will be removed after 2027-06. Include \"ge_common_api_types.h\" instead.")
+      |                                                                                                                          ^
+[ 72%] Built target j078_abc_custom_ascendc_cust_opapi
+[ 75%] Building CXX object op_host/CMakeFiles/cust_op_proto.dir/p_relu_grad_update_b_tiling.cpp.o
+[ 79%] Generating ascendc_kernels/tbe/op_info_cfg/ai_core/ascend910_93/aic-ascend910_93-ops-info.json
+
+
+==============check valid for ops info start==============
+==============check valid for ops info end================
+
+
+Compile op info cfg successfully.
+[ 79%] Built target ascendc_kernels_ops_info_gen_ascend910_93
+[ 82%] Building CXX object op_host/CMakeFiles/cust_op_proto.dir/p_relu_grad_update_c_tiling.cpp.o
+In file included from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/external/ge_common/api_error_codes.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/continuous_vector.h:20,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/runtime_attrs.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/infer_shape_context.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/register/op_impl_registry.h:19,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/register/op_def.h:19,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/register/op_def_registry.h:14,
+                 from /mnt/workspace/2329-JadeYara-20261104-1812/J078/abc/code/op_host/p_relu_grad_update_a_tiling.cpp:11:
+/home/developer/Ascend/cann-9.3.0/aarch64-linux/include/external/ge_common/ge_error_codes.h:15:122: note: #pragma message: Warning: ge_error_codes.h is deprecated and will be removed after 2027-06. Include "graph/error_codes.h" instead.
+   15 |     "Warning: ge_error_codes.h is deprecated and will be removed after 2027-06. Include \"graph/error_codes.h\" instead.")
+      |                                                                                                                          ^
+In file included from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/external/ge_common/api_error_codes.h:17,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/continuous_vector.h:20,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/runtime_attrs.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/infer_shape_context.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/register/op_impl_registry.h:19,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/register/op_def.h:19,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/register/op_def_registry.h:14,
+                 from /mnt/workspace/2329-JadeYara-20261104-1812/J078/abc/code/op_host/p_relu_grad_update_a_tiling.cpp:11:
+/home/developer/Ascend/cann-9.3.0/aarch64-linux/include/external/ge_common/ge_api_types.h:15:122: note: #pragma message: Warning: ge_api_types.h is deprecated and will be removed after 2027-06. Include "ge_common_api_types.h" instead.
+   15 |     "Warning: ge_api_types.h is deprecated and will be removed after 2027-06. Include \"ge_common_api_types.h\" instead.")
+      |                                                                                                                          ^
+In file included from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/op_common/log/log.h:25,
+                 from /mnt/workspace/2329-JadeYara-20261104-1812/J078/abc/code/op_host/p_relu_grad_update_a_tiling.cpp:12:
+/home/developer/Ascend/cann-9.3.0/aarch64-linux/include/graph/ge_error_codes.h:15:122: note: #pragma message: Warning: ge_error_codes.h is deprecated and will be removed after 2027-06. Include "graph/error_codes.h" instead.
+   15 |     "Warning: ge_error_codes.h is deprecated and will be removed after 2027-06. Include \"graph/error_codes.h\" instead.")
+      |                                                                                                                          ^
+[ 86%] Building CXX object op_host/CMakeFiles/cust_op_proto.dir/__/autogen/op_proto.cc.o
+In file included from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/external/ge_common/api_error_codes.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/continuous_vector.h:20,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/runtime_attrs.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/infer_shape_context.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/register/op_impl_registry.h:19,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/register/op_def.h:19,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/register/op_def_registry.h:14,
+                 from /mnt/workspace/2329-JadeYara-20261104-1812/J078/abc/code/op_host/p_relu_grad_update_b_tiling.cpp:11:
+/home/developer/Ascend/cann-9.3.0/aarch64-linux/include/external/ge_common/ge_error_codes.h:15:122: note: #pragma message: Warning: ge_error_codes.h is deprecated and will be removed after 2027-06. Include "graph/error_codes.h" instead.
+   15 |     "Warning: ge_error_codes.h is deprecated and will be removed after 2027-06. Include \"graph/error_codes.h\" instead.")
+      |                                                                                                                          ^
+In file included from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/external/ge_common/api_error_codes.h:17,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/continuous_vector.h:20,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/runtime_attrs.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/infer_shape_context.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/register/op_impl_registry.h:19,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/register/op_def.h:19,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/register/op_def_registry.h:14,
+                 from /mnt/workspace/2329-JadeYara-20261104-1812/J078/abc/code/op_host/p_relu_grad_update_b_tiling.cpp:11:
+/home/developer/Ascend/cann-9.3.0/aarch64-linux/include/external/ge_common/ge_api_types.h:15:122: note: #pragma message: Warning: ge_api_types.h is deprecated and will be removed after 2027-06. Include "ge_common_api_types.h" instead.
+   15 |     "Warning: ge_api_types.h is deprecated and will be removed after 2027-06. Include \"ge_common_api_types.h\" instead.")
+      |                                                                                                                          ^
+In file included from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/op_common/log/log.h:25,
+                 from /mnt/workspace/2329-JadeYara-20261104-1812/J078/abc/code/op_host/p_relu_grad_update_b_tiling.cpp:12:
+/home/developer/Ascend/cann-9.3.0/aarch64-linux/include/graph/ge_error_codes.h:15:122: note: #pragma message: Warning: ge_error_codes.h is deprecated and will be removed after 2027-06. Include "graph/error_codes.h" instead.
+   15 |     "Warning: ge_error_codes.h is deprecated and will be removed after 2027-06. Include \"graph/error_codes.h\" instead.")
+      |                                                                                                                          ^
+In file included from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/external/ge_common/api_error_codes.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/continuous_vector.h:20,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/runtime_attrs.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/infer_shape_context.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/register/op_impl_registry.h:19,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/register/op_def.h:19,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/register/op_def_registry.h:14,
+                 from /mnt/workspace/2329-JadeYara-20261104-1812/J078/abc/code/op_host/p_relu_grad_update_c_tiling.cpp:11:
+/home/developer/Ascend/cann-9.3.0/aarch64-linux/include/external/ge_common/ge_error_codes.h:15:122: note: #pragma message: Warning: ge_error_codes.h is deprecated and will be removed after 2027-06. Include "graph/error_codes.h" instead.
+   15 |     "Warning: ge_error_codes.h is deprecated and will be removed after 2027-06. Include \"graph/error_codes.h\" instead.")
+      |                                                                                                                          ^
+In file included from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/external/ge_common/api_error_codes.h:17,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/continuous_vector.h:20,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/runtime_attrs.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/infer_shape_context.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/register/op_impl_registry.h:19,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/register/op_def.h:19,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/register/op_def_registry.h:14,
+                 from /mnt/workspace/2329-JadeYara-20261104-1812/J078/abc/code/op_host/p_relu_grad_update_c_tiling.cpp:11:
+/home/developer/Ascend/cann-9.3.0/aarch64-linux/include/external/ge_common/ge_api_types.h:15:122: note: #pragma message: Warning: ge_api_types.h is deprecated and will be removed after 2027-06. Include "ge_common_api_types.h" instead.
+   15 |     "Warning: ge_api_types.h is deprecated and will be removed after 2027-06. Include \"ge_common_api_types.h\" instead.")
+      |                                                                                                                          ^
+In file included from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/op_common/log/log.h:25,
+                 from /mnt/workspace/2329-JadeYara-20261104-1812/J078/abc/code/op_host/p_relu_grad_update_c_tiling.cpp:12:
+/home/developer/Ascend/cann-9.3.0/aarch64-linux/include/graph/ge_error_codes.h:15:122: note: #pragma message: Warning: ge_error_codes.h is deprecated and will be removed after 2027-06. Include "graph/error_codes.h" instead.
+   15 |     "Warning: ge_error_codes.h is deprecated and will be removed after 2027-06. Include \"graph/error_codes.h\" instead.")
+      |                                                                                                                          ^
+In file included from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/external/ge_common/api_error_codes.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/continuous_vector.h:20,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/runtime_attrs.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/infer_shape_context.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/register/op_impl_registry.h:19,
+                 from /mnt/workspace/2329-JadeYara-20261104-1812/J078/build-abc/autogen/op_proto.h:5,
+                 from /mnt/workspace/2329-JadeYara-20261104-1812/J078/build-abc/autogen/op_proto.cc:1:
+/home/developer/Ascend/cann-9.3.0/aarch64-linux/include/external/ge_common/ge_error_codes.h:15:122: note: #pragma message: Warning: ge_error_codes.h is deprecated and will be removed after 2027-06. Include "graph/error_codes.h" instead.
+   15 |     "Warning: ge_error_codes.h is deprecated and will be removed after 2027-06. Include \"graph/error_codes.h\" instead.")
+      |                                                                                                                          ^
+In file included from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/external/ge_common/api_error_codes.h:17,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/continuous_vector.h:20,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/runtime_attrs.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/infer_shape_context.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/register/op_impl_registry.h:19,
+                 from /mnt/workspace/2329-JadeYara-20261104-1812/J078/build-abc/autogen/op_proto.h:5,
+                 from /mnt/workspace/2329-JadeYara-20261104-1812/J078/build-abc/autogen/op_proto.cc:1:
+/home/developer/Ascend/cann-9.3.0/aarch64-linux/include/external/ge_common/ge_api_types.h:15:122: note: #pragma message: Warning: ge_api_types.h is deprecated and will be removed after 2027-06. Include "ge_common_api_types.h" instead.
+   15 |     "Warning: ge_api_types.h is deprecated and will be removed after 2027-06. Include \"ge_common_api_types.h\" instead.")
+      |                                                                                                                          ^
+[ 89%] Building CXX object op_host/CMakeFiles/cust_optiling.dir/p_relu_grad_update_b_tiling.cpp.o
+[ 93%] Building CXX object op_host/CMakeFiles/cust_optiling.dir/p_relu_grad_update_c_tiling.cpp.o
+[ 93%] Built target cust_op_proto
+[ 96%] Linking CXX shared library libcust_opsproto_rt2.0.so
+In file included from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/external/ge_common/api_error_codes.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/continuous_vector.h:20,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/runtime_attrs.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/infer_shape_context.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/register/op_impl_registry.h:19,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/register/op_def.h:19,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/register/op_def_registry.h:14,
+                 from /mnt/workspace/2329-JadeYara-20261104-1812/J078/abc/code/op_host/p_relu_grad_update_b_tiling.cpp:11:
+/home/developer/Ascend/cann-9.3.0/aarch64-linux/include/external/ge_common/ge_error_codes.h:15:122: note: #pragma message: Warning: ge_error_codes.h is deprecated and will be removed after 2027-06. Include "graph/error_codes.h" instead.
+   15 |     "Warning: ge_error_codes.h is deprecated and will be removed after 2027-06. Include \"graph/error_codes.h\" instead.")
+      |                                                                                                                          ^
+In file included from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/external/ge_common/api_error_codes.h:17,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/continuous_vector.h:20,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/runtime_attrs.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/infer_shape_context.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/register/op_impl_registry.h:19,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/register/op_def.h:19,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/register/op_def_registry.h:14,
+                 from /mnt/workspace/2329-JadeYara-20261104-1812/J078/abc/code/op_host/p_relu_grad_update_b_tiling.cpp:11:
+/home/developer/Ascend/cann-9.3.0/aarch64-linux/include/external/ge_common/ge_api_types.h:15:122: note: #pragma message: Warning: ge_api_types.h is deprecated and will be removed after 2027-06. Include "ge_common_api_types.h" instead.
+   15 |     "Warning: ge_api_types.h is deprecated and will be removed after 2027-06. Include \"ge_common_api_types.h\" instead.")
+      |                                                                                                                          ^
+[ 96%] Built target j078_abc_custom_ascendc_cust_op_proto
+In file included from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/op_common/log/log.h:25,
+                 from /mnt/workspace/2329-JadeYara-20261104-1812/J078/abc/code/op_host/p_relu_grad_update_b_tiling.cpp:12:
+/home/developer/Ascend/cann-9.3.0/aarch64-linux/include/graph/ge_error_codes.h:15:122: note: #pragma message: Warning: ge_error_codes.h is deprecated and will be removed after 2027-06. Include "graph/error_codes.h" instead.
+   15 |     "Warning: ge_error_codes.h is deprecated and will be removed after 2027-06. Include \"graph/error_codes.h\" instead.")
+      |                                                                                                                          ^
+In file included from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/external/ge_common/api_error_codes.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/continuous_vector.h:20,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/runtime_attrs.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/infer_shape_context.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/register/op_impl_registry.h:19,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/register/op_def.h:19,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/register/op_def_registry.h:14,
+                 from /mnt/workspace/2329-JadeYara-20261104-1812/J078/abc/code/op_host/p_relu_grad_update_c_tiling.cpp:11:
+/home/developer/Ascend/cann-9.3.0/aarch64-linux/include/external/ge_common/ge_error_codes.h:15:122: note: #pragma message: Warning: ge_error_codes.h is deprecated and will be removed after 2027-06. Include "graph/error_codes.h" instead.
+   15 |     "Warning: ge_error_codes.h is deprecated and will be removed after 2027-06. Include \"graph/error_codes.h\" instead.")
+      |                                                                                                                          ^
+In file included from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/external/ge_common/api_error_codes.h:17,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/continuous_vector.h:20,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/runtime_attrs.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/exe_graph/runtime/infer_shape_context.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/register/op_impl_registry.h:19,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/register/op_def.h:19,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/register/op_def_registry.h:14,
+                 from /mnt/workspace/2329-JadeYara-20261104-1812/J078/abc/code/op_host/p_relu_grad_update_c_tiling.cpp:11:
+/home/developer/Ascend/cann-9.3.0/aarch64-linux/include/external/ge_common/ge_api_types.h:15:122: note: #pragma message: Warning: ge_api_types.h is deprecated and will be removed after 2027-06. Include "ge_common_api_types.h" instead.
+   15 |     "Warning: ge_api_types.h is deprecated and will be removed after 2027-06. Include \"ge_common_api_types.h\" instead.")
+      |                                                                                                                          ^
+In file included from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/op_common/log/log.h:25,
+                 from /mnt/workspace/2329-JadeYara-20261104-1812/J078/abc/code/op_host/p_relu_grad_update_c_tiling.cpp:12:
+/home/developer/Ascend/cann-9.3.0/aarch64-linux/include/graph/ge_error_codes.h:15:122: note: #pragma message: Warning: ge_error_codes.h is deprecated and will be removed after 2027-06. Include "graph/error_codes.h" instead.
+   15 |     "Warning: ge_error_codes.h is deprecated and will be removed after 2027-06. Include \"graph/error_codes.h\" instead.")
+      |                                                                                                                          ^
+[ 96%] Built target cust_optiling
+[100%] Linking CXX shared library libcust_opmaster_rt2.0.so
+[100%] Built target j078_abc_custom_ascendc_cust_optiling
+[100%] Built target optiling_compat

@@ -1,0 +1,41 @@
+--- J073/general
++++ J075/general
+@@ -18,6 +18,12 @@
+   xGm_.SetGlobalBuffer((__gm__ T*)x,t_->sourceElements[1]);
+   wGm_.SetGlobalBuffer((__gm__ T*)w,t_->sourceElements[2]);
+   dxGm_.SetGlobalBuffer((__gm__ T*)dx,t_->totalNum);upGm_.SetGlobalBuffer((__gm__ T*)up,t_->totalNum);
++  // J075: varying suffix coordinates must map to consecutive source lanes.
++  for(uint32_t q=0;q<3;++q){
++   linearFrom_[q]=0;
++   if(!t_->identity[q])for(uint32_t j=0;j<t_->rank;++j)
++    if(t_->dims[j]>1 && t_->strides[q][j]!=t_->periods[j])linearFrom_[q]=j+1;
++  }
+   const uint64_t bytes=t_->tileLen*4;
+   // A phase: g,pos,compact (neg during math). B=A+256mod512: x,w,dx,up.
+   // Each tile is 2048 lanes, so payload bytes are multiples of512.
+@@ -84,11 +90,13 @@
+  }
+  __aicore__ inline void Expand(uint32_t q,LocalTensor<float> dst,uint64_t z,uint32_t n,uint32_t count,
+                               const uint64_t* a,const uint64_t* b,uint32_t first){
+-  if(t_->identity[q]){
++  if(t_->identity[q] || first>=linearFrom_[q]){
++   uint64_t offset=z;
++   if(!t_->identity[q]){offset=0;for(uint32_t j=0;j<t_->rank;++j)offset+=a[j]*t_->strides[q][j];}
+    // Initialize padded computation lanes, then direct DMA/Cast valid lanes.
+    Duplicate(dst,0.0f,static_cast<int32_t>(count));Sync<HardEvent::V_MTE2>();
+-   if constexpr(std::is_same<T,float>::value){Copy(dst.template ReinterpretCast<T>(),Source(q),z,n);Sync<HardEvent::MTE2_V>();}
+-   else{Copy(raw_.Get<T>(),Source(q),z,n);Sync<HardEvent::MTE2_V>();Cast(dst,raw_.Get<T>(),RoundMode::CAST_NONE,n);PipeBarrier<PIPE_V>();}
++   if constexpr(std::is_same<T,float>::value){Copy(dst.template ReinterpretCast<T>(),Source(q),offset,n);Sync<HardEvent::MTE2_V>();}
++   else{Copy(raw_.Get<T>(),Source(q),offset,n);Sync<HardEvent::MTE2_V>();Cast(dst,raw_.Get<T>(),RoundMode::CAST_NONE,n);PipeBarrier<PIPE_V>();}
+    return;
+   }
+   uint64_t lo=0,hi=0,base=0;Window(q,a,b,first,lo,hi,base);const uint64_t slots=hi-lo+1;
+@@ -122,7 +130,7 @@
+   Muls(pos,dx,0.0f,n);PipeBarrier<PIPE_V>();Add(up,up,pos,n);PipeBarrier<PIPE_V>();
+   if constexpr(!std::is_same<T,float>::value){Cast(upRaw_.Get<T>(),up,RoundMode::CAST_RINT,n);PipeBarrier<PIPE_V>();}
+  }
+- TPipe* p_;const PReluGradUpdateGeneralTilingData* t_;uint64_t start_,end_;
++ TPipe* p_;const PReluGradUpdateGeneralTilingData* t_;uint64_t start_,end_;uint32_t linearFrom_[3];
+  GlobalTensor<T> gGm_,xGm_,wGm_,dxGm_,upGm_;
+  TBuf<TPosition::VECCALC> g_,x_,w_,dx_,up_,pos_,compact_,ramp_,lanes_,mask_,raw_,dxRaw_,upRaw_;
+ };

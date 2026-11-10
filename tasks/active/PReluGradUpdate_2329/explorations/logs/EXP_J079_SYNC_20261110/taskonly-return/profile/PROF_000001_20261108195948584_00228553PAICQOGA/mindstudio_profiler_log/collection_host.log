@@ -1,0 +1,4 @@
+2026-11-08 19:59:55 [INFO] [msprof_cpp_pipeline.py:91] - Run full C pipeline for /mnt/workspace/2329-JadeYara-20261104-1812/J079/taskonly-return/profile/PROF_000001_20261108195948584_00228553PAICQOGA.
+2026-11-08 20:00:00 [INFO] [msprof_cpp_pipeline.py:99] - Full C pipeline completed for /mnt/workspace/2329-JadeYara-20261104-1812/J079/taskonly-return/profile/PROF_000001_20261108195948584_00228553PAICQOGA.
+2026-11-08 20:00:01 [INFO] [msprof_cpp_pipeline.py:91] - Run full C pipeline for /mnt/workspace/2329-JadeYara-20261104-1812/J079/taskonly-return/profile/PROF_000001_20261108195948584_00228553PAICQOGA.
+2026-11-08 20:00:04 [INFO] [msprof_cpp_pipeline.py:99] - Full C pipeline completed for /mnt/workspace/2329-JadeYara-20261104-1812/J079/taskonly-return/profile/PROF_000001_20261108195948584_00228553PAICQOGA.

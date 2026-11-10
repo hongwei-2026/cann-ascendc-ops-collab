@@ -1,0 +1,44 @@
+--- official1221802/p_relu_grad_update.h
++++ J078/p_relu_grad_update.h
+@@ -127,7 +127,7 @@
+     pipe_.InitBuffer(maskBuf_, alignedMaskBytes);
+     pipe_.InitBuffer(fgFloatBuf_, alignedCount * sizeof(float));
+ 
+-    if constexpr (!std::is_same<T, float>::value) {
++    if constexpr (!std::is_same<T, float>::value && !std::is_same<T, half>::value) {
+         pipe_.InitBuffer(gradsFloatBuf_, alignedCount * sizeof(float));
+         pipe_.InitBuffer(featuresFloatBuf_, alignedCount * sizeof(float));
+         pipe_.InitBuffer(dxFloatBuf_, alignedCount * sizeof(float));
+--- official1221802/p_relu_grad_update_merged.h
++++ J078/p_relu_grad_update_merged.h
+@@ -138,7 +138,7 @@
+     pipe_.InitBuffer(negFloatBuf_, alignedCount * sizeof(float));
+     pipe_.InitBuffer(fgFloatBuf_, alignedCount * sizeof(float));
+ 
+-    if constexpr (!std::is_same<T, float>::value) {
++    if constexpr (!std::is_same<T, float>::value && !std::is_same<T, half>::value) {
+         pipe_.InitBuffer(gradsFloatBuf_, alignedCount * sizeof(float));
+         pipe_.InitBuffer(featuresFloatBuf_, alignedCount * sizeof(float));
+         pipe_.InitBuffer(dxFloatBuf_, alignedCount * sizeof(float));
+--- official1221802/p_relu_grad_update_resident.h
++++ J078/p_relu_grad_update_resident.h
+@@ -141,7 +141,7 @@
+     pipe_.InitBuffer(negFloatBuf_, alignedCount * sizeof(float));
+     pipe_.InitBuffer(fgFloatBuf_, alignedCount * sizeof(float));
+ 
+-    if constexpr (!std::is_same<T, float>::value) {
++    if constexpr (!std::is_same<T, float>::value && !std::is_same<T, half>::value) {
+         pipe_.InitBuffer(gradsFloatBuf_, alignedCount * sizeof(float));
+         pipe_.InitBuffer(featuresFloatBuf_, alignedCount * sizeof(float));
+         pipe_.InitBuffer(dxFloatBuf_, alignedCount * sizeof(float));
+--- official1221802/p_relu_grad_update_s1.h
++++ J078/p_relu_grad_update_s1.h
+@@ -135,7 +135,7 @@
+     pipe_.InitBuffer(negFloatBuf_, alignedCount * sizeof(float));
+     pipe_.InitBuffer(fgFloatBuf_, alignedCount * sizeof(float));
+ 
+-    if constexpr (!std::is_same<T, float>::value) {
++    if constexpr (!std::is_same<T, float>::value && !std::is_same<T, half>::value) {
+         pipe_.InitBuffer(gradsFloatBuf_, alignedCount * sizeof(float));
+         pipe_.InitBuffer(featuresFloatBuf_, alignedCount * sizeof(float));
+         pipe_.InitBuffer(dxFloatBuf_, alignedCount * sizeof(float));

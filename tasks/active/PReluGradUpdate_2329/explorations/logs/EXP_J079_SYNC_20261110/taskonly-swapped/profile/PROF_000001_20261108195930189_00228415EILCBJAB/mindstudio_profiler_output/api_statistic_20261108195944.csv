@@ -1,0 +1,25 @@
+Device_id,Level,API Name,Time(us),Count,Avg(us),Min(us),Max(us),Variance
+host,acl,aclnnPReluGradUpdateA,202710.1,21000,9.653,7.83,55.12,1.416
+host,acl,aclnnPReluGradUpdateAGetWorkspaceSize,64864.44,21000,3.089,2.69,418.78,21.906
+host,acl,aclnnPReluGradUpdateATiling,116.36,5,23.272,19.54,27.97,10.439
+host,acl,aclnnPReluGradUpdateB,101999.03,10500,9.714,7.99,294.35,9.198
+host,acl,aclnnPReluGradUpdateBGetWorkspaceSize,549899.69,10500,52.371,2.7,517216.31,25474694.173
+host,acl,aclnnPReluGradUpdateBTiling,110.61,5,22.122,17.83,29.38,19.86
+host,acl,aclnnPReluGradUpdateC,101520.84,10500,9.669,8.23,54.21,1.8
+host,acl,aclnnPReluGradUpdateCGetWorkspaceSize,32563.44,10500,3.101,2.77,387.24,36.823
+host,acl,aclnnPReluGradUpdateCTiling,96.69,5,19.338,16.66,21.94,4.808
+host,acl,aclrtBinaryLoadFromData,941.99,9,104.666,90.74,124.23,97.226
+host,acl,aclrtCreateStream,1249.55,1,1249.55,1249.55,1249.55,0
+host,acl,aclrtCtxGetFloatOverflowAddr,1.23,1,1.23,1.23,1.23,0
+host,acl,aclrtCtxGetSysParamOpt,8.01,1,8.01,8.01,8.01,0
+host,acl,aclrtDestroyStream,1162.1,1,1162.1,1162.1,1162.1,0
+host,acl,aclrtFree,85.6,25,3.424,1.42,11.13,10.682
+host,acl,aclrtGetResInCurrentThread,26284.42,84002,0.313,0.21,41.69,0.031
+host,acl,aclrtGetStreamAttribute,17460.64,42000,0.416,0.37,20.94,0.017
+host,acl,aclrtLaunchKernelWithHostArgs,229583.31,42000,5.466,3.93,132.72,1.011
+host,acl,aclrtMalloc,892.56,25,35.702,2.53,541.74,11099.583
+host,acl,aclrtMemcpy,13020.04,265,49.132,13,190.41,2599.661
+host,acl,aclrtMemset,47429.22,240,197.622,25.12,2430.93,77420.722
+host,acl,aclrtResetDevice,3312430.06,1,3312430.06,3312430.06,3312430.06,0
+host,acl,aclrtSynchronizeStream,943298.35,42000,22.459,5.8,68.01,55.67
+host,node,launch,281392.39,42000,6.7,4.99,271.39,2.653

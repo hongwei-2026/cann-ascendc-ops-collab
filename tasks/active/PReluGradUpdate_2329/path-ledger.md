@@ -54,3 +54,7 @@
 | P102 | 对齐 tile 改用 `DataCopy` 未见收益 | 已撤回；当前恢复 P100，先做源码指纹一致的同机 A/B 与 profile |
 | P101+ | 平台采时后仍远低于 TBE | 有界优化；触止损写 DEC（`02-perf-gate`） |
 | P1yy | 小 shape <10us 且差 ≤3us | **仿真图 + 分析**，默认不抠微秒 |
+
+## JadeYara 2026-11-10 同步（J069–J079）
+
+个人路线汇总：[进度与方向](../../../people/JadeYara/notes/PReluGradUpdate_2329/progress-20261110.md)，[个人台账](../../../people/JadeYara/notes/PReluGradUpdate_2329/path-ledger.md)。官方1221802运行实现为性能基线，J077复现修复采纳；J072/J075不晋升，J078不采纳；J076仅微小收益候选。J079诊断多别名计时偏差，下一闸为标准名单包独立进程空改对照，尚未完成设备验证。历史失败保留，本次只同步，不改变其他作者的P系列决定。

@@ -1,0 +1,814 @@
+{
+  "runs": [
+    {
+      "run": "original",
+      "ai_core_counters": true,
+      "first_bf16_load_order": "ABC",
+      "windows": 120,
+      "calls": 42000,
+      "correctness_windows_pass": 120,
+      "controls_pass": 12,
+      "aa_pass": 29,
+      "comparisons": 30,
+      "cases": [
+        {
+          "id": "37",
+          "dtype": "bf16",
+          "shape": [
+            127,
+            64,
+            1
+          ],
+          "actual_tiling_key": 8,
+          "median_task_us": {
+            "A1": 7.225,
+            "A2": 7.23,
+            "B": 8.395,
+            "C": 7.235
+          },
+          "median_scalar_us": {
+            "A1": 2.56,
+            "A2": 2.55825,
+            "B": 3.9185,
+            "C": 2.55
+          },
+          "controls_pass": 0
+        },
+        {
+          "id": "97",
+          "dtype": "bf16",
+          "shape": [
+            127,
+            8192,
+            1
+          ],
+          "actual_tiling_key": 14,
+          "median_task_us": {
+            "A1": 17.0,
+            "A2": 17.0,
+            "B": 17.61,
+            "C": 17.02
+          },
+          "median_scalar_us": {
+            "A1": 5.675000000000001,
+            "A2": 5.675,
+            "B": 7.026,
+            "C": 5.66475
+          },
+          "controls_pass": 0
+        },
+        {
+          "id": "110",
+          "dtype": "bf16",
+          "shape": [
+            16,
+            63,
+            257
+          ],
+          "actual_tiling_key": 2,
+          "median_task_us": {
+            "A1": 23.32,
+            "A2": 23.32,
+            "B": 24.049999999999997,
+            "C": 23.34
+          },
+          "median_scalar_us": {
+            "A1": 13.1895,
+            "A2": 13.18825,
+            "B": 14.57125,
+            "C": 13.190750000000001
+          },
+          "controls_pass": 0
+        },
+        {
+          "id": "107",
+          "dtype": "fp32",
+          "shape": [
+            127,
+            64,
+            1
+          ],
+          "actual_tiling_key": 6,
+          "median_task_us": {
+            "A1": 7.08,
+            "A2": 7.06,
+            "B": 7.1,
+            "C": 7.08
+          },
+          "median_scalar_us": {
+            "A1": 2.434,
+            "A2": 2.4314999999999998,
+            "B": 2.4354999999999998,
+            "C": 2.43225
+          },
+          "controls_pass": 6
+        },
+        {
+          "id": "5",
+          "dtype": "fp16",
+          "shape": [
+            127,
+            64,
+            1
+          ],
+          "actual_tiling_key": 7,
+          "median_task_us": {
+            "A1": 7.1049999999999995,
+            "A2": 7.1,
+            "B": 7.08,
+            "C": 7.109999999999999
+          },
+          "median_scalar_us": {
+            "A1": 2.5047499999999996,
+            "A2": 2.5035,
+            "B": 2.4442500000000003,
+            "C": 2.49775
+          },
+          "controls_pass": 6
+        }
+      ]
+    },
+    {
+      "run": "swapped",
+      "ai_core_counters": true,
+      "first_bf16_load_order": "BAC",
+      "windows": 120,
+      "calls": 42000,
+      "correctness_windows_pass": 120,
+      "controls_pass": 30,
+      "aa_pass": 30,
+      "comparisons": 30,
+      "cases": [
+        {
+          "id": "37",
+          "dtype": "bf16",
+          "shape": [
+            127,
+            64,
+            1
+          ],
+          "actual_tiling_key": 8,
+          "median_task_us": {
+            "A1": 6.04,
+            "A2": 6.04,
+            "B": 6.02,
+            "C": 6.0
+          },
+          "median_scalar_us": {
+            "A1": 2.119,
+            "A2": 2.1187500000000004,
+            "B": 2.11425,
+            "C": 2.11375
+          },
+          "controls_pass": 6
+        },
+        {
+          "id": "97",
+          "dtype": "bf16",
+          "shape": [
+            127,
+            8192,
+            1
+          ],
+          "actual_tiling_key": 14,
+          "median_task_us": {
+            "A1": 15.78,
+            "A2": 15.78,
+            "B": 15.76,
+            "C": 15.78
+          },
+          "median_scalar_us": {
+            "A1": 5.25225,
+            "A2": 5.25125,
+            "B": 5.248749999999999,
+            "C": 5.24575
+          },
+          "controls_pass": 6
+        },
+        {
+          "id": "110",
+          "dtype": "bf16",
+          "shape": [
+            16,
+            63,
+            257
+          ],
+          "actual_tiling_key": 2,
+          "median_task_us": {
+            "A1": 22.98,
+            "A2": 22.98,
+            "B": 22.945,
+            "C": 22.96
+          },
+          "median_scalar_us": {
+            "A1": 12.77175,
+            "A2": 12.77275,
+            "B": 12.763,
+            "C": 12.7655
+          },
+          "controls_pass": 6
+        },
+        {
+          "id": "107",
+          "dtype": "fp32",
+          "shape": [
+            127,
+            64,
+            1
+          ],
+          "actual_tiling_key": 6,
+          "median_task_us": {
+            "A1": 6.675,
+            "A2": 6.68,
+            "B": 6.68,
+            "C": 6.68
+          },
+          "median_scalar_us": {
+            "A1": 2.006,
+            "A2": 2.00275,
+            "B": 2.0084999999999997,
+            "C": 2.0084999999999997
+          },
+          "controls_pass": 6
+        },
+        {
+          "id": "5",
+          "dtype": "fp16",
+          "shape": [
+            127,
+            64,
+            1
+          ],
+          "actual_tiling_key": 7,
+          "median_task_us": {
+            "A1": 5.88,
+            "A2": 5.88,
+            "B": 5.86,
+            "C": 5.88
+          },
+          "median_scalar_us": {
+            "A1": 2.0575,
+            "A2": 2.057,
+            "B": 1.99675,
+            "C": 2.055
+          },
+          "controls_pass": 6
+        }
+      ]
+    },
+    {
+      "run": "restored",
+      "ai_core_counters": true,
+      "first_bf16_load_order": "ABC",
+      "windows": 120,
+      "calls": 42000,
+      "correctness_windows_pass": 120,
+      "controls_pass": 29,
+      "aa_pass": 29,
+      "comparisons": 30,
+      "cases": [
+        {
+          "id": "37",
+          "dtype": "bf16",
+          "shape": [
+            127,
+            64,
+            1
+          ],
+          "actual_tiling_key": 8,
+          "median_task_us": {
+            "A1": 7.24,
+            "A2": 7.23,
+            "B": 7.24,
+            "C": 7.24
+          },
+          "median_scalar_us": {
+            "A1": 2.3555,
+            "A2": 2.35525,
+            "B": 2.357,
+            "C": 2.35825
+          },
+          "controls_pass": 6
+        },
+        {
+          "id": "97",
+          "dtype": "bf16",
+          "shape": [
+            127,
+            8192,
+            1
+          ],
+          "actual_tiling_key": 14,
+          "median_task_us": {
+            "A1": 17.0,
+            "A2": 17.0,
+            "B": 17.02,
+            "C": 17.04
+          },
+          "median_scalar_us": {
+            "A1": 5.4905,
+            "A2": 5.49025,
+            "B": 5.493,
+            "C": 5.49425
+          },
+          "controls_pass": 6
+        },
+        {
+          "id": "110",
+          "dtype": "bf16",
+          "shape": [
+            16,
+            63,
+            257
+          ],
+          "actual_tiling_key": 2,
+          "median_task_us": {
+            "A1": 23.92,
+            "A2": 23.94,
+            "B": 23.94,
+            "C": 23.94
+          },
+          "median_scalar_us": {
+            "A1": 13.0095,
+            "A2": 13.01125,
+            "B": 13.013,
+            "C": 13.016
+          },
+          "controls_pass": 5
+        },
+        {
+          "id": "107",
+          "dtype": "fp32",
+          "shape": [
+            127,
+            64,
+            1
+          ],
+          "actual_tiling_key": 6,
+          "median_task_us": {
+            "A1": 7.109999999999999,
+            "A2": 7.1,
+            "B": 7.12,
+            "C": 7.12
+          },
+          "median_scalar_us": {
+            "A1": 2.2437500000000004,
+            "A2": 2.24275,
+            "B": 2.2475,
+            "C": 2.2475
+          },
+          "controls_pass": 6
+        },
+        {
+          "id": "5",
+          "dtype": "fp16",
+          "shape": [
+            127,
+            64,
+            1
+          ],
+          "actual_tiling_key": 7,
+          "median_task_us": {
+            "A1": 7.12,
+            "A2": 7.12,
+            "B": 7.08,
+            "C": 7.12
+          },
+          "median_scalar_us": {
+            "A1": 2.2990000000000004,
+            "A2": 2.29425,
+            "B": 2.2325,
+            "C": 2.2995
+          },
+          "controls_pass": 6
+        }
+      ]
+    },
+    {
+      "run": "taskonly",
+      "ai_core_counters": false,
+      "first_bf16_load_order": "ABC",
+      "windows": 120,
+      "calls": 42000,
+      "correctness_windows_pass": 120,
+      "controls_pass": 30,
+      "aa_pass": 30,
+      "comparisons": 30,
+      "cases": [
+        {
+          "id": "37",
+          "dtype": "bf16",
+          "shape": [
+            127,
+            64,
+            1
+          ],
+          "actual_tiling_key": 8,
+          "median_task_us": {
+            "A1": 5.74,
+            "A2": 5.74,
+            "B": 5.74,
+            "C": 5.74
+          },
+          "controls_pass": 6
+        },
+        {
+          "id": "97",
+          "dtype": "bf16",
+          "shape": [
+            127,
+            8192,
+            1
+          ],
+          "actual_tiling_key": 14,
+          "median_task_us": {
+            "A1": 15.5,
+            "A2": 15.485,
+            "B": 15.52,
+            "C": 15.5
+          },
+          "controls_pass": 6
+        },
+        {
+          "id": "110",
+          "dtype": "bf16",
+          "shape": [
+            16,
+            63,
+            257
+          ],
+          "actual_tiling_key": 2,
+          "median_task_us": {
+            "A1": 22.4,
+            "A2": 22.4,
+            "B": 22.44,
+            "C": 22.4
+          },
+          "controls_pass": 6
+        },
+        {
+          "id": "107",
+          "dtype": "fp32",
+          "shape": [
+            127,
+            64,
+            1
+          ],
+          "actual_tiling_key": 6,
+          "median_task_us": {
+            "A1": 5.62,
+            "A2": 5.63,
+            "B": 5.64,
+            "C": 5.64
+          },
+          "controls_pass": 6
+        },
+        {
+          "id": "5",
+          "dtype": "fp16",
+          "shape": [
+            127,
+            64,
+            1
+          ],
+          "actual_tiling_key": 7,
+          "median_task_us": {
+            "A1": 5.62,
+            "A2": 5.62,
+            "B": 5.6,
+            "C": 5.62
+          },
+          "controls_pass": 6
+        }
+      ]
+    },
+    {
+      "run": "pipeback",
+      "ai_core_counters": true,
+      "first_bf16_load_order": "ABC",
+      "windows": 120,
+      "calls": 42000,
+      "correctness_windows_pass": 120,
+      "controls_pass": 30,
+      "aa_pass": 30,
+      "comparisons": 30,
+      "cases": [
+        {
+          "id": "37",
+          "dtype": "bf16",
+          "shape": [
+            127,
+            64,
+            1
+          ],
+          "actual_tiling_key": 8,
+          "median_task_us": {
+            "A1": 7.18,
+            "A2": 7.195,
+            "B": 7.22,
+            "C": 7.22
+          },
+          "median_scalar_us": {
+            "A1": 2.32525,
+            "A2": 2.32825,
+            "B": 2.33075,
+            "C": 2.3355
+          },
+          "controls_pass": 6
+        },
+        {
+          "id": "97",
+          "dtype": "bf16",
+          "shape": [
+            127,
+            8192,
+            1
+          ],
+          "actual_tiling_key": 14,
+          "median_task_us": {
+            "A1": 16.98,
+            "A2": 16.995,
+            "B": 17.0,
+            "C": 17.02
+          },
+          "median_scalar_us": {
+            "A1": 5.45825,
+            "A2": 5.45875,
+            "B": 5.45925,
+            "C": 5.4655000000000005
+          },
+          "controls_pass": 6
+        },
+        {
+          "id": "110",
+          "dtype": "bf16",
+          "shape": [
+            16,
+            63,
+            257
+          ],
+          "actual_tiling_key": 2,
+          "median_task_us": {
+            "A1": 23.36,
+            "A2": 23.369999999999997,
+            "B": 23.4,
+            "C": 23.38
+          },
+          "median_scalar_us": {
+            "A1": 12.9805,
+            "A2": 12.98375,
+            "B": 12.98625,
+            "C": 12.98975
+          },
+          "controls_pass": 6
+        },
+        {
+          "id": "107",
+          "dtype": "fp32",
+          "shape": [
+            127,
+            64,
+            1
+          ],
+          "actual_tiling_key": 6,
+          "median_task_us": {
+            "A1": 7.1,
+            "A2": 7.109999999999999,
+            "B": 7.08,
+            "C": 7.08
+          },
+          "median_scalar_us": {
+            "A1": 2.2155,
+            "A2": 2.2165,
+            "B": 2.215,
+            "C": 2.2190000000000003
+          },
+          "controls_pass": 6
+        },
+        {
+          "id": "5",
+          "dtype": "fp16",
+          "shape": [
+            127,
+            64,
+            1
+          ],
+          "actual_tiling_key": 7,
+          "median_task_us": {
+            "A1": 7.109999999999999,
+            "A2": 7.109999999999999,
+            "B": 7.06,
+            "C": 7.09
+          },
+          "median_scalar_us": {
+            "A1": 2.271,
+            "A2": 2.269,
+            "B": 2.2052500000000004,
+            "C": 2.27625
+          },
+          "controls_pass": 6
+        }
+      ]
+    },
+    {
+      "run": "taskonly-swapped",
+      "ai_core_counters": false,
+      "first_bf16_load_order": "BAC",
+      "windows": 120,
+      "calls": 42000,
+      "correctness_windows_pass": 120,
+      "controls_pass": 12,
+      "aa_pass": 29,
+      "comparisons": 30,
+      "cases": [
+        {
+          "id": "37",
+          "dtype": "bf16",
+          "shape": [
+            127,
+            64,
+            1
+          ],
+          "actual_tiling_key": 8,
+          "median_task_us": {
+            "A1": 8.16,
+            "A2": 8.18,
+            "B": 6.95,
+            "C": 6.96
+          },
+          "controls_pass": 0
+        },
+        {
+          "id": "97",
+          "dtype": "bf16",
+          "shape": [
+            127,
+            8192,
+            1
+          ],
+          "actual_tiling_key": 14,
+          "median_task_us": {
+            "A1": 17.26,
+            "A2": 17.26,
+            "B": 16.7,
+            "C": 16.72
+          },
+          "controls_pass": 0
+        },
+        {
+          "id": "110",
+          "dtype": "bf16",
+          "shape": [
+            16,
+            63,
+            257
+          ],
+          "actual_tiling_key": 2,
+          "median_task_us": {
+            "A1": 24.12,
+            "A2": 24.1,
+            "B": 23.64,
+            "C": 23.630000000000003
+          },
+          "controls_pass": 0
+        },
+        {
+          "id": "107",
+          "dtype": "fp32",
+          "shape": [
+            127,
+            64,
+            1
+          ],
+          "actual_tiling_key": 6,
+          "median_task_us": {
+            "A1": 6.82,
+            "A2": 6.82,
+            "B": 6.84,
+            "C": 6.83
+          },
+          "controls_pass": 6
+        },
+        {
+          "id": "5",
+          "dtype": "fp16",
+          "shape": [
+            127,
+            64,
+            1
+          ],
+          "actual_tiling_key": 7,
+          "median_task_us": {
+            "A1": 6.82,
+            "A2": 6.82,
+            "B": 6.8,
+            "C": 6.82
+          },
+          "controls_pass": 6
+        }
+      ]
+    },
+    {
+      "run": "taskonly-return",
+      "ai_core_counters": false,
+      "first_bf16_load_order": "ABC",
+      "windows": 120,
+      "calls": 42000,
+      "correctness_windows_pass": 120,
+      "controls_pass": 12,
+      "aa_pass": 30,
+      "comparisons": 30,
+      "cases": [
+        {
+          "id": "37",
+          "dtype": "bf16",
+          "shape": [
+            127,
+            64,
+            1
+          ],
+          "actual_tiling_key": 8,
+          "median_task_us": {
+            "A1": 5.72,
+            "A2": 5.72,
+            "B": 6.995,
+            "C": 5.72
+          },
+          "controls_pass": 0
+        },
+        {
+          "id": "97",
+          "dtype": "bf16",
+          "shape": [
+            127,
+            8192,
+            1
+          ],
+          "actual_tiling_key": 14,
+          "median_task_us": {
+            "A1": 15.48,
+            "A2": 15.48,
+            "B": 15.96,
+            "C": 15.5
+          },
+          "controls_pass": 0
+        },
+        {
+          "id": "110",
+          "dtype": "bf16",
+          "shape": [
+            16,
+            63,
+            257
+          ],
+          "actual_tiling_key": 2,
+          "median_task_us": {
+            "A1": 22.38,
+            "A2": 22.39,
+            "B": 22.82,
+            "C": 22.4
+          },
+          "controls_pass": 0
+        },
+        {
+          "id": "107",
+          "dtype": "fp32",
+          "shape": [
+            127,
+            64,
+            1
+          ],
+          "actual_tiling_key": 6,
+          "median_task_us": {
+            "A1": 5.6049999999999995,
+            "A2": 5.615,
+            "B": 5.62,
+            "C": 5.62
+          },
+          "controls_pass": 6
+        },
+        {
+          "id": "5",
+          "dtype": "fp16",
+          "shape": [
+            127,
+            64,
+            1
+          ],
+          "actual_tiling_key": 7,
+          "median_task_us": {
+            "A1": 5.58,
+            "A2": 5.58,
+            "B": 5.56,
+            "C": 5.585
+          },
+          "controls_pass": 6
+        }
+      ]
+    }
+  ],
+  "status": "diagnostic only; no candidate promotion; all runs retained",
+  "input_hashes_rechecked": 25,
+  "bf16_elf_hashes_rechecked": 3,
+  "debug_calls_pass": 45
+}

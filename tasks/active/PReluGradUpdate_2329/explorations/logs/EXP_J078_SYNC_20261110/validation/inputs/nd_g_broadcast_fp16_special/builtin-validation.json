@@ -1,0 +1,14 @@
+{
+  "accepted": true,
+  "exit": 0,
+  "input_hashes": {
+    "grads": "261dd6237530862c65431e2fb148a71c379ffb02df40842321b7aef6f7d70200",
+    "features": "ab3fb872cb3d9c089f6a934f05004494c4b76a81a0f94d0b13bb70eae16ee8aa",
+    "weights": "638c5ed4f51810f394eb6b1e3829c515d6430ec011c1d232b99b08c68f538b66"
+  },
+  "meta_sha256": "8bd7bc2ffdb9c1b73fe8246dde03a79b066d21577c9e091a2185f61cee9a0489",
+  "golden_hashes": {
+    "builtin-dx.bin": "5662d5bcfcfea38f3d91953cba085530fc0329581ec5ec72c5e72fd1ce780943",
+    "builtin-update.bin": "71e92fbde1fb4533aa253fd9df5467edf177426564b8a7f08f5a66c3b9708bff"
+  }
+}

@@ -1,127 +1,78 @@
-#include <iostream>
+#include <cstring>
+#include <vector>
 #include <gtest/gtest.h>
-#include "tiling_context_faker.h"
 #include "tiling_case_executor.h"
 #include "p_relu_grad_update_tiling_data.h"
+#include "p_relu_grad_update_general_tiling.h"
+#include "p_relu_grad_update_tiling_key.h"
 
-namespace PReluGradUpdateUT {
-using namespace std;
-using namespace ge;
-using namespace gert;
-static const std::string OP_NAME = "PReluGradUpdate";
-
-struct PReluGradUpdateTestParam {
-    std::string caseName;
-    std::initializer_list<int64_t> gradsShape;
-    ge::DataType gradsDtype;
-    ge::Format gradsFormat;
-    std::initializer_list<int64_t> featuresShape;
-    ge::DataType featuresDtype;
-    ge::Format featuresFormat;
-    std::initializer_list<int64_t> weightsShape;
-    ge::DataType weightsDtype;
-    ge::Format weightsFormat;
-    std::initializer_list<int64_t> dxShape;
-    ge::DataType dxDtype;
-    ge::Format dxFormat;
-    std::initializer_list<int64_t> updateShape;
-    ge::DataType updateDtype;
-    ge::Format updateFormat;
-    std::string socVersion;
-    ge::graphStatus status;
-    uint64_t expectTilingKey;
-    std::string expectTilingData;
-    std::vector<size_t> expectWorkspaces;
-    uint64_t maxAIVNum;
-    uint64_t ubSize;
-    uint64_t tilingDataMaxSize;
-};
-
-static PReluGradUpdateTestParam testCases[] = {
-    {"float_c1_scalar_contiguous", {128, 1, 1}, ge::DT_FLOAT, ge::FORMAT_ND,
-        {128, 1, 1}, ge::DT_FLOAT, ge::FORMAT_ND, {1}, ge::DT_FLOAT, ge::FORMAT_ND,
-        {128, 1, 1}, ge::DT_FLOAT, ge::FORMAT_ND, {128, 1, 1}, ge::DT_FLOAT, ge::FORMAT_ND,
-        "Ascend910B", ge::GRAPH_SUCCESS, 0UL, "128 16 8 8 1 1 1 0 0 ", {0}, 64, 262144, 4096},
-    {"float16_c1_scalar_contiguous", {128, 1, 1}, ge::DT_FLOAT16, ge::FORMAT_ND,
-        {128, 1, 1}, ge::DT_FLOAT16, ge::FORMAT_ND, {1}, ge::DT_FLOAT16, ge::FORMAT_ND,
-        {128, 1, 1}, ge::DT_FLOAT16, ge::FORMAT_ND, {128, 1, 1}, ge::DT_FLOAT16, ge::FORMAT_ND,
-        "Ascend910B", ge::GRAPH_SUCCESS, 1UL, "128 8 16 16 1 1 1 0 0 ", {0}, 64, 262144, 4096},
-    {"bf16_c1_scalar_contiguous", {128, 1, 1}, ge::DT_BF16, ge::FORMAT_ND,
-        {128, 1, 1}, ge::DT_BF16, ge::FORMAT_ND, {1}, ge::DT_BF16, ge::FORMAT_ND,
-        {128, 1, 1}, ge::DT_BF16, ge::FORMAT_ND, {128, 1, 1}, ge::DT_BF16, ge::FORMAT_ND,
-        "Ascend910B", ge::GRAPH_SUCCESS, 2UL, "128 8 16 16 1 1 1 0 0 ", {0}, 64, 262144, 4096},
-    {"float_c1_cross_batch", {32, 1, 17}, ge::DT_FLOAT, ge::FORMAT_ND,
-        {32, 1, 17}, ge::DT_FLOAT, ge::FORMAT_ND, {1}, ge::DT_FLOAT, ge::FORMAT_ND,
-        {32, 1, 17}, ge::DT_FLOAT, ge::FORMAT_ND, {32, 1, 17}, ge::DT_FLOAT, ge::FORMAT_ND,
-        "Ascend910B", ge::GRAPH_SUCCESS, 0UL, "544 34 16 16 1 17 17 0 0 ", {0}, 64, 262144, 4096},
-    {"float_channel_weights", {4, 6, 8}, ge::DT_FLOAT, ge::FORMAT_ND,
-        {4, 6, 8}, ge::DT_FLOAT, ge::FORMAT_ND, {6}, ge::DT_FLOAT, ge::FORMAT_ND,
-        {4, 6, 8}, ge::DT_FLOAT, ge::FORMAT_ND, {4, 6, 8}, ge::DT_FLOAT, ge::FORMAT_ND,
-        "Ascend910B", ge::GRAPH_SUCCESS, 0UL, "192 24 8 8 6 8 48 1 0 ", {0}, 64, 262144, 4096},
-    {"float_scalar_weight", {4, 6, 8}, ge::DT_FLOAT, ge::FORMAT_ND,
-        {4, 6, 8}, ge::DT_FLOAT, ge::FORMAT_ND, {1}, ge::DT_FLOAT, ge::FORMAT_ND,
-        {4, 6, 8}, ge::DT_FLOAT, ge::FORMAT_ND, {4, 6, 8}, ge::DT_FLOAT, ge::FORMAT_ND,
-        "Ascend910B", ge::GRAPH_SUCCESS, 0UL, "192 24 8 8 6 8 48 0 0 ", {0}, 64, 262144, 4096},
-    {"float16_key", {4, 6, 8}, ge::DT_FLOAT16, ge::FORMAT_ND,
-        {4, 6, 8}, ge::DT_FLOAT16, ge::FORMAT_ND, {6}, ge::DT_FLOAT16, ge::FORMAT_ND,
-        {4, 6, 8}, ge::DT_FLOAT16, ge::FORMAT_ND, {4, 6, 8}, ge::DT_FLOAT16, ge::FORMAT_ND,
-        "Ascend910B", ge::GRAPH_SUCCESS, 1UL, "192 12 16 8 6 8 48 1 0 ", {0}, 64, 262144, 4096},
-    {"bf16_key", {4, 6, 8}, ge::DT_BF16, ge::FORMAT_ND,
-        {4, 6, 8}, ge::DT_BF16, ge::FORMAT_ND, {6}, ge::DT_BF16, ge::FORMAT_ND,
-        {4, 6, 8}, ge::DT_BF16, ge::FORMAT_ND, {4, 6, 8}, ge::DT_BF16, ge::FORMAT_ND,
-        "Ascend910B", ge::GRAPH_SUCCESS, 2UL, "192 12 16 8 6 8 48 1 0 ", {0}, 64, 262144, 4096},
-};
-
-class PReluGradUpdateTilingTest : public testing::TestWithParam<PReluGradUpdateTestParam> {
-protected:
-    static void SetUpTestCase() {
-        std::cout << "PReluGradUpdateTilingTest SetUp." << std::endl;
-    }
-    static void TearDownTestCase() {
-        std::cout << "PReluGradUpdateTilingTest TearDown." << std::endl;
-    }
-};
-
-struct PReluGradUpdateCompileInfo {} compileInfo;
-
-static void TestOneParamCase(const PReluGradUpdateTestParam &param)
-{
-    gert::StorageShape gradsShape = {param.gradsShape, param.gradsShape};
-    gert::StorageShape featuresShape = {param.featuresShape, param.featuresShape};
-    gert::StorageShape weightsShape = {param.weightsShape, param.weightsShape};
-    gert::StorageShape dxShape = {param.dxShape, param.dxShape};
-    gert::StorageShape updateShape = {param.updateShape, param.updateShape};
-    std::vector<gert::TilingContextPara::TensorDescription> inputTensorDesc_(
-        {{gradsShape, param.gradsDtype, param.gradsFormat},
-        {featuresShape, param.featuresDtype, param.featuresFormat},
-        {weightsShape, param.weightsDtype, param.weightsFormat}});
-    std::vector<gert::TilingContextPara::TensorDescription> outputTensorDesc_(
-        {{dxShape, param.dxDtype, param.dxFormat},
-        {updateShape, param.updateDtype, param.updateFormat}});
-    std::vector<gert::TilingContextPara::OpAttr> attrs_;
-
-    gert::TilingContextPara tilingContextPara(
-        OP_NAME,
-        inputTensorDesc_,
-        outputTensorDesc_,
-        attrs_,
-        &compileInfo,
-        param.maxAIVNum,
-        param.ubSize,
-        param.tilingDataMaxSize);
-    ExecuteTestCase(tilingContextPara, param.status, param.expectTilingKey,
-                    param.expectTilingData, param.expectWorkspaces);
+namespace {
+using Dims = std::initializer_list<int64_t>;
+struct PReluGradUpdateCompileInfo {} info;
+bool Tile(Dims g, Dims x, Dims w, Dims out, ge::DataType dt,
+          ge::Format fmt, TilingInfo& result) {
+    gert::StorageShape gs{g,g}, xs{x,x}, ws{w,w}, os{out,out};
+    const auto wf = fmt == ge::FORMAT_NC1HWC0 ? fmt : ge::FORMAT_ND;
+    std::vector<gert::TilingContextPara::TensorDescription> inputs{
+        {gs,dt,fmt},{xs,dt,fmt},{ws,dt,wf}};
+    std::vector<gert::TilingContextPara::TensorDescription> outputs{{os,dt,fmt},{os,dt,fmt}};
+    std::vector<gert::TilingContextPara::OpAttr> attrs;
+    gert::TilingContextPara context("PReluGradUpdate", inputs, outputs, attrs,
+                                   &info, 64, 262144, 4096);
+    return ExecuteTiling(context, result);
 }
-
-TEST_P(PReluGradUpdateTilingTest, tiling_test)
-{
-    const PReluGradUpdateTestParam &param = GetParam();
-    TestOneParamCase(param);
+class LegacyTiling : public testing::TestWithParam<ge::DataType> {};
+uint64_t Key(ge::DataType dt) {
+    if (dt==ge::DT_FLOAT) return GET_TPL_TILING_KEY(PRELUGRADUPDATE_TPL_FLOAT);
+    if (dt==ge::DT_FLOAT16) return GET_TPL_TILING_KEY(PRELUGRADUPDATE_TPL_FLOAT16);
+    return GET_TPL_TILING_KEY(PRELUGRADUPDATE_TPL_BF16);
 }
-
-INSTANTIATE_TEST_SUITE_P(
-    PReluGradUpdateTilingTests,
-    PReluGradUpdateTilingTest,
-    testing::ValuesIn(testCases));
-
+TEST_P(LegacyTiling, ChannelSampleCoversEveryElement) {
+    TilingInfo result; auto dt=GetParam();
+    ASSERT_TRUE(Tile({4,6,8},{4,6,8},{6},{4,6,8},dt,ge::FORMAT_ND,result));
+    ASSERT_EQ(result.tilingDataSize,sizeof(PReluGradUpdateTilingData));
+    PReluGradUpdateTilingData t{}; std::memcpy(&t,result.tilingData.get(),sizeof(t));
+    EXPECT_EQ(result.tilingKey,Key(dt)); EXPECT_EQ(t.totalNum,192);
+    EXPECT_EQ(t.channelNum,6); EXPECT_EQ(t.innerSize,8); EXPECT_EQ(t.sampleSize,48);
+    EXPECT_EQ(t.weightsPerChannel,1); EXPECT_EQ(t.tileLen,8);
+    EXPECT_EQ(t.blockFactor,dt==ge::DT_FLOAT?8:16);
+    EXPECT_EQ(result.blockNum,dt==ge::DT_FLOAT?24u:12u);
+    EXPECT_EQ(t.coreNum,result.blockNum); EXPECT_EQ(t.rowsPerTile,0);
+    EXPECT_EQ(t.splitBatchGroups,0); EXPECT_EQ(result.workspaceSizes,std::vector<int64_t>{0});
+    EXPECT_EQ(t.blockFactor*t.coreNum,t.totalNum);
+}
+TEST_P(LegacyTiling, ScalarWeightUsesFourCores) {
+    TilingInfo result;
+    ASSERT_TRUE(Tile({128,1,1},{128,1,1},{1},{128,1,1},GetParam(),ge::FORMAT_ND,result));
+    ASSERT_EQ(result.tilingDataSize,sizeof(PReluGradUpdateTilingData));
+    PReluGradUpdateTilingData t{}; std::memcpy(&t,result.tilingData.get(),sizeof(t));
+    EXPECT_EQ(result.tilingKey,Key(GetParam())); EXPECT_EQ(result.blockNum,4u);
+    EXPECT_EQ(t.blockFactor,32); EXPECT_EQ(t.tileLen,32); EXPECT_EQ(t.weightsPerChannel,0);
+}
+INSTANTIATE_TEST_SUITE_P(Dtypes,LegacyTiling,
+                         testing::Values(ge::DT_FLOAT,ge::DT_FLOAT16,ge::DT_BF16));
+TEST(GeneralTiling, BroadcastUsesItsOwnMetadata) {
+    TilingInfo result;
+    ASSERT_TRUE(Tile({1,7,3},{2,7,1},{7},{2,7,3},ge::DT_FLOAT,ge::FORMAT_ND,result));
+    ASSERT_EQ(result.tilingDataSize,sizeof(PReluGradUpdateGeneralTilingData));
+    PReluGradUpdateGeneralTilingData t{};std::memcpy(&t,result.tilingData.get(),sizeof(t));
+    EXPECT_EQ(result.tilingKey,GET_TPL_TILING_KEY(PRELUGRADUPDATE_TPL_FLOAT_GENERAL));
+    EXPECT_EQ(t.totalNum,42u); EXPECT_EQ(t.rank,3u); EXPECT_EQ(t.sourceElements[0],21u);
+    EXPECT_EQ(t.sourceElements[1],14u); EXPECT_EQ(t.sourceElements[2],7u);
+    EXPECT_EQ(t.tileLen,2048u); EXPECT_GE(result.blockNum*t.blockSpan,t.totalNum);
+    EXPECT_LT((result.blockNum-1)*t.blockSpan,t.totalNum);
+}
+TEST(GeneralTiling, EmptyOutputIsOneBlockNoOp) {
+    TilingInfo result;
+    ASSERT_TRUE(Tile({0,3,4},{0,3,4},{3},{0,3,4},ge::DT_FLOAT,ge::FORMAT_ND,result));
+    ASSERT_EQ(result.tilingDataSize,sizeof(PReluGradUpdateGeneralTilingData));
+    PReluGradUpdateGeneralTilingData t{};std::memcpy(&t,result.tilingData.get(),sizeof(t));
+    EXPECT_EQ(t.totalNum,0u); EXPECT_EQ(result.blockNum,1u); EXPECT_EQ(t.blockSpan,0u);
+    EXPECT_EQ(result.tilingKey,GET_TPL_TILING_KEY(PRELUGRADUPDATE_TPL_FLOAT_GENERAL));
+}
+TEST(GeneralTiling, RejectsWeightExpansionAndWrongOutput) {
+    TilingInfo result;
+    EXPECT_FALSE(Tile({1,1,2},{1,1,2},{3},{1,3,2},ge::DT_FLOAT,ge::FORMAT_ND,result));
+    EXPECT_FALSE(Tile({1,7,3},{2,7,1},{7},{1,7,3},ge::DT_FLOAT,ge::FORMAT_ND,result));
+}
 }

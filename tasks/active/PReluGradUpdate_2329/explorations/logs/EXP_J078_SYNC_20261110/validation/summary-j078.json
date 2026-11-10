@@ -1,0 +1,12 @@
+{
+  "proposed": 69,
+  "accepted": 67,
+  "rejected": [
+    "probe_scalar_grads",
+    "probe_rank1_features_scalar_weight"
+  ],
+  "completed": 67,
+  "all_accepted_custom_passed": true,
+  "strict_logical_mismatches": 0,
+  "NPU_performance_measured": false
+}

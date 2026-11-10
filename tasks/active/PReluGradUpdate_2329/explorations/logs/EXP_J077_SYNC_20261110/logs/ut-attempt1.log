@@ -1,0 +1,390 @@
+[INFO] Running UT tests...
+-- The CXX compiler identification is GNU 9.4.0
+-- The C compiler identification is GNU 9.4.0
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- ASCEND_HOME_PATH: /home/developer/Ascend/cann-9.3.0
+CMake Deprecation Warning at /usr/src/googletest/CMakeLists.txt:4 (cmake_minimum_required):
+  Compatibility with CMake < 2.8.12 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value or use a ...<max> suffix to tell
+  CMake that the project does not need compatibility with older versions.
+
+
+CMake Deprecation Warning at /usr/src/googletest/googlemock/CMakeLists.txt:45 (cmake_minimum_required):
+  Compatibility with CMake < 2.8.12 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value or use a ...<max> suffix to tell
+  CMake that the project does not need compatibility with older versions.
+
+
+CMake Deprecation Warning at /usr/src/googletest/googletest/CMakeLists.txt:56 (cmake_minimum_required):
+  Compatibility with CMake < 2.8.12 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value or use a ...<max> suffix to tell
+  CMake that the project does not need compatibility with older versions.
+
+
+-- Found PythonInterp: /usr/local/bin/python (found version "3.11.4") 
+-- Looking for pthread.h
+-- Looking for pthread.h - found
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Failed
+-- Looking for pthread_create in pthreads
+-- Looking for pthread_create in pthreads - not found
+-- Looking for pthread_create in pthread
+-- Looking for pthread_create in pthread - found
+-- Found Threads: TRUE  
+-- Build Type: Debug
+-- Building UT for SOC_VERSION: ascend910_93
+-- Building op_kernel UT for: p_relu_grad_update
+-- Using CANN_HOME: /home/developer/Ascend/cann-9.3.0
+--   Kernel UT executable: p_relu_grad_update_op_kernel_ut
+--   CANN Home: /home/developer/Ascend/cann-9.3.0
+--   SOC Version: Ascend910B1
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /mnt/workspace/2329-JadeYara-20261104-1812/J077/candidate/code/tests/ut/build
+.......
+----------------------------------------------------------------------
+Ran 7 tests in 0.024s
+
+OK
+[  5%] Building CXX object gtest/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.o
+[ 11%] Building CXX object op_host/CMakeFiles/p_relu_grad_update_op_host_ut_lib.dir/mnt/workspace/2329-JadeYara-20261104-1812/J077/candidate/code/op_host/p_relu_grad_update_def.cpp.o
+[ 17%] Building CXX object op_host/CMakeFiles/p_relu_grad_update_op_host_ut_lib.dir/mnt/workspace/2329-JadeYara-20261104-1812/J077/candidate/code/op_host/p_relu_grad_update_infershape.cpp.o
+[ 23%] Building CXX object op_host/CMakeFiles/p_relu_grad_update_op_host_ut_lib.dir/mnt/workspace/2329-JadeYara-20261104-1812/J077/candidate/code/op_host/p_relu_grad_update_tiling.cpp.o
+In file included from /mnt/workspace/2329-JadeYara-20261104-1812/J077/candidate/code/op_host/p_relu_grad_update_tiling.cpp:7:
+/mnt/workspace/2329-JadeYara-20261104-1812/J077/candidate/code/op_host/p_relu_grad_update_shape_utils.h: In function 'bool JadeYaraShape::BroadcastTo(const Dims&, const Dims&)':
+/mnt/workspace/2329-JadeYara-20261104-1812/J077/candidate/code/op_host/p_relu_grad_update_shape_utils.h:43:2: warning: this 'if' clause does not guard... [-Wmisleading-indentation]
+   43 |  if(src.size()>dst.size())return false;const size_t lead=dst.size()-src.size();
+      |  ^~
+/mnt/workspace/2329-JadeYara-20261104-1812/J077/candidate/code/op_host/p_relu_grad_update_shape_utils.h:43:40: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the 'if'
+   43 |  if(src.size()>dst.size())return false;const size_t lead=dst.size()-src.size();
+      |                                        ^~~~~
+In file included from /home/developer/Ascend/cann-9.3.0/include/external/ge_common/api_error_codes.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/include/exe_graph/runtime/continuous_vector.h:20,
+                 from /home/developer/Ascend/cann-9.3.0/include/exe_graph/runtime/runtime_attrs.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/include/exe_graph/runtime/infer_shape_context.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/include/register/op_impl_registry.h:19,
+                 from /mnt/workspace/2329-JadeYara-20261104-1812/J077/candidate/code/op_host/p_relu_grad_update_infershape.cpp:1:
+/home/developer/Ascend/cann-9.3.0/include/external/ge_common/ge_error_codes.h:15:122: note: #pragma message: Warning: ge_error_codes.h is deprecated and will be removed after 2027-06. Include "graph/error_codes.h" instead.
+   15 |     "Warning: ge_error_codes.h is deprecated and will be removed after 2027-06. Include \"graph/error_codes.h\" instead.")
+      |                                                                                                                          ^
+In file included from /home/developer/Ascend/cann-9.3.0/include/external/ge_common/api_error_codes.h:17,
+                 from /home/developer/Ascend/cann-9.3.0/include/exe_graph/runtime/continuous_vector.h:20,
+                 from /home/developer/Ascend/cann-9.3.0/include/exe_graph/runtime/runtime_attrs.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/include/exe_graph/runtime/infer_shape_context.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/include/register/op_impl_registry.h:19,
+                 from /mnt/workspace/2329-JadeYara-20261104-1812/J077/candidate/code/op_host/p_relu_grad_update_infershape.cpp:1:
+/home/developer/Ascend/cann-9.3.0/include/external/ge_common/ge_api_types.h:15:122: note: #pragma message: Warning: ge_api_types.h is deprecated and will be removed after 2027-06. Include "ge_common_api_types.h" instead.
+   15 |     "Warning: ge_api_types.h is deprecated and will be removed after 2027-06. Include \"ge_common_api_types.h\" instead.")
+      |                                                                                                                          ^
+In file included from /home/developer/Ascend/cann-9.3.0/include/external/ge_common/api_error_codes.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/include/exe_graph/runtime/continuous_vector.h:20,
+                 from /home/developer/Ascend/cann-9.3.0/include/exe_graph/runtime/runtime_attrs.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/include/exe_graph/runtime/infer_shape_context.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/include/register/op_impl_registry.h:19,
+                 from /home/developer/Ascend/cann-9.3.0/include/register/op_def.h:19,
+                 from /home/developer/Ascend/cann-9.3.0/include/register/op_def_registry.h:14,
+                 from /mnt/workspace/2329-JadeYara-20261104-1812/J077/candidate/code/op_host/p_relu_grad_update_def.cpp:5:
+/home/developer/Ascend/cann-9.3.0/include/external/ge_common/ge_error_codes.h:15:122: note: #pragma message: Warning: ge_error_codes.h is deprecated and will be removed after 2027-06. Include "graph/error_codes.h" instead.
+   15 |     "Warning: ge_error_codes.h is deprecated and will be removed after 2027-06. Include \"graph/error_codes.h\" instead.")
+      |                                                                                                                          ^
+In file included from /home/developer/Ascend/cann-9.3.0/include/external/ge_common/api_error_codes.h:17,
+                 from /home/developer/Ascend/cann-9.3.0/include/exe_graph/runtime/continuous_vector.h:20,
+                 from /home/developer/Ascend/cann-9.3.0/include/exe_graph/runtime/runtime_attrs.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/include/exe_graph/runtime/infer_shape_context.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/include/register/op_impl_registry.h:19,
+                 from /home/developer/Ascend/cann-9.3.0/include/register/op_def.h:19,
+                 from /home/developer/Ascend/cann-9.3.0/include/register/op_def_registry.h:14,
+                 from /mnt/workspace/2329-JadeYara-20261104-1812/J077/candidate/code/op_host/p_relu_grad_update_def.cpp:5:
+/home/developer/Ascend/cann-9.3.0/include/external/ge_common/ge_api_types.h:15:122: note: #pragma message: Warning: ge_api_types.h is deprecated and will be removed after 2027-06. Include "ge_common_api_types.h" instead.
+   15 |     "Warning: ge_api_types.h is deprecated and will be removed after 2027-06. Include \"ge_common_api_types.h\" instead.")
+      |                                                                                                                          ^
+In file included from /home/developer/Ascend/cann-9.3.0/include/external/ge_common/api_error_codes.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/include/exe_graph/runtime/continuous_vector.h:20,
+                 from /home/developer/Ascend/cann-9.3.0/include/exe_graph/runtime/runtime_attrs.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/include/exe_graph/runtime/infer_shape_context.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/include/register/op_impl_registry.h:19,
+                 from /home/developer/Ascend/cann-9.3.0/include/register/op_def.h:19,
+                 from /home/developer/Ascend/cann-9.3.0/include/register/op_def_registry.h:14,
+                 from /mnt/workspace/2329-JadeYara-20261104-1812/J077/candidate/code/op_host/p_relu_grad_update_tiling.cpp:11:
+/home/developer/Ascend/cann-9.3.0/include/external/ge_common/ge_error_codes.h: At global scope:
+/home/developer/Ascend/cann-9.3.0/include/external/ge_common/ge_error_codes.h:15:122: note: #pragma message: Warning: ge_error_codes.h is deprecated and will be removed after 2027-06. Include "graph/error_codes.h" instead.
+   15 |     "Warning: ge_error_codes.h is deprecated and will be removed after 2027-06. Include \"graph/error_codes.h\" instead.")
+      |                                                                                                                          ^
+In file included from /home/developer/Ascend/cann-9.3.0/include/external/ge_common/api_error_codes.h:17,
+                 from /home/developer/Ascend/cann-9.3.0/include/exe_graph/runtime/continuous_vector.h:20,
+                 from /home/developer/Ascend/cann-9.3.0/include/exe_graph/runtime/runtime_attrs.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/include/exe_graph/runtime/infer_shape_context.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/include/register/op_impl_registry.h:19,
+                 from /home/developer/Ascend/cann-9.3.0/include/register/op_def.h:19,
+                 from /home/developer/Ascend/cann-9.3.0/include/register/op_def_registry.h:14,
+                 from /mnt/workspace/2329-JadeYara-20261104-1812/J077/candidate/code/op_host/p_relu_grad_update_tiling.cpp:11:
+/home/developer/Ascend/cann-9.3.0/include/external/ge_common/ge_api_types.h:15:122: note: #pragma message: Warning: ge_api_types.h is deprecated and will be removed after 2027-06. Include "ge_common_api_types.h" instead.
+   15 |     "Warning: ge_api_types.h is deprecated and will be removed after 2027-06. Include \"ge_common_api_types.h\" instead.")
+      |                                                                                                                          ^
+In file included from /mnt/workspace/2329-JadeYara-20261104-1812/J077/candidate/code/op_host/p_relu_grad_update_infershape.cpp:4:
+/mnt/workspace/2329-JadeYara-20261104-1812/J077/candidate/code/op_host/p_relu_grad_update_shape_utils.h: In function 'bool JadeYaraShape::BroadcastTo(const Dims&, const Dims&)':
+/mnt/workspace/2329-JadeYara-20261104-1812/J077/candidate/code/op_host/p_relu_grad_update_shape_utils.h:43:2: warning: this 'if' clause does not guard... [-Wmisleading-indentation]
+   43 |  if(src.size()>dst.size())return false;const size_t lead=dst.size()-src.size();
+      |  ^~
+/mnt/workspace/2329-JadeYara-20261104-1812/J077/candidate/code/op_host/p_relu_grad_update_shape_utils.h:43:40: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the 'if'
+   43 |  if(src.size()>dst.size())return false;const size_t lead=dst.size()-src.size();
+      |                                        ^~~~~
+In file included from /home/developer/Ascend/cann-9.3.0/include/op_common/log/log.h:25,
+                 from /mnt/workspace/2329-JadeYara-20261104-1812/J077/candidate/code/op_host/p_relu_grad_update_tiling.cpp:12:
+/home/developer/Ascend/cann-9.3.0/include/graph/ge_error_codes.h:15:122: note: #pragma message: Warning: ge_error_codes.h is deprecated and will be removed after 2027-06. Include "graph/error_codes.h" instead.
+   15 |     "Warning: ge_error_codes.h is deprecated and will be removed after 2027-06. Include \"graph/error_codes.h\" instead.")
+      |                                                                                                                          ^
+[ 29%] Linking CXX shared library libp_relu_grad_update_op_host_ut_lib.so
+[ 29%] Built target p_relu_grad_update_op_host_ut_lib
+[ 35%] Linking CXX static library ../../lib/libgtest.a
+[ 35%] Built target gtest
+[ 41%] Building CXX object gtest/googletest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.o
+[ 47%] Linking CXX static library ../../lib/libgtest_main.a
+[ 47%] Built target gtest_main
+make[2]: *** No rule to make target 'lib/libgtest_maind.a', needed by 'op_kernel/p_relu_grad_update_op_kernel_ut'.  Stop.
+make[2]: *** Waiting for unfinished jobs....
+[ 52%] Building CXX object op_kernel/CMakeFiles/p_relu_grad_update_op_kernel_ut.dir/test_p_relu_grad_update.cpp.o
+[ 64%] Building CXX object op_host/CMakeFiles/p_relu_grad_update_op_host_ut.dir/test_op_host_main.cpp.o
+[ 64%] Building CXX object op_host/CMakeFiles/p_relu_grad_update_op_host_ut.dir/test_p_relu_grad_update_tiling.cpp.o
+[ 70%] Building CXX object op_host/CMakeFiles/p_relu_grad_update_op_host_ut.dir/__/common/infershape_case_executor.cpp.o
+In file included from /home/developer/Ascend/cann-9.3.0/include/external/ge_common/api_error_codes.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/include/exe_graph/runtime/continuous_vector.h:20,
+                 from /home/developer/Ascend/cann-9.3.0/include/exe_graph/runtime/runtime_attrs.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/include/exe_graph/runtime/infer_shape_context.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/base/context_builder/op_infer_shape_context_builder.h:18,
+                 from /mnt/workspace/2329-JadeYara-20261104-1812/J077/candidate/code/tests/ut/common/infershape_context_faker.h:4,
+                 from /mnt/workspace/2329-JadeYara-20261104-1812/J077/candidate/code/tests/ut/common/infershape_case_executor.h:4,
+                 from /mnt/workspace/2329-JadeYara-20261104-1812/J077/candidate/code/tests/ut/common/infershape_case_executor.cpp:1:
+/home/developer/Ascend/cann-9.3.0/include/external/ge_common/ge_error_codes.h:15:122: note: #pragma message: Warning: ge_error_codes.h is deprecated and will be removed after 2027-06. Include "graph/error_codes.h" instead.
+   15 |     "Warning: ge_error_codes.h is deprecated and will be removed after 2027-06. Include \"graph/error_codes.h\" instead.")
+      |                                                                                                                          ^
+In file included from /home/developer/Ascend/cann-9.3.0/include/external/ge_common/api_error_codes.h:17,
+                 from /home/developer/Ascend/cann-9.3.0/include/exe_graph/runtime/continuous_vector.h:20,
+                 from /home/developer/Ascend/cann-9.3.0/include/exe_graph/runtime/runtime_attrs.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/include/exe_graph/runtime/infer_shape_context.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/base/context_builder/op_infer_shape_context_builder.h:18,
+                 from /mnt/workspace/2329-JadeYara-20261104-1812/J077/candidate/code/tests/ut/common/infershape_context_faker.h:4,
+                 from /mnt/workspace/2329-JadeYara-20261104-1812/J077/candidate/code/tests/ut/common/infershape_case_executor.h:4,
+                 from /mnt/workspace/2329-JadeYara-20261104-1812/J077/candidate/code/tests/ut/common/infershape_case_executor.cpp:1:
+/home/developer/Ascend/cann-9.3.0/include/external/ge_common/ge_api_types.h:15:122: note: #pragma message: Warning: ge_api_types.h is deprecated and will be removed after 2027-06. Include "ge_common_api_types.h" instead.
+   15 |     "Warning: ge_api_types.h is deprecated and will be removed after 2027-06. Include \"ge_common_api_types.h\" instead.")
+      |                                                                                                                          ^
+In file included from /home/developer/Ascend/cann-9.3.0/include/external/ge_common/api_error_codes.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/include/exe_graph/runtime/continuous_vector.h:20,
+                 from /home/developer/Ascend/cann-9.3.0/include/exe_graph/runtime/tiling_context.h:15,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/base/context_builder/op_tiling_context_builder.h:16,
+                 from /mnt/workspace/2329-JadeYara-20261104-1812/J077/candidate/code/tests/ut/common/tiling_context_faker.h:4,
+                 from /mnt/workspace/2329-JadeYara-20261104-1812/J077/candidate/code/tests/ut/common/tiling_case_executor.h:4,
+                 from /mnt/workspace/2329-JadeYara-20261104-1812/J077/candidate/code/tests/ut/op_host/test_p_relu_grad_update_tiling.cpp:4:
+/home/developer/Ascend/cann-9.3.0/include/external/ge_common/ge_error_codes.h:15:122: note: #pragma message: Warning: ge_error_codes.h is deprecated and will be removed after 2027-06. Include "graph/error_codes.h" instead.
+   15 |     "Warning: ge_error_codes.h is deprecated and will be removed after 2027-06. Include \"graph/error_codes.h\" instead.")
+      |                                                                                                                          ^
+In file included from /home/developer/Ascend/cann-9.3.0/include/external/ge_common/api_error_codes.h:17,
+                 from /home/developer/Ascend/cann-9.3.0/include/exe_graph/runtime/continuous_vector.h:20,
+                 from /home/developer/Ascend/cann-9.3.0/include/exe_graph/runtime/tiling_context.h:15,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/base/context_builder/op_tiling_context_builder.h:16,
+                 from /mnt/workspace/2329-JadeYara-20261104-1812/J077/candidate/code/tests/ut/common/tiling_context_faker.h:4,
+                 from /mnt/workspace/2329-JadeYara-20261104-1812/J077/candidate/code/tests/ut/common/tiling_case_executor.h:4,
+                 from /mnt/workspace/2329-JadeYara-20261104-1812/J077/candidate/code/tests/ut/op_host/test_p_relu_grad_update_tiling.cpp:4:
+/home/developer/Ascend/cann-9.3.0/include/external/ge_common/ge_api_types.h:15:122: note: #pragma message: Warning: ge_api_types.h is deprecated and will be removed after 2027-06. Include "ge_common_api_types.h" instead.
+   15 |     "Warning: ge_api_types.h is deprecated and will be removed after 2027-06. Include \"ge_common_api_types.h\" instead.")
+      |                                                                                                                          ^
+In file included from /home/developer/Ascend/cann-9.3.0/include/external/ge_common/api_error_codes.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/include/exe_graph/runtime/continuous_vector.h:20,
+                 from /home/developer/Ascend/cann-9.3.0/include/exe_graph/runtime/runtime_attrs.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/include/exe_graph/runtime/infer_shape_context.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/include/register/op_impl_registry.h:19,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/pkg_inc/base/registry/op_impl_space_registry_v2.h:14,
+                 from /mnt/workspace/2329-JadeYara-20261104-1812/J077/candidate/code/tests/ut/op_host/test_op_host_main.cpp:4:
+/home/developer/Ascend/cann-9.3.0/include/external/ge_common/ge_error_codes.h:15:122: note: #pragma message: Warning: ge_error_codes.h is deprecated and will be removed after 2027-06. Include "graph/error_codes.h" instead.
+   15 |     "Warning: ge_error_codes.h is deprecated and will be removed after 2027-06. Include \"graph/error_codes.h\" instead.")
+      |                                                                                                                          ^
+In file included from /home/developer/Ascend/cann-9.3.0/include/external/ge_common/api_error_codes.h:17,
+                 from /home/developer/Ascend/cann-9.3.0/include/exe_graph/runtime/continuous_vector.h:20,
+                 from /home/developer/Ascend/cann-9.3.0/include/exe_graph/runtime/runtime_attrs.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/include/exe_graph/runtime/infer_shape_context.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/include/register/op_impl_registry.h:19,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/pkg_inc/base/registry/op_impl_space_registry_v2.h:14,
+                 from /mnt/workspace/2329-JadeYara-20261104-1812/J077/candidate/code/tests/ut/op_host/test_op_host_main.cpp:4:
+/home/developer/Ascend/cann-9.3.0/include/external/ge_common/ge_api_types.h:15:122: note: #pragma message: Warning: ge_api_types.h is deprecated and will be removed after 2027-06. Include "ge_common_api_types.h" instead.
+   15 |     "Warning: ge_api_types.h is deprecated and will be removed after 2027-06. Include \"ge_common_api_types.h\" instead.")
+      |                                                                                                                          ^
+[ 76%] Building CXX object op_host/CMakeFiles/p_relu_grad_update_op_host_ut.dir/__/common/infershape_context_faker.cpp.o
+[ 82%] Building CXX object op_host/CMakeFiles/p_relu_grad_update_op_host_ut.dir/__/common/tiling_case_executor.cpp.o
+In file included from /home/developer/Ascend/cann-9.3.0/include/external/ge_common/api_error_codes.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/include/exe_graph/runtime/continuous_vector.h:20,
+                 from /home/developer/Ascend/cann-9.3.0/include/exe_graph/runtime/runtime_attrs.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/include/exe_graph/runtime/infer_shape_context.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/base/context_builder/op_infer_shape_context_builder.h:18,
+                 from /mnt/workspace/2329-JadeYara-20261104-1812/J077/candidate/code/tests/ut/common/infershape_context_faker.h:4,
+                 from /mnt/workspace/2329-JadeYara-20261104-1812/J077/candidate/code/tests/ut/common/infershape_context_faker.cpp:1:
+/home/developer/Ascend/cann-9.3.0/include/external/ge_common/ge_error_codes.h:15:122: note: #pragma message: Warning: ge_error_codes.h is deprecated and will be removed after 2027-06. Include "graph/error_codes.h" instead.
+   15 |     "Warning: ge_error_codes.h is deprecated and will be removed after 2027-06. Include \"graph/error_codes.h\" instead.")
+      |                                                                                                                          ^
+In file included from /home/developer/Ascend/cann-9.3.0/include/external/ge_common/api_error_codes.h:17,
+                 from /home/developer/Ascend/cann-9.3.0/include/exe_graph/runtime/continuous_vector.h:20,
+                 from /home/developer/Ascend/cann-9.3.0/include/exe_graph/runtime/runtime_attrs.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/include/exe_graph/runtime/infer_shape_context.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/base/context_builder/op_infer_shape_context_builder.h:18,
+                 from /mnt/workspace/2329-JadeYara-20261104-1812/J077/candidate/code/tests/ut/common/infershape_context_faker.h:4,
+                 from /mnt/workspace/2329-JadeYara-20261104-1812/J077/candidate/code/tests/ut/common/infershape_context_faker.cpp:1:
+/home/developer/Ascend/cann-9.3.0/include/external/ge_common/ge_api_types.h:15:122: note: #pragma message: Warning: ge_api_types.h is deprecated and will be removed after 2027-06. Include "ge_common_api_types.h" instead.
+   15 |     "Warning: ge_api_types.h is deprecated and will be removed after 2027-06. Include \"ge_common_api_types.h\" instead.")
+      |                                                                                                                          ^
+make[2]: *** No rule to make target 'lib/libgtestd.a', needed by 'op_host/p_relu_grad_update_op_host_ut'.  Stop.
+make[2]: *** Waiting for unfinished jobs....
+[ 88%] Building CXX object op_host/CMakeFiles/p_relu_grad_update_op_host_ut.dir/__/common/tiling_context_faker.cpp.o
+In file included from /home/developer/Ascend/cann-9.3.0/include/external/ge_common/api_error_codes.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/include/exe_graph/runtime/continuous_vector.h:20,
+                 from /home/developer/Ascend/cann-9.3.0/include/exe_graph/runtime/tiling_context.h:15,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/base/context_builder/op_tiling_context_builder.h:16,
+                 from /mnt/workspace/2329-JadeYara-20261104-1812/J077/candidate/code/tests/ut/common/tiling_context_faker.h:4,
+                 from /mnt/workspace/2329-JadeYara-20261104-1812/J077/candidate/code/tests/ut/common/tiling_case_executor.h:4,
+                 from /mnt/workspace/2329-JadeYara-20261104-1812/J077/candidate/code/tests/ut/common/tiling_case_executor.cpp:1:
+/home/developer/Ascend/cann-9.3.0/include/external/ge_common/ge_error_codes.h:15:122: note: #pragma message: Warning: ge_error_codes.h is deprecated and will be removed after 2027-06. Include "graph/error_codes.h" instead.
+   15 |     "Warning: ge_error_codes.h is deprecated and will be removed after 2027-06. Include \"graph/error_codes.h\" instead.")
+      |                                                                                                                          ^
+In file included from /home/developer/Ascend/cann-9.3.0/include/external/ge_common/api_error_codes.h:17,
+                 from /home/developer/Ascend/cann-9.3.0/include/exe_graph/runtime/continuous_vector.h:20,
+                 from /home/developer/Ascend/cann-9.3.0/include/exe_graph/runtime/tiling_context.h:15,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/base/context_builder/op_tiling_context_builder.h:16,
+                 from /mnt/workspace/2329-JadeYara-20261104-1812/J077/candidate/code/tests/ut/common/tiling_context_faker.h:4,
+                 from /mnt/workspace/2329-JadeYara-20261104-1812/J077/candidate/code/tests/ut/common/tiling_case_executor.h:4,
+                 from /mnt/workspace/2329-JadeYara-20261104-1812/J077/candidate/code/tests/ut/common/tiling_case_executor.cpp:1:
+/home/developer/Ascend/cann-9.3.0/include/external/ge_common/ge_api_types.h:15:122: note: #pragma message: Warning: ge_api_types.h is deprecated and will be removed after 2027-06. Include "ge_common_api_types.h" instead.
+   15 |     "Warning: ge_api_types.h is deprecated and will be removed after 2027-06. Include \"ge_common_api_types.h\" instead.")
+      |                                                                                                                          ^
+In file included from /home/developer/Ascend/cann-9.3.0/aarch64-linux/asc/include/adv_api/activation/../../../impl/adv_api/detail/activation/softmax/membase/v220/softmax_impl.h:29,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/asc/include/adv_api/activation/../../../impl/adv_api/detail/activation/softmax/softmax_base_impl.h:31,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/asc/include/adv_api/activation/softmax.h:35,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/asc/include/adv_api/kernel_api.h:34,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/asc/include/basic_api/kernel_operator_intf.h:82,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/asc/include/kernel_operator.h:29,
+                 from /mnt/workspace/2329-JadeYara-20261104-1812/J077/candidate/code/tests/ut/op_kernel/p_relu_grad_update_tiling.h:13,
+                 from /mnt/workspace/2329-JadeYara-20261104-1812/J077/candidate/code/tests/ut/op_kernel/test_p_relu_grad_update.cpp:8:
+/home/developer/Ascend/cann-9.3.0/aarch64-linux/asc/include/adv_api/activation/../../../impl/adv_api/detail/activation/softmax/membase/v220/../common/softmax_impl/softmax_generic_nd_impl.h: In function 'void AscendC::SoftMaxNDExtImpl(const AscendC::LocalTensor<half>&, const AscendC::LocalTensor<float>&, const AscendC::LocalTensor<float>&, const AscendC::LocalTensor<half>&, const AscendC::LocalTensor<float>&, const AscendC::LastAxisShapeND&, const AscendC::tiling::SoftMaxTiling&, AscendC::ReduceLastND&)':
+/home/developer/Ascend/cann-9.3.0/aarch64-linux/asc/include/adv_api/activation/../../../impl/adv_api/detail/activation/softmax/membase/v220/../common/softmax_impl/softmax_generic_nd_impl.h:162:14: warning: variable 'reduceSize' set but not used [-Wunused-but-set-variable]
+  162 |     uint32_t reduceSize = tiling.reduceSize;
+      |              ^~~~~~~~~~
+In file included from /home/developer/Ascend/cann-9.3.0/aarch64-linux/asc/include/adv_api/activation/../../../impl/adv_api/detail/activation/softmax/logsoftmax_base_impl.h:29,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/asc/include/adv_api/activation/logsoftmax.h:35,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/asc/include/adv_api/kernel_api.h:35,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/asc/include/basic_api/kernel_operator_intf.h:82,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/asc/include/kernel_operator.h:29,
+                 from /mnt/workspace/2329-JadeYara-20261104-1812/J077/candidate/code/tests/ut/op_kernel/p_relu_grad_update_tiling.h:13,
+                 from /mnt/workspace/2329-JadeYara-20261104-1812/J077/candidate/code/tests/ut/op_kernel/test_p_relu_grad_update.cpp:8:
+/home/developer/Ascend/cann-9.3.0/aarch64-linux/asc/include/adv_api/activation/../../../impl/adv_api/detail/activation/softmax/membase/common/logsoftmax_common_impl.h: In function 'void AscendC::GenericLogNZImpl(const AscendC::LocalTensor<float>&, const AscendC::LocalTensor<float>&, uint32_t, uint32_t)':
+/home/developer/Ascend/cann-9.3.0/aarch64-linux/asc/include/adv_api/activation/../../../impl/adv_api/detail/activation/softmax/membase/common/logsoftmax_common_impl.h:53:27: warning: comparison of integer expressions of different signedness: 'int' and 'const uint32_t' {aka 'const unsigned int'} [-Wsign-compare]
+   53 |         for (int j = 0; j < originalSrcM; j++) {
+      |                         ~~^~~~~~~~~~~~~~
+In file included from /home/developer/Ascend/cann-9.3.0/aarch64-linux/asc/include/adv_api/activation/../../../impl/adv_api/detail/activation/softmax/logsoftmax_base_impl.h:29,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/asc/include/adv_api/activation/logsoftmax.h:35,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/asc/include/adv_api/kernel_api.h:35,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/asc/include/basic_api/kernel_operator_intf.h:82,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/asc/include/kernel_operator.h:29,
+                 from /mnt/workspace/2329-JadeYara-20261104-1812/J077/candidate/code/tests/ut/op_kernel/p_relu_grad_update_tiling.h:13,
+                 from /mnt/workspace/2329-JadeYara-20261104-1812/J077/candidate/code/tests/ut/op_kernel/test_p_relu_grad_update.cpp:8:
+/home/developer/Ascend/cann-9.3.0/aarch64-linux/asc/include/adv_api/activation/../../../impl/adv_api/detail/activation/softmax/membase/common/logsoftmax_common_impl.h: In function 'void AscendC::GenericLogNDImpl(const AscendC::LocalTensor<float>&, const AscendC::LocalTensor<float>&, uint32_t, uint32_t)':
+/home/developer/Ascend/cann-9.3.0/aarch64-linux/asc/include/adv_api/activation/../../../impl/adv_api/detail/activation/softmax/membase/common/logsoftmax_common_impl.h:298:27: warning: comparison of integer expressions of different signedness: 'int' and 'const uint32_t' {aka 'const unsigned int'} [-Wsign-compare]
+  298 |         for (int j = 0; j < originalSrcM; j++) {
+      |                         ~~^~~~~~~~~~~~~~
+/home/developer/Ascend/cann-9.3.0/aarch64-linux/asc/include/adv_api/activation/../../../impl/adv_api/detail/activation/softmax/membase/common/logsoftmax_common_impl.h: In function 'void AscendC::LogSoftMaxNDImpl(const AscendC::LocalTensor<half>&, const AscendC::LocalTensor<float>&, const AscendC::LocalTensor<float>&, const AscendC::LocalTensor<half>&, const AscendC::LocalTensor<float>&, const AscendC::LastAxisShapeND&, const AscendC::tiling::SoftMaxTiling&)':
+/home/developer/Ascend/cann-9.3.0/aarch64-linux/asc/include/adv_api/activation/../../../impl/adv_api/detail/activation/softmax/membase/common/logsoftmax_common_impl.h:496:14: warning: variable 'reduceSize' set but not used [-Wunused-but-set-variable]
+  496 |     uint32_t reduceSize = tiling.reduceSize;
+      |              ^~~~~~~~~~
+In file included from /home/developer/Ascend/cann-9.3.0/aarch64-linux/asc/include/adv_api/math/cumsum.h:34,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/asc/include/adv_api/kernel_api.h:74,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/asc/include/basic_api/kernel_operator_intf.h:82,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/asc/include/kernel_operator.h:29,
+                 from /mnt/workspace/2329-JadeYara-20261104-1812/J077/candidate/code/tests/ut/op_kernel/p_relu_grad_update_tiling.h:13,
+                 from /mnt/workspace/2329-JadeYara-20261104-1812/J077/candidate/code/tests/ut/op_kernel/test_p_relu_grad_update.cpp:8:
+/home/developer/Ascend/cann-9.3.0/aarch64-linux/asc/include/adv_api/math/../../../impl/adv_api/detail/math/cumsum/cumsum_common_impl.h: In function 'void AscendC::CumSumLastDim(const AscendC::LocalTensor<T>&, const AscendC::LocalTensor<T>&, AscendC::LocalTensor<T>, const AscendC::CumSumInfo&) [with T = float]':
+/home/developer/Ascend/cann-9.3.0/aarch64-linux/asc/include/adv_api/math/../../../impl/adv_api/detail/math/cumsum/cumsum_common_impl.h:199:31: warning: comparison of integer expressions of different signedness: 'int32_t' {aka 'int'} and 'unsigned int' [-Wsign-compare]
+  199 |         for (int32_t i = 0; i < cumSumInfo.inner / oneBlockElementNum; i++) {
+      |                             ~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/developer/Ascend/cann-9.3.0/aarch64-linux/asc/include/adv_api/math/../../../impl/adv_api/detail/math/cumsum/cumsum_common_impl.h:261:31: warning: comparison of integer expressions of different signedness: 'int32_t' {aka 'int'} and 'unsigned int' [-Wsign-compare]
+  261 |         for (int32_t i = 0; i < cumSumInfo.inner / oneBlockElementNum; i++) {
+      |                             ~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /home/developer/Ascend/cann-9.3.0/include/external/ge_common/api_error_codes.h:16,
+                 from /home/developer/Ascend/cann-9.3.0/include/exe_graph/runtime/continuous_vector.h:20,
+                 from /home/developer/Ascend/cann-9.3.0/include/exe_graph/runtime/tiling_context.h:15,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/base/context_builder/op_tiling_context_builder.h:16,
+                 from /mnt/workspace/2329-JadeYara-20261104-1812/J077/candidate/code/tests/ut/common/tiling_context_faker.h:4,
+                 from /mnt/workspace/2329-JadeYara-20261104-1812/J077/candidate/code/tests/ut/common/tiling_context_faker.cpp:1:
+/home/developer/Ascend/cann-9.3.0/include/external/ge_common/ge_error_codes.h:15:122: note: #pragma message: Warning: ge_error_codes.h is deprecated and will be removed after 2027-06. Include "graph/error_codes.h" instead.
+   15 |     "Warning: ge_error_codes.h is deprecated and will be removed after 2027-06. Include \"graph/error_codes.h\" instead.")
+      |                                                                                                                          ^
+In file included from /home/developer/Ascend/cann-9.3.0/include/external/ge_common/api_error_codes.h:17,
+                 from /home/developer/Ascend/cann-9.3.0/include/exe_graph/runtime/continuous_vector.h:20,
+                 from /home/developer/Ascend/cann-9.3.0/include/exe_graph/runtime/tiling_context.h:15,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/include/base/context_builder/op_tiling_context_builder.h:16,
+                 from /mnt/workspace/2329-JadeYara-20261104-1812/J077/candidate/code/tests/ut/common/tiling_context_faker.h:4,
+                 from /mnt/workspace/2329-JadeYara-20261104-1812/J077/candidate/code/tests/ut/common/tiling_context_faker.cpp:1:
+/home/developer/Ascend/cann-9.3.0/include/external/ge_common/ge_api_types.h:15:122: note: #pragma message: Warning: ge_api_types.h is deprecated and will be removed after 2027-06. Include "ge_common_api_types.h" instead.
+   15 |     "Warning: ge_api_types.h is deprecated and will be removed after 2027-06. Include \"ge_common_api_types.h\" instead.")
+      |                                                                                                                          ^
+In file included from /home/developer/Ascend/cann-9.3.0/aarch64-linux/asc/include/adv_api/math/exp.h:36,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/asc/include/adv_api/kernel_api.h:85,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/asc/include/basic_api/kernel_operator_intf.h:82,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/asc/include/kernel_operator.h:29,
+                 from /mnt/workspace/2329-JadeYara-20261104-1812/J077/candidate/code/tests/ut/op_kernel/p_relu_grad_update_tiling.h:13,
+                 from /mnt/workspace/2329-JadeYara-20261104-1812/J077/candidate/code/tests/ut/op_kernel/test_p_relu_grad_update.cpp:8:
+/home/developer/Ascend/cann-9.3.0/aarch64-linux/asc/include/adv_api/math/../../../impl/adv_api/detail/math/exp/exp_common_impl.h: In function 'void AscendC::ExpAPI::ExpHighPrecisionExec(const AscendC::ExpParams<float>&, uint32_t, uint32_t)':
+/home/developer/Ascend/cann-9.3.0/aarch64-linux/asc/include/adv_api/math/../../../impl/adv_api/detail/math/exp/exp_common_impl.h:178:27: warning: comparison of integer expressions of different signedness: 'int32_t' {aka 'int'} and 'unsigned int' [-Wsign-compare]
+  178 |     for (int32_t i = 2; i < params.expandLevel + 1; i++) {
+      |                         ~~^~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /home/developer/Ascend/cann-9.3.0/aarch64-linux/asc/include/adv_api/normalization/layernormgrad.h:32,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/asc/include/adv_api/kernel_api.h:90,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/asc/include/basic_api/kernel_operator_intf.h:82,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/asc/include/kernel_operator.h:29,
+                 from /mnt/workspace/2329-JadeYara-20261104-1812/J077/candidate/code/tests/ut/op_kernel/p_relu_grad_update_tiling.h:13,
+                 from /mnt/workspace/2329-JadeYara-20261104-1812/J077/candidate/code/tests/ut/op_kernel/test_p_relu_grad_update.cpp:8:
+/home/developer/Ascend/cann-9.3.0/aarch64-linux/asc/include/adv_api/normalization/../../../impl/adv_api/detail/normalization/layernormgrad/layernormgrad_common_impl.h: In constructor 'AscendC::LayerNormGradParams::LayerNormGradParams(AscendC::tiling::LayerNormGradTiling&, AscendC::LocalTensor<float>&)':
+/home/developer/Ascend/cann-9.3.0/aarch64-linux/asc/include/adv_api/normalization/../../../impl/adv_api/detail/normalization/layernormgrad/layernormgrad_common_impl.h:98:24: warning: 'AscendC::LayerNormGradParams::tmpTensorBSH' will be initialized after [-Wreorder]
+   98 |     LocalTensor<float> tmpTensorBSH; // tmp for intermediate use
+      |                        ^~~~~~~~~~~~
+/home/developer/Ascend/cann-9.3.0/aarch64-linux/asc/include/adv_api/normalization/../../../impl/adv_api/detail/normalization/layernormgrad/layernormgrad_common_impl.h:87:11: warning:   'float AscendC::LayerNormGradParams::lastDimValueBack' [-Wreorder]
+   87 |     float lastDimValueBack;
+      |           ^~~~~~~~~~~~~~~~
+/home/developer/Ascend/cann-9.3.0/aarch64-linux/asc/include/adv_api/normalization/../../../impl/adv_api/detail/normalization/layernormgrad/layernormgrad_common_impl.h:38:16: warning:   when initialized here [-Wreorder]
+   38 |     __aicore__ LayerNormGradParams(LayerNormGradTiling& tiling, LocalTensor<float>& stackBuffer)
+      |                ^~~~~~~~~~~~~~~~~~~
+In file included from /home/developer/Ascend/cann-9.3.0/aarch64-linux/asc/include/adv_api/math/../../../impl/adv_api/detail/math/trunc/../../api_check/kernel_check/math/trunc/trunc_check.h:26,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/asc/include/adv_api/math/../../../impl/adv_api/detail/math/trunc/trunc_common_impl.h:23,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/asc/include/adv_api/math/trunc.h:36,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/asc/include/adv_api/kernel_api.h:68,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/asc/include/basic_api/kernel_operator_intf.h:82,
+                 from /home/developer/Ascend/cann-9.3.0/aarch64-linux/asc/include/kernel_operator.h:29,
+                 from /mnt/workspace/2329-JadeYara-20261104-1812/J077/candidate/code/tests/ut/op_kernel/p_relu_grad_update_tiling.h:13,
+                 from /mnt/workspace/2329-JadeYara-20261104-1812/J077/candidate/code/tests/ut/op_kernel/test_p_relu_grad_update.cpp:8:
+/home/developer/Ascend/cann-9.3.0/aarch64-linux/asc/include/adv_api/math/../../../impl/adv_api/detail/math/trunc/../../api_check/kernel_check/math/trunc/trunc_check_common.h: In instantiation of 'AscendC::HighLevelApiCheck::CheckFuncClassTrunc<T, isReuseSource>::CheckFuncClassTrunc(const char*) [with T = float; bool isReuseSource = false]':
+/home/developer/Ascend/cann-9.3.0/aarch64-linux/asc/include/adv_api/math/../../../impl/adv_api/detail/math/trunc/../../api_check/kernel_check/math/trunc/trunc_check.h:39:43:   required from 'void AscendC::HighLevelApiCheck::CheckFuncTrunc(const char*, const AscendC::LocalTensor<T>&, const AscendC::LocalTensor<T>&, const AscendC::LocalTensor<unsigned char>&, uint32_t) [with T = float; bool isReuseSource = false; uint32_t = unsigned int]'
+/home/developer/Ascend/cann-9.3.0/aarch64-linux/asc/include/adv_api/math/../../../impl/adv_api/detail/math/trunc/trunc_common_impl.h:68:5:   required from 'void AscendC::TruncImpl(const AscendC::LocalTensor<T>&, const AscendC::LocalTensor<T>&, const AscendC::LocalTensor<unsigned char>&, uint32_t) [with T = float; bool isReuseSource = false; uint32_t = unsigned int]'
+/home/developer/Ascend/cann-9.3.0/aarch64-linux/asc/include/adv_api/math/trunc.h:68:32:   required from 'void AscendC::Trunc(const AscendC::LocalTensor<T>&, const AscendC::LocalTensor<T>&, const AscendC::LocalTensor<unsigned char>&, uint32_t) [with T = float; bool isReuseSource = false; uint32_t = unsigned int]'
+/home/developer/Ascend/cann-9.3.0/aarch64-linux/asc/include/adv_api/math/../../../impl/adv_api/detail/math/fmod/fmod_common_impl.h:49:58:   required from here
+/home/developer/Ascend/cann-9.3.0/aarch64-linux/asc/include/adv_api/math/../../../impl/adv_api/detail/math/trunc/../../api_check/kernel_check/math/trunc/trunc_check_common.h:46:52: warning: base 'AscendC::HighLevelApiCheck::SingleTensorCheckFuncBasicClass' will be initialized after [-Wreorder]
+   46 |           MultipleTensorCheckFuncBasicClass(apiName){};
+      |                                                    ^
+/home/developer/Ascend/cann-9.3.0/aarch64-linux/asc/include/adv_api/math/../../../impl/adv_api/detail/math/trunc/../../api_check/kernel_check/math/trunc/trunc_check_common.h:46:52: warning:   base 'AscendC::HighLevelApiCheck::DataTypeCheckFuncBasicClass' [-Wreorder]
+/home/developer/Ascend/cann-9.3.0/aarch64-linux/asc/include/adv_api/math/../../../impl/adv_api/detail/math/trunc/../../api_check/kernel_check/math/trunc/trunc_check_common.h:41:23: warning:   when initialized here [-Wreorder]
+   41 |     __aicore__ inline CheckFuncClassTrunc(__gm__ const char* apiName)
+      |                       ^~~~~~~~~~~~~~~~~~~
+make[1]: *** [CMakeFiles/Makefile2:276: op_host/CMakeFiles/p_relu_grad_update_op_host_ut.dir/all] Error 2
+make[1]: *** Waiting for unfinished jobs....
+make[1]: *** [CMakeFiles/Makefile2:329: op_kernel/CMakeFiles/p_relu_grad_update_op_kernel_ut.dir/all] Error 2
+make: *** [Makefile:136: all] Error 2

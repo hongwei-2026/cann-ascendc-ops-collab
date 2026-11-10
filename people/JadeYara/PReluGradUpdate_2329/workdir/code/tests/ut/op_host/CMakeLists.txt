@@ -2,7 +2,7 @@ set(OP_NAME p_relu_grad_update)
 set(UT_EXE ${OP_NAME}_op_host_ut)
 
 if(NOT DEFINED SOC_VERSION)
-    set(SOC_VERSION "Ascend910B")
+    set(SOC_VERSION "ascend910b")
 endif()
 
 message(STATUS "Building UT for SOC_VERSION: ${SOC_VERSION}")

@@ -1,0 +1,27 @@
+{
+  "modified": [
+    "op_kernel/p_relu_grad_update.h",
+    "op_kernel/p_relu_grad_update_full_pipeline.h",
+    "op_kernel/p_relu_grad_update_gather.h",
+    "op_kernel/p_relu_grad_update_merged.h",
+    "op_kernel/p_relu_grad_update_resident.h",
+    "op_kernel/p_relu_grad_update_s1.h",
+    "op_kernel/p_relu_grad_update_splitc.h"
+  ],
+  "replacements": {
+    "p_relu_grad_update.h": 2,
+    "p_relu_grad_update_s1.h": 2,
+    "p_relu_grad_update_merged.h": 2,
+    "p_relu_grad_update_resident.h": 2,
+    "p_relu_grad_update_splitc.h": 2,
+    "p_relu_grad_update_full_pipeline.h": 2,
+    "p_relu_grad_update_gather.h": 1
+  },
+  "host_identical": true,
+  "General_identical": true,
+  "formula_domain": [
+    0,
+    1
+  ],
+  "baseline_official_submission": 1221802
+}

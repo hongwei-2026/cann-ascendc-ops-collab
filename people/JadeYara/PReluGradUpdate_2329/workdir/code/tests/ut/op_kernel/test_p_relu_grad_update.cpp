@@ -20,23 +20,6 @@
 
 using namespace std;
 
-static uint16_t FloatToHalf(float f) {
-    uint32_t bits;
-    memcpy(&bits, &f, sizeof(float));
-    uint32_t sign = (bits >> 16) & 0x8000;
-    int32_t exp = ((bits >> 23) & 0xff) - 127 + 15;
-    uint32_t mant = (bits >> 13) & 0x3ff;
-    if (exp <= 0) return sign;
-    if (exp >= 31) return sign | 0x7c00;
-    return sign | (exp << 10) | mant;
-}
-
-static uint16_t FloatToBFloat16(float f) {
-    uint32_t bits;
-    memcpy(&bits, &f, sizeof(float));
-    return (uint16_t)(bits >> 16);
-}
-
 class PReluGradUpdateKernelTest : public testing::Test {
 protected:
     static void SetUpTestCase()
@@ -82,15 +65,17 @@ TEST_F(PReluGradUpdateKernelTest, test_kernel_run)
     { std::ifstream f(root + "/input/weights.bin", std::ios::binary); ASSERT_TRUE(f.good()); f.read(reinterpret_cast<char*>(weights), 24); ASSERT_EQ(f.gcount(), 24); }
     
     PReluGradUpdateTilingData* tilingData = reinterpret_cast<PReluGradUpdateTilingData*>(tiling);
+    *tilingData = PReluGradUpdateTilingData{};
     tilingData->totalNum = size;
     tilingData->coreNum = 1;
     tilingData->blockFactor = size;
-    tilingData->tileLen = size;
+    tilingData->tileLen = 8;
     tilingData->channelNum = 6;
     tilingData->innerSize = 8;
     tilingData->sampleSize = 48;
     tilingData->weightsPerChannel = 1;
-    tilingData->rowsPerTile = 4;
+    tilingData->rowsPerTile = 0;
+    tilingData->splitBatchGroups = 0;
     
     ICPU_SET_TILING_KEY(PRELUGRADUPDATE_TPL_FLOAT);
     AscendC::SetKernelMode(KernelMode::AIV_MODE);

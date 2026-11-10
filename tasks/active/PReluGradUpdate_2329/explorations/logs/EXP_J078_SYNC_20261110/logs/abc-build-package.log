@@ -1,0 +1,147 @@
+Consolidate compiler generated dependencies of target cust_opapi
+[  3%] Built target modify_vendor
+[  3%] Built target gen_version_info
+[ 13%] Built target cust_opapi
+[ 44%] Built target cust_optiling
+[ 48%] Built target j078_abc_custom_npu_supported_ops
+[ 51%] Built target ascendc_kernels_copy_kernel_srcs
+[ 55%] Built target j078_abc_custom_ascendc_cust_opapi
+[ 58%] Built target j078_abc_custom_ascendc_cust_optiling
+Consolidate compiler generated dependencies of target cust_op_proto
+[ 58%] Built target j078_abc_custom_update_so_names
+[ 62%] Built target ascendc_kernels_ops_info_gen_ascend910_93
+[ 62%] Built target optiling_compat
+[ 96%] Built target cust_op_proto
+[100%] Built target j078_abc_custom_ascendc_cust_op_proto
+Run CPack packaging tool...
+CPack: Create package using External
+CPack: Install projects
+CPack: - Run preinstall target for: j078_abc_op_prj
+CPack: - Install project: j078_abc_op_prj []
+CPack: Create package
+
+About to compress 5028 KB of data...
+Adding files to archive named "custom_opp_ubuntu_aarch64.run"...
+./help.info
+./install.sh
+./packages/vendors/j078_abc_custom/framework/tensorflow/npu_supported_ops.json
+./packages/vendors/j078_abc_custom/op_api/include/aclnn_p_relu_grad_update_a.h
+./packages/vendors/j078_abc_custom/op_api/include/aclnn_p_relu_grad_update_b.h
+./packages/vendors/j078_abc_custom/op_api/include/aclnn_p_relu_grad_update_c.h
+./packages/vendors/j078_abc_custom/op_api/lib/libcust_opapi.so
+./packages/vendors/j078_abc_custom/op_impl/ai_core/tbe/config/ascend910_93/aic-ascend910_93-ops-info.json
+./packages/vendors/j078_abc_custom/op_impl/ai_core/tbe/j078_abc_custom_impl/dynamic/p_relu_grad_update_a.cpp
+./packages/vendors/j078_abc_custom/op_impl/ai_core/tbe/j078_abc_custom_impl/dynamic/p_relu_grad_update_a.h
+./packages/vendors/j078_abc_custom/op_impl/ai_core/tbe/j078_abc_custom_impl/dynamic/p_relu_grad_update_a.py
+./packages/vendors/j078_abc_custom/op_impl/ai_core/tbe/j078_abc_custom_impl/dynamic/p_relu_grad_update_a_full_pipeline.h
+./packages/vendors/j078_abc_custom/op_impl/ai_core/tbe/j078_abc_custom_impl/dynamic/p_relu_grad_update_a_gather.h
+./packages/vendors/j078_abc_custom/op_impl/ai_core/tbe/j078_abc_custom_impl/dynamic/p_relu_grad_update_a_gather_tiling.h
+./packages/vendors/j078_abc_custom/op_impl/ai_core/tbe/j078_abc_custom_impl/dynamic/p_relu_grad_update_a_general.h
+./packages/vendors/j078_abc_custom/op_impl/ai_core/tbe/j078_abc_custom_impl/dynamic/p_relu_grad_update_a_general_tiling.h
+./packages/vendors/j078_abc_custom/op_impl/ai_core/tbe/j078_abc_custom_impl/dynamic/p_relu_grad_update_a_merged.h
+./packages/vendors/j078_abc_custom/op_impl/ai_core/tbe/j078_abc_custom_impl/dynamic/p_relu_grad_update_a_resident.h
+./packages/vendors/j078_abc_custom/op_impl/ai_core/tbe/j078_abc_custom_impl/dynamic/p_relu_grad_update_a_s1.h
+./packages/vendors/j078_abc_custom/op_impl/ai_core/tbe/j078_abc_custom_impl/dynamic/p_relu_grad_update_a_splitc.h
+./packages/vendors/j078_abc_custom/op_impl/ai_core/tbe/j078_abc_custom_impl/dynamic/p_relu_grad_update_a_tiling_data.h
+./packages/vendors/j078_abc_custom/op_impl/ai_core/tbe/j078_abc_custom_impl/dynamic/p_relu_grad_update_a_tiling_key.h
+./packages/vendors/j078_abc_custom/op_impl/ai_core/tbe/j078_abc_custom_impl/dynamic/p_relu_grad_update_b.cpp
+./packages/vendors/j078_abc_custom/op_impl/ai_core/tbe/j078_abc_custom_impl/dynamic/p_relu_grad_update_b.h
+./packages/vendors/j078_abc_custom/op_impl/ai_core/tbe/j078_abc_custom_impl/dynamic/p_relu_grad_update_b.py
+./packages/vendors/j078_abc_custom/op_impl/ai_core/tbe/j078_abc_custom_impl/dynamic/p_relu_grad_update_b_full_pipeline.h
+./packages/vendors/j078_abc_custom/op_impl/ai_core/tbe/j078_abc_custom_impl/dynamic/p_relu_grad_update_b_gather.h
+./packages/vendors/j078_abc_custom/op_impl/ai_core/tbe/j078_abc_custom_impl/dynamic/p_relu_grad_update_b_gather_tiling.h
+./packages/vendors/j078_abc_custom/op_impl/ai_core/tbe/j078_abc_custom_impl/dynamic/p_relu_grad_update_b_general.h
+./packages/vendors/j078_abc_custom/op_impl/ai_core/tbe/j078_abc_custom_impl/dynamic/p_relu_grad_update_b_general_tiling.h
+./packages/vendors/j078_abc_custom/op_impl/ai_core/tbe/j078_abc_custom_impl/dynamic/p_relu_grad_update_b_merged.h
+./packages/vendors/j078_abc_custom/op_impl/ai_core/tbe/j078_abc_custom_impl/dynamic/p_relu_grad_update_b_resident.h
+./packages/vendors/j078_abc_custom/op_impl/ai_core/tbe/j078_abc_custom_impl/dynamic/p_relu_grad_update_b_s1.h
+./packages/vendors/j078_abc_custom/op_impl/ai_core/tbe/j078_abc_custom_impl/dynamic/p_relu_grad_update_b_splitc.h
+./packages/vendors/j078_abc_custom/op_impl/ai_core/tbe/j078_abc_custom_impl/dynamic/p_relu_grad_update_b_tiling_data.h
+./packages/vendors/j078_abc_custom/op_impl/ai_core/tbe/j078_abc_custom_impl/dynamic/p_relu_grad_update_b_tiling_key.h
+./packages/vendors/j078_abc_custom/op_impl/ai_core/tbe/j078_abc_custom_impl/dynamic/p_relu_grad_update_c.cpp
+./packages/vendors/j078_abc_custom/op_impl/ai_core/tbe/j078_abc_custom_impl/dynamic/p_relu_grad_update_c.h
+./packages/vendors/j078_abc_custom/op_impl/ai_core/tbe/j078_abc_custom_impl/dynamic/p_relu_grad_update_c.py
+./packages/vendors/j078_abc_custom/op_impl/ai_core/tbe/j078_abc_custom_impl/dynamic/p_relu_grad_update_c_full_pipeline.h
+./packages/vendors/j078_abc_custom/op_impl/ai_core/tbe/j078_abc_custom_impl/dynamic/p_relu_grad_update_c_gather.h
+./packages/vendors/j078_abc_custom/op_impl/ai_core/tbe/j078_abc_custom_impl/dynamic/p_relu_grad_update_c_gather_tiling.h
+./packages/vendors/j078_abc_custom/op_impl/ai_core/tbe/j078_abc_custom_impl/dynamic/p_relu_grad_update_c_general.h
+./packages/vendors/j078_abc_custom/op_impl/ai_core/tbe/j078_abc_custom_impl/dynamic/p_relu_grad_update_c_general_tiling.h
+./packages/vendors/j078_abc_custom/op_impl/ai_core/tbe/j078_abc_custom_impl/dynamic/p_relu_grad_update_c_merged.h
+./packages/vendors/j078_abc_custom/op_impl/ai_core/tbe/j078_abc_custom_impl/dynamic/p_relu_grad_update_c_resident.h
+./packages/vendors/j078_abc_custom/op_impl/ai_core/tbe/j078_abc_custom_impl/dynamic/p_relu_grad_update_c_s1.h
+./packages/vendors/j078_abc_custom/op_impl/ai_core/tbe/j078_abc_custom_impl/dynamic/p_relu_grad_update_c_splitc.h
+./packages/vendors/j078_abc_custom/op_impl/ai_core/tbe/j078_abc_custom_impl/dynamic/p_relu_grad_update_c_tiling_data.h
+./packages/vendors/j078_abc_custom/op_impl/ai_core/tbe/j078_abc_custom_impl/dynamic/p_relu_grad_update_c_tiling_key.h
+./packages/vendors/j078_abc_custom/op_impl/ai_core/tbe/kernel/ascend910_93/p_relu_grad_update_a/PReluGradUpdateA_09d908be4b4ec54694e82e9505aa57a3.json
+./packages/vendors/j078_abc_custom/op_impl/ai_core/tbe/kernel/ascend910_93/p_relu_grad_update_a/PReluGradUpdateA_09d908be4b4ec54694e82e9505aa57a3.o
+./packages/vendors/j078_abc_custom/op_impl/ai_core/tbe/kernel/ascend910_93/p_relu_grad_update_a/PReluGradUpdateA_1a2910b7719131fec39ae2bcb71fd4cd.json
+./packages/vendors/j078_abc_custom/op_impl/ai_core/tbe/kernel/ascend910_93/p_relu_grad_update_a/PReluGradUpdateA_1a2910b7719131fec39ae2bcb71fd4cd.o
+./packages/vendors/j078_abc_custom/op_impl/ai_core/tbe/kernel/ascend910_93/p_relu_grad_update_a/PReluGradUpdateA_382b319720bc63e31cdb632c28322b17.json
+./packages/vendors/j078_abc_custom/op_impl/ai_core/tbe/kernel/ascend910_93/p_relu_grad_update_a/PReluGradUpdateA_382b319720bc63e31cdb632c28322b17.o
+./packages/vendors/j078_abc_custom/op_impl/ai_core/tbe/kernel/ascend910_93/p_relu_grad_update_a/PReluGradUpdateA_4a5e3258075fca44d259957351ab1123.json
+./packages/vendors/j078_abc_custom/op_impl/ai_core/tbe/kernel/ascend910_93/p_relu_grad_update_a/PReluGradUpdateA_4a5e3258075fca44d259957351ab1123.o
+./packages/vendors/j078_abc_custom/op_impl/ai_core/tbe/kernel/ascend910_93/p_relu_grad_update_a/PReluGradUpdateA_7b139b8bdb43bfc15e2164894991754d.json
+./packages/vendors/j078_abc_custom/op_impl/ai_core/tbe/kernel/ascend910_93/p_relu_grad_update_a/PReluGradUpdateA_7b139b8bdb43bfc15e2164894991754d.o
+./packages/vendors/j078_abc_custom/op_impl/ai_core/tbe/kernel/ascend910_93/p_relu_grad_update_a/PReluGradUpdateA_91d8758da41b0a940e57a2e36ce8d2e0.json
+./packages/vendors/j078_abc_custom/op_impl/ai_core/tbe/kernel/ascend910_93/p_relu_grad_update_a/PReluGradUpdateA_91d8758da41b0a940e57a2e36ce8d2e0.o
+./packages/vendors/j078_abc_custom/op_impl/ai_core/tbe/kernel/ascend910_93/p_relu_grad_update_a/PReluGradUpdateA_a4c9eaf903eae3d2267b083c3699b21a.json
+./packages/vendors/j078_abc_custom/op_impl/ai_core/tbe/kernel/ascend910_93/p_relu_grad_update_a/PReluGradUpdateA_a4c9eaf903eae3d2267b083c3699b21a.o
+./packages/vendors/j078_abc_custom/op_impl/ai_core/tbe/kernel/ascend910_93/p_relu_grad_update_a/PReluGradUpdateA_a524cee78314da0880df38668c3c2b0c.json
+./packages/vendors/j078_abc_custom/op_impl/ai_core/tbe/kernel/ascend910_93/p_relu_grad_update_a/PReluGradUpdateA_a524cee78314da0880df38668c3c2b0c.o
+./packages/vendors/j078_abc_custom/op_impl/ai_core/tbe/kernel/ascend910_93/p_relu_grad_update_a/PReluGradUpdateA_fd6c6c327224fce82e4d49e2cbe74516.json
+./packages/vendors/j078_abc_custom/op_impl/ai_core/tbe/kernel/ascend910_93/p_relu_grad_update_a/PReluGradUpdateA_fd6c6c327224fce82e4d49e2cbe74516.o
+./packages/vendors/j078_abc_custom/op_impl/ai_core/tbe/kernel/ascend910_93/p_relu_grad_update_b/PReluGradUpdateB_23f0fcca5827adbb03e35362ce90ad44.json
+./packages/vendors/j078_abc_custom/op_impl/ai_core/tbe/kernel/ascend910_93/p_relu_grad_update_b/PReluGradUpdateB_23f0fcca5827adbb03e35362ce90ad44.o
+./packages/vendors/j078_abc_custom/op_impl/ai_core/tbe/kernel/ascend910_93/p_relu_grad_update_b/PReluGradUpdateB_41de9ad330db1b72c556307cce9a6afc.json
+./packages/vendors/j078_abc_custom/op_impl/ai_core/tbe/kernel/ascend910_93/p_relu_grad_update_b/PReluGradUpdateB_41de9ad330db1b72c556307cce9a6afc.o
+./packages/vendors/j078_abc_custom/op_impl/ai_core/tbe/kernel/ascend910_93/p_relu_grad_update_b/PReluGradUpdateB_90c013d153549d96c852e25678bc3921.json
+./packages/vendors/j078_abc_custom/op_impl/ai_core/tbe/kernel/ascend910_93/p_relu_grad_update_b/PReluGradUpdateB_90c013d153549d96c852e25678bc3921.o
+./packages/vendors/j078_abc_custom/op_impl/ai_core/tbe/kernel/ascend910_93/p_relu_grad_update_b/PReluGradUpdateB_94ba037c15ac5f67acec81e0fac0c4d7.json
+./packages/vendors/j078_abc_custom/op_impl/ai_core/tbe/kernel/ascend910_93/p_relu_grad_update_b/PReluGradUpdateB_94ba037c15ac5f67acec81e0fac0c4d7.o
+./packages/vendors/j078_abc_custom/op_impl/ai_core/tbe/kernel/ascend910_93/p_relu_grad_update_b/PReluGradUpdateB_a508726901502f85b6a56ba2d1dc45e8.json
+./packages/vendors/j078_abc_custom/op_impl/ai_core/tbe/kernel/ascend910_93/p_relu_grad_update_b/PReluGradUpdateB_a508726901502f85b6a56ba2d1dc45e8.o
+./packages/vendors/j078_abc_custom/op_impl/ai_core/tbe/kernel/ascend910_93/p_relu_grad_update_b/PReluGradUpdateB_bf496ea42057ec5e84f4affb68b07c9c.json
+./packages/vendors/j078_abc_custom/op_impl/ai_core/tbe/kernel/ascend910_93/p_relu_grad_update_b/PReluGradUpdateB_bf496ea42057ec5e84f4affb68b07c9c.o
+./packages/vendors/j078_abc_custom/op_impl/ai_core/tbe/kernel/ascend910_93/p_relu_grad_update_b/PReluGradUpdateB_bf8ec1f2a4cbe4b0cfbafd3839335280.json
+./packages/vendors/j078_abc_custom/op_impl/ai_core/tbe/kernel/ascend910_93/p_relu_grad_update_b/PReluGradUpdateB_bf8ec1f2a4cbe4b0cfbafd3839335280.o
+./packages/vendors/j078_abc_custom/op_impl/ai_core/tbe/kernel/ascend910_93/p_relu_grad_update_b/PReluGradUpdateB_e35fbd1c83df8303b3fb40d86acfc312.json
+./packages/vendors/j078_abc_custom/op_impl/ai_core/tbe/kernel/ascend910_93/p_relu_grad_update_b/PReluGradUpdateB_e35fbd1c83df8303b3fb40d86acfc312.o
+./packages/vendors/j078_abc_custom/op_impl/ai_core/tbe/kernel/ascend910_93/p_relu_grad_update_b/PReluGradUpdateB_f69081995c82e5809030cf1bb9c57449.json
+./packages/vendors/j078_abc_custom/op_impl/ai_core/tbe/kernel/ascend910_93/p_relu_grad_update_b/PReluGradUpdateB_f69081995c82e5809030cf1bb9c57449.o
+./packages/vendors/j078_abc_custom/op_impl/ai_core/tbe/kernel/ascend910_93/p_relu_grad_update_c/PReluGradUpdateC_3026b58e344556aac167fc2c67a3f90b.json
+./packages/vendors/j078_abc_custom/op_impl/ai_core/tbe/kernel/ascend910_93/p_relu_grad_update_c/PReluGradUpdateC_3026b58e344556aac167fc2c67a3f90b.o
+./packages/vendors/j078_abc_custom/op_impl/ai_core/tbe/kernel/ascend910_93/p_relu_grad_update_c/PReluGradUpdateC_4571069864fa979058a4281945acd833.json
+./packages/vendors/j078_abc_custom/op_impl/ai_core/tbe/kernel/ascend910_93/p_relu_grad_update_c/PReluGradUpdateC_4571069864fa979058a4281945acd833.o
+./packages/vendors/j078_abc_custom/op_impl/ai_core/tbe/kernel/ascend910_93/p_relu_grad_update_c/PReluGradUpdateC_53a4a7e47baf80a0c016f3c94ef10fd8.json
+./packages/vendors/j078_abc_custom/op_impl/ai_core/tbe/kernel/ascend910_93/p_relu_grad_update_c/PReluGradUpdateC_53a4a7e47baf80a0c016f3c94ef10fd8.o
+./packages/vendors/j078_abc_custom/op_impl/ai_core/tbe/kernel/ascend910_93/p_relu_grad_update_c/PReluGradUpdateC_5ae00f05e4425d350b336f35733a74af.json
+./packages/vendors/j078_abc_custom/op_impl/ai_core/tbe/kernel/ascend910_93/p_relu_grad_update_c/PReluGradUpdateC_5ae00f05e4425d350b336f35733a74af.o
+./packages/vendors/j078_abc_custom/op_impl/ai_core/tbe/kernel/ascend910_93/p_relu_grad_update_c/PReluGradUpdateC_61dd9ce940c60c66d4588b2d6e14c795.json
+./packages/vendors/j078_abc_custom/op_impl/ai_core/tbe/kernel/ascend910_93/p_relu_grad_update_c/PReluGradUpdateC_61dd9ce940c60c66d4588b2d6e14c795.o
+./packages/vendors/j078_abc_custom/op_impl/ai_core/tbe/kernel/ascend910_93/p_relu_grad_update_c/PReluGradUpdateC_6f0d5e89bf2d3aff6ccab17dfea4e4f5.json
+./packages/vendors/j078_abc_custom/op_impl/ai_core/tbe/kernel/ascend910_93/p_relu_grad_update_c/PReluGradUpdateC_6f0d5e89bf2d3aff6ccab17dfea4e4f5.o
+./packages/vendors/j078_abc_custom/op_impl/ai_core/tbe/kernel/ascend910_93/p_relu_grad_update_c/PReluGradUpdateC_7fe9b18e79ca2d45cdfc95a2312fcdc7.json
+./packages/vendors/j078_abc_custom/op_impl/ai_core/tbe/kernel/ascend910_93/p_relu_grad_update_c/PReluGradUpdateC_7fe9b18e79ca2d45cdfc95a2312fcdc7.o
+./packages/vendors/j078_abc_custom/op_impl/ai_core/tbe/kernel/ascend910_93/p_relu_grad_update_c/PReluGradUpdateC_a128ac00b9d688b98e2eef527773c45e.json
+./packages/vendors/j078_abc_custom/op_impl/ai_core/tbe/kernel/ascend910_93/p_relu_grad_update_c/PReluGradUpdateC_a128ac00b9d688b98e2eef527773c45e.o
+./packages/vendors/j078_abc_custom/op_impl/ai_core/tbe/kernel/ascend910_93/p_relu_grad_update_c/PReluGradUpdateC_e825e48a1070bd8a30c7554dc05ec8f0.json
+./packages/vendors/j078_abc_custom/op_impl/ai_core/tbe/kernel/ascend910_93/p_relu_grad_update_c/PReluGradUpdateC_e825e48a1070bd8a30c7554dc05ec8f0.o
+./packages/vendors/j078_abc_custom/op_impl/ai_core/tbe/kernel/config/ascend910_93/binary_info_config.json
+./packages/vendors/j078_abc_custom/op_impl/ai_core/tbe/kernel/config/ascend910_93/p_relu_grad_update_a.json
+./packages/vendors/j078_abc_custom/op_impl/ai_core/tbe/kernel/config/ascend910_93/p_relu_grad_update_b.json
+./packages/vendors/j078_abc_custom/op_impl/ai_core/tbe/kernel/config/ascend910_93/p_relu_grad_update_c.json
+./packages/vendors/j078_abc_custom/op_impl/ai_core/tbe/op_tiling/lib/linux/aarch64/libcust_opmaster_rt2.0.so
+./packages/vendors/j078_abc_custom/op_impl/ai_core/tbe/op_tiling/liboptiling.so
+./packages/vendors/j078_abc_custom/op_proto/inc/op_proto.h
+./packages/vendors/j078_abc_custom/op_proto/lib/linux/aarch64/libcust_opsproto_rt2.0.so
+./packages/vendors/j078_abc_custom/version.info
+./uninstall.sh
+./upgrade.sh
+CRC: 1009426951
+SHA256: 4c9b271438cc4b01159de01cc33cb9713f2b0eaaa67bf6242d5ff48a734f02ef
+Skipping md5sum at user request
+
+Self-extractable archive "custom_opp_ubuntu_aarch64.run" successfully created.
+Copy /mnt/workspace/2329-JadeYara-20261104-1812/J078/build-abc/_CPack_Packages/Linux/External/custom_opp_ubuntu_aarch64.run/custom_opp_ubuntu_aarch64.run to /mnt/workspace/2329-JadeYara-20261104-1812/J078/build-abc/
+CPack: - package: /mnt/workspace/2329-JadeYara-20261104-1812/J078/build-abc/custom_opp_ubuntu_aarch64.run.json generated.
+CPack: - package: /mnt/workspace/2329-JadeYara-20261104-1812/J078/build-abc/custom_opp_ubuntu_aarch64.run generated.

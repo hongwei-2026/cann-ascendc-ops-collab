@@ -1,22 +1,13 @@
 # JadeYara · PReluGradUpdate_2329
 
-- **云端同步用这一版**：[workdir/code/](workdir/code/)，当前为冻结 **J035**，完整 46 个文件。
-- 共享台账 / 材料 / EXP：[tasks/active/PReluGradUpdate_2329/](../../../tasks/active/PReluGradUpdate_2329/)；先核对其他作者已经试过的路线、结果和停止原因，再继续优化。
-- 共识教训：[people/shared-lessons/PReluGradUpdate_2329/](../../shared-lessons/PReluGradUpdate_2329/)。旧工具链结论需结合当前 910C/CANN 9.3 的证据判断。
-- 自己的进展、困难与后续方案：[个人笔记](../notes/PReluGradUpdate_2329/README.md)，原有文档与台账均保留。
+更新：2026-11-10，进度截至 J079。
 
-## 当前版本与结果
+- **云端同步工程**：[workdir/code](workdir/code/)，当前是 **官方 1221802 运行源码 + J077 复现/UT 修复**，不是 J078 失败候选。
+- **当前进度、尝试方向、成绩与下一闸**：[进度总结](../notes/PReluGradUpdate_2329/progress-20261110.md)。
+- **个人台账**：[path-ledger](../notes/PReluGradUpdate_2329/path-ledger.md)；[实验记录](../notes/PReluGradUpdate_2329/experiments/)。
+- **同步源码指纹**：[49 文件 SHA256](../notes/PReluGradUpdate_2329/workdir-source-manifest-20261110.json)。
+- **历史 J035**：[冻结副本](../notes/PReluGradUpdate_2329/experiments/J035/frozen-code/)，原记录与 Git 历史保留。
 
-J035 已实现 normal、S1、merged、resident、split-C 路径；大通道 split-C 固定 C 块并跨 batch 复用权重，FP32 使用 UB 相位布局。两个输出均保持输入 shape，本算子不做权重梯度归约。
+官方 1221802 五点为 7.25 / 7.33 / 7.44 / 5.67 / 5.73 μs。J077 没有改运行 Host/Kernel；其构建/测试修复不等于新的官方成绩。J076 云测整体节省中位仅 0.0475 μs，J078 不采纳，J079 尚未证明单包计时替代方案通过。
 
-用户确认官方提交 **1148578** 对应 J035，五点均 Pass，耗时为 **7.15 / 7.29 / 7.11 / 5.88 / 6.06 μs**。对应关系来自用户确认，官方输入 shape、dtype 与环境尚未知。
-
-完整源码及指纹见 [J035 版本说明](../notes/PReluGradUpdate_2329/experiments/J035/README.md)。本次只整理目录和文档，没有修改这 46 个源码文件。`workdir/code/README.md` 与 `FIX_NOTES.md` 保留冻结版本的历史内容；当前状态以本页和个人笔记为准。
-
-## 当前困难与下一步
-
-J048 虽通过精度，官方前三点却比 J035 慢 1.06–1.30 μs；局部缓存收益还不能支持整体替换。J053 已用同进程 A/A/B/C 区分计时漂移和缓存收益：目标低精度本地约快 0.44 μs，高复用约快 1 μs；这不证明官方回退已解决。
-
-后续先对照公开仓库的试错记录，再评估尚未排除的有限分派方案。已失败的全面双缓冲、每 tile 重读权重等路线，不因换代理重新开始。详见 [难点与方案](../notes/PReluGradUpdate_2329/optimization-status.md)、[其他作者实际源码对照](../notes/PReluGradUpdate_2329/source-comparison.md)、[J053 结果](../notes/PReluGradUpdate_2329/J053-device-validation.md)。本次不新增实验或测试。
-
-CodeArts 同步范围仅为自己的 `people/JadeYara/PReluGradUpdate_2329/workdir/code/`。不要复制或覆盖 hongwei 的工程；官方提交由用户本人完成。
+只同步自己的 workdir/code；不要覆盖其他作者目录。正式评测由用户提交。本次只整理并发布既有结果，没有新设备实验。

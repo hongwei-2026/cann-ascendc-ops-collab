@@ -1,0 +1,178 @@
+{
+ "binFileName": "PReluGradUpdateB_90c013d153549d96c852e25678bc3921",
+ "binFileSuffix": ".o",
+ "blockDim": -1,
+ "coreType": "VectorCore",
+ "core_type": "AIV",
+ "intercoreSync": 0,
+ "kernelName": "PReluGradUpdateB_90c013d153549d96c852e25678bc3921",
+ "magic": "RT_DEV_BINARY_MAGIC_ELF_AIVEC",
+ "memoryStamping": [],
+ "opParaSize": 768,
+ "parameters": [
+  null,
+  null,
+  null,
+  null,
+  null,
+  null
+ ],
+ "sha256": "4eb09d1c5d67b99a41ed497d2eede94b96985caf314a8f5c77e05a542e6450af",
+ "workspace": {
+  "num": 1,
+  "size": [
+   -1
+  ],
+  "type": [
+   0
+  ]
+ },
+ "kernelList": [
+  {
+   "kernelName": "PReluGradUpdateB_90c013d153549d96c852e25678bc3921_0"
+  },
+  {
+   "kernelName": "PReluGradUpdateB_90c013d153549d96c852e25678bc3921_1"
+  },
+  {
+   "kernelName": "PReluGradUpdateB_90c013d153549d96c852e25678bc3921_2"
+  },
+  {
+   "kernelName": "PReluGradUpdateB_90c013d153549d96c852e25678bc3921_3"
+  },
+  {
+   "kernelName": "PReluGradUpdateB_90c013d153549d96c852e25678bc3921_4"
+  },
+  {
+   "kernelName": "PReluGradUpdateB_90c013d153549d96c852e25678bc3921_5"
+  },
+  {
+   "kernelName": "PReluGradUpdateB_90c013d153549d96c852e25678bc3921_6"
+  },
+  {
+   "kernelName": "PReluGradUpdateB_90c013d153549d96c852e25678bc3921_7"
+  },
+  {
+   "kernelName": "PReluGradUpdateB_90c013d153549d96c852e25678bc3921_8"
+  },
+  {
+   "kernelName": "PReluGradUpdateB_90c013d153549d96c852e25678bc3921_9"
+  },
+  {
+   "kernelName": "PReluGradUpdateB_90c013d153549d96c852e25678bc3921_10"
+  },
+  {
+   "kernelName": "PReluGradUpdateB_90c013d153549d96c852e25678bc3921_11"
+  },
+  {
+   "kernelName": "PReluGradUpdateB_90c013d153549d96c852e25678bc3921_12"
+  },
+  {
+   "kernelName": "PReluGradUpdateB_90c013d153549d96c852e25678bc3921_13"
+  },
+  {
+   "kernelName": "PReluGradUpdateB_90c013d153549d96c852e25678bc3921_14"
+  },
+  {
+   "kernelName": "PReluGradUpdateB_90c013d153549d96c852e25678bc3921_15"
+  },
+  {
+   "kernelName": "PReluGradUpdateB_90c013d153549d96c852e25678bc3921_16"
+  },
+  {
+   "kernelName": "PReluGradUpdateB_90c013d153549d96c852e25678bc3921_17"
+  },
+  {
+   "kernelName": "PReluGradUpdateB_90c013d153549d96c852e25678bc3921_18"
+  },
+  {
+   "kernelName": "PReluGradUpdateB_90c013d153549d96c852e25678bc3921_19"
+  },
+  {
+   "kernelName": "PReluGradUpdateB_90c013d153549d96c852e25678bc3921_20"
+  }
+ ],
+ "optionalInputMode": "gen_placeholder",
+ "optionalOutputMode": "gen_placeholder",
+ "supportSuperKernel": 1,
+ "platformInfo": {
+  "deterministicLevel": 0
+ },
+ "compileInfo": {},
+ "supportInfo": {
+  "implMode": "high_performance",
+  "int64Mode": false,
+  "simplifiedKeyMode": 0,
+  "simplifiedKey": [
+   "PReluGradUpdateB/d=0,p=1/27,2/27,2/27,2/27,2/27,2",
+   "PReluGradUpdateB/d=0,p=0/27,2/27,2/27,2/27,2/27,2",
+   "PReluGradUpdateB/d=1,p=1/27,2/27,2/27,2/27,2/27,2",
+   "PReluGradUpdateB/d=1,p=0/27,2/27,2/27,2/27,2/27,2"
+  ],
+  "optionalInputMode": "gen_placeholder",
+  "optionalOutputMode": "gen_placeholder",
+  "staticKey": "9d932fdc5650df4fc2a87bc0242a7aaf090dc54a3c03b60de7ecb50eaecfd2bd,4e79aaebc7c1b8e04cfd0eb62b001480c245a60e778dfccda17eeb106a38b0ca",
+  "inputs": [
+   {
+    "name": "grads",
+    "index": 0,
+    "dtype": "bfloat16",
+    "format": "ND",
+    "paramType": "required",
+    "shape": [
+     -2
+    ],
+    "format_match_mode": "FormatAgnostic"
+   },
+   {
+    "name": "features",
+    "index": 1,
+    "dtype": "bfloat16",
+    "format": "ND",
+    "paramType": "required",
+    "shape": [
+     -2
+    ],
+    "format_match_mode": "FormatAgnostic"
+   },
+   {
+    "name": "weights",
+    "index": 2,
+    "dtype": "bfloat16",
+    "format": "ND",
+    "paramType": "required",
+    "shape": [
+     -2
+    ],
+    "format_match_mode": "FormatAgnostic"
+   }
+  ],
+  "outputs": [
+   {
+    "name": "dx",
+    "index": 0,
+    "dtype": "bfloat16",
+    "format": "ND",
+    "paramType": "required",
+    "shape": [
+     -2
+    ],
+    "format_match_mode": "FormatAgnostic"
+   },
+   {
+    "name": "update",
+    "index": 1,
+    "dtype": "bfloat16",
+    "format": "ND",
+    "paramType": "required",
+    "shape": [
+     -2
+    ],
+    "format_match_mode": "FormatAgnostic"
+   }
+  ],
+  "opMode": "dynamic",
+  "deterministic": "ignore"
+ },
+ "filePath": "ascend910_93/p_relu_grad_update_b/PReluGradUpdateB_90c013d153549d96c852e25678bc3921.json"
+}
