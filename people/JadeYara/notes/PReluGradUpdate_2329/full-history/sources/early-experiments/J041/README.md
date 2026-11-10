@@ -1,0 +1,11 @@
+# J041 PAUSED BEFORE DEVICE LAUNCH
+
+User superseded the small-input test request: pause new algorithms and tests, review existing large-channel evidence first. Only local48-case selection, scripts, and a read-only remote status check completed. launch_j041.py was never executed; no J041 remote job, precision run or performance result exists. No kernel source changed. Last observed NPU status2026-11-05T08:52:35+08:00: no running processes; J040-layout/perf exit0. Do not run the prepared scripts until the user resumes. Existing J040 conclusion unchanged. Current work is documentation-only review; no small-channel/big-channel tradeoff implemented.
+
+# J041: small-volume, small-channel latency measurement
+
+User requested representative small N/C/S data across FP32/FP16/BF16. No kernel change, no rebuild, preserve J035/J038/J040 decisions. Select16 existing legal shape/weight configurations x3dtypes from archived780-case regression: total6..9001 elements, C1..33, N1..127, S1..9001. Include63/64/65 scalar-channel boundary, C31/32/33 S1 boundary, multi-N/C/S shapes, and shared/per-channel weights at[4,6,8]. N1C1S65 uses existing mixed seed grid input instead of all-positive/negative/zero-only samples. Hash-bound exact48 inputs and golden, no generation.
+
+Use already built ascend910_93 J035/J038 packages and runners, verify source and package provenance against previous J038-layout-campaign. Run explicit48-case precision for each version (96checks), then fourABBA/BAAB rounds with250calls percase/window101-250; lasttwo rounds reverse case order, eachround same48 inputs. 48x16=768groups and192000ordinary msprof profiles. Everygroup finaldx/update checked; this is not a new every-invocation stress suite. Record Task Duration and aiv_time separately, perround range, sameversion A/A-B/B spread, actual core count. No large-input mixture in this campaign. Stop after fixed suite, no score submissions/push/network changes.
+
+Report actual warm/reuse device-kernel latency, not hostend-to-end or leaderboard. These small paths do not use split-C modified by J035/J038, so do not invent small-path speedup from noise. Archive self-contained selected inputs, source/packages/runners and all raw profiling/logs. J040 remains a correctness-passing experimental repeatSelect version with confounded performance, not promoted.

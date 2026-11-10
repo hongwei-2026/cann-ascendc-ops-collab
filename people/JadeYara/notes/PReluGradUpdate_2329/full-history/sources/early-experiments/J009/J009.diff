@@ -1,0 +1,87 @@
+--- J008/op_kernel/p_relu_grad_update.h
++++ J009/op_kernel/p_relu_grad_update.h
+@@ -70,6 +70,8 @@
+     int64_t innerSize_ = 0;
+     int64_t weightsPerChannel_ = 0;
+     int64_t rowsPerTile_ = 0;
++    int64_t cachedWeightIndex_ = -1;
++    float cachedWeightValue_ = 0.0f;
+ };
+ 
+ template <typename T>
+@@ -204,40 +206,45 @@
+     const int64_t weightIndex = weightsPerChannel_ != 0
+         ? (globalStart / innerSize_) % channelNum_
+         : 0;
+-    float weightValue = 0.0f;
+-    if constexpr (std::is_same<T, float>::value) {
+-        weightValue = weightsGm_.GetValue(weightIndex);
+-    } else if constexpr (std::is_same<T, half>::value) {
+-        half h = weightsGm_.GetValue(weightIndex);
+-        uint16_t hb = *reinterpret_cast<uint16_t*>(&h);
+-        uint32_t sign = (static_cast<uint32_t>(hb) & 0x8000u) << 16;
+-        uint32_t exp = (static_cast<uint32_t>(hb) >> 10) & 0x1Fu;
+-        uint32_t man = static_cast<uint32_t>(hb) & 0x3FFu;
+-        uint32_t outBits;
+-        if (exp == 0) {
+-            if (man == 0) {
+-                outBits = sign;
++    if (weightIndex != cachedWeightIndex_) {
++        float weightValue = 0.0f;
++        if constexpr (std::is_same<T, float>::value) {
++            weightValue = weightsGm_.GetValue(weightIndex);
++        } else if constexpr (std::is_same<T, half>::value) {
++            half h = weightsGm_.GetValue(weightIndex);
++            uint16_t hb = *reinterpret_cast<uint16_t*>(&h);
++            uint32_t sign = (static_cast<uint32_t>(hb) & 0x8000u) << 16;
++            uint32_t exp = (static_cast<uint32_t>(hb) >> 10) & 0x1Fu;
++            uint32_t man = static_cast<uint32_t>(hb) & 0x3FFu;
++            uint32_t outBits;
++            if (exp == 0) {
++                if (man == 0) {
++                    outBits = sign;
++                } else {
++                    exp = 127 - 15 + 1;
++                    while ((man & 0x400u) == 0) {
++                        man <<= 1;
++                        --exp;
++                    }
++                    man &= 0x3FFu;
++                    outBits = sign | (exp << 23) | (man << 13);
++                }
++            } else if (exp == 31) {
++                outBits = sign | 0x7F800000u | (man << 13);
+             } else {
+-                exp = 127 - 15 + 1;
+-                while ((man & 0x400u) == 0) {
+-                    man <<= 1;
+-                    --exp;
+-                }
+-                man &= 0x3FFu;
+-                outBits = sign | (exp << 23) | (man << 13);
++                outBits = sign | ((exp + (127 - 15)) << 23) | (man << 13);
+             }
+-        } else if (exp == 31) {
+-            outBits = sign | 0x7F800000u | (man << 13);
++            *reinterpret_cast<uint32_t*>(&weightValue) = outBits;
+         } else {
+-            outBits = sign | ((exp + (127 - 15)) << 23) | (man << 13);
++            T raw = weightsGm_.GetValue(weightIndex);
++            uint16_t bits = *reinterpret_cast<uint16_t*>(&raw);
++            *reinterpret_cast<uint32_t*>(&weightValue) = static_cast<uint32_t>(bits) << 16;
+         }
+-        *reinterpret_cast<uint32_t*>(&weightValue) = outBits;
+-    } else {
+-        T raw = weightsGm_.GetValue(weightIndex);
+-        uint16_t bits = *reinterpret_cast<uint16_t*>(&raw);
+-        *reinterpret_cast<uint32_t*>(&weightValue) = static_cast<uint32_t>(bits) << 16;
+-    }
+-    SyncSV();
++        cachedWeightValue_ = weightValue;
++        cachedWeightIndex_ = weightIndex;
++        SyncSV();
++    }
++    const float weightValue = cachedWeightValue_;
+     Mul(fgLocal, featuresFloat, gradsFloat, currentNum);
+     LocalTensor<float> zeroLocal = dxFloat;
+     Duplicate(zeroLocal, 0.0f, static_cast<int32_t>(cmpCount));

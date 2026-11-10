@@ -1,0 +1,63 @@
+{
+  "python": "3.11.5 | packaged by Anaconda, Inc. | (main, Sep 11 2023, 13:26:23) [MSC v.1916 64 bit (AMD64)]",
+  "scope": "CPU models/source checks only; no compiled Host/Kernel",
+  "runs": [
+    {
+      "variant": "P103",
+      "command": [
+        "E:\\Anaconda\\python.exe",
+        "-B",
+        "C:\\Users\\lin\\Documents\\Codex\\2026-11-03\\task\\j002-p103-cpu\\code\\tests\\local_semantic_check.py"
+      ],
+      "exit_code": 0,
+      "log": "P103-local_semantic_check.py.log",
+      "kernel_sha256": "2a340f612ec506a6e6ae920fd8f6acd14999f28cb2d89d386d2a075ff6fb3c89"
+    },
+    {
+      "variant": "P103",
+      "command": [
+        "E:\\Anaconda\\python.exe",
+        "-B",
+        "C:\\Users\\lin\\Documents\\Codex\\2026-11-03\\task\\j002-p103-cpu\\code\\tests\\compute_schedule_check.py"
+      ],
+      "exit_code": 0,
+      "log": "P103-compute_schedule_check.py.log",
+      "kernel_sha256": "2a340f612ec506a6e6ae920fd8f6acd14999f28cb2d89d386d2a075ff6fb3c89"
+    },
+    {
+      "variant": "J001",
+      "command": [
+        "E:\\Anaconda\\python.exe",
+        "-B",
+        "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\workdir\\code\\tests\\local_semantic_check.py"
+      ],
+      "exit_code": 0,
+      "log": "J001-local_semantic_check.py.log",
+      "kernel_sha256": "2a340f612ec506a6e6ae920fd8f6acd14999f28cb2d89d386d2a075ff6fb3c89"
+    },
+    {
+      "variant": "J001",
+      "command": [
+        "E:\\Anaconda\\python.exe",
+        "-B",
+        "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\workdir\\code\\tests\\compute_schedule_check.py"
+      ],
+      "exit_code": 0,
+      "log": "J001-compute_schedule_check.py.log",
+      "kernel_sha256": "2a340f612ec506a6e6ae920fd8f6acd14999f28cb2d89d386d2a075ff6fb3c89"
+    },
+    {
+      "variant": "J001",
+      "command": [
+        "E:\\Anaconda\\python.exe",
+        "-B",
+        "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\workdir\\code\\tests\\shared_weight_check.py"
+      ],
+      "exit_code": 0,
+      "log": "J001-shared_weight_check.py.log",
+      "kernel_sha256": "2a340f612ec506a6e6ae920fd8f6acd14999f28cb2d89d386d2a075ff6fb3c89"
+    }
+  ],
+  "result": "PASS",
+  "npu_executed": false
+}

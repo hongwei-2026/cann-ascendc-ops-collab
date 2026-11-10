@@ -1,0 +1,108 @@
+--- J027IO/op_kernel/p_relu_grad_update_splitc.h
++++ J028IO/op_kernel/p_relu_grad_update_splitc.h
+@@ -27,6 +27,7 @@
+ 
+ template <typename T>
+ class PReluGradUpdate {
++    static constexpr int32_t INPUT_BUFFER_NUM = std::is_same<T, float>::value ? 1 : 2;
+ public:
+     __aicore__ inline PReluGradUpdate() = default;
+ 
+@@ -35,7 +36,7 @@
+     __aicore__ inline void Process();
+ 
+ private:
+-    __aicore__ inline void CopyIn(int64_t progress, int64_t currentNum);
++    __aicore__ inline void CopyIn(int64_t progress, int64_t currentNum, bool copyWeights);
+     __aicore__ inline void Compute(int64_t progress, int64_t currentNum);
+     __aicore__ inline void CopyOut(int64_t progress, int64_t currentNum);
+     __aicore__ inline void SyncSV();
+@@ -44,8 +45,8 @@
+ 
+ private:
+     TPipe pipe_;
+-    TQue<QuePosition::VECIN, BUFFER_NUM> gradsQueue_;
+-    TQue<QuePosition::VECIN, BUFFER_NUM> featuresQueue_;
++    TQue<QuePosition::VECIN, INPUT_BUFFER_NUM> gradsQueue_;
++    TQue<QuePosition::VECIN, INPUT_BUFFER_NUM> featuresQueue_;
+     TQue<QuePosition::VECIN, BUFFER_NUM> weightsQueue_;
+     TQue<QuePosition::VECOUT, BUFFER_NUM> dxQueue_;
+     TQue<QuePosition::VECOUT, BUFFER_NUM> updateQueue_;
+@@ -133,8 +134,8 @@
+     const int64_t alignedCount = AlignUp(tileLen_, CMP_ALIGN_FLOAT);
+     const int64_t alignedMaskBytes = AlignUp(alignedCount, 32);
+ 
+-    pipe_.InitBuffer(gradsQueue_, BUFFER_NUM, alignedCount * sizeof(T));
+-    pipe_.InitBuffer(featuresQueue_, BUFFER_NUM, alignedCount * sizeof(T));
++    pipe_.InitBuffer(gradsQueue_, INPUT_BUFFER_NUM, alignedCount * sizeof(T));
++    pipe_.InitBuffer(featuresQueue_, INPUT_BUFFER_NUM, alignedCount * sizeof(T));
+     if (vectorWeights_) {
+         pipe_.InitBuffer(weightsQueue_, BUFFER_NUM, alignedCount * sizeof(T));
+     }
+@@ -155,7 +156,7 @@
+ }
+ 
+ template <typename T>
+-__aicore__ inline void PReluGradUpdate<T>::CopyIn(int64_t progress, int64_t currentNum)
++__aicore__ inline void PReluGradUpdate<T>::CopyIn(int64_t progress, int64_t currentNum, bool copyWeights)
+ {
+     LocalTensor<T> gradsLocal = gradsQueue_.AllocTensor<T>();
+     LocalTensor<T> featuresLocal = featuresQueue_.AllocTensor<T>();
+@@ -174,7 +175,7 @@
+     DataCopyPad(gradsLocal, gradsGm_[blockStart_ + progress], copyParams, padParams);
+     DataCopyPad(featuresLocal, featuresGm_[blockStart_ + progress], copyParams, padParams);
+ 
+-    if (vectorWeights_ && (!residentWeights_ || firstTile_)) {
++    if (copyWeights) {
+         LocalTensor<T> weightsLocal = weightsQueue_.AllocTensor<T>();
+         const int64_t weightOffset = (blockStart_ + progress) % channelNum_;
+         if (mergeWeights_) {
+@@ -237,12 +238,27 @@
+ {
+     const int64_t remaining = channelNum_ - channelOffset_;
+     const int64_t currentNum = remaining < tileLen_ ? remaining : tileLen_;
+-    for (int64_t n = batchStart_; n < batchEnd_; ++n) {
+-        blockStart_ = n * channelNum_ + channelOffset_;
+-        CopyIn(0, currentNum);
+-        Compute(0, currentNum);
+-        CopyOut(0, currentNum);
+-        firstTile_ = false;
++    if constexpr (std::is_same<T, float>::value) {
++        for (int64_t n = batchStart_; n < batchEnd_; ++n) {
++            blockStart_ = n * channelNum_ + channelOffset_;
++            CopyIn(0, currentNum, firstTile_);
++            Compute(0, currentNum);
++            CopyOut(0, currentNum);
++            firstTile_ = false;
++        }
++    } else {
++        blockStart_ = batchStart_ * channelNum_ + channelOffset_;
++        CopyIn(0, currentNum, true);
++        for (int64_t n = batchStart_; n < batchEnd_; ++n) {
++            if (n + 1 < batchEnd_) {
++                blockStart_ = (n + 1) * channelNum_ + channelOffset_;
++                CopyIn(0, currentNum, false);
++            }
++            blockStart_ = n * channelNum_ + channelOffset_;
++            Compute(0, currentNum);
++            CopyOut(0, currentNum);
++            firstTile_ = false;
++        }
+     }
+     weightsQueue_.FreeTensor(residentWeightsLocal_);
+ }
+--- J027IO/op_host/p_relu_grad_update_tiling.cpp
++++ J028IO/op_host/p_relu_grad_update_tiling.cpp
+@@ -243,6 +243,12 @@
+             const int64_t batchSize = totalNum / channelNum;
+             if (batchSize >= 2 * hardwareCoreNum) {
+                 tileLen = AlignUpI64(CeilDivI64(channelNum, cTiles), CMP_ALIGN_FLOAT);
++                // Keep the existing tile; only split-C inputs gain a second slot.
++                // Low precision uses 39 B/element, within 90% of reserved UB.
++                if (dtype != ge::DT_FLOAT && static_cast<uint64_t>(tileLen) * 39U > ubSize * 9U / 10U) {
++                    OP_LOGE(context, "split-C prefetch exceeds UB budget");
++                    return ge::GRAPH_FAILED;
++                }
+                 splitBatchGroups = batchGroups;
+                 usedCores = cTiles * batchGroups;
+                 if (dtype == ge::DT_FLOAT) tilingKey = GET_TPL_TILING_KEY(PRELUGRADUPDATE_TPL_FLOAT_SPLITC);

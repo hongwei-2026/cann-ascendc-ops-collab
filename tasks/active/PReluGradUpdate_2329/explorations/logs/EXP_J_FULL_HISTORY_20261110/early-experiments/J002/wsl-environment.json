@@ -1,0 +1,5 @@
+{
+  "action": "read-only inventory inside Ubuntu; may start stopped distribution",
+  "exit_code": 0,
+  "output": "{\"uname\": {\"system\": \"Linux\", \"node\": \"LAPTOP-G0EPILC0\", \"release\": \"6.6.114.1-microsoft-standard-WSL2\", \"version\": \"#1 SMP PREEMPT_DYNAMIC Mon Dec  1 20:46:23 UTC 2025\", \"machine\": \"x86_64\", \"processor\": \"\"}, \"tools\": {\"python3\": \"/usr/bin/python3\", \"cmake\": null, \"g++\": null, \"clang++\": null, \"npu-smi\": null}, \"paths\": {\"/usr/local/Ascend\": false, \"/opt/Ascend\": false, \"/dev/davinci0\": false, \"/dev/davinci_manager\": false, \"/dev/devmm_svm\": false, \"/dev/hisi_hdc\": false}, \"environment\": {\"ASCEND_HOME_PATH\": null, \"ASCEND_TOOLKIT_HOME\": null, \"CANN_INSTALL_PATH\": null}, \"modules\": {\"numpy\": false, \"ml_dtypes\": false}}\n"
+}

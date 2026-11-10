@@ -1,0 +1,5 @@
+# J068 actual-TBE numerical repair measured, not promoted
+
+See DEC-J068.md. Actual builtin-TBE oracle27groups and corrected970group regression passed in aliases and standard. Performance94inputs mostly regressed; controls562/564. Contract probes confirmed ND/NCHW/NC1, broadcast/spatialweights, rank8 and empty points beyond current engine coverage. CPU layout/Gather design is executable but not a complete device fallback.
+
+User explicitly approved this project's source/evidence transfer. The approved attempt failed before SSH handshake because official AtomGit reports originalinstance STOPPED. Full cloud device-evidence.zip is not generated/downloaded; original logs/oracles/CSV remain in the originalinstance J068 directory. Gather minimal target compilation is not started. No SDK/NPU result may be inferred from local preparation. Continue only via the official originalinstance and strict pinnedhost verification after restart. J069 local continuous-Gather source is prepared separately. ProductionJ035 unchanged; no official submission/commit/push.

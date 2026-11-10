@@ -1,0 +1,18 @@
+--- J003/op_host/p_relu_grad_update_tiling.cpp
++++ J010/op_host/p_relu_grad_update_tiling.cpp
+@@ -181,8 +181,13 @@
+     int64_t rowsPerTile = 0;
+ 
+     if (totalNum > 0) {
+-        blockFactor = AlignUpI64(CeilDivI64(totalNum, hardwareCoreNum), blockElements);
+-        usedCores = std::min(hardwareCoreNum, CeilDivI64(totalNum, blockFactor));
++        // Scalar weights have no channel-clamped loops: give small inputs
++        // approximately 1024 elements/core while preserving 32-byte blocks.
++        const int64_t targetCoreNum = weightLen == 1
++            ? std::min(hardwareCoreNum, CeilDivI64(totalNum, 1024))
++            : hardwareCoreNum;
++        blockFactor = AlignUpI64(CeilDivI64(totalNum, targetCoreNum), blockElements);
++        usedCores = std::min(targetCoreNum, CeilDivI64(totalNum, blockFactor));
+         tileLen = std::min(blockFactor, maxTile);
+         // A single weight is scalar even when C=1. Only distinct channel
+         // weights require one-channel Muls tiles (also clamped in the kernel).

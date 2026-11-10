@@ -1,0 +1,89 @@
+--- J013/op_kernel/p_relu_grad_update.h
++++ J017/op_kernel/p_relu_grad_update.h
+@@ -164,42 +164,6 @@
+ template <typename T>
+ __aicore__ inline void PReluGradUpdate<T>::Compute(int64_t progress, int64_t currentNum)
+ {
+-    LocalTensor<T> gradsLocal = gradsQueue_.DeQue<T>();
+-    LocalTensor<T> featuresLocal = featuresQueue_.DeQue<T>();
+-    LocalTensor<T> dxLocal = dxQueue_.AllocTensor<T>();
+-    LocalTensor<T> updateLocal = updateQueue_.AllocTensor<T>();
+-
+-    const int64_t cmpCount = AlignUp(currentNum, CMP_ALIGN_FLOAT);
+-    LocalTensor<uint8_t> maskLocal = maskBuf_.Get<uint8_t>();
+-    LocalTensor<float> fgLocal = fgFloatBuf_.Get<float>();
+-
+-    LocalTensor<float> gradsFloat;
+-    LocalTensor<float> featuresFloat;
+-    LocalTensor<float> dxFloat;
+-    LocalTensor<float> updateFloat;
+-
+-    if constexpr (std::is_same<T, float>::value) {
+-        gradsFloat = gradsLocal.template ReinterpretCast<float>();
+-        featuresFloat = featuresLocal.template ReinterpretCast<float>();
+-        dxFloat = dxLocal.template ReinterpretCast<float>();
+-        updateFloat = updateLocal.template ReinterpretCast<float>();
+-    } else {
+-        gradsFloat = gradsFloatBuf_.Get<float>();
+-        featuresFloat = featuresFloatBuf_.Get<float>();
+-        dxFloat = dxFloatBuf_.Get<float>();
+-        updateFloat = updateFloatBuf_.Get<float>();
+-
+-        if constexpr (std::is_same<T, half>::value) {
+-            Cast(gradsFloat, gradsLocal, RoundMode::CAST_NONE, currentNum);
+-            Cast(featuresFloat, featuresLocal, RoundMode::CAST_NONE, currentNum);
+-            PipeBarrier<PIPE_V>();
+-        } else {
+-            Cast(gradsFloat, gradsLocal, RoundMode::CAST_NONE, currentNum);
+-            Cast(featuresFloat, featuresLocal, RoundMode::CAST_NONE, currentNum);
+-            PipeBarrier<PIPE_V>();
+-        }
+-    }
+-
+     const int64_t globalStart = blockStart_ + progress;
+     const int64_t weightIndex = weightsPerChannel_ != 0
+         ? (globalStart / innerSize_) % channelNum_
+@@ -237,6 +201,43 @@
+         uint16_t bits = *reinterpret_cast<uint16_t*>(&raw);
+         *reinterpret_cast<uint32_t*>(&weightValue) = static_cast<uint32_t>(bits) << 16;
+     }
++
++    LocalTensor<T> gradsLocal = gradsQueue_.DeQue<T>();
++    LocalTensor<T> featuresLocal = featuresQueue_.DeQue<T>();
++    LocalTensor<T> dxLocal = dxQueue_.AllocTensor<T>();
++    LocalTensor<T> updateLocal = updateQueue_.AllocTensor<T>();
++
++    const int64_t cmpCount = AlignUp(currentNum, CMP_ALIGN_FLOAT);
++    LocalTensor<uint8_t> maskLocal = maskBuf_.Get<uint8_t>();
++    LocalTensor<float> fgLocal = fgFloatBuf_.Get<float>();
++
++    LocalTensor<float> gradsFloat;
++    LocalTensor<float> featuresFloat;
++    LocalTensor<float> dxFloat;
++    LocalTensor<float> updateFloat;
++
++    if constexpr (std::is_same<T, float>::value) {
++        gradsFloat = gradsLocal.template ReinterpretCast<float>();
++        featuresFloat = featuresLocal.template ReinterpretCast<float>();
++        dxFloat = dxLocal.template ReinterpretCast<float>();
++        updateFloat = updateLocal.template ReinterpretCast<float>();
++    } else {
++        gradsFloat = gradsFloatBuf_.Get<float>();
++        featuresFloat = featuresFloatBuf_.Get<float>();
++        dxFloat = dxFloatBuf_.Get<float>();
++        updateFloat = updateFloatBuf_.Get<float>();
++
++        if constexpr (std::is_same<T, half>::value) {
++            Cast(gradsFloat, gradsLocal, RoundMode::CAST_NONE, currentNum);
++            Cast(featuresFloat, featuresLocal, RoundMode::CAST_NONE, currentNum);
++            PipeBarrier<PIPE_V>();
++        } else {
++            Cast(gradsFloat, gradsLocal, RoundMode::CAST_NONE, currentNum);
++            Cast(featuresFloat, featuresLocal, RoundMode::CAST_NONE, currentNum);
++            PipeBarrier<PIPE_V>();
++        }
++    }
++
+     SyncSV();
+     Mul(fgLocal, featuresFloat, gradsFloat, currentNum);
+     LocalTensor<float> zeroLocal = dxFloat;

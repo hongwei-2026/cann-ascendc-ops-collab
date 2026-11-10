@@ -1,0 +1,141 @@
+{
+  "wa_sha256": "3b0c67f14e1921dee6f46482f22ee7b7da189a1d54be405c2cfd4f560f5b82ee",
+  "wa_files": 38,
+  "comparisons": {
+    "P103": {
+      "files": 41,
+      "identical": 19,
+      "changed": [
+        "code/examples/sample_support.h",
+        "code/op_host/p_relu_grad_update_def.cpp",
+        "code/op_host/p_relu_grad_update_infershape.cpp",
+        "code/op_host/p_relu_grad_update_tiling.cpp",
+        "code/op_kernel/p_relu_grad_update.cpp",
+        "code/op_kernel/p_relu_grad_update.h",
+        "code/op_kernel/p_relu_grad_update_tiling_data.h",
+        "code/op_kernel/p_relu_grad_update_tiling_key.h",
+        "code/tests/ut/common/any_value.h",
+        "code/tests/ut/common/infershape_case_executor.cpp",
+        "code/tests/ut/common/infershape_case_executor.h",
+        "code/tests/ut/common/infershape_context_faker.cpp",
+        "code/tests/ut/common/infershape_context_faker.h",
+        "code/tests/ut/common/tiling_case_executor.cpp",
+        "code/tests/ut/common/tiling_case_executor.h",
+        "code/tests/ut/common/tiling_context_faker.cpp",
+        "code/tests/ut/common/tiling_context_faker.h",
+        "code/tests/ut/op_host/test_p_relu_grad_update_tiling.cpp",
+        "code/tests/ut/op_kernel/test_p_relu_grad_update.cpp"
+      ],
+      "changed_after_newline_normalization": [
+        "code/op_host/p_relu_grad_update_def.cpp",
+        "code/op_host/p_relu_grad_update_infershape.cpp",
+        "code/op_host/p_relu_grad_update_tiling.cpp",
+        "code/op_kernel/p_relu_grad_update.cpp",
+        "code/op_kernel/p_relu_grad_update.h",
+        "code/op_kernel/p_relu_grad_update_tiling_data.h",
+        "code/op_kernel/p_relu_grad_update_tiling_key.h",
+        "code/tests/ut/op_host/test_p_relu_grad_update_tiling.cpp",
+        "code/tests/ut/op_kernel/test_p_relu_grad_update.cpp"
+      ],
+      "only_wa": [],
+      "only_other": [
+        "code/FIX_NOTES.md",
+        "code/tests/compute_schedule_check.py",
+        "code/tests/local_semantic_check.py"
+      ],
+      "sha256": "fb31d77431a73a352ed651d0344d6dfa3d0cf5668de62ad9d1e01afc1b3d145b"
+    },
+    "J001": {
+      "files": 42,
+      "identical": 19,
+      "changed": [
+        "code/examples/sample_support.h",
+        "code/op_host/p_relu_grad_update_def.cpp",
+        "code/op_host/p_relu_grad_update_infershape.cpp",
+        "code/op_host/p_relu_grad_update_tiling.cpp",
+        "code/op_kernel/p_relu_grad_update.cpp",
+        "code/op_kernel/p_relu_grad_update.h",
+        "code/op_kernel/p_relu_grad_update_tiling_data.h",
+        "code/op_kernel/p_relu_grad_update_tiling_key.h",
+        "code/tests/ut/common/any_value.h",
+        "code/tests/ut/common/infershape_case_executor.cpp",
+        "code/tests/ut/common/infershape_case_executor.h",
+        "code/tests/ut/common/infershape_context_faker.cpp",
+        "code/tests/ut/common/infershape_context_faker.h",
+        "code/tests/ut/common/tiling_case_executor.cpp",
+        "code/tests/ut/common/tiling_case_executor.h",
+        "code/tests/ut/common/tiling_context_faker.cpp",
+        "code/tests/ut/common/tiling_context_faker.h",
+        "code/tests/ut/op_host/test_p_relu_grad_update_tiling.cpp",
+        "code/tests/ut/op_kernel/test_p_relu_grad_update.cpp"
+      ],
+      "changed_after_newline_normalization": [
+        "code/op_host/p_relu_grad_update_def.cpp",
+        "code/op_host/p_relu_grad_update_infershape.cpp",
+        "code/op_host/p_relu_grad_update_tiling.cpp",
+        "code/op_kernel/p_relu_grad_update.cpp",
+        "code/op_kernel/p_relu_grad_update.h",
+        "code/op_kernel/p_relu_grad_update_tiling_data.h",
+        "code/op_kernel/p_relu_grad_update_tiling_key.h",
+        "code/tests/ut/op_host/test_p_relu_grad_update_tiling.cpp",
+        "code/tests/ut/op_kernel/test_p_relu_grad_update.cpp"
+      ],
+      "only_wa": [],
+      "only_other": [
+        "code/FIX_NOTES.md",
+        "code/tests/compute_schedule_check.py",
+        "code/tests/local_semantic_check.py",
+        "code/tests/shared_weight_check.py"
+      ],
+      "sha256": "fe319504df5d033fde249f18ca6a091991c3490a21f3bc92ad0d330db6da7775"
+    },
+    "J035": {
+      "files": 46,
+      "identical": 19,
+      "changed": [
+        "code/examples/sample_support.h",
+        "code/op_host/p_relu_grad_update_def.cpp",
+        "code/op_host/p_relu_grad_update_infershape.cpp",
+        "code/op_host/p_relu_grad_update_tiling.cpp",
+        "code/op_kernel/p_relu_grad_update.cpp",
+        "code/op_kernel/p_relu_grad_update.h",
+        "code/op_kernel/p_relu_grad_update_tiling_data.h",
+        "code/op_kernel/p_relu_grad_update_tiling_key.h",
+        "code/tests/ut/common/any_value.h",
+        "code/tests/ut/common/infershape_case_executor.cpp",
+        "code/tests/ut/common/infershape_case_executor.h",
+        "code/tests/ut/common/infershape_context_faker.cpp",
+        "code/tests/ut/common/infershape_context_faker.h",
+        "code/tests/ut/common/tiling_case_executor.cpp",
+        "code/tests/ut/common/tiling_case_executor.h",
+        "code/tests/ut/common/tiling_context_faker.cpp",
+        "code/tests/ut/common/tiling_context_faker.h",
+        "code/tests/ut/op_host/test_p_relu_grad_update_tiling.cpp",
+        "code/tests/ut/op_kernel/test_p_relu_grad_update.cpp"
+      ],
+      "changed_after_newline_normalization": [
+        "code/op_host/p_relu_grad_update_def.cpp",
+        "code/op_host/p_relu_grad_update_infershape.cpp",
+        "code/op_host/p_relu_grad_update_tiling.cpp",
+        "code/op_kernel/p_relu_grad_update.cpp",
+        "code/op_kernel/p_relu_grad_update.h",
+        "code/op_kernel/p_relu_grad_update_tiling_data.h",
+        "code/op_kernel/p_relu_grad_update_tiling_key.h",
+        "code/tests/ut/op_host/test_p_relu_grad_update_tiling.cpp",
+        "code/tests/ut/op_kernel/test_p_relu_grad_update.cpp"
+      ],
+      "only_wa": [],
+      "only_other": [
+        "code/FIX_NOTES.md",
+        "code/op_kernel/p_relu_grad_update_merged.h",
+        "code/op_kernel/p_relu_grad_update_resident.h",
+        "code/op_kernel/p_relu_grad_update_s1.h",
+        "code/op_kernel/p_relu_grad_update_splitc.h",
+        "code/tests/compute_schedule_check.py",
+        "code/tests/local_semantic_check.py",
+        "code/tests/shared_weight_check.py"
+      ],
+      "sha256": "212183985a1795c76ca2fddf298d53ca4229321cdcdaa87517882b8ae17bbd35"
+    }
+  }
+}

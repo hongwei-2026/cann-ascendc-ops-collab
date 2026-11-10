@@ -1,0 +1,189 @@
+--- J003/op_host/p_relu_grad_update_tiling.cpp
++++ J004/op_host/p_relu_grad_update_tiling.cpp
+@@ -158,6 +158,11 @@
+         return ge::GRAPH_FAILED;
+     }
+ 
++    const bool vectorWeights = weightLen > 1 && innerSize == 1;
++    if (vectorWeights) {
++        bytesPerElement += typeSize;  // contiguous channel weights queue
++    }
++
+     uint64_t ubSize = 0;
+     int64_t hardwareCoreNum = 0;
+     if (GetPlatformInfo(context, ubSize, hardwareCoreNum) != ge::GRAPH_SUCCESS ||
+@@ -185,9 +190,9 @@
+         usedCores = std::min(hardwareCoreNum, CeilDivI64(totalNum, blockFactor));
+         tileLen = std::min(blockFactor, maxTile);
+         // A single weight is scalar even when C=1. Only distinct channel
+-        // weights require one-channel Muls tiles (also clamped in the kernel).
++        // weights use one-channel Muls tiles, or a contiguous C segment when S=1.
+         if (weightLen > 1 && innerSize > 0) {
+-            tileLen = std::min(tileLen, innerSize);
++            tileLen = std::min(tileLen, vectorWeights ? channelNum : innerSize);
+         }
+     }
+ 
+--- J003/op_kernel/p_relu_grad_update.h
++++ J004/op_kernel/p_relu_grad_update.h
+@@ -46,6 +46,7 @@
+     TPipe pipe_;
+     TQue<QuePosition::VECIN, BUFFER_NUM> gradsQueue_;
+     TQue<QuePosition::VECIN, BUFFER_NUM> featuresQueue_;
++    TQue<QuePosition::VECIN, BUFFER_NUM> weightsQueue_;
+     TQue<QuePosition::VECOUT, BUFFER_NUM> dxQueue_;
+     TQue<QuePosition::VECOUT, BUFFER_NUM> updateQueue_;
+ 
+@@ -71,6 +72,7 @@
+     int64_t innerSize_ = 0;
+     int64_t weightsPerChannel_ = 0;
+     int64_t rowsPerTile_ = 0;
++    bool vectorWeights_ = false;
+ };
+ 
+ template <typename T>
+@@ -105,6 +107,7 @@
+     innerSize_ = tilingData->innerSize;
+     weightsPerChannel_ = tilingData->weightsPerChannel;
+     rowsPerTile_ = tilingData->rowsPerTile;
++    vectorWeights_ = weightsPerChannel_ != 0 && innerSize_ == 1;
+ 
+     blockStart_ = static_cast<int64_t>(GetBlockIdx()) * tilingData->blockFactor;
+     blockLength_ = blockStart_ < totalNum_ ? totalNum_ - blockStart_ : 0;
+@@ -123,6 +126,9 @@
+ 
+     pipe_.InitBuffer(gradsQueue_, BUFFER_NUM, alignedCount * sizeof(T));
+     pipe_.InitBuffer(featuresQueue_, BUFFER_NUM, alignedCount * sizeof(T));
++    if (vectorWeights_) {
++        pipe_.InitBuffer(weightsQueue_, BUFFER_NUM, alignedCount * sizeof(T));
++    }
+     pipe_.InitBuffer(dxQueue_, BUFFER_NUM, alignedCount * sizeof(T));
+     pipe_.InitBuffer(updateQueue_, BUFFER_NUM, alignedCount * sizeof(T));
+     pipe_.InitBuffer(maskBuf_, alignedMaskBytes);
+@@ -159,6 +165,12 @@
+     DataCopyPad(gradsLocal, gradsGm_[blockStart_ + progress], copyParams, padParams);
+     DataCopyPad(featuresLocal, featuresGm_[blockStart_ + progress], copyParams, padParams);
+ 
++    if (vectorWeights_) {
++        LocalTensor<T> weightsLocal = weightsQueue_.AllocTensor<T>();
++        const int64_t weightOffset = (blockStart_ + progress) % channelNum_;
++        DataCopyPad(weightsLocal, weightsGm_[weightOffset], copyParams, padParams);
++        weightsQueue_.EnQue(weightsLocal);
++    }
+     gradsQueue_.EnQue(gradsLocal);
+     featuresQueue_.EnQue(featuresLocal);
+ }
+@@ -203,45 +215,57 @@
+         }
+     }
+ 
+-    const int64_t globalStart = blockStart_ + progress;
+-    const int64_t weightIndex = weightsPerChannel_ != 0
+-        ? (globalStart / innerSize_) % channelNum_
+-        : 0;
+-    float weightValue = 0.0f;
+-    if constexpr (std::is_same<T, float>::value) {
+-        weightValue = weightsGm_.GetValue(weightIndex);
+-    } else if constexpr (std::is_same<T, half>::value) {
+-        half h = weightsGm_.GetValue(weightIndex);
+-        uint16_t hb = *reinterpret_cast<uint16_t*>(&h);
+-        uint32_t sign = (static_cast<uint32_t>(hb) & 0x8000u) << 16;
+-        uint32_t exp = (static_cast<uint32_t>(hb) >> 10) & 0x1Fu;
+-        uint32_t man = static_cast<uint32_t>(hb) & 0x3FFu;
+-        uint32_t outBits;
+-        if (exp == 0) {
+-            if (man == 0) {
+-                outBits = sign;
++    LocalTensor<T> weightsLocal;
++    if (vectorWeights_) {
++        weightsLocal = weightsQueue_.DeQue<T>();
++        if constexpr (std::is_same<T, float>::value) {
++            Mul(negLocal, gradsFloat, weightsLocal.template ReinterpretCast<float>(), currentNum);
++        } else {
++            Cast(negLocal, weightsLocal, RoundMode::CAST_NONE, currentNum);
++            PipeBarrier<PIPE_V>();
++            Mul(negLocal, gradsFloat, negLocal, currentNum);
++        }
++    } else {
++        const int64_t globalStart = blockStart_ + progress;
++        const int64_t weightIndex = weightsPerChannel_ != 0
++            ? (globalStart / innerSize_) % channelNum_
++            : 0;
++        float weightValue = 0.0f;
++        if constexpr (std::is_same<T, float>::value) {
++            weightValue = weightsGm_.GetValue(weightIndex);
++        } else if constexpr (std::is_same<T, half>::value) {
++            half h = weightsGm_.GetValue(weightIndex);
++            uint16_t hb = *reinterpret_cast<uint16_t*>(&h);
++            uint32_t sign = (static_cast<uint32_t>(hb) & 0x8000u) << 16;
++            uint32_t exp = (static_cast<uint32_t>(hb) >> 10) & 0x1Fu;
++            uint32_t man = static_cast<uint32_t>(hb) & 0x3FFu;
++            uint32_t outBits;
++            if (exp == 0) {
++                if (man == 0) {
++                    outBits = sign;
++                } else {
++                    exp = 127 - 15 + 1;
++                    while ((man & 0x400u) == 0) {
++                        man <<= 1;
++                        --exp;
++                    }
++                    man &= 0x3FFu;
++                    outBits = sign | (exp << 23) | (man << 13);
++                }
++            } else if (exp == 31) {
++                outBits = sign | 0x7F800000u | (man << 13);
+             } else {
+-                exp = 127 - 15 + 1;
+-                while ((man & 0x400u) == 0) {
+-                    man <<= 1;
+-                    --exp;
+-                }
+-                man &= 0x3FFu;
+-                outBits = sign | (exp << 23) | (man << 13);
++                outBits = sign | ((exp + (127 - 15)) << 23) | (man << 13);
+             }
+-        } else if (exp == 31) {
+-            outBits = sign | 0x7F800000u | (man << 13);
++            *reinterpret_cast<uint32_t*>(&weightValue) = outBits;
+         } else {
+-            outBits = sign | ((exp + (127 - 15)) << 23) | (man << 13);
+-        }
+-        *reinterpret_cast<uint32_t*>(&weightValue) = outBits;
+-    } else {
+-        T raw = weightsGm_.GetValue(weightIndex);
+-        uint16_t bits = *reinterpret_cast<uint16_t*>(&raw);
+-        *reinterpret_cast<uint32_t*>(&weightValue) = static_cast<uint32_t>(bits) << 16;
+-    }
+-    SyncSV();
+-    Muls(negLocal, gradsFloat, weightValue, currentNum);
++            T raw = weightsGm_.GetValue(weightIndex);
++            uint16_t bits = *reinterpret_cast<uint16_t*>(&raw);
++            *reinterpret_cast<uint32_t*>(&weightValue) = static_cast<uint32_t>(bits) << 16;
++        }
++        SyncSV();
++        Muls(negLocal, gradsFloat, weightValue, currentNum);
++    }
+     Mul(fgLocal, featuresFloat, gradsFloat, currentNum);
+     LocalTensor<float> zeroLocal = dxFloat;
+     Duplicate(zeroLocal, 0.0f, static_cast<int32_t>(cmpCount));
+@@ -272,6 +296,9 @@
+     updateQueue_.EnQue(updateLocal);
+     gradsQueue_.FreeTensor(gradsLocal);
+     featuresQueue_.FreeTensor(featuresLocal);
++    if (vectorWeights_) {
++        weightsQueue_.FreeTensor(weightsLocal);
++    }
+ }
+ 
+ template <typename T>
+@@ -301,7 +328,8 @@
+         }
+         if (weightsPerChannel_ != 0) {
+             const int64_t globalStart = blockStart_ + progress;
+-            const int64_t channelRemain = innerSize_ - globalStart % innerSize_;
++            const int64_t segment = vectorWeights_ ? channelNum_ : innerSize_;
++            const int64_t channelRemain = segment - globalStart % segment;
+             if (currentNum > channelRemain) {
+                 currentNum = channelRemain;
+             }

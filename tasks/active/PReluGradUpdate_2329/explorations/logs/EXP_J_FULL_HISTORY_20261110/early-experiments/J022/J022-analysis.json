@@ -1,0 +1,6362 @@
+[
+  {
+    "kind": "position",
+    "case": "bf16_merged",
+    "dtype": "bf16",
+    "shape": [
+      2001,
+      512,
+      1
+    ],
+    "versions": {
+      "J013": {
+        "Task Duration(us)": {
+          "mean": 82.12599999999999,
+          "round_medians": [
+            83.139,
+            81.85849999999999,
+            81.928,
+            81.57849999999999
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 79.452125,
+          "round_medians": [
+            80.36500000000001,
+            79.2705,
+            79.1685,
+            79.00450000000001
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "J020": {
+        "Task Duration(us)": {
+          "mean": 24.454625,
+          "round_medians": [
+            24.54,
+            24.539,
+            24.2195,
+            24.52
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 22.14,
+          "round_medians": [
+            22.017,
+            22.3635,
+            21.938000000000002,
+            22.2415
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "J022": {
+        "Task Duration(us)": {
+          "mean": 24.506875,
+          "round_medians": [
+            24.509,
+            24.289,
+            24.6695,
+            24.56
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 22.2195,
+          "round_medians": [
+            22.2175,
+            22.1685,
+            22.116500000000002,
+            22.3755
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      }
+    },
+    "delta_vs_J020": 0.052250000000000796,
+    "round_deltas_vs_J020": [
+      -0.030999999999998806,
+      -0.25,
+      0.4499999999999993,
+      0.03999999999999915
+    ]
+  },
+  {
+    "kind": "position",
+    "case": "bf16_odd",
+    "dtype": "bf16",
+    "shape": [
+      129,
+      257,
+      1
+    ],
+    "versions": {
+      "J013": {
+        "Task Duration(us)": {
+          "mean": 11.884875000000001,
+          "round_medians": [
+            11.1395,
+            12.1,
+            12.39,
+            11.91
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 9.0095,
+          "round_medians": [
+            8.351,
+            9.2015,
+            9.359,
+            9.1265
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "J020": {
+        "Task Duration(us)": {
+          "mean": 12.247125,
+          "round_medians": [
+            12.26,
+            12.439,
+            12.189499999999999,
+            12.1
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 9.302249999999999,
+          "round_medians": [
+            9.24,
+            9.4575,
+            9.3235,
+            9.187999999999999
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "J022": {
+        "Task Duration(us)": {
+          "mean": 12.2645,
+          "round_medians": [
+            12.449,
+            11.9195,
+            12.24,
+            12.4495
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 9.320250000000001,
+          "round_medians": [
+            9.4255,
+            9.111,
+            9.307500000000001,
+            9.437000000000001
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      }
+    },
+    "delta_vs_J020": 0.017374999999999474,
+    "round_deltas_vs_J020": [
+      0.18900000000000006,
+      -0.5195000000000007,
+      0.05050000000000132,
+      0.3495000000000008
+    ]
+  },
+  {
+    "kind": "position",
+    "case": "bf16_resident",
+    "dtype": "bf16",
+    "shape": [
+      1201,
+      512,
+      1
+    ],
+    "versions": {
+      "J013": {
+        "Task Duration(us)": {
+          "mean": 51.439,
+          "round_medians": [
+            51.739,
+            51.439,
+            51.459,
+            51.119
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 48.7565,
+          "round_medians": [
+            49.114999999999995,
+            48.6785,
+            48.765,
+            48.4675
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "J020": {
+        "Task Duration(us)": {
+          "mean": 10.752125000000001,
+          "round_medians": [
+            11.0395,
+            10.819500000000001,
+            10.2695,
+            10.88
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 8.553125,
+          "round_medians": [
+            8.631499999999999,
+            8.743500000000001,
+            8.239,
+            8.5985
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "J022": {
+        "Task Duration(us)": {
+          "mean": 10.729875,
+          "round_medians": [
+            10.6295,
+            10.48,
+            11.03,
+            10.78
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 8.62575,
+          "round_medians": [
+            8.589,
+            8.296,
+            8.7935,
+            8.8245
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      }
+    },
+    "delta_vs_J020": -0.022250000000001435,
+    "round_deltas_vs_J020": [
+      -0.41000000000000014,
+      -0.339500000000001,
+      0.7604999999999986,
+      -0.10000000000000142
+    ]
+  },
+  {
+    "kind": "position",
+    "case": "bf16_scalar",
+    "dtype": "bf16",
+    "shape": [
+      600000,
+      1,
+      1
+    ],
+    "versions": {
+      "J013": {
+        "Task Duration(us)": {
+          "mean": 8.4325,
+          "round_medians": [
+            8.29,
+            8.6,
+            8.72,
+            8.12
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 6.66825,
+          "round_medians": [
+            6.4855,
+            6.902,
+            6.827999999999999,
+            6.4575
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "J020": {
+        "Task Duration(us)": {
+          "mean": 8.594875,
+          "round_medians": [
+            8.74,
+            8.82,
+            8.22,
+            8.599499999999999
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 6.7865,
+          "round_medians": [
+            6.8815,
+            7.0024999999999995,
+            6.353,
+            6.909
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "J022": {
+        "Task Duration(us)": {
+          "mean": 8.622375,
+          "round_medians": [
+            8.6995,
+            8.11,
+            8.82,
+            8.86
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 6.859999999999999,
+          "round_medians": [
+            6.9254999999999995,
+            6.4745,
+            6.955,
+            7.085
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      }
+    },
+    "delta_vs_J020": 0.027499999999999858,
+    "round_deltas_vs_J020": [
+      -0.04049999999999976,
+      -0.7100000000000009,
+      0.5999999999999996,
+      0.2605000000000004
+    ]
+  },
+  {
+    "kind": "position",
+    "case": "bf16_tiny_after_merged",
+    "dtype": "bf16",
+    "shape": [
+      3,
+      5,
+      1
+    ],
+    "versions": {
+      "J013": {
+        "Task Duration(us)": {
+          "mean": 2.97725,
+          "round_medians": [
+            2.9495,
+            3.0095,
+            2.96,
+            2.99
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 2.4415,
+          "round_medians": [
+            2.4255,
+            2.4715,
+            2.424,
+            2.4450000000000003
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "J020": {
+        "Task Duration(us)": {
+          "mean": 3.3475,
+          "round_medians": [
+            3.34,
+            3.3,
+            3.35,
+            3.4000000000000004
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 2.82375,
+          "round_medians": [
+            2.782,
+            2.804,
+            2.849,
+            2.8600000000000003
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.021875,
+          "round_medians": [
+            0.0215,
+            0.021,
+            0.0235,
+            0.0215
+          ]
+        }
+      },
+      "J022": {
+        "Task Duration(us)": {
+          "mean": 3.115,
+          "round_medians": [
+            3.0700000000000003,
+            3.1500000000000004,
+            3.16,
+            3.08
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 2.59825,
+          "round_medians": [
+            2.5685000000000002,
+            2.606,
+            2.61,
+            2.6085000000000003
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.022875,
+          "round_medians": [
+            0.0235,
+            0.022,
+            0.024,
+            0.022
+          ]
+        }
+      }
+    },
+    "delta_vs_J020": -0.23249999999999993,
+    "round_deltas_vs_J020": [
+      -0.2699999999999996,
+      -0.14999999999999947,
+      -0.18999999999999995,
+      -0.3200000000000003
+    ]
+  },
+  {
+    "kind": "position",
+    "case": "bf16_tiny_after_resident",
+    "dtype": "bf16",
+    "shape": [
+      3,
+      5,
+      1
+    ],
+    "versions": {
+      "J013": {
+        "Task Duration(us)": {
+          "mean": 2.9822499999999996,
+          "round_medians": [
+            3.0,
+            2.9699999999999998,
+            3.01,
+            2.949
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 2.43775,
+          "round_medians": [
+            2.449,
+            2.433,
+            2.4645,
+            2.4044999999999996
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "J020": {
+        "Task Duration(us)": {
+          "mean": 3.5597499999999997,
+          "round_medians": [
+            3.57,
+            3.52,
+            3.6289999999999996,
+            3.52
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 3.0321249999999997,
+          "round_medians": [
+            3.035,
+            2.9795,
+            3.0789999999999997,
+            3.035
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.036250000000000004,
+          "round_medians": [
+            0.038,
+            0.034,
+            0.0385,
+            0.0345
+          ]
+        }
+      },
+      "J022": {
+        "Task Duration(us)": {
+          "mean": 3.1500000000000004,
+          "round_medians": [
+            3.18,
+            3.1100000000000003,
+            3.1500000000000004,
+            3.16
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 2.6251249999999997,
+          "round_medians": [
+            2.6465,
+            2.585,
+            2.6319999999999997,
+            2.637
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.03025,
+          "round_medians": [
+            0.03,
+            0.0305,
+            0.03,
+            0.0305
+          ]
+        }
+      }
+    },
+    "delta_vs_J020": -0.4097499999999994,
+    "round_deltas_vs_J020": [
+      -0.3899999999999997,
+      -0.4099999999999997,
+      -0.4789999999999992,
+      -0.3599999999999999
+    ]
+  },
+  {
+    "kind": "position",
+    "case": "bf16_tiny_before",
+    "dtype": "bf16",
+    "shape": [
+      3,
+      5,
+      1
+    ],
+    "versions": {
+      "J013": {
+        "Task Duration(us)": {
+          "mean": 3.992375,
+          "round_medians": [
+            4.04,
+            3.9495,
+            4.029999999999999,
+            3.95
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 3.458625,
+          "round_medians": [
+            3.5025,
+            3.4139999999999997,
+            3.5015,
+            3.4165
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.069,
+          "round_medians": [
+            0.066,
+            0.073,
+            0.064,
+            0.073
+          ]
+        }
+      },
+      "J020": {
+        "Task Duration(us)": {
+          "mean": 4.062125,
+          "round_medians": [
+            4.079,
+            4.0595,
+            4.109999999999999,
+            4.0
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 3.5164999999999997,
+          "round_medians": [
+            3.5305,
+            3.5125,
+            3.5614999999999997,
+            3.4615
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.07450000000000001,
+          "round_medians": [
+            0.08,
+            0.069,
+            0.08,
+            0.069
+          ]
+        }
+      },
+      "J022": {
+        "Task Duration(us)": {
+          "mean": 3.205,
+          "round_medians": [
+            3.2,
+            3.18,
+            3.22,
+            3.22
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 2.661625,
+          "round_medians": [
+            2.6630000000000003,
+            2.64,
+            2.6835,
+            2.66
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.06075,
+          "round_medians": [
+            0.06,
+            0.062,
+            0.06,
+            0.061
+          ]
+        }
+      }
+    },
+    "delta_vs_J020": -0.8571249999999999,
+    "round_deltas_vs_J020": [
+      -0.8789999999999996,
+      -0.8794999999999997,
+      -0.8899999999999992,
+      -0.7799999999999998
+    ]
+  },
+  {
+    "kind": "position",
+    "case": "fp16_merged",
+    "dtype": "fp16",
+    "shape": [
+      2001,
+      512,
+      1
+    ],
+    "versions": {
+      "J013": {
+        "Task Duration(us)": {
+          "mean": 82.156,
+          "round_medians": [
+            83.039,
+            81.9685,
+            81.9685,
+            81.648
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 79.50025,
+          "round_medians": [
+            80.336,
+            79.2795,
+            79.351,
+            79.03450000000001
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "J020": {
+        "Task Duration(us)": {
+          "mean": 24.9545,
+          "round_medians": [
+            24.159,
+            26.15,
+            25.3995,
+            24.1095
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 22.699125,
+          "round_medians": [
+            21.7685,
+            24.055999999999997,
+            23.081000000000003,
+            21.891
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "J022": {
+        "Task Duration(us)": {
+          "mean": 24.6695,
+          "round_medians": [
+            24.3495,
+            23.919,
+            24.25,
+            26.1595
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 22.409,
+          "round_medians": [
+            21.975,
+            21.7975,
+            21.7915,
+            24.072
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      }
+    },
+    "delta_vs_J020": -0.28500000000000014,
+    "round_deltas_vs_J020": [
+      0.1905000000000001,
+      -2.230999999999998,
+      -1.1494999999999997,
+      2.0500000000000007
+    ]
+  },
+  {
+    "kind": "position",
+    "case": "fp16_odd",
+    "dtype": "fp16",
+    "shape": [
+      129,
+      257,
+      1
+    ],
+    "versions": {
+      "J013": {
+        "Task Duration(us)": {
+          "mean": 11.9225,
+          "round_medians": [
+            10.84,
+            12.5,
+            12.21,
+            12.14
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 8.973125,
+          "round_medians": [
+            8.1485,
+            9.3315,
+            9.3325,
+            9.08
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "J020": {
+        "Task Duration(us)": {
+          "mean": 13.0625,
+          "round_medians": [
+            12.5,
+            13.98,
+            13.27,
+            12.5
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 10.127875000000001,
+          "round_medians": [
+            9.156,
+            11.367,
+            10.6415,
+            9.347000000000001
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "J022": {
+        "Task Duration(us)": {
+          "mean": 12.692375,
+          "round_medians": [
+            12.229500000000002,
+            12.14,
+            12.48,
+            13.92
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 9.745875,
+          "round_medians": [
+            9.395,
+            9.0445,
+            9.181,
+            11.363
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      }
+    },
+    "delta_vs_J020": -0.3701249999999998,
+    "round_deltas_vs_J020": [
+      -0.2704999999999984,
+      -1.8399999999999999,
+      -0.7899999999999991,
+      1.42
+    ]
+  },
+  {
+    "kind": "position",
+    "case": "fp16_resident",
+    "dtype": "fp16",
+    "shape": [
+      1201,
+      512,
+      1
+    ],
+    "versions": {
+      "J013": {
+        "Task Duration(us)": {
+          "mean": 51.2715,
+          "round_medians": [
+            51.759,
+            51.179,
+            51.309,
+            50.839
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 48.630250000000004,
+          "round_medians": [
+            49.0895,
+            48.435,
+            48.818,
+            48.1785
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "J020": {
+        "Task Duration(us)": {
+          "mean": 11.314625,
+          "round_medians": [
+            10.849499999999999,
+            12.2195,
+            11.54,
+            10.6495
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 9.22725,
+          "round_medians": [
+            8.5145,
+            10.3565,
+            9.5075,
+            8.5305
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "J022": {
+        "Task Duration(us)": {
+          "mean": 10.947,
+          "round_medians": [
+            10.4895,
+            10.259,
+            10.86,
+            12.1795
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 8.929875000000001,
+          "round_medians": [
+            8.469000000000001,
+            8.224,
+            8.696,
+            10.3305
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      }
+    },
+    "delta_vs_J020": -0.3676250000000003,
+    "round_deltas_vs_J020": [
+      -0.35999999999999943,
+      -1.9604999999999997,
+      -0.6799999999999997,
+      1.5300000000000011
+    ]
+  },
+  {
+    "kind": "position",
+    "case": "fp16_scalar",
+    "dtype": "fp16",
+    "shape": [
+      600000,
+      1,
+      1
+    ],
+    "versions": {
+      "J013": {
+        "Task Duration(us)": {
+          "mean": 8.339875,
+          "round_medians": [
+            8.1,
+            8.659500000000001,
+            8.56,
+            8.04
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 6.642875,
+          "round_medians": [
+            6.4745,
+            6.832,
+            6.851,
+            6.414
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "J020": {
+        "Task Duration(us)": {
+          "mean": 8.74475,
+          "round_medians": [
+            8.69,
+            9.2195,
+            8.56,
+            8.5095
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 7.086749999999999,
+          "round_medians": [
+            6.7825,
+            7.669499999999999,
+            6.9985,
+            6.8965
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "J022": {
+        "Task Duration(us)": {
+          "mean": 8.632375,
+          "round_medians": [
+            8.54,
+            8.1,
+            8.72,
+            9.1695
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 6.999625,
+          "round_medians": [
+            6.939,
+            6.420999999999999,
+            6.9015,
+            7.737
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      }
+    },
+    "delta_vs_J020": -0.11237500000000011,
+    "round_deltas_vs_J020": [
+      -0.15000000000000036,
+      -1.1195000000000004,
+      0.16000000000000014,
+      0.6600000000000001
+    ]
+  },
+  {
+    "kind": "position",
+    "case": "fp16_tiny_after_merged",
+    "dtype": "fp16",
+    "shape": [
+      3,
+      5,
+      1
+    ],
+    "versions": {
+      "J013": {
+        "Task Duration(us)": {
+          "mean": 2.945,
+          "round_medians": [
+            2.95,
+            2.94,
+            2.96,
+            2.9299999999999997
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 2.4137500000000003,
+          "round_medians": [
+            2.4135,
+            2.4210000000000003,
+            2.4160000000000004,
+            2.4044999999999996
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "J020": {
+        "Task Duration(us)": {
+          "mean": 3.37,
+          "round_medians": [
+            3.39,
+            3.33,
+            3.37,
+            3.39
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 2.830125,
+          "round_medians": [
+            2.8305,
+            2.8085,
+            2.851,
+            2.8305
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.02525,
+          "round_medians": [
+            0.026000000000000002,
+            0.0245,
+            0.026000000000000002,
+            0.0245
+          ]
+        }
+      },
+      "J022": {
+        "Task Duration(us)": {
+          "mean": 3.114875,
+          "round_medians": [
+            3.08,
+            3.13,
+            3.1695,
+            3.08
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 2.581375,
+          "round_medians": [
+            2.5685000000000002,
+            2.5855,
+            2.612,
+            2.5595
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0215,
+          "round_medians": [
+            0.022,
+            0.021,
+            0.0215,
+            0.0215
+          ]
+        }
+      }
+    },
+    "delta_vs_J020": -0.25512500000000005,
+    "round_deltas_vs_J020": [
+      -0.31000000000000005,
+      -0.20000000000000018,
+      -0.2004999999999999,
+      -0.31000000000000005
+    ]
+  },
+  {
+    "kind": "position",
+    "case": "fp16_tiny_after_resident",
+    "dtype": "fp16",
+    "shape": [
+      3,
+      5,
+      1
+    ],
+    "versions": {
+      "J013": {
+        "Task Duration(us)": {
+          "mean": 2.9524999999999997,
+          "round_medians": [
+            2.96,
+            2.9699999999999998,
+            2.96,
+            2.92
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 2.418,
+          "round_medians": [
+            2.416,
+            2.429,
+            2.4255,
+            2.4015
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "J020": {
+        "Task Duration(us)": {
+          "mean": 3.4925,
+          "round_medians": [
+            3.48,
+            3.54,
+            3.5,
+            3.45
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 2.964375,
+          "round_medians": [
+            2.9825,
+            2.9825,
+            2.9370000000000003,
+            2.9555
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.037250000000000005,
+          "round_medians": [
+            0.04,
+            0.035,
+            0.039,
+            0.035
+          ]
+        }
+      },
+      "J022": {
+        "Task Duration(us)": {
+          "mean": 3.14,
+          "round_medians": [
+            3.1900000000000004,
+            3.0700000000000003,
+            3.1,
+            3.2
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 2.62825,
+          "round_medians": [
+            2.63,
+            2.5895,
+            2.627,
+            2.6665
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0275,
+          "round_medians": [
+            0.028,
+            0.0265,
+            0.028,
+            0.0275
+          ]
+        }
+      }
+    },
+    "delta_vs_J020": -0.35250000000000004,
+    "round_deltas_vs_J020": [
+      -0.2899999999999996,
+      -0.46999999999999975,
+      -0.3999999999999999,
+      -0.25
+    ]
+  },
+  {
+    "kind": "position",
+    "case": "fp16_tiny_before",
+    "dtype": "fp16",
+    "shape": [
+      3,
+      5,
+      1
+    ],
+    "versions": {
+      "J013": {
+        "Task Duration(us)": {
+          "mean": 3.8925,
+          "round_medians": [
+            3.9,
+            3.95,
+            3.84,
+            3.88
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 3.3665000000000003,
+          "round_medians": [
+            3.361,
+            3.422,
+            3.3315,
+            3.3514999999999997
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.06937499999999999,
+          "round_medians": [
+            0.0625,
+            0.072,
+            0.066,
+            0.077
+          ]
+        }
+      },
+      "J020": {
+        "Task Duration(us)": {
+          "mean": 3.887375,
+          "round_medians": [
+            3.91,
+            3.87,
+            3.8395,
+            3.9299999999999997
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 3.349125,
+          "round_medians": [
+            3.3705,
+            3.3335,
+            3.3165,
+            3.376
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.072875,
+          "round_medians": [
+            0.0765,
+            0.067,
+            0.079,
+            0.069
+          ]
+        }
+      },
+      "J022": {
+        "Task Duration(us)": {
+          "mean": 3.1825,
+          "round_medians": [
+            3.16,
+            3.1900000000000004,
+            3.24,
+            3.14
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 2.648,
+          "round_medians": [
+            2.6310000000000002,
+            2.6555,
+            2.703,
+            2.6025
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.057,
+          "round_medians": [
+            0.058,
+            0.055,
+            0.058,
+            0.057
+          ]
+        }
+      }
+    },
+    "delta_vs_J020": -0.7048749999999999,
+    "round_deltas_vs_J020": [
+      -0.75,
+      -0.6799999999999997,
+      -0.5994999999999999,
+      -0.7899999999999996
+    ]
+  },
+  {
+    "kind": "position",
+    "case": "fp32_merged",
+    "dtype": "fp32",
+    "shape": [
+      2001,
+      512,
+      1
+    ],
+    "versions": {
+      "J013": {
+        "Task Duration(us)": {
+          "mean": 81.6335,
+          "round_medians": [
+            82.619,
+            81.0885,
+            81.298,
+            81.52850000000001
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 79.242875,
+          "round_medians": [
+            80.283,
+            78.28800000000001,
+            78.80850000000001,
+            79.592
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "J020": {
+        "Task Duration(us)": {
+          "mean": 17.184625,
+          "round_medians": [
+            17.3795,
+            17.1495,
+            16.5,
+            17.7095
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 15.328624999999999,
+          "round_medians": [
+            15.3735,
+            15.337499999999999,
+            14.726500000000001,
+            15.876999999999999
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "J022": {
+        "Task Duration(us)": {
+          "mean": 16.9745,
+          "round_medians": [
+            16.739,
+            16.679,
+            17.33,
+            17.15
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 15.076875,
+          "round_medians": [
+            14.870000000000001,
+            14.710999999999999,
+            15.379999999999999,
+            15.346499999999999
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      }
+    },
+    "delta_vs_J020": -0.21012500000000145,
+    "round_deltas_vs_J020": [
+      -0.6404999999999994,
+      -0.47050000000000125,
+      0.8299999999999983,
+      -0.5594999999999999
+    ]
+  },
+  {
+    "kind": "position",
+    "case": "fp32_odd",
+    "dtype": "fp32",
+    "shape": [
+      129,
+      257,
+      1
+    ],
+    "versions": {
+      "J013": {
+        "Task Duration(us)": {
+          "mean": 10.414875,
+          "round_medians": [
+            10.17,
+            10.52,
+            10.34,
+            10.6295
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 7.914125,
+          "round_medians": [
+            7.4535,
+            7.83,
+            7.823,
+            8.55
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "J020": {
+        "Task Duration(us)": {
+          "mean": 11.20475,
+          "round_medians": [
+            11.2,
+            11.0,
+            10.4595,
+            12.159500000000001
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 9.03675,
+          "round_medians": [
+            9.1495,
+            8.8775,
+            8.3325,
+            9.787500000000001
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "J022": {
+        "Task Duration(us)": {
+          "mean": 10.78725,
+          "round_medians": [
+            10.3595,
+            10.6495,
+            11.18,
+            10.96
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 8.58275,
+          "round_medians": [
+            7.8075,
+            8.534500000000001,
+            9.1165,
+            8.872499999999999
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      }
+    },
+    "delta_vs_J020": -0.4175000000000004,
+    "round_deltas_vs_J020": [
+      -0.8404999999999987,
+      -0.35050000000000026,
+      0.7204999999999995,
+      -1.1995000000000005
+    ]
+  },
+  {
+    "kind": "position",
+    "case": "fp32_resident",
+    "dtype": "fp32",
+    "shape": [
+      1201,
+      512,
+      1
+    ],
+    "versions": {
+      "J013": {
+        "Task Duration(us)": {
+          "mean": 50.714,
+          "round_medians": [
+            50.989000000000004,
+            50.239,
+            50.739,
+            50.888999999999996
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 48.305375,
+          "round_medians": [
+            48.5915,
+            47.4215,
+            48.233999999999995,
+            48.9745
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "J020": {
+        "Task Duration(us)": {
+          "mean": 12.45,
+          "round_medians": [
+            12.440000000000001,
+            12.5,
+            11.84,
+            13.02
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 10.586125,
+          "round_medians": [
+            10.3805,
+            10.677,
+            10.058,
+            11.229
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "J022": {
+        "Task Duration(us)": {
+          "mean": 12.152000000000001,
+          "round_medians": [
+            11.92,
+            11.809000000000001,
+            12.4,
+            12.479
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 10.2135,
+          "round_medians": [
+            10.022,
+            9.779499999999999,
+            10.3895,
+            10.663
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      }
+    },
+    "delta_vs_J020": -0.29799999999999827,
+    "round_deltas_vs_J020": [
+      -0.5200000000000014,
+      -0.690999999999999,
+      0.5600000000000005,
+      -0.5410000000000004
+    ]
+  },
+  {
+    "kind": "position",
+    "case": "fp32_scalar",
+    "dtype": "fp32",
+    "shape": [
+      600000,
+      1,
+      1
+    ],
+    "versions": {
+      "J013": {
+        "Task Duration(us)": {
+          "mean": 8.8,
+          "round_medians": [
+            8.62,
+            8.98,
+            9.08,
+            8.52
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 7.123125,
+          "round_medians": [
+            6.7875,
+            7.4435,
+            7.2665,
+            6.995
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "J020": {
+        "Task Duration(us)": {
+          "mean": 9.257375,
+          "round_medians": [
+            9.1995,
+            9.27,
+            8.68,
+            9.88
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 7.509375,
+          "round_medians": [
+            7.6114999999999995,
+            7.3715,
+            6.7989999999999995,
+            8.255500000000001
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "J022": {
+        "Task Duration(us)": {
+          "mean": 9.0125,
+          "round_medians": [
+            9.08,
+            8.57,
+            9.18,
+            9.22
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 7.291625,
+          "round_medians": [
+            7.2135,
+            6.8870000000000005,
+            7.635,
+            7.431
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      }
+    },
+    "delta_vs_J020": -0.2448750000000004,
+    "round_deltas_vs_J020": [
+      -0.11950000000000038,
+      -0.6999999999999993,
+      0.5,
+      -0.6600000000000001
+    ]
+  },
+  {
+    "kind": "position",
+    "case": "fp32_tiny_after_merged",
+    "dtype": "fp32",
+    "shape": [
+      3,
+      5,
+      1
+    ],
+    "versions": {
+      "J013": {
+        "Task Duration(us)": {
+          "mean": 2.44,
+          "round_medians": [
+            2.4299999999999997,
+            2.4699999999999998,
+            2.44,
+            2.42
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 1.839,
+          "round_medians": [
+            1.8305,
+            1.8570000000000002,
+            1.8435000000000001,
+            1.825
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "J020": {
+        "Task Duration(us)": {
+          "mean": 2.45,
+          "round_medians": [
+            2.45,
+            2.45,
+            2.45,
+            2.45
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 1.8485,
+          "round_medians": [
+            1.8519999999999999,
+            1.8425,
+            1.8455,
+            1.854
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "J022": {
+        "Task Duration(us)": {
+          "mean": 2.4773750000000003,
+          "round_medians": [
+            2.49,
+            2.4495,
+            2.49,
+            2.48
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 1.876625,
+          "round_medians": [
+            1.88,
+            1.865,
+            1.89,
+            1.8715
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      }
+    },
+    "delta_vs_J020": 0.02737500000000015,
+    "round_deltas_vs_J020": [
+      0.040000000000000036,
+      -0.000500000000000167,
+      0.040000000000000036,
+      0.029999999999999805
+    ]
+  },
+  {
+    "kind": "position",
+    "case": "fp32_tiny_after_resident",
+    "dtype": "fp32",
+    "shape": [
+      3,
+      5,
+      1
+    ],
+    "versions": {
+      "J013": {
+        "Task Duration(us)": {
+          "mean": 2.4325,
+          "round_medians": [
+            2.44,
+            2.44,
+            2.4299999999999997,
+            2.42
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 1.838125,
+          "round_medians": [
+            1.8365,
+            1.846,
+            1.8425,
+            1.8275000000000001
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "J020": {
+        "Task Duration(us)": {
+          "mean": 2.4899999999999998,
+          "round_medians": [
+            2.4699999999999998,
+            2.51,
+            2.4699999999999998,
+            2.51
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 1.889875,
+          "round_medians": [
+            1.87,
+            1.9095,
+            1.873,
+            1.907
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "J022": {
+        "Task Duration(us)": {
+          "mean": 2.4875,
+          "round_medians": [
+            2.51,
+            2.48,
+            2.5,
+            2.46
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 1.8957499999999998,
+          "round_medians": [
+            1.8995,
+            1.8904999999999998,
+            1.9064999999999999,
+            1.8864999999999998
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      }
+    },
+    "delta_vs_J020": -0.0024999999999999467,
+    "round_deltas_vs_J020": [
+      0.040000000000000036,
+      -0.029999999999999805,
+      0.03000000000000025,
+      -0.04999999999999982
+    ]
+  },
+  {
+    "kind": "position",
+    "case": "fp32_tiny_before",
+    "dtype": "fp32",
+    "shape": [
+      3,
+      5,
+      1
+    ],
+    "versions": {
+      "J013": {
+        "Task Duration(us)": {
+          "mean": 5.8575,
+          "round_medians": [
+            5.94,
+            5.88,
+            5.91,
+            5.699999999999999
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 5.210625,
+          "round_medians": [
+            5.2515,
+            5.25,
+            5.229,
+            5.112
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.078,
+          "round_medians": [
+            0.077,
+            0.0755,
+            0.081,
+            0.0785
+          ]
+        }
+      },
+      "J020": {
+        "Task Duration(us)": {
+          "mean": 5.8925,
+          "round_medians": [
+            5.72,
+            5.98,
+            5.86,
+            6.01
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 5.24925,
+          "round_medians": [
+            5.1175,
+            5.3420000000000005,
+            5.202500000000001,
+            5.335
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.079875,
+          "round_medians": [
+            0.079,
+            0.0815,
+            0.078,
+            0.081
+          ]
+        }
+      },
+      "J022": {
+        "Task Duration(us)": {
+          "mean": 5.85975,
+          "round_medians": [
+            5.93,
+            5.8895,
+            5.8795,
+            5.74
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 5.21725,
+          "round_medians": [
+            5.248,
+            5.237,
+            5.2515,
+            5.1325
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0775,
+          "round_medians": [
+            0.075,
+            0.082,
+            0.076,
+            0.077
+          ]
+        }
+      }
+    },
+    "delta_vs_J020": -0.03275000000000006,
+    "round_deltas_vs_J020": [
+      0.20999999999999996,
+      -0.09050000000000047,
+      0.01949999999999985,
+      -0.2699999999999996
+    ]
+  },
+  {
+    "kind": "general",
+    "case": "bf16_cross512",
+    "dtype": "bf16",
+    "shape": [
+      1001,
+      512,
+      1
+    ],
+    "versions": {
+      "J013": {
+        "Task Duration(us)": {
+          "mean": 45.11925,
+          "round_medians": [
+            49.519,
+            44.339,
+            44.5295,
+            42.0895
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 42.44425,
+          "round_medians": [
+            46.832499999999996,
+            41.658500000000004,
+            41.697,
+            39.589
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "J020": {
+        "Task Duration(us)": {
+          "mean": 14.145,
+          "round_medians": [
+            13.94,
+            13.98,
+            14.2,
+            14.46
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 11.682,
+          "round_medians": [
+            11.508,
+            11.503499999999999,
+            11.7095,
+            12.007000000000001
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "J022": {
+        "Task Duration(us)": {
+          "mean": 15.106625000000001,
+          "round_medians": [
+            15.299,
+            14.359,
+            14.3895,
+            16.379
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 12.556625,
+          "round_medians": [
+            13.136,
+            11.620000000000001,
+            11.8445,
+            13.626000000000001
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      }
+    },
+    "delta_vs_J020": 0.9616250000000015,
+    "round_deltas_vs_J020": [
+      1.359,
+      0.37899999999999956,
+      0.18950000000000067,
+      1.9190000000000005
+    ]
+  },
+  {
+    "kind": "general",
+    "case": "bf16_many16",
+    "dtype": "bf16",
+    "shape": [
+      40001,
+      16,
+      1
+    ],
+    "versions": {
+      "J013": {
+        "Task Duration(us)": {
+          "mean": 1425.47925,
+          "round_medians": [
+            1713.376,
+            1287.074,
+            1288.815,
+            1412.652
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 1420.326375,
+          "round_medians": [
+            1708.75,
+            1282.33,
+            1284.5245,
+            1405.701
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "J020": {
+        "Task Duration(us)": {
+          "mean": 15.83475,
+          "round_medians": [
+            16.049500000000002,
+            16.0795,
+            15.38,
+            15.83
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 13.524000000000001,
+          "round_medians": [
+            13.683499999999999,
+            13.68,
+            13.191500000000001,
+            13.541
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "J022": {
+        "Task Duration(us)": {
+          "mean": 16.042125,
+          "round_medians": [
+            15.88,
+            15.43,
+            16.079,
+            16.7795
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 13.868125,
+          "round_medians": [
+            13.571,
+            13.221,
+            13.7105,
+            14.969999999999999
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      }
+    },
+    "delta_vs_J020": 0.20737499999999898,
+    "round_deltas_vs_J020": [
+      -0.1695000000000011,
+      -0.6494999999999997,
+      0.6989999999999998,
+      0.9494999999999987
+    ]
+  },
+  {
+    "kind": "general",
+    "case": "bf16_n1201c512",
+    "dtype": "bf16",
+    "shape": [
+      1201,
+      512,
+      1
+    ],
+    "versions": {
+      "J013": {
+        "Task Duration(us)": {
+          "mean": 52.8665,
+          "round_medians": [
+            58.259,
+            51.939,
+            52.059,
+            49.209
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 50.033,
+          "round_medians": [
+            55.4805,
+            49.078500000000005,
+            49.014,
+            46.559
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "J020": {
+        "Task Duration(us)": {
+          "mean": 10.689625,
+          "round_medians": [
+            10.74,
+            10.72,
+            10.4295,
+            10.869
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 8.57225,
+          "round_medians": [
+            8.724499999999999,
+            8.633,
+            8.296,
+            8.6355
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "J022": {
+        "Task Duration(us)": {
+          "mean": 11.132249999999999,
+          "round_medians": [
+            11.04,
+            10.23,
+            10.96,
+            12.299
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 9.056999999999999,
+          "round_medians": [
+            8.8675,
+            8.3555,
+            8.6525,
+            10.3525
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      }
+    },
+    "delta_vs_J020": 0.4426249999999996,
+    "round_deltas_vs_J020": [
+      0.29999999999999893,
+      -0.4900000000000002,
+      0.5305,
+      1.4299999999999997
+    ]
+  },
+  {
+    "kind": "general",
+    "case": "bf16_n127c4096",
+    "dtype": "bf16",
+    "shape": [
+      127,
+      4096,
+      1
+    ],
+    "versions": {
+      "J013": {
+        "Task Duration(us)": {
+          "mean": 11.12725,
+          "round_medians": [
+            11.33,
+            11.779499999999999,
+            10.73,
+            10.6695
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 9.176125,
+          "round_medians": [
+            9.3345,
+            10.018,
+            8.706,
+            8.646
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "J020": {
+        "Task Duration(us)": {
+          "mean": 9.727375,
+          "round_medians": [
+            9.82,
+            9.8595,
+            9.2,
+            10.03
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 7.893625,
+          "round_medians": [
+            7.997,
+            7.997,
+            7.245,
+            8.3355
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "J022": {
+        "Task Duration(us)": {
+          "mean": 9.86,
+          "round_medians": [
+            9.66,
+            9.22,
+            9.91,
+            10.65
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 8.042,
+          "round_medians": [
+            7.8115000000000006,
+            7.408,
+            7.998,
+            8.9505
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      }
+    },
+    "delta_vs_J020": 0.1326249999999991,
+    "round_deltas_vs_J020": [
+      -0.16000000000000014,
+      -0.6395,
+      0.7100000000000009,
+      0.620000000000001
+    ]
+  },
+  {
+    "kind": "general",
+    "case": "bf16_n2001c512",
+    "dtype": "bf16",
+    "shape": [
+      2001,
+      512,
+      1
+    ],
+    "versions": {
+      "J013": {
+        "Task Duration(us)": {
+          "mean": 84.720875,
+          "round_medians": [
+            93.5185,
+            83.3785,
+            83.3885,
+            78.598
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 81.932125,
+          "round_medians": [
+            90.7365,
+            80.634,
+            80.3505,
+            76.0075
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "J020": {
+        "Task Duration(us)": {
+          "mean": 24.1995,
+          "round_medians": [
+            23.8395,
+            23.6995,
+            24.539,
+            24.72
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 21.846,
+          "round_medians": [
+            21.680999999999997,
+            21.3405,
+            22.121000000000002,
+            22.241500000000002
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "J022": {
+        "Task Duration(us)": {
+          "mean": 25.81975,
+          "round_medians": [
+            27.0895,
+            24.84,
+            24.5795,
+            26.770000000000003
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 23.4165,
+          "round_medians": [
+            24.451,
+            22.573,
+            22.209,
+            24.433
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      }
+    },
+    "delta_vs_J020": 1.6202499999999986,
+    "round_deltas_vs_J020": [
+      3.25,
+      1.1404999999999994,
+      0.04049999999999798,
+      2.0500000000000043
+    ]
+  },
+  {
+    "kind": "general",
+    "case": "bf16_phase131",
+    "dtype": "bf16",
+    "shape": [
+      131,
+      4096,
+      1
+    ],
+    "versions": {
+      "J013": {
+        "Task Duration(us)": {
+          "mean": 11.262,
+          "round_medians": [
+            11.139,
+            11.81,
+            11.02,
+            11.079
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 9.239,
+          "round_medians": [
+            9.4705,
+            10.062000000000001,
+            8.6685,
+            8.754999999999999
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "J020": {
+        "Task Duration(us)": {
+          "mean": 9.764875,
+          "round_medians": [
+            9.92,
+            9.879999999999999,
+            9.22,
+            10.0395
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 7.966,
+          "round_medians": [
+            8.121500000000001,
+            8.026499999999999,
+            7.3475,
+            8.368500000000001
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "J022": {
+        "Task Duration(us)": {
+          "mean": 9.907375,
+          "round_medians": [
+            9.71,
+            9.31,
+            9.939499999999999,
+            10.67
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 8.053125,
+          "round_medians": [
+            7.9125,
+            7.4905,
+            7.8875,
+            8.922
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      }
+    },
+    "delta_vs_J020": 0.14250000000000007,
+    "round_deltas_vs_J020": [
+      -0.20999999999999908,
+      -0.5699999999999985,
+      0.7194999999999983,
+      0.6304999999999996
+    ]
+  },
+  {
+    "kind": "general",
+    "case": "bf16_s1tiny",
+    "dtype": "bf16",
+    "shape": [
+      3,
+      5,
+      1
+    ],
+    "versions": {
+      "J013": {
+        "Task Duration(us)": {
+          "mean": 3.1098749999999997,
+          "round_medians": [
+            2.9395,
+            2.96,
+            3.2699999999999996,
+            3.2699999999999996
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 2.5725000000000002,
+          "round_medians": [
+            2.402,
+            2.434,
+            2.7335000000000003,
+            2.7205000000000004
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0075,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.015,
+            0.015
+          ]
+        }
+      },
+      "J020": {
+        "Task Duration(us)": {
+          "mean": 3.5898749999999997,
+          "round_medians": [
+            2.9299999999999997,
+            2.94,
+            4.1395,
+            4.35
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 3.05575,
+          "round_medians": [
+            2.4095,
+            2.4185,
+            3.5860000000000003,
+            3.809
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0385,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.077,
+            0.077
+          ]
+        }
+      },
+      "J022": {
+        "Task Duration(us)": {
+          "mean": 3.1148749999999996,
+          "round_medians": [
+            2.9795,
+            2.96,
+            3.26,
+            3.26
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 2.5748749999999996,
+          "round_medians": [
+            2.455,
+            2.4364999999999997,
+            2.7135,
+            2.6944999999999997
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.03,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.06,
+            0.06
+          ]
+        }
+      }
+    },
+    "delta_vs_J020": -0.4750000000000001,
+    "round_deltas_vs_J020": [
+      0.0495000000000001,
+      0.020000000000000018,
+      -0.8795000000000002,
+      -1.0899999999999999
+    ]
+  },
+  {
+    "kind": "general",
+    "case": "bf16_scalarone",
+    "dtype": "bf16",
+    "shape": [
+      1,
+      1,
+      1
+    ],
+    "versions": {
+      "J013": {
+        "Task Duration(us)": {
+          "mean": 2.86225,
+          "round_medians": [
+            2.9,
+            2.9295,
+            2.8495,
+            2.7699999999999996
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 2.3175,
+          "round_medians": [
+            2.339,
+            2.3935,
+            2.307,
+            2.2305
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.1275,
+          "round_medians": [
+            0.1315,
+            0.1315,
+            0.123,
+            0.124
+          ]
+        }
+      },
+      "J020": {
+        "Task Duration(us)": {
+          "mean": 2.8398749999999997,
+          "round_medians": [
+            2.8499999999999996,
+            2.8095,
+            2.8899999999999997,
+            2.8099999999999996
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 2.307625,
+          "round_medians": [
+            2.318,
+            2.2845,
+            2.3635,
+            2.2645
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.135,
+          "round_medians": [
+            0.1385,
+            0.135,
+            0.1415,
+            0.125
+          ]
+        }
+      },
+      "J022": {
+        "Task Duration(us)": {
+          "mean": 2.8,
+          "round_medians": [
+            2.76,
+            2.76,
+            2.8099999999999996,
+            2.87
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 2.260375,
+          "round_medians": [
+            2.2155,
+            2.2205000000000004,
+            2.2699999999999996,
+            2.3354999999999997
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.13137500000000002,
+          "round_medians": [
+            0.135,
+            0.138,
+            0.1205,
+            0.132
+          ]
+        }
+      }
+    },
+    "delta_vs_J020": -0.03987499999999988,
+    "round_deltas_vs_J020": [
+      -0.08999999999999986,
+      -0.0495000000000001,
+      -0.08000000000000007,
+      0.0600000000000005
+    ]
+  },
+  {
+    "kind": "general",
+    "case": "bf16_small41c16",
+    "dtype": "bf16",
+    "shape": [
+      41,
+      16,
+      1
+    ],
+    "versions": {
+      "J013": {
+        "Task Duration(us)": {
+          "mean": 4.395,
+          "round_medians": [
+            4.26,
+            4.52,
+            4.54,
+            4.26
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 2.883,
+          "round_medians": [
+            2.8105,
+            2.9530000000000003,
+            2.956,
+            2.8125
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "J020": {
+        "Task Duration(us)": {
+          "mean": 4.0325,
+          "round_medians": [
+            4.13,
+            4.12,
+            3.82,
+            4.06
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 2.488625,
+          "round_medians": [
+            2.5375,
+            2.5629999999999997,
+            2.358,
+            2.496
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "J022": {
+        "Task Duration(us)": {
+          "mean": 4.05,
+          "round_medians": [
+            4.04,
+            3.8,
+            4.18,
+            4.18
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 2.544375,
+          "round_medians": [
+            2.5054999999999996,
+            2.357,
+            2.5875,
+            2.7275
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      }
+    },
+    "delta_vs_J020": 0.01750000000000007,
+    "round_deltas_vs_J020": [
+      -0.08999999999999986,
+      -0.3200000000000003,
+      0.3599999999999999,
+      0.1200000000000001
+    ]
+  },
+  {
+    "kind": "general",
+    "case": "expanded_bf16_02_expanded",
+    "dtype": "bf16",
+    "shape": [
+      127,
+      256,
+      1
+    ],
+    "versions": {
+      "J013": {
+        "Task Duration(us)": {
+          "mean": 10.945,
+          "round_medians": [
+            11.36,
+            11.18,
+            10.42,
+            10.82
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 8.061124999999999,
+          "round_medians": [
+            8.4515,
+            8.221499999999999,
+            7.585,
+            7.9864999999999995
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "J020": {
+        "Task Duration(us)": {
+          "mean": 8.187249999999999,
+          "round_medians": [
+            8.43,
+            8.3995,
+            7.84,
+            8.0795
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 5.0566249999999995,
+          "round_medians": [
+            5.2435,
+            5.2379999999999995,
+            4.7555,
+            4.9895
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "J022": {
+        "Task Duration(us)": {
+          "mean": 8.374875,
+          "round_medians": [
+            8.16,
+            7.7795000000000005,
+            8.17,
+            9.39
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 5.372625,
+          "round_medians": [
+            5.0525,
+            4.830500000000001,
+            5.0695,
+            6.538
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      }
+    },
+    "delta_vs_J020": 0.1876250000000006,
+    "round_deltas_vs_J020": [
+      -0.2699999999999996,
+      -0.6199999999999992,
+      0.33000000000000007,
+      1.310500000000001
+    ]
+  },
+  {
+    "kind": "general",
+    "case": "expanded_bf16_03_expanded",
+    "dtype": "bf16",
+    "shape": [
+      129,
+      257,
+      1
+    ],
+    "versions": {
+      "J013": {
+        "Task Duration(us)": {
+          "mean": 11.94975,
+          "round_medians": [
+            13.56,
+            11.48,
+            11.189499999999999,
+            11.569500000000001
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 8.971625000000001,
+          "round_medians": [
+            10.249500000000001,
+            8.528500000000001,
+            8.3315,
+            8.777000000000001
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "J020": {
+        "Task Duration(us)": {
+          "mean": 12.1545,
+          "round_medians": [
+            12.1695,
+            12.159,
+            12.0,
+            12.2895
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 9.05175,
+          "round_medians": [
+            9.000499999999999,
+            8.914,
+            9.009,
+            9.2835
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "J022": {
+        "Task Duration(us)": {
+          "mean": 12.50975,
+          "round_medians": [
+            13.7195,
+            11.1795,
+            12.23,
+            12.91
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 9.5075,
+          "round_medians": [
+            10.276499999999999,
+            8.2355,
+            9.2275,
+            10.2905
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      }
+    },
+    "delta_vs_J020": 0.35524999999999984,
+    "round_deltas_vs_J020": [
+      1.5500000000000007,
+      -0.9794999999999998,
+      0.23000000000000043,
+      0.6204999999999998
+    ]
+  },
+  {
+    "kind": "general",
+    "case": "expanded_fp16_02_expanded",
+    "dtype": "fp16",
+    "shape": [
+      127,
+      256,
+      1
+    ],
+    "versions": {
+      "J013": {
+        "Task Duration(us)": {
+          "mean": 10.977125000000001,
+          "round_medians": [
+            12.0395,
+            10.2695,
+            10.55,
+            11.0495
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 8.19275,
+          "round_medians": [
+            9.1585,
+            7.6114999999999995,
+            7.7745,
+            8.2265
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "J020": {
+        "Task Duration(us)": {
+          "mean": 8.944624999999998,
+          "round_medians": [
+            8.219,
+            9.92,
+            9.43,
+            8.209499999999998
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 5.9365,
+          "round_medians": [
+            5.2225,
+            7.1,
+            6.279,
+            5.1445
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "J022": {
+        "Task Duration(us)": {
+          "mean": 8.352375,
+          "round_medians": [
+            8.49,
+            7.17,
+            9.9695,
+            7.78
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 5.38675,
+          "round_medians": [
+            5.2829999999999995,
+            4.492,
+            6.828,
+            4.944
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      }
+    },
+    "delta_vs_J020": -0.5922499999999982,
+    "round_deltas_vs_J020": [
+      0.2710000000000008,
+      -2.75,
+      0.5395000000000003,
+      -0.4294999999999982
+    ]
+  },
+  {
+    "kind": "general",
+    "case": "expanded_fp16_03_expanded",
+    "dtype": "fp16",
+    "shape": [
+      129,
+      257,
+      1
+    ],
+    "versions": {
+      "J013": {
+        "Task Duration(us)": {
+          "mean": 11.944875,
+          "round_medians": [
+            12.21,
+            12.32,
+            11.43,
+            11.819500000000001
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 8.92925,
+          "round_medians": [
+            9.1415,
+            9.2035,
+            8.5815,
+            8.7905
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "J020": {
+        "Task Duration(us)": {
+          "mean": 12.434750000000001,
+          "round_medians": [
+            11.0395,
+            12.66,
+            13.52,
+            12.5195
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 9.70075,
+          "round_medians": [
+            8.402,
+            10.2675,
+            10.788,
+            9.345500000000001
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "J022": {
+        "Task Duration(us)": {
+          "mean": 12.487375,
+          "round_medians": [
+            12.4695,
+            11.96,
+            14.11,
+            11.41
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 9.661249999999999,
+          "round_medians": [
+            9.5185,
+            9.241499999999998,
+            11.365,
+            8.52
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      }
+    },
+    "delta_vs_J020": 0.052624999999999034,
+    "round_deltas_vs_J020": [
+      1.4299999999999997,
+      -0.6999999999999993,
+      0.5899999999999999,
+      -1.1095000000000006
+    ]
+  },
+  {
+    "kind": "general",
+    "case": "expanded_fp32_02_expanded",
+    "dtype": "fp32",
+    "shape": [
+      127,
+      256,
+      1
+    ],
+    "versions": {
+      "J013": {
+        "Task Duration(us)": {
+          "mean": 9.437249999999999,
+          "round_medians": [
+            9.34,
+            9.35,
+            9.818999999999999,
+            9.24
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 6.7787500000000005,
+          "round_medians": [
+            6.6745,
+            6.6739999999999995,
+            7.128500000000001,
+            6.638
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "J020": {
+        "Task Duration(us)": {
+          "mean": 6.51225,
+          "round_medians": [
+            6.66,
+            6.66,
+            6.21,
+            6.519
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 4.331625,
+          "round_medians": [
+            4.502,
+            4.5075,
+            3.998,
+            4.319
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "J022": {
+        "Task Duration(us)": {
+          "mean": 6.499874999999999,
+          "round_medians": [
+            6.5,
+            6.1095,
+            6.67,
+            6.72
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 4.298,
+          "round_medians": [
+            4.2415,
+            3.9115,
+            4.4975000000000005,
+            4.5415
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      }
+    },
+    "delta_vs_J020": -0.012375000000000469,
+    "round_deltas_vs_J020": [
+      -0.16000000000000014,
+      -0.5505000000000004,
+      0.45999999999999996,
+      0.20099999999999962
+    ]
+  },
+  {
+    "kind": "general",
+    "case": "expanded_fp32_03_expanded",
+    "dtype": "fp32",
+    "shape": [
+      129,
+      257,
+      1
+    ],
+    "versions": {
+      "J013": {
+        "Task Duration(us)": {
+          "mean": 10.1275,
+          "round_medians": [
+            10.2,
+            10.370000000000001,
+            10.28,
+            9.66
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 7.64225,
+          "round_medians": [
+            7.744,
+            7.8815,
+            7.7075,
+            7.236000000000001
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "J020": {
+        "Task Duration(us)": {
+          "mean": 10.242375,
+          "round_medians": [
+            10.36,
+            10.36,
+            9.98,
+            10.2695
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 7.639875,
+          "round_medians": [
+            7.6370000000000005,
+            7.6775,
+            7.557499999999999,
+            7.6875
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "J022": {
+        "Task Duration(us)": {
+          "mean": 10.257375,
+          "round_medians": [
+            10.35,
+            9.98,
+            10.36,
+            10.339500000000001
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 7.6739999999999995,
+          "round_medians": [
+            7.7085,
+            7.433,
+            7.8195,
+            7.735
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      }
+    },
+    "delta_vs_J020": 0.015000000000000568,
+    "round_deltas_vs_J020": [
+      -0.009999999999999787,
+      -0.379999999999999,
+      0.379999999999999,
+      0.07000000000000028
+    ]
+  },
+  {
+    "kind": "general",
+    "case": "fp16_cross512",
+    "dtype": "fp16",
+    "shape": [
+      1001,
+      512,
+      1
+    ],
+    "versions": {
+      "J013": {
+        "Task Duration(us)": {
+          "mean": 45.06425,
+          "round_medians": [
+            49.539,
+            44.329,
+            44.370000000000005,
+            42.019
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 42.448499999999996,
+          "round_medians": [
+            46.838499999999996,
+            41.6395,
+            41.677,
+            39.638999999999996
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "J020": {
+        "Task Duration(us)": {
+          "mean": 14.82725,
+          "round_medians": [
+            13.889,
+            15.56,
+            15.42,
+            14.44
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 12.4345,
+          "round_medians": [
+            11.4475,
+            13.192499999999999,
+            13.131,
+            11.967
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "J022": {
+        "Task Duration(us)": {
+          "mean": 15.03975,
+          "round_medians": [
+            15.24,
+            14.2895,
+            15.9795,
+            14.65
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 12.46575,
+          "round_medians": [
+            13.029499999999999,
+            11.5705,
+            13.4915,
+            11.7715
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      }
+    },
+    "delta_vs_J020": 0.21250000000000036,
+    "round_deltas_vs_J020": [
+      1.3510000000000009,
+      -1.2705000000000002,
+      0.5594999999999999,
+      0.21000000000000085
+    ]
+  },
+  {
+    "kind": "general",
+    "case": "fp16_many16",
+    "dtype": "fp16",
+    "shape": [
+      40001,
+      16,
+      1
+    ],
+    "versions": {
+      "J013": {
+        "Task Duration(us)": {
+          "mean": 1425.3266250000001,
+          "round_medians": [
+            1712.756,
+            1287.2145,
+            1289.214,
+            1412.122
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 1420.2945,
+          "round_medians": [
+            1708.2694999999999,
+            1282.291,
+            1284.575,
+            1406.0425
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "J020": {
+        "Task Duration(us)": {
+          "mean": 15.112125,
+          "round_medians": [
+            15.089500000000001,
+            15.6295,
+            14.88,
+            14.849499999999999
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 13.086375,
+          "round_medians": [
+            12.717,
+            13.891,
+            13.1765,
+            12.561
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "J022": {
+        "Task Duration(us)": {
+          "mean": 15.029875,
+          "round_medians": [
+            14.84,
+            14.439499999999999,
+            15.72,
+            15.120000000000001
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 12.865625,
+          "round_medians": [
+            12.586500000000001,
+            12.225,
+            13.907,
+            12.744
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      }
+    },
+    "delta_vs_J020": -0.08225000000000016,
+    "round_deltas_vs_J020": [
+      -0.24950000000000117,
+      -1.1900000000000013,
+      0.8399999999999999,
+      0.27050000000000196
+    ]
+  },
+  {
+    "kind": "general",
+    "case": "fp16_n1201c512",
+    "dtype": "fp16",
+    "shape": [
+      1201,
+      512,
+      1
+    ],
+    "versions": {
+      "J013": {
+        "Task Duration(us)": {
+          "mean": 52.799,
+          "round_medians": [
+            58.209,
+            51.949,
+            51.919,
+            49.119
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 50.02225,
+          "round_medians": [
+            55.444,
+            49.047,
+            49.041,
+            46.557
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "J020": {
+        "Task Duration(us)": {
+          "mean": 11.23,
+          "round_medians": [
+            10.6,
+            12.06,
+            11.47,
+            10.79
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 9.1975,
+          "round_medians": [
+            8.6295,
+            10.123999999999999,
+            9.511,
+            8.5255
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "J022": {
+        "Task Duration(us)": {
+          "mean": 10.929875,
+          "round_medians": [
+            10.92,
+            10.069500000000001,
+            12.129999999999999,
+            10.6
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 8.912749999999999,
+          "round_medians": [
+            8.7325,
+            8.225,
+            10.124500000000001,
+            8.568999999999999
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      }
+    },
+    "delta_vs_J020": -0.3001250000000013,
+    "round_deltas_vs_J020": [
+      0.3200000000000003,
+      -1.990499999999999,
+      0.6599999999999984,
+      -0.1899999999999995
+    ]
+  },
+  {
+    "kind": "general",
+    "case": "fp16_n127c4096",
+    "dtype": "fp16",
+    "shape": [
+      127,
+      4096,
+      1
+    ],
+    "versions": {
+      "J013": {
+        "Task Duration(us)": {
+          "mean": 11.11475,
+          "round_medians": [
+            11.2195,
+            11.7895,
+            10.82,
+            10.629999999999999
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 9.129625,
+          "round_medians": [
+            9.2725,
+            9.906,
+            8.779499999999999,
+            8.560500000000001
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "J020": {
+        "Task Duration(us)": {
+          "mean": 10.064875,
+          "round_medians": [
+            9.71,
+            10.619499999999999,
+            9.98,
+            9.95
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 8.268125,
+          "round_medians": [
+            7.8795,
+            8.8525,
+            8.111,
+            8.2295
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "J022": {
+        "Task Duration(us)": {
+          "mean": 9.719875,
+          "round_medians": [
+            9.54,
+            9.11,
+            10.51,
+            9.7195
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 7.94025,
+          "round_medians": [
+            7.7065,
+            7.3035,
+            8.805499999999999,
+            7.9455
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      }
+    },
+    "delta_vs_J020": -0.34500000000000064,
+    "round_deltas_vs_J020": [
+      -0.1700000000000017,
+      -1.5094999999999992,
+      0.5299999999999994,
+      -0.23049999999999926
+    ]
+  },
+  {
+    "kind": "general",
+    "case": "fp16_n2001c512",
+    "dtype": "fp16",
+    "shape": [
+      2001,
+      512,
+      1
+    ],
+    "versions": {
+      "J013": {
+        "Task Duration(us)": {
+          "mean": 84.65075,
+          "round_medians": [
+            93.478,
+            83.2885,
+            83.238,
+            78.5985
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 81.919625,
+          "round_medians": [
+            90.6735,
+            80.5925,
+            80.34700000000001,
+            76.0655
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "J020": {
+        "Task Duration(us)": {
+          "mean": 24.872125,
+          "round_medians": [
+            23.799500000000002,
+            25.259999999999998,
+            25.759,
+            24.67
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 22.566125,
+          "round_medians": [
+            21.653,
+            22.9525,
+            23.468,
+            22.191000000000003
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "J022": {
+        "Task Duration(us)": {
+          "mean": 25.7895,
+          "round_medians": [
+            27.0595,
+            24.82,
+            26.199,
+            25.0795
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 23.388,
+          "round_medians": [
+            24.372500000000002,
+            22.557000000000002,
+            23.9775,
+            22.645
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      }
+    },
+    "delta_vs_J020": 0.9173749999999998,
+    "round_deltas_vs_J020": [
+      3.259999999999998,
+      -0.4399999999999977,
+      0.4400000000000013,
+      0.40949999999999775
+    ]
+  },
+  {
+    "kind": "general",
+    "case": "fp16_phase131",
+    "dtype": "fp16",
+    "shape": [
+      131,
+      4096,
+      1
+    ],
+    "versions": {
+      "J013": {
+        "Task Duration(us)": {
+          "mean": 11.16725,
+          "round_medians": [
+            11.18,
+            11.709499999999998,
+            10.8295,
+            10.95
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 9.153875,
+          "round_medians": [
+            9.398,
+            10.015,
+            8.5625,
+            8.64
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "J020": {
+        "Task Duration(us)": {
+          "mean": 10.124625,
+          "round_medians": [
+            9.849499999999999,
+            10.739,
+            10.03,
+            9.88
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 8.338125,
+          "round_medians": [
+            8.003,
+            8.9125,
+            8.1935,
+            8.243500000000001
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "J022": {
+        "Task Duration(us)": {
+          "mean": 9.77975,
+          "round_medians": [
+            9.59,
+            9.239,
+            10.47,
+            9.82
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 7.928375,
+          "round_medians": [
+            7.814,
+            7.3665,
+            8.7545,
+            7.778499999999999
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      }
+    },
+    "delta_vs_J020": -0.34487500000000004,
+    "round_deltas_vs_J020": [
+      -0.2594999999999992,
+      -1.5,
+      0.4400000000000013,
+      -0.0600000000000005
+    ]
+  },
+  {
+    "kind": "general",
+    "case": "fp16_s1tiny",
+    "dtype": "fp16",
+    "shape": [
+      3,
+      5,
+      1
+    ],
+    "versions": {
+      "J013": {
+        "Task Duration(us)": {
+          "mean": 3.3775,
+          "round_medians": [
+            2.99,
+            2.98,
+            3.76,
+            3.78
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 2.852875,
+          "round_medians": [
+            2.4345,
+            2.445,
+            3.2525000000000004,
+            3.2794999999999996
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.025875000000000002,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0525,
+            0.051000000000000004
+          ]
+        }
+      },
+      "J020": {
+        "Task Duration(us)": {
+          "mean": 3.4375,
+          "round_medians": [
+            2.95,
+            3.0,
+            3.78,
+            4.02
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 2.9061250000000003,
+          "round_medians": [
+            2.425,
+            2.444,
+            3.2545,
+            3.5010000000000003
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.03775,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.076,
+            0.075
+          ]
+        }
+      },
+      "J022": {
+        "Task Duration(us)": {
+          "mean": 3.11,
+          "round_medians": [
+            3.0,
+            2.98,
+            3.25,
+            3.21
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 2.574875,
+          "round_medians": [
+            2.4545,
+            2.4450000000000003,
+            2.718,
+            2.6820000000000004
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0265,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0525,
+            0.0535
+          ]
+        }
+      }
+    },
+    "delta_vs_J020": -0.3275000000000001,
+    "round_deltas_vs_J020": [
+      0.04999999999999982,
+      -0.020000000000000018,
+      -0.5299999999999998,
+      -0.8099999999999996
+    ]
+  },
+  {
+    "kind": "general",
+    "case": "fp16_scalarone",
+    "dtype": "fp16",
+    "shape": [
+      1,
+      1,
+      1
+    ],
+    "versions": {
+      "J013": {
+        "Task Duration(us)": {
+          "mean": 3.05975,
+          "round_medians": [
+            3.109,
+            3.13,
+            3.06,
+            2.94
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 2.5140000000000002,
+          "round_medians": [
+            2.565,
+            2.5780000000000003,
+            2.508,
+            2.4050000000000002
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.136625,
+          "round_medians": [
+            0.138,
+            0.142,
+            0.1305,
+            0.136
+          ]
+        }
+      },
+      "J020": {
+        "Task Duration(us)": {
+          "mean": 3.0375,
+          "round_medians": [
+            3.1,
+            3.06,
+            3.02,
+            2.9699999999999998
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 2.50425,
+          "round_medians": [
+            2.569,
+            2.5265,
+            2.488,
+            2.4335
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.13425,
+          "round_medians": [
+            0.133,
+            0.133,
+            0.144,
+            0.127
+          ]
+        }
+      },
+      "J022": {
+        "Task Duration(us)": {
+          "mean": 3.0925000000000002,
+          "round_medians": [
+            3.08,
+            3.1100000000000003,
+            3.04,
+            3.14
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 2.547875,
+          "round_medians": [
+            2.5355,
+            2.566,
+            2.4844999999999997,
+            2.6055
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.1325,
+          "round_medians": [
+            0.132,
+            0.132,
+            0.133,
+            0.133
+          ]
+        }
+      }
+    },
+    "delta_vs_J020": 0.05500000000000016,
+    "round_deltas_vs_J020": [
+      -0.020000000000000018,
+      0.050000000000000266,
+      0.020000000000000018,
+      0.17000000000000037
+    ]
+  },
+  {
+    "kind": "general",
+    "case": "fp16_small41c16",
+    "dtype": "fp16",
+    "shape": [
+      41,
+      16,
+      1
+    ],
+    "versions": {
+      "J013": {
+        "Task Duration(us)": {
+          "mean": 4.37725,
+          "round_medians": [
+            4.2595,
+            4.4895,
+            4.5,
+            4.26
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 2.858625,
+          "round_medians": [
+            2.787,
+            2.9370000000000003,
+            2.9255,
+            2.785
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "J020": {
+        "Task Duration(us)": {
+          "mean": 4.042375,
+          "round_medians": [
+            4.14,
+            4.1295,
+            3.82,
+            4.08
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 2.553,
+          "round_medians": [
+            2.56,
+            2.683,
+            2.454,
+            2.5149999999999997
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "J022": {
+        "Task Duration(us)": {
+          "mean": 4.05225,
+          "round_medians": [
+            4.0295,
+            3.8194999999999997,
+            4.18,
+            4.18
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 2.549,
+          "round_medians": [
+            2.5075,
+            2.362,
+            2.742,
+            2.5845000000000002
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      }
+    },
+    "delta_vs_J020": 0.009875000000000078,
+    "round_deltas_vs_J020": [
+      -0.11050000000000004,
+      -0.3100000000000005,
+      0.3599999999999999,
+      0.09999999999999964
+    ]
+  },
+  {
+    "kind": "general",
+    "case": "fp32_cross512",
+    "dtype": "fp32",
+    "shape": [
+      1001,
+      512,
+      1
+    ],
+    "versions": {
+      "J013": {
+        "Task Duration(us)": {
+          "mean": 44.1465,
+          "round_medians": [
+            48.709,
+            43.359,
+            43.279,
+            41.239
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 41.510999999999996,
+          "round_medians": [
+            45.9465,
+            40.867,
+            40.586,
+            38.6445
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "J020": {
+        "Task Duration(us)": {
+          "mean": 9.22975,
+          "round_medians": [
+            9.32,
+            9.370000000000001,
+            8.939,
+            9.29
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 7.228125,
+          "round_medians": [
+            7.381,
+            7.406499999999999,
+            6.8155,
+            7.3095
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "J022": {
+        "Task Duration(us)": {
+          "mean": 9.2775,
+          "round_medians": [
+            9.52,
+            8.76,
+            9.48,
+            9.35
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 7.244,
+          "round_medians": [
+            7.4254999999999995,
+            6.846,
+            7.37,
+            7.3345
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      }
+    },
+    "delta_vs_J020": 0.047750000000000625,
+    "round_deltas_vs_J020": [
+      0.1999999999999993,
+      -0.6100000000000012,
+      0.5410000000000004,
+      0.0600000000000005
+    ]
+  },
+  {
+    "kind": "general",
+    "case": "fp32_many16",
+    "dtype": "fp32",
+    "shape": [
+      40001,
+      16,
+      1
+    ],
+    "versions": {
+      "J013": {
+        "Task Duration(us)": {
+          "mean": 1425.7291249999998,
+          "round_medians": [
+            1713.666,
+            1287.5045,
+            1289.1045,
+            1412.6415
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 1421.361875,
+          "round_medians": [
+            1710.0425,
+            1283.2505,
+            1285.695,
+            1406.4595
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "J020": {
+        "Task Duration(us)": {
+          "mean": 16.059874999999998,
+          "round_medians": [
+            16.25,
+            16.2,
+            15.76,
+            16.0295
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 13.6935,
+          "round_medians": [
+            13.876000000000001,
+            13.847999999999999,
+            13.3405,
+            13.7095
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "J022": {
+        "Task Duration(us)": {
+          "mean": 16.1095,
+          "round_medians": [
+            16.039,
+            15.6695,
+            16.3495,
+            16.38
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 13.728125,
+          "round_medians": [
+            13.753,
+            13.377500000000001,
+            13.877500000000001,
+            13.9045
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      }
+    },
+    "delta_vs_J020": 0.04962500000000247,
+    "round_deltas_vs_J020": [
+      -0.21099999999999852,
+      -0.5305,
+      0.5894999999999992,
+      0.35050000000000026
+    ]
+  },
+  {
+    "kind": "general",
+    "case": "fp32_n1201c512",
+    "dtype": "fp32",
+    "shape": [
+      1201,
+      512,
+      1
+    ],
+    "versions": {
+      "J013": {
+        "Task Duration(us)": {
+          "mean": 52.1465,
+          "round_medians": [
+            57.599,
+            51.279,
+            50.989000000000004,
+            48.719
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 49.45125,
+          "round_medians": [
+            54.8205,
+            48.572,
+            48.0975,
+            46.315
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "J020": {
+        "Task Duration(us)": {
+          "mean": 11.89475,
+          "round_medians": [
+            11.870000000000001,
+            11.749500000000001,
+            11.849499999999999,
+            12.11
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 9.90475,
+          "round_medians": [
+            9.9425,
+            9.6555,
+            9.9535,
+            10.067499999999999
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "J022": {
+        "Task Duration(us)": {
+          "mean": 12.2895,
+          "round_medians": [
+            12.9795,
+            11.659,
+            12.18,
+            12.339500000000001
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 10.196625000000001,
+          "round_medians": [
+            11.062000000000001,
+            9.438500000000001,
+            10.117999999999999,
+            10.168
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      }
+    },
+    "delta_vs_J020": 0.39475000000000016,
+    "round_deltas_vs_J020": [
+      1.1094999999999988,
+      -0.09050000000000047,
+      0.3305000000000007,
+      0.2295000000000016
+    ]
+  },
+  {
+    "kind": "general",
+    "case": "fp32_n127c4096",
+    "dtype": "fp32",
+    "shape": [
+      127,
+      4096,
+      1
+    ],
+    "versions": {
+      "J013": {
+        "Task Duration(us)": {
+          "mean": 10.81475,
+          "round_medians": [
+            10.84,
+            11.279499999999999,
+            10.46,
+            10.6795
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 8.995249999999999,
+          "round_medians": [
+            9.061,
+            9.494499999999999,
+            8.5155,
+            8.91
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "J020": {
+        "Task Duration(us)": {
+          "mean": 9.73725,
+          "round_medians": [
+            9.95,
+            9.9295,
+            9.28,
+            9.7895
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 8.02125,
+          "round_medians": [
+            8.326,
+            8.313500000000001,
+            7.3575,
+            8.088000000000001
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "J022": {
+        "Task Duration(us)": {
+          "mean": 9.759875000000001,
+          "round_medians": [
+            9.6095,
+            9.27,
+            9.65,
+            10.51
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 8.054,
+          "round_medians": [
+            7.93,
+            7.5725,
+            7.855,
+            8.8585
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      }
+    },
+    "delta_vs_J020": 0.02262500000000145,
+    "round_deltas_vs_J020": [
+      -0.3404999999999987,
+      -0.6595000000000013,
+      0.370000000000001,
+      0.7204999999999995
+    ]
+  },
+  {
+    "kind": "general",
+    "case": "fp32_n2001c512",
+    "dtype": "fp32",
+    "shape": [
+      2001,
+      512,
+      1
+    ],
+    "versions": {
+      "J013": {
+        "Task Duration(us)": {
+          "mean": 83.9655,
+          "round_medians": [
+            92.718,
+            82.78800000000001,
+            82.358,
+            77.998
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 81.35050000000001,
+          "round_medians": [
+            89.957,
+            80.3315,
+            79.5755,
+            75.53800000000001
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "J020": {
+        "Task Duration(us)": {
+          "mean": 16.391875,
+          "round_medians": [
+            16.3095,
+            16.179,
+            16.439500000000002,
+            16.639499999999998
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 14.446875,
+          "round_medians": [
+            14.467500000000001,
+            14.11,
+            14.572500000000002,
+            14.6375
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "J022": {
+        "Task Duration(us)": {
+          "mean": 17.094749999999998,
+          "round_medians": [
+            18.0295,
+            16.499499999999998,
+            16.75,
+            17.1
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 15.133125,
+          "round_medians": [
+            16.106,
+            14.5425,
+            14.717500000000001,
+            15.1665
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      }
+    },
+    "delta_vs_J020": 0.7028749999999988,
+    "round_deltas_vs_J020": [
+      1.7199999999999989,
+      0.3204999999999991,
+      0.31049999999999756,
+      0.46050000000000324
+    ]
+  },
+  {
+    "kind": "general",
+    "case": "fp32_phase131",
+    "dtype": "fp32",
+    "shape": [
+      131,
+      4096,
+      1
+    ],
+    "versions": {
+      "J013": {
+        "Task Duration(us)": {
+          "mean": 11.032375,
+          "round_medians": [
+            10.999500000000001,
+            11.29,
+            10.9,
+            10.94
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 9.17975,
+          "round_medians": [
+            9.2485,
+            9.586500000000001,
+            8.721,
+            9.163
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "J020": {
+        "Task Duration(us)": {
+          "mean": 9.944875,
+          "round_medians": [
+            10.14,
+            10.19,
+            9.44,
+            10.0095
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 8.237625000000001,
+          "round_medians": [
+            8.476500000000001,
+            8.5175,
+            7.673,
+            8.2835
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "J022": {
+        "Task Duration(us)": {
+          "mean": 10.022125,
+          "round_medians": [
+            9.9,
+            9.5095,
+            9.999500000000001,
+            10.6795
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 8.28525,
+          "round_medians": [
+            8.205,
+            7.8035,
+            8.157,
+            8.9755
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      }
+    },
+    "delta_vs_J020": 0.07725000000000115,
+    "round_deltas_vs_J020": [
+      -0.2400000000000002,
+      -0.6805000000000003,
+      0.5595000000000017,
+      0.6700000000000017
+    ]
+  },
+  {
+    "kind": "general",
+    "case": "fp32_s1tiny",
+    "dtype": "fp32",
+    "shape": [
+      3,
+      5,
+      1
+    ],
+    "versions": {
+      "J013": {
+        "Task Duration(us)": {
+          "mean": 2.9325,
+          "round_medians": [
+            2.42,
+            2.44,
+            3.4699999999999998,
+            3.4
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 2.3120000000000003,
+          "round_medians": [
+            1.8295,
+            1.8435000000000001,
+            2.825,
+            2.75
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0395,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.08,
+            0.078
+          ]
+        }
+      },
+      "J020": {
+        "Task Duration(us)": {
+          "mean": 2.9725,
+          "round_medians": [
+            2.4699999999999998,
+            2.46,
+            3.55,
+            3.41
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 2.335125,
+          "round_medians": [
+            1.8455,
+            1.8415,
+            2.8785,
+            2.7750000000000004
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.037125,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.075,
+            0.0735
+          ]
+        }
+      },
+      "J022": {
+        "Task Duration(us)": {
+          "mean": 3.004875,
+          "round_medians": [
+            2.48,
+            2.46,
+            3.38,
+            3.6995
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 2.365625,
+          "round_medians": [
+            1.8650000000000002,
+            1.8345,
+            2.762,
+            3.001
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.04125,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.082,
+            0.083
+          ]
+        }
+      }
+    },
+    "delta_vs_J020": 0.03237500000000004,
+    "round_deltas_vs_J020": [
+      0.010000000000000231,
+      0.0,
+      -0.16999999999999993,
+      0.28949999999999987
+    ]
+  },
+  {
+    "kind": "general",
+    "case": "fp32_scalarone",
+    "dtype": "fp32",
+    "shape": [
+      1,
+      1,
+      1
+    ],
+    "versions": {
+      "J013": {
+        "Task Duration(us)": {
+          "mean": 2.7625,
+          "round_medians": [
+            2.75,
+            2.84,
+            2.8,
+            2.66
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 2.2272499999999997,
+          "round_medians": [
+            2.2135,
+            2.284,
+            2.2824999999999998,
+            2.129
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.16175,
+          "round_medians": [
+            0.165,
+            0.165,
+            0.16,
+            0.157
+          ]
+        }
+      },
+      "J020": {
+        "Task Duration(us)": {
+          "mean": 2.6775,
+          "round_medians": [
+            2.6900000000000004,
+            2.64,
+            2.64,
+            2.74
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 2.1435,
+          "round_medians": [
+            2.1414999999999997,
+            2.098,
+            2.122,
+            2.2125
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.158375,
+          "round_medians": [
+            0.155,
+            0.1535,
+            0.165,
+            0.16
+          ]
+        }
+      },
+      "J022": {
+        "Task Duration(us)": {
+          "mean": 2.7475,
+          "round_medians": [
+            2.74,
+            2.79,
+            2.79,
+            2.67
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 2.2110000000000003,
+          "round_medians": [
+            2.195,
+            2.2395,
+            2.2545,
+            2.1550000000000002
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.14975,
+          "round_medians": [
+            0.1455,
+            0.1465,
+            0.153,
+            0.154
+          ]
+        }
+      }
+    },
+    "delta_vs_J020": 0.06999999999999984,
+    "round_deltas_vs_J020": [
+      0.04999999999999982,
+      0.1499999999999999,
+      0.1499999999999999,
+      -0.07000000000000028
+    ]
+  },
+  {
+    "kind": "general",
+    "case": "fp32_small41c16",
+    "dtype": "fp32",
+    "shape": [
+      41,
+      16,
+      1
+    ],
+    "versions": {
+      "J013": {
+        "Task Duration(us)": {
+          "mean": 4.954750000000001,
+          "round_medians": [
+            4.78,
+            5.12,
+            5.1295,
+            4.7895
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 3.18975,
+          "round_medians": [
+            3.0635000000000003,
+            3.304,
+            3.2904999999999998,
+            3.101
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "J020": {
+        "Task Duration(us)": {
+          "mean": 4.6850000000000005,
+          "round_medians": [
+            4.82,
+            4.84,
+            4.36,
+            4.72
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 2.900375,
+          "round_medians": [
+            2.974,
+            2.9825,
+            2.675,
+            2.9699999999999998
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "J022": {
+        "Task Duration(us)": {
+          "mean": 4.715,
+          "round_medians": [
+            4.72,
+            4.4,
+            4.88,
+            4.86
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 2.9137500000000003,
+          "round_medians": [
+            2.9165,
+            2.6995,
+            3.0045,
+            3.0345
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      }
+    },
+    "delta_vs_J020": 0.02999999999999936,
+    "round_deltas_vs_J020": [
+      -0.10000000000000053,
+      -0.4399999999999995,
+      0.5199999999999996,
+      0.14000000000000057
+    ]
+  },
+  {
+    "kind": "general",
+    "case": "precision_bf16_06_mixed",
+    "dtype": "bf16",
+    "shape": [
+      2,
+      3,
+      65
+    ],
+    "versions": {
+      "J013": {
+        "Task Duration(us)": {
+          "mean": 4.645,
+          "round_medians": [
+            4.55,
+            4.8100000000000005,
+            4.779999999999999,
+            4.44
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 2.79875,
+          "round_medians": [
+            2.6975,
+            2.892,
+            2.895,
+            2.7105
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "J020": {
+        "Task Duration(us)": {
+          "mean": 4.729749999999999,
+          "round_medians": [
+            4.82,
+            4.9094999999999995,
+            4.4895,
+            4.699999999999999
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 2.8701250000000003,
+          "round_medians": [
+            2.9435000000000002,
+            2.9435000000000002,
+            2.7110000000000003,
+            2.8825
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "J022": {
+        "Task Duration(us)": {
+          "mean": 4.7623750000000005,
+          "round_medians": [
+            4.71,
+            4.5995,
+            4.84,
+            4.9
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 2.986375,
+          "round_medians": [
+            2.8875,
+            2.71,
+            2.971,
+            3.377
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      }
+    },
+    "delta_vs_J020": 0.032625000000001236,
+    "round_deltas_vs_J020": [
+      -0.11000000000000032,
+      -0.3099999999999996,
+      0.35050000000000026,
+      0.20000000000000107
+    ]
+  },
+  {
+    "kind": "general",
+    "case": "precision_bf16_09_mixed",
+    "dtype": "bf16",
+    "shape": [
+      600000,
+      1,
+      1
+    ],
+    "versions": {
+      "J013": {
+        "Task Duration(us)": {
+          "mean": 8.37,
+          "round_medians": [
+            8.16,
+            8.62,
+            8.6,
+            8.1
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 6.633,
+          "round_medians": [
+            6.2844999999999995,
+            7.022,
+            6.865,
+            6.3605
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "J020": {
+        "Task Duration(us)": {
+          "mean": 8.607375000000001,
+          "round_medians": [
+            8.82,
+            8.870000000000001,
+            8.129999999999999,
+            8.6095
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 6.821375,
+          "round_medians": [
+            6.9990000000000006,
+            7.0794999999999995,
+            6.3580000000000005,
+            6.849
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "J022": {
+        "Task Duration(us)": {
+          "mean": 8.807375,
+          "round_medians": [
+            8.64,
+            8.23,
+            8.8295,
+            9.53
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 7.093625,
+          "round_medians": [
+            6.9975000000000005,
+            6.5255,
+            6.965999999999999,
+            7.8855
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      }
+    },
+    "delta_vs_J020": 0.1999999999999993,
+    "round_deltas_vs_J020": [
+      -0.17999999999999972,
+      -0.6400000000000006,
+      0.6995000000000005,
+      0.9204999999999988
+    ]
+  },
+  {
+    "kind": "general",
+    "case": "precision_fp16_06_mixed",
+    "dtype": "fp16",
+    "shape": [
+      2,
+      3,
+      65
+    ],
+    "versions": {
+      "J013": {
+        "Task Duration(us)": {
+          "mean": 4.6000000000000005,
+          "round_medians": [
+            4.5600000000000005,
+            4.66,
+            4.71,
+            4.470000000000001
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 2.8036250000000003,
+          "round_medians": [
+            2.716,
+            2.8994999999999997,
+            2.894,
+            2.705
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "J020": {
+        "Task Duration(us)": {
+          "mean": 4.7325,
+          "round_medians": [
+            4.800000000000001,
+            4.86,
+            4.51,
+            4.76
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 3.015375,
+          "round_medians": [
+            2.9615,
+            3.281,
+            2.9219999999999997,
+            2.8970000000000002
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "J022": {
+        "Task Duration(us)": {
+          "mean": 4.7275,
+          "round_medians": [
+            4.65,
+            4.46,
+            4.93,
+            4.87
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 2.99625,
+          "round_medians": [
+            2.9165,
+            2.7190000000000003,
+            3.3674999999999997,
+            2.982
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      }
+    },
+    "delta_vs_J020": -0.004999999999999893,
+    "round_deltas_vs_J020": [
+      -0.15000000000000036,
+      -0.40000000000000036,
+      0.41999999999999993,
+      0.11000000000000032
+    ]
+  },
+  {
+    "kind": "general",
+    "case": "precision_fp16_09_mixed",
+    "dtype": "fp16",
+    "shape": [
+      600000,
+      1,
+      1
+    ],
+    "versions": {
+      "J013": {
+        "Task Duration(us)": {
+          "mean": 8.275,
+          "round_medians": [
+            8.02,
+            8.5,
+            8.5,
+            8.08
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 6.505375,
+          "round_medians": [
+            6.191,
+            6.9075,
+            6.7545,
+            6.1685
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "J020": {
+        "Task Duration(us)": {
+          "mean": 8.772499999999999,
+          "round_medians": [
+            8.69,
+            9.28,
+            8.6,
+            8.52
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 7.0912500000000005,
+          "round_medians": [
+            6.9215,
+            7.7545,
+            6.9350000000000005,
+            6.754
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "J022": {
+        "Task Duration(us)": {
+          "mean": 8.682375,
+          "round_medians": [
+            8.48,
+            8.089500000000001,
+            9.38,
+            8.78
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 6.95075,
+          "round_medians": [
+            6.885999999999999,
+            6.410500000000001,
+            7.705,
+            6.8015
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      }
+    },
+    "delta_vs_J020": -0.09012499999999868,
+    "round_deltas_vs_J020": [
+      -0.20999999999999908,
+      -1.1904999999999983,
+      0.7800000000000011,
+      0.2599999999999998
+    ]
+  },
+  {
+    "kind": "general",
+    "case": "precision_fp32_06_mixed",
+    "dtype": "fp32",
+    "shape": [
+      2,
+      3,
+      65
+    ],
+    "versions": {
+      "J013": {
+        "Task Duration(us)": {
+          "mean": 4.4697499999999994,
+          "round_medians": [
+            4.3195,
+            4.56,
+            4.6295,
+            4.37
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 2.6605,
+          "round_medians": [
+            2.5735,
+            2.745,
+            2.7565,
+            2.567
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "J020": {
+        "Task Duration(us)": {
+          "mean": 4.54,
+          "round_medians": [
+            4.640000000000001,
+            4.63,
+            4.28,
+            4.609999999999999
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 2.737875,
+          "round_medians": [
+            2.8225,
+            2.814,
+            2.563,
+            2.752
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "J022": {
+        "Task Duration(us)": {
+          "mean": 4.577,
+          "round_medians": [
+            4.5295000000000005,
+            4.3795,
+            4.699999999999999,
+            4.699
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 2.74675,
+          "round_medians": [
+            2.7584999999999997,
+            2.553,
+            2.8440000000000003,
+            2.8315
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      }
+    },
+    "delta_vs_J020": 0.03699999999999992,
+    "round_deltas_vs_J020": [
+      -0.11050000000000004,
+      -0.2504999999999997,
+      0.41999999999999904,
+      0.08900000000000041
+    ]
+  },
+  {
+    "kind": "general",
+    "case": "precision_fp32_09_mixed",
+    "dtype": "fp32",
+    "shape": [
+      600000,
+      1,
+      1
+    ],
+    "versions": {
+      "J013": {
+        "Task Duration(us)": {
+          "mean": 8.82725,
+          "round_medians": [
+            8.599,
+            9.06,
+            9.02,
+            8.629999999999999
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 7.091,
+          "round_medians": [
+            6.8225,
+            7.3685,
+            7.293,
+            6.88
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "J020": {
+        "Task Duration(us)": {
+          "mean": 9.052375,
+          "round_medians": [
+            9.22,
+            9.3,
+            8.64,
+            9.049499999999998
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 7.308125,
+          "round_medians": [
+            7.511,
+            7.488,
+            6.875500000000001,
+            7.3580000000000005
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "J022": {
+        "Task Duration(us)": {
+          "mean": 9.069749999999999,
+          "round_medians": [
+            9.0795,
+            8.6,
+            9.3,
+            9.2995
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 7.350375,
+          "round_medians": [
+            7.353,
+            6.9145,
+            7.5415,
+            7.592499999999999
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      }
+    },
+    "delta_vs_J020": 0.017374999999999474,
+    "round_deltas_vs_J020": [
+      -0.14050000000000118,
+      -0.7000000000000011,
+      0.6600000000000001,
+      0.2500000000000018
+    ]
+  }
+]

@@ -1,0 +1,50 @@
+--- J001/op_kernel/p_relu_grad_update.h
++++ J003/op_kernel/p_relu_grad_update.h
+@@ -197,19 +197,9 @@
+             Cast(featuresFloat, featuresLocal, RoundMode::CAST_NONE, currentNum);
+             PipeBarrier<PIPE_V>();
+         } else {
+-            for (int64_t i = 0; i < currentNum; ++i) {
+-                T g = gradsLocal.GetValue(i);
+-                T f = featuresLocal.GetValue(i);
+-                uint16_t gb = *reinterpret_cast<uint16_t*>(&g);
+-                uint16_t fb = *reinterpret_cast<uint16_t*>(&f);
+-                float gf = 0.0f;
+-                float ff = 0.0f;
+-                *reinterpret_cast<uint32_t*>(&gf) = static_cast<uint32_t>(gb) << 16;
+-                *reinterpret_cast<uint32_t*>(&ff) = static_cast<uint32_t>(fb) << 16;
+-                gradsFloat.SetValue(i, gf);
+-                featuresFloat.SetValue(i, ff);
+-            }
+-            SyncSV();
++            Cast(gradsFloat, gradsLocal, RoundMode::CAST_NONE, currentNum);
++            Cast(featuresFloat, featuresLocal, RoundMode::CAST_NONE, currentNum);
++            PipeBarrier<PIPE_V>();
+         }
+     }
+ 
+@@ -273,21 +263,9 @@
+         Cast(updateLocal, updateFloat, RoundMode::CAST_RINT, currentNum);
+         PipeBarrier<PIPE_V>();
+     } else if constexpr (std::is_same<T, bfloat16_t>::value) {
+-        for (int64_t i = 0; i < currentNum; ++i) {
+-            float dxv = dxFloat.GetValue(i);
+-            float upv = updateFloat.GetValue(i);
+-            uint32_t dxu = *reinterpret_cast<uint32_t*>(&dxv);
+-            uint32_t upu = *reinterpret_cast<uint32_t*>(&upv);
+-            uint16_t dxBits = static_cast<uint16_t>((dxu + 0x7FFFU + ((dxu >> 16) & 1U)) >> 16);
+-            uint16_t upBits = static_cast<uint16_t>((upu + 0x7FFFU + ((upu >> 16) & 1U)) >> 16);
+-            T dxOut;
+-            T upOut;
+-            *reinterpret_cast<uint16_t*>(&dxOut) = dxBits;
+-            *reinterpret_cast<uint16_t*>(&upOut) = upBits;
+-            dxLocal.SetValue(i, dxOut);
+-            updateLocal.SetValue(i, upOut);
+-        }
+-        SyncSMTE3();
++        Cast(dxLocal, dxFloat, RoundMode::CAST_RINT, currentNum);
++        Cast(updateLocal, updateFloat, RoundMode::CAST_RINT, currentNum);
++        PipeBarrier<PIPE_V>();
+     }
+ 
+     dxQueue_.EnQue(dxLocal);

@@ -1,0 +1,56 @@
+--- J024/host
++++ J025/host
+@@ -234,20 +234,41 @@
+         else tilingKey = GET_TPL_TILING_KEY(PRELUGRADUPDATE_TPL_BF16_MERGED);
+     }
+ 
+-    // A core owns one channel tile and a contiguous batch range.
+-    // Reuse weights where a complete channel vector cannot fit in one tile.
++    // J025: training-frozen geometric rule; no per-shape lookup or runtime tuning.
+     if (vectorWeights && channelNum % blockElements == 0 && channelNum > maxTile) {
+-        const int64_t cTiles = CeilDivI64(channelNum, maxTile);
+-        if (cTiles <= hardwareCoreNum) {
+-            const int64_t batchGroups = hardwareCoreNum / cTiles;
++        const int64_t defaultCTiles = CeilDivI64(channelNum, maxTile);
++        if (defaultCTiles <= hardwareCoreNum) {
+             const int64_t batchSize = totalNum / channelNum;
+-            if (batchSize >= 2 * batchGroups) {
+-                tileLen = AlignUpI64(CeilDivI64(channelNum, cTiles), CMP_ALIGN_FLOAT);
+-                splitBatchGroups = batchGroups;
+-                usedCores = cTiles * batchGroups;
+-                if (dtype == ge::DT_FLOAT) tilingKey = GET_TPL_TILING_KEY(PRELUGRADUPDATE_TPL_FLOAT_SPLITC);
+-                else if (dtype == ge::DT_FLOAT16) tilingKey = GET_TPL_TILING_KEY(PRELUGRADUPDATE_TPL_FLOAT16_SPLITC);
+-                else tilingKey = GET_TPL_TILING_KEY(PRELUGRADUPDATE_TPL_BF16_SPLITC);
++            const int64_t defaultGroups = hardwareCoreNum / defaultCTiles;
++            const int64_t defaultTile = AlignUpI64(CeilDivI64(channelNum, defaultCTiles), CMP_ALIGN_FLOAT);
++            const double rowsPerGroup = static_cast<double>(batchSize) / defaultGroups;
++            const double splitWorkRatio = static_cast<double>(CeilDivI64(batchSize, defaultGroups) * defaultTile) / blockFactor;
++            int64_t routeCores = 0;
++            if (defaultCTiles <= 5.5) {
++                if (rowsPerGroup <= 6.3249999999999993) {
++                    routeCores = 32;
++                } else {
++                    routeCores = 40;
++                }
++            } else {
++                if (splitWorkRatio <= 1.2415777439024391) {
++                    routeCores = 0;
++                } else {
++                    routeCores = 32;
++                }
++            }
++            routeCores = std::min(routeCores, hardwareCoreNum);
++            const int64_t cTiles = defaultCTiles;
++            if (cTiles <= routeCores) {
++                const int64_t batchGroups = routeCores / cTiles;
++                if (batchSize >= 2 * batchGroups) {
++                    tileLen = AlignUpI64(CeilDivI64(channelNum, cTiles), CMP_ALIGN_FLOAT);
++                    splitBatchGroups = batchGroups;
++                    usedCores = cTiles * batchGroups;
++                    if (dtype == ge::DT_FLOAT) tilingKey = GET_TPL_TILING_KEY(PRELUGRADUPDATE_TPL_FLOAT_SPLITC);
++                    else if (dtype == ge::DT_FLOAT16) tilingKey = GET_TPL_TILING_KEY(PRELUGRADUPDATE_TPL_FLOAT16_SPLITC);
++                    else tilingKey = GET_TPL_TILING_KEY(PRELUGRADUPDATE_TPL_BF16_SPLITC);
++                }
+             }
+         }
+     }

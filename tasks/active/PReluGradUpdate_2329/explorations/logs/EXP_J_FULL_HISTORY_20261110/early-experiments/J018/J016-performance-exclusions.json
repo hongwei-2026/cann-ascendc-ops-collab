@@ -1,0 +1,162 @@
+[
+  {
+    "case": "fp16_n127c4096",
+    "exact_match": false,
+    "outputs": {
+      "dx": {
+        "exact_match": false,
+        "actual_elements": 520192,
+        "expected_elements": 520192,
+        "sha256": "2a8eba164f819216ca4f3dc6540a64ed46f66eb37c452b58ef67d6701c236177",
+        "max_abs_error": 15.41015625
+      },
+      "update": {
+        "exact_match": true,
+        "actual_elements": 520192,
+        "expected_elements": 520192,
+        "sha256": "2e2a76fa9c7b5d22d672a06211d3507d32d60f0ee79edce9609cca8faf682c6b",
+        "max_abs_error": 0.0
+      }
+    }
+  },
+  {
+    "case": "fp16_n129c4096",
+    "exact_match": false,
+    "outputs": {
+      "dx": {
+        "exact_match": false,
+        "actual_elements": 528384,
+        "expected_elements": 528384,
+        "sha256": "c7488e597ea4a77181b5f505b6cba9be0f5b49498c9ba37ce0c2f08e2cfae3c4",
+        "max_abs_error": 15.4609375
+      },
+      "update": {
+        "exact_match": true,
+        "actual_elements": 528384,
+        "expected_elements": 528384,
+        "sha256": "9bf9c984a4cd0cb3113c1350ba716b7e35837c5ec3075b81504e618c7c22587f",
+        "max_abs_error": 0.0
+      }
+    }
+  },
+  {
+    "case": "bf16_n127c4096",
+    "exact_match": false,
+    "outputs": {
+      "dx": {
+        "exact_match": false,
+        "actual_elements": 520192,
+        "expected_elements": 520192,
+        "sha256": "4851289ba2418d711c67c033fb2e8f9990df3bb5ed4f9a0ecccfb65e4b40a398",
+        "max_abs_error": 15.5625
+      },
+      "update": {
+        "exact_match": true,
+        "actual_elements": 520192,
+        "expected_elements": 520192,
+        "sha256": "15b1a4a8e32417f394813a1e41d201785e5388ed2c36b7f1a747bf5335edddab",
+        "max_abs_error": 0.0
+      }
+    }
+  },
+  {
+    "case": "bf16_n129c4096",
+    "exact_match": false,
+    "outputs": {
+      "dx": {
+        "exact_match": false,
+        "actual_elements": 528384,
+        "expected_elements": 528384,
+        "sha256": "f05f0ba757341845fc038b8948f37d6e19403597589239f22cae87ec60679921",
+        "max_abs_error": 15.53125
+      },
+      "update": {
+        "exact_match": true,
+        "actual_elements": 528384,
+        "expected_elements": 528384,
+        "sha256": "a147c5ffca7517fd7b290913f88523abeee634bdb971ef02ddb92f89dd207237",
+        "max_abs_error": 0.0
+      }
+    }
+  },
+  {
+    "case": "fp16_phase131",
+    "exact_match": false,
+    "outputs": {
+      "dx": {
+        "exact_match": false,
+        "actual_elements": 536576,
+        "expected_elements": 536576,
+        "sha256": "7c5df935dad680a406a4ae5beaca3bbf72ddb2108088a6e70d19af7839d59aac",
+        "max_abs_error": 11.25
+      },
+      "update": {
+        "exact_match": true,
+        "actual_elements": 536576,
+        "expected_elements": 536576,
+        "sha256": "56d5facc4b0c62e54e33b1f8d2ddcf8ea07b2453419c6b5d96c11ded07810b10",
+        "max_abs_error": 0.0
+      }
+    }
+  },
+  {
+    "case": "fp16_phase133",
+    "exact_match": false,
+    "outputs": {
+      "dx": {
+        "exact_match": false,
+        "actual_elements": 544768,
+        "expected_elements": 544768,
+        "sha256": "957e5ac2716ee58f4aadff56fb5f1b3c9404f7649cff92a1273735b573a4265f",
+        "max_abs_error": 11.25
+      },
+      "update": {
+        "exact_match": true,
+        "actual_elements": 544768,
+        "expected_elements": 544768,
+        "sha256": "07f412bd805386f2f2d7120a16bc292d1a4f6eff7a149c50b09ad9d9e0e3ad4a",
+        "max_abs_error": 0.0
+      }
+    }
+  },
+  {
+    "case": "bf16_phase131",
+    "exact_match": false,
+    "outputs": {
+      "dx": {
+        "exact_match": false,
+        "actual_elements": 536576,
+        "expected_elements": 536576,
+        "sha256": "3b58b422fc9408d8f057509c8e9f5c6168c061a9d5545e044f3cd9d122fbd5f0",
+        "max_abs_error": 7.5
+      },
+      "update": {
+        "exact_match": true,
+        "actual_elements": 536576,
+        "expected_elements": 536576,
+        "sha256": "5ef49efe5ba8f473c9ca16eb24e2648eec7857667b9ef729fa615eec402af446",
+        "max_abs_error": 0.0
+      }
+    }
+  },
+  {
+    "case": "bf16_phase133",
+    "exact_match": false,
+    "outputs": {
+      "dx": {
+        "exact_match": false,
+        "actual_elements": 544768,
+        "expected_elements": 544768,
+        "sha256": "0c0abaf5180cb5eaecf425945af3cafee822115e534688462f84959528c7f8c5",
+        "max_abs_error": 7.5
+      },
+      "update": {
+        "exact_match": true,
+        "actual_elements": 544768,
+        "expected_elements": 544768,
+        "sha256": "290c07586fcb934a811d8c15e15908ab584c23b24a13d47ec59f044c0badb369",
+        "max_abs_error": 0.0
+      }
+    }
+  }
+]

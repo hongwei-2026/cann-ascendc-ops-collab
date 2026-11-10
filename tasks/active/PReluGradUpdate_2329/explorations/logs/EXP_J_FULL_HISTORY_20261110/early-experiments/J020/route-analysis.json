@@ -1,0 +1,4058 @@
+[
+  {
+    "case": "expanded_fp32_02_expanded",
+    "dtype": "fp32",
+    "shape": [
+      127,
+      256,
+      1
+    ],
+    "wlen": 256,
+    "versions": {
+      "J013": {
+        "round_medians_us": [
+          9.229500000000002,
+          9.4,
+          9.0795,
+          9.4895
+        ],
+        "mean_us": 9.299625,
+        "ratios": {
+          "aiv_scalar_ratio": 0.51625,
+          "aiv_vec_ratio": 0.08449999999999999,
+          "aiv_mte2_ratio": 0.619,
+          "aiv_mte3_ratio": 0.1205
+        }
+      },
+      "J015": {
+        "round_medians_us": [
+          6.13,
+          6.5,
+          5.9795,
+          6.109999999999999
+        ],
+        "mean_us": 6.179875,
+        "ratios": {
+          "aiv_scalar_ratio": 0.5018750000000001,
+          "aiv_vec_ratio": 0.06025,
+          "aiv_mte2_ratio": 0.492,
+          "aiv_mte3_ratio": 0.07375
+        }
+      },
+      "J018": {
+        "round_medians_us": [
+          6.4695,
+          5.99,
+          6.1,
+          5.9895
+        ],
+        "mean_us": 6.13725,
+        "ratios": {
+          "aiv_scalar_ratio": 0.54575,
+          "aiv_vec_ratio": 0.061,
+          "aiv_mte2_ratio": 0.48412499999999997,
+          "aiv_mte3_ratio": 0.07250000000000001
+        }
+      },
+      "J019": {
+        "round_medians_us": [
+          5.98,
+          6.0,
+          6.29,
+          6.38
+        ],
+        "mean_us": 6.1625,
+        "ratios": {
+          "aiv_scalar_ratio": 0.5131249999999999,
+          "aiv_vec_ratio": 0.060625,
+          "aiv_mte2_ratio": 0.48925,
+          "aiv_mte3_ratio": 0.072875
+        }
+      },
+      "J020": {
+        "round_medians_us": [
+          5.999499999999999,
+          6.56,
+          6.33,
+          5.98
+        ],
+        "mean_us": 6.217375,
+        "ratios": {
+          "aiv_scalar_ratio": 0.49024999999999996,
+          "aiv_vec_ratio": 0.0595,
+          "aiv_mte2_ratio": 0.494375,
+          "aiv_mte3_ratio": 0.073875
+        }
+      }
+    },
+    "delta_vs_J015_us": [
+      -0.1305000000000005,
+      0.05999999999999961,
+      0.35050000000000026,
+      -0.129999999999999
+    ],
+    "mean_delta_vs_J015_us": 0.03750000000000009,
+    "percent_vs_J015": 0.6068083901373367,
+    "route": "merged_s1",
+    "route_baseline": "J015",
+    "delta_vs_route_baseline_us": [
+      -0.1305000000000005,
+      0.05999999999999961,
+      0.35050000000000026,
+      -0.129999999999999
+    ],
+    "mean_delta_vs_route_baseline_us": 0.03750000000000009
+  },
+  {
+    "case": "expanded_fp32_03_expanded",
+    "dtype": "fp32",
+    "shape": [
+      129,
+      257,
+      1
+    ],
+    "wlen": 257,
+    "versions": {
+      "J013": {
+        "round_medians_us": [
+          10.0795,
+          9.9295,
+          9.82,
+          10.52
+        ],
+        "mean_us": 10.087250000000001,
+        "ratios": {
+          "aiv_scalar_ratio": 0.474375,
+          "aiv_vec_ratio": 0.08574999999999999,
+          "aiv_mte2_ratio": 0.6485000000000001,
+          "aiv_mte3_ratio": 0.161
+        }
+      },
+      "J015": {
+        "round_medians_us": [
+          9.8795,
+          10.4795,
+          9.84,
+          10.3
+        ],
+        "mean_us": 10.12475,
+        "ratios": {
+          "aiv_scalar_ratio": 0.467125,
+          "aiv_vec_ratio": 0.08524999999999999,
+          "aiv_mte2_ratio": 0.6515000000000001,
+          "aiv_mte3_ratio": 0.1615
+        }
+      },
+      "J018": {
+        "round_medians_us": [
+          10.65,
+          10.26,
+          10.7295,
+          9.86
+        ],
+        "mean_us": 10.374875,
+        "ratios": {
+          "aiv_scalar_ratio": 0.48825,
+          "aiv_vec_ratio": 0.08175,
+          "aiv_mte2_ratio": 0.6659999999999999,
+          "aiv_mte3_ratio": 0.160375
+        }
+      },
+      "J019": {
+        "round_medians_us": [
+          10.1,
+          10.02,
+          10.4695,
+          10.76
+        ],
+        "mean_us": 10.337375,
+        "ratios": {
+          "aiv_scalar_ratio": 0.45575,
+          "aiv_vec_ratio": 0.08199999999999999,
+          "aiv_mte2_ratio": 0.66475,
+          "aiv_mte3_ratio": 0.161
+        }
+      },
+      "J020": {
+        "round_medians_us": [
+          10.1795,
+          10.78,
+          10.4495,
+          9.8095
+        ],
+        "mean_us": 10.304625,
+        "ratios": {
+          "aiv_scalar_ratio": 0.45575,
+          "aiv_vec_ratio": 0.0835,
+          "aiv_mte2_ratio": 0.65375,
+          "aiv_mte3_ratio": 0.15875
+        }
+      }
+    },
+    "delta_vs_J015_us": [
+      0.3000000000000007,
+      0.30049999999999955,
+      0.6095000000000006,
+      -0.4905000000000008
+    ],
+    "mean_delta_vs_J015_us": 0.179875,
+    "percent_vs_J015": 1.776587076224101,
+    "route": "legacy_s1",
+    "route_baseline": "J013",
+    "delta_vs_route_baseline_us": [
+      0.10000000000000142,
+      0.8504999999999985,
+      0.6295000000000002,
+      -0.7104999999999997
+    ],
+    "mean_delta_vs_route_baseline_us": 0.2173750000000001
+  },
+  {
+    "case": "precision_fp32_09_mixed",
+    "dtype": "fp32",
+    "shape": [
+      600000,
+      1,
+      1
+    ],
+    "wlen": 1,
+    "versions": {
+      "J013": {
+        "round_medians_us": [
+          8.68,
+          8.6295,
+          8.68,
+          9.1
+        ],
+        "mean_us": 8.772375,
+        "ratios": {
+          "aiv_scalar_ratio": 0.379625,
+          "aiv_vec_ratio": 0.255125,
+          "aiv_mte2_ratio": 0.43125,
+          "aiv_mte3_ratio": 0.19487500000000002
+        }
+      },
+      "J015": {
+        "round_medians_us": [
+          8.7195,
+          9.42,
+          8.64,
+          8.73
+        ],
+        "mean_us": 8.877375,
+        "ratios": {
+          "aiv_scalar_ratio": 0.374625,
+          "aiv_vec_ratio": 0.25425,
+          "aiv_mte2_ratio": 0.4325,
+          "aiv_mte3_ratio": 0.193125
+        }
+      },
+      "J018": {
+        "round_medians_us": [
+          9.3095,
+          8.71,
+          8.72,
+          8.599499999999999
+        ],
+        "mean_us": 8.83475,
+        "ratios": {
+          "aiv_scalar_ratio": 0.381,
+          "aiv_vec_ratio": 0.25425,
+          "aiv_mte2_ratio": 0.432875,
+          "aiv_mte3_ratio": 0.193125
+        }
+      },
+      "J019": {
+        "round_medians_us": [
+          8.61,
+          8.6795,
+          9.14,
+          8.6695
+        ],
+        "mean_us": 8.774750000000001,
+        "ratios": {
+          "aiv_scalar_ratio": 0.38325,
+          "aiv_vec_ratio": 0.255875,
+          "aiv_mte2_ratio": 0.431125,
+          "aiv_mte3_ratio": 0.1935
+        }
+      },
+      "J020": {
+        "round_medians_us": [
+          8.66,
+          9.38,
+          9.14,
+          8.64
+        ],
+        "mean_us": 8.955,
+        "ratios": {
+          "aiv_scalar_ratio": 0.36575,
+          "aiv_vec_ratio": 0.250375,
+          "aiv_mte2_ratio": 0.439,
+          "aiv_mte3_ratio": 0.19225
+        }
+      }
+    },
+    "delta_vs_J015_us": [
+      -0.059499999999999886,
+      -0.03999999999999915,
+      0.5,
+      -0.08999999999999986
+    ],
+    "mean_delta_vs_J015_us": 0.07762500000000028,
+    "percent_vs_J015": 0.8744138892408992,
+    "route": "normal",
+    "route_baseline": "J013",
+    "delta_vs_route_baseline_us": [
+      -0.019999999999999574,
+      0.7505000000000006,
+      0.46000000000000085,
+      -0.4599999999999991
+    ],
+    "mean_delta_vs_route_baseline_us": 0.1826250000000007
+  },
+  {
+    "case": "precision_fp32_06_mixed",
+    "dtype": "fp32",
+    "shape": [
+      2,
+      3,
+      65
+    ],
+    "wlen": 3,
+    "versions": {
+      "J013": {
+        "round_medians_us": [
+          4.29,
+          4.29,
+          4.3100000000000005,
+          4.59
+        ],
+        "mean_us": 4.37,
+        "ratios": {
+          "aiv_scalar_ratio": 0.721875,
+          "aiv_vec_ratio": 0.065125,
+          "aiv_mte2_ratio": 0.332875,
+          "aiv_mte3_ratio": 0.058124999999999996
+        }
+      },
+      "J015": {
+        "round_medians_us": [
+          4.3100000000000005,
+          4.749499999999999,
+          4.26,
+          4.300000000000001
+        ],
+        "mean_us": 4.4048750000000005,
+        "ratios": {
+          "aiv_scalar_ratio": 0.727375,
+          "aiv_vec_ratio": 0.06525,
+          "aiv_mte2_ratio": 0.32325000000000004,
+          "aiv_mte3_ratio": 0.05625
+        }
+      },
+      "J018": {
+        "round_medians_us": [
+          4.68,
+          4.220000000000001,
+          4.300000000000001,
+          4.22
+        ],
+        "mean_us": 4.355,
+        "ratios": {
+          "aiv_scalar_ratio": 0.724,
+          "aiv_vec_ratio": 0.065,
+          "aiv_mte2_ratio": 0.335875,
+          "aiv_mte3_ratio": 0.056125
+        }
+      },
+      "J019": {
+        "round_medians_us": [
+          4.28,
+          4.300000000000001,
+          4.59,
+          4.3195
+        ],
+        "mean_us": 4.372375,
+        "ratios": {
+          "aiv_scalar_ratio": 0.7315,
+          "aiv_vec_ratio": 0.065,
+          "aiv_mte2_ratio": 0.321875,
+          "aiv_mte3_ratio": 0.061625
+        }
+      },
+      "J020": {
+        "round_medians_us": [
+          4.29,
+          4.72,
+          4.55,
+          4.27
+        ],
+        "mean_us": 4.4575,
+        "ratios": {
+          "aiv_scalar_ratio": 0.7088749999999999,
+          "aiv_vec_ratio": 0.06375,
+          "aiv_mte2_ratio": 0.33625000000000005,
+          "aiv_mte3_ratio": 0.0565
+        }
+      }
+    },
+    "delta_vs_J015_us": [
+      -0.020000000000000462,
+      -0.029499999999999638,
+      0.29000000000000004,
+      -0.030000000000001137
+    ],
+    "mean_delta_vs_J015_us": 0.0526249999999997,
+    "percent_vs_J015": 1.1946990550242509,
+    "route": "normal",
+    "route_baseline": "J013",
+    "delta_vs_route_baseline_us": [
+      0.0,
+      0.4299999999999997,
+      0.23999999999999932,
+      -0.3200000000000003
+    ],
+    "mean_delta_vs_route_baseline_us": 0.08749999999999969
+  },
+  {
+    "case": "fp32_s1tiny",
+    "dtype": "fp32",
+    "shape": [
+      3,
+      5,
+      1
+    ],
+    "wlen": 5,
+    "versions": {
+      "J013": {
+        "round_medians_us": [
+          2.4395,
+          2.44,
+          3.3795,
+          3.41
+        ],
+        "mean_us": 2.91725,
+        "ratios": {
+          "aiv_scalar_ratio": 0.819875,
+          "aiv_vec_ratio": 0.128375,
+          "aiv_mte2_ratio": 0.22475,
+          "aiv_mte3_ratio": 0.120875
+        }
+      },
+      "J015": {
+        "round_medians_us": [
+          2.46,
+          2.46,
+          3.64,
+          3.72
+        ],
+        "mean_us": 3.0700000000000003,
+        "ratios": {
+          "aiv_scalar_ratio": 0.8045,
+          "aiv_vec_ratio": 0.12225,
+          "aiv_mte2_ratio": 0.21837499999999999,
+          "aiv_mte3_ratio": 0.11424999999999999
+        }
+      },
+      "J018": {
+        "round_medians_us": [
+          2.66,
+          2.64,
+          4.05,
+          4.06
+        ],
+        "mean_us": 3.3525,
+        "ratios": {
+          "aiv_scalar_ratio": 0.81175,
+          "aiv_vec_ratio": 0.11125,
+          "aiv_mte2_ratio": 0.19325,
+          "aiv_mte3_ratio": 0.10087499999999999
+        }
+      },
+      "J019": {
+        "round_medians_us": [
+          2.4299999999999997,
+          2.42,
+          3.74,
+          3.46
+        ],
+        "mean_us": 3.0125,
+        "ratios": {
+          "aiv_scalar_ratio": 0.802125,
+          "aiv_vec_ratio": 0.124625,
+          "aiv_mte2_ratio": 0.216125,
+          "aiv_mte3_ratio": 0.121625
+        }
+      },
+      "J020": {
+        "round_medians_us": [
+          2.44,
+          2.4299999999999997,
+          3.52,
+          3.54
+        ],
+        "mean_us": 2.9825,
+        "ratios": {
+          "aiv_scalar_ratio": 0.8115,
+          "aiv_vec_ratio": 0.12525,
+          "aiv_mte2_ratio": 0.22275,
+          "aiv_mte3_ratio": 0.11674999999999999
+        }
+      }
+    },
+    "delta_vs_J015_us": [
+      -0.020000000000000018,
+      -0.03000000000000025,
+      -0.1200000000000001,
+      -0.18000000000000016
+    ],
+    "mean_delta_vs_J015_us": -0.08750000000000013,
+    "percent_vs_J015": -2.8501628664495238,
+    "route": "legacy_s1",
+    "route_baseline": "J013",
+    "delta_vs_route_baseline_us": [
+      0.000500000000000167,
+      -0.010000000000000231,
+      0.14049999999999985,
+      0.1299999999999999
+    ],
+    "mean_delta_vs_route_baseline_us": 0.06524999999999992
+  },
+  {
+    "case": "expanded_fp16_02_expanded",
+    "dtype": "fp16",
+    "shape": [
+      127,
+      256,
+      1
+    ],
+    "wlen": 256,
+    "versions": {
+      "J013": {
+        "round_medians_us": [
+          11.339500000000001,
+          10.3795,
+          10.9795,
+          10.6495
+        ],
+        "mean_us": 10.837,
+        "ratios": {
+          "aiv_scalar_ratio": 0.45025,
+          "aiv_vec_ratio": 0.1045,
+          "aiv_mte2_ratio": 0.651,
+          "aiv_mte3_ratio": 0.10175000000000001
+        }
+      },
+      "J015": {
+        "round_medians_us": [
+          7.399,
+          8.36,
+          7.73,
+          7.970000000000001
+        ],
+        "mean_us": 7.86475,
+        "ratios": {
+          "aiv_scalar_ratio": 0.433125,
+          "aiv_vec_ratio": 0.0635,
+          "aiv_mte2_ratio": 0.533375,
+          "aiv_mte3_ratio": 0.08825
+        }
+      },
+      "J018": {
+        "round_medians_us": [
+          7.619,
+          7.26,
+          7.93,
+          7.74
+        ],
+        "mean_us": 7.63725,
+        "ratios": {
+          "aiv_scalar_ratio": 0.478875,
+          "aiv_vec_ratio": 0.064375,
+          "aiv_mte2_ratio": 0.534,
+          "aiv_mte3_ratio": 0.0765
+        }
+      },
+      "J019": {
+        "round_medians_us": [
+          7.9595,
+          7.94,
+          7.64,
+          7.96
+        ],
+        "mean_us": 7.874875,
+        "ratios": {
+          "aiv_scalar_ratio": 0.44475,
+          "aiv_vec_ratio": 0.064625,
+          "aiv_mte2_ratio": 0.5381250000000001,
+          "aiv_mte3_ratio": 0.08224999999999999
+        }
+      },
+      "J020": {
+        "round_medians_us": [
+          7.259,
+          8.8095,
+          9.28,
+          7.7695
+        ],
+        "mean_us": 8.2795,
+        "ratios": {
+          "aiv_scalar_ratio": 0.448125,
+          "aiv_vec_ratio": 0.058750000000000004,
+          "aiv_mte2_ratio": 0.508625,
+          "aiv_mte3_ratio": 0.08612500000000001
+        }
+      }
+    },
+    "delta_vs_J015_us": [
+      -0.13999999999999968,
+      0.44950000000000045,
+      1.549999999999999,
+      -0.2005000000000008
+    ],
+    "mean_delta_vs_J015_us": 0.41474999999999973,
+    "percent_vs_J015": 5.273530627165535,
+    "route": "merged_s1",
+    "route_baseline": "J015",
+    "delta_vs_route_baseline_us": [
+      -0.13999999999999968,
+      0.44950000000000045,
+      1.549999999999999,
+      -0.2005000000000008
+    ],
+    "mean_delta_vs_route_baseline_us": 0.41474999999999973
+  },
+  {
+    "case": "expanded_fp16_03_expanded",
+    "dtype": "fp16",
+    "shape": [
+      129,
+      257,
+      1
+    ],
+    "wlen": 257,
+    "versions": {
+      "J013": {
+        "round_medians_us": [
+          10.74,
+          11.62,
+          11.629999999999999,
+          11.279499999999999
+        ],
+        "mean_us": 11.317374999999998,
+        "ratios": {
+          "aiv_scalar_ratio": 0.421875,
+          "aiv_vec_ratio": 0.11175,
+          "aiv_mte2_ratio": 0.666125,
+          "aiv_mte3_ratio": 0.1315
+        }
+      },
+      "J015": {
+        "round_medians_us": [
+          11.6,
+          11.19,
+          11.69,
+          12.12
+        ],
+        "mean_us": 11.649999999999999,
+        "ratios": {
+          "aiv_scalar_ratio": 0.40725,
+          "aiv_vec_ratio": 0.10775,
+          "aiv_mte2_ratio": 0.6697500000000001,
+          "aiv_mte3_ratio": 0.1315
+        }
+      },
+      "J018": {
+        "round_medians_us": [
+          12.54,
+          12.189499999999999,
+          12.06,
+          11.71
+        ],
+        "mean_us": 12.124875,
+        "ratios": {
+          "aiv_scalar_ratio": 0.424,
+          "aiv_vec_ratio": 0.1,
+          "aiv_mte2_ratio": 0.69,
+          "aiv_mte3_ratio": 0.12725
+        }
+      },
+      "J019": {
+        "round_medians_us": [
+          10.85,
+          10.88,
+          11.29,
+          11.9895
+        ],
+        "mean_us": 11.252375,
+        "ratios": {
+          "aiv_scalar_ratio": 0.42762500000000003,
+          "aiv_vec_ratio": 0.11299999999999999,
+          "aiv_mte2_ratio": 0.664375,
+          "aiv_mte3_ratio": 0.12987500000000002
+        }
+      },
+      "J020": {
+        "round_medians_us": [
+          12.09,
+          12.479,
+          12.7795,
+          11.65
+        ],
+        "mean_us": 12.249625,
+        "ratios": {
+          "aiv_scalar_ratio": 0.40725,
+          "aiv_vec_ratio": 0.10149999999999999,
+          "aiv_mte2_ratio": 0.66225,
+          "aiv_mte3_ratio": 0.12475
+        }
+      }
+    },
+    "delta_vs_J015_us": [
+      0.4900000000000002,
+      1.2889999999999997,
+      1.089500000000001,
+      -0.46999999999999886
+    ],
+    "mean_delta_vs_J015_us": 0.5996250000000005,
+    "percent_vs_J015": 5.1469957081545115,
+    "route": "legacy_s1",
+    "route_baseline": "J013",
+    "delta_vs_route_baseline_us": [
+      1.3499999999999996,
+      0.859,
+      1.1495000000000015,
+      0.3705000000000016
+    ],
+    "mean_delta_vs_route_baseline_us": 0.9322500000000007
+  },
+  {
+    "case": "precision_fp16_09_mixed",
+    "dtype": "fp16",
+    "shape": [
+      600000,
+      1,
+      1
+    ],
+    "wlen": 1,
+    "versions": {
+      "J013": {
+        "round_medians_us": [
+          8.04,
+          8.01,
+          8.0,
+          8.52
+        ],
+        "mean_us": 8.1425,
+        "ratios": {
+          "aiv_scalar_ratio": 0.448,
+          "aiv_vec_ratio": 0.297,
+          "aiv_mte2_ratio": 0.409875,
+          "aiv_mte3_ratio": 0.13
+        }
+      },
+      "J015": {
+        "round_medians_us": [
+          8.0,
+          8.72,
+          8.06,
+          8.0
+        ],
+        "mean_us": 8.195,
+        "ratios": {
+          "aiv_scalar_ratio": 0.436375,
+          "aiv_vec_ratio": 0.29225,
+          "aiv_mte2_ratio": 0.419625,
+          "aiv_mte3_ratio": 0.125625
+        }
+      },
+      "J018": {
+        "round_medians_us": [
+          8.719,
+          8.01,
+          8.0195,
+          8.0195
+        ],
+        "mean_us": 8.192,
+        "ratios": {
+          "aiv_scalar_ratio": 0.4445,
+          "aiv_vec_ratio": 0.293375,
+          "aiv_mte2_ratio": 0.414375,
+          "aiv_mte3_ratio": 0.128625
+        }
+      },
+      "J019": {
+        "round_medians_us": [
+          7.98,
+          8.0,
+          8.54,
+          8.02
+        ],
+        "mean_us": 8.135,
+        "ratios": {
+          "aiv_scalar_ratio": 0.448125,
+          "aiv_vec_ratio": 0.294875,
+          "aiv_mte2_ratio": 0.415,
+          "aiv_mte3_ratio": 0.1275
+        }
+      },
+      "J020": {
+        "round_medians_us": [
+          7.999499999999999,
+          8.749500000000001,
+          9.07,
+          8.0
+        ],
+        "mean_us": 8.45475,
+        "ratios": {
+          "aiv_scalar_ratio": 0.454375,
+          "aiv_vec_ratio": 0.280625,
+          "aiv_mte2_ratio": 0.40225,
+          "aiv_mte3_ratio": 0.11962500000000001
+        }
+      }
+    },
+    "delta_vs_J015_us": [
+      -0.0005000000000006111,
+      0.029500000000000526,
+      1.0099999999999998,
+      0.0
+    ],
+    "mean_delta_vs_J015_us": 0.2597499999999999,
+    "percent_vs_J015": 3.169615619280064,
+    "route": "normal",
+    "route_baseline": "J013",
+    "delta_vs_route_baseline_us": [
+      -0.04049999999999976,
+      0.7395000000000014,
+      1.0700000000000003,
+      -0.5199999999999996
+    ],
+    "mean_delta_vs_route_baseline_us": 0.3122500000000006
+  },
+  {
+    "case": "precision_fp16_06_mixed",
+    "dtype": "fp16",
+    "shape": [
+      2,
+      3,
+      65
+    ],
+    "wlen": 3,
+    "versions": {
+      "J013": {
+        "round_medians_us": [
+          4.54,
+          4.55,
+          4.43,
+          4.78
+        ],
+        "mean_us": 4.575,
+        "ratios": {
+          "aiv_scalar_ratio": 0.745625,
+          "aiv_vec_ratio": 0.0865,
+          "aiv_mte2_ratio": 0.310375,
+          "aiv_mte3_ratio": 0.057749999999999996
+        }
+      },
+      "J015": {
+        "round_medians_us": [
+          4.48,
+          4.9595,
+          4.54,
+          4.52
+        ],
+        "mean_us": 4.624875,
+        "ratios": {
+          "aiv_scalar_ratio": 0.7455,
+          "aiv_vec_ratio": 0.086,
+          "aiv_mte2_ratio": 0.30874999999999997,
+          "aiv_mte3_ratio": 0.05675
+        }
+      },
+      "J018": {
+        "round_medians_us": [
+          4.98,
+          4.42,
+          4.4695,
+          4.49
+        ],
+        "mean_us": 4.589875,
+        "ratios": {
+          "aiv_scalar_ratio": 0.7545,
+          "aiv_vec_ratio": 0.086,
+          "aiv_mte2_ratio": 0.2995,
+          "aiv_mte3_ratio": 0.057124999999999995
+        }
+      },
+      "J019": {
+        "round_medians_us": [
+          4.56,
+          4.48,
+          4.82,
+          4.5
+        ],
+        "mean_us": 4.59,
+        "ratios": {
+          "aiv_scalar_ratio": 0.758625,
+          "aiv_vec_ratio": 0.0865,
+          "aiv_mte2_ratio": 0.29974999999999996,
+          "aiv_mte3_ratio": 0.06
+        }
+      },
+      "J020": {
+        "round_medians_us": [
+          4.529999999999999,
+          4.970000000000001,
+          4.79,
+          4.5395
+        ],
+        "mean_us": 4.707375,
+        "ratios": {
+          "aiv_scalar_ratio": 0.742625,
+          "aiv_vec_ratio": 0.082625,
+          "aiv_mte2_ratio": 0.30174999999999996,
+          "aiv_mte3_ratio": 0.058
+        }
+      }
+    },
+    "delta_vs_J015_us": [
+      0.049999999999998934,
+      0.010500000000000398,
+      0.25,
+      0.01950000000000074
+    ],
+    "mean_delta_vs_J015_us": 0.08250000000000002,
+    "percent_vs_J015": 1.7838319954593285,
+    "route": "normal",
+    "route_baseline": "J013",
+    "delta_vs_route_baseline_us": [
+      -0.010000000000000675,
+      0.4200000000000008,
+      0.3600000000000003,
+      -0.24049999999999994
+    ],
+    "mean_delta_vs_route_baseline_us": 0.13237500000000013
+  },
+  {
+    "case": "fp16_s1tiny",
+    "dtype": "fp16",
+    "shape": [
+      3,
+      5,
+      1
+    ],
+    "wlen": 5,
+    "versions": {
+      "J013": {
+        "round_medians_us": [
+          2.96,
+          2.9699999999999998,
+          3.72,
+          3.82
+        ],
+        "mean_us": 3.3674999999999997,
+        "ratios": {
+          "aiv_scalar_ratio": 0.872125,
+          "aiv_vec_ratio": 0.23650000000000002,
+          "aiv_mte2_ratio": 0.211125,
+          "aiv_mte3_ratio": 0.145125
+        }
+      },
+      "J015": {
+        "round_medians_us": [
+          3.01,
+          3.06,
+          4.17,
+          4.2595
+        ],
+        "mean_us": 3.624875,
+        "ratios": {
+          "aiv_scalar_ratio": 0.84875,
+          "aiv_vec_ratio": 0.22125,
+          "aiv_mte2_ratio": 0.209125,
+          "aiv_mte3_ratio": 0.133625
+        }
+      },
+      "J018": {
+        "round_medians_us": [
+          3.3695,
+          3.37,
+          4.63,
+          4.58
+        ],
+        "mean_us": 3.987375,
+        "ratios": {
+          "aiv_scalar_ratio": 0.819625,
+          "aiv_vec_ratio": 0.18225,
+          "aiv_mte2_ratio": 0.181625,
+          "aiv_mte3_ratio": 0.11787500000000001
+        }
+      },
+      "J019": {
+        "round_medians_us": [
+          2.98,
+          2.99,
+          3.9699999999999998,
+          4.0600000000000005
+        ],
+        "mean_us": 3.5,
+        "ratios": {
+          "aiv_scalar_ratio": 0.8734999999999999,
+          "aiv_vec_ratio": 0.229,
+          "aiv_mte2_ratio": 0.20975,
+          "aiv_mte3_ratio": 0.141375
+        }
+      },
+      "J020": {
+        "round_medians_us": [
+          2.98,
+          3.01,
+          3.95,
+          3.92
+        ],
+        "mean_us": 3.465,
+        "ratios": {
+          "aiv_scalar_ratio": 0.871375,
+          "aiv_vec_ratio": 0.2315,
+          "aiv_mte2_ratio": 0.21187499999999998,
+          "aiv_mte3_ratio": 0.143375
+        }
+      }
+    },
+    "delta_vs_J015_us": [
+      -0.029999999999999805,
+      -0.050000000000000266,
+      -0.21999999999999975,
+      -0.33950000000000014
+    ],
+    "mean_delta_vs_J015_us": -0.159875,
+    "percent_vs_J015": -4.4104969136866785,
+    "route": "legacy_s1",
+    "route_baseline": "J013",
+    "delta_vs_route_baseline_us": [
+      0.020000000000000018,
+      0.040000000000000036,
+      0.22999999999999998,
+      0.10000000000000009
+    ],
+    "mean_delta_vs_route_baseline_us": 0.09750000000000003
+  },
+  {
+    "case": "expanded_bf16_02_expanded",
+    "dtype": "bf16",
+    "shape": [
+      127,
+      256,
+      1
+    ],
+    "wlen": 256,
+    "versions": {
+      "J013": {
+        "round_medians_us": [
+          11.54,
+          11.42,
+          11.02,
+          10.62
+        ],
+        "mean_us": 11.149999999999999,
+        "ratios": {
+          "aiv_scalar_ratio": 0.438,
+          "aiv_vec_ratio": 0.10225000000000001,
+          "aiv_mte2_ratio": 0.658625,
+          "aiv_mte3_ratio": 0.1005
+        }
+      },
+      "J015": {
+        "round_medians_us": [
+          8.0,
+          8.46,
+          7.71,
+          7.98
+        ],
+        "mean_us": 8.0375,
+        "ratios": {
+          "aiv_scalar_ratio": 0.434625,
+          "aiv_vec_ratio": 0.06425,
+          "aiv_mte2_ratio": 0.537375,
+          "aiv_mte3_ratio": 0.086625
+        }
+      },
+      "J018": {
+        "round_medians_us": [
+          8.14,
+          7.79,
+          7.88,
+          7.71
+        ],
+        "mean_us": 7.88,
+        "ratios": {
+          "aiv_scalar_ratio": 0.47425,
+          "aiv_vec_ratio": 0.064125,
+          "aiv_mte2_ratio": 0.5351250000000001,
+          "aiv_mte3_ratio": 0.07875
+        }
+      },
+      "J019": {
+        "round_medians_us": [
+          8.07,
+          8.06,
+          9.2695,
+          7.88
+        ],
+        "mean_us": 8.319875,
+        "ratios": {
+          "aiv_scalar_ratio": 0.459125,
+          "aiv_vec_ratio": 0.061375,
+          "aiv_mte2_ratio": 0.52525,
+          "aiv_mte3_ratio": 0.07675
+        }
+      },
+      "J020": {
+        "round_medians_us": [
+          7.78,
+          8.36,
+          7.59,
+          7.7095
+        ],
+        "mean_us": 7.859875,
+        "ratios": {
+          "aiv_scalar_ratio": 0.430625,
+          "aiv_vec_ratio": 0.06475,
+          "aiv_mte2_ratio": 0.529,
+          "aiv_mte3_ratio": 0.08399999999999999
+        }
+      }
+    },
+    "delta_vs_J015_us": [
+      -0.21999999999999975,
+      -0.10000000000000142,
+      -0.1200000000000001,
+      -0.2705000000000002
+    ],
+    "mean_delta_vs_J015_us": -0.17762500000000037,
+    "percent_vs_J015": -2.2099533437013985,
+    "route": "merged_s1",
+    "route_baseline": "J015",
+    "delta_vs_route_baseline_us": [
+      -0.21999999999999975,
+      -0.10000000000000142,
+      -0.1200000000000001,
+      -0.2705000000000002
+    ],
+    "mean_delta_vs_route_baseline_us": -0.17762500000000037
+  },
+  {
+    "case": "expanded_bf16_03_expanded",
+    "dtype": "bf16",
+    "shape": [
+      129,
+      257,
+      1
+    ],
+    "wlen": 257,
+    "versions": {
+      "J013": {
+        "round_medians_us": [
+          11.61,
+          10.76,
+          11.72,
+          11.2695
+        ],
+        "mean_us": 11.339875,
+        "ratios": {
+          "aiv_scalar_ratio": 0.422375,
+          "aiv_vec_ratio": 0.113,
+          "aiv_mte2_ratio": 0.66225,
+          "aiv_mte3_ratio": 0.127
+        }
+      },
+      "J015": {
+        "round_medians_us": [
+          10.749500000000001,
+          12.1,
+          11.7,
+          12.1695
+        ],
+        "mean_us": 11.67975,
+        "ratios": {
+          "aiv_scalar_ratio": 0.4145,
+          "aiv_vec_ratio": 0.109875,
+          "aiv_mte2_ratio": 0.66475,
+          "aiv_mte3_ratio": 0.12512500000000001
+        }
+      },
+      "J018": {
+        "round_medians_us": [
+          11.42,
+          11.0095,
+          12.189499999999999,
+          11.7
+        ],
+        "mean_us": 11.579749999999999,
+        "ratios": {
+          "aiv_scalar_ratio": 0.4465,
+          "aiv_vec_ratio": 0.106875,
+          "aiv_mte2_ratio": 0.671,
+          "aiv_mte3_ratio": 0.123625
+        }
+      },
+      "J019": {
+        "round_medians_us": [
+          11.62,
+          11.659500000000001,
+          12.780000000000001,
+          12.099
+        ],
+        "mean_us": 12.039625000000001,
+        "ratios": {
+          "aiv_scalar_ratio": 0.420875,
+          "aiv_vec_ratio": 0.10475,
+          "aiv_mte2_ratio": 0.6627500000000001,
+          "aiv_mte3_ratio": 0.116375
+        }
+      },
+      "J020": {
+        "round_medians_us": [
+          11.0395,
+          13.6295,
+          11.3,
+          11.6695
+        ],
+        "mean_us": 11.909625,
+        "ratios": {
+          "aiv_scalar_ratio": 0.40212499999999995,
+          "aiv_vec_ratio": 0.107625,
+          "aiv_mte2_ratio": 0.6695,
+          "aiv_mte3_ratio": 0.12425
+        }
+      }
+    },
+    "delta_vs_J015_us": [
+      0.28999999999999915,
+      1.5295000000000005,
+      -0.3999999999999986,
+      -0.5
+    ],
+    "mean_delta_vs_J015_us": 0.22987500000000027,
+    "percent_vs_J015": 1.9681500032106891,
+    "route": "legacy_s1",
+    "route_baseline": "J013",
+    "delta_vs_route_baseline_us": [
+      -0.5704999999999991,
+      2.8695000000000004,
+      -0.41999999999999993,
+      0.3999999999999986
+    ],
+    "mean_delta_vs_route_baseline_us": 0.56975
+  },
+  {
+    "case": "precision_bf16_09_mixed",
+    "dtype": "bf16",
+    "shape": [
+      600000,
+      1,
+      1
+    ],
+    "wlen": 1,
+    "versions": {
+      "J013": {
+        "round_medians_us": [
+          8.11,
+          8.08,
+          8.1,
+          8.619
+        ],
+        "mean_us": 8.22725,
+        "ratios": {
+          "aiv_scalar_ratio": 0.4305,
+          "aiv_vec_ratio": 0.310375,
+          "aiv_mte2_ratio": 0.403875,
+          "aiv_mte3_ratio": 0.129
+        }
+      },
+      "J015": {
+        "round_medians_us": [
+          8.159500000000001,
+          8.94,
+          8.1,
+          8.12
+        ],
+        "mean_us": 8.329875,
+        "ratios": {
+          "aiv_scalar_ratio": 0.425375,
+          "aiv_vec_ratio": 0.306,
+          "aiv_mte2_ratio": 0.41175,
+          "aiv_mte3_ratio": 0.122
+        }
+      },
+      "J018": {
+        "round_medians_us": [
+          8.94,
+          8.17,
+          8.1095,
+          8.1
+        ],
+        "mean_us": 8.329875,
+        "ratios": {
+          "aiv_scalar_ratio": 0.4355,
+          "aiv_vec_ratio": 0.306875,
+          "aiv_mte2_ratio": 0.40700000000000003,
+          "aiv_mte3_ratio": 0.12625
+        }
+      },
+      "J019": {
+        "round_medians_us": [
+          8.12,
+          8.08,
+          9.02,
+          8.08
+        ],
+        "mean_us": 8.325,
+        "ratios": {
+          "aiv_scalar_ratio": 0.46025,
+          "aiv_vec_ratio": 0.301375,
+          "aiv_mte2_ratio": 0.388375,
+          "aiv_mte3_ratio": 0.11725
+        }
+      },
+      "J020": {
+        "round_medians_us": [
+          8.1,
+          8.9495,
+          8.599499999999999,
+          8.1095
+        ],
+        "mean_us": 8.439625,
+        "ratios": {
+          "aiv_scalar_ratio": 0.415375,
+          "aiv_vec_ratio": 0.301625,
+          "aiv_mte2_ratio": 0.416375,
+          "aiv_mte3_ratio": 0.126
+        }
+      }
+    },
+    "delta_vs_J015_us": [
+      -0.05950000000000166,
+      0.009500000000000952,
+      0.4994999999999994,
+      -0.010499999999998622
+    ],
+    "mean_delta_vs_J015_us": 0.10975000000000001,
+    "percent_vs_J015": 1.3175467819144915,
+    "route": "normal",
+    "route_baseline": "J013",
+    "delta_vs_route_baseline_us": [
+      -0.009999999999999787,
+      0.8695000000000004,
+      0.4994999999999994,
+      -0.5094999999999992
+    ],
+    "mean_delta_vs_route_baseline_us": 0.2123750000000002
+  },
+  {
+    "case": "precision_bf16_06_mixed",
+    "dtype": "bf16",
+    "shape": [
+      2,
+      3,
+      65
+    ],
+    "wlen": 3,
+    "versions": {
+      "J013": {
+        "round_medians_us": [
+          4.5,
+          4.5,
+          4.5,
+          4.77
+        ],
+        "mean_us": 4.5675,
+        "ratios": {
+          "aiv_scalar_ratio": 0.7415,
+          "aiv_vec_ratio": 0.08825,
+          "aiv_mte2_ratio": 0.313625,
+          "aiv_mte3_ratio": 0.05575
+        }
+      },
+      "J015": {
+        "round_medians_us": [
+          4.49,
+          4.8495,
+          4.5600000000000005,
+          4.52
+        ],
+        "mean_us": 4.604875,
+        "ratios": {
+          "aiv_scalar_ratio": 0.742625,
+          "aiv_vec_ratio": 0.08775,
+          "aiv_mte2_ratio": 0.31575,
+          "aiv_mte3_ratio": 0.054125
+        }
+      },
+      "J018": {
+        "round_medians_us": [
+          4.96,
+          4.49,
+          4.529999999999999,
+          4.49
+        ],
+        "mean_us": 4.6175,
+        "ratios": {
+          "aiv_scalar_ratio": 0.7535000000000001,
+          "aiv_vec_ratio": 0.087875,
+          "aiv_mte2_ratio": 0.306875,
+          "aiv_mte3_ratio": 0.057124999999999995
+        }
+      },
+      "J019": {
+        "round_medians_us": [
+          4.470000000000001,
+          4.5,
+          4.79,
+          4.51
+        ],
+        "mean_us": 4.5675,
+        "ratios": {
+          "aiv_scalar_ratio": 0.76125,
+          "aiv_vec_ratio": 0.086625,
+          "aiv_mte2_ratio": 0.302,
+          "aiv_mte3_ratio": 0.055875
+        }
+      },
+      "J020": {
+        "round_medians_us": [
+          4.51,
+          4.92,
+          4.79,
+          4.5
+        ],
+        "mean_us": 4.68,
+        "ratios": {
+          "aiv_scalar_ratio": 0.7338749999999999,
+          "aiv_vec_ratio": 0.0865,
+          "aiv_mte2_ratio": 0.318125,
+          "aiv_mte3_ratio": 0.05525
+        }
+      }
+    },
+    "delta_vs_J015_us": [
+      0.019999999999999574,
+      0.07050000000000001,
+      0.22999999999999954,
+      -0.019999999999999574
+    ],
+    "mean_delta_vs_J015_us": 0.07512499999999989,
+    "percent_vs_J015": 1.6314232199571066,
+    "route": "normal",
+    "route_baseline": "J013",
+    "delta_vs_route_baseline_us": [
+      0.009999999999999787,
+      0.41999999999999993,
+      0.29000000000000004,
+      -0.2699999999999996
+    ],
+    "mean_delta_vs_route_baseline_us": 0.11250000000000004
+  },
+  {
+    "case": "bf16_s1tiny",
+    "dtype": "bf16",
+    "shape": [
+      3,
+      5,
+      1
+    ],
+    "wlen": 5,
+    "versions": {
+      "J013": {
+        "round_medians_us": [
+          2.94,
+          2.94,
+          3.21,
+          3.2695
+        ],
+        "mean_us": 3.089875,
+        "ratios": {
+          "aiv_scalar_ratio": 0.9235,
+          "aiv_vec_ratio": 0.251375,
+          "aiv_mte2_ratio": 0.22749999999999998,
+          "aiv_mte3_ratio": 0.156125
+        }
+      },
+      "J015": {
+        "round_medians_us": [
+          2.96,
+          2.96,
+          3.46,
+          3.499
+        ],
+        "mean_us": 3.21975,
+        "ratios": {
+          "aiv_scalar_ratio": 0.908625,
+          "aiv_vec_ratio": 0.242,
+          "aiv_mte2_ratio": 0.2345,
+          "aiv_mte3_ratio": 0.14950000000000002
+        }
+      },
+      "J018": {
+        "round_medians_us": [
+          3.13,
+          3.1,
+          4.37,
+          4.32
+        ],
+        "mean_us": 3.73,
+        "ratios": {
+          "aiv_scalar_ratio": 0.849625,
+          "aiv_vec_ratio": 0.205625,
+          "aiv_mte2_ratio": 0.2015,
+          "aiv_mte3_ratio": 0.134
+        }
+      },
+      "J019": {
+        "round_medians_us": [
+          2.94,
+          2.9299999999999997,
+          4.0,
+          4.0600000000000005
+        ],
+        "mean_us": 3.4825,
+        "ratios": {
+          "aiv_scalar_ratio": 0.8714999999999999,
+          "aiv_vec_ratio": 0.226375,
+          "aiv_mte2_ratio": 0.21387499999999998,
+          "aiv_mte3_ratio": 0.138375
+        }
+      },
+      "J020": {
+        "round_medians_us": [
+          2.96,
+          2.96,
+          4.25,
+          4.1
+        ],
+        "mean_us": 3.5675,
+        "ratios": {
+          "aiv_scalar_ratio": 0.852875,
+          "aiv_vec_ratio": 0.222,
+          "aiv_mte2_ratio": 0.2105,
+          "aiv_mte3_ratio": 0.13974999999999999
+        }
+      }
+    },
+    "delta_vs_J015_us": [
+      0.0,
+      0.0,
+      0.79,
+      0.6009999999999995
+    ],
+    "mean_delta_vs_J015_us": 0.3477499999999999,
+    "percent_vs_J015": 10.800527991303666,
+    "route": "legacy_s1",
+    "route_baseline": "J013",
+    "delta_vs_route_baseline_us": [
+      0.020000000000000018,
+      0.020000000000000018,
+      1.04,
+      0.8304999999999998
+    ],
+    "mean_delta_vs_route_baseline_us": 0.47762499999999997
+  },
+  {
+    "case": "fp32_cross512",
+    "dtype": "fp32",
+    "shape": [
+      1001,
+      512,
+      1
+    ],
+    "wlen": 512,
+    "versions": {
+      "J013": {
+        "round_medians_us": [
+          41.099,
+          42.108999999999995,
+          41.319500000000005,
+          43.6095
+        ],
+        "mean_us": 42.03425,
+        "ratios": {
+          "aiv_scalar_ratio": 0.33325000000000005,
+          "aiv_vec_ratio": 0.10925,
+          "aiv_mte2_ratio": 0.8176249999999999,
+          "aiv_mte3_ratio": 0.198
+        }
+      },
+      "J015": {
+        "round_medians_us": [
+          10.819500000000001,
+          11.42,
+          11.01,
+          11.319500000000001
+        ],
+        "mean_us": 11.14225,
+        "ratios": {
+          "aiv_scalar_ratio": 0.33625,
+          "aiv_vec_ratio": 0.20675,
+          "aiv_mte2_ratio": 0.563875,
+          "aiv_mte3_ratio": 0.2645
+        }
+      },
+      "J018": {
+        "round_medians_us": [
+          9.559,
+          8.8995,
+          8.9595,
+          8.77
+        ],
+        "mean_us": 9.047,
+        "ratios": {
+          "aiv_scalar_ratio": 0.454125,
+          "aiv_vec_ratio": 0.25725,
+          "aiv_mte2_ratio": 0.45425,
+          "aiv_mte3_ratio": 0.158375
+        }
+      },
+      "J019": {
+        "round_medians_us": [
+          9.01,
+          9.049499999999998,
+          9.06,
+          8.93
+        ],
+        "mean_us": 9.012374999999999,
+        "ratios": {
+          "aiv_scalar_ratio": 0.448625,
+          "aiv_vec_ratio": 0.25525,
+          "aiv_mte2_ratio": 0.45775,
+          "aiv_mte3_ratio": 0.1605
+        }
+      },
+      "J020": {
+        "round_medians_us": [
+          8.8,
+          9.84,
+          9.12,
+          8.81
+        ],
+        "mean_us": 9.1425,
+        "ratios": {
+          "aiv_scalar_ratio": 0.441375,
+          "aiv_vec_ratio": 0.256125,
+          "aiv_mte2_ratio": 0.453125,
+          "aiv_mte3_ratio": 0.16
+        }
+      }
+    },
+    "delta_vs_J015_us": [
+      -2.0195000000000007,
+      -1.58,
+      -1.8900000000000006,
+      -2.509500000000001
+    ],
+    "mean_delta_vs_J015_us": -1.9997500000000006,
+    "percent_vs_J015": -17.947452265027263,
+    "route": "resident_s1",
+    "route_baseline": "J018",
+    "delta_vs_route_baseline_us": [
+      -0.7589999999999986,
+      0.9405000000000001,
+      0.16049999999999898,
+      0.040000000000000924
+    ],
+    "mean_delta_vs_route_baseline_us": 0.09550000000000036
+  },
+  {
+    "case": "fp16_cross512",
+    "dtype": "fp16",
+    "shape": [
+      1001,
+      512,
+      1
+    ],
+    "wlen": 512,
+    "versions": {
+      "J013": {
+        "round_medians_us": [
+          41.819,
+          42.809,
+          42.0295,
+          44.419
+        ],
+        "mean_us": 42.769125,
+        "ratios": {
+          "aiv_scalar_ratio": 0.346,
+          "aiv_vec_ratio": 0.154125,
+          "aiv_mte2_ratio": 0.7695000000000001,
+          "aiv_mte3_ratio": 0.14737499999999998
+        }
+      },
+      "J015": {
+        "round_medians_us": [
+          14.0095,
+          13.8595,
+          13.52,
+          14.02
+        ],
+        "mean_us": 13.85225,
+        "ratios": {
+          "aiv_scalar_ratio": 0.29274999999999995,
+          "aiv_vec_ratio": 0.20975,
+          "aiv_mte2_ratio": 0.588,
+          "aiv_mte3_ratio": 0.237625
+        }
+      },
+      "J018": {
+        "round_medians_us": [
+          14.4895,
+          14.209499999999998,
+          13.9295,
+          13.5195
+        ],
+        "mean_us": 14.036999999999999,
+        "ratios": {
+          "aiv_scalar_ratio": 0.33775,
+          "aiv_vec_ratio": 0.206,
+          "aiv_mte2_ratio": 0.586375,
+          "aiv_mte3_ratio": 0.245375
+        }
+      },
+      "J019": {
+        "round_medians_us": [
+          13.549499999999998,
+          13.5395,
+          14.46,
+          13.92
+        ],
+        "mean_us": 13.86725,
+        "ratios": {
+          "aiv_scalar_ratio": 0.29574999999999996,
+          "aiv_vec_ratio": 0.209625,
+          "aiv_mte2_ratio": 0.59275,
+          "aiv_mte3_ratio": 0.246125
+        }
+      },
+      "J020": {
+        "round_medians_us": [
+          14.1995,
+          15.36,
+          15.9795,
+          13.51
+        ],
+        "mean_us": 14.76225,
+        "ratios": {
+          "aiv_scalar_ratio": 0.2875,
+          "aiv_vec_ratio": 0.19474999999999998,
+          "aiv_mte2_ratio": 0.591875,
+          "aiv_mte3_ratio": 0.251125
+        }
+      }
+    },
+    "delta_vs_J015_us": [
+      0.19000000000000128,
+      1.5004999999999988,
+      2.4595000000000002,
+      -0.5099999999999998
+    ],
+    "mean_delta_vs_J015_us": 0.9100000000000001,
+    "percent_vs_J015": 6.569329892255782,
+    "route": "merged_s1",
+    "route_baseline": "J015",
+    "delta_vs_route_baseline_us": [
+      0.19000000000000128,
+      1.5004999999999988,
+      2.4595000000000002,
+      -0.5099999999999998
+    ],
+    "mean_delta_vs_route_baseline_us": 0.9100000000000001
+  },
+  {
+    "case": "bf16_cross512",
+    "dtype": "bf16",
+    "shape": [
+      1001,
+      512,
+      1
+    ],
+    "wlen": 512,
+    "versions": {
+      "J013": {
+        "round_medians_us": [
+          41.879,
+          42.819500000000005,
+          42.099,
+          44.419
+        ],
+        "mean_us": 42.804125,
+        "ratios": {
+          "aiv_scalar_ratio": 0.34825,
+          "aiv_vec_ratio": 0.15675,
+          "aiv_mte2_ratio": 0.7655000000000001,
+          "aiv_mte3_ratio": 0.14625
+        }
+      },
+      "J015": {
+        "round_medians_us": [
+          14.0795,
+          13.92,
+          13.569500000000001,
+          14.08
+        ],
+        "mean_us": 13.91225,
+        "ratios": {
+          "aiv_scalar_ratio": 0.294875,
+          "aiv_vec_ratio": 0.2195,
+          "aiv_mte2_ratio": 0.578875,
+          "aiv_mte3_ratio": 0.231625
+        }
+      },
+      "J018": {
+        "round_medians_us": [
+          14.56,
+          14.279499999999999,
+          13.9495,
+          13.5395
+        ],
+        "mean_us": 14.082125,
+        "ratios": {
+          "aiv_scalar_ratio": 0.34387500000000004,
+          "aiv_vec_ratio": 0.21575,
+          "aiv_mte2_ratio": 0.5798749999999999,
+          "aiv_mte3_ratio": 0.24025
+        }
+      },
+      "J019": {
+        "round_medians_us": [
+          13.58,
+          13.56,
+          15.97,
+          13.96
+        ],
+        "mean_us": 14.2675,
+        "ratios": {
+          "aiv_scalar_ratio": 0.30374999999999996,
+          "aiv_vec_ratio": 0.212875,
+          "aiv_mte2_ratio": 0.58,
+          "aiv_mte3_ratio": 0.240125
+        }
+      },
+      "J020": {
+        "round_medians_us": [
+          14.26,
+          15.419,
+          14.5195,
+          13.56
+        ],
+        "mean_us": 14.439625,
+        "ratios": {
+          "aiv_scalar_ratio": 0.278625,
+          "aiv_vec_ratio": 0.209875,
+          "aiv_mte2_ratio": 0.59075,
+          "aiv_mte3_ratio": 0.24725
+        }
+      }
+    },
+    "delta_vs_J015_us": [
+      0.18050000000000033,
+      1.4990000000000006,
+      0.9499999999999993,
+      -0.5199999999999996
+    ],
+    "mean_delta_vs_J015_us": 0.5273750000000001,
+    "percent_vs_J015": 3.7907240022282407,
+    "route": "merged_s1",
+    "route_baseline": "J015",
+    "delta_vs_route_baseline_us": [
+      0.18050000000000033,
+      1.4990000000000006,
+      0.9499999999999993,
+      -0.5199999999999996
+    ],
+    "mean_delta_vs_route_baseline_us": 0.5273750000000001
+  },
+  {
+    "case": "fp32_many16",
+    "dtype": "fp32",
+    "shape": [
+      40001,
+      16,
+      1
+    ],
+    "wlen": 16,
+    "versions": {
+      "J013": {
+        "round_medians_us": [
+          1411.832,
+          1248.575,
+          1412.6219999999998,
+          1288.874
+        ],
+        "mean_us": 1340.47575,
+        "ratios": {
+          "aiv_scalar_ratio": 0.33825,
+          "aiv_vec_ratio": 0.09275,
+          "aiv_mte2_ratio": 0.874375,
+          "aiv_mte3_ratio": 0.12975
+        }
+      },
+      "J015": {
+        "round_medians_us": [
+          20.3595,
+          21.2195,
+          19.9595,
+          20.209000000000003
+        ],
+        "mean_us": 20.436875,
+        "ratios": {
+          "aiv_scalar_ratio": 0.6625000000000001,
+          "aiv_vec_ratio": 0.568,
+          "aiv_mte2_ratio": 0.191125,
+          "aiv_mte3_ratio": 0.07825
+        }
+      },
+      "J018": {
+        "round_medians_us": [
+          16.4595,
+          15.619499999999999,
+          15.5095,
+          15.479
+        ],
+        "mean_us": 15.766874999999999,
+        "ratios": {
+          "aiv_scalar_ratio": 0.749125,
+          "aiv_vec_ratio": 0.35375,
+          "aiv_mte2_ratio": 0.234375,
+          "aiv_mte3_ratio": 0.102875
+        }
+      },
+      "J019": {
+        "round_medians_us": [
+          12.56,
+          12.54,
+          12.9,
+          12.439499999999999
+        ],
+        "mean_us": 12.609874999999999,
+        "ratios": {
+          "aiv_scalar_ratio": 0.594625,
+          "aiv_vec_ratio": 0.435,
+          "aiv_mte2_ratio": 0.2965,
+          "aiv_mte3_ratio": 0.13525
+        }
+      },
+      "J020": {
+        "round_medians_us": [
+          15.5795,
+          16.369500000000002,
+          15.94,
+          15.48
+        ],
+        "mean_us": 15.84225,
+        "ratios": {
+          "aiv_scalar_ratio": 0.738625,
+          "aiv_vec_ratio": 0.351875,
+          "aiv_mte2_ratio": 0.23875,
+          "aiv_mte3_ratio": 0.102125
+        }
+      }
+    },
+    "delta_vs_J015_us": [
+      -4.780000000000001,
+      -4.849999999999998,
+      -4.019499999999999,
+      -4.729000000000003
+    ],
+    "mean_delta_vs_J015_us": -4.594625000000001,
+    "percent_vs_J015": -22.48203308969694,
+    "route": "resident_s1",
+    "route_baseline": "J018",
+    "delta_vs_route_baseline_us": [
+      -0.879999999999999,
+      0.7500000000000036,
+      0.4305000000000003,
+      0.0010000000000012221
+    ],
+    "mean_delta_vs_route_baseline_us": 0.07537500000000152
+  },
+  {
+    "case": "fp32_n1201c512",
+    "dtype": "fp32",
+    "shape": [
+      1201,
+      512,
+      1
+    ],
+    "wlen": 512,
+    "versions": {
+      "J013": {
+        "round_medians_us": [
+          48.739,
+          49.799,
+          48.519,
+          51.388999999999996
+        ],
+        "mean_us": 49.6115,
+        "ratios": {
+          "aiv_scalar_ratio": 0.3275,
+          "aiv_vec_ratio": 0.1095,
+          "aiv_mte2_ratio": 0.8242499999999999,
+          "aiv_mte3_ratio": 0.21425
+        }
+      },
+      "J015": {
+        "round_medians_us": [
+          11.36,
+          11.88,
+          11.46,
+          11.869499999999999
+        ],
+        "mean_us": 11.642375,
+        "ratios": {
+          "aiv_scalar_ratio": 0.323875,
+          "aiv_vec_ratio": 0.229375,
+          "aiv_mte2_ratio": 0.541625,
+          "aiv_mte3_ratio": 0.255875
+        }
+      },
+      "J018": {
+        "round_medians_us": [
+          12.04,
+          11.56,
+          12.0195,
+          11.55
+        ],
+        "mean_us": 11.792375,
+        "ratios": {
+          "aiv_scalar_ratio": 0.387625,
+          "aiv_vec_ratio": 0.228875,
+          "aiv_mte2_ratio": 0.53825,
+          "aiv_mte3_ratio": 0.247375
+        }
+      },
+      "J019": {
+        "round_medians_us": [
+          11.479,
+          11.409500000000001,
+          12.31,
+          11.95
+        ],
+        "mean_us": 11.787125,
+        "ratios": {
+          "aiv_scalar_ratio": 0.32425000000000004,
+          "aiv_vec_ratio": 0.2265,
+          "aiv_mte2_ratio": 0.54725,
+          "aiv_mte3_ratio": 0.254875
+        }
+      },
+      "J020": {
+        "round_medians_us": [
+          11.5,
+          13.04,
+          12.35,
+          11.499
+        ],
+        "mean_us": 12.097249999999999,
+        "ratios": {
+          "aiv_scalar_ratio": 0.312125,
+          "aiv_vec_ratio": 0.22225,
+          "aiv_mte2_ratio": 0.5487500000000001,
+          "aiv_mte3_ratio": 0.265625
+        }
+      }
+    },
+    "delta_vs_J015_us": [
+      0.14000000000000057,
+      1.1599999999999984,
+      0.8899999999999988,
+      -0.37049999999999805
+    ],
+    "mean_delta_vs_J015_us": 0.4548749999999999,
+    "percent_vs_J015": 3.9070636360708066,
+    "route": "merged_s1",
+    "route_baseline": "J015",
+    "delta_vs_route_baseline_us": [
+      0.14000000000000057,
+      1.1599999999999984,
+      0.8899999999999988,
+      -0.37049999999999805
+    ],
+    "mean_delta_vs_route_baseline_us": 0.4548749999999999
+  },
+  {
+    "case": "fp32_n2001c512",
+    "dtype": "fp32",
+    "shape": [
+      2001,
+      512,
+      1
+    ],
+    "wlen": 512,
+    "versions": {
+      "J013": {
+        "round_medians_us": [
+          78.119,
+          80.0985,
+          77.938,
+          82.7385
+        ],
+        "mean_us": 79.7235,
+        "ratios": {
+          "aiv_scalar_ratio": 0.316125,
+          "aiv_vec_ratio": 0.1105,
+          "aiv_mte2_ratio": 0.838,
+          "aiv_mte3_ratio": 0.2145
+        }
+      },
+      "J015": {
+        "round_medians_us": [
+          16.07,
+          16.35,
+          15.919,
+          16.499
+        ],
+        "mean_us": 16.2095,
+        "ratios": {
+          "aiv_scalar_ratio": 0.29274999999999995,
+          "aiv_vec_ratio": 0.257125,
+          "aiv_mte2_ratio": 0.5811249999999999,
+          "aiv_mte3_ratio": 0.329125
+        }
+      },
+      "J018": {
+        "round_medians_us": [
+          16.8,
+          16.32,
+          16.66,
+          15.96
+        ],
+        "mean_us": 16.435000000000002,
+        "ratios": {
+          "aiv_scalar_ratio": 0.356875,
+          "aiv_vec_ratio": 0.25325,
+          "aiv_mte2_ratio": 0.5852499999999999,
+          "aiv_mte3_ratio": 0.326625
+        }
+      },
+      "J019": {
+        "round_medians_us": [
+          15.6995,
+          15.69,
+          17.06,
+          16.64
+        ],
+        "mean_us": 16.272375,
+        "ratios": {
+          "aiv_scalar_ratio": 0.29525,
+          "aiv_vec_ratio": 0.256125,
+          "aiv_mte2_ratio": 0.58475,
+          "aiv_mte3_ratio": 0.318375
+        }
+      },
+      "J020": {
+        "round_medians_us": [
+          16.22,
+          18.04,
+          17.099,
+          15.9
+        ],
+        "mean_us": 16.81475,
+        "ratios": {
+          "aiv_scalar_ratio": 0.28125,
+          "aiv_vec_ratio": 0.2485,
+          "aiv_mte2_ratio": 0.5928749999999999,
+          "aiv_mte3_ratio": 0.339375
+        }
+      }
+    },
+    "delta_vs_J015_us": [
+      0.14999999999999858,
+      1.6899999999999977,
+      1.1799999999999997,
+      -0.5989999999999984
+    ],
+    "mean_delta_vs_J015_us": 0.6052499999999994,
+    "percent_vs_J015": 3.7339214658070885,
+    "route": "merged_s1",
+    "route_baseline": "J015",
+    "delta_vs_route_baseline_us": [
+      0.14999999999999858,
+      1.6899999999999977,
+      1.1799999999999997,
+      -0.5989999999999984
+    ],
+    "mean_delta_vs_route_baseline_us": 0.6052499999999994
+  },
+  {
+    "case": "fp32_n127c4096",
+    "dtype": "fp32",
+    "shape": [
+      127,
+      4096,
+      1
+    ],
+    "wlen": 4096,
+    "versions": {
+      "J013": {
+        "round_medians_us": [
+          11.0,
+          10.569500000000001,
+          10.8895,
+          10.9
+        ],
+        "mean_us": 10.83975,
+        "ratios": {
+          "aiv_scalar_ratio": 0.39,
+          "aiv_vec_ratio": 0.21125,
+          "aiv_mte2_ratio": 0.571125,
+          "aiv_mte3_ratio": 0.1785
+        }
+      },
+      "J015": {
+        "round_medians_us": [
+          9.339500000000001,
+          9.82,
+          9.22,
+          9.33
+        ],
+        "mean_us": 9.427375000000001,
+        "ratios": {
+          "aiv_scalar_ratio": 0.377625,
+          "aiv_vec_ratio": 0.21525,
+          "aiv_mte2_ratio": 0.543,
+          "aiv_mte3_ratio": 0.1725
+        }
+      },
+      "J018": {
+        "round_medians_us": [
+          10.56,
+          9.29,
+          9.2,
+          9.22
+        ],
+        "mean_us": 9.567499999999999,
+        "ratios": {
+          "aiv_scalar_ratio": 0.40875,
+          "aiv_vec_ratio": 0.212875,
+          "aiv_mte2_ratio": 0.5465,
+          "aiv_mte3_ratio": 0.174625
+        }
+      },
+      "J019": {
+        "round_medians_us": [
+          9.339500000000001,
+          9.31,
+          9.709499999999998,
+          9.23
+        ],
+        "mean_us": 9.39725,
+        "ratios": {
+          "aiv_scalar_ratio": 0.38787499999999997,
+          "aiv_vec_ratio": 0.2165,
+          "aiv_mte2_ratio": 0.543,
+          "aiv_mte3_ratio": 0.163875
+        }
+      },
+      "J020": {
+        "round_medians_us": [
+          9.36,
+          10.009,
+          9.7395,
+          9.2695
+        ],
+        "mean_us": 9.5945,
+        "ratios": {
+          "aiv_scalar_ratio": 0.36975,
+          "aiv_vec_ratio": 0.21125,
+          "aiv_mte2_ratio": 0.549625,
+          "aiv_mte3_ratio": 0.17099999999999999
+        }
+      }
+    },
+    "delta_vs_J015_us": [
+      0.02049999999999841,
+      0.18900000000000006,
+      0.519499999999999,
+      -0.06049999999999933
+    ],
+    "mean_delta_vs_J015_us": 0.16712499999999952,
+    "percent_vs_J015": 1.7727628316471788,
+    "route": "merged_s1",
+    "route_baseline": "J015",
+    "delta_vs_route_baseline_us": [
+      0.02049999999999841,
+      0.18900000000000006,
+      0.519499999999999,
+      -0.06049999999999933
+    ],
+    "mean_delta_vs_route_baseline_us": 0.16712499999999952
+  },
+  {
+    "case": "fp16_many16",
+    "dtype": "fp16",
+    "shape": [
+      40001,
+      16,
+      1
+    ],
+    "wlen": 16,
+    "versions": {
+      "J013": {
+        "round_medians_us": [
+          1411.6315,
+          1248.025,
+          1412.3715,
+          1288.534
+        ],
+        "mean_us": 1340.1405,
+        "ratios": {
+          "aiv_scalar_ratio": 0.35550000000000004,
+          "aiv_vec_ratio": 0.13325,
+          "aiv_mte2_ratio": 0.826,
+          "aiv_mte3_ratio": 0.1235
+        }
+      },
+      "J015": {
+        "round_medians_us": [
+          19.979,
+          20.68,
+          20.049500000000002,
+          20.1095
+        ],
+        "mean_us": 20.2045,
+        "ratios": {
+          "aiv_scalar_ratio": 0.677,
+          "aiv_vec_ratio": 0.6108750000000001,
+          "aiv_mte2_ratio": 0.14825,
+          "aiv_mte3_ratio": 0.0495
+        }
+      },
+      "J018": {
+        "round_medians_us": [
+          15.08,
+          14.34,
+          14.439499999999999,
+          14.5995
+        ],
+        "mean_us": 14.61475,
+        "ratios": {
+          "aiv_scalar_ratio": 0.7415,
+          "aiv_vec_ratio": 0.401,
+          "aiv_mte2_ratio": 0.212375,
+          "aiv_mte3_ratio": 0.073
+        }
+      },
+      "J019": {
+        "round_medians_us": [
+          12.0195,
+          11.9695,
+          12.6795,
+          12.1
+        ],
+        "mean_us": 12.192125,
+        "ratios": {
+          "aiv_scalar_ratio": 0.5971249999999999,
+          "aiv_vec_ratio": 0.48275,
+          "aiv_mte2_ratio": 0.25775000000000003,
+          "aiv_mte3_ratio": 0.088375
+        }
+      },
+      "J020": {
+        "round_medians_us": [
+          14.34,
+          15.08,
+          15.2,
+          14.4
+        ],
+        "mean_us": 14.754999999999999,
+        "ratios": {
+          "aiv_scalar_ratio": 0.7282500000000001,
+          "aiv_vec_ratio": 0.391,
+          "aiv_mte2_ratio": 0.21425,
+          "aiv_mte3_ratio": 0.0715
+        }
+      }
+    },
+    "delta_vs_J015_us": [
+      -5.638999999999999,
+      -5.6,
+      -4.849500000000003,
+      -5.7095
+    ],
+    "mean_delta_vs_J015_us": -5.4495000000000005,
+    "percent_vs_J015": -26.971714222079246,
+    "route": "resident_s1",
+    "route_baseline": "J018",
+    "delta_vs_route_baseline_us": [
+      -0.7400000000000002,
+      0.7400000000000002,
+      0.7605000000000004,
+      -0.19950000000000045
+    ],
+    "mean_delta_vs_route_baseline_us": 0.14024999999999999
+  },
+  {
+    "case": "fp16_n1201c512",
+    "dtype": "fp16",
+    "shape": [
+      1201,
+      512,
+      1
+    ],
+    "wlen": 512,
+    "versions": {
+      "J013": {
+        "round_medians_us": [
+          49.108999999999995,
+          50.379,
+          49.339,
+          52.189
+        ],
+        "mean_us": 50.254,
+        "ratios": {
+          "aiv_scalar_ratio": 0.34125,
+          "aiv_vec_ratio": 0.155,
+          "aiv_mte2_ratio": 0.7745,
+          "aiv_mte3_ratio": 0.137625
+        }
+      },
+      "J015": {
+        "round_medians_us": [
+          16.689500000000002,
+          16.82,
+          16.549500000000002,
+          17.2095
+        ],
+        "mean_us": 16.817125,
+        "ratios": {
+          "aiv_scalar_ratio": 0.26725,
+          "aiv_vec_ratio": 0.2,
+          "aiv_mte2_ratio": 0.636,
+          "aiv_mte3_ratio": 0.31825000000000003
+        }
+      },
+      "J018": {
+        "round_medians_us": [
+          10.58,
+          10.02,
+          10.54,
+          10.38
+        ],
+        "mean_us": 10.379999999999999,
+        "ratios": {
+          "aiv_scalar_ratio": 0.479,
+          "aiv_vec_ratio": 0.3625,
+          "aiv_mte2_ratio": 0.381625,
+          "aiv_mte3_ratio": 0.13775
+        }
+      },
+      "J019": {
+        "round_medians_us": [
+          10.21,
+          10.18,
+          10.659500000000001,
+          10.6295
+        ],
+        "mean_us": 10.41975,
+        "ratios": {
+          "aiv_scalar_ratio": 0.47625,
+          "aiv_vec_ratio": 0.366125,
+          "aiv_mte2_ratio": 0.3835,
+          "aiv_mte3_ratio": 0.132375
+        }
+      },
+      "J020": {
+        "round_medians_us": [
+          9.9895,
+          11.099,
+          11.68,
+          10.42
+        ],
+        "mean_us": 10.797125,
+        "ratios": {
+          "aiv_scalar_ratio": 0.461125,
+          "aiv_vec_ratio": 0.34475,
+          "aiv_mte2_ratio": 0.3925,
+          "aiv_mte3_ratio": 0.132
+        }
+      }
+    },
+    "delta_vs_J015_us": [
+      -6.700000000000003,
+      -5.721,
+      -4.869500000000002,
+      -6.7894999999999985
+    ],
+    "mean_delta_vs_J015_us": -6.020000000000001,
+    "percent_vs_J015": -35.796843990872404,
+    "route": "resident_s1",
+    "route_baseline": "J018",
+    "delta_vs_route_baseline_us": [
+      -0.5905000000000005,
+      1.0790000000000006,
+      1.1400000000000006,
+      0.03999999999999915
+    ],
+    "mean_delta_vs_route_baseline_us": 0.41712499999999997
+  },
+  {
+    "case": "fp16_n2001c512",
+    "dtype": "fp16",
+    "shape": [
+      2001,
+      512,
+      1
+    ],
+    "wlen": 512,
+    "versions": {
+      "J013": {
+        "round_medians_us": [
+          78.459,
+          80.838,
+          78.769,
+          83.4885
+        ],
+        "mean_us": 80.388625,
+        "ratios": {
+          "aiv_scalar_ratio": 0.3305,
+          "aiv_vec_ratio": 0.15675,
+          "aiv_mte2_ratio": 0.7867500000000001,
+          "aiv_mte3_ratio": 0.13999999999999999
+        }
+      },
+      "J015": {
+        "round_medians_us": [
+          24.2,
+          23.76,
+          23.279,
+          24.3395
+        ],
+        "mean_us": 23.894625,
+        "ratios": {
+          "aiv_scalar_ratio": 0.233,
+          "aiv_vec_ratio": 0.21912500000000001,
+          "aiv_mte2_ratio": 0.66,
+          "aiv_mte3_ratio": 0.34850000000000003
+        }
+      },
+      "J018": {
+        "round_medians_us": [
+          25.14,
+          24.689500000000002,
+          24.08,
+          23.24
+        ],
+        "mean_us": 24.287375,
+        "ratios": {
+          "aiv_scalar_ratio": 0.27625,
+          "aiv_vec_ratio": 0.21375,
+          "aiv_mte2_ratio": 0.666625,
+          "aiv_mte3_ratio": 0.363875
+        }
+      },
+      "J019": {
+        "round_medians_us": [
+          23.379,
+          23.34,
+          24.9095,
+          24.0995
+        ],
+        "mean_us": 23.932000000000002,
+        "ratios": {
+          "aiv_scalar_ratio": 0.2345,
+          "aiv_vec_ratio": 0.2185,
+          "aiv_mte2_ratio": 0.659375,
+          "aiv_mte3_ratio": 0.35
+        }
+      },
+      "J020": {
+        "round_medians_us": [
+          24.78,
+          27.0395,
+          26.399,
+          23.259500000000003
+        ],
+        "mean_us": 25.369500000000002,
+        "ratios": {
+          "aiv_scalar_ratio": 0.227125,
+          "aiv_vec_ratio": 0.20550000000000002,
+          "aiv_mte2_ratio": 0.668875,
+          "aiv_mte3_ratio": 0.358125
+        }
+      }
+    },
+    "delta_vs_J015_us": [
+      0.5800000000000018,
+      3.2794999999999987,
+      3.120000000000001,
+      -1.0799999999999983
+    ],
+    "mean_delta_vs_J015_us": 1.4748750000000008,
+    "percent_vs_J015": 6.172413251934272,
+    "route": "merged_s1",
+    "route_baseline": "J015",
+    "delta_vs_route_baseline_us": [
+      0.5800000000000018,
+      3.2794999999999987,
+      3.120000000000001,
+      -1.0799999999999983
+    ],
+    "mean_delta_vs_route_baseline_us": 1.4748750000000008
+  },
+  {
+    "case": "fp16_n127c4096",
+    "dtype": "fp16",
+    "shape": [
+      127,
+      4096,
+      1
+    ],
+    "wlen": 4096,
+    "versions": {
+      "J013": {
+        "round_medians_us": [
+          10.97,
+          11.12,
+          10.94,
+          10.99
+        ],
+        "mean_us": 11.004999999999999,
+        "ratios": {
+          "aiv_scalar_ratio": 0.4285,
+          "aiv_vec_ratio": 0.308125,
+          "aiv_mte2_ratio": 0.467,
+          "aiv_mte3_ratio": 0.135625
+        }
+      },
+      "J015": {
+        "round_medians_us": [
+          10.92,
+          11.04,
+          10.779,
+          10.6
+        ],
+        "mean_us": 10.83475,
+        "ratios": {
+          "aiv_scalar_ratio": 0.404875,
+          "aiv_vec_ratio": 0.264125,
+          "aiv_mte2_ratio": 0.511625,
+          "aiv_mte3_ratio": 0.175875
+        }
+      },
+      "J018": {
+        "round_medians_us": [
+          9.85,
+          9.12,
+          9.36,
+          9.209499999999998
+        ],
+        "mean_us": 9.384875,
+        "ratios": {
+          "aiv_scalar_ratio": 0.507,
+          "aiv_vec_ratio": 0.343875,
+          "aiv_mte2_ratio": 0.384625,
+          "aiv_mte3_ratio": 0.1325
+        }
+      },
+      "J019": {
+        "round_medians_us": [
+          9.22,
+          9.1995,
+          9.64,
+          9.4595
+        ],
+        "mean_us": 9.379750000000001,
+        "ratios": {
+          "aiv_scalar_ratio": 0.520375,
+          "aiv_vec_ratio": 0.348125,
+          "aiv_mte2_ratio": 0.378875,
+          "aiv_mte3_ratio": 0.128
+        }
+      },
+      "J020": {
+        "round_medians_us": [
+          9.1095,
+          10.299,
+          10.14,
+          9.219
+        ],
+        "mean_us": 9.691875,
+        "ratios": {
+          "aiv_scalar_ratio": 0.49674999999999997,
+          "aiv_vec_ratio": 0.32975,
+          "aiv_mte2_ratio": 0.38075000000000003,
+          "aiv_mte3_ratio": 0.12562500000000001
+        }
+      }
+    },
+    "delta_vs_J015_us": [
+      -1.8104999999999993,
+      -0.7409999999999997,
+      -0.6389999999999993,
+      -1.3810000000000002
+    ],
+    "mean_delta_vs_J015_us": -1.1428749999999996,
+    "percent_vs_J015": -10.548235999907707,
+    "route": "resident_s1",
+    "route_baseline": "J018",
+    "delta_vs_route_baseline_us": [
+      -0.740499999999999,
+      1.1790000000000003,
+      0.7800000000000011,
+      0.009500000000000952
+    ],
+    "mean_delta_vs_route_baseline_us": 0.30700000000000083
+  },
+  {
+    "case": "bf16_many16",
+    "dtype": "bf16",
+    "shape": [
+      40001,
+      16,
+      1
+    ],
+    "wlen": 16,
+    "versions": {
+      "J013": {
+        "round_medians_us": [
+          1411.5315,
+          1248.135,
+          1412.252,
+          1288.614
+        ],
+        "mean_us": 1340.133125,
+        "ratios": {
+          "aiv_scalar_ratio": 0.35825,
+          "aiv_vec_ratio": 0.13325,
+          "aiv_mte2_ratio": 0.825,
+          "aiv_mte3_ratio": 0.123375
+        }
+      },
+      "J015": {
+        "round_medians_us": [
+          20.08,
+          20.8,
+          20.3995,
+          20.439
+        ],
+        "mean_us": 20.429625,
+        "ratios": {
+          "aiv_scalar_ratio": 0.674,
+          "aiv_vec_ratio": 0.6145,
+          "aiv_mte2_ratio": 0.146125,
+          "aiv_mte3_ratio": 0.0485
+        }
+      },
+      "J018": {
+        "round_medians_us": [
+          16.0295,
+          15.3295,
+          15.44,
+          15.439499999999999
+        ],
+        "mean_us": 15.559624999999999,
+        "ratios": {
+          "aiv_scalar_ratio": 0.74375,
+          "aiv_vec_ratio": 0.382625,
+          "aiv_mte2_ratio": 0.197125,
+          "aiv_mte3_ratio": 0.06725
+        }
+      },
+      "J019": {
+        "round_medians_us": [
+          12.14,
+          12.1,
+          13.0795,
+          12.21
+        ],
+        "mean_us": 12.382375,
+        "ratios": {
+          "aiv_scalar_ratio": 0.5998749999999999,
+          "aiv_vec_ratio": 0.483,
+          "aiv_mte2_ratio": 0.245,
+          "aiv_mte3_ratio": 0.08562499999999999
+        }
+      },
+      "J020": {
+        "round_medians_us": [
+          15.3295,
+          16.06,
+          16.0395,
+          15.41
+        ],
+        "mean_us": 15.70975,
+        "ratios": {
+          "aiv_scalar_ratio": 0.731375,
+          "aiv_vec_ratio": 0.37975000000000003,
+          "aiv_mte2_ratio": 0.20650000000000002,
+          "aiv_mte3_ratio": 0.067375
+        }
+      }
+    },
+    "delta_vs_J015_us": [
+      -4.750499999999999,
+      -4.740000000000002,
+      -4.359999999999999,
+      -5.029
+    ],
+    "mean_delta_vs_J015_us": -4.719875,
+    "percent_vs_J015": -23.103091711179236,
+    "route": "resident_s1",
+    "route_baseline": "J018",
+    "delta_vs_route_baseline_us": [
+      -0.6999999999999993,
+      0.7304999999999993,
+      0.5995000000000008,
+      -0.02949999999999875
+    ],
+    "mean_delta_vs_route_baseline_us": 0.1501250000000005
+  },
+  {
+    "case": "bf16_n1201c512",
+    "dtype": "bf16",
+    "shape": [
+      1201,
+      512,
+      1
+    ],
+    "wlen": 512,
+    "versions": {
+      "J013": {
+        "round_medians_us": [
+          49.169,
+          50.399,
+          49.369,
+          52.189
+        ],
+        "mean_us": 50.2815,
+        "ratios": {
+          "aiv_scalar_ratio": 0.34375,
+          "aiv_vec_ratio": 0.158,
+          "aiv_mte2_ratio": 0.77075,
+          "aiv_mte3_ratio": 0.136875
+        }
+      },
+      "J015": {
+        "round_medians_us": [
+          16.7395,
+          16.83,
+          16.54,
+          17.229999999999997
+        ],
+        "mean_us": 16.834874999999997,
+        "ratios": {
+          "aiv_scalar_ratio": 0.26837500000000003,
+          "aiv_vec_ratio": 0.209,
+          "aiv_mte2_ratio": 0.62775,
+          "aiv_mte3_ratio": 0.312625
+        }
+      },
+      "J018": {
+        "round_medians_us": [
+          10.7,
+          10.18,
+          10.66,
+          10.529
+        ],
+        "mean_us": 10.51725,
+        "ratios": {
+          "aiv_scalar_ratio": 0.459125,
+          "aiv_vec_ratio": 0.374,
+          "aiv_mte2_ratio": 0.374875,
+          "aiv_mte3_ratio": 0.13425
+        }
+      },
+      "J019": {
+        "round_medians_us": [
+          10.32,
+          10.36,
+          11.84,
+          10.71
+        ],
+        "mean_us": 10.807500000000001,
+        "ratios": {
+          "aiv_scalar_ratio": 0.47925,
+          "aiv_vec_ratio": 0.36475,
+          "aiv_mte2_ratio": 0.372625,
+          "aiv_mte3_ratio": 0.129
+        }
+      },
+      "J020": {
+        "round_medians_us": [
+          10.12,
+          11.24,
+          10.8095,
+          10.5795
+        ],
+        "mean_us": 10.687249999999999,
+        "ratios": {
+          "aiv_scalar_ratio": 0.443375,
+          "aiv_vec_ratio": 0.368375,
+          "aiv_mte2_ratio": 0.38825,
+          "aiv_mte3_ratio": 0.128875
+        }
+      }
+    },
+    "delta_vs_J015_us": [
+      -6.6195,
+      -5.589999999999998,
+      -5.730499999999999,
+      -6.650499999999997
+    ],
+    "mean_delta_vs_J015_us": -6.147624999999999,
+    "percent_vs_J015": -36.517200157411324,
+    "route": "resident_s1",
+    "route_baseline": "J018",
+    "delta_vs_route_baseline_us": [
+      -0.5800000000000001,
+      1.0600000000000005,
+      0.14949999999999974,
+      0.050499999999999545
+    ],
+    "mean_delta_vs_route_baseline_us": 0.16999999999999993
+  },
+  {
+    "case": "bf16_n2001c512",
+    "dtype": "bf16",
+    "shape": [
+      2001,
+      512,
+      1
+    ],
+    "wlen": 512,
+    "versions": {
+      "J013": {
+        "round_medians_us": [
+          78.4985,
+          80.918,
+          78.818,
+          83.4785
+        ],
+        "mean_us": 80.42825,
+        "ratios": {
+          "aiv_scalar_ratio": 0.332625,
+          "aiv_vec_ratio": 0.15975,
+          "aiv_mte2_ratio": 0.7827500000000001,
+          "aiv_mte3_ratio": 0.13924999999999998
+        }
+      },
+      "J015": {
+        "round_medians_us": [
+          24.24,
+          23.8,
+          23.32,
+          24.379
+        ],
+        "mean_us": 23.93475,
+        "ratios": {
+          "aiv_scalar_ratio": 0.23425,
+          "aiv_vec_ratio": 0.2295,
+          "aiv_mte2_ratio": 0.6501250000000001,
+          "aiv_mte3_ratio": 0.34187500000000004
+        }
+      },
+      "J018": {
+        "round_medians_us": [
+          25.16,
+          24.739,
+          24.14,
+          23.28
+        ],
+        "mean_us": 24.32975,
+        "ratios": {
+          "aiv_scalar_ratio": 0.28375,
+          "aiv_vec_ratio": 0.224,
+          "aiv_mte2_ratio": 0.657625,
+          "aiv_mte3_ratio": 0.357
+        }
+      },
+      "J019": {
+        "round_medians_us": [
+          23.4,
+          23.36,
+          26.439,
+          24.14
+        ],
+        "mean_us": 24.33475,
+        "ratios": {
+          "aiv_scalar_ratio": 0.240875,
+          "aiv_vec_ratio": 0.22599999999999998,
+          "aiv_mte2_ratio": 0.6475,
+          "aiv_mte3_ratio": 0.341
+        }
+      },
+      "J020": {
+        "round_medians_us": [
+          24.84,
+          27.12,
+          24.959,
+          23.3
+        ],
+        "mean_us": 25.05475,
+        "ratios": {
+          "aiv_scalar_ratio": 0.222,
+          "aiv_vec_ratio": 0.219375,
+          "aiv_mte2_ratio": 0.6621250000000001,
+          "aiv_mte3_ratio": 0.35375
+        }
+      }
+    },
+    "delta_vs_J015_us": [
+      0.6000000000000014,
+      3.3200000000000003,
+      1.6389999999999993,
+      -1.0790000000000006
+    ],
+    "mean_delta_vs_J015_us": 1.12,
+    "percent_vs_J015": 4.679388754843883,
+    "route": "merged_s1",
+    "route_baseline": "J015",
+    "delta_vs_route_baseline_us": [
+      0.6000000000000014,
+      3.3200000000000003,
+      1.6389999999999993,
+      -1.0790000000000006
+    ],
+    "mean_delta_vs_route_baseline_us": 1.12
+  },
+  {
+    "case": "bf16_n127c4096",
+    "dtype": "bf16",
+    "shape": [
+      127,
+      4096,
+      1
+    ],
+    "wlen": 4096,
+    "versions": {
+      "J013": {
+        "round_medians_us": [
+          11.06,
+          11.24,
+          10.9695,
+          11.05
+        ],
+        "mean_us": 11.079875000000001,
+        "ratios": {
+          "aiv_scalar_ratio": 0.41900000000000004,
+          "aiv_vec_ratio": 0.31975,
+          "aiv_mte2_ratio": 0.45487500000000003,
+          "aiv_mte3_ratio": 0.13175
+        }
+      },
+      "J015": {
+        "round_medians_us": [
+          11.0095,
+          11.12,
+          10.74,
+          10.58
+        ],
+        "mean_us": 10.862375,
+        "ratios": {
+          "aiv_scalar_ratio": 0.40225,
+          "aiv_vec_ratio": 0.276125,
+          "aiv_mte2_ratio": 0.500125,
+          "aiv_mte3_ratio": 0.169125
+        }
+      },
+      "J018": {
+        "round_medians_us": [
+          9.94,
+          9.219,
+          9.4895,
+          9.31
+        ],
+        "mean_us": 9.489625,
+        "ratios": {
+          "aiv_scalar_ratio": 0.484125,
+          "aiv_vec_ratio": 0.3555,
+          "aiv_mte2_ratio": 0.378625,
+          "aiv_mte3_ratio": 0.12975
+        }
+      },
+      "J019": {
+        "round_medians_us": [
+          9.3595,
+          9.32,
+          10.29,
+          9.57
+        ],
+        "mean_us": 9.634875000000001,
+        "ratios": {
+          "aiv_scalar_ratio": 0.5287499999999999,
+          "aiv_vec_ratio": 0.35062499999999996,
+          "aiv_mte2_ratio": 0.359,
+          "aiv_mte3_ratio": 0.122375
+        }
+      },
+      "J020": {
+        "round_medians_us": [
+          9.22,
+          10.409500000000001,
+          9.719,
+          9.32
+        ],
+        "mean_us": 9.667125,
+        "ratios": {
+          "aiv_scalar_ratio": 0.46725,
+          "aiv_vec_ratio": 0.34925,
+          "aiv_mte2_ratio": 0.38787499999999997,
+          "aiv_mte3_ratio": 0.127
+        }
+      }
+    },
+    "delta_vs_J015_us": [
+      -1.7894999999999985,
+      -0.7104999999999979,
+      -1.0210000000000008,
+      -1.2599999999999998
+    ],
+    "mean_delta_vs_J015_us": -1.1952499999999993,
+    "percent_vs_J015": -11.003578867420794,
+    "route": "resident_s1",
+    "route_baseline": "J018",
+    "delta_vs_route_baseline_us": [
+      -0.7199999999999989,
+      1.190500000000002,
+      0.22949999999999982,
+      0.009999999999999787
+    ],
+    "mean_delta_vs_route_baseline_us": 0.17750000000000066
+  },
+  {
+    "case": "fp32_phase131",
+    "dtype": "fp32",
+    "shape": [
+      131,
+      4096,
+      1
+    ],
+    "wlen": 4096,
+    "versions": {
+      "J013": {
+        "round_medians_us": [
+          10.98,
+          10.8,
+          10.81,
+          11.16
+        ],
+        "mean_us": 10.9375,
+        "ratios": {
+          "aiv_scalar_ratio": 0.383875,
+          "aiv_vec_ratio": 0.21125,
+          "aiv_mte2_ratio": 0.5758749999999999,
+          "aiv_mte3_ratio": 0.199125
+        }
+      },
+      "J015": {
+        "round_medians_us": [
+          9.64,
+          9.98,
+          9.6995,
+          9.52
+        ],
+        "mean_us": 9.709875,
+        "ratios": {
+          "aiv_scalar_ratio": 0.366625,
+          "aiv_vec_ratio": 0.21325,
+          "aiv_mte2_ratio": 0.5455000000000001,
+          "aiv_mte3_ratio": 0.1905
+        }
+      },
+      "J018": {
+        "round_medians_us": [
+          10.72,
+          9.519,
+          9.4,
+          9.68
+        ],
+        "mean_us": 9.82975,
+        "ratios": {
+          "aiv_scalar_ratio": 0.394375,
+          "aiv_vec_ratio": 0.209625,
+          "aiv_mte2_ratio": 0.5505,
+          "aiv_mte3_ratio": 0.186375
+        }
+      },
+      "J019": {
+        "round_medians_us": [
+          9.439499999999999,
+          9.409500000000001,
+          9.939499999999999,
+          9.48
+        ],
+        "mean_us": 9.567125,
+        "ratios": {
+          "aiv_scalar_ratio": 0.38075000000000003,
+          "aiv_vec_ratio": 0.21637499999999998,
+          "aiv_mte2_ratio": 0.5411250000000001,
+          "aiv_mte3_ratio": 0.17325000000000002
+        }
+      },
+      "J020": {
+        "round_medians_us": [
+          9.52,
+          10.2895,
+          9.94,
+          9.6995
+        ],
+        "mean_us": 9.86225,
+        "ratios": {
+          "aiv_scalar_ratio": 0.361,
+          "aiv_vec_ratio": 0.21,
+          "aiv_mte2_ratio": 0.5511250000000001,
+          "aiv_mte3_ratio": 0.18175
+        }
+      }
+    },
+    "delta_vs_J015_us": [
+      -0.120000000000001,
+      0.3094999999999999,
+      0.24049999999999905,
+      0.17950000000000088
+    ],
+    "mean_delta_vs_J015_us": 0.1523749999999997,
+    "percent_vs_J015": 1.569278698232468,
+    "route": "merged_s1",
+    "route_baseline": "J015",
+    "delta_vs_route_baseline_us": [
+      -0.120000000000001,
+      0.3094999999999999,
+      0.24049999999999905,
+      0.17950000000000088
+    ],
+    "mean_delta_vs_route_baseline_us": 0.1523749999999997
+  },
+  {
+    "case": "fp16_phase131",
+    "dtype": "fp16",
+    "shape": [
+      131,
+      4096,
+      1
+    ],
+    "wlen": 4096,
+    "versions": {
+      "J013": {
+        "round_medians_us": [
+          10.68,
+          10.99,
+          10.7995,
+          10.78
+        ],
+        "mean_us": 10.812375,
+        "ratios": {
+          "aiv_scalar_ratio": 0.43175,
+          "aiv_vec_ratio": 0.315125,
+          "aiv_mte2_ratio": 0.46125,
+          "aiv_mte3_ratio": 0.129
+        }
+      },
+      "J015": {
+        "round_medians_us": [
+          10.9895,
+          11.2,
+          10.84,
+          10.78
+        ],
+        "mean_us": 10.952375,
+        "ratios": {
+          "aiv_scalar_ratio": 0.39825,
+          "aiv_vec_ratio": 0.26475000000000004,
+          "aiv_mte2_ratio": 0.51725,
+          "aiv_mte3_ratio": 0.182
+        }
+      },
+      "J018": {
+        "round_medians_us": [
+          9.86,
+          9.1,
+          9.26,
+          9.08
+        ],
+        "mean_us": 9.325,
+        "ratios": {
+          "aiv_scalar_ratio": 0.50875,
+          "aiv_vec_ratio": 0.3525,
+          "aiv_mte2_ratio": 0.375375,
+          "aiv_mte3_ratio": 0.12787500000000002
+        }
+      },
+      "J019": {
+        "round_medians_us": [
+          9.19,
+          9.2,
+          9.58,
+          9.33
+        ],
+        "mean_us": 9.325,
+        "ratios": {
+          "aiv_scalar_ratio": 0.5218750000000001,
+          "aiv_vec_ratio": 0.35662499999999997,
+          "aiv_mte2_ratio": 0.37175,
+          "aiv_mte3_ratio": 0.1235
+        }
+      },
+      "J020": {
+        "round_medians_us": [
+          9.12,
+          10.179,
+          10.239,
+          9.069500000000001
+        ],
+        "mean_us": 9.651875,
+        "ratios": {
+          "aiv_scalar_ratio": 0.4975,
+          "aiv_vec_ratio": 0.338375,
+          "aiv_mte2_ratio": 0.3735,
+          "aiv_mte3_ratio": 0.12025
+        }
+      }
+    },
+    "delta_vs_J015_us": [
+      -1.8695000000000004,
+      -1.020999999999999,
+      -0.6009999999999991,
+      -1.710499999999998
+    ],
+    "mean_delta_vs_J015_us": -1.300499999999999,
+    "percent_vs_J015": -11.87413688811787,
+    "route": "resident_s1",
+    "route_baseline": "J018",
+    "delta_vs_route_baseline_us": [
+      -0.7400000000000002,
+      1.0790000000000006,
+      0.979000000000001,
+      -0.010499999999998622
+    ],
+    "mean_delta_vs_route_baseline_us": 0.3268750000000007
+  },
+  {
+    "case": "bf16_phase131",
+    "dtype": "bf16",
+    "shape": [
+      131,
+      4096,
+      1
+    ],
+    "wlen": 4096,
+    "versions": {
+      "J013": {
+        "round_medians_us": [
+          10.7895,
+          11.12,
+          10.89,
+          10.82
+        ],
+        "mean_us": 10.904875,
+        "ratios": {
+          "aiv_scalar_ratio": 0.421,
+          "aiv_vec_ratio": 0.326375,
+          "aiv_mte2_ratio": 0.450625,
+          "aiv_mte3_ratio": 0.125125
+        }
+      },
+      "J015": {
+        "round_medians_us": [
+          11.0,
+          11.2595,
+          10.85,
+          10.83
+        ],
+        "mean_us": 10.984874999999999,
+        "ratios": {
+          "aiv_scalar_ratio": 0.395,
+          "aiv_vec_ratio": 0.27675,
+          "aiv_mte2_ratio": 0.507125,
+          "aiv_mte3_ratio": 0.1735
+        }
+      },
+      "J018": {
+        "round_medians_us": [
+          9.97,
+          9.209499999999998,
+          9.4295,
+          9.17
+        ],
+        "mean_us": 9.444749999999999,
+        "ratios": {
+          "aiv_scalar_ratio": 0.484375,
+          "aiv_vec_ratio": 0.364,
+          "aiv_mte2_ratio": 0.369875,
+          "aiv_mte3_ratio": 0.12525
+        }
+      },
+      "J019": {
+        "round_medians_us": [
+          9.32,
+          9.34,
+          10.34,
+          9.46
+        ],
+        "mean_us": 9.615,
+        "ratios": {
+          "aiv_scalar_ratio": 0.52775,
+          "aiv_vec_ratio": 0.359125,
+          "aiv_mte2_ratio": 0.353875,
+          "aiv_mte3_ratio": 0.1175
+        }
+      },
+      "J020": {
+        "round_medians_us": [
+          9.2,
+          10.3,
+          9.7395,
+          9.189499999999999
+        ],
+        "mean_us": 9.60725,
+        "ratios": {
+          "aiv_scalar_ratio": 0.46699999999999997,
+          "aiv_vec_ratio": 0.35725,
+          "aiv_mte2_ratio": 0.381625,
+          "aiv_mte3_ratio": 0.1215
+        }
+      }
+    },
+    "delta_vs_J015_us": [
+      -1.8000000000000007,
+      -0.9594999999999985,
+      -1.1105,
+      -1.6405000000000012
+    ],
+    "mean_delta_vs_J015_us": -1.377625,
+    "percent_vs_J015": -12.54110765939529,
+    "route": "resident_s1",
+    "route_baseline": "J018",
+    "delta_vs_route_baseline_us": [
+      -0.7700000000000014,
+      1.0905000000000022,
+      0.3099999999999987,
+      0.019499999999998963
+    ],
+    "mean_delta_vs_route_baseline_us": 0.16249999999999964
+  },
+  {
+    "case": "fp32_scalarone",
+    "dtype": "fp32",
+    "shape": [
+      1,
+      1,
+      1
+    ],
+    "wlen": 1,
+    "versions": {
+      "J013": {
+        "round_medians_us": [
+          2.84,
+          2.66,
+          2.7,
+          2.6900000000000004
+        ],
+        "mean_us": 2.7225,
+        "ratios": {
+          "aiv_scalar_ratio": 0.6875,
+          "aiv_vec_ratio": 0.06875,
+          "aiv_mte2_ratio": 0.112375,
+          "aiv_mte3_ratio": 0.057499999999999996
+        }
+      },
+      "J015": {
+        "round_medians_us": [
+          2.63,
+          2.8499999999999996,
+          2.79,
+          2.63
+        ],
+        "mean_us": 2.7249999999999996,
+        "ratios": {
+          "aiv_scalar_ratio": 0.7016249999999999,
+          "aiv_vec_ratio": 0.06862499999999999,
+          "aiv_mte2_ratio": 0.113,
+          "aiv_mte3_ratio": 0.056625
+        }
+      },
+      "J018": {
+        "round_medians_us": [
+          2.86,
+          2.7,
+          2.76,
+          2.6
+        ],
+        "mean_us": 2.73,
+        "ratios": {
+          "aiv_scalar_ratio": 0.70175,
+          "aiv_vec_ratio": 0.0685,
+          "aiv_mte2_ratio": 0.11325,
+          "aiv_mte3_ratio": 0.058374999999999996
+        }
+      },
+      "J019": {
+        "round_medians_us": [
+          2.66,
+          2.8899999999999997,
+          2.6900000000000004,
+          2.78
+        ],
+        "mean_us": 2.755,
+        "ratios": {
+          "aiv_scalar_ratio": 0.681,
+          "aiv_vec_ratio": 0.06825,
+          "aiv_mte2_ratio": 0.11075,
+          "aiv_mte3_ratio": 0.05675
+        }
+      },
+      "J020": {
+        "round_medians_us": [
+          2.68,
+          2.56,
+          2.79,
+          2.64
+        ],
+        "mean_us": 2.6675,
+        "ratios": {
+          "aiv_scalar_ratio": 0.7148749999999999,
+          "aiv_vec_ratio": 0.070875,
+          "aiv_mte2_ratio": 0.11812500000000001,
+          "aiv_mte3_ratio": 0.06075
+        }
+      }
+    },
+    "delta_vs_J015_us": [
+      0.050000000000000266,
+      -0.2899999999999996,
+      0.0,
+      0.010000000000000231
+    ],
+    "mean_delta_vs_J015_us": -0.057499999999999774,
+    "percent_vs_J015": -2.110091743119258,
+    "route": "normal",
+    "route_baseline": "J013",
+    "delta_vs_route_baseline_us": [
+      -0.1599999999999997,
+      -0.10000000000000009,
+      0.08999999999999986,
+      -0.050000000000000266
+    ],
+    "mean_delta_vs_route_baseline_us": -0.05500000000000005
+  },
+  {
+    "case": "fp32_small41c16",
+    "dtype": "fp32",
+    "shape": [
+      41,
+      16,
+      1
+    ],
+    "wlen": 16,
+    "versions": {
+      "J013": {
+        "round_medians_us": [
+          4.79,
+          4.78,
+          4.7795000000000005,
+          5.13
+        ],
+        "mean_us": 4.869875,
+        "ratios": {
+          "aiv_scalar_ratio": 0.735625,
+          "aiv_vec_ratio": 0.083,
+          "aiv_mte2_ratio": 0.390875,
+          "aiv_mte3_ratio": 0.0805
+        }
+      },
+      "J015": {
+        "round_medians_us": [
+          4.44,
+          4.9,
+          4.4,
+          4.4
+        ],
+        "mean_us": 4.535,
+        "ratios": {
+          "aiv_scalar_ratio": 0.679625,
+          "aiv_vec_ratio": 0.05375,
+          "aiv_mte2_ratio": 0.393,
+          "aiv_mte3_ratio": 0.053375
+        }
+      },
+      "J018": {
+        "round_medians_us": [
+          4.968999999999999,
+          4.5,
+          4.52,
+          4.48
+        ],
+        "mean_us": 4.61725,
+        "ratios": {
+          "aiv_scalar_ratio": 0.69725,
+          "aiv_vec_ratio": 0.052125,
+          "aiv_mte2_ratio": 0.387125,
+          "aiv_mte3_ratio": 0.054375
+        }
+      },
+      "J019": {
+        "round_medians_us": [
+          4.38,
+          4.4,
+          4.76,
+          4.45
+        ],
+        "mean_us": 4.4975000000000005,
+        "ratios": {
+          "aiv_scalar_ratio": 0.68825,
+          "aiv_vec_ratio": 0.05375,
+          "aiv_mte2_ratio": 0.391125,
+          "aiv_mte3_ratio": 0.054625
+        }
+      },
+      "J020": {
+        "round_medians_us": [
+          4.42,
+          4.9295,
+          4.7595,
+          4.4
+        ],
+        "mean_us": 4.62725,
+        "ratios": {
+          "aiv_scalar_ratio": 0.672625,
+          "aiv_vec_ratio": 0.052875,
+          "aiv_mte2_ratio": 0.39,
+          "aiv_mte3_ratio": 0.054
+        }
+      }
+    },
+    "delta_vs_J015_us": [
+      -0.020000000000000462,
+      0.029499999999999638,
+      0.3594999999999997,
+      0.0
+    ],
+    "mean_delta_vs_J015_us": 0.09224999999999972,
+    "percent_vs_J015": 2.03417861080486,
+    "route": "merged_s1",
+    "route_baseline": "J015",
+    "delta_vs_route_baseline_us": [
+      -0.020000000000000462,
+      0.029499999999999638,
+      0.3594999999999997,
+      0.0
+    ],
+    "mean_delta_vs_route_baseline_us": 0.09224999999999972
+  },
+  {
+    "case": "fp16_scalarone",
+    "dtype": "fp16",
+    "shape": [
+      1,
+      1,
+      1
+    ],
+    "wlen": 1,
+    "versions": {
+      "J013": {
+        "round_medians_us": [
+          3.08,
+          2.94,
+          3.06,
+          2.92
+        ],
+        "mean_us": 3.0,
+        "ratios": {
+          "aiv_scalar_ratio": 0.6839999999999999,
+          "aiv_vec_ratio": 0.08825,
+          "aiv_mte2_ratio": 0.099375,
+          "aiv_mte3_ratio": 0.0535
+        }
+      },
+      "J015": {
+        "round_medians_us": [
+          3.0300000000000002,
+          3.16,
+          3.05,
+          3.0
+        ],
+        "mean_us": 3.06,
+        "ratios": {
+          "aiv_scalar_ratio": 0.667875,
+          "aiv_vec_ratio": 0.08587499999999999,
+          "aiv_mte2_ratio": 0.097625,
+          "aiv_mte3_ratio": 0.050749999999999997
+        }
+      },
+      "J018": {
+        "round_medians_us": [
+          3.0700000000000003,
+          3.0,
+          3.01,
+          3.0295
+        ],
+        "mean_us": 3.027375,
+        "ratios": {
+          "aiv_scalar_ratio": 0.6912499999999999,
+          "aiv_vec_ratio": 0.089625,
+          "aiv_mte2_ratio": 0.098875,
+          "aiv_mte3_ratio": 0.053875
+        }
+      },
+      "J019": {
+        "round_medians_us": [
+          3.02,
+          3.14,
+          3.06,
+          2.94
+        ],
+        "mean_us": 3.04,
+        "ratios": {
+          "aiv_scalar_ratio": 0.677625,
+          "aiv_vec_ratio": 0.0895,
+          "aiv_mte2_ratio": 0.097,
+          "aiv_mte3_ratio": 0.052125000000000005
+        }
+      },
+      "J020": {
+        "round_medians_us": [
+          3.1,
+          2.9699999999999998,
+          3.0,
+          3.08
+        ],
+        "mean_us": 3.0375,
+        "ratios": {
+          "aiv_scalar_ratio": 0.67675,
+          "aiv_vec_ratio": 0.08975,
+          "aiv_mte2_ratio": 0.098125,
+          "aiv_mte3_ratio": 0.0535
+        }
+      }
+    },
+    "delta_vs_J015_us": [
+      0.06999999999999984,
+      -0.1900000000000004,
+      -0.04999999999999982,
+      0.08000000000000007
+    ],
+    "mean_delta_vs_J015_us": -0.022500000000000075,
+    "percent_vs_J015": -0.7352941176470562,
+    "route": "normal",
+    "route_baseline": "J013",
+    "delta_vs_route_baseline_us": [
+      0.020000000000000018,
+      0.029999999999999805,
+      -0.06000000000000005,
+      0.16000000000000014
+    ],
+    "mean_delta_vs_route_baseline_us": 0.03749999999999998
+  },
+  {
+    "case": "fp16_small41c16",
+    "dtype": "fp16",
+    "shape": [
+      41,
+      16,
+      1
+    ],
+    "wlen": 16,
+    "versions": {
+      "J013": {
+        "round_medians_us": [
+          4.22,
+          4.2495,
+          4.26,
+          4.54
+        ],
+        "mean_us": 4.317375,
+        "ratios": {
+          "aiv_scalar_ratio": 0.842375,
+          "aiv_vec_ratio": 0.131625,
+          "aiv_mte2_ratio": 0.284,
+          "aiv_mte3_ratio": 0.08675
+        }
+      },
+      "J015": {
+        "round_medians_us": [
+          3.82,
+          4.16,
+          3.79,
+          3.78
+        ],
+        "mean_us": 3.8875,
+        "ratios": {
+          "aiv_scalar_ratio": 0.80675,
+          "aiv_vec_ratio": 0.086,
+          "aiv_mte2_ratio": 0.270625,
+          "aiv_mte3_ratio": 0.0505
+        }
+      },
+      "J018": {
+        "round_medians_us": [
+          4.22,
+          3.84,
+          3.8099999999999996,
+          3.8395
+        ],
+        "mean_us": 3.9273749999999996,
+        "ratios": {
+          "aiv_scalar_ratio": 0.82375,
+          "aiv_vec_ratio": 0.0805,
+          "aiv_mte2_ratio": 0.26325,
+          "aiv_mte3_ratio": 0.052250000000000005
+        }
+      },
+      "J019": {
+        "round_medians_us": [
+          3.7995,
+          3.8099999999999996,
+          4.06,
+          3.82
+        ],
+        "mean_us": 3.872375,
+        "ratios": {
+          "aiv_scalar_ratio": 0.8107500000000001,
+          "aiv_vec_ratio": 0.086625,
+          "aiv_mte2_ratio": 0.270625,
+          "aiv_mte3_ratio": 0.052000000000000005
+        }
+      },
+      "J020": {
+        "round_medians_us": [
+          3.8,
+          4.18,
+          4.06,
+          3.82
+        ],
+        "mean_us": 3.965,
+        "ratios": {
+          "aiv_scalar_ratio": 0.7995000000000001,
+          "aiv_vec_ratio": 0.08374999999999999,
+          "aiv_mte2_ratio": 0.2715,
+          "aiv_mte3_ratio": 0.051625000000000004
+        }
+      }
+    },
+    "delta_vs_J015_us": [
+      -0.020000000000000018,
+      0.019999999999999574,
+      0.2699999999999996,
+      0.040000000000000036
+    ],
+    "mean_delta_vs_J015_us": 0.07749999999999979,
+    "percent_vs_J015": 1.9935691318327953,
+    "route": "merged_s1",
+    "route_baseline": "J015",
+    "delta_vs_route_baseline_us": [
+      -0.020000000000000018,
+      0.019999999999999574,
+      0.2699999999999996,
+      0.040000000000000036
+    ],
+    "mean_delta_vs_route_baseline_us": 0.07749999999999979
+  },
+  {
+    "case": "bf16_scalarone",
+    "dtype": "bf16",
+    "shape": [
+      1,
+      1,
+      1
+    ],
+    "wlen": 1,
+    "versions": {
+      "J013": {
+        "round_medians_us": [
+          2.94,
+          2.8,
+          2.9299999999999997,
+          2.8499999999999996
+        ],
+        "mean_us": 2.88,
+        "ratios": {
+          "aiv_scalar_ratio": 0.700875,
+          "aiv_vec_ratio": 0.09625,
+          "aiv_mte2_ratio": 0.108,
+          "aiv_mte3_ratio": 0.049875
+        }
+      },
+      "J015": {
+        "round_medians_us": [
+          2.8899999999999997,
+          2.82,
+          2.86,
+          2.8499999999999996
+        ],
+        "mean_us": 2.8549999999999995,
+        "ratios": {
+          "aiv_scalar_ratio": 0.7032499999999999,
+          "aiv_vec_ratio": 0.09725,
+          "aiv_mte2_ratio": 0.1095,
+          "aiv_mte3_ratio": 0.050375
+        }
+      },
+      "J018": {
+        "round_medians_us": [
+          2.83,
+          2.86,
+          2.7699999999999996,
+          2.92
+        ],
+        "mean_us": 2.8449999999999998,
+        "ratios": {
+          "aiv_scalar_ratio": 0.709,
+          "aiv_vec_ratio": 0.09775,
+          "aiv_mte2_ratio": 0.11075,
+          "aiv_mte3_ratio": 0.052625
+        }
+      },
+      "J019": {
+        "round_medians_us": [
+          2.7895,
+          2.9595000000000002,
+          2.96,
+          2.86
+        ],
+        "mean_us": 2.8922499999999998,
+        "ratios": {
+          "aiv_scalar_ratio": 0.70325,
+          "aiv_vec_ratio": 0.096125,
+          "aiv_mte2_ratio": 0.106375,
+          "aiv_mte3_ratio": 0.049875
+        }
+      },
+      "J020": {
+        "round_medians_us": [
+          3.0395000000000003,
+          2.75,
+          2.87,
+          2.92
+        ],
+        "mean_us": 2.894875,
+        "ratios": {
+          "aiv_scalar_ratio": 0.7005,
+          "aiv_vec_ratio": 0.095875,
+          "aiv_mte2_ratio": 0.108875,
+          "aiv_mte3_ratio": 0.051875000000000004
+        }
+      }
+    },
+    "delta_vs_J015_us": [
+      0.14950000000000063,
+      -0.06999999999999984,
+      0.010000000000000231,
+      0.07000000000000028
+    ],
+    "mean_delta_vs_J015_us": 0.03987500000000033,
+    "percent_vs_J015": 1.3966725043782935,
+    "route": "normal",
+    "route_baseline": "J013",
+    "delta_vs_route_baseline_us": [
+      0.09950000000000037,
+      -0.04999999999999982,
+      -0.05999999999999961,
+      0.07000000000000028
+    ],
+    "mean_delta_vs_route_baseline_us": 0.014875000000000305
+  },
+  {
+    "case": "bf16_small41c16",
+    "dtype": "bf16",
+    "shape": [
+      41,
+      16,
+      1
+    ],
+    "wlen": 16,
+    "versions": {
+      "J013": {
+        "round_medians_us": [
+          4.28,
+          4.28,
+          4.28,
+          4.52
+        ],
+        "mean_us": 4.34,
+        "ratios": {
+          "aiv_scalar_ratio": 0.8276249999999999,
+          "aiv_vec_ratio": 0.129625,
+          "aiv_mte2_ratio": 0.293875,
+          "aiv_mte3_ratio": 0.086125
+        }
+      },
+      "J015": {
+        "round_medians_us": [
+          3.8099999999999996,
+          4.16,
+          3.8,
+          3.8
+        ],
+        "mean_us": 3.8925,
+        "ratios": {
+          "aiv_scalar_ratio": 0.808,
+          "aiv_vec_ratio": 0.08537499999999999,
+          "aiv_mte2_ratio": 0.276,
+          "aiv_mte3_ratio": 0.050875
+        }
+      },
+      "J018": {
+        "round_medians_us": [
+          4.2,
+          3.84,
+          3.87,
+          3.86
+        ],
+        "mean_us": 3.9425,
+        "ratios": {
+          "aiv_scalar_ratio": 0.8165,
+          "aiv_vec_ratio": 0.082625,
+          "aiv_mte2_ratio": 0.27125,
+          "aiv_mte3_ratio": 0.052750000000000005
+        }
+      },
+      "J019": {
+        "round_medians_us": [
+          3.8,
+          3.78,
+          4.07,
+          3.82
+        ],
+        "mean_us": 3.8674999999999997,
+        "ratios": {
+          "aiv_scalar_ratio": 0.80625,
+          "aiv_vec_ratio": 0.08487499999999999,
+          "aiv_mte2_ratio": 0.274125,
+          "aiv_mte3_ratio": 0.05225
+        }
+      },
+      "J020": {
+        "round_medians_us": [
+          3.79,
+          4.17,
+          4.07,
+          3.8099999999999996
+        ],
+        "mean_us": 3.96,
+        "ratios": {
+          "aiv_scalar_ratio": 0.791625,
+          "aiv_vec_ratio": 0.08374999999999999,
+          "aiv_mte2_ratio": 0.281875,
+          "aiv_mte3_ratio": 0.05175
+        }
+      }
+    },
+    "delta_vs_J015_us": [
+      -0.019999999999999574,
+      0.009999999999999787,
+      0.27000000000000046,
+      0.009999999999999787
+    ],
+    "mean_delta_vs_J015_us": 0.06750000000000012,
+    "percent_vs_J015": 1.7341040462427681,
+    "route": "merged_s1",
+    "route_baseline": "J015",
+    "delta_vs_route_baseline_us": [
+      -0.019999999999999574,
+      0.009999999999999787,
+      0.27000000000000046,
+      0.009999999999999787
+    ],
+    "mean_delta_vs_route_baseline_us": 0.06750000000000012
+  }
+]

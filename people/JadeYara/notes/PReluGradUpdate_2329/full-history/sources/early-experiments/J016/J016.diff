@@ -1,0 +1,80 @@
+--- J015/op_kernel/p_relu_grad_update_s1.h
++++ J016/op_kernel/p_relu_grad_update_s1.h
+@@ -74,6 +74,8 @@
+     int64_t rowsPerTile_ = 0;
+     bool vectorWeights_ = false;
+     bool mergeWeights_ = false;
++    bool residentWeights_ = false;
++    LocalTensor<T> residentWeightsLocal_;
+ };
+ 
+ template <typename T>
+@@ -108,6 +110,7 @@
+     innerSize_ = tilingData->innerSize;
+     weightsPerChannel_ = tilingData->weightsPerChannel;
+     rowsPerTile_ = tilingData->rowsPerTile;
++    residentWeights_ = rowsPerTile_ > 0;
+     vectorWeights_ = weightsPerChannel_ != 0 && innerSize_ == 1;
+     mergeWeights_ = vectorWeights_ && channelNum_ % (32 / sizeof(T)) == 0
+         && tileLen_ > channelNum_;
+@@ -168,7 +171,7 @@
+     DataCopyPad(gradsLocal, gradsGm_[blockStart_ + progress], copyParams, padParams);
+     DataCopyPad(featuresLocal, featuresGm_[blockStart_ + progress], copyParams, padParams);
+ 
+-    if (vectorWeights_) {
++    if (vectorWeights_ && (!residentWeights_ || progress == 0)) {
+         LocalTensor<T> weightsLocal = weightsQueue_.AllocTensor<T>();
+         const int64_t weightOffset = (blockStart_ + progress) % channelNum_;
+         if (mergeWeights_) {
+@@ -238,8 +241,13 @@
+ 
+     LocalTensor<T> weightsLocal;
+     if (vectorWeights_) {
+-        weightsLocal = weightsQueue_.DeQue<T>();
+-        if (mergeWeights_ && currentNum > channelNum_) {
++        if (residentWeights_ && progress != 0) {
++            weightsLocal = residentWeightsLocal_;
++        } else {
++            weightsLocal = weightsQueue_.DeQue<T>();
++            if (residentWeights_) residentWeightsLocal_ = weightsLocal;
++        }
++        if (mergeWeights_ && currentNum > channelNum_ && (!residentWeights_ || progress == 0)) {
+             const int64_t copyAlign = 32 / sizeof(T);
+             for (int64_t copied = channelNum_; copied < currentNum; copied += channelNum_) {
+                 int64_t count = currentNum - copied;
+@@ -327,7 +335,7 @@
+     updateQueue_.EnQue(updateLocal);
+     gradsQueue_.FreeTensor(gradsLocal);
+     featuresQueue_.FreeTensor(featuresLocal);
+-    if (vectorWeights_) {
++    if (vectorWeights_ && !residentWeights_) {
+         weightsQueue_.FreeTensor(weightsLocal);
+     }
+ }
+@@ -370,6 +378,7 @@
+         CopyOut(progress, currentNum);
+         progress += currentNum;
+     }
++    if (residentWeights_) weightsQueue_.FreeTensor(residentWeightsLocal_);
+ }
+ 
+ } // namespace NsPReluGradUpdateS1
+--- J015/op_host/p_relu_grad_update_tiling.cpp
++++ J016/op_host/p_relu_grad_update_tiling.cpp
+@@ -212,6 +212,16 @@
+         }
+     }
+ 
++    // Reuse the same weight phase across tiles without increasing loop count.
++    if (vectorWeights && channelNum % blockElements == 0 && blockFactor > tileLen
++        && tileLen > channelNum) {
++        const int64_t residentTile = AlignDownI64(tileLen, channelNum);
++        if (CeilDivI64(blockFactor, residentTile) == CeilDivI64(blockFactor, tileLen)) {
++            tileLen = residentTile;
++            rowsPerTile = residentTile / channelNum;
++        }
++    }
++
+     PReluGradUpdateTilingData* tiling = context->GetTilingData<PReluGradUpdateTilingData>();
+     if (tiling == nullptr) {
+         OP_LOGE(context, "tiling data pointer is null");

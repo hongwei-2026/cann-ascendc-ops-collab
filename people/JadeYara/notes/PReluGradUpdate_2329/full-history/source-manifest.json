@@ -1,0 +1,3586 @@
+[
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J001\\candidate.patch",
+    "published": "sources/early-experiments/J001/candidate.patch",
+    "bytes": 8477,
+    "sha256": "0bf4c29c703242b4cac6955226bcd3fea117ce48375d26e75a70ad6887cb9b9c",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J001\\compute_schedule_check.py.log",
+    "published": "../../../../../tasks/active/PReluGradUpdate_2329/explorations/logs/EXP_J_FULL_HISTORY_20261110/early-experiments/J001/compute_schedule_check.py.log",
+    "bytes": 220,
+    "sha256": "593c6de80243ce71b9a26309fa79f6b2e3b996419124acff21b9d9ef63e24afc",
+    "gzip": false,
+    "category": "early-experiments"
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J001\\local_semantic_check.py.log",
+    "published": "../../../../../tasks/active/PReluGradUpdate_2329/explorations/logs/EXP_J_FULL_HISTORY_20261110/early-experiments/J001/local_semantic_check.py.log",
+    "bytes": 45,
+    "sha256": "eecbe22fea619e596257d96d3ddaf90add5c770cf1fa9f37cbc011de9cb8c486",
+    "gzip": false,
+    "category": "early-experiments"
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J001\\shared_weight_check.json",
+    "published": "../../../../../tasks/active/PReluGradUpdate_2329/explorations/logs/EXP_J_FULL_HISTORY_20261110/early-experiments/J001/shared_weight_check.json",
+    "bytes": 732,
+    "sha256": "7be9b62b652993c4237f8a7982df11257b08451b58ac5cd8b5289e0ded4868f2",
+    "gzip": false,
+    "category": "early-experiments"
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J002\\cpu-validation.json",
+    "published": "../../../../../tasks/active/PReluGradUpdate_2329/explorations/logs/EXP_J_FULL_HISTORY_20261110/early-experiments/J002/cpu-validation.json",
+    "bytes": 1277,
+    "sha256": "2c732a3d4e33bcd6bfd6086c3429167e273e42fb314b3dbde311da116fc78407",
+    "gzip": false,
+    "category": "early-experiments"
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J002\\J001-compute_schedule_check.py.log",
+    "published": "../../../../../tasks/active/PReluGradUpdate_2329/explorations/logs/EXP_J_FULL_HISTORY_20261110/early-experiments/J002/J001-compute_schedule_check.py.log",
+    "bytes": 197,
+    "sha256": "bb39f962df8ba74340cd9b842e02974e1eb8c349a60daf842e461bfd6d0e4f7d",
+    "gzip": false,
+    "category": "early-experiments"
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J002\\J001-local_semantic_check.py.log",
+    "published": "../../../../../tasks/active/PReluGradUpdate_2329/explorations/logs/EXP_J_FULL_HISTORY_20261110/early-experiments/J002/J001-local_semantic_check.py.log",
+    "bytes": 45,
+    "sha256": "eecbe22fea619e596257d96d3ddaf90add5c770cf1fa9f37cbc011de9cb8c486",
+    "gzip": false,
+    "category": "early-experiments"
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J002\\J001-shared_weight_check.py.log",
+    "published": "../../../../../tasks/active/PReluGradUpdate_2329/explorations/logs/EXP_J_FULL_HISTORY_20261110/early-experiments/J002/J001-shared_weight_check.py.log",
+    "bytes": 759,
+    "sha256": "cf355350149c0df9c8f899a82075f5f9e8f2d2418c0e1c11dbcd273878ba0663",
+    "gzip": false,
+    "category": "early-experiments"
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J002\\local-regression.json",
+    "published": "../../../../../tasks/active/PReluGradUpdate_2329/explorations/logs/EXP_J_FULL_HISTORY_20261110/early-experiments/J002/local-regression.json",
+    "bytes": 2323,
+    "sha256": "8975e2d70f0fbb5dc3dfdb2b6a5f095cfcef605c6002d6374b6011072f92ccf9",
+    "gzip": false,
+    "category": "early-experiments"
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J002\\P103-compute_schedule_check.py.log",
+    "published": "../../../../../tasks/active/PReluGradUpdate_2329/explorations/logs/EXP_J_FULL_HISTORY_20261110/early-experiments/J002/P103-compute_schedule_check.py.log",
+    "bytes": 177,
+    "sha256": "0961edaee61784cf858709a09d0f6af44223ed32848bc40a14968198b1169b97",
+    "gzip": false,
+    "category": "early-experiments"
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J002\\P103-local_semantic_check.py.log",
+    "published": "../../../../../tasks/active/PReluGradUpdate_2329/explorations/logs/EXP_J_FULL_HISTORY_20261110/early-experiments/J002/P103-local_semantic_check.py.log",
+    "bytes": 45,
+    "sha256": "eecbe22fea619e596257d96d3ddaf90add5c770cf1fa9f37cbc011de9cb8c486",
+    "gzip": false,
+    "category": "early-experiments"
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J002\\PROGRESS-910C-20261104.md",
+    "published": "sources/early-experiments/J002/PROGRESS-910C-20261104.md",
+    "bytes": 30188,
+    "sha256": "bda787ffbc36455e6b5b03436d2de9d6f91e806c6da6e8aefac1f67b7be3175c",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J002\\README.md",
+    "published": "sources/early-experiments/J002/README.md",
+    "bytes": 6910,
+    "sha256": "3a768bc552a8986cbd2058797f4df02dbbffab021bbe6c4e15b2e5b1230fecbc",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J002\\wsl-environment.json",
+    "published": "../../../../../tasks/active/PReluGradUpdate_2329/explorations/logs/EXP_J_FULL_HISTORY_20261110/early-experiments/J002/wsl-environment.json",
+    "bytes": 817,
+    "sha256": "d2ba8ae056055f504b51b0bfdb6027a156525c4c187e6598d78a1c8162614670",
+    "gzip": false,
+    "category": "early-experiments"
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J003\\J003.diff",
+    "published": "sources/early-experiments/J003/J003.diff",
+    "bytes": 2318,
+    "sha256": "6fddab5356262cfecd8cee2fcd1f437ac897944d369f87be9604179a80b127f2",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J003\\README.md",
+    "published": "sources/early-experiments/J003/README.md",
+    "bytes": 445,
+    "sha256": "9dcae989e447207e196f8da2310d5b92d9967659f33ae883043eea092d196dc1",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J004\\J004.diff",
+    "published": "sources/early-experiments/J004/J004.diff",
+    "bytes": 8126,
+    "sha256": "dc7d28ab3d656d68a44e83b318dfcfcd3b1382df2b1debee914e9164154e5c07",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J004\\README.md",
+    "published": "sources/early-experiments/J004/README.md",
+    "bytes": 320,
+    "sha256": "7a987f818da305827174ccad611e990be01634bf482b797902b083bc98db7c7a",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J004\\RESULTS.md",
+    "published": "sources/early-experiments/J004/RESULTS.md",
+    "bytes": 2658,
+    "sha256": "7bbfc427f1ee9183660ea6a7ce90a5668f4449d364206394959ef4d6725c6f09",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J005\\J005.diff",
+    "published": "sources/early-experiments/J005/J005.diff",
+    "bytes": 8055,
+    "sha256": "783f86698913b30ed0247d335963f20d2b182f42df64e518cb19be64967309be",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J005\\README.md",
+    "published": "sources/early-experiments/J005/README.md",
+    "bytes": 138,
+    "sha256": "fc0505c9388268212de3599ca970d6f1edc3f710bf4f84643c2cc723da31fb32",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J005\\RESULTS.md",
+    "published": "sources/early-experiments/J005/RESULTS.md",
+    "bytes": 1568,
+    "sha256": "3b638d499e4fc8207dcab394b8ceba78fe0514d6eb9e527785265d83632c5938",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J006\\J006.diff",
+    "published": "sources/early-experiments/J006/J006.diff",
+    "bytes": 6069,
+    "sha256": "8df9b5940040059a8ee2cdc64fcb0588854524259bf4fd89ccbf6a2da0acf384",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J006\\README.md",
+    "published": "sources/early-experiments/J006/README.md",
+    "bytes": 138,
+    "sha256": "55e1c5cfaf62a7c6270eef6566fb20bc528cc56e3529fb364e51b457d5e26f62",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J006\\RESULTS.md",
+    "published": "sources/early-experiments/J006/RESULTS.md",
+    "bytes": 2682,
+    "sha256": "ac778235a326dc58c5f00563eb414d4c338ddf3a0b902d72d2015c8a2682c427",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J007\\J007.diff",
+    "published": "sources/early-experiments/J007/J007.diff",
+    "bytes": 4665,
+    "sha256": "bd00a2c4210d5f308788810eb447e2d0d90b30b03846a7626cb579d66971d68c",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J007\\README.md",
+    "published": "sources/early-experiments/J007/README.md",
+    "bytes": 169,
+    "sha256": "35bdfb2cf439e00e9cbd3de2688a045bace8605652d409b15388c5d404956018",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J007\\RESULTS.md",
+    "published": "sources/early-experiments/J007/RESULTS.md",
+    "bytes": 4623,
+    "sha256": "975e17c383a00515e1fd4451d2be5de1abd90178b60f6d4619b7e760a1abcbc9",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J008\\J008.diff",
+    "published": "sources/early-experiments/J008/J008.diff",
+    "bytes": 3239,
+    "sha256": "37bc0590893a3d8321e79ec25af7dd7d60035f13fa4273ed7ca4c7d7a949dfde",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J008\\README.md",
+    "published": "sources/early-experiments/J008/README.md",
+    "bytes": 164,
+    "sha256": "4f24309a80f0b39e7fc69066f6e480a992b05c18576f62359495d3a7b74ab486",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J008\\RESULTS.md",
+    "published": "sources/early-experiments/J008/RESULTS.md",
+    "bytes": 6114,
+    "sha256": "9b2763311910ad851e5e9995e7caa3b5d3472de32aa7246ba9fc770fc3c499fa",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J009\\J009.diff",
+    "published": "sources/early-experiments/J009/J009.diff",
+    "bytes": 3764,
+    "sha256": "523658477a61b85d46d95cf04f6395d04f5a7b128f20d9ea0eb1d8ff88f10524",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J009\\PIPELINE-ANALYSIS.md",
+    "published": "sources/early-experiments/J009/PIPELINE-ANALYSIS.md",
+    "bytes": 2758,
+    "sha256": "9d4f24c79a26a1d75391bd1594f39cb77ff75c401d338ae2abca420eee28dcd5",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J009\\README.md",
+    "published": "sources/early-experiments/J009/README.md",
+    "bytes": 177,
+    "sha256": "4b733395f096f8371a5b7d189a04b4d286d25fffe833fec408a958bfcc48a6ce",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J009\\RESULTS.md",
+    "published": "sources/early-experiments/J009/RESULTS.md",
+    "bytes": 8799,
+    "sha256": "fad7b1fa725351c6c31fbd8e9a6e219b27f43e6d291606476d993554994f1730",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J010\\J010.diff",
+    "published": "sources/early-experiments/J010/J010.diff",
+    "bytes": 1046,
+    "sha256": "0792938dfd58266f1fcb995fea96ac5ec4a1ab37d2c81e2d3f814e9c09e04aae",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J010\\README.md",
+    "published": "sources/early-experiments/J010/README.md",
+    "bytes": 174,
+    "sha256": "6eb26d6fb5c284af6bab7296892e54d3bdf7bfd4c064199a9163c3c679087faa",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J010\\RESULTS.md",
+    "published": "sources/early-experiments/J010/RESULTS.md",
+    "bytes": 7483,
+    "sha256": "4edeb423d5eef960ad878ffea8cbb05d359d5cdbb699899297f9dee7d7683c80",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J011\\all-measurements.csv",
+    "published": "../../../../../tasks/active/PReluGradUpdate_2329/explorations/logs/EXP_J_FULL_HISTORY_20261110/early-experiments/J011/all-measurements.csv",
+    "bytes": 84822,
+    "sha256": "7c2e67e915c576d38ad53e022ffd2d3aa1b955e90eac2b13ad2cc1fdf3c59bad",
+    "gzip": false,
+    "category": "early-experiments"
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J011\\J011.diff",
+    "published": "sources/early-experiments/J011/J011.diff",
+    "bytes": 693,
+    "sha256": "2c65f4b0f3d8cb600e4fa8040dd20030cccf1eaeecb616ce1591af66c3930a00",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J011\\README.md",
+    "published": "sources/early-experiments/J011/README.md",
+    "bytes": 255,
+    "sha256": "3fdc7f76f4e4b805d6823e5fe7bf24a4381f12e56c0224d89a6213b345317e63",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J011\\RESULTS.md",
+    "published": "sources/early-experiments/J011/RESULTS.md",
+    "bytes": 15877,
+    "sha256": "35da9e008408596337f85012b55ca954fea3ba136b05aa478da64620013e86aa",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J012\\J012.diff",
+    "published": "sources/early-experiments/J012/J012.diff",
+    "bytes": 693,
+    "sha256": "d69124cb7f3716d0a01d247c6c92047fef2c1e3ae5f82e36d7a6a2f9e7d61660",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J012\\README.md",
+    "published": "sources/early-experiments/J012/README.md",
+    "bytes": 104,
+    "sha256": "fa1379d777bb5c07370b6bc58685100fc89b769ac42bd6954b54ed6447ce6368",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J012\\RESULTS.md",
+    "published": "sources/early-experiments/J012/RESULTS.md",
+    "bytes": 194,
+    "sha256": "6874140480f4f66ec7fb358d6eaf23094b1afa9088ee7dac1d00a84b4ee9280f",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J013\\all-measurements.csv",
+    "published": "../../../../../tasks/active/PReluGradUpdate_2329/explorations/logs/EXP_J_FULL_HISTORY_20261110/early-experiments/J013/all-measurements.csv",
+    "bytes": 80769,
+    "sha256": "d60dd5ae96719021a168297a2aca95dc63e432a7ab4b228055206c23b82a47f4",
+    "gzip": false,
+    "category": "early-experiments"
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J013\\J013.diff",
+    "published": "sources/early-experiments/J013/J013.diff",
+    "bytes": 21902,
+    "sha256": "ac1d6b9c233504552f847ab79416176f08be57dd073bc688006e722b1bb34015",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J013\\performance-summary.json",
+    "published": "../../../../../tasks/active/PReluGradUpdate_2329/explorations/logs/EXP_J_FULL_HISTORY_20261110/early-experiments/J013/performance-summary.json",
+    "bytes": 458819,
+    "sha256": "d58b55fcb602f659cf943de8af7a5c43bdf1d3238bb7884fadc18ec6498e2caf",
+    "gzip": false,
+    "category": "early-experiments"
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J013\\README.md",
+    "published": "sources/early-experiments/J013/README.md",
+    "bytes": 220,
+    "sha256": "cb3be35069382df7991cc7c18051da2055f43ff7e26cb607252cda963b5be3ab",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J013\\recheck-summary.json",
+    "published": "../../../../../tasks/active/PReluGradUpdate_2329/explorations/logs/EXP_J_FULL_HISTORY_20261110/early-experiments/J013/recheck-summary.json",
+    "bytes": 141502,
+    "sha256": "65fc683be88f0de2c19b0943b4fddb4f54ac88d389dece53a904e0872e7d0336",
+    "gzip": false,
+    "category": "early-experiments"
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J013\\RESULTS.md",
+    "published": "sources/early-experiments/J013/RESULTS.md",
+    "bytes": 8211,
+    "sha256": "381aafb6c141049eb5cc3f2ed4ff6b11eb87e47b9a7209e4207d9614f70fb77c",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J014\\all-measurements.csv",
+    "published": "../../../../../tasks/active/PReluGradUpdate_2329/explorations/logs/EXP_J_FULL_HISTORY_20261110/early-experiments/J014/all-measurements.csv",
+    "bytes": 76421,
+    "sha256": "85af53d37a2c4de619ad4f44008d89e5ddcdba9d1e6e3ee9bfdab9d64c4ce6d5",
+    "gzip": false,
+    "category": "early-experiments"
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J014\\J014.diff",
+    "published": "sources/early-experiments/J014/J014.diff",
+    "bytes": 3108,
+    "sha256": "0b1e0e52ce42dd9d30888b447986e7d43e45a4bfa40a0b143d023aa0b4b5f3f5",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J014\\performance-summary.json",
+    "published": "../../../../../tasks/active/PReluGradUpdate_2329/explorations/logs/EXP_J_FULL_HISTORY_20261110/early-experiments/J014/performance-summary.json",
+    "bytes": 630016,
+    "sha256": "cc90df4722623e714273097ff1c3b74be6a1961244c9f0f7eaedce03d2fdd27c",
+    "gzip": false,
+    "category": "early-experiments"
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J014\\README.md",
+    "published": "sources/early-experiments/J014/README.md",
+    "bytes": 85,
+    "sha256": "f3425891c5d52352bcd28d0b5dbd89f275dbefd5fbd5cd402a24565717a5080d",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J014\\RESULTS.md",
+    "published": "sources/early-experiments/J014/RESULTS.md",
+    "bytes": 639,
+    "sha256": "e87fe219e4525a3d4ea0cb9935624713a1e6a15a6969211c66ccefbd3a60e082",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J015\\all-measurements.csv",
+    "published": "../../../../../tasks/active/PReluGradUpdate_2329/explorations/logs/EXP_J_FULL_HISTORY_20261110/early-experiments/J015/all-measurements.csv",
+    "bytes": 151742,
+    "sha256": "166a7ded1d854cf9a37d3a7fa9e12be2c30e90dd124998ed226fdd744be59f97",
+    "gzip": false,
+    "category": "early-experiments"
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J015\\analysis-summary.json",
+    "published": "../../../../../tasks/active/PReluGradUpdate_2329/explorations/logs/EXP_J_FULL_HISTORY_20261110/early-experiments/J015/analysis-summary.json",
+    "bytes": 205,
+    "sha256": "5507f25d41d49abc3b48129a974e6865ac3da8e3cf7ea3083a0533c889cdc2b9",
+    "gzip": false,
+    "category": "early-experiments"
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J015\\J015.diff",
+    "published": "sources/early-experiments/J015/J015.diff",
+    "bytes": 2172,
+    "sha256": "8695b0c75dce48b86c252335d7fecb668cc272e1c66afb07f98d41a862794ece",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J015\\performance-summary.json",
+    "published": "../../../../../tasks/active/PReluGradUpdate_2329/explorations/logs/EXP_J_FULL_HISTORY_20261110/early-experiments/J015/performance-summary.json.gz",
+    "bytes": 1250790,
+    "sha256": "5ebc25de3df626830c88b1b72b796f3ac8a35b50fec90932d107b92e4a772645",
+    "gzip": true,
+    "category": "early-experiments"
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J015\\position-check.csv",
+    "published": "../../../../../tasks/active/PReluGradUpdate_2329/explorations/logs/EXP_J_FULL_HISTORY_20261110/early-experiments/J015/position-check.csv",
+    "bytes": 8121,
+    "sha256": "dcfe0988f50e47bf7f3acfc27c087060b1f0f087861c2e8c1a859715aec3b515",
+    "gzip": false,
+    "category": "early-experiments"
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J015\\position-summary.json",
+    "published": "../../../../../tasks/active/PReluGradUpdate_2329/explorations/logs/EXP_J_FULL_HISTORY_20261110/early-experiments/J015/position-summary.json",
+    "bytes": 61857,
+    "sha256": "e4120632dd3fbc42be5fc9af8a1c675109667d8fb70615f12f77a9ba217b3618",
+    "gzip": false,
+    "category": "early-experiments"
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J015\\README.md",
+    "published": "sources/early-experiments/J015/README.md",
+    "bytes": 214,
+    "sha256": "f5a010dfc90da38bbaf608ccd14009aa7f81f55c5ed64bf41fcd87cb40a66dc1",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J015\\RESULTS.md",
+    "published": "sources/early-experiments/J015/RESULTS.md",
+    "bytes": 9492,
+    "sha256": "3da7710035ea39d98575bc2b56b67993ebbfacd7a3e4e7f274c19a7235192bc2",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J016\\failure-diagnosis.log",
+    "published": "../../../../../tasks/active/PReluGradUpdate_2329/explorations/logs/EXP_J_FULL_HISTORY_20261110/early-experiments/J016/failure-diagnosis.log",
+    "bytes": 2940,
+    "sha256": "6a534601a90626e94b8e81ed4884b2d42c4c39266c9546a97e48666102b45797",
+    "gzip": false,
+    "category": "early-experiments"
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J016\\J016.diff",
+    "published": "sources/early-experiments/J016/J016.diff",
+    "bytes": 3284,
+    "sha256": "c7b3e6117edb0fb5cb987298d29081fe23bc42c76a4acfff96e1038bdfa6275f",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J016\\README.md",
+    "published": "sources/early-experiments/J016/README.md",
+    "bytes": 221,
+    "sha256": "02911b63e08a898df20fffb0f34aa84ecb524a411ff5e8ccd4ea4e0d4664506f",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J016\\RESULTS.md",
+    "published": "sources/early-experiments/J016/RESULTS.md",
+    "bytes": 1519,
+    "sha256": "b2e5412b6db24c719a7c5b7a3eaa9e3b6308c107f165f036dabe0244b032730f",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J017\\J017.diff",
+    "published": "sources/early-experiments/J017/J017.diff",
+    "bytes": 4004,
+    "sha256": "253657bfae24f7a90e8a6c875af5e76c1d4ce6deefc6a2b3021410d8b4f5a013",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J017\\performance-summary.json",
+    "published": "../../../../../tasks/active/PReluGradUpdate_2329/explorations/logs/EXP_J_FULL_HISTORY_20261110/early-experiments/J017/performance-summary.json",
+    "bytes": 265543,
+    "sha256": "6e563510183486e41080fa8ddf6a2b6570ec58a31c682833a7c4e8b9245a47c6",
+    "gzip": false,
+    "category": "early-experiments"
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J017\\README.md",
+    "published": "sources/early-experiments/J017/README.md",
+    "bytes": 148,
+    "sha256": "7a888de11b9c6f64bb203a2f23644bc25146138c71eecbca4e2a52bfef2d2b7c",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J017\\RESULTS.md",
+    "published": "sources/early-experiments/J017/RESULTS.md",
+    "bytes": 1546,
+    "sha256": "a3787649568da0f64e3f5e6060703a6e2e9cfe0bfac47223f65c91758d5af577",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J018\\all-measurements.csv",
+    "published": "../../../../../tasks/active/PReluGradUpdate_2329/explorations/logs/EXP_J_FULL_HISTORY_20261110/early-experiments/J018/all-measurements.csv",
+    "bytes": 97887,
+    "sha256": "a276108bf1580d93e52bfe73a10ee5e32f23e6974aa577d5d563786cab6a2bb1",
+    "gzip": false,
+    "category": "early-experiments"
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J018\\analysis-with-host-rule.json",
+    "published": "../../../../../tasks/active/PReluGradUpdate_2329/explorations/logs/EXP_J_FULL_HISTORY_20261110/early-experiments/J018/analysis-with-host-rule.json",
+    "bytes": 136970,
+    "sha256": "b804211e9e1372df3a1ee9f55e17788ac8751cd9f04f14db8c0c19e33c2222f2",
+    "gzip": false,
+    "category": "early-experiments"
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J018\\analysis.json",
+    "published": "../../../../../tasks/active/PReluGradUpdate_2329/explorations/logs/EXP_J_FULL_HISTORY_20261110/early-experiments/J018/analysis.json",
+    "bytes": 126803,
+    "sha256": "df91c89cebba7f636145e2c4cbf40ae2cb5689b5c3cd2ca03c44bae6837f8eac",
+    "gzip": false,
+    "category": "early-experiments"
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J018\\J016-performance-exclusions.json",
+    "published": "../../../../../tasks/active/PReluGradUpdate_2329/explorations/logs/EXP_J_FULL_HISTORY_20261110/early-experiments/J018/J016-performance-exclusions.json",
+    "bytes": 4587,
+    "sha256": "71cc313ba852d3e794e2bb619c4d60a85699e778f809fa91e8e1fb5dbfeb740a",
+    "gzip": false,
+    "category": "early-experiments"
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J018\\J016-reproduction.json",
+    "published": "../../../../../tasks/active/PReluGradUpdate_2329/explorations/logs/EXP_J_FULL_HISTORY_20261110/early-experiments/J018/J016-reproduction.json",
+    "bytes": 3419,
+    "sha256": "1d047f97e532381620c22c9c1806f2e77911038460c2a550f8d7c7aa8587a054",
+    "gzip": false,
+    "category": "early-experiments"
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J018\\J018.diff",
+    "published": "sources/early-experiments/J018/J018.diff",
+    "bytes": 553,
+    "sha256": "abaf1c2a3cac587ab5c724f0e682c94274b26e1d258cfa889ecec02da589671d",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J018\\performance-summary.json",
+    "published": "../../../../../tasks/active/PReluGradUpdate_2329/explorations/logs/EXP_J_FULL_HISTORY_20261110/early-experiments/J018/performance-summary.json",
+    "bytes": 911313,
+    "sha256": "fa8a41ca5ff51d39ace001cff504cc377d6ba2f2e423f0f9ae28b6c738293e14",
+    "gzip": false,
+    "category": "early-experiments"
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J018\\PROGRESS.md",
+    "published": "sources/early-experiments/J018/PROGRESS.md",
+    "bytes": 2043,
+    "sha256": "6db9db7dbb929198d8fde7ad8537ae159811c917de77c40b66c9f364c3e10df0",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J018\\README.md",
+    "published": "sources/early-experiments/J018/README.md",
+    "bytes": 129,
+    "sha256": "0dea07f2007a7a2843cc49a276636d6d32866a06e06d3fd238a81c31ea8818b7",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J018\\RESULTS.md",
+    "published": "sources/early-experiments/J018/RESULTS.md",
+    "bytes": 8823,
+    "sha256": "12a34dd2229c10d9b21ed47242234e452d619f1f9bf7301418a4f92f2224730b",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J019\\all-measurements.csv",
+    "published": "../../../../../tasks/active/PReluGradUpdate_2329/explorations/logs/EXP_J_FULL_HISTORY_20261110/early-experiments/J019/all-measurements.csv",
+    "bytes": 155239,
+    "sha256": "7b25658784dd502922ea7a62f47452f20856ba4bd34f57b23659b47395ae4361",
+    "gzip": false,
+    "category": "early-experiments"
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J019\\analysis.json",
+    "published": "../../../../../tasks/active/PReluGradUpdate_2329/explorations/logs/EXP_J_FULL_HISTORY_20261110/early-experiments/J019/analysis.json",
+    "bytes": 198676,
+    "sha256": "a75c9d9b7e7be9f9d73373a7b65ed7f6ec08a805e1bfe13d9bad0b35f5c5c66c",
+    "gzip": false,
+    "category": "early-experiments"
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J019\\J019.diff",
+    "published": "sources/early-experiments/J019/J019.diff",
+    "bytes": 44977,
+    "sha256": "f026198f5ad19b98fd18ba15749a0f8f95f4b3fb14b63abbf1a878fd4eb96f65",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J019\\performance-summary.json",
+    "published": "../../../../../tasks/active/PReluGradUpdate_2329/explorations/logs/EXP_J_FULL_HISTORY_20261110/early-experiments/J019/performance-summary.json.gz",
+    "bytes": 1430419,
+    "sha256": "6c442afc48dea5cb0e727f6ba1cec3dc0a8d64d8ca639b6eb6cceec29019eede",
+    "gzip": true,
+    "category": "early-experiments"
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J019\\README.md",
+    "published": "sources/early-experiments/J019/README.md",
+    "bytes": 653,
+    "sha256": "116d030874363b6a54b796b6f7ebd0ed0d4300c1864b32f6a8ede85961a3ad35",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J019\\RESULTS.md",
+    "published": "sources/early-experiments/J019/RESULTS.md",
+    "bytes": 3125,
+    "sha256": "ec53fb7fd368e75d4db95d3094b51e53a7f954b9a0d6548e2318eaeaad09c0fd",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J019\\route-analysis.json",
+    "published": "../../../../../tasks/active/PReluGradUpdate_2329/explorations/logs/EXP_J_FULL_HISTORY_20261110/early-experiments/J019/route-analysis.json",
+    "bytes": 227039,
+    "sha256": "bfb631a7824e600b69b943609ed71b3abd0406f060a3d2fbe3b31218863db485",
+    "gzip": false,
+    "category": "early-experiments"
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J020\\all-measurements.csv",
+    "published": "../../../../../tasks/active/PReluGradUpdate_2329/explorations/logs/EXP_J_FULL_HISTORY_20261110/early-experiments/J020/all-measurements.csv",
+    "bytes": 71606,
+    "sha256": "c5c73b9d520157ac195a360a704fcd409f2e1fe23293f1a78a3fc9d8ec78f5c2",
+    "gzip": false,
+    "category": "early-experiments"
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J020\\analysis.json",
+    "published": "../../../../../tasks/active/PReluGradUpdate_2329/explorations/logs/EXP_J_FULL_HISTORY_20261110/early-experiments/J020/analysis.json",
+    "bytes": 87808,
+    "sha256": "d71ee4396ad541ecbae1869f1dabbe3e781d624eb7c3fe9869c3b282890be47f",
+    "gzip": false,
+    "category": "early-experiments"
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J020\\J020.diff",
+    "published": "sources/early-experiments/J020/J020.diff",
+    "bytes": 1048,
+    "sha256": "a6e303e297139ef6673c651a1ccd8889506b26a870fe6d5499a80ad9c2ecaef8",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J020\\performance-summary.json",
+    "published": "../../../../../tasks/active/PReluGradUpdate_2329/explorations/logs/EXP_J_FULL_HISTORY_20261110/early-experiments/J020/performance-summary.json",
+    "bytes": 662723,
+    "sha256": "a70a29f8a3e722e3c913f3a02d9d459366db63f15df8f4a0309a7d67d0a3af21",
+    "gzip": false,
+    "category": "early-experiments"
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J020\\position-analysis.json",
+    "published": "../../../../../tasks/active/PReluGradUpdate_2329/explorations/logs/EXP_J_FULL_HISTORY_20261110/early-experiments/J020/position-analysis.json",
+    "bytes": 22323,
+    "sha256": "0c99e6c9c001266bf67c0376ce23fefdf190617dfe2d6bcd235d992f424cc727",
+    "gzip": false,
+    "category": "early-experiments"
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J020\\position-metrics.json",
+    "published": "../../../../../tasks/active/PReluGradUpdate_2329/explorations/logs/EXP_J_FULL_HISTORY_20261110/early-experiments/J020/position-metrics.json",
+    "bytes": 9902,
+    "sha256": "d95c2b8863f0361e2e2f8e3c5948ff1048c484d61b7a388d58e73ea023b37849",
+    "gzip": false,
+    "category": "early-experiments"
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J020\\position-summary.json",
+    "published": "../../../../../tasks/active/PReluGradUpdate_2329/explorations/logs/EXP_J_FULL_HISTORY_20261110/early-experiments/J020/position-summary.json",
+    "bytes": 359973,
+    "sha256": "a8210766bfebfd3bbbabeeea85845387cf27352f1bb2339e981d3d1886a2e98e",
+    "gzip": false,
+    "category": "early-experiments"
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J020\\README.md",
+    "published": "sources/early-experiments/J020/README.md",
+    "bytes": 472,
+    "sha256": "de08158b104027ce8bdfc8cbc19d594d1735027b70b18a42edbfd0ff8a69351c",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J020\\RESULTS.md",
+    "published": "sources/early-experiments/J020/RESULTS.md",
+    "bytes": 11167,
+    "sha256": "1a33d8ecb4368f225b6766aba33cc23be8088f21630bd1f5b52ee7109e0784ab",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J020\\route-analysis.json",
+    "published": "../../../../../tasks/active/PReluGradUpdate_2329/explorations/logs/EXP_J_FULL_HISTORY_20261110/early-experiments/J020/route-analysis.json",
+    "bytes": 98418,
+    "sha256": "828ab4ee66ca6b2ce0e0dc21dc16da89ef6fbb0af3cda89a623c4928aa721210",
+    "gzip": false,
+    "category": "early-experiments"
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J021\\J021-analysis.json",
+    "published": "../../../../../tasks/active/PReluGradUpdate_2329/explorations/logs/EXP_J_FULL_HISTORY_20261110/early-experiments/J021/J021-analysis.json",
+    "bytes": 117656,
+    "sha256": "e196c3320a4c41224c33397f22f6703c31a6dacc15928ef662e8eddf5cbde2d9",
+    "gzip": false,
+    "category": "early-experiments"
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J021\\J021-existing-counters.json",
+    "published": "../../../../../tasks/active/PReluGradUpdate_2329/explorations/logs/EXP_J_FULL_HISTORY_20261110/early-experiments/J021/J021-existing-counters.json",
+    "bytes": 209796,
+    "sha256": "791276c8d0a719febb7c007c7fcdeebf886e67a77ddf3760b9e6ab9ae34d614a",
+    "gzip": false,
+    "category": "early-experiments"
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J021\\J021-replay-analysis.json",
+    "published": "../../../../../tasks/active/PReluGradUpdate_2329/explorations/logs/EXP_J_FULL_HISTORY_20261110/early-experiments/J021/J021-replay-analysis.json",
+    "bytes": 15892,
+    "sha256": "dfaf4b3a450d65b093126f39ad0a576adc22da4f01b8f6a62c822eac29070445",
+    "gzip": false,
+    "category": "early-experiments"
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J021\\J021-replay-summary.json",
+    "published": "../../../../../tasks/active/PReluGradUpdate_2329/explorations/logs/EXP_J_FULL_HISTORY_20261110/early-experiments/J021/J021-replay-summary.json",
+    "bytes": 117290,
+    "sha256": "67163fa734d41b26ac1c59da25201e4f2e61c7171d6de9299ea39ad4fbb43734",
+    "gzip": false,
+    "category": "early-experiments"
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J021\\J021-summary.json",
+    "published": "../../../../../tasks/active/PReluGradUpdate_2329/explorations/logs/EXP_J_FULL_HISTORY_20261110/early-experiments/J021/J021-summary.json.gz",
+    "bytes": 2516282,
+    "sha256": "3086350c8ebff27045746fdc60a88c27eb80b18b5d98c01ffc105527e799ff84",
+    "gzip": true,
+    "category": "early-experiments"
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J021\\J021-upstream-comparison.md",
+    "published": "sources/early-experiments/J021/J021-upstream-comparison.md",
+    "bytes": 2257,
+    "sha256": "6e855a02a27d50a87e18d51c12818aaf2783ec86912385dda3875ffe1a24f51a",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J021\\J021-warm-analysis.json",
+    "published": "../../../../../tasks/active/PReluGradUpdate_2329/explorations/logs/EXP_J_FULL_HISTORY_20261110/early-experiments/J021/J021-warm-analysis.json",
+    "bytes": 9970,
+    "sha256": "d6b261127c6af3be006d8a3944fce57ad54d7833e8ffd483535538198ca97ff1",
+    "gzip": false,
+    "category": "early-experiments"
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J021\\J021-warm-summary.json",
+    "published": "../../../../../tasks/active/PReluGradUpdate_2329/explorations/logs/EXP_J_FULL_HISTORY_20261110/early-experiments/J021/J021-warm-summary.json",
+    "bytes": 295961,
+    "sha256": "3fb3d98d7b3d9cc8ec58c06d0569b0a83dd5329bf4dcfc073e4872102b351266",
+    "gzip": false,
+    "category": "early-experiments"
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J021\\README.md",
+    "published": "sources/early-experiments/J021/README.md",
+    "bytes": 655,
+    "sha256": "77fdebf4ee6877b56959eecd60b42d7eed271349fb891a3b70c82f718db013cd",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J021\\RESULTS.md",
+    "published": "sources/early-experiments/J021/RESULTS.md",
+    "bytes": 7266,
+    "sha256": "b6880721055027602bbdcf56fb22d0e633514692b414fd1b2e37c4d591ee217d",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J022\\J022-analysis.json",
+    "published": "../../../../../tasks/active/PReluGradUpdate_2329/explorations/logs/EXP_J_FULL_HISTORY_20261110/early-experiments/J022/J022-analysis.json",
+    "bytes": 134154,
+    "sha256": "8cc289988644e952ee891780283c96fab888826c211e0f93ee1c9cdda7627873",
+    "gzip": false,
+    "category": "early-experiments"
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J022\\J022-hot-analysis.json",
+    "published": "../../../../../tasks/active/PReluGradUpdate_2329/explorations/logs/EXP_J_FULL_HISTORY_20261110/early-experiments/J022/J022-hot-analysis.json",
+    "bytes": 6403,
+    "sha256": "c2654ef54a3016779a519f5e6fee5a35ea6069d574cd90777fd46e6df398828b",
+    "gzip": false,
+    "category": "early-experiments"
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J022\\J022-hot-summary.json",
+    "published": "../../../../../tasks/active/PReluGradUpdate_2329/explorations/logs/EXP_J_FULL_HISTORY_20261110/early-experiments/J022/J022-hot-summary.json",
+    "bytes": 213304,
+    "sha256": "3b25e72101eaf9a49181031e7fd94c34b6f12a6a4a73111155512f7ffc8fbb7c",
+    "gzip": false,
+    "category": "early-experiments"
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J022\\J022-source-meta.json",
+    "published": "../../../../../tasks/active/PReluGradUpdate_2329/explorations/logs/EXP_J_FULL_HISTORY_20261110/early-experiments/J022/J022-source-meta.json",
+    "bytes": 91,
+    "sha256": "c5fd753e3e5612e1002a4555764ff78527669a0fd73d816fb5cb83a099110ea9",
+    "gzip": false,
+    "category": "early-experiments"
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J022\\J022-summary.json",
+    "published": "../../../../../tasks/active/PReluGradUpdate_2329/explorations/logs/EXP_J_FULL_HISTORY_20261110/early-experiments/J022/J022-summary.json",
+    "bytes": 776566,
+    "sha256": "1d7e12af23e7a82fe760630f02602ade1e8e48432f0a4d73327f6d3fbbb4d397",
+    "gzip": false,
+    "category": "early-experiments"
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J022\\J022.diff",
+    "published": "sources/early-experiments/J022/J022.diff",
+    "bytes": 566,
+    "sha256": "0ccf349ee8f49934ee866f88168b53fb9ab914d8cb046680d4c22464c25fc059",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J022\\README.md",
+    "published": "sources/early-experiments/J022/README.md",
+    "bytes": 653,
+    "sha256": "c811893106e9700e600594dcc988d39228cad92a7e88ad575830d95c27411f14",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J022\\RESULTS.md",
+    "published": "sources/early-experiments/J022/RESULTS.md",
+    "bytes": 8123,
+    "sha256": "6ea071b0d6a01286fc98426f43893e0c09051b85b186672ea9816c6072ad2bfb",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J023\\J023-analysis.json",
+    "published": "../../../../../tasks/active/PReluGradUpdate_2329/explorations/logs/EXP_J_FULL_HISTORY_20261110/early-experiments/J023/J023-analysis.json",
+    "bytes": 133947,
+    "sha256": "2152e0d2e7678832ff98184f3a2a1ea02f6a08e16b70126ca805461e1d03e3a6",
+    "gzip": false,
+    "category": "early-experiments"
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J023\\J023-elf.json",
+    "published": "../../../../../tasks/active/PReluGradUpdate_2329/explorations/logs/EXP_J_FULL_HISTORY_20261110/early-experiments/J023/J023-elf.json",
+    "bytes": 28304,
+    "sha256": "497bdddc6beae6a9aeef265e678cbcaa3144808bc205a9218e3e8a1dead03bb6",
+    "gzip": false,
+    "category": "early-experiments"
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J023\\J023-hot-analysis.json",
+    "published": "../../../../../tasks/active/PReluGradUpdate_2329/explorations/logs/EXP_J_FULL_HISTORY_20261110/early-experiments/J023/J023-hot-analysis.json",
+    "bytes": 131742,
+    "sha256": "712748e4408078399a092bcb073aebd37d44d6330d4222b42303966d3c12530e",
+    "gzip": false,
+    "category": "early-experiments"
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J023\\J023-hot-summary.json",
+    "published": "../../../../../tasks/active/PReluGradUpdate_2329/explorations/logs/EXP_J_FULL_HISTORY_20261110/early-experiments/J023/J023-hot-summary.json.gz",
+    "bytes": 1033150,
+    "sha256": "fe335c90f59c417a48a3c7a9beb5e29f017959e8fca5c2f4988006f38000bc98",
+    "gzip": true,
+    "category": "early-experiments"
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J023\\J023-pipelines.json",
+    "published": "../../../../../tasks/active/PReluGradUpdate_2329/explorations/logs/EXP_J_FULL_HISTORY_20261110/early-experiments/J023/J023-pipelines.json",
+    "bytes": 32470,
+    "sha256": "769cd92f77c7c3a5a10b13ddb6e0617635b4f8b805c62a4de6901c1fbf8ebaf4",
+    "gzip": false,
+    "category": "early-experiments"
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J023\\J023-source-meta.json",
+    "published": "../../../../../tasks/active/PReluGradUpdate_2329/explorations/logs/EXP_J_FULL_HISTORY_20261110/early-experiments/J023/J023-source-meta.json",
+    "bytes": 91,
+    "sha256": "ac01040439bebef9d4463b037a881775b81b990a5ebe394a3f33188bf21198a1",
+    "gzip": false,
+    "category": "early-experiments"
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J023\\J023-summary.json",
+    "published": "../../../../../tasks/active/PReluGradUpdate_2329/explorations/logs/EXP_J_FULL_HISTORY_20261110/early-experiments/J023/J023-summary.json",
+    "bytes": 775704,
+    "sha256": "2f243bdb667bbca188acf0850f97bf5a77286726b08b679e0ef3471d3a15073e",
+    "gzip": false,
+    "category": "early-experiments"
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J023\\J023.diff",
+    "published": "sources/early-experiments/J023/J023.diff",
+    "bytes": 1659,
+    "sha256": "d8ac7bb0f73bb5c6e5f2bac6ea356ed5c3dd9608d5dfb8f4808b4633dd5adebe",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J023\\README.md",
+    "published": "sources/early-experiments/J023/README.md",
+    "bytes": 718,
+    "sha256": "30108e90910f67db9883cef4ce9476bcd30146555957209b648b230c84019934",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J023\\RESULTS.md",
+    "published": "sources/early-experiments/J023/RESULTS.md",
+    "bytes": 7721,
+    "sha256": "30a1c4a9c1c5c68cddbbf7bc2585fe13f75e5bd2b9064776b45d49f33a96cae0",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J024\\J024-analysis.json",
+    "published": "../../../../../tasks/active/PReluGradUpdate_2329/explorations/logs/EXP_J_FULL_HISTORY_20261110/early-experiments/J024/J024-analysis.json",
+    "bytes": 469136,
+    "sha256": "81f7509bd085317fdcd861f0a31f1a16f5f33f291948cb475a6823a1db74955f",
+    "gzip": false,
+    "category": "early-experiments"
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J024\\J024-hot-analysis.json",
+    "published": "../../../../../tasks/active/PReluGradUpdate_2329/explorations/logs/EXP_J_FULL_HISTORY_20261110/early-experiments/J024/J024-hot-analysis.json",
+    "bytes": 111442,
+    "sha256": "b0cb2c18cc7b2406ca3605186b534e0744dd5e9104bee1ccff464294861da922",
+    "gzip": false,
+    "category": "early-experiments"
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J024\\J024-hot-summary.json",
+    "published": "../../../../../tasks/active/PReluGradUpdate_2329/explorations/logs/EXP_J_FULL_HISTORY_20261110/early-experiments/J024/J024-hot-summary.json",
+    "bytes": 691526,
+    "sha256": "b44d240a3d7fdddf13be6efa6d258bfec292b6c2d14e9bd6fc2a5fb55c99f281",
+    "gzip": false,
+    "category": "early-experiments"
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J024\\J024-source-meta.json",
+    "published": "../../../../../tasks/active/PReluGradUpdate_2329/explorations/logs/EXP_J_FULL_HISTORY_20261110/early-experiments/J024/J024-source-meta.json",
+    "bytes": 91,
+    "sha256": "485643f94c2f4b8f9dd5e938ad0dd57199e91e44ebed073b5cb983ca8a9a2445",
+    "gzip": false,
+    "category": "early-experiments"
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J024\\J024-summary.json",
+    "published": "../../../../../tasks/active/PReluGradUpdate_2329/explorations/logs/EXP_J_FULL_HISTORY_20261110/early-experiments/J024/J024-summary.json.gz",
+    "bytes": 1663461,
+    "sha256": "586bfb55abe094e26e094ed43d2dd56e77bdc54929f1b460c3182ed73db3a3a1",
+    "gzip": true,
+    "category": "early-experiments"
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J024\\J024.diff",
+    "published": "sources/early-experiments/J024/J024.diff",
+    "bytes": 27269,
+    "sha256": "7e670d125c6f9a6c99324aeb5d16f13b8767f5b4254a56af36043d3f400730a1",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J024\\README.md",
+    "published": "sources/early-experiments/J024/README.md",
+    "bytes": 886,
+    "sha256": "9ba050c7c21f955ee1cc88bbb49067bfea8af42c1f0bdbe1dd178146bad19f79",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J024\\RESULTS.md",
+    "published": "sources/early-experiments/J024/RESULTS.md",
+    "bytes": 10189,
+    "sha256": "827c6825958f2e5169049530f3d95307c39d5a8dcc30869466898195fddb6f6b",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J025\\J025-frozen-rule.json",
+    "published": "../../../../../tasks/active/PReluGradUpdate_2329/explorations/logs/EXP_J_FULL_HISTORY_20261110/early-experiments/J025/J025-frozen-rule.json",
+    "bytes": 2696,
+    "sha256": "980d706e6eda57f73d6f863e341e9c65bab42acaaf1086523ffed5a532324fb0",
+    "gzip": false,
+    "category": "early-experiments"
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J025\\J025-hot-analysis.json",
+    "published": "../../../../../tasks/active/PReluGradUpdate_2329/explorations/logs/EXP_J_FULL_HISTORY_20261110/early-experiments/J025/J025-hot-analysis.json",
+    "bytes": 112010,
+    "sha256": "a02187040026d4633f9732e140be4614f471be8c79a31c1b427c31f306c77a63",
+    "gzip": false,
+    "category": "early-experiments"
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J025\\J025-hot-summary.json",
+    "published": "../../../../../tasks/active/PReluGradUpdate_2329/explorations/logs/EXP_J_FULL_HISTORY_20261110/early-experiments/J025/J025-hot-summary.json",
+    "bytes": 696255,
+    "sha256": "d3ed4b4a4c592df70758c7f50880b7ebb1b488ce5cc293afa9ff818100dd081e",
+    "gzip": false,
+    "category": "early-experiments"
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J025\\J025-plan.json",
+    "published": "../../../../../tasks/active/PReluGradUpdate_2329/explorations/logs/EXP_J_FULL_HISTORY_20261110/early-experiments/J025/J025-plan.json",
+    "bytes": 2309,
+    "sha256": "a41b84997520e862e59cf7dad16f041197d6d9316c8771d44a6b5cfbfa823810",
+    "gzip": false,
+    "category": "early-experiments"
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J025\\J025-scan-analysis.json",
+    "published": "../../../../../tasks/active/PReluGradUpdate_2329/explorations/logs/EXP_J_FULL_HISTORY_20261110/early-experiments/J025/J025-scan-analysis.json",
+    "bytes": 721321,
+    "sha256": "3ab273c2f54deee0017a6ed998d0406e1c5b8fb77195e6dbbe1d9b836373d8e1",
+    "gzip": false,
+    "category": "early-experiments"
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J025\\J025-scan-summary.json",
+    "published": "../../../../../tasks/active/PReluGradUpdate_2329/explorations/logs/EXP_J_FULL_HISTORY_20261110/early-experiments/J025/J025-scan-summary.json.gz",
+    "bytes": 3070394,
+    "sha256": "7699a8cc7e97f050f18dd6e231e736e6af346808af6d2cc30de02ee94a881dea",
+    "gzip": true,
+    "category": "early-experiments"
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J025\\J025-shallow-proposal.json",
+    "published": "../../../../../tasks/active/PReluGradUpdate_2329/explorations/logs/EXP_J_FULL_HISTORY_20261110/early-experiments/J025/J025-shallow-proposal.json",
+    "bytes": 2084,
+    "sha256": "3ee3699689c2c745e89622cbd4c5b9ee9365b42365d4c04bcd406f5942713e62",
+    "gzip": false,
+    "category": "early-experiments"
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J025\\J025-source-meta.json",
+    "published": "../../../../../tasks/active/PReluGradUpdate_2329/explorations/logs/EXP_J_FULL_HISTORY_20261110/early-experiments/J025/J025-source-meta.json",
+    "bytes": 177,
+    "sha256": "3b7bedc0e5e7f72b41314166e5abdddc8544f21298c5645ad8d0e64b16f583ca",
+    "gzip": false,
+    "category": "early-experiments"
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J025\\J025-transfer-error-1.json",
+    "published": "../../../../../tasks/active/PReluGradUpdate_2329/explorations/logs/EXP_J_FULL_HISTORY_20261110/early-experiments/J025/J025-transfer-error-1.json",
+    "bytes": 514,
+    "sha256": "522ff158d3fa13c8d5fe363f2d8d4769714be448a6a7b1ba2a2b4244e5a1fa98",
+    "gzip": false,
+    "category": "early-experiments"
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J025\\J025-transfer-error-2.json",
+    "published": "../../../../../tasks/active/PReluGradUpdate_2329/explorations/logs/EXP_J_FULL_HISTORY_20261110/early-experiments/J025/J025-transfer-error-2.json",
+    "bytes": 365,
+    "sha256": "aabeb2c74c4a176aeb8032813d65910033d2f905334603325f28d088f51eba26",
+    "gzip": false,
+    "category": "early-experiments"
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J025\\J025-validation-analysis.json",
+    "published": "../../../../../tasks/active/PReluGradUpdate_2329/explorations/logs/EXP_J_FULL_HISTORY_20261110/early-experiments/J025/J025-validation-analysis.json",
+    "bytes": 536248,
+    "sha256": "9849bccd6cd05ee65d5dd3f1006380932433b9f66e97d8efb88090319ea1ff32",
+    "gzip": false,
+    "category": "early-experiments"
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J025\\J025-validation-plan.json",
+    "published": "../../../../../tasks/active/PReluGradUpdate_2329/explorations/logs/EXP_J_FULL_HISTORY_20261110/early-experiments/J025/J025-validation-plan.json",
+    "bytes": 1122,
+    "sha256": "b3fcff1ffd7569659aa575073999357aa7ae1eca8fdb4d8ba95a8ef24d7b4dc4",
+    "gzip": false,
+    "category": "early-experiments"
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J025\\J025-validation-summary.json",
+    "published": "../../../../../tasks/active/PReluGradUpdate_2329/explorations/logs/EXP_J_FULL_HISTORY_20261110/early-experiments/J025/J025-validation-summary.json.gz",
+    "bytes": 2192153,
+    "sha256": "71a003a4bb6034694ef32bd9b0e6be811a8129abb22fe82168caac9c38197807",
+    "gzip": true,
+    "category": "early-experiments"
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J025\\J025.diff",
+    "published": "sources/early-experiments/J025/J025.diff",
+    "bytes": 3155,
+    "sha256": "6a96f459820d99cd9f3ea84af097bdb001687ec3524d094ebc6e59a9d54cdbad",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J025\\J025P-source-meta.json",
+    "published": "../../../../../tasks/active/PReluGradUpdate_2329/explorations/logs/EXP_J_FULL_HISTORY_20261110/early-experiments/J025/J025P-source-meta.json",
+    "bytes": 91,
+    "sha256": "83c2e135d76a7bc946809511486f20f32c5ee87574b9f104bf68650ba09c9467",
+    "gzip": false,
+    "category": "early-experiments"
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J025\\README.md",
+    "published": "sources/early-experiments/J025/README.md",
+    "bytes": 355,
+    "sha256": "87c24fde6508f62c5508f8b21409340200b6de7adb2aad29a089492277a272b7",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J025\\RESULTS.md",
+    "published": "sources/early-experiments/J025/RESULTS.md",
+    "bytes": 15401,
+    "sha256": "162132d682b7847b2855be2c63a42d53c213ee53d7e11c5532c247663cdb4c0a",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J025P\\J025-frozen-rule.json",
+    "published": "../../../../../tasks/active/PReluGradUpdate_2329/explorations/logs/EXP_J_FULL_HISTORY_20261110/early-experiments/J025P/J025-frozen-rule.json",
+    "bytes": 2696,
+    "sha256": "980d706e6eda57f73d6f863e341e9c65bab42acaaf1086523ffed5a532324fb0",
+    "gzip": false,
+    "category": "early-experiments"
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J025P\\J025-hot-analysis.json",
+    "published": "../../../../../tasks/active/PReluGradUpdate_2329/explorations/logs/EXP_J_FULL_HISTORY_20261110/early-experiments/J025P/J025-hot-analysis.json",
+    "bytes": 112010,
+    "sha256": "a02187040026d4633f9732e140be4614f471be8c79a31c1b427c31f306c77a63",
+    "gzip": false,
+    "category": "early-experiments"
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J025P\\J025-hot-summary.json",
+    "published": "../../../../../tasks/active/PReluGradUpdate_2329/explorations/logs/EXP_J_FULL_HISTORY_20261110/early-experiments/J025P/J025-hot-summary.json",
+    "bytes": 696255,
+    "sha256": "d3ed4b4a4c592df70758c7f50880b7ebb1b488ce5cc293afa9ff818100dd081e",
+    "gzip": false,
+    "category": "early-experiments"
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J025P\\J025-plan.json",
+    "published": "../../../../../tasks/active/PReluGradUpdate_2329/explorations/logs/EXP_J_FULL_HISTORY_20261110/early-experiments/J025P/J025-plan.json",
+    "bytes": 2309,
+    "sha256": "a41b84997520e862e59cf7dad16f041197d6d9316c8771d44a6b5cfbfa823810",
+    "gzip": false,
+    "category": "early-experiments"
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J025P\\J025-scan-analysis.json",
+    "published": "../../../../../tasks/active/PReluGradUpdate_2329/explorations/logs/EXP_J_FULL_HISTORY_20261110/early-experiments/J025P/J025-scan-analysis.json",
+    "bytes": 721321,
+    "sha256": "3ab273c2f54deee0017a6ed998d0406e1c5b8fb77195e6dbbe1d9b836373d8e1",
+    "gzip": false,
+    "category": "early-experiments"
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J025P\\J025-scan-summary.json",
+    "published": "../../../../../tasks/active/PReluGradUpdate_2329/explorations/logs/EXP_J_FULL_HISTORY_20261110/early-experiments/J025P/J025-scan-summary.json.gz",
+    "bytes": 3070394,
+    "sha256": "7699a8cc7e97f050f18dd6e231e736e6af346808af6d2cc30de02ee94a881dea",
+    "gzip": true,
+    "category": "early-experiments"
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J025P\\J025-shallow-proposal.json",
+    "published": "../../../../../tasks/active/PReluGradUpdate_2329/explorations/logs/EXP_J_FULL_HISTORY_20261110/early-experiments/J025P/J025-shallow-proposal.json",
+    "bytes": 2084,
+    "sha256": "3ee3699689c2c745e89622cbd4c5b9ee9365b42365d4c04bcd406f5942713e62",
+    "gzip": false,
+    "category": "early-experiments"
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J025P\\J025-source-meta.json",
+    "published": "../../../../../tasks/active/PReluGradUpdate_2329/explorations/logs/EXP_J_FULL_HISTORY_20261110/early-experiments/J025P/J025-source-meta.json",
+    "bytes": 177,
+    "sha256": "3b7bedc0e5e7f72b41314166e5abdddc8544f21298c5645ad8d0e64b16f583ca",
+    "gzip": false,
+    "category": "early-experiments"
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J025P\\J025-transfer-error-1.json",
+    "published": "../../../../../tasks/active/PReluGradUpdate_2329/explorations/logs/EXP_J_FULL_HISTORY_20261110/early-experiments/J025P/J025-transfer-error-1.json",
+    "bytes": 514,
+    "sha256": "522ff158d3fa13c8d5fe363f2d8d4769714be448a6a7b1ba2a2b4244e5a1fa98",
+    "gzip": false,
+    "category": "early-experiments"
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J025P\\J025-transfer-error-2.json",
+    "published": "../../../../../tasks/active/PReluGradUpdate_2329/explorations/logs/EXP_J_FULL_HISTORY_20261110/early-experiments/J025P/J025-transfer-error-2.json",
+    "bytes": 365,
+    "sha256": "aabeb2c74c4a176aeb8032813d65910033d2f905334603325f28d088f51eba26",
+    "gzip": false,
+    "category": "early-experiments"
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J025P\\J025-validation-analysis.json",
+    "published": "../../../../../tasks/active/PReluGradUpdate_2329/explorations/logs/EXP_J_FULL_HISTORY_20261110/early-experiments/J025P/J025-validation-analysis.json",
+    "bytes": 536248,
+    "sha256": "9849bccd6cd05ee65d5dd3f1006380932433b9f66e97d8efb88090319ea1ff32",
+    "gzip": false,
+    "category": "early-experiments"
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J025P\\J025-validation-plan.json",
+    "published": "../../../../../tasks/active/PReluGradUpdate_2329/explorations/logs/EXP_J_FULL_HISTORY_20261110/early-experiments/J025P/J025-validation-plan.json",
+    "bytes": 1122,
+    "sha256": "b3fcff1ffd7569659aa575073999357aa7ae1eca8fdb4d8ba95a8ef24d7b4dc4",
+    "gzip": false,
+    "category": "early-experiments"
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J025P\\J025-validation-summary.json",
+    "published": "../../../../../tasks/active/PReluGradUpdate_2329/explorations/logs/EXP_J_FULL_HISTORY_20261110/early-experiments/J025P/J025-validation-summary.json.gz",
+    "bytes": 2192153,
+    "sha256": "71a003a4bb6034694ef32bd9b0e6be811a8129abb22fe82168caac9c38197807",
+    "gzip": true,
+    "category": "early-experiments"
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J025P\\J025P-source-meta.json",
+    "published": "../../../../../tasks/active/PReluGradUpdate_2329/explorations/logs/EXP_J_FULL_HISTORY_20261110/early-experiments/J025P/J025P-source-meta.json",
+    "bytes": 91,
+    "sha256": "83c2e135d76a7bc946809511486f20f32c5ee87574b9f104bf68650ba09c9467",
+    "gzip": false,
+    "category": "early-experiments"
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J025P\\J025P.diff",
+    "published": "sources/early-experiments/J025P/J025P.diff",
+    "bytes": 1591,
+    "sha256": "d52cbb4f1039f5b5207a5d9854e29e3ff4fada6b60dc2c11baa2627d0385ff82",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J025P\\README.md",
+    "published": "sources/early-experiments/J025P/README.md",
+    "bytes": 668,
+    "sha256": "c3a927b5f0f1b9c9c6d015cd9a43bac3ce92af1a8ac92654dcb7869f3ee844e7",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J025P\\RESULTS.md",
+    "published": "sources/early-experiments/J025P/RESULTS.md",
+    "bytes": 15401,
+    "sha256": "162132d682b7847b2855be2c63a42d53c213ee53d7e11c5532c247663cdb4c0a",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J026\\J026-plan.json",
+    "published": "../../../../../tasks/active/PReluGradUpdate_2329/explorations/logs/EXP_J_FULL_HISTORY_20261110/early-experiments/J026/J026-plan.json",
+    "bytes": 1058,
+    "sha256": "f52aefd2290f0da04fd779aa1e6b67e8daf162a0eb5c764d242f49d9b9a9fba4",
+    "gzip": false,
+    "category": "early-experiments"
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J026\\J026-source-meta.json",
+    "published": "../../../../../tasks/active/PReluGradUpdate_2329/explorations/logs/EXP_J_FULL_HISTORY_20261110/early-experiments/J026/J026-source-meta.json",
+    "bytes": 91,
+    "sha256": "896b7e583f85daa95fb1327d2a769e04e7ff63cab3e88df38c43c975274d45b3",
+    "gzip": false,
+    "category": "early-experiments"
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J026\\J026-validation-analysis.json",
+    "published": "../../../../../tasks/active/PReluGradUpdate_2329/explorations/logs/EXP_J_FULL_HISTORY_20261110/early-experiments/J026/J026-validation-analysis.json",
+    "bytes": 283725,
+    "sha256": "0b44ae0be11f1b339015b9d63fa69518a99fefc7b58f4f32e6dc225492986fc7",
+    "gzip": false,
+    "category": "early-experiments"
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J026\\J026-validation-summary.json",
+    "published": "../../../../../tasks/active/PReluGradUpdate_2329/explorations/logs/EXP_J_FULL_HISTORY_20261110/early-experiments/J026/J026-validation-summary.json.gz",
+    "bytes": 1112561,
+    "sha256": "782ffdce2b7ff68735c1f83fe801124f264fc7ef07ce734167fe480b9649f4fb",
+    "gzip": true,
+    "category": "early-experiments"
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J026\\J026.diff",
+    "published": "sources/early-experiments/J026/J026.diff",
+    "bytes": 818,
+    "sha256": "554cbb9c72f4dc92cc0de5e6dcdfda9a42f0f9bfdb8b15dd4d97702fa50f7bca",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J026\\README.md",
+    "published": "sources/early-experiments/J026/README.md",
+    "bytes": 751,
+    "sha256": "4e5aceddcb303dbeb136ef9e0d0708c579457b75069d011cd5e42ae4291563eb",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J026\\RESULTS.md",
+    "published": "sources/early-experiments/J026/RESULTS.md",
+    "bytes": 15401,
+    "sha256": "162132d682b7847b2855be2c63a42d53c213ee53d7e11c5532c247663cdb4c0a",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J027\\J027-analysis.json",
+    "published": "../../../../../tasks/active/PReluGradUpdate_2329/explorations/logs/EXP_J_FULL_HISTORY_20261110/early-experiments/J027/J027-analysis.json",
+    "bytes": 192226,
+    "sha256": "698c849c54c8d4dc22fd8d878698f688de9f2f275cbe1bce45b8a50af132c4cf",
+    "gzip": false,
+    "category": "early-experiments"
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J027\\J027-bracket-analysis.json",
+    "published": "../../../../../tasks/active/PReluGradUpdate_2329/explorations/logs/EXP_J_FULL_HISTORY_20261110/early-experiments/J027/J027-bracket-analysis.json",
+    "bytes": 15674,
+    "sha256": "b4c546ae20712b224dffca59969079977846cf500f559ebe1d9953ed952424cf",
+    "gzip": false,
+    "category": "early-experiments"
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J027\\J027-bracket-summary.json",
+    "published": "../../../../../tasks/active/PReluGradUpdate_2329/explorations/logs/EXP_J_FULL_HISTORY_20261110/early-experiments/J027/J027-bracket-summary.json",
+    "bytes": 233892,
+    "sha256": "fa720771b3f251031da73adfbe20c30e5aecce020621a727eb16263b156e62d6",
+    "gzip": false,
+    "category": "early-experiments"
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J027\\J027-budget.json",
+    "published": "../../../../../tasks/active/PReluGradUpdate_2329/explorations/logs/EXP_J_FULL_HISTORY_20261110/early-experiments/J027/J027-budget.json",
+    "bytes": 15619,
+    "sha256": "c71fe4b5502f19dff2f36ef0e177a720cc66465db69bead586bcf88d066097b5",
+    "gzip": false,
+    "category": "early-experiments"
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J027\\J027-elf-comparison.json",
+    "published": "../../../../../tasks/active/PReluGradUpdate_2329/explorations/logs/EXP_J_FULL_HISTORY_20261110/early-experiments/J027/J027-elf-comparison.json",
+    "bytes": 10038,
+    "sha256": "7b447133eed044f01d2e5096176e7c8b7337425e71bf3a634bdc9b8f685ecad6",
+    "gzip": false,
+    "category": "early-experiments"
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J027\\J027-elf.json",
+    "published": "../../../../../tasks/active/PReluGradUpdate_2329/explorations/logs/EXP_J_FULL_HISTORY_20261110/early-experiments/J027/J027-elf.json",
+    "bytes": 34750,
+    "sha256": "a2b54bada702feb9bc9dc0d34eabebe1e9e1ee7179cd0ce7beba4487fe06ad45",
+    "gzip": false,
+    "category": "early-experiments"
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J027\\J027-replay-analysis.json",
+    "published": "../../../../../tasks/active/PReluGradUpdate_2329/explorations/logs/EXP_J_FULL_HISTORY_20261110/early-experiments/J027/J027-replay-analysis.json",
+    "bytes": 12842,
+    "sha256": "38e9510270f64a25eebd30a7f2a48a53b03048dceabcda880bc71d43c339841f",
+    "gzip": false,
+    "category": "early-experiments"
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J027\\J027-replay-summary.json",
+    "published": "../../../../../tasks/active/PReluGradUpdate_2329/explorations/logs/EXP_J_FULL_HISTORY_20261110/early-experiments/J027/J027-replay-summary.json.gz",
+    "bytes": 2900114,
+    "sha256": "b315fddc854b269b326959cc4ac0be2669398dd8d6f4c273120c7e40bb9bd864",
+    "gzip": true,
+    "category": "early-experiments"
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J027\\J027-source-meta.json",
+    "published": "../../../../../tasks/active/PReluGradUpdate_2329/explorations/logs/EXP_J_FULL_HISTORY_20261110/early-experiments/J027/J027-source-meta.json",
+    "bytes": 91,
+    "sha256": "4eace14580f6bd66de223d0f9110f91f203c61edfd09e62986e946141e09191f",
+    "gzip": false,
+    "category": "early-experiments"
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J027\\J027-summary.json",
+    "published": "../../../../../tasks/active/PReluGradUpdate_2329/explorations/logs/EXP_J_FULL_HISTORY_20261110/early-experiments/J027/J027-summary.json",
+    "bytes": 812963,
+    "sha256": "c98f4dfe1682e56b81a2b3d05b88f5d40cebdc3a2fb80338c316f3096cd6f7bc",
+    "gzip": false,
+    "category": "early-experiments"
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J027\\J027.diff",
+    "published": "sources/early-experiments/J027/J027.diff",
+    "bytes": 1997,
+    "sha256": "9ef3297dc8aaef2d3655b833ea0e0dd5cf1365bd5101b99ce084e0679b3c6627",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J027\\J027IO-source-meta.json",
+    "published": "../../../../../tasks/active/PReluGradUpdate_2329/explorations/logs/EXP_J_FULL_HISTORY_20261110/early-experiments/J027/J027IO-source-meta.json",
+    "bytes": 91,
+    "sha256": "9338c17f20d1db8d3f23e130b8d462f6bc83642f6ca11d173e8b65582897259f",
+    "gzip": false,
+    "category": "early-experiments"
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J027\\README.md",
+    "published": "sources/early-experiments/J027/README.md",
+    "bytes": 1100,
+    "sha256": "18e10f821448125b05338d04c0bd0a9ad538d8c85616124b716857ec1372d098",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J027\\RESULTS.md",
+    "published": "sources/early-experiments/J027/RESULTS.md",
+    "bytes": 13537,
+    "sha256": "3b8f6da751f96461a2f95770964507eb1f07cb8ef1e758fd667d82b026292e9f",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J027IO\\J027-analysis.json",
+    "published": "../../../../../tasks/active/PReluGradUpdate_2329/explorations/logs/EXP_J_FULL_HISTORY_20261110/early-experiments/J027IO/J027-analysis.json",
+    "bytes": 192226,
+    "sha256": "698c849c54c8d4dc22fd8d878698f688de9f2f275cbe1bce45b8a50af132c4cf",
+    "gzip": false,
+    "category": "early-experiments"
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J027IO\\J027-bracket-analysis.json",
+    "published": "../../../../../tasks/active/PReluGradUpdate_2329/explorations/logs/EXP_J_FULL_HISTORY_20261110/early-experiments/J027IO/J027-bracket-analysis.json",
+    "bytes": 15674,
+    "sha256": "b4c546ae20712b224dffca59969079977846cf500f559ebe1d9953ed952424cf",
+    "gzip": false,
+    "category": "early-experiments"
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J027IO\\J027-bracket-summary.json",
+    "published": "../../../../../tasks/active/PReluGradUpdate_2329/explorations/logs/EXP_J_FULL_HISTORY_20261110/early-experiments/J027IO/J027-bracket-summary.json",
+    "bytes": 233892,
+    "sha256": "fa720771b3f251031da73adfbe20c30e5aecce020621a727eb16263b156e62d6",
+    "gzip": false,
+    "category": "early-experiments"
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J027IO\\J027-budget.json",
+    "published": "../../../../../tasks/active/PReluGradUpdate_2329/explorations/logs/EXP_J_FULL_HISTORY_20261110/early-experiments/J027IO/J027-budget.json",
+    "bytes": 15619,
+    "sha256": "c71fe4b5502f19dff2f36ef0e177a720cc66465db69bead586bcf88d066097b5",
+    "gzip": false,
+    "category": "early-experiments"
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J027IO\\J027-elf-comparison.json",
+    "published": "../../../../../tasks/active/PReluGradUpdate_2329/explorations/logs/EXP_J_FULL_HISTORY_20261110/early-experiments/J027IO/J027-elf-comparison.json",
+    "bytes": 10038,
+    "sha256": "7b447133eed044f01d2e5096176e7c8b7337425e71bf3a634bdc9b8f685ecad6",
+    "gzip": false,
+    "category": "early-experiments"
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J027IO\\J027-elf.json",
+    "published": "../../../../../tasks/active/PReluGradUpdate_2329/explorations/logs/EXP_J_FULL_HISTORY_20261110/early-experiments/J027IO/J027-elf.json",
+    "bytes": 34750,
+    "sha256": "a2b54bada702feb9bc9dc0d34eabebe1e9e1ee7179cd0ce7beba4487fe06ad45",
+    "gzip": false,
+    "category": "early-experiments"
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J027IO\\J027-replay-analysis.json",
+    "published": "../../../../../tasks/active/PReluGradUpdate_2329/explorations/logs/EXP_J_FULL_HISTORY_20261110/early-experiments/J027IO/J027-replay-analysis.json",
+    "bytes": 12842,
+    "sha256": "38e9510270f64a25eebd30a7f2a48a53b03048dceabcda880bc71d43c339841f",
+    "gzip": false,
+    "category": "early-experiments"
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J027IO\\J027-replay-summary.json",
+    "published": "../../../../../tasks/active/PReluGradUpdate_2329/explorations/logs/EXP_J_FULL_HISTORY_20261110/early-experiments/J027IO/J027-replay-summary.json.gz",
+    "bytes": 2900114,
+    "sha256": "b315fddc854b269b326959cc4ac0be2669398dd8d6f4c273120c7e40bb9bd864",
+    "gzip": true,
+    "category": "early-experiments"
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J027IO\\J027-source-meta.json",
+    "published": "../../../../../tasks/active/PReluGradUpdate_2329/explorations/logs/EXP_J_FULL_HISTORY_20261110/early-experiments/J027IO/J027-source-meta.json",
+    "bytes": 91,
+    "sha256": "4eace14580f6bd66de223d0f9110f91f203c61edfd09e62986e946141e09191f",
+    "gzip": false,
+    "category": "early-experiments"
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J027IO\\J027-summary.json",
+    "published": "../../../../../tasks/active/PReluGradUpdate_2329/explorations/logs/EXP_J_FULL_HISTORY_20261110/early-experiments/J027IO/J027-summary.json",
+    "bytes": 812963,
+    "sha256": "c98f4dfe1682e56b81a2b3d05b88f5d40cebdc3a2fb80338c316f3096cd6f7bc",
+    "gzip": false,
+    "category": "early-experiments"
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J027IO\\J027IO-source-meta.json",
+    "published": "../../../../../tasks/active/PReluGradUpdate_2329/explorations/logs/EXP_J_FULL_HISTORY_20261110/early-experiments/J027IO/J027IO-source-meta.json",
+    "bytes": 91,
+    "sha256": "9338c17f20d1db8d3f23e130b8d462f6bc83642f6ca11d173e8b65582897259f",
+    "gzip": false,
+    "category": "early-experiments"
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J027IO\\J027IO.diff",
+    "published": "sources/early-experiments/J027IO/J027IO.diff",
+    "bytes": 6866,
+    "sha256": "c9c405762c36eee64bed63cf30b684522d7618d5ca1ab9432c1e6a6528b26053",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J027IO\\README.md",
+    "published": "sources/early-experiments/J027IO/README.md",
+    "bytes": 1100,
+    "sha256": "18e10f821448125b05338d04c0bd0a9ad538d8c85616124b716857ec1372d098",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J027IO\\RESULTS.md",
+    "published": "sources/early-experiments/J027IO/RESULTS.md",
+    "bytes": 13537,
+    "sha256": "3b8f6da751f96461a2f95770964507eb1f07cb8ef1e758fd667d82b026292e9f",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J028\\J028-r1.diff",
+    "published": "sources/early-experiments/J028/J028-r1.diff",
+    "bytes": 1131,
+    "sha256": "d5f496cc9868db9ac6a8622553f82e9771e0769eebbd8d678b54a1834522450e",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J028\\J028.diff",
+    "published": "sources/early-experiments/J028/J028.diff",
+    "bytes": 5008,
+    "sha256": "b1d517f3acdc5f82a36741c73089adaf98d04e3da71d2c81178c49dda3cdd4a7",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J028\\README.md",
+    "published": "sources/early-experiments/J028/README.md",
+    "bytes": 1082,
+    "sha256": "65af90490f3770b322df2dd5b6cba1e9c74265248e3700b8ea5e47aeb724f007",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J028\\RESULTS.md",
+    "published": "sources/early-experiments/J028/RESULTS.md",
+    "bytes": 6448,
+    "sha256": "77105c96a16445409e8d3e1f77ec8378b4939dbb67b995481d0b59ab4d11f13e",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J028IO\\J028IO-r1.diff",
+    "published": "sources/early-experiments/J028IO/J028IO-r1.diff",
+    "bytes": 1200,
+    "sha256": "b7727e41a3f0569b8e861f9673f5a1748cccf44d9a764ac8159035d832358ee9",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J028IO\\J028IO.diff",
+    "published": "sources/early-experiments/J028IO/J028IO.diff",
+    "bytes": 5016,
+    "sha256": "63b990752570c16d329a28dd762a37ad16de4338d37acb3af2b94f098ac5ba01",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J028IO\\README.md",
+    "published": "sources/early-experiments/J028IO/README.md",
+    "bytes": 1082,
+    "sha256": "65af90490f3770b322df2dd5b6cba1e9c74265248e3700b8ea5e47aeb724f007",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J028IO\\RESULTS.md",
+    "published": "sources/early-experiments/J028IO/RESULTS.md",
+    "bytes": 6448,
+    "sha256": "77105c96a16445409e8d3e1f77ec8378b4939dbb67b995481d0b59ab4d11f13e",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J029\\J029.diff",
+    "published": "sources/early-experiments/J029/J029.diff",
+    "bytes": 4690,
+    "sha256": "8ed455710ec56e365e010ee475f505bac8e5043725aff63a1d0969350794739d",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J029\\README.md",
+    "published": "sources/early-experiments/J029/README.md",
+    "bytes": 1354,
+    "sha256": "efc57f159430843e5f619541687ea2326a62e436f058cb9db85a934fa42baf17",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J029\\RESULTS.md",
+    "published": "sources/early-experiments/J029/RESULTS.md",
+    "bytes": 7813,
+    "sha256": "0dd5cca4859836d11f0f58e2cadcb2e58f07761120c128a087a7744679eb30ab",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J030\\README.md",
+    "published": "sources/early-experiments/J030/README.md",
+    "bytes": 1282,
+    "sha256": "86284f35dde7bcc77331108fa5b36600b5da70f43e9097968b9c10779b053e95",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J030\\RESULTS.md",
+    "published": "sources/early-experiments/J030/RESULTS.md",
+    "bytes": 11762,
+    "sha256": "a006f9dff87e054162f962bf196868b8d8b2cf9600be5a9a1fbd7309935513f2",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J031\\RESULTS.md",
+    "published": "sources/early-experiments/J031/RESULTS.md",
+    "bytes": 8031,
+    "sha256": "30d2d073d2426c0fa8c541eeb1f6b79c4565b3a3ba765e3ee398377c49dd4058",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J032\\J032.diff",
+    "published": "sources/early-experiments/J032/J032.diff",
+    "bytes": 1018,
+    "sha256": "ed93f39bba272f1a9319447b02b01289de1fb4901213a78e3512379414158dbe",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J032\\README.md",
+    "published": "sources/early-experiments/J032/README.md",
+    "bytes": 822,
+    "sha256": "542d72314a1a6c3ee66e243fcb705160f8e68bc9f7b162b00e0f185e21cb0778",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J032\\RESULTS.md",
+    "published": "sources/early-experiments/J032/RESULTS.md",
+    "bytes": 7992,
+    "sha256": "35bcae96d8c96e7b390f327f19286377d44d151520df37b79f0451714b29d6f5",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J033\\README.md",
+    "published": "sources/early-experiments/J033/README.md",
+    "bytes": 841,
+    "sha256": "e69378e3b34be95de252b8968b3cf321e63828d33e5f071669a630cc38a878ef",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J033\\RESULTS.md",
+    "published": "sources/early-experiments/J033/RESULTS.md",
+    "bytes": 509,
+    "sha256": "cef693586d8e8ccacf76bad38217011934a171d7b58f73e8fdb0cb4ab967420a",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J034\\README.md",
+    "published": "sources/early-experiments/J034/README.md",
+    "bytes": 1621,
+    "sha256": "44247d9da23d2de2a2c406263d10463d61e61aceef6133fc785c9d015656d5c4",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J034\\RESULTS.md",
+    "published": "sources/early-experiments/J034/RESULTS.md",
+    "bytes": 15044,
+    "sha256": "ed6219819ee31195b1a855e00df457e71f83216deb4078ad00b7f782b561047c",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J034C\\README.md",
+    "published": "sources/early-experiments/J034C/README.md",
+    "bytes": 1621,
+    "sha256": "44247d9da23d2de2a2c406263d10463d61e61aceef6133fc785c9d015656d5c4",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J035\\README.md",
+    "published": "sources/early-experiments/J035/README.md",
+    "bytes": 1594,
+    "sha256": "1bea0449e3200b30cd4b55b520cde28cb2b9ae3cdb2c8517df85045513e9c074",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J035\\RESULTS.md",
+    "published": "sources/early-experiments/J035/RESULTS.md",
+    "bytes": 10546,
+    "sha256": "ac9439e516059c93fcf22e96395e3295fdd28122ec13a620deb0e4521f0046ad",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J035C\\README.md",
+    "published": "sources/early-experiments/J035C/README.md",
+    "bytes": 1594,
+    "sha256": "1bea0449e3200b30cd4b55b520cde28cb2b9ae3cdb2c8517df85045513e9c074",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J036\\manifest.json",
+    "published": "../../../../../tasks/active/PReluGradUpdate_2329/explorations/logs/EXP_J_FULL_HISTORY_20261110/early-experiments/J036/manifest.json",
+    "bytes": 9089,
+    "sha256": "2994a080dbe1c45f7c878a3ca92978e4442721a9bed764153e667ba871af5f43",
+    "gzip": false,
+    "category": "early-experiments"
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J036\\RESULTS.md",
+    "published": "sources/early-experiments/J036/RESULTS.md",
+    "bytes": 7310,
+    "sha256": "aaf05fc9a97a277e519348ec50d5459e19f98563bbfae5840395fd5a631c448c",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J037\\J037-analysis.json",
+    "published": "../../../../../tasks/active/PReluGradUpdate_2329/explorations/logs/EXP_J_FULL_HISTORY_20261110/early-experiments/J037/J037-analysis.json",
+    "bytes": 23201,
+    "sha256": "a45e1fe0519795613c421c2668ab35ac8d2db7a3e9333817242bf14eec2fea1c",
+    "gzip": false,
+    "category": "early-experiments"
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J037\\J037-wa-comparison.json",
+    "published": "../../../../../tasks/active/PReluGradUpdate_2329/explorations/logs/EXP_J_FULL_HISTORY_20261110/early-experiments/J037/J037-wa-comparison.json",
+    "bytes": 6468,
+    "sha256": "93b7535a8c7b6d58b8b901667fe71026eed5f1e81d52416f5a80a0911fe5fd22",
+    "gzip": false,
+    "category": "early-experiments"
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J037\\J037-wa-source.diff",
+    "published": "sources/early-experiments/J037/J037-wa-source.diff",
+    "bytes": 87396,
+    "sha256": "c64c32d18d42c1ff663b1cb3b2f8aecdb15255cc234137dfebcc267939b2a404",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J037\\README.md",
+    "published": "sources/early-experiments/J037/README.md",
+    "bytes": 823,
+    "sha256": "40f033389d8c7ffe031761bc7aec6c038294dbd2ec7a07b1a3e55d20e8fa9110",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J037\\RESULTS.md",
+    "published": "sources/early-experiments/J037/RESULTS.md",
+    "bytes": 8513,
+    "sha256": "d25bc28598a6b409235064a07dac08f4ae4993d0751bd4ba26e7e5849a71db54",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J038\\README.md",
+    "published": "sources/early-experiments/J038/README.md",
+    "bytes": 1973,
+    "sha256": "37d8aed5a49819474e31e8596caa648b5300b7dae4f1e5a084dadcc2ff6841fd",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J038\\RESULTS.md",
+    "published": "sources/early-experiments/J038/RESULTS.md",
+    "bytes": 11273,
+    "sha256": "73be417bd56d6b926b8319851b1312fc36bef68a567f15a732f9b2f7c23321e6",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J038C\\README.md",
+    "published": "sources/early-experiments/J038C/README.md",
+    "bytes": 1973,
+    "sha256": "37d8aed5a49819474e31e8596caa648b5300b7dae4f1e5a084dadcc2ff6841fd",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J039\\README.md",
+    "published": "sources/early-experiments/J039/README.md",
+    "bytes": 2035,
+    "sha256": "42f9d2eb3d444a576636cb68233b6a4ab763149442190132dd83d1b1a7d1fe7c",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J039\\RESULTS.md",
+    "published": "sources/early-experiments/J039/RESULTS.md",
+    "bytes": 11458,
+    "sha256": "9bf99693edef61969ef89aa6e591748ce9914b92cab4be824a718c0e1d97b838",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J039C\\README.md",
+    "published": "sources/early-experiments/J039C/README.md",
+    "bytes": 2035,
+    "sha256": "42f9d2eb3d444a576636cb68233b6a4ab763149442190132dd83d1b1a7d1fe7c",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J040\\README.md",
+    "published": "sources/early-experiments/J040/README.md",
+    "bytes": 2086,
+    "sha256": "ae4e67697f51b558e7bdd3692af6b62c56d357fd860681f9238f9ed342d3b2df",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J040\\RESULTS.md",
+    "published": "sources/early-experiments/J040/RESULTS.md",
+    "bytes": 12167,
+    "sha256": "ab9c318a609090e89523d20dcc14a6c69f6b63e80a6b9ba266948bfa4ad05aee",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J040\\SMALL_CHANNEL_HISTORY.md",
+    "published": "sources/early-experiments/J040/SMALL_CHANNEL_HISTORY.md",
+    "bytes": 4058,
+    "sha256": "3ad1f3a55d4f449c3a4fad1003d90b089b8c7ac975db9504c40c6073a36ccbb6",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J040C\\README.md",
+    "published": "sources/early-experiments/J040C/README.md",
+    "bytes": 2086,
+    "sha256": "ae4e67697f51b558e7bdd3692af6b62c56d357fd860681f9238f9ed342d3b2df",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J041\\J041-pause-status.json",
+    "published": "../../../../../tasks/active/PReluGradUpdate_2329/explorations/logs/EXP_J_FULL_HISTORY_20261110/early-experiments/J041/J041-pause-status.json",
+    "bytes": 446,
+    "sha256": "ea5e9bf7d364217b56267adad4505699eff7a2614be34d9e4e1dd50062127e43",
+    "gzip": false,
+    "category": "early-experiments"
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J041\\LARGE_CHANNEL_REVIEW.md",
+    "published": "sources/early-experiments/J041/LARGE_CHANNEL_REVIEW.md",
+    "bytes": 24221,
+    "sha256": "ca9adec8e2ced295c0bedb28b867acc106303b489f0efd3352f6d9ff94f90e1b",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J041\\LARGE_CHANNEL_REVIEW_DATA.csv",
+    "published": "../../../../../tasks/active/PReluGradUpdate_2329/explorations/logs/EXP_J_FULL_HISTORY_20261110/early-experiments/J041/LARGE_CHANNEL_REVIEW_DATA.csv",
+    "bytes": 105898,
+    "sha256": "99a82851e426ed8133cb3ab686646743cf2f4bd01206a5c047b00b53346285e0",
+    "gzip": false,
+    "category": "early-experiments"
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J041\\LARGE_CHANNEL_REVIEW_DATA.json",
+    "published": "../../../../../tasks/active/PReluGradUpdate_2329/explorations/logs/EXP_J_FULL_HISTORY_20261110/early-experiments/J041/LARGE_CHANNEL_REVIEW_DATA.json",
+    "bytes": 270210,
+    "sha256": "1989970d727b83243059ce3261d6b2d652d4de639c70175b6bf135db2dbe1a06",
+    "gzip": false,
+    "category": "early-experiments"
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J041\\README.md",
+    "published": "sources/early-experiments/J041/README.md",
+    "bytes": 2346,
+    "sha256": "a554f03882738b9ee72ce26bb559876e1517884340f647a332109b9006b47df8",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J042\\README.md",
+    "published": "sources/early-experiments/J042/README.md",
+    "bytes": 3605,
+    "sha256": "d529d3ddf0324fd80eb92600f062191f089e2e12dda767e0fa374d58afa9d918",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J042\\RESULTS.md",
+    "published": "sources/early-experiments/J042/RESULTS.md",
+    "bytes": 11850,
+    "sha256": "58a0a88c8d026b298043ebca79cfe3d0c5e03b1ee2ffcd54c00065c2368c647b",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J043\\README.md",
+    "published": "sources/early-experiments/J043/README.md",
+    "bytes": 2774,
+    "sha256": "b13385f73fa04a4358f02f71063c4f67d98639e96d057bb12f9a5daa0cbcd377",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J043\\RESULTS.md",
+    "published": "sources/early-experiments/J043/RESULTS.md",
+    "bytes": 12320,
+    "sha256": "3b11b25dca321eeff958f007f1d8c57cf02a522d9788ac811d39112f330dbbf1",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J044\\README.md",
+    "published": "sources/early-experiments/J044/README.md",
+    "bytes": 2820,
+    "sha256": "3d21d0908c0e7e85134f45cfec06104d4f63b7921cdfb73da400be253b630034",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J044\\RESULTS.md",
+    "published": "sources/early-experiments/J044/RESULTS.md",
+    "bytes": 4149,
+    "sha256": "bc9dab059d4eb2e6c36f2bd7604d21cd2070aabc45bb41da978d04f9ed24c7b4",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J045\\README.md",
+    "published": "sources/early-experiments/J045/README.md",
+    "bytes": 2504,
+    "sha256": "6755d9bb6765c32b1a8c35a9a4ae421623d7fc2d0f36dcf372be039dfea8b572",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J045\\RESULTS.md",
+    "published": "sources/early-experiments/J045/RESULTS.md",
+    "bytes": 9237,
+    "sha256": "df3b17a8bb1dc39d9055512bea78a401b1c0adfa10f02cb7297cb670154d6327",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J046\\README.md",
+    "published": "sources/early-experiments/J046/README.md",
+    "bytes": 1173,
+    "sha256": "defe5e0fb50a01f43f52d7bfba8c72455b4d1ce54fc112d01d6546dfb72cbbb5",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J046\\RESULTS.md",
+    "published": "sources/early-experiments/J046/RESULTS.md",
+    "bytes": 13901,
+    "sha256": "83277585f700652937e354b8b69284180342dd5a1e3a57a77501ede2e62a85db",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J046\\STATUS.md",
+    "published": "sources/early-experiments/J046/STATUS.md",
+    "bytes": 363,
+    "sha256": "b9a293ebeac17832d79a64e9586ec1d9ae8adbaaef528ff29073e82c30432803",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J047\\README.md",
+    "published": "sources/early-experiments/J047/README.md",
+    "bytes": 1579,
+    "sha256": "4eb61184af36ac087024ee7809c598f65e7cfee0f5673cc7f3b05ffdb0eeb9af",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J047\\RESULTS.md",
+    "published": "sources/early-experiments/J047/RESULTS.md",
+    "bytes": 12548,
+    "sha256": "20bfb872a25e1b54273a3c0f92498009234e718987825f05c883be885aacccff",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J048\\official-feedback.json",
+    "published": "../../../../../tasks/active/PReluGradUpdate_2329/explorations/logs/EXP_J_FULL_HISTORY_20261110/early-experiments/J048/official-feedback.json",
+    "bytes": 1195,
+    "sha256": "4726f900d3240d04c84c311db7789ae077ddb43ac492607418985acad8e26d08",
+    "gzip": false,
+    "category": "early-experiments"
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J048\\OFFICIAL-REVIEW.md",
+    "published": "sources/early-experiments/J048/OFFICIAL-REVIEW.md",
+    "bytes": 6161,
+    "sha256": "1f297ff632b89ad5e63f51e022521144e8ea8f2f4fd8bb42329e946ae6bd500b",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J048\\README.md",
+    "published": "sources/early-experiments/J048/README.md",
+    "bytes": 1181,
+    "sha256": "9df9b88604f707349cd171dbd2c54399aaee238f1e72bf62a958d6c45a105a80",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J048\\RESULTS.md",
+    "published": "sources/early-experiments/J048/RESULTS.md",
+    "bytes": 9787,
+    "sha256": "5981bdbef1110b023cbe1c79b28bfab9277fc9cf51a6be12549d7849d6e45f4a",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J049\\PAUSED.md",
+    "published": "sources/early-experiments/J049/PAUSED.md",
+    "bytes": 2947,
+    "sha256": "649f42fbe009f0079c63daddc8a41ccd7180d446e477c8a80e45dbc83f9883de",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J049\\README.md",
+    "published": "sources/early-experiments/J049/README.md",
+    "bytes": 1050,
+    "sha256": "e0430a3837aeea5754c33e0eff19331fe2f755df6a8ffeb20d640299f4f69cec",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J049\\RESULTS.md",
+    "published": "sources/early-experiments/J049/RESULTS.md",
+    "bytes": 9651,
+    "sha256": "fe70ef0a5e0216ff03dee6718abff6a5607a305b455eee5e2240c776efd9ff5c",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J050\\README.md",
+    "published": "sources/early-experiments/J050/README.md",
+    "bytes": 1615,
+    "sha256": "780dd69667f468648ff41f232d49a612493de2ca895eb1a1480317e2a920d3d1",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J050\\RESULTS.md",
+    "published": "sources/early-experiments/J050/RESULTS.md",
+    "bytes": 2535,
+    "sha256": "d4bf0d792f0768fef340c07f44de33fce546aa206bf327ee40feae609ffa9cb0",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J051\\README.md",
+    "published": "sources/early-experiments/J051/README.md",
+    "bytes": 1175,
+    "sha256": "79c223ac79aa7c9c929c49d543db0ec9ea8f068a22f4731d9c66133970635330",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J051\\RESULTS.md",
+    "published": "sources/early-experiments/J051/RESULTS.md",
+    "bytes": 12379,
+    "sha256": "0445005cef237181a2bba87271ba9ca80b4aa664f28205876aef0c4d55b1a781",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J052\\README.md",
+    "published": "sources/early-experiments/J052/README.md",
+    "bytes": 1175,
+    "sha256": "79c223ac79aa7c9c929c49d543db0ec9ea8f068a22f4731d9c66133970635330",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J052\\RESULTS.md",
+    "published": "sources/early-experiments/J052/RESULTS.md",
+    "bytes": 12379,
+    "sha256": "0445005cef237181a2bba87271ba9ca80b4aa664f28205876aef0c4d55b1a781",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J053\\README.md",
+    "published": "sources/early-experiments/J053/README.md",
+    "bytes": 1961,
+    "sha256": "2c7a18a0b79002739285c898cbc020a1bf8b144b2e62555bfe5656fccaf2fc51",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-04\\task\\DeepSeek-PReluGradUpdate-2329-交接-20261104.md",
+    "published": "sources/20261104/DeepSeek-PReluGradUpdate-2329-交接-20261104.md",
+    "bytes": 16114,
+    "sha256": "2f3082a41ad004114477dfdd152d3147f165b2d1156dbcfaf03d0e8e53976a3b",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-04\\task\\J006-decision.md",
+    "published": "sources/20261104/J006-decision.md",
+    "bytes": 1137,
+    "sha256": "9a129c88a431ca15089a1de936bb5d0bd43e236bd4bc4070dddfc4a8efdfffa6",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-04\\task\\J007-decision.md",
+    "published": "sources/20261104/J007-decision.md",
+    "bytes": 1286,
+    "sha256": "073803c854f827302fa2ea81e0ffb1436f13009891b8615c3717e540ae49a773",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-04\\task\\J008-decision.md",
+    "published": "sources/20261104/J008-decision.md",
+    "bytes": 1570,
+    "sha256": "8bc6e108236dd49a6b04626f924349a4e9fa1c17bcf44f5dc5a695988cec4a70",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-04\\task\\J008-transfer-note.md",
+    "published": "sources/20261104/J008-transfer-note.md",
+    "bytes": 865,
+    "sha256": "cb85c957029fd007ab86bfba588c9776c2dec7e0dd79b09b739f9a6737d2d045",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-04\\task\\J009-decision.md",
+    "published": "sources/20261104/J009-decision.md",
+    "bytes": 1764,
+    "sha256": "2edde2ce1b3d7708ae567c92f919bc51fa3d40d50c15dc5c76cc506a903e3cf5",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-04\\task\\J009-platform-model.md",
+    "published": "sources/20261104/J009-platform-model.md",
+    "bytes": 1472,
+    "sha256": "87100fcf911487574d2b69bcef950f24d4d7570526d46d7e0fb94e96023ac3cf",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-04\\task\\J010-decision.md",
+    "published": "sources/20261104/J010-decision.md",
+    "bytes": 1998,
+    "sha256": "a7d1eb0c96628190d4c7ec03deef8e23caea7f1da87079b615a3effe1cd27f72",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-04\\task\\J019-J020-verdict.md",
+    "published": "sources/20261104/J019-J020-verdict.md",
+    "bytes": 2907,
+    "sha256": "244c1ba248646bfe665723463196e48446d44cf834ee3300417526a98677bf02",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-04\\task\\J021-upstream-comparison.md",
+    "published": "sources/20261104/J021-upstream-comparison.md",
+    "bytes": 2257,
+    "sha256": "6e855a02a27d50a87e18d51c12818aaf2783ec86912385dda3875ffe1a24f51a",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-04\\task\\J022-verdict.md",
+    "published": "sources/20261104/J022-verdict.md",
+    "bytes": 1767,
+    "sha256": "0c6152259362d8378d48a29fb18675bad70b16a8e7199e8d2c9069f7cc828a8b",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-04\\task\\J026-conclusion.md",
+    "published": "sources/20261104/J026-conclusion.md",
+    "bytes": 1764,
+    "sha256": "ec8d7edbf0284b2dfc99ed445f9bf6f7ebc07999224d6401eee140739d782cb1",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-04\\task\\J027-decision.md",
+    "published": "sources/20261104/J027-decision.md",
+    "bytes": 3770,
+    "sha256": "b40c4db4930fbf809e613167b7eaa6d43946f2e318512d49c5d531fabcfff5f0",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-04\\task\\J030-conclusion.md",
+    "published": "sources/20261104/J030-conclusion.md",
+    "bytes": 2440,
+    "sha256": "c7c2effcbb9a263ddd2d67c881bf6682ce79bd1f19d86ca56fe99125ab925a94",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-04\\task\\J031-RESULTS.md",
+    "published": "sources/20261104/J031-RESULTS.md",
+    "bytes": 7945,
+    "sha256": "c01df043db5b394280540b02b0cb5bc3d35486a808592d9a3b0a496b7dffed41",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-04\\task\\J032-ledger-note.md",
+    "published": "sources/20261104/J032-ledger-note.md",
+    "bytes": 654,
+    "sha256": "b501502eea2521dc414ee1f7736d94d542aed3b9db7fb475be63a02818f30dbe",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-04\\task\\J032-RESULTS.md",
+    "published": "sources/20261104/J032-RESULTS.md",
+    "bytes": 7671,
+    "sha256": "e0a416a2da0dae9f09ab0223413b56b9e08988fd2362c0659346c0e13389cbb8",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-04\\task\\J033-J034-review.md",
+    "published": "sources/20261104/J033-J034-review.md",
+    "bytes": 7143,
+    "sha256": "7faf75c3521848a03e5ac5771241d19028ab9ec1d2257bc1f6ca7a2250bb3589",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-04\\task\\J034-ledger-note.md",
+    "published": "sources/20261104/J034-ledger-note.md",
+    "bytes": 1244,
+    "sha256": "12129d6815fa6b9ee3a9e90323ac7d327fc173c7d58c717e5ddb8b1ebec29df4",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-04\\task\\J034-RESULTS.md",
+    "published": "sources/20261104/J034-RESULTS.md",
+    "bytes": 14718,
+    "sha256": "bd3b11ff3cf9952c261d2c9b4c31a4856de7bf93e75f9df1bba6a4800335f9cb",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-04\\task\\J035-decision.md",
+    "published": "sources/20261104/J035-decision.md",
+    "bytes": 2125,
+    "sha256": "044d2f6bc16a1af18d0cd2321bcac476115168690d07cba3d86cfd83dbcc2a54",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-04\\task\\J035-ledger-note.md",
+    "published": "sources/20261104/J035-ledger-note.md",
+    "bytes": 1093,
+    "sha256": "e362d89c5c4fd457cc2b7878961cc3b2248da544481d4e5bf34075a28fd0893f",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-04\\task\\J035-plan.md",
+    "published": "sources/20261104/J035-plan.md",
+    "bytes": 2011,
+    "sha256": "df2b716ca89e0b0c3d79a870d11c99584d50699730a3dcf7052a287914657da5",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-04\\task\\J035-RESULTS.md",
+    "published": "sources/20261104/J035-RESULTS.md",
+    "bytes": 10235,
+    "sha256": "a00d4625fd9a3a40a3ee7943ca326f91e6e12f15b4b7d56b842de2216bb9655d",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-04\\task\\J036-READINESS.md",
+    "published": "sources/20261104/J036-READINESS.md",
+    "bytes": 7245,
+    "sha256": "e38483381f07e94cba3847d5a91eea9eb34296eb26769553018ee1ec457a852d",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-04\\task\\J037-decision.md",
+    "published": "sources/20261104/J037-decision.md",
+    "bytes": 1471,
+    "sha256": "dd85f1e7a789a4ad239cea8e3b6238d8a2dac58475415db0feb4324e1385877e",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-04\\task\\J037-platform.md",
+    "published": "sources/20261104/J037-platform.md",
+    "bytes": 4214,
+    "sha256": "3c30e6f93098250fc6a98f1192518ce8c54b346bee72665cf8c13788b5856ce0",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-04\\task\\J038-decision.md",
+    "published": "sources/20261104/J038-decision.md",
+    "bytes": 2170,
+    "sha256": "9ff6ab995763d9c25066d2c4e8fc5f037313664fef7fa25b4104b1f192dbb3b4",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-04\\task\\J038-ledger-note.md",
+    "published": "sources/20261104/J038-ledger-note.md",
+    "bytes": 1181,
+    "sha256": "5c7860ababf9ecb0ea79fbe0bb9d9f42458df2b17dcdb9d6a8b7b955efedfde4",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-04\\task\\J038-plan.md",
+    "published": "sources/20261104/J038-plan.md",
+    "bytes": 1973,
+    "sha256": "37d8aed5a49819474e31e8596caa648b5300b7dae4f1e5a084dadcc2ff6841fd",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-04\\task\\J038-RESULTS.md",
+    "published": "sources/20261104/J038-RESULTS.md",
+    "bytes": 10962,
+    "sha256": "57e32696ab4a3ddf609eebd0b5c3402bd76e59f8a72686b6b88ac56691b19811",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-04\\task\\J039-decision.md",
+    "published": "sources/20261104/J039-decision.md",
+    "bytes": 1840,
+    "sha256": "4fa1ca03cc3d72f572ecc24bb96f602ec4496f392d6e3675a76a8bfb55be2c2b",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-04\\task\\J039-ledger-note.md",
+    "published": "sources/20261104/J039-ledger-note.md",
+    "bytes": 1497,
+    "sha256": "6c8bcd81acd1243534788b9f257ff24aa69f95e427eb24f5a34587cc4ba86eb5",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-04\\task\\J039-plan.md",
+    "published": "sources/20261104/J039-plan.md",
+    "bytes": 2035,
+    "sha256": "42f9d2eb3d444a576636cb68233b6a4ab763149442190132dd83d1b1a7d1fe7c",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-04\\task\\J039-RESULTS.md",
+    "published": "sources/20261104/J039-RESULTS.md",
+    "bytes": 11147,
+    "sha256": "240576eda0cb485a0c48a5dd1c0c6c275e983e70c0a941083e958461bb64fa08",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-04\\task\\J040-decision.md",
+    "published": "sources/20261104/J040-decision.md",
+    "bytes": 2871,
+    "sha256": "4c490ae955988373090a9a324e990346da96ec557e349bbfc879e3bbb38007a8",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-04\\task\\J040-ledger-note.md",
+    "published": "sources/20261104/J040-ledger-note.md",
+    "bytes": 1408,
+    "sha256": "0a3c2336720cbfc31c1564ae9f7f89dfb47aafe2c8ca3687707f52f80fb27d7c",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-04\\task\\J040-plan.md",
+    "published": "sources/20261104/J040-plan.md",
+    "bytes": 2086,
+    "sha256": "ae4e67697f51b558e7bdd3692af6b62c56d357fd860681f9238f9ed342d3b2df",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-04\\task\\J040-RESULTS.md",
+    "published": "sources/20261104/J040-RESULTS.md",
+    "bytes": 11856,
+    "sha256": "273d15db4a08cfda5b6af1d542bfd87e52d22b6bf9aff4611cc3a6938721ca50",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-04\\task\\J040-small-channel-history.md",
+    "published": "sources/20261104/J040-small-channel-history.md",
+    "bytes": 4058,
+    "sha256": "3ad1f3a55d4f449c3a4fad1003d90b089b8c7ac975db9504c40c6073a36ccbb6",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-04\\task\\J041-plan.md",
+    "published": "sources/20261104/J041-plan.md",
+    "bytes": 1688,
+    "sha256": "35bad035e0136ec070b4090630a401ac57746c75fd0aa98df423d8f43ea0fbd3",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-04\\task\\J042-decision.md",
+    "published": "sources/20261104/J042-decision.md",
+    "bytes": 1867,
+    "sha256": "37f0372958754231508fca2f4e21c48751e03438b0900f1e7866b430c97cc25e",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-04\\task\\J042-ledger-note.md",
+    "published": "sources/20261104/J042-ledger-note.md",
+    "bytes": 932,
+    "sha256": "0bb44b5b9e316597cc786f52bd80b6355817ac07fd6d985894654be51864bf59",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-04\\task\\J042-plan.md",
+    "published": "sources/20261104/J042-plan.md",
+    "bytes": 3605,
+    "sha256": "d529d3ddf0324fd80eb92600f062191f089e2e12dda767e0fa374d58afa9d918",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-04\\task\\J042-RESULTS.md",
+    "published": "sources/20261104/J042-RESULTS.md",
+    "bytes": 11543,
+    "sha256": "c2151fdfbd520eb6d21c658cd384ee54246a3b3be4bc29071b1fb4fbce184acb",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-04\\task\\J043-decision.md",
+    "published": "sources/20261104/J043-decision.md",
+    "bytes": 3012,
+    "sha256": "4d48cbcb13c96bc4be4950b078645f243e10549bb1445cc7de8b0a74fa5a0d10",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-04\\task\\J043-ledger-note.md",
+    "published": "sources/20261104/J043-ledger-note.md",
+    "bytes": 1058,
+    "sha256": "11f14b464f73bb904229202fa5d46559b7a1a97046eb2e472113a1cc9da21a64",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-04\\task\\J043-plan.md",
+    "published": "sources/20261104/J043-plan.md",
+    "bytes": 2774,
+    "sha256": "b13385f73fa04a4358f02f71063c4f67d98639e96d057bb12f9a5daa0cbcd377",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-04\\task\\J043-RESULTS.md",
+    "published": "sources/20261104/J043-RESULTS.md",
+    "bytes": 12013,
+    "sha256": "6b0912783e4abeac3f1fb631c40eef8a4bf3ed17e430db0b3ade45e5dbbed4fd",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-04\\task\\J043-transfer-note.md",
+    "published": "sources/20261104/J043-transfer-note.md",
+    "bytes": 745,
+    "sha256": "ac6b8856b15fde50cc9979ef2d92ba351e9292758b4a14cfdb779c0596ad2d34",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-04\\task\\J044-plan.md",
+    "published": "sources/20261104/J044-plan.md",
+    "bytes": 2366,
+    "sha256": "9be78c70394fe326ed4d67bded088366a42a6c9ebac243416af168124a797b98",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-04\\task\\J044-RESULTS.md",
+    "published": "sources/20261104/J044-RESULTS.md",
+    "bytes": 4017,
+    "sha256": "85af41a98d889ba914a50f06c9f5ec7d3aa13315c83eb13054df6b62dfea7dd5",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-04\\task\\J045-HANDOFF.md",
+    "published": "sources/20261104/J045-HANDOFF.md",
+    "bytes": 4376,
+    "sha256": "1cf716ac2dbbd44ba70de97d274a09d4071798970390a76afa2354d1f149e247",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-04\\task\\J045-ledger-note.md",
+    "published": "sources/20261104/J045-ledger-note.md",
+    "bytes": 589,
+    "sha256": "ecc865b13250c8b79b819d6121af4c38c5f48b99b4d9d2ebf10753ad2bf61e6d",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-04\\task\\J045-next-control.md",
+    "published": "sources/20261104/J045-next-control.md",
+    "bytes": 1423,
+    "sha256": "ad0a4997845b3ecf5f21f235be8214604f7f13b8a3ed0257a4d949dd64befcef",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-04\\task\\J045-plan.md",
+    "published": "sources/20261104/J045-plan.md",
+    "bytes": 2504,
+    "sha256": "6755d9bb6765c32b1a8c35a9a4ae421623d7fc2d0f36dcf372be039dfea8b572",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-04\\task\\J045-RESULTS-head.md",
+    "published": "sources/20261104/J045-RESULTS-head.md",
+    "bytes": 5171,
+    "sha256": "28eefe98cdf76a0e816f6a897429e3a34151772456079be633f19672650bee91",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-04\\task\\J045-RESULTS.md",
+    "published": "sources/20261104/J045-RESULTS.md",
+    "bytes": 8930,
+    "sha256": "33b3e395547f606780bc2d4951f0fce69e76f3a1e6976c4ae109d469798dd9ec",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-04\\task\\J046-ledger-note.md",
+    "published": "sources/20261104/J046-ledger-note.md",
+    "bytes": 623,
+    "sha256": "2b786ded107e37d4394c8912fadb89d03d8e60aedb114ed5c19d71624667030c",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-04\\task\\J046-plan.md",
+    "published": "sources/20261104/J046-plan.md",
+    "bytes": 1173,
+    "sha256": "defe5e0fb50a01f43f52d7bfba8c72455b4d1ce54fc112d01d6546dfb72cbbb5",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-04\\task\\J046-RESULTS-head.md",
+    "published": "sources/20261104/J046-RESULTS-head.md",
+    "bytes": 4752,
+    "sha256": "ae95309b44ff3eaea30c103475ea6e03eeb5a8c908340b228a5a86fbb9ee8b88",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-04\\task\\J046-RESULTS.md",
+    "published": "sources/20261104/J046-RESULTS.md",
+    "bytes": 13594,
+    "sha256": "26268b630e0f6f109a16ef4f97f0abaaf0c1392d230d57e70f9665e557c55328",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-04\\task\\J047-conclusion.md",
+    "published": "sources/20261104/J047-conclusion.md",
+    "bytes": 3240,
+    "sha256": "affe79b76e30bf22c0858cd7875758a549bbfb4dd317f3172b189f95eb615ae8",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-04\\task\\J047-ledger-note.md",
+    "published": "sources/20261104/J047-ledger-note.md",
+    "bytes": 622,
+    "sha256": "e23c2ce4193994a64538ce6b52836b43f44714dff5eb9c439d393c1ad90f0c3a",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-04\\task\\J047-plan.md",
+    "published": "sources/20261104/J047-plan.md",
+    "bytes": 1579,
+    "sha256": "4eb61184af36ac087024ee7809c598f65e7cfee0f5673cc7f3b05ffdb0eeb9af",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-04\\task\\J047-RESULTS-head.md",
+    "published": "sources/20261104/J047-RESULTS-head.md",
+    "bytes": 5097,
+    "sha256": "ca2f2dcc6029c6b0d6d32fb928a30d76cb4af4b01b68b67f645c288f2e51e59c",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-04\\task\\J047-RESULTS.md",
+    "published": "sources/20261104/J047-RESULTS.md",
+    "bytes": 12241,
+    "sha256": "814d061aa94b2e04ce3b011e0769c4d010e65818fc3485f8de2dd74d3ce10594",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-04\\task\\J048-conclusion.md",
+    "published": "sources/20261104/J048-conclusion.md",
+    "bytes": 2652,
+    "sha256": "51acd22bed84a776f1ec7c7a7b798fde9668774e2e15e924a6f04075db1e3718",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-04\\task\\J048-ledger-note.md",
+    "published": "sources/20261104/J048-ledger-note.md",
+    "bytes": 604,
+    "sha256": "6166e8f73624505bab9b25ae11aaef4e433e71da3692aa478d20e1d4e1ac8406",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-04\\task\\J048-official-review.md",
+    "published": "sources/20261104/J048-official-review.md",
+    "bytes": 6161,
+    "sha256": "1f297ff632b89ad5e63f51e022521144e8ea8f2f4fd8bb42329e946ae6bd500b",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-04\\task\\J048-plan.md",
+    "published": "sources/20261104/J048-plan.md",
+    "bytes": 1181,
+    "sha256": "9df9b88604f707349cd171dbd2c54399aaee238f1e72bf62a958d6c45a105a80",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-04\\task\\J048-RESULTS.md",
+    "published": "sources/20261104/J048-RESULTS.md",
+    "bytes": 9284,
+    "sha256": "9d6aee9fbffa1f84c31c8cd153585544855e14a81a628956be4d1883b695daf8",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-04\\task\\J049-conclusion.md",
+    "published": "sources/20261104/J049-conclusion.md",
+    "bytes": 3858,
+    "sha256": "5f8cf86df6ac542ab9dbbc3126244d0f73b1ecf4eff938dc49af2a5db9a8fc3a",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-04\\task\\J049-ledger-note.md",
+    "published": "sources/20261104/J049-ledger-note.md",
+    "bytes": 786,
+    "sha256": "861c2da7737a0ee05bd809219b9e433d001458c32953d8524b738bd8ab419db9",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-04\\task\\J049-PAUSED.md",
+    "published": "sources/20261104/J049-PAUSED.md",
+    "bytes": 2947,
+    "sha256": "649f42fbe009f0079c63daddc8a41ccd7180d446e477c8a80e45dbc83f9883de",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-04\\task\\J049-plan.md",
+    "published": "sources/20261104/J049-plan.md",
+    "bytes": 1050,
+    "sha256": "e0430a3837aeea5754c33e0eff19331fe2f755df6a8ffeb20d640299f4f69cec",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-04\\task\\J049-RESULTS.md",
+    "published": "sources/20261104/J049-RESULTS.md",
+    "bytes": 9345,
+    "sha256": "7770ab9fb6a4b2ba0233bf0d2a7173b6f06a17ad1c3a7f02d1c452a517e70a43",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-04\\task\\J050-plan.md",
+    "published": "sources/20261104/J050-plan.md",
+    "bytes": 1615,
+    "sha256": "780dd69667f468648ff41f232d49a612493de2ca895eb1a1480317e2a920d3d1",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-04\\task\\J050-RESULTS.md",
+    "published": "sources/20261104/J050-RESULTS.md",
+    "bytes": 2535,
+    "sha256": "d4bf0d792f0768fef340c07f44de33fce546aa206bf327ee40feae609ffa9cb0",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-04\\task\\J051-J052-plan.md",
+    "published": "sources/20261104/J051-J052-plan.md",
+    "bytes": 1175,
+    "sha256": "79c223ac79aa7c9c929c49d543db0ec9ea8f068a22f4731d9c66133970635330",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-04\\task\\J052-RESULTS.md",
+    "published": "sources/20261104/J052-RESULTS.md",
+    "bytes": 12379,
+    "sha256": "0445005cef237181a2bba87271ba9ca80b4aa664f28205876aef0c4d55b1a781",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-04\\task\\J053-plan.md",
+    "published": "sources/20261104/J053-plan.md",
+    "bytes": 1786,
+    "sha256": "d1f863f24cbcc36a43e495517bd5ae9cc84e55e4dbb18396f186e5e329cfb944",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-04\\task\\LARGE_CHANNEL_REVIEW.md",
+    "published": "sources/20261104/LARGE_CHANNEL_REVIEW.md",
+    "bytes": 24221,
+    "sha256": "ca9adec8e2ced295c0bedb28b867acc106303b489f0efd3352f6d9ff94f90e1b",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-04\\task\\PReluGradUpdate_2329_云端测试操作交接.md",
+    "published": "sources/20261104/PReluGradUpdate_2329_云端测试操作交接.md",
+    "bytes": 15234,
+    "sha256": "ff5c976d47998d3bc4ac8cae6ddeb6fbae7d3a5b470bd2e8b275e4717bf57b01",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-04\\task\\PReluGradUpdate_2329_进展与源码对照交接.md",
+    "published": "sources/20261104/PReluGradUpdate_2329_进展与源码对照交接.md",
+    "bytes": 20709,
+    "sha256": "a4bf0ff8e59a5f3dccc0b1ff41b58032c945380d1c4f2978084dabcd5993dd2a",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-04\\task\\progress-2329-20261104.md",
+    "published": "sources/20261104/progress-2329-20261104.md",
+    "bytes": 7742,
+    "sha256": "88279479d29478896108f43c367ce44c5734166afce202420dbc351169218c11",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-05\\task-2\\publish-repo\\people\\JadeYara\\notes\\PReluGradUpdate_2329\\experiments\\J035\\README.md",
+    "published": "sources/later-experiments/J035/README.md",
+    "bytes": 3079,
+    "sha256": "5b85af4af366996d7cd8cfe7c3c13e45ac070bd55c3ab5b6971ca0ad6f4b4787",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-05\\task-2\\publish-repo\\people\\JadeYara\\notes\\PReluGradUpdate_2329\\experiments\\J053\\README.md",
+    "published": "sources/later-experiments/J053/README.md",
+    "bytes": 302,
+    "sha256": "9976bbac75c526b4aae425b22899f7bc83ea12b58063b6f09628469ba795a990",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-05\\task-2\\publish-repo\\people\\JadeYara\\notes\\PReluGradUpdate_2329\\experiments\\J054\\README.md",
+    "published": "sources/later-experiments/J054/README.md",
+    "bytes": 5223,
+    "sha256": "876e586549f1ddf05595d30ac029e76438e5750ddddde9243609bfa67265f402",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-05\\task-2\\publish-repo\\people\\JadeYara\\notes\\PReluGradUpdate_2329\\experiments\\J055\\README.md",
+    "published": "sources/later-experiments/J055/README.md",
+    "bytes": 5325,
+    "sha256": "5cd999dff7c3ef6a3158073285b0ffbc333a4e2dbbaf2d99fc2865a998fd6ff8",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-05\\task-2\\publish-repo\\people\\JadeYara\\notes\\PReluGradUpdate_2329\\experiments\\J056\\README.md",
+    "published": "sources/later-experiments/J056/README.md",
+    "bytes": 4293,
+    "sha256": "6fa8e48b396da92429ea5a745dd33977dbb59f1d8a0fdeeef4a97ce9c5b940ea",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-05\\task-2\\publish-repo\\people\\JadeYara\\notes\\PReluGradUpdate_2329\\experiments\\J057\\DEC-J057.md",
+    "published": "sources/later-experiments/J057/DEC-J057.md",
+    "bytes": 1685,
+    "sha256": "58ba8e76121b028047d54e3c64811770deb9a61614bb436cb57976534b2fc18d",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-05\\task-2\\publish-repo\\people\\JadeYara\\notes\\PReluGradUpdate_2329\\experiments\\J057\\README.md",
+    "published": "sources/later-experiments/J057/README.md",
+    "bytes": 5471,
+    "sha256": "6cbe337c48122eea3f1d028637751a939b694f80296ffdc5ecb4bd20af12e87d",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-05\\task-2\\publish-repo\\people\\JadeYara\\notes\\PReluGradUpdate_2329\\experiments\\J057\\session-card.md",
+    "published": "sources/later-experiments/J057/session-card.md",
+    "bytes": 1782,
+    "sha256": "6723ab6aaa06621dfee4f2d01802efdee0b4bcb2f2b806bd7cbe07a37805ad09",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-05\\task-2\\publish-repo\\people\\JadeYara\\notes\\PReluGradUpdate_2329\\experiments\\J058\\DEC-J058.md",
+    "published": "sources/later-experiments/J058/DEC-J058.md",
+    "bytes": 637,
+    "sha256": "bc1644d0b301911d280b64eefb169a61abee35b5572e956775f5889b88009ebc",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-05\\task-2\\publish-repo\\people\\JadeYara\\notes\\PReluGradUpdate_2329\\experiments\\J058\\README.md",
+    "published": "sources/later-experiments/J058/README.md",
+    "bytes": 5667,
+    "sha256": "5103a94ec5c6a2d5a16afd1316485a6610048a84ce117c14d814fa347e5bb969",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-05\\task-2\\publish-repo\\people\\JadeYara\\notes\\PReluGradUpdate_2329\\experiments\\J058\\session-card.md",
+    "published": "sources/later-experiments/J058/session-card.md",
+    "bytes": 935,
+    "sha256": "2da8e6776503c9c86689605700213c49581f06b884aef4488be347cb139ff338",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-05\\task-2\\publish-repo\\people\\JadeYara\\notes\\PReluGradUpdate_2329\\experiments\\J059\\DEC-J059.md",
+    "published": "sources/later-experiments/J059/DEC-J059.md",
+    "bytes": 339,
+    "sha256": "dd005ea93fd9966be5cf487527304363ed6e087e20f9809aa5f21b42369b7732",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-05\\task-2\\publish-repo\\people\\JadeYara\\notes\\PReluGradUpdate_2329\\experiments\\J059\\README.md",
+    "published": "sources/later-experiments/J059/README.md",
+    "bytes": 6103,
+    "sha256": "6d4f8948d2c02aa553cd210cc94cc2b0afeb4ed337748fa1b16bf3c98362829a",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-05\\task-2\\publish-repo\\people\\JadeYara\\notes\\PReluGradUpdate_2329\\experiments\\J059\\session-card.md",
+    "published": "sources/later-experiments/J059/session-card.md",
+    "bytes": 1042,
+    "sha256": "d94100ec4d48e7bf95c3e890cc19ef974eae661a9aa07738118fae0d4573240f",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-05\\task-2\\publish-repo\\people\\JadeYara\\notes\\PReluGradUpdate_2329\\experiments\\J060\\DEC-J060.md",
+    "published": "sources/later-experiments/J060/DEC-J060.md",
+    "bytes": 516,
+    "sha256": "d48e74cf889c8d4b50fabede41b1d5f0201dfdbb2d7b51f994878565c2670974",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-05\\task-2\\publish-repo\\people\\JadeYara\\notes\\PReluGradUpdate_2329\\experiments\\J060\\README.md",
+    "published": "sources/later-experiments/J060/README.md",
+    "bytes": 5951,
+    "sha256": "e11d06735f92e57caac3c0436a654a239f5ed87f81c4b0667a0a1dfe9c4bbe8a",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-05\\task-2\\publish-repo\\people\\JadeYara\\notes\\PReluGradUpdate_2329\\experiments\\J060\\session-card.md",
+    "published": "sources/later-experiments/J060/session-card.md",
+    "bytes": 994,
+    "sha256": "fac9598aa5cc7a2aa0f3e1124b5a74d9188ccde1f2f69950298f6c2fe4bbaed2",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-05\\task-2\\publish-repo\\people\\JadeYara\\notes\\PReluGradUpdate_2329\\experiments\\J061\\DEC-J061.md",
+    "published": "sources/later-experiments/J061/DEC-J061.md",
+    "bytes": 292,
+    "sha256": "3237595ac065a6611794f973c11653bec5eb7218fae21d91c4ffe6efb1a53e1b",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-05\\task-2\\publish-repo\\people\\JadeYara\\notes\\PReluGradUpdate_2329\\experiments\\J061\\README.md",
+    "published": "sources/later-experiments/J061/README.md",
+    "bytes": 7640,
+    "sha256": "7df2bae8afaa0603ecdd66babb33d8df90ea74bb954de565689618e43fc5af01",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-05\\task-2\\publish-repo\\people\\JadeYara\\notes\\PReluGradUpdate_2329\\experiments\\J061\\session-card.md",
+    "published": "sources/later-experiments/J061/session-card.md",
+    "bytes": 1079,
+    "sha256": "74454e182f308af666aa324f2043e82204a3bb41d5e242a6e6d0d85c96042626",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-05\\task-2\\publish-repo\\people\\JadeYara\\notes\\PReluGradUpdate_2329\\experiments\\J062\\DEC-J062.md",
+    "published": "sources/later-experiments/J062/DEC-J062.md",
+    "bytes": 304,
+    "sha256": "1cb07925a15cbd97bd3394eb18e86c0b72b28bd14c7a57775dcc12c72f25dd8e",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-05\\task-2\\publish-repo\\people\\JadeYara\\notes\\PReluGradUpdate_2329\\experiments\\J062\\README.md",
+    "published": "sources/later-experiments/J062/README.md",
+    "bytes": 6597,
+    "sha256": "151c3204b0409096cde926b22fb3ae76832cd7b015a2af31862d0f504cf094a2",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-05\\task-2\\publish-repo\\people\\JadeYara\\notes\\PReluGradUpdate_2329\\experiments\\J062\\session-card.md",
+    "published": "sources/later-experiments/J062/session-card.md",
+    "bytes": 627,
+    "sha256": "970bf5db08607df6cadfbcb3accbc28a871885f78a90c5c173f5719f3c586823",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-05\\task-2\\publish-repo\\people\\JadeYara\\notes\\PReluGradUpdate_2329\\experiments\\J063\\DEC-J063.md",
+    "published": "sources/later-experiments/J063/DEC-J063.md",
+    "bytes": 3498,
+    "sha256": "138525ddf0d61d03a74a4f9dbb01d51a174a0d97962fd8ab1d29e493de0ca603",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-05\\task-2\\publish-repo\\people\\JadeYara\\notes\\PReluGradUpdate_2329\\experiments\\J063\\README.md",
+    "published": "sources/later-experiments/J063/README.md",
+    "bytes": 3104,
+    "sha256": "22c40ab1962557472d8d6d1c79e67ae7a16197ad8b7241331a09175b9c5a23e3",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-05\\task-2\\publish-repo\\people\\JadeYara\\notes\\PReluGradUpdate_2329\\experiments\\J063\\review-20261107.md",
+    "published": "sources/later-experiments/J063/review-20261107.md",
+    "bytes": 5831,
+    "sha256": "c3bf18b5540a8b12d6fb95bb01904bcb745c4e2bbef1dcf8c6e4d5c26f123770",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-05\\task-2\\publish-repo\\people\\JadeYara\\notes\\PReluGradUpdate_2329\\experiments\\J063\\session-card.md",
+    "published": "sources/later-experiments/J063/session-card.md",
+    "bytes": 738,
+    "sha256": "066a4395361307e0c49c1799d6763579b17c5ad304ce5fc6214e42ee2bd85a60",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-05\\task-2\\publish-repo\\people\\JadeYara\\notes\\PReluGradUpdate_2329\\experiments\\J064\\DEC-J064.md",
+    "published": "sources/later-experiments/J064/DEC-J064.md",
+    "bytes": 1924,
+    "sha256": "edc4e58c1e10a4610190bd29d4752271c431f61dd301935a181b74d3eec85be4",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-05\\task-2\\publish-repo\\people\\JadeYara\\notes\\PReluGradUpdate_2329\\experiments\\J064\\README.md",
+    "published": "sources/later-experiments/J064/README.md",
+    "bytes": 302,
+    "sha256": "ed0f471cc24f8728f6a07357da9dd2d5b215fbce52d79201e1c779b5f5a763a4",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-05\\task-2\\publish-repo\\people\\JadeYara\\notes\\PReluGradUpdate_2329\\experiments\\J064\\session-card.md",
+    "published": "sources/later-experiments/J064/session-card.md",
+    "bytes": 777,
+    "sha256": "9b3e141b1ae5917e30f1817ed0961f6ebf8ded8cd2674699fbecaaa79524f639",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-05\\task-2\\publish-repo\\people\\JadeYara\\notes\\PReluGradUpdate_2329\\experiments\\J065\\DEC-J065.md",
+    "published": "sources/later-experiments/J065/DEC-J065.md",
+    "bytes": 4475,
+    "sha256": "3f7dc43862f715929c226c8264d5b33c1184e7789880eecc26b0386468407e26",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-05\\task-2\\publish-repo\\people\\JadeYara\\notes\\PReluGradUpdate_2329\\experiments\\J065\\README.md",
+    "published": "sources/later-experiments/J065/README.md",
+    "bytes": 346,
+    "sha256": "25077380e5fe6e9c355b4e0ccdc9620368cbc22827a58edb43b6bfc76ea4e2ac",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-05\\task-2\\publish-repo\\people\\JadeYara\\notes\\PReluGradUpdate_2329\\experiments\\J065\\session-card.md",
+    "published": "sources/later-experiments/J065/session-card.md",
+    "bytes": 915,
+    "sha256": "eaa5f48ba452683a9d6c15ac4675772eb682d7da74f5c828b0bfc532c7dc7a59",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-05\\task-2\\publish-repo\\people\\JadeYara\\notes\\PReluGradUpdate_2329\\experiments\\J066\\README.md",
+    "published": "sources/later-experiments/J066/README.md",
+    "bytes": 1353,
+    "sha256": "2ec644816704604c1fa9d8b6a064ddc7856526c4125d1e123346fdb66d83c0f2",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-05\\task-2\\publish-repo\\people\\JadeYara\\notes\\PReluGradUpdate_2329\\experiments\\J066\\session-card.md",
+    "published": "sources/later-experiments/J066/session-card.md",
+    "bytes": 1038,
+    "sha256": "892a4e4183b767544c2e1b0e861423d05dde8baeb8de307343b61e12a5394e7a",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-05\\task-2\\publish-repo\\people\\JadeYara\\notes\\PReluGradUpdate_2329\\experiments\\J067\\DEC-J067.md",
+    "published": "sources/later-experiments/J067/DEC-J067.md",
+    "bytes": 4559,
+    "sha256": "15809ea9921f2b7ea08a78c0f9230d3276d01c71be009aa6f3ee294febf2cf40",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-05\\task-2\\publish-repo\\people\\JadeYara\\notes\\PReluGradUpdate_2329\\experiments\\J067\\README.md",
+    "published": "sources/later-experiments/J067/README.md",
+    "bytes": 434,
+    "sha256": "6b4438f92d4670d46cb86e340ab70ead5d08975bf987d5d9cb3d904d5d3f3ea9",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-05\\task-2\\publish-repo\\people\\JadeYara\\notes\\PReluGradUpdate_2329\\experiments\\J067\\reassessment-20261107.md",
+    "published": "sources/later-experiments/J067/reassessment-20261107.md",
+    "bytes": 6661,
+    "sha256": "72ea1f28eb37fab85c718cfe815bad7db6f37ec40768d28fc8264db8eeec9a25",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-05\\task-2\\publish-repo\\people\\JadeYara\\notes\\PReluGradUpdate_2329\\experiments\\J067\\session-card.md",
+    "published": "sources/later-experiments/J067/session-card.md",
+    "bytes": 1050,
+    "sha256": "eeec8bc66e50d981cb93ed0d8900e790b743ecafd5a059ab38acd61cfbed8ff6",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-05\\task-2\\publish-repo\\people\\JadeYara\\notes\\PReluGradUpdate_2329\\experiments\\J068\\DEC-J068.md",
+    "published": "sources/later-experiments/J068/DEC-J068.md",
+    "bytes": 4028,
+    "sha256": "6e822f6abcde2c0e3662f94efb79bffcb86bbb33afd555034f62a886f59166d3",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-05\\task-2\\publish-repo\\people\\JadeYara\\notes\\PReluGradUpdate_2329\\experiments\\J068\\README.md",
+    "published": "sources/later-experiments/J068/README.md",
+    "bytes": 1061,
+    "sha256": "7e9102480c51080d95c5ffd9881f32b5b17e3b53d048b0b2054e5f7cc93ba2e0",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-05\\task-2\\publish-repo\\people\\JadeYara\\notes\\PReluGradUpdate_2329\\experiments\\J068\\session-card.md",
+    "published": "sources/later-experiments/J068/session-card.md",
+    "bytes": 1224,
+    "sha256": "b37ddd9ea2e8e97a1757b15989e570dd9bb08a3853608349b9526cdc302ef75b",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-05\\task-2\\publish-repo\\people\\JadeYara\\notes\\PReluGradUpdate_2329\\experiments\\J069\\DEC-J069.md",
+    "published": "sources/later-experiments/J069/DEC-J069.md",
+    "bytes": 3705,
+    "sha256": "bf3d13919d60399b60fcff0c087b36e4d74ac13e805de8507d9dafbe75b265a3",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-05\\task-2\\publish-repo\\people\\JadeYara\\notes\\PReluGradUpdate_2329\\experiments\\J069\\README.md",
+    "published": "sources/later-experiments/J069/README.md",
+    "bytes": 550,
+    "sha256": "e24acea99d33beee901ed132461bed4012e77a43a9487df7b503ddd840c298d1",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-05\\task-2\\publish-repo\\people\\JadeYara\\notes\\PReluGradUpdate_2329\\experiments\\J069\\session-card.md",
+    "published": "sources/later-experiments/J069/session-card.md",
+    "bytes": 1280,
+    "sha256": "ea4f2fa365ed1f6c78be8a90af63897177cdb4430304d83ea1982f9e74a7b49d",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-05\\task-2\\publish-repo\\people\\JadeYara\\notes\\PReluGradUpdate_2329\\experiments\\J070\\HANDOFF-20261108.md",
+    "published": "sources/later-experiments/J070/HANDOFF-20261108.md",
+    "bytes": 8477,
+    "sha256": "4c810a59a8db1cb2937156ac558fa91eb299e8c1601b6b183965bbf6bd9db201",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-05\\task-2\\publish-repo\\people\\JadeYara\\notes\\PReluGradUpdate_2329\\experiments\\J070\\README.md",
+    "published": "sources/later-experiments/J070/README.md",
+    "bytes": 8043,
+    "sha256": "ae6e3f3f13a93b3636fd03a1cacbf9a255beef6627a64d18d07695060ae9545e",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-05\\task-2\\publish-repo\\people\\JadeYara\\notes\\PReluGradUpdate_2329\\experiments\\J070\\session-card.md",
+    "published": "sources/later-experiments/J070/session-card.md",
+    "bytes": 1587,
+    "sha256": "ffa1b3f13e99b72666aa75014b4d11b48c457d5b6ac5f56bdc06023e89e9c163",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-05\\task-2\\publish-repo\\people\\JadeYara\\notes\\PReluGradUpdate_2329\\experiments\\J070-design\\BROADCAST_WINDOW_PROOF.md",
+    "published": "sources/later-experiments/J070-design/BROADCAST_WINDOW_PROOF.md",
+    "bytes": 12725,
+    "sha256": "8bb94924f59614c823ad1893da7b447db2ae9323c79ecbd3494589dc9eb88e2b",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-05\\task-2\\publish-repo\\people\\JadeYara\\notes\\PReluGradUpdate_2329\\experiments\\J070-design\\session-card.md",
+    "published": "sources/later-experiments/J070-design/session-card.md",
+    "bytes": 501,
+    "sha256": "126297b4c6a6343bf36616d324b10de93b82cfd69ea98782411988763b6b5554",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-05\\task-2\\publish-repo\\people\\JadeYara\\notes\\PReluGradUpdate_2329\\experiments\\J070-validation\\session-card.md",
+    "published": "sources/later-experiments/J070-validation/session-card.md",
+    "bytes": 632,
+    "sha256": "51f437889526dcafdde9a7e1e0648dda2132d637a4099b08ef63cd7e3bed6210",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-05\\task-2\\publish-repo\\people\\JadeYara\\notes\\PReluGradUpdate_2329\\experiments\\J071\\DEC-J071.md",
+    "published": "sources/later-experiments/J071/DEC-J071.md",
+    "bytes": 282,
+    "sha256": "b6cb96edf9637d419adaae8d6400f8081303c36335071252ed8069030ececa25",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-05\\task-2\\publish-repo\\people\\JadeYara\\notes\\PReluGradUpdate_2329\\experiments\\J071\\README.md",
+    "published": "sources/later-experiments/J071/README.md",
+    "bytes": 5733,
+    "sha256": "7938b7a3bcbca9e77d4ce72df6573c186d41a2fd3e4851409c76767a3c2b221d",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-05\\task-2\\publish-repo\\people\\JadeYara\\notes\\PReluGradUpdate_2329\\experiments\\J071\\session-card.md",
+    "published": "sources/later-experiments/J071/session-card.md",
+    "bytes": 1322,
+    "sha256": "f9261ec67f98f1f8fb3bc8a1949e166005f7740b1c3178888c1a9ea6b55a2cf0",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-05\\task-2\\publish-repo\\people\\JadeYara\\notes\\PReluGradUpdate_2329\\experiments\\J072\\DEC-J072.md",
+    "published": "sources/later-experiments/J072/DEC-J072.md",
+    "bytes": 247,
+    "sha256": "009ff001af870c135802a78461ed258950f26386050bfa08e6339eb94109c5d0",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-05\\task-2\\publish-repo\\people\\JadeYara\\notes\\PReluGradUpdate_2329\\experiments\\J072\\README.md",
+    "published": "sources/later-experiments/J072/README.md",
+    "bytes": 6969,
+    "sha256": "0690c089fcb8293101041dfb738fe64fc6d0435dd9db62ebb8858e5893a260d6",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-05\\task-2\\publish-repo\\people\\JadeYara\\notes\\PReluGradUpdate_2329\\experiments\\J072\\session-card.md",
+    "published": "sources/later-experiments/J072/session-card.md",
+    "bytes": 1676,
+    "sha256": "6f69fae27187ab172680fb84a5624ccfb6e4dbe1ca80c51b300ca48648eeb941",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-05\\task-2\\publish-repo\\people\\JadeYara\\notes\\PReluGradUpdate_2329\\experiments\\J073\\DEC-J073.md",
+    "published": "sources/later-experiments/J073/DEC-J073.md",
+    "bytes": 380,
+    "sha256": "24d686ba01024f736c2246f3dab72a30f4378f844fc624e245c010b3ebe320e9",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-05\\task-2\\publish-repo\\people\\JadeYara\\notes\\PReluGradUpdate_2329\\experiments\\J073\\README.md",
+    "published": "sources/later-experiments/J073/README.md",
+    "bytes": 8224,
+    "sha256": "f9e39d9eccffeda8845ace4e46641bd33c8d790a66f9ef2d6b0a8c1b8529d1e1",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-05\\task-2\\publish-repo\\people\\JadeYara\\notes\\PReluGradUpdate_2329\\experiments\\J073\\session-card.md",
+    "published": "sources/later-experiments/J073/session-card.md",
+    "bytes": 2562,
+    "sha256": "da4e2ff46323bfa2641588820d8951b1c41df0844e9114293a77f2149704595d",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-05\\task-2\\publish-repo\\people\\JadeYara\\notes\\PReluGradUpdate_2329\\experiments\\J074\\README.md",
+    "published": "sources/later-experiments/J074/README.md",
+    "bytes": 2229,
+    "sha256": "b6e713dc97d5e80e24c80bfe761980db4ea2149e5411de749b827617c1cf7428",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-05\\task-2\\publish-repo\\people\\JadeYara\\notes\\PReluGradUpdate_2329\\experiments\\J074\\session-card.md",
+    "published": "sources/later-experiments/J074/session-card.md",
+    "bytes": 945,
+    "sha256": "e0d5b74acd39f4fcac6a2ca05f8dec9bb8147d0338fdcc6077920332aa9105ba",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-05\\task-2\\publish-repo\\people\\JadeYara\\notes\\PReluGradUpdate_2329\\experiments\\J075\\DEC-J075.md",
+    "published": "sources/later-experiments/J075/DEC-J075.md",
+    "bytes": 117,
+    "sha256": "78ec9e874d39aac6e6f7e2b90a03990eca12eee632f8b56c9572d4c1bb9aeca3",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-05\\task-2\\publish-repo\\people\\JadeYara\\notes\\PReluGradUpdate_2329\\experiments\\J075\\README.md",
+    "published": "sources/later-experiments/J075/README.md",
+    "bytes": 7186,
+    "sha256": "6b5cefcf13efc6074669b5ea80272acd3dd7ad24a151729d6b0982a52fef4124",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-05\\task-2\\publish-repo\\people\\JadeYara\\notes\\PReluGradUpdate_2329\\experiments\\J075\\session-card.md",
+    "published": "sources/later-experiments/J075/session-card.md",
+    "bytes": 2205,
+    "sha256": "2fb6f284fe8123f9b1983988ad5dc62a3ab22be726bc099dc4ff1389598ed550",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-05\\task-2\\publish-repo\\people\\JadeYara\\notes\\PReluGradUpdate_2329\\experiments\\J076\\DEC-J076.md",
+    "published": "sources/later-experiments/J076/DEC-J076.md",
+    "bytes": 198,
+    "sha256": "ab57b040e9b9133bcfa1f588c12d2fdc21fb86d9735ebccf62d080b1c4e2a7f4",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-05\\task-2\\publish-repo\\people\\JadeYara\\notes\\PReluGradUpdate_2329\\experiments\\J076\\README.md",
+    "published": "sources/later-experiments/J076/README.md",
+    "bytes": 4462,
+    "sha256": "e132fa9314dcb938fe5a451e651adbaa6c2e77fce63f62795c599130d3d30f4e",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-05\\task-2\\publish-repo\\people\\JadeYara\\notes\\PReluGradUpdate_2329\\experiments\\J076\\session-card.md",
+    "published": "sources/later-experiments/J076/session-card.md",
+    "bytes": 2803,
+    "sha256": "f590e9a54afd28f72ab685abdf4c11f0d0edd876d57aaefb34a398f13c564044",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\PReluGradUpdate_2329-调研-20261107\\PReluGradUpdate_2329-建议文档-20261108.md",
+    "published": "sources/deepseek/PReluGradUpdate_2329-建议文档-20261108.md",
+    "bytes": 34172,
+    "sha256": "47cb8a50ad83e94e89d94f06ad0f3fb9a0467af9d82bfa6fa073a3757107ee79",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\PReluGradUpdate_2329-调研-20261107\\PReluGradUpdate_2329-调研报告-20261107.md",
+    "published": "sources/deepseek/PReluGradUpdate_2329-调研报告-20261107.md",
+    "bytes": 44344,
+    "sha256": "2337d5a4303e8ad6b0056c3003a97520ab7e9a87e1ad50f010bf19200a40d06c",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\PReluGradUpdate_2329-调研-20261107\\调试记录-J062-BF16回退-E0E5-20261107.md",
+    "published": "sources/deepseek/调试记录-J062-BF16回退-E0E5-20261107.md",
+    "bytes": 13418,
+    "sha256": "70dbc57c830367e6b19406416b4dc71dd4da4d1fe992cdfcfbc8bf59737fadf5",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\01-项目方向与调研交接-PReluGradUpdate_2329-20261107.md",
+    "published": "sources/handoffs/01-项目方向与调研交接-PReluGradUpdate_2329-20261107.md",
+    "bytes": 12715,
+    "sha256": "5fbefe431f8bbc76fcfd250a4b6c2fbd26563a277a38e462464d214a1d40d6ba",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\02-云端连接与调试交接.md",
+    "published": "sources/handoffs/02-云端连接与调试交接.md",
+    "bytes": 13024,
+    "sha256": "5acb33c12ee5b66f0e54d68cf4a8a1dd12bca1fb7f3a21bc49cb95d1cbb2d3e0",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\03-当前进度与DeepSeek调研交接-PReluGradUpdate_2329-20261108.md",
+    "published": "sources/handoffs/03-当前进度与DeepSeek调研交接-PReluGradUpdate_2329-20261108.md",
+    "bytes": 20088,
+    "sha256": "2af8a4907c81870f1b687c1d1f2885900f7d7d2e4c09ad2b3749234e50a66b3e",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\04-项目进度总结与DeepSeek交接-截至J076-20261108.md",
+    "published": "sources/handoffs/04-项目进度总结与DeepSeek交接-截至J076-20261108.md",
+    "bytes": 23392,
+    "sha256": "dce37f275fa86ce41ba164afc7a11652aa8c1f67c568708c4953e42f86d01604",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\README.md",
+    "published": "sources/early-project/README.md",
+    "bytes": 9403,
+    "sha256": "24363e675482eeec6b7873b57daa7f4b9479ddc648ff806c2e424bb202d312d4",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\SOURCES.md",
+    "published": "sources/early-project/SOURCES.md",
+    "bytes": 2950,
+    "sha256": "84770578e3f0a8d9823441c7ba00d8f4c71233021f297862a8cda5b27d5688c5",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\UPSTREAM-AUDIT-20261104.md",
+    "published": "sources/early-project/UPSTREAM-AUDIT-20261104.md",
+    "bytes": 11839,
+    "sha256": "73b4659065ef50aaad5c186f44f15dcc3111f065f9085379d52c1c09dbc84545",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\tasks\\active\\PReluGradUpdate_2329\\explorations\\EXP-J079-bf16-load-diagnostic.md",
+    "published": "sources/early-shared/explorations/EXP-J079-bf16-load-diagnostic.md",
+    "bytes": 864,
+    "sha256": "04e663e8497788626943be474c899aa1068bb57656bc829512be976539d399e0",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\tasks\\active\\PReluGradUpdate_2329\\explorations\\EXP_J003_910C_20261104.md",
+    "published": "sources/early-shared/explorations/EXP_J003_910C_20261104.md",
+    "bytes": 711,
+    "sha256": "061af746caad1f15583b817fc82d60093ccce75fd95cd45be09f253dae506a1a",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\tasks\\active\\PReluGradUpdate_2329\\explorations\\EXP_J004_910C_20261104.md",
+    "published": "sources/early-shared/explorations/EXP_J004_910C_20261104.md",
+    "bytes": 2658,
+    "sha256": "7bbfc427f1ee9183660ea6a7ce90a5668f4449d364206394959ef4d6725c6f09",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\tasks\\active\\PReluGradUpdate_2329\\explorations\\EXP_J005_910C_20261104.md",
+    "published": "sources/early-shared/explorations/EXP_J005_910C_20261104.md",
+    "bytes": 1568,
+    "sha256": "3b638d499e4fc8207dcab394b8ceba78fe0514d6eb9e527785265d83632c5938",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\tasks\\active\\PReluGradUpdate_2329\\explorations\\EXP_J006_910C_20261104.md",
+    "published": "sources/early-shared/explorations/EXP_J006_910C_20261104.md",
+    "bytes": 2682,
+    "sha256": "ac778235a326dc58c5f00563eb414d4c338ddf3a0b902d72d2015c8a2682c427",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\tasks\\active\\PReluGradUpdate_2329\\explorations\\EXP_J007_910C_20261104.md",
+    "published": "sources/early-shared/explorations/EXP_J007_910C_20261104.md",
+    "bytes": 4623,
+    "sha256": "975e17c383a00515e1fd4451d2be5de1abd90178b60f6d4619b7e760a1abcbc9",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\tasks\\active\\PReluGradUpdate_2329\\explorations\\EXP_J008_910C_20261104.md",
+    "published": "sources/early-shared/explorations/EXP_J008_910C_20261104.md",
+    "bytes": 6114,
+    "sha256": "9b2763311910ad851e5e9995e7caa3b5d3472de32aa7246ba9fc770fc3c499fa",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\tasks\\active\\PReluGradUpdate_2329\\explorations\\EXP_J009_910C_20261104.md",
+    "published": "sources/early-shared/explorations/EXP_J009_910C_20261104.md",
+    "bytes": 8676,
+    "sha256": "6a3e7d95cef44e0ff3ecfa924e91234d9101c4d8bb491802ddfa76bae8cda3c6",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\tasks\\active\\PReluGradUpdate_2329\\explorations\\EXP_J010_910C_20261104.md",
+    "published": "sources/early-shared/explorations/EXP_J010_910C_20261104.md",
+    "bytes": 7483,
+    "sha256": "4edeb423d5eef960ad878ffea8cbb05d359d5cdbb699899297f9dee7d7683c80",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\tasks\\active\\PReluGradUpdate_2329\\explorations\\EXP_J011_J012_SCALE_910C_20261104.md",
+    "published": "sources/early-shared/explorations/EXP_J011_J012_SCALE_910C_20261104.md",
+    "bytes": 2116,
+    "sha256": "f6fbe9799fb79c82da53188541cfe5c3b6569ce0ffc321a680aa773939bc68a8",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\tasks\\active\\PReluGradUpdate_2329\\explorations\\EXP_J021_ICACHE_910C_20261104.md",
+    "published": "sources/early-shared/explorations/EXP_J021_ICACHE_910C_20261104.md",
+    "bytes": 7266,
+    "sha256": "b6880721055027602bbdcf56fb22d0e633514692b414fd1b2e37c4d591ee217d",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\tasks\\active\\PReluGradUpdate_2329\\explorations\\EXP_J022_ICACHE_910C_20261104.md",
+    "published": "sources/early-shared/explorations/EXP_J022_ICACHE_910C_20261104.md",
+    "bytes": 8123,
+    "sha256": "6ea071b0d6a01286fc98426f43893e0c09051b85b186672ea9816c6072ad2bfb",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\tasks\\active\\PReluGradUpdate_2329\\explorations\\EXP_J023_DTYPE_910C_20261105.md",
+    "published": "sources/early-shared/explorations/EXP_J023_DTYPE_910C_20261105.md",
+    "bytes": 7721,
+    "sha256": "30a1c4a9c1c5c68cddbbf7bc2585fe13f75e5bd2b9064776b45d49f33a96cae0",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\tasks\\active\\PReluGradUpdate_2329\\explorations\\EXP_J024_SPLITC_910C_20261105.md",
+    "published": "sources/early-shared/explorations/EXP_J024_SPLITC_910C_20261105.md",
+    "bytes": 10189,
+    "sha256": "827c6825958f2e5169049530f3d95307c39d5a8dcc30869466898195fddb6f6b",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\tasks\\active\\PReluGradUpdate_2329\\explorations\\EXP_J025_J026_ROUTING_910C_20261105.md",
+    "published": "sources/early-shared/explorations/EXP_J025_J026_ROUTING_910C_20261105.md",
+    "bytes": 15401,
+    "sha256": "162132d682b7847b2855be2c63a42d53c213ee53d7e11c5532c247663cdb4c0a",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\tasks\\active\\PReluGradUpdate_2329\\explorations\\EXP_J027_COST_910C_20261105.md",
+    "published": "sources/early-shared/explorations/EXP_J027_COST_910C_20261105.md",
+    "bytes": 13537,
+    "sha256": "3b8f6da751f96461a2f95770964507eb1f07cb8ef1e758fd667d82b026292e9f",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\tasks\\active\\PReluGradUpdate_2329\\explorations\\EXP_J028_PREFETCH_910C_20261105.md",
+    "published": "sources/early-shared/explorations/EXP_J028_PREFETCH_910C_20261105.md",
+    "bytes": 6448,
+    "sha256": "77105c96a16445409e8d3e1f77ec8378b4939dbb67b995481d0b59ab4d11f13e",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\tasks\\active\\PReluGradUpdate_2329\\explorations\\EXP_J029_PAIRED_QUEUE_910C_20261105.md",
+    "published": "sources/early-shared/explorations/EXP_J029_PAIRED_QUEUE_910C_20261105.md",
+    "bytes": 7813,
+    "sha256": "0dd5cca4859836d11f0f58e2cadcb2e58f07761120c128a087a7744679eb30ab",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\tasks\\active\\PReluGradUpdate_2329\\explorations\\EXP_J030_DEPENDENCY_910C_20261105.md",
+    "published": "sources/early-shared/explorations/EXP_J030_DEPENDENCY_910C_20261105.md",
+    "bytes": 11762,
+    "sha256": "a006f9dff87e054162f962bf196868b8d8b2cf9600be5a9a1fbd7309935513f2",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\tasks\\active\\PReluGradUpdate_2329\\explorations\\EXP_J031_SIMULATOR_910C_20261105.md",
+    "published": "sources/early-shared/explorations/EXP_J031_SIMULATOR_910C_20261105.md",
+    "bytes": 8031,
+    "sha256": "30d2d073d2426c0fa8c541eeb1f6b79c4565b3a3ba765e3ee398377c49dd4058",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\tasks\\active\\PReluGradUpdate_2329\\explorations\\EXP_J032_EARLY_RELEASE_910C_20261105.md",
+    "published": "sources/early-shared/explorations/EXP_J032_EARLY_RELEASE_910C_20261105.md",
+    "bytes": 7992,
+    "sha256": "35bcae96d8c96e7b390f327f19286377d44d151520df37b79f0451714b29d6f5",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\tasks\\active\\PReluGradUpdate_2329\\explorations\\EXP_J033_J034_UB_LAYOUT_910C_20261105.md",
+    "published": "sources/early-shared/explorations/EXP_J033_J034_UB_LAYOUT_910C_20261105.md",
+    "bytes": 15044,
+    "sha256": "ed6219819ee31195b1a855e00df457e71f83216deb4078ad00b7f782b561047c",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\tasks\\active\\PReluGradUpdate_2329\\explorations\\EXP_J035_FP32_UB_LAYOUT_910C_20261105.md",
+    "published": "sources/early-shared/explorations/EXP_J035_FP32_UB_LAYOUT_910C_20261105.md",
+    "bytes": 10604,
+    "sha256": "f3a5c950889a9621cd77b31ae5415e7de8c7f105f76936dcb8a4522377bf48b2",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\tasks\\active\\PReluGradUpdate_2329\\explorations\\EXP_J036_CANDIDATE_REVIEW_910C_20261105.md",
+    "published": "sources/early-shared/explorations/EXP_J036_CANDIDATE_REVIEW_910C_20261105.md",
+    "bytes": 7310,
+    "sha256": "aaf05fc9a97a277e519348ec50d5459e19f98563bbfae5840395fd5a631c448c",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\tasks\\active\\PReluGradUpdate_2329\\explorations\\EXP_J037_TBE_READINESS_910C_20261105.md",
+    "published": "sources/early-shared/explorations/EXP_J037_TBE_READINESS_910C_20261105.md",
+    "bytes": 8513,
+    "sha256": "d25bc28598a6b409235064a07dac08f4ae4993d0751bd4ba26e7e5849a71db54",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\tasks\\active\\PReluGradUpdate_2329\\explorations\\EXP_J038_ZERO_REUSE_910C_20261105.md",
+    "published": "sources/early-shared/explorations/EXP_J038_ZERO_REUSE_910C_20261105.md",
+    "bytes": 11273,
+    "sha256": "73be417bd56d6b926b8319851b1312fc36bef68a567f15a732f9b2f7c23321e6",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\tasks\\active\\PReluGradUpdate_2329\\explorations\\EXP_J039_SELECT_SYNC_910C_20261105.md",
+    "published": "sources/early-shared/explorations/EXP_J039_SELECT_SYNC_910C_20261105.md",
+    "bytes": 11458,
+    "sha256": "9bf99693edef61969ef89aa6e591748ce9914b92cab4be824a718c0e1d97b838",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\tasks\\active\\PReluGradUpdate_2329\\explorations\\EXP_J040_REPEAT_SELECT_910C_20261105.md",
+    "published": "sources/early-shared/explorations/EXP_J040_REPEAT_SELECT_910C_20261105.md",
+    "bytes": 12167,
+    "sha256": "ab9c318a609090e89523d20dcc14a6c69f6b63e80a6b9ba266948bfa4ad05aee",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\tasks\\active\\PReluGradUpdate_2329\\explorations\\EXP_J042_EXTERNAL_TPIPE_910C_20261105.md",
+    "published": "sources/early-shared/explorations/EXP_J042_EXTERNAL_TPIPE_910C_20261105.md",
+    "bytes": 11850,
+    "sha256": "58a0a88c8d026b298043ebca79cfe3d0c5e03b1ee2ffcd54c00065c2368c647b",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\tasks\\active\\PReluGradUpdate_2329\\explorations\\EXP_J043_CYCLIC_BATCH_910C_20261105.md",
+    "published": "sources/early-shared/explorations/EXP_J043_CYCLIC_BATCH_910C_20261105.md",
+    "bytes": 12320,
+    "sha256": "3b11b25dca321eeff958f007f1d8c57cf02a522d9788ac811d39112f330dbbf1",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\tasks\\active\\PReluGradUpdate_2329\\explorations\\EXP_J044_TIMING_REVIEW_910C_20261105.md",
+    "published": "sources/early-shared/explorations/EXP_J044_TIMING_REVIEW_910C_20261105.md",
+    "bytes": 4149,
+    "sha256": "bc9dab059d4eb2e6c36f2bd7604d21cd2070aabc45bb41da978d04f9ed24c7b4",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\tasks\\active\\PReluGradUpdate_2329\\explorations\\EXP_J045_FLAT_CHANNEL_TILES_910C_20261105.md",
+    "published": "sources/early-shared/explorations/EXP_J045_FLAT_CHANNEL_TILES_910C_20261105.md",
+    "bytes": 9237,
+    "sha256": "df3b17a8bb1dc39d9055512bea78a401b1c0adfa10f02cb7297cb670154d6327",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\tasks\\active\\PReluGradUpdate_2329\\explorations\\EXP_J046_WEIGHT_LIFECYCLE_910C_20261105.md",
+    "published": "sources/early-shared/explorations/EXP_J046_WEIGHT_LIFECYCLE_910C_20261105.md",
+    "bytes": 13901,
+    "sha256": "83277585f700652937e354b8b69284180342dd5a1e3a57a77501ede2e62a85db",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\tasks\\active\\PReluGradUpdate_2329\\explorations\\EXP_J047_CAST_CACHE_LAYOUT_910C_20261105.md",
+    "published": "sources/early-shared/explorations/EXP_J047_CAST_CACHE_LAYOUT_910C_20261105.md",
+    "bytes": 12548,
+    "sha256": "20bfb872a25e1b54273a3c0f92498009234e718987825f05c883be885aacccff",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\tasks\\active\\PReluGradUpdate_2329\\explorations\\EXP_J048_DEDICATED_CAST_CACHE_910C_20261105.md",
+    "published": "sources/early-shared/explorations/EXP_J048_DEDICATED_CAST_CACHE_910C_20261105.md",
+    "bytes": 9590,
+    "sha256": "0fe42ba7ac16e4b16b36b0a011b56b93288014cb632aba8c0079f09fab4fa947",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\tasks\\active\\PReluGradUpdate_2329\\explorations\\EXP_J048_OFFICIAL_REVIEW_20261105.md",
+    "published": "sources/early-shared/explorations/EXP_J048_OFFICIAL_REVIEW_20261105.md",
+    "bytes": 6161,
+    "sha256": "1f297ff632b89ad5e63f51e022521144e8ea8f2f4fd8bb42329e946ae6bd500b",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\tasks\\active\\PReluGradUpdate_2329\\explorations\\EXP_J049_FP32_ISOLATION_910C_20261105.md",
+    "published": "sources/early-shared/explorations/EXP_J049_FP32_ISOLATION_910C_20261105.md",
+    "bytes": 9651,
+    "sha256": "fe70ef0a5e0216ff03dee6718abff6a5607a305b455eee5e2240c776efd9ff5c",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\tasks\\active\\PReluGradUpdate_2329\\explorations\\EXP_J049_PAUSED_FOR_UPGRADE_20261105.md",
+    "published": "sources/early-shared/explorations/EXP_J049_PAUSED_FOR_UPGRADE_20261105.md",
+    "bytes": 2947,
+    "sha256": "649f42fbe009f0079c63daddc8a41ccd7180d446e477c8a80e45dbc83f9883de",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\tasks\\active\\PReluGradUpdate_2329\\explorations\\EXP_J050_J052_CANN93_ABC_20261105.md",
+    "published": "sources/early-shared/explorations/EXP_J050_J052_CANN93_ABC_20261105.md",
+    "bytes": 12379,
+    "sha256": "0445005cef237181a2bba87271ba9ca80b4aa664f28205876aef0c4d55b1a781",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\tasks\\active\\PReluGradUpdate_2329\\decisions\\DEC_J028_prefetch_stop.md",
+    "published": "sources/early-shared/decisions/DEC_J028_prefetch_stop.md",
+    "bytes": 538,
+    "sha256": "68cfa7bf80b7bca27a993f4a1b31b4d9bcc7cfdcf3deb4b578e5f6dd7d53c5c8",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\tasks\\active\\PReluGradUpdate_2329\\decisions\\DEC_J029_paired_queue_stop.md",
+    "published": "sources/early-shared/decisions/DEC_J029_paired_queue_stop.md",
+    "bytes": 529,
+    "sha256": "ad3c18529b2a5d070d203985e57f08a3b6fb796065da950c945f91e6046c580f",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\tasks\\active\\PReluGradUpdate_2329\\decisions\\DEC_J043_CYCLIC_BATCH_NOT_PROMOTED_20261105.md",
+    "published": "sources/early-shared/decisions/DEC_J043_CYCLIC_BATCH_NOT_PROMOTED_20261105.md",
+    "bytes": 3012,
+    "sha256": "4d48cbcb13c96bc4be4950b078645f243e10549bb1445cc7de8b0a74fa5a0d10",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\tasks\\active\\PReluGradUpdate_2329\\path-ledger.md",
+    "published": "sources/early-shared/path-ledger.md",
+    "bytes": 112760,
+    "sha256": "cc052a6cd836f7c7e529ccb2e42c51f1190b4d7105df4310e68c38260baba8f5",
+    "gzip": false
+  },
+  {
+    "local_source": "E:\\suanzi\\cann-ascendc-ops-collab\\tasks\\active\\PReluGradUpdate_2329\\dev-log.md",
+    "published": "sources/early-shared/dev-log.md",
+    "bytes": 112585,
+    "sha256": "065f50e1f65ed22af218fb2502051846cb7501e0f69c15184d98b8ccd68e1c15",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-05\\task-2\\publish-repo\\tasks\\active\\PReluGradUpdate_2329\\explorations\\EXP021-reject-external-template-regression.md",
+    "published": "sources/later-shared/explorations/EXP021-reject-external-template-regression.md",
+    "bytes": 1166,
+    "sha256": "7a03961f153c080ee49d5f13cb88b88182786a5e03ad4159c78d96a5d91132ca",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-05\\task-2\\publish-repo\\tasks\\active\\PReluGradUpdate_2329\\explorations\\EXP_J059_FULL_PIPELINE_20261107.md",
+    "published": "sources/later-shared/explorations/EXP_J059_FULL_PIPELINE_20261107.md",
+    "bytes": 551,
+    "sha256": "4a0a74aa6b5cfb3e6ed9bbeacf82cb57c3cf8567be17d4dcf5024b8e1067dbdb",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-05\\task-2\\publish-repo\\tasks\\active\\PReluGradUpdate_2329\\explorations\\EXP_J060_PAIRED_PIPELINE_20261107.md",
+    "published": "sources/later-shared/explorations/EXP_J060_PAIRED_PIPELINE_20261107.md",
+    "bytes": 528,
+    "sha256": "4554d337d703995ed591a2e813d42b16ea7f167db3b304ad04e448e890a5dc6b",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-05\\task-2\\publish-repo\\tasks\\active\\PReluGradUpdate_2329\\explorations\\EXP_J061_SHORT_S_20261107.md",
+    "published": "sources/later-shared/explorations/EXP_J061_SHORT_S_20261107.md",
+    "bytes": 7640,
+    "sha256": "7df2bae8afaa0603ecdd66babb33d8df90ea74bb954de565689618e43fc5af01",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-05\\task-2\\publish-repo\\tasks\\active\\PReluGradUpdate_2329\\explorations\\EXP_J062_SHORT_S_DISPATCH_20261107.md",
+    "published": "sources/later-shared/explorations/EXP_J062_SHORT_S_DISPATCH_20261107.md",
+    "bytes": 6597,
+    "sha256": "151c3204b0409096cde926b22fb3ae76832cd7b015a2af31862d0f504cf094a2",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-05\\task-2\\publish-repo\\tasks\\active\\PReluGradUpdate_2329\\path-ledger.md",
+    "published": "sources/later-shared/path-ledger.md",
+    "bytes": 13327,
+    "sha256": "cc9d46a917af6a63c6e394bfd6ef75a837edb5053d15b1b24d051522123cbe30",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-05\\task-2\\publish-repo\\tasks\\active\\PReluGradUpdate_2329\\dev-log.md",
+    "published": "sources/later-shared/dev-log.md",
+    "bytes": 21653,
+    "sha256": "94139b2f6b9303e99eedaa7d015f5786766913944208dbab781e001e9612b138",
+    "gzip": false
+  },
+  {
+    "local_source": "C:\\Users\\lin\\Documents\\Codex\\2026-11-05\\task-2\\publish-repo\\people\\JadeYara\\notes\\PReluGradUpdate_2329\\experiments\\J070\\visible-agent\\RESULT.md",
+    "published": "sources/later-experiments/J070/visible-agent/RESULT.md",
+    "bytes": 4532,
+    "sha256": "11302b7e5b753924bed0ca4bf42892e5f4a4441dcd644929e5054bd1e739436f",
+    "gzip": false
+  }
+]

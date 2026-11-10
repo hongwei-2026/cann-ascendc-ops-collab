@@ -1,0 +1,68 @@
+--- J003/op_kernel/p_relu_grad_update.h
++++ J008/op_kernel/p_relu_grad_update.h
+@@ -49,7 +49,6 @@
+     TQue<QuePosition::VECOUT, BUFFER_NUM> dxQueue_;
+     TQue<QuePosition::VECOUT, BUFFER_NUM> updateQueue_;
+ 
+-    TBuf<TPosition::VECCALC> negFloatBuf_;
+     TBuf<TPosition::VECCALC> fgFloatBuf_;
+     TBuf<TPosition::VECCALC> maskBuf_;
+     TBuf<TPosition::VECCALC> gradsFloatBuf_;
+@@ -126,7 +125,6 @@
+     pipe_.InitBuffer(dxQueue_, BUFFER_NUM, alignedCount * sizeof(T));
+     pipe_.InitBuffer(updateQueue_, BUFFER_NUM, alignedCount * sizeof(T));
+     pipe_.InitBuffer(maskBuf_, alignedMaskBytes);
+-    pipe_.InitBuffer(negFloatBuf_, alignedCount * sizeof(float));
+     pipe_.InitBuffer(fgFloatBuf_, alignedCount * sizeof(float));
+ 
+     if constexpr (!std::is_same<T, float>::value) {
+@@ -173,7 +171,6 @@
+ 
+     const int64_t cmpCount = AlignUp(currentNum, CMP_ALIGN_FLOAT);
+     LocalTensor<uint8_t> maskLocal = maskBuf_.Get<uint8_t>();
+-    LocalTensor<float> negLocal = negFloatBuf_.Get<float>();
+     LocalTensor<float> fgLocal = fgFloatBuf_.Get<float>();
+ 
+     LocalTensor<float> gradsFloat;
+@@ -241,7 +238,6 @@
+         *reinterpret_cast<uint32_t*>(&weightValue) = static_cast<uint32_t>(bits) << 16;
+     }
+     SyncSV();
+-    Muls(negLocal, gradsFloat, weightValue, currentNum);
+     Mul(fgLocal, featuresFloat, gradsFloat, currentNum);
+     LocalTensor<float> zeroLocal = dxFloat;
+     Duplicate(zeroLocal, 0.0f, static_cast<int32_t>(cmpCount));
+@@ -250,11 +246,13 @@
+     Compare(maskLocal, featuresFloat, zeroLocal, CMPMODE::GT, static_cast<uint32_t>(cmpCount));
+     PipeBarrier<PIPE_V>();
+ 
++    // features is dead after Mul and Compare; reuse its storage for weight * grads.
++    Muls(featuresFloat, gradsFloat, weightValue, currentNum);
+     Select(updateFloat, maskLocal, zeroLocal, fgLocal, SELMODE::VSEL_TENSOR_TENSOR_MODE,
+         static_cast<uint32_t>(cmpCount));
+     PipeBarrier<PIPE_V>();
+ 
+-    Select(dxFloat, maskLocal, gradsFloat, negLocal, SELMODE::VSEL_TENSOR_TENSOR_MODE,
++    Select(dxFloat, maskLocal, gradsFloat, featuresFloat, SELMODE::VSEL_TENSOR_TENSOR_MODE,
+         static_cast<uint32_t>(cmpCount));
+     PipeBarrier<PIPE_V>();
+ 
+--- J003/op_host/p_relu_grad_update_tiling.cpp
++++ J008/op_host/p_relu_grad_update_tiling.cpp
+@@ -19,11 +19,11 @@
+ constexpr uint32_t WS_SYS_SIZE = 0;
+ constexpr uint64_t UB_USAGE_NUMERATOR = 8U;
+ constexpr uint64_t UB_USAGE_DENOMINATOR = 10U;
+-// P100 每元素 UB（BUFFER_NUM=1）：
+-//   float: 4×4 + neg/fg(2×4) + mask≈1 = 25
+-//   fp16/bf16→fp32: 4×2 + float grads/features/dx/update/neg/fg(6×4) + mask≈1 = 33
+-constexpr int64_t FLOAT_BYTES_PER_ELEMENT = 25;
+-constexpr int64_t LOW_PRECISION_BYTES_PER_ELEMENT = 33;
++// J008: reuse features storage after its last read for weight * grads.
++// float: four IO tensors + fg scratch + mask = 21 bytes/element.
++// fp16/bf16: four IO tensors + five float scratch tensors + mask = 29.
++constexpr int64_t FLOAT_BYTES_PER_ELEMENT = 21;
++constexpr int64_t LOW_PRECISION_BYTES_PER_ELEMENT = 29;
+ constexpr int64_t CMP_ALIGN_FLOAT = 64;   // 中间计算在 fp32 上，Compare 按 64 齐
+ 
+ int64_t CeilDivI64(int64_t value, int64_t divisor)

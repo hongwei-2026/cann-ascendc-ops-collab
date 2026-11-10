@@ -1,0 +1,5 @@
+# J061: merge short-S channel tiles
+PReluGradUpdate_2329 / JadeYara. User authorized sequential hypotheses and peer-inspired optimization, 2026-11-07 CST.
+Only hypothesis: short S (2..32), distinct weights, continuous tiles rather than complete pipeline per channel. Keep blockFactor/core count and FP32 Compare+Select math; count extra weight buffer in Host UB. A/C freeze J035; B changes only this short-S path. Preserve J035/J056/J059/J060; no platform action, commit or push.
+Peer lesson P031: Duplicate destination must be 32B aligned. Build rotated FP32 weights using an aligned base plus lane mask, never unaligned Duplicate; period L=lcm(C*S,8). Repeat by aligned UB DataCopy with PIPE_V. Cache only if tileLen preserves the sample period; otherwise rebuild actual phase. Tail compares stay within aligned allocation.
+Scope local/remote J061 and this task ledger/evidence. Necessary correctness incl. nonfinite classification and same-process full Task; no tile/core sweep. Time budget90 minutes. An independent read-only review checks peer source and old failures.

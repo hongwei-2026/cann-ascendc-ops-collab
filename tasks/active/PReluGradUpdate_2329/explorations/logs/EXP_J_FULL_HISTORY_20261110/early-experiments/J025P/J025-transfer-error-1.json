@@ -1,0 +1,10 @@
+{
+  "stage": "read-only archive download",
+  "archive": "J025-J026-910C-evidence.zip",
+  "completed_bytes": 16777216,
+  "failed_chunk_offset": 16777216,
+  "partial_bytes_discarded": 5718016,
+  "ssh_exit_code": 255,
+  "stderr": "Bad packet length 4127741168. ssh_dispatch_run_fatal: Connection to 127.0.0.1 port 31930: Connection corrupted",
+  "action": "Resume existing verified-size chunks with lower client send pacing. No network configuration changes or device rerun. Final archive SHA256 remains required."
+}

@@ -1,0 +1,8 @@
+{
+  "stage": "read-only archive single-connection download",
+  "completed_bytes": 763363328,
+  "failed_chunk_offset": 763363328,
+  "partial_bytes_discarded": 5652480,
+  "ssh_exit_code": 255,
+  "action": "Existing bounded resume restarted at 763363328 with pacing increased from 0.005 to 0.01 seconds per 16 KiB. Completed chunks preserved; full SHA256 required."
+}

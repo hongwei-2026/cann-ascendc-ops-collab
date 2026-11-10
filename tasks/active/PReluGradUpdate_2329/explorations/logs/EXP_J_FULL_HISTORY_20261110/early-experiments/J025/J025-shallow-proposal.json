@@ -1,0 +1,87 @@
+{
+  "features": [
+    "channel_tiles",
+    "rows_per_group",
+    "split_work_ratio",
+    "base_channel_span",
+    "low_precision"
+  ],
+  "models": [
+    {
+      "policy": "c32d1",
+      "cost": -8.007776660589943,
+      "cases": 78
+    },
+    {
+      "feature": "rows_per_group",
+      "threshold": 6.324999999999999,
+      "left": {
+        "policy": "c32d1",
+        "cost": -5.525958045541256,
+        "cases": 66
+      },
+      "right": {
+        "policy": "c40d1",
+        "cost": -2.7777172331120625,
+        "cases": 12
+      },
+      "cost": -8.30367527865332,
+      "cases": 78
+    },
+    {
+      "feature": "channel_tiles",
+      "threshold": 5.5,
+      "left": {
+        "feature": "rows_per_group",
+        "threshold": 6.324999999999999,
+        "left": {
+          "policy": "c32d1",
+          "cost": -4.688786538742515,
+          "cases": 42
+        },
+        "right": {
+          "policy": "c40d1",
+          "cost": -2.7777172331120625,
+          "cases": 12
+        },
+        "cost": -7.466503771854578,
+        "cases": 54
+      },
+      "right": {
+        "feature": "split_work_ratio",
+        "threshold": 1.2415777439024391,
+        "left": {
+          "policy": "off",
+          "cost": 0.0,
+          "cases": 12
+        },
+        "right": {
+          "policy": "c32d1",
+          "cost": -0.864832955734056,
+          "cases": 12
+        },
+        "cost": -0.864832955734056,
+        "cases": 24
+      },
+      "cost": -8.331336727588633,
+      "cases": 78
+    }
+  ],
+  "chosen": {
+    "feature": "rows_per_group",
+    "threshold": 6.324999999999999,
+    "left": {
+      "policy": "c32d1",
+      "cost": -5.525958045541256,
+      "cases": 66
+    },
+    "right": {
+      "policy": "c40d1",
+      "cost": -2.7777172331120625,
+      "cases": 12
+    },
+    "cost": -8.30367527865332,
+    "cases": 78
+  },
+  "method": "Training-only cost-sensitive tree, depth<=2, min_leaf=12, positive round delta penalty x3; prefer shallow within 0.002 mean cost. Holdout untouched."
+}

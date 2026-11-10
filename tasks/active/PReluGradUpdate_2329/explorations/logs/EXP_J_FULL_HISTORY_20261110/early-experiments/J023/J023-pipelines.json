@@ -1,0 +1,1127 @@
+[
+  {
+    "case": "fp32_cross_repeat",
+    "rows": [
+      {
+        "variant": "J020",
+        "round": 1,
+        "Task Duration(us)": 9.479,
+        "aiv_time(us)": 7.469,
+        "aiv_scalar_time(us)": 3.3845,
+        "aiv_vec_time(us)": 1.821,
+        "aiv_mte2_time(us)": 3.446,
+        "aiv_mte3_time(us)": 1.122
+      },
+      {
+        "variant": "J022",
+        "round": 1,
+        "Task Duration(us)": 9.28,
+        "aiv_time(us)": 7.357,
+        "aiv_scalar_time(us)": 3.279,
+        "aiv_vec_time(us)": 1.821,
+        "aiv_mte2_time(us)": 3.3895,
+        "aiv_mte3_time(us)": 1.0995
+      },
+      {
+        "variant": "J023",
+        "round": 1,
+        "Task Duration(us)": 9.199,
+        "aiv_time(us)": 7.26,
+        "aiv_scalar_time(us)": 3.197,
+        "aiv_vec_time(us)": 1.821,
+        "aiv_mte2_time(us)": 3.3245,
+        "aiv_mte3_time(us)": 1.122
+      },
+      {
+        "variant": "J020",
+        "round": 2,
+        "Task Duration(us)": 9.4,
+        "aiv_time(us)": 7.421,
+        "aiv_scalar_time(us)": 3.4165,
+        "aiv_vec_time(us)": 1.821,
+        "aiv_mte2_time(us)": 3.4135,
+        "aiv_mte3_time(us)": 1.1015000000000001
+      },
+      {
+        "variant": "J022",
+        "round": 2,
+        "Task Duration(us)": 9.4,
+        "aiv_time(us)": 7.4254999999999995,
+        "aiv_scalar_time(us)": 3.42,
+        "aiv_vec_time(us)": 1.821,
+        "aiv_mte2_time(us)": 3.396,
+        "aiv_mte3_time(us)": 1.167
+      },
+      {
+        "variant": "J023",
+        "round": 2,
+        "Task Duration(us)": 9.059,
+        "aiv_time(us)": 7.184,
+        "aiv_scalar_time(us)": 3.208,
+        "aiv_vec_time(us)": 1.821,
+        "aiv_mte2_time(us)": 3.233,
+        "aiv_mte3_time(us)": 1.095
+      },
+      {
+        "variant": "J020",
+        "round": 3,
+        "Task Duration(us)": 9.0,
+        "aiv_time(us)": 7.1530000000000005,
+        "aiv_scalar_time(us)": 3.1955,
+        "aiv_vec_time(us)": 1.821,
+        "aiv_mte2_time(us)": 3.2155,
+        "aiv_mte3_time(us)": 1.103
+      },
+      {
+        "variant": "J022",
+        "round": 3,
+        "Task Duration(us)": 9.5,
+        "aiv_time(us)": 7.755,
+        "aiv_scalar_time(us)": 3.2595,
+        "aiv_vec_time(us)": 1.821,
+        "aiv_mte2_time(us)": 3.7755,
+        "aiv_mte3_time(us)": 1.1035
+      },
+      {
+        "variant": "J023",
+        "round": 3,
+        "Task Duration(us)": 9.779499999999999,
+        "aiv_time(us)": 7.9855,
+        "aiv_scalar_time(us)": 3.389,
+        "aiv_vec_time(us)": 1.821,
+        "aiv_mte2_time(us)": 4.01,
+        "aiv_mte3_time(us)": 1.1215000000000002
+      },
+      {
+        "variant": "J020",
+        "round": 4,
+        "Task Duration(us)": 10.4695,
+        "aiv_time(us)": 8.692499999999999,
+        "aiv_scalar_time(us)": 4.4475,
+        "aiv_vec_time(us)": 1.821,
+        "aiv_mte2_time(us)": 3.496,
+        "aiv_mte3_time(us)": 1.124
+      },
+      {
+        "variant": "J022",
+        "round": 4,
+        "Task Duration(us)": 9.9,
+        "aiv_time(us)": 8.002500000000001,
+        "aiv_scalar_time(us)": 3.38,
+        "aiv_vec_time(us)": 1.821,
+        "aiv_mte2_time(us)": 3.92,
+        "aiv_mte3_time(us)": 1.116
+      },
+      {
+        "variant": "J023",
+        "round": 4,
+        "Task Duration(us)": 9.84,
+        "aiv_time(us)": 7.903,
+        "aiv_scalar_time(us)": 3.5925000000000002,
+        "aiv_vec_time(us)": 1.821,
+        "aiv_mte2_time(us)": 3.8035,
+        "aiv_mte3_time(us)": 1.117
+      }
+    ]
+  },
+  {
+    "case": "fp32_large_repeat",
+    "rows": [
+      {
+        "variant": "J020",
+        "round": 1,
+        "Task Duration(us)": 17.54,
+        "aiv_time(us)": 15.650500000000001,
+        "aiv_scalar_time(us)": 4.4085,
+        "aiv_vec_time(us)": 3.685,
+        "aiv_mte2_time(us)": 9.495,
+        "aiv_mte3_time(us)": 5.056
+      },
+      {
+        "variant": "J022",
+        "round": 1,
+        "Task Duration(us)": 18.059,
+        "aiv_time(us)": 16.163,
+        "aiv_scalar_time(us)": 4.253,
+        "aiv_vec_time(us)": 3.685,
+        "aiv_mte2_time(us)": 9.999500000000001,
+        "aiv_mte3_time(us)": 5.8675
+      },
+      {
+        "variant": "J023",
+        "round": 1,
+        "Task Duration(us)": 16.819,
+        "aiv_time(us)": 14.986,
+        "aiv_scalar_time(us)": 4.2545,
+        "aiv_vec_time(us)": 3.685,
+        "aiv_mte2_time(us)": 8.839,
+        "aiv_mte3_time(us)": 5.077500000000001
+      },
+      {
+        "variant": "J020",
+        "round": 2,
+        "Task Duration(us)": 17.339,
+        "aiv_time(us)": 15.4255,
+        "aiv_scalar_time(us)": 4.463,
+        "aiv_vec_time(us)": 3.685,
+        "aiv_mte2_time(us)": 9.249500000000001,
+        "aiv_mte3_time(us)": 4.4295
+      },
+      {
+        "variant": "J022",
+        "round": 2,
+        "Task Duration(us)": 18.119,
+        "aiv_time(us)": 16.174,
+        "aiv_scalar_time(us)": 4.4135,
+        "aiv_vec_time(us)": 3.685,
+        "aiv_mte2_time(us)": 9.9805,
+        "aiv_mte3_time(us)": 5.7330000000000005
+      },
+      {
+        "variant": "J023",
+        "round": 2,
+        "Task Duration(us)": 15.06,
+        "aiv_time(us)": 13.2895,
+        "aiv_scalar_time(us)": 4.2515,
+        "aiv_vec_time(us)": 3.685,
+        "aiv_mte2_time(us)": 7.267,
+        "aiv_mte3_time(us)": 3.6885000000000003
+      },
+      {
+        "variant": "J020",
+        "round": 3,
+        "Task Duration(us)": 15.119,
+        "aiv_time(us)": 13.327,
+        "aiv_scalar_time(us)": 4.231999999999999,
+        "aiv_vec_time(us)": 3.685,
+        "aiv_mte2_time(us)": 7.34,
+        "aiv_mte3_time(us)": 3.6145
+      },
+      {
+        "variant": "J022",
+        "round": 3,
+        "Task Duration(us)": 15.499,
+        "aiv_time(us)": 13.673,
+        "aiv_scalar_time(us)": 4.262,
+        "aiv_vec_time(us)": 3.685,
+        "aiv_mte2_time(us)": 7.6565,
+        "aiv_mte3_time(us)": 3.72
+      },
+      {
+        "variant": "J023",
+        "round": 3,
+        "Task Duration(us)": 17.559,
+        "aiv_time(us)": 15.722999999999999,
+        "aiv_scalar_time(us)": 4.4145,
+        "aiv_vec_time(us)": 3.685,
+        "aiv_mte2_time(us)": 9.577,
+        "aiv_mte3_time(us)": 5.452500000000001
+      },
+      {
+        "variant": "J020",
+        "round": 4,
+        "Task Duration(us)": 16.88,
+        "aiv_time(us)": 15.0975,
+        "aiv_scalar_time(us)": 5.485,
+        "aiv_vec_time(us)": 3.685,
+        "aiv_mte2_time(us)": 7.843,
+        "aiv_mte3_time(us)": 3.701
+      },
+      {
+        "variant": "J022",
+        "round": 4,
+        "Task Duration(us)": 17.6,
+        "aiv_time(us)": 15.701,
+        "aiv_scalar_time(us)": 4.3725000000000005,
+        "aiv_vec_time(us)": 3.685,
+        "aiv_mte2_time(us)": 9.4265,
+        "aiv_mte3_time(us)": 5.112
+      },
+      {
+        "variant": "J023",
+        "round": 4,
+        "Task Duration(us)": 15.92,
+        "aiv_time(us)": 14.0405,
+        "aiv_scalar_time(us)": 4.6365,
+        "aiv_vec_time(us)": 3.685,
+        "aiv_mte2_time(us)": 7.847,
+        "aiv_mte3_time(us)": 3.787
+      }
+    ]
+  },
+  {
+    "case": "fp32_scalar_repeat",
+    "rows": [
+      {
+        "variant": "J020",
+        "round": 1,
+        "Task Duration(us)": 9.369499999999999,
+        "aiv_time(us)": 7.624,
+        "aiv_scalar_time(us)": 2.8354999999999997,
+        "aiv_vec_time(us)": 1.798,
+        "aiv_mte2_time(us)": 3.534,
+        "aiv_mte3_time(us)": 1.3495
+      },
+      {
+        "variant": "J022",
+        "round": 1,
+        "Task Duration(us)": 9.34,
+        "aiv_time(us)": 7.53,
+        "aiv_scalar_time(us)": 2.695,
+        "aiv_vec_time(us)": 1.798,
+        "aiv_mte2_time(us)": 3.467,
+        "aiv_mte3_time(us)": 1.354
+      },
+      {
+        "variant": "J023",
+        "round": 1,
+        "Task Duration(us)": 9.07,
+        "aiv_time(us)": 7.3635,
+        "aiv_scalar_time(us)": 2.666,
+        "aiv_vec_time(us)": 1.798,
+        "aiv_mte2_time(us)": 3.3185000000000002,
+        "aiv_mte3_time(us)": 1.3555000000000001
+      },
+      {
+        "variant": "J020",
+        "round": 2,
+        "Task Duration(us)": 9.4195,
+        "aiv_time(us)": 7.636,
+        "aiv_scalar_time(us)": 2.886,
+        "aiv_vec_time(us)": 1.798,
+        "aiv_mte2_time(us)": 3.525,
+        "aiv_mte3_time(us)": 1.363
+      },
+      {
+        "variant": "J022",
+        "round": 2,
+        "Task Duration(us)": 9.439,
+        "aiv_time(us)": 7.624,
+        "aiv_scalar_time(us)": 2.8565,
+        "aiv_vec_time(us)": 1.798,
+        "aiv_mte2_time(us)": 3.514,
+        "aiv_mte3_time(us)": 1.3565
+      },
+      {
+        "variant": "J023",
+        "round": 2,
+        "Task Duration(us)": 9.06,
+        "aiv_time(us)": 7.377,
+        "aiv_scalar_time(us)": 2.669,
+        "aiv_vec_time(us)": 1.798,
+        "aiv_mte2_time(us)": 3.324,
+        "aiv_mte3_time(us)": 1.3625
+      },
+      {
+        "variant": "J020",
+        "round": 3,
+        "Task Duration(us)": 9.15,
+        "aiv_time(us)": 7.342,
+        "aiv_scalar_time(us)": 2.6565000000000003,
+        "aiv_vec_time(us)": 1.798,
+        "aiv_mte2_time(us)": 3.32,
+        "aiv_mte3_time(us)": 1.336
+      },
+      {
+        "variant": "J022",
+        "round": 3,
+        "Task Duration(us)": 9.2895,
+        "aiv_time(us)": 7.542,
+        "aiv_scalar_time(us)": 2.699,
+        "aiv_vec_time(us)": 1.798,
+        "aiv_mte2_time(us)": 3.4645,
+        "aiv_mte3_time(us)": 1.364
+      },
+      {
+        "variant": "J023",
+        "round": 3,
+        "Task Duration(us)": 9.2995,
+        "aiv_time(us)": 7.5665,
+        "aiv_scalar_time(us)": 2.85,
+        "aiv_vec_time(us)": 1.798,
+        "aiv_mte2_time(us)": 3.4764999999999997,
+        "aiv_mte3_time(us)": 1.348
+      },
+      {
+        "variant": "J020",
+        "round": 4,
+        "Task Duration(us)": 10.14,
+        "aiv_time(us)": 8.4775,
+        "aiv_scalar_time(us)": 3.958,
+        "aiv_vec_time(us)": 1.798,
+        "aiv_mte2_time(us)": 3.198,
+        "aiv_mte3_time(us)": 1.2965
+      },
+      {
+        "variant": "J022",
+        "round": 4,
+        "Task Duration(us)": 9.88,
+        "aiv_time(us)": 8.172,
+        "aiv_scalar_time(us)": 2.815,
+        "aiv_vec_time(us)": 1.798,
+        "aiv_mte2_time(us)": 3.9935,
+        "aiv_mte3_time(us)": 1.425
+      },
+      {
+        "variant": "J023",
+        "round": 4,
+        "Task Duration(us)": 9.9,
+        "aiv_time(us)": 8.1785,
+        "aiv_scalar_time(us)": 3.058,
+        "aiv_vec_time(us)": 1.798,
+        "aiv_mte2_time(us)": 3.9665,
+        "aiv_mte3_time(us)": 1.3705
+      }
+    ]
+  },
+  {
+    "case": "fp16_cross_repeat",
+    "rows": [
+      {
+        "variant": "J020",
+        "round": 1,
+        "Task Duration(us)": 15.699,
+        "aiv_time(us)": 13.464500000000001,
+        "aiv_scalar_time(us)": 4.564500000000001,
+        "aiv_vec_time(us)": 2.384,
+        "aiv_mte2_time(us)": 7.7405,
+        "aiv_mte3_time(us)": 2.801
+      },
+      {
+        "variant": "J022",
+        "round": 1,
+        "Task Duration(us)": 14.5,
+        "aiv_time(us)": 12.1535,
+        "aiv_scalar_time(us)": 3.3925,
+        "aiv_vec_time(us)": 2.384,
+        "aiv_mte2_time(us)": 7.2875,
+        "aiv_mte3_time(us)": 2.98
+      },
+      {
+        "variant": "J023",
+        "round": 1,
+        "Task Duration(us)": 14.54,
+        "aiv_time(us)": 11.963,
+        "aiv_scalar_time(us)": 3.3455000000000004,
+        "aiv_vec_time(us)": 2.384,
+        "aiv_mte2_time(us)": 7.3355,
+        "aiv_mte3_time(us)": 2.367
+      },
+      {
+        "variant": "J020",
+        "round": 2,
+        "Task Duration(us)": 16.68,
+        "aiv_time(us)": 14.383,
+        "aiv_scalar_time(us)": 4.733499999999999,
+        "aiv_vec_time(us)": 2.384,
+        "aiv_mte2_time(us)": 8.299,
+        "aiv_mte3_time(us)": 3.0395000000000003
+      },
+      {
+        "variant": "J022",
+        "round": 2,
+        "Task Duration(us)": 14.62,
+        "aiv_time(us)": 12.156500000000001,
+        "aiv_scalar_time(us)": 3.7675,
+        "aiv_vec_time(us)": 2.384,
+        "aiv_mte2_time(us)": 7.237500000000001,
+        "aiv_mte3_time(us)": 2.984
+      },
+      {
+        "variant": "J023",
+        "round": 2,
+        "Task Duration(us)": 12.76,
+        "aiv_time(us)": 10.759,
+        "aiv_scalar_time(us)": 3.347,
+        "aiv_vec_time(us)": 2.384,
+        "aiv_mte2_time(us)": 6.1355,
+        "aiv_mte3_time(us)": 2.2645
+      },
+      {
+        "variant": "J020",
+        "round": 3,
+        "Task Duration(us)": 12.8095,
+        "aiv_time(us)": 10.874,
+        "aiv_scalar_time(us)": 3.477,
+        "aiv_vec_time(us)": 2.384,
+        "aiv_mte2_time(us)": 6.12,
+        "aiv_mte3_time(us)": 2.3955
+      },
+      {
+        "variant": "J022",
+        "round": 3,
+        "Task Duration(us)": 14.64,
+        "aiv_time(us)": 12.474,
+        "aiv_scalar_time(us)": 4.455,
+        "aiv_vec_time(us)": 2.384,
+        "aiv_mte2_time(us)": 6.6845,
+        "aiv_mte3_time(us)": 2.577
+      },
+      {
+        "variant": "J023",
+        "round": 3,
+        "Task Duration(us)": 13.82,
+        "aiv_time(us)": 11.470500000000001,
+        "aiv_scalar_time(us)": 3.538,
+        "aiv_vec_time(us)": 2.384,
+        "aiv_mte2_time(us)": 6.8195,
+        "aiv_mte3_time(us)": 2.3354999999999997
+      },
+      {
+        "variant": "J020",
+        "round": 4,
+        "Task Duration(us)": 13.779,
+        "aiv_time(us)": 11.126000000000001,
+        "aiv_scalar_time(us)": 3.687,
+        "aiv_vec_time(us)": 2.384,
+        "aiv_mte2_time(us)": 6.1,
+        "aiv_mte3_time(us)": 2.351
+      },
+      {
+        "variant": "J022",
+        "round": 4,
+        "Task Duration(us)": 14.839,
+        "aiv_time(us)": 12.507,
+        "aiv_scalar_time(us)": 3.515,
+        "aiv_vec_time(us)": 2.384,
+        "aiv_mte2_time(us)": 7.750500000000001,
+        "aiv_mte3_time(us)": 2.389
+      },
+      {
+        "variant": "J023",
+        "round": 4,
+        "Task Duration(us)": 13.3,
+        "aiv_time(us)": 11.21,
+        "aiv_scalar_time(us)": 3.7435,
+        "aiv_vec_time(us)": 2.384,
+        "aiv_mte2_time(us)": 6.289,
+        "aiv_mte3_time(us)": 2.345
+      }
+    ]
+  },
+  {
+    "case": "fp16_large_repeat",
+    "rows": [
+      {
+        "variant": "J020",
+        "round": 1,
+        "Task Duration(us)": 23.7,
+        "aiv_time(us)": 21.7065,
+        "aiv_scalar_time(us)": 6.267,
+        "aiv_vec_time(us)": 4.742,
+        "aiv_mte2_time(us)": 13.1645,
+        "aiv_mte3_time(us)": 6.785
+      },
+      {
+        "variant": "J022",
+        "round": 1,
+        "Task Duration(us)": 26.079,
+        "aiv_time(us)": 23.454,
+        "aiv_scalar_time(us)": 5.108,
+        "aiv_vec_time(us)": 4.742,
+        "aiv_mte2_time(us)": 16.1415,
+        "aiv_mte3_time(us)": 8.569500000000001
+      },
+      {
+        "variant": "J023",
+        "round": 1,
+        "Task Duration(us)": 21.379,
+        "aiv_time(us)": 19.191,
+        "aiv_scalar_time(us)": 5.138,
+        "aiv_vec_time(us)": 4.742,
+        "aiv_mte2_time(us)": 11.9845,
+        "aiv_mte3_time(us)": 6.1925
+      },
+      {
+        "variant": "J020",
+        "round": 2,
+        "Task Duration(us)": 23.739,
+        "aiv_time(us)": 21.616500000000002,
+        "aiv_scalar_time(us)": 6.381,
+        "aiv_vec_time(us)": 4.742,
+        "aiv_mte2_time(us)": 13.062,
+        "aiv_mte3_time(us)": 6.3235
+      },
+      {
+        "variant": "J022",
+        "round": 2,
+        "Task Duration(us)": 26.159,
+        "aiv_time(us)": 23.636499999999998,
+        "aiv_scalar_time(us)": 5.264,
+        "aiv_vec_time(us)": 4.742,
+        "aiv_mte2_time(us)": 16.1635,
+        "aiv_mte3_time(us)": 9.3345
+      },
+      {
+        "variant": "J023",
+        "round": 2,
+        "Task Duration(us)": 21.96,
+        "aiv_time(us)": 19.91,
+        "aiv_scalar_time(us)": 5.0825,
+        "aiv_vec_time(us)": 4.742,
+        "aiv_mte2_time(us)": 12.533,
+        "aiv_mte3_time(us)": 7.112500000000001
+      },
+      {
+        "variant": "J020",
+        "round": 3,
+        "Task Duration(us)": 21.959,
+        "aiv_time(us)": 19.743499999999997,
+        "aiv_scalar_time(us)": 5.075,
+        "aiv_vec_time(us)": 4.742,
+        "aiv_mte2_time(us)": 12.477,
+        "aiv_mte3_time(us)": 4.2315000000000005
+      },
+      {
+        "variant": "J022",
+        "round": 3,
+        "Task Duration(us)": 23.099,
+        "aiv_time(us)": 20.7905,
+        "aiv_scalar_time(us)": 6.169,
+        "aiv_vec_time(us)": 4.742,
+        "aiv_mte2_time(us)": 12.5975,
+        "aiv_mte3_time(us)": 4.5675
+      },
+      {
+        "variant": "J023",
+        "round": 3,
+        "Task Duration(us)": 26.159,
+        "aiv_time(us)": 23.433500000000002,
+        "aiv_scalar_time(us)": 5.256,
+        "aiv_vec_time(us)": 4.742,
+        "aiv_mte2_time(us)": 16.1505,
+        "aiv_mte3_time(us)": 8.7385
+      },
+      {
+        "variant": "J020",
+        "round": 4,
+        "Task Duration(us)": 21.739,
+        "aiv_time(us)": 19.648,
+        "aiv_scalar_time(us)": 5.188,
+        "aiv_vec_time(us)": 4.742,
+        "aiv_mte2_time(us)": 12.191,
+        "aiv_mte3_time(us)": 5.9025
+      },
+      {
+        "variant": "J022",
+        "round": 4,
+        "Task Duration(us)": 21.899,
+        "aiv_time(us)": 19.816,
+        "aiv_scalar_time(us)": 5.2235,
+        "aiv_vec_time(us)": 4.742,
+        "aiv_mte2_time(us)": 12.3855,
+        "aiv_mte3_time(us)": 5.6815
+      },
+      {
+        "variant": "J023",
+        "round": 4,
+        "Task Duration(us)": 22.379,
+        "aiv_time(us)": 20.185000000000002,
+        "aiv_scalar_time(us)": 5.46,
+        "aiv_vec_time(us)": 4.742,
+        "aiv_mte2_time(us)": 12.7165,
+        "aiv_mte3_time(us)": 6.0504999999999995
+      }
+    ]
+  },
+  {
+    "case": "fp16_scalar_repeat",
+    "rows": [
+      {
+        "variant": "J020",
+        "round": 1,
+        "Task Duration(us)": 9.12,
+        "aiv_time(us)": 7.631,
+        "aiv_scalar_time(us)": 4.226,
+        "aiv_vec_time(us)": 1.92,
+        "aiv_mte2_time(us)": 2.605,
+        "aiv_mte3_time(us)": 0.748
+      },
+      {
+        "variant": "J022",
+        "round": 1,
+        "Task Duration(us)": 8.759,
+        "aiv_time(us)": 6.908,
+        "aiv_scalar_time(us)": 2.9755000000000003,
+        "aiv_vec_time(us)": 1.92,
+        "aiv_mte2_time(us)": 2.949,
+        "aiv_mte3_time(us)": 0.8025
+      },
+      {
+        "variant": "J023",
+        "round": 1,
+        "Task Duration(us)": 8.579,
+        "aiv_time(us)": 6.859999999999999,
+        "aiv_scalar_time(us)": 2.995,
+        "aiv_vec_time(us)": 1.92,
+        "aiv_mte2_time(us)": 2.933,
+        "aiv_mte3_time(us)": 0.805
+      },
+      {
+        "variant": "J020",
+        "round": 2,
+        "Task Duration(us)": 9.24,
+        "aiv_time(us)": 7.722,
+        "aiv_scalar_time(us)": 4.265,
+        "aiv_vec_time(us)": 1.92,
+        "aiv_mte2_time(us)": 2.624,
+        "aiv_mte3_time(us)": 0.75
+      },
+      {
+        "variant": "J022",
+        "round": 2,
+        "Task Duration(us)": 8.9,
+        "aiv_time(us)": 7.026,
+        "aiv_scalar_time(us)": 3.129,
+        "aiv_vec_time(us)": 1.92,
+        "aiv_mte2_time(us)": 3.032,
+        "aiv_mte3_time(us)": 0.749
+      },
+      {
+        "variant": "J023",
+        "round": 2,
+        "Task Duration(us)": 8.6,
+        "aiv_time(us)": 6.8245000000000005,
+        "aiv_scalar_time(us)": 3.0115,
+        "aiv_vec_time(us)": 1.92,
+        "aiv_mte2_time(us)": 2.8765,
+        "aiv_mte3_time(us)": 0.826
+      },
+      {
+        "variant": "J020",
+        "round": 3,
+        "Task Duration(us)": 8.58,
+        "aiv_time(us)": 6.794,
+        "aiv_scalar_time(us)": 2.932,
+        "aiv_vec_time(us)": 1.92,
+        "aiv_mte2_time(us)": 2.862,
+        "aiv_mte3_time(us)": 0.893
+      },
+      {
+        "variant": "J022",
+        "round": 3,
+        "Task Duration(us)": 9.1295,
+        "aiv_time(us)": 7.62,
+        "aiv_scalar_time(us)": 4.0395,
+        "aiv_vec_time(us)": 1.92,
+        "aiv_mte2_time(us)": 2.5925000000000002,
+        "aiv_mte3_time(us)": 0.749
+      },
+      {
+        "variant": "J023",
+        "round": 3,
+        "Task Duration(us)": 8.82,
+        "aiv_time(us)": 6.797,
+        "aiv_scalar_time(us)": 3.183,
+        "aiv_vec_time(us)": 1.92,
+        "aiv_mte2_time(us)": 2.753,
+        "aiv_mte3_time(us)": 0.832
+      },
+      {
+        "variant": "J020",
+        "round": 4,
+        "Task Duration(us)": 9.16,
+        "aiv_time(us)": 7.405,
+        "aiv_scalar_time(us)": 3.0374999999999996,
+        "aiv_vec_time(us)": 1.92,
+        "aiv_mte2_time(us)": 3.382,
+        "aiv_mte3_time(us)": 0.796
+      },
+      {
+        "variant": "J022",
+        "round": 4,
+        "Task Duration(us)": 9.44,
+        "aiv_time(us)": 7.459,
+        "aiv_scalar_time(us)": 3.087,
+        "aiv_vec_time(us)": 1.92,
+        "aiv_mte2_time(us)": 3.3625,
+        "aiv_mte3_time(us)": 0.9035
+      },
+      {
+        "variant": "J023",
+        "round": 4,
+        "Task Duration(us)": 9.439,
+        "aiv_time(us)": 7.537,
+        "aiv_scalar_time(us)": 3.372,
+        "aiv_vec_time(us)": 1.92,
+        "aiv_mte2_time(us)": 3.4505,
+        "aiv_mte3_time(us)": 0.824
+      }
+    ]
+  },
+  {
+    "case": "bf16_cross_repeat",
+    "rows": [
+      {
+        "variant": "J020",
+        "round": 1,
+        "Task Duration(us)": 15.0,
+        "aiv_time(us)": 12.732,
+        "aiv_scalar_time(us)": 3.593,
+        "aiv_vec_time(us)": 2.504,
+        "aiv_mte2_time(us)": 7.77,
+        "aiv_mte3_time(us)": 3.103
+      },
+      {
+        "variant": "J022",
+        "round": 1,
+        "Task Duration(us)": 13.099,
+        "aiv_time(us)": 10.921,
+        "aiv_scalar_time(us)": 3.4165,
+        "aiv_vec_time(us)": 2.504,
+        "aiv_mte2_time(us)": 6.092499999999999,
+        "aiv_mte3_time(us)": 2.5515
+      },
+      {
+        "variant": "J023",
+        "round": 1,
+        "Task Duration(us)": 15.399,
+        "aiv_time(us)": 13.2,
+        "aiv_scalar_time(us)": 3.3565,
+        "aiv_vec_time(us)": 2.504,
+        "aiv_mte2_time(us)": 8.251,
+        "aiv_mte3_time(us)": 3.317
+      },
+      {
+        "variant": "J020",
+        "round": 2,
+        "Task Duration(us)": 15.1,
+        "aiv_time(us)": 12.787500000000001,
+        "aiv_scalar_time(us)": 3.6205,
+        "aiv_vec_time(us)": 2.504,
+        "aiv_mte2_time(us)": 7.874499999999999,
+        "aiv_mte3_time(us)": 2.875
+      },
+      {
+        "variant": "J022",
+        "round": 2,
+        "Task Duration(us)": 13.14,
+        "aiv_time(us)": 10.992,
+        "aiv_scalar_time(us)": 3.569,
+        "aiv_vec_time(us)": 2.504,
+        "aiv_mte2_time(us)": 6.1315,
+        "aiv_mte3_time(us)": 2.3075
+      },
+      {
+        "variant": "J023",
+        "round": 2,
+        "Task Duration(us)": 14.78,
+        "aiv_time(us)": 12.6,
+        "aiv_scalar_time(us)": 3.352,
+        "aiv_vec_time(us)": 2.504,
+        "aiv_mte2_time(us)": 7.6274999999999995,
+        "aiv_mte3_time(us)": 3.611
+      },
+      {
+        "variant": "J020",
+        "round": 3,
+        "Task Duration(us)": 14.849499999999999,
+        "aiv_time(us)": 12.5775,
+        "aiv_scalar_time(us)": 3.36,
+        "aiv_vec_time(us)": 2.504,
+        "aiv_mte2_time(us)": 7.7065,
+        "aiv_mte3_time(us)": 3.6985
+      },
+      {
+        "variant": "J022",
+        "round": 3,
+        "Task Duration(us)": 15.38,
+        "aiv_time(us)": 12.962,
+        "aiv_scalar_time(us)": 3.397,
+        "aiv_vec_time(us)": 2.504,
+        "aiv_mte2_time(us)": 8.060500000000001,
+        "aiv_mte3_time(us)": 3.5895
+      },
+      {
+        "variant": "J023",
+        "round": 3,
+        "Task Duration(us)": 13.22,
+        "aiv_time(us)": 11.084,
+        "aiv_scalar_time(us)": 3.564,
+        "aiv_vec_time(us)": 2.504,
+        "aiv_mte2_time(us)": 6.274,
+        "aiv_mte3_time(us)": 2.292
+      },
+      {
+        "variant": "J020",
+        "round": 4,
+        "Task Duration(us)": 15.7,
+        "aiv_time(us)": 13.2585,
+        "aiv_scalar_time(us)": 3.465,
+        "aiv_vec_time(us)": 2.504,
+        "aiv_mte2_time(us)": 8.2375,
+        "aiv_mte3_time(us)": 3.4335
+      },
+      {
+        "variant": "J022",
+        "round": 4,
+        "Task Duration(us)": 15.94,
+        "aiv_time(us)": 13.6555,
+        "aiv_scalar_time(us)": 3.5335,
+        "aiv_vec_time(us)": 2.504,
+        "aiv_mte2_time(us)": 8.634,
+        "aiv_mte3_time(us)": 3.0995
+      },
+      {
+        "variant": "J023",
+        "round": 4,
+        "Task Duration(us)": 15.4,
+        "aiv_time(us)": 13.02,
+        "aiv_scalar_time(us)": 3.7619999999999996,
+        "aiv_vec_time(us)": 2.504,
+        "aiv_mte2_time(us)": 7.875500000000001,
+        "aiv_mte3_time(us)": 3.5335
+      }
+    ]
+  },
+  {
+    "case": "bf16_large_repeat",
+    "rows": [
+      {
+        "variant": "J020",
+        "round": 1,
+        "Task Duration(us)": 23.74,
+        "aiv_time(us)": 21.2315,
+        "aiv_scalar_time(us)": 5.2915,
+        "aiv_vec_time(us)": 4.982,
+        "aiv_mte2_time(us)": 13.6555,
+        "aiv_mte3_time(us)": 4.717499999999999
+      },
+      {
+        "variant": "J022",
+        "round": 1,
+        "Task Duration(us)": 24.7,
+        "aiv_time(us)": 22.243000000000002,
+        "aiv_scalar_time(us)": 5.134,
+        "aiv_vec_time(us)": 4.982,
+        "aiv_mte2_time(us)": 14.680499999999999,
+        "aiv_mte3_time(us)": 7.2515
+      },
+      {
+        "variant": "J023",
+        "round": 1,
+        "Task Duration(us)": 24.679,
+        "aiv_time(us)": 22.107,
+        "aiv_scalar_time(us)": 5.0845,
+        "aiv_vec_time(us)": 4.982,
+        "aiv_mte2_time(us)": 14.656,
+        "aiv_mte3_time(us)": 5.1945
+      },
+      {
+        "variant": "J020",
+        "round": 2,
+        "Task Duration(us)": 23.78,
+        "aiv_time(us)": 21.4,
+        "aiv_scalar_time(us)": 5.344,
+        "aiv_vec_time(us)": 4.982,
+        "aiv_mte2_time(us)": 13.816500000000001,
+        "aiv_mte3_time(us)": 4.8245000000000005
+      },
+      {
+        "variant": "J022",
+        "round": 2,
+        "Task Duration(us)": 24.74,
+        "aiv_time(us)": 22.224,
+        "aiv_scalar_time(us)": 5.2905,
+        "aiv_vec_time(us)": 4.982,
+        "aiv_mte2_time(us)": 14.64,
+        "aiv_mte3_time(us)": 7.255
+      },
+      {
+        "variant": "J023",
+        "round": 2,
+        "Task Duration(us)": 23.599,
+        "aiv_time(us)": 21.159,
+        "aiv_scalar_time(us)": 5.0845,
+        "aiv_vec_time(us)": 4.982,
+        "aiv_mte2_time(us)": 13.5495,
+        "aiv_mte3_time(us)": 6.915
+      },
+      {
+        "variant": "J020",
+        "round": 3,
+        "Task Duration(us)": 23.639499999999998,
+        "aiv_time(us)": 21.3365,
+        "aiv_scalar_time(us)": 5.0855,
+        "aiv_vec_time(us)": 4.982,
+        "aiv_mte2_time(us)": 13.811499999999999,
+        "aiv_mte3_time(us)": 7.0794999999999995
+      },
+      {
+        "variant": "J022",
+        "round": 3,
+        "Task Duration(us)": 24.779,
+        "aiv_time(us)": 22.347,
+        "aiv_scalar_time(us)": 5.138,
+        "aiv_vec_time(us)": 4.982,
+        "aiv_mte2_time(us)": 14.74,
+        "aiv_mte3_time(us)": 7.622
+      },
+      {
+        "variant": "J023",
+        "round": 3,
+        "Task Duration(us)": 24.7195,
+        "aiv_time(us)": 22.291,
+        "aiv_scalar_time(us)": 5.31,
+        "aiv_vec_time(us)": 4.982,
+        "aiv_mte2_time(us)": 14.638,
+        "aiv_mte3_time(us)": 7.291
+      },
+      {
+        "variant": "J020",
+        "round": 4,
+        "Task Duration(us)": 24.98,
+        "aiv_time(us)": 22.6645,
+        "aiv_scalar_time(us)": 5.189500000000001,
+        "aiv_vec_time(us)": 4.982,
+        "aiv_mte2_time(us)": 14.8795,
+        "aiv_mte3_time(us)": 7.6335
+      },
+      {
+        "variant": "J022",
+        "round": 4,
+        "Task Duration(us)": 24.98,
+        "aiv_time(us)": 22.6645,
+        "aiv_scalar_time(us)": 5.256,
+        "aiv_vec_time(us)": 4.982,
+        "aiv_mte2_time(us)": 14.933,
+        "aiv_mte3_time(us)": 7.115
+      },
+      {
+        "variant": "J023",
+        "round": 4,
+        "Task Duration(us)": 24.099,
+        "aiv_time(us)": 21.759,
+        "aiv_scalar_time(us)": 5.5015,
+        "aiv_vec_time(us)": 4.982,
+        "aiv_mte2_time(us)": 14.014,
+        "aiv_mte3_time(us)": 7.8294999999999995
+      }
+    ]
+  },
+  {
+    "case": "bf16_scalar_repeat",
+    "rows": [
+      {
+        "variant": "J020",
+        "round": 1,
+        "Task Duration(us)": 9.02,
+        "aiv_time(us)": 7.0075,
+        "aiv_scalar_time(us)": 3.08,
+        "aiv_vec_time(us)": 2.038,
+        "aiv_mte2_time(us)": 2.9135,
+        "aiv_mte3_time(us)": 0.747
+      },
+      {
+        "variant": "J022",
+        "round": 1,
+        "Task Duration(us)": 8.86,
+        "aiv_time(us)": 6.993,
+        "aiv_scalar_time(us)": 2.9305000000000003,
+        "aiv_vec_time(us)": 2.038,
+        "aiv_mte2_time(us)": 2.913,
+        "aiv_mte3_time(us)": 0.827
+      },
+      {
+        "variant": "J023",
+        "round": 1,
+        "Task Duration(us)": 8.64,
+        "aiv_time(us)": 6.857,
+        "aiv_scalar_time(us)": 2.8975,
+        "aiv_vec_time(us)": 2.038,
+        "aiv_mte2_time(us)": 2.816,
+        "aiv_mte3_time(us)": 0.7935000000000001
+      },
+      {
+        "variant": "J020",
+        "round": 2,
+        "Task Duration(us)": 8.98,
+        "aiv_time(us)": 7.2195,
+        "aiv_scalar_time(us)": 3.125,
+        "aiv_vec_time(us)": 2.038,
+        "aiv_mte2_time(us)": 3.123,
+        "aiv_mte3_time(us)": 0.849
+      },
+      {
+        "variant": "J022",
+        "round": 2,
+        "Task Duration(us)": 8.98,
+        "aiv_time(us)": 7.203,
+        "aiv_scalar_time(us)": 3.089,
+        "aiv_vec_time(us)": 2.038,
+        "aiv_mte2_time(us)": 3.1,
+        "aiv_mte3_time(us)": 0.823
+      },
+      {
+        "variant": "J023",
+        "round": 2,
+        "Task Duration(us)": 8.659,
+        "aiv_time(us)": 6.939,
+        "aiv_scalar_time(us)": 2.908,
+        "aiv_vec_time(us)": 2.038,
+        "aiv_mte2_time(us)": 2.8985000000000003,
+        "aiv_mte3_time(us)": 0.7745
+      },
+      {
+        "variant": "J020",
+        "round": 3,
+        "Task Duration(us)": 8.679,
+        "aiv_time(us)": 6.8015,
+        "aiv_scalar_time(us)": 2.895,
+        "aiv_vec_time(us)": 2.038,
+        "aiv_mte2_time(us)": 2.7515,
+        "aiv_mte3_time(us)": 0.8125
+      },
+      {
+        "variant": "J022",
+        "round": 3,
+        "Task Duration(us)": 8.8595,
+        "aiv_time(us)": 7.0,
+        "aiv_scalar_time(us)": 2.925,
+        "aiv_vec_time(us)": 2.038,
+        "aiv_mte2_time(us)": 2.932,
+        "aiv_mte3_time(us)": 0.831
+      },
+      {
+        "variant": "J023",
+        "round": 3,
+        "Task Duration(us)": 8.94,
+        "aiv_time(us)": 7.097,
+        "aiv_scalar_time(us)": 3.0795000000000003,
+        "aiv_vec_time(us)": 2.038,
+        "aiv_mte2_time(us)": 3.003,
+        "aiv_mte3_time(us)": 0.8965000000000001
+      },
+      {
+        "variant": "J020",
+        "round": 4,
+        "Task Duration(us)": 9.26,
+        "aiv_time(us)": 7.452,
+        "aiv_scalar_time(us)": 3.003,
+        "aiv_vec_time(us)": 2.038,
+        "aiv_mte2_time(us)": 3.317,
+        "aiv_mte3_time(us)": 0.8734999999999999
+      },
+      {
+        "variant": "J022",
+        "round": 4,
+        "Task Duration(us)": 9.52,
+        "aiv_time(us)": 7.643,
+        "aiv_scalar_time(us)": 3.055,
+        "aiv_vec_time(us)": 2.038,
+        "aiv_mte2_time(us)": 3.4605,
+        "aiv_mte3_time(us)": 0.823
+      },
+      {
+        "variant": "J023",
+        "round": 4,
+        "Task Duration(us)": 9.549499999999998,
+        "aiv_time(us)": 7.531,
+        "aiv_scalar_time(us)": 3.2975000000000003,
+        "aiv_vec_time(us)": 2.038,
+        "aiv_mte2_time(us)": 3.3005,
+        "aiv_mte3_time(us)": 0.9215
+      }
+    ]
+  }
+]

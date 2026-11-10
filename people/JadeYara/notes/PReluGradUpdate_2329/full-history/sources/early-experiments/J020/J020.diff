@@ -1,0 +1,26 @@
+--- J019/resident.h
++++ J020/resident.h
+@@ -72,9 +72,9 @@
+     int64_t innerSize_ = 0;
+     int64_t weightsPerChannel_ = 0;
+     int64_t rowsPerTile_ = 0;
+-    static constexpr bool vectorWeights_ = true;
+-    static constexpr bool mergeWeights_ = true;
+-    static constexpr bool residentWeights_ = true;
++    bool vectorWeights_ = false;
++    bool mergeWeights_ = false;
++    bool residentWeights_ = false;
+     LocalTensor<T> residentWeightsLocal_;
+ };
+ 
+@@ -110,6 +110,10 @@
+     innerSize_ = tilingData->innerSize;
+     weightsPerChannel_ = tilingData->weightsPerChannel;
+     rowsPerTile_ = tilingData->rowsPerTile;
++    residentWeights_ = rowsPerTile_ > 0;
++    vectorWeights_ = weightsPerChannel_ != 0 && innerSize_ == 1;
++    mergeWeights_ = vectorWeights_ && channelNum_ % (32 / sizeof(T)) == 0
++        && (tileLen_ > channelNum_ || residentWeights_);
+ 
+     blockStart_ = static_cast<int64_t>(GetBlockIdx()) * tilingData->blockFactor;
+     blockLength_ = blockStart_ < totalNum_ ? totalNum_ - blockStart_ : 0;

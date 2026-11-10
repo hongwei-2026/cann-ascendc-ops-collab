@@ -1,0 +1,740 @@
+[
+  {
+    "dtype": "bf16",
+    "shape": [
+      127,
+      8192,
+      1
+    ],
+    "elements": 1040384,
+    "ideal_unique_bytes": 8339456,
+    "scheduled_logical_bytes": 8650752,
+    "Task_us": 13.295,
+    "effective_TBps": 0.6506770966528771,
+    "required_TBps_5us": 1.7301503999999999,
+    "required_TBps_4us": 2.162688,
+    "scenario_io_floor_us_at_TBps": {
+      "1": 8.339456,
+      "1.5": 5.559637333333334,
+      "2": 4.169728,
+      "3": 2.779818666666667
+    },
+    "groups": 20,
+    "max_rows": 7,
+    "metrics": {
+      "Task Duration(us)": {
+        "mean": 13.295,
+        "round_medians": [
+          13.44,
+          13.76,
+          13.46,
+          12.52
+        ]
+      },
+      "aiv_time(us)": {
+        "mean": 10.873000000000001,
+        "round_medians": [
+          11.0775,
+          11.4595,
+          10.813500000000001,
+          10.1415
+        ]
+      },
+      "aiv_mte2_time(us)": {
+        "mean": 3.4151249999999997,
+        "round_medians": [
+          3.6965000000000003,
+          3.8545,
+          3.247,
+          2.8625
+        ]
+      },
+      "aiv_mte3_time(us)": {
+        "mean": 1.30575,
+        "round_medians": [
+          1.277,
+          1.297,
+          1.338,
+          1.311
+        ]
+      },
+      "aiv_scalar_time(us)": {
+        "mean": 4.971500000000001,
+        "round_medians": [
+          5.093,
+          4.984500000000001,
+          4.9785,
+          4.83
+        ]
+      },
+      "aiv_vec_time(us)": {
+        "mean": 5.189,
+        "round_medians": [
+          5.189,
+          5.189,
+          5.189,
+          5.189
+        ]
+      },
+      "block_nums": [
+        40
+      ]
+    }
+  },
+  {
+    "dtype": "fp16",
+    "shape": [
+      127,
+      8192,
+      1
+    ],
+    "elements": 1040384,
+    "ideal_unique_bytes": 8339456,
+    "scheduled_logical_bytes": 8650752,
+    "Task_us": 13.112375,
+    "effective_TBps": 0.6597395208724582,
+    "required_TBps_5us": 1.7301503999999999,
+    "required_TBps_4us": 2.162688,
+    "scenario_io_floor_us_at_TBps": {
+      "1": 8.339456,
+      "1.5": 5.559637333333334,
+      "2": 4.169728,
+      "3": 2.779818666666667
+    },
+    "groups": 20,
+    "max_rows": 7,
+    "metrics": {
+      "Task Duration(us)": {
+        "mean": 13.112375,
+        "round_medians": [
+          13.529499999999999,
+          13.48,
+          13.22,
+          12.22
+        ]
+      },
+      "aiv_time(us)": {
+        "mean": 10.795375,
+        "round_medians": [
+          11.416,
+          11.227,
+          10.614,
+          9.9245
+        ]
+      },
+      "aiv_mte2_time(us)": {
+        "mean": 3.3171250000000003,
+        "round_medians": [
+          3.232,
+          3.8675,
+          3.2865,
+          2.8825000000000003
+        ]
+      },
+      "aiv_mte3_time(us)": {
+        "mean": 1.2846250000000001,
+        "round_medians": [
+          1.221,
+          1.283,
+          1.3285,
+          1.306
+        ]
+      },
+      "aiv_scalar_time(us)": {
+        "mean": 5.301625,
+        "round_medians": [
+          6.2185,
+          5.048,
+          5.042999999999999,
+          4.897
+        ]
+      },
+      "aiv_vec_time(us)": {
+        "mean": 4.989,
+        "round_medians": [
+          4.989,
+          4.989,
+          4.989,
+          4.989
+        ]
+      },
+      "block_nums": [
+        40
+      ]
+    }
+  },
+  {
+    "dtype": "fp32",
+    "shape": [
+      127,
+      8192,
+      1
+    ],
+    "elements": 1040384,
+    "ideal_unique_bytes": 16678912,
+    "scheduled_logical_bytes": 17301504,
+    "Task_us": 12.179625,
+    "effective_TBps": 1.4205284645463223,
+    "required_TBps_5us": 3.4603007999999997,
+    "required_TBps_4us": 4.325376,
+    "scenario_io_floor_us_at_TBps": {
+      "1": 16.678912,
+      "1.5": 11.119274666666668,
+      "2": 8.339456,
+      "3": 5.559637333333334
+    },
+    "groups": 20,
+    "max_rows": 7,
+    "metrics": {
+      "Task Duration(us)": {
+        "mean": 12.179625,
+        "round_medians": [
+          12.259,
+          12.6695,
+          12.3,
+          11.49
+        ]
+      },
+      "aiv_time(us)": {
+        "mean": 10.00625,
+        "round_medians": [
+          10.1235,
+          10.6435,
+          9.9165,
+          9.3415
+        ]
+      },
+      "aiv_mte2_time(us)": {
+        "mean": 4.26575,
+        "round_medians": [
+          4.461,
+          4.786,
+          4.071,
+          3.745
+        ]
+      },
+      "aiv_mte3_time(us)": {
+        "mean": 1.945625,
+        "round_medians": [
+          1.923,
+          1.961,
+          1.9825,
+          1.916
+        ]
+      },
+      "aiv_scalar_time(us)": {
+        "mean": 4.6594999999999995,
+        "round_medians": [
+          4.787,
+          4.663,
+          4.6625,
+          4.5255
+        ]
+      },
+      "aiv_vec_time(us)": {
+        "mean": 3.507,
+        "round_medians": [
+          3.507,
+          3.507,
+          3.507,
+          3.507
+        ]
+      },
+      "block_nums": [
+        40
+      ]
+    }
+  },
+  {
+    "dtype": "bf16",
+    "shape": [
+      103,
+      9728,
+      1
+    ],
+    "elements": 1001984,
+    "ideal_unique_bytes": 8035328,
+    "scheduled_logical_bytes": 8268800,
+    "Task_us": 12.73725,
+    "effective_TBps": 0.6491825158491825,
+    "required_TBps_5us": 1.65376,
+    "required_TBps_4us": 2.0672,
+    "scenario_io_floor_us_at_TBps": {
+      "1": 8.035328,
+      "1.5": 5.3568853333333335,
+      "2": 4.017664,
+      "3": 2.6784426666666667
+    },
+    "groups": 13,
+    "max_rows": 8,
+    "metrics": {
+      "Task Duration(us)": {
+        "mean": 12.73725,
+        "round_medians": [
+          12.78,
+          13.32,
+          12.77,
+          12.079
+        ]
+      },
+      "aiv_time(us)": {
+        "mean": 10.692125,
+        "round_medians": [
+          10.716000000000001,
+          11.253,
+          10.747,
+          10.0525
+        ]
+      },
+      "aiv_mte2_time(us)": {
+        "mean": 3.6546250000000002,
+        "round_medians": [
+          3.6639999999999997,
+          4.1065000000000005,
+          3.7,
+          3.148
+        ]
+      },
+      "aiv_mte3_time(us)": {
+        "mean": 1.587125,
+        "round_medians": [
+          1.613,
+          1.544,
+          1.6255,
+          1.5659999999999998
+        ]
+      },
+      "aiv_scalar_time(us)": {
+        "mean": 5.631125,
+        "round_medians": [
+          5.7995,
+          5.66,
+          5.553,
+          5.5120000000000005
+        ]
+      },
+      "aiv_vec_time(us)": {
+        "mean": 4.703,
+        "round_medians": [
+          4.703,
+          4.703,
+          4.703,
+          4.703
+        ]
+      },
+      "block_nums": [
+        39
+      ]
+    }
+  },
+  {
+    "dtype": "bf16",
+    "shape": [
+      147,
+      6656,
+      1
+    ],
+    "elements": 978432,
+    "ideal_unique_bytes": 7840768,
+    "scheduled_logical_bytes": 8093696,
+    "Task_us": 13.292375,
+    "effective_TBps": 0.608897657491607,
+    "required_TBps_5us": 1.6187392,
+    "required_TBps_4us": 2.023424,
+    "scenario_io_floor_us_at_TBps": {
+      "1": 7.840768,
+      "1.5": 5.227178666666667,
+      "2": 3.920384,
+      "3": 2.6135893333333335
+    },
+    "groups": 20,
+    "max_rows": 8,
+    "metrics": {
+      "Task Duration(us)": {
+        "mean": 13.292375,
+        "round_medians": [
+          13.2895,
+          13.94,
+          13.32,
+          12.62
+        ]
+      },
+      "aiv_time(us)": {
+        "mean": 10.91675,
+        "round_medians": [
+          11.023499999999999,
+          11.5185,
+          10.912,
+          10.213000000000001
+        ]
+      },
+      "aiv_mte2_time(us)": {
+        "mean": 3.5415,
+        "round_medians": [
+          3.708,
+          4.0655,
+          3.5345,
+          2.858
+        ]
+      },
+      "aiv_mte3_time(us)": {
+        "mean": 1.389875,
+        "round_medians": [
+          1.3815,
+          1.3325,
+          1.4609999999999999,
+          1.3845
+        ]
+      },
+      "aiv_scalar_time(us)": {
+        "mean": 5.390874999999999,
+        "round_medians": [
+          5.4875,
+          5.4254999999999995,
+          5.263999999999999,
+          5.3865
+        ]
+      },
+      "aiv_vec_time(us)": {
+        "mean": 5.085,
+        "round_medians": [
+          5.085,
+          5.085,
+          5.085,
+          5.085
+        ]
+      },
+      "block_nums": [
+        40
+      ]
+    }
+  },
+  {
+    "dtype": "fp16",
+    "shape": [
+      103,
+      9728,
+      1
+    ],
+    "elements": 1001984,
+    "ideal_unique_bytes": 8035328,
+    "scheduled_logical_bytes": 8268800,
+    "Task_us": 12.509875,
+    "effective_TBps": 0.6609818243587566,
+    "required_TBps_5us": 1.65376,
+    "required_TBps_4us": 2.0672,
+    "scenario_io_floor_us_at_TBps": {
+      "1": 8.035328,
+      "1.5": 5.3568853333333335,
+      "2": 4.017664,
+      "3": 2.6784426666666667
+    },
+    "groups": 13,
+    "max_rows": 8,
+    "metrics": {
+      "Task Duration(us)": {
+        "mean": 12.509875,
+        "round_medians": [
+          12.74,
+          13.04,
+          12.48,
+          11.779499999999999
+        ]
+      },
+      "aiv_time(us)": {
+        "mean": 10.577,
+        "round_medians": [
+          11.029499999999999,
+          10.9925,
+          10.484,
+          9.802
+        ]
+      },
+      "aiv_mte2_time(us)": {
+        "mean": 3.5608750000000002,
+        "round_medians": [
+          3.27,
+          4.093,
+          3.7075,
+          3.173
+        ]
+      },
+      "aiv_mte3_time(us)": {
+        "mean": 1.529125,
+        "round_medians": [
+          1.4885000000000002,
+          1.5055,
+          1.5885,
+          1.5339999999999998
+        ]
+      },
+      "aiv_scalar_time(us)": {
+        "mean": 5.93925,
+        "round_medians": [
+          6.8215,
+          5.7379999999999995,
+          5.6225000000000005,
+          5.575
+        ]
+      },
+      "aiv_vec_time(us)": {
+        "mean": 4.52,
+        "round_medians": [
+          4.52,
+          4.52,
+          4.52,
+          4.52
+        ]
+      },
+      "block_nums": [
+        39
+      ]
+    }
+  },
+  {
+    "dtype": "fp16",
+    "shape": [
+      147,
+      6656,
+      1
+    ],
+    "elements": 978432,
+    "ideal_unique_bytes": 7840768,
+    "scheduled_logical_bytes": 8093696,
+    "Task_us": 13.159625,
+    "effective_TBps": 0.6150400182376017,
+    "required_TBps_5us": 1.6187392,
+    "required_TBps_4us": 2.023424,
+    "scenario_io_floor_us_at_TBps": {
+      "1": 7.840768,
+      "1.5": 5.227178666666667,
+      "2": 3.920384,
+      "3": 2.6135893333333335
+    },
+    "groups": 20,
+    "max_rows": 8,
+    "metrics": {
+      "Task Duration(us)": {
+        "mean": 13.159625,
+        "round_medians": [
+          13.379,
+          13.76,
+          13.119499999999999,
+          12.38
+        ]
+      },
+      "aiv_time(us)": {
+        "mean": 10.85425,
+        "round_medians": [
+          11.407,
+          11.335,
+          10.6755,
+          9.999500000000001
+        ]
+      },
+      "aiv_mte2_time(us)": {
+        "mean": 3.460375,
+        "round_medians": [
+          3.2835,
+          4.135,
+          3.526,
+          2.8970000000000002
+        ]
+      },
+      "aiv_mte3_time(us)": {
+        "mean": 1.349375,
+        "round_medians": [
+          1.2985,
+          1.309,
+          1.427,
+          1.363
+        ]
+      },
+      "aiv_scalar_time(us)": {
+        "mean": 5.739875,
+        "round_medians": [
+          6.641500000000001,
+          5.4879999999999995,
+          5.366,
+          5.464
+        ]
+      },
+      "aiv_vec_time(us)": {
+        "mean": 4.906,
+        "round_medians": [
+          4.906,
+          4.906,
+          4.906,
+          4.906
+        ]
+      },
+      "block_nums": [
+        40
+      ]
+    }
+  },
+  {
+    "dtype": "fp32",
+    "shape": [
+      103,
+      9728,
+      1
+    ],
+    "elements": 1001984,
+    "ideal_unique_bytes": 16070656,
+    "scheduled_logical_bytes": 16809984,
+    "Task_us": 11.645,
+    "effective_TBps": 1.4435366251610133,
+    "required_TBps_5us": 3.3619968,
+    "required_TBps_4us": 4.202496,
+    "scenario_io_floor_us_at_TBps": {
+      "1": 16.070656,
+      "1.5": 10.713770666666667,
+      "2": 8.035328,
+      "3": 5.3568853333333335
+    },
+    "groups": 20,
+    "max_rows": 6,
+    "metrics": {
+      "Task Duration(us)": {
+        "mean": 11.645,
+        "round_medians": [
+          11.52,
+          12.34,
+          11.74,
+          10.98
+        ]
+      },
+      "aiv_time(us)": {
+        "mean": 9.376,
+        "round_medians": [
+          9.315999999999999,
+          9.998999999999999,
+          9.432500000000001,
+          8.756499999999999
+        ]
+      },
+      "aiv_mte2_time(us)": {
+        "mean": 4.1545000000000005,
+        "round_medians": [
+          3.9945000000000004,
+          4.7175,
+          4.186,
+          3.7199999999999998
+        ]
+      },
+      "aiv_mte3_time(us)": {
+        "mean": 1.82725,
+        "round_medians": [
+          1.8235000000000001,
+          1.84,
+          1.8650000000000002,
+          1.7805
+        ]
+      },
+      "aiv_scalar_time(us)": {
+        "mean": 4.092375,
+        "round_medians": [
+          4.311,
+          4.0945,
+          3.999,
+          3.965
+        ]
+      },
+      "aiv_vec_time(us)": {
+        "mean": 3.011,
+        "round_medians": [
+          3.011,
+          3.011,
+          3.011,
+          3.011
+        ]
+      },
+      "block_nums": [
+        40
+      ]
+    }
+  },
+  {
+    "dtype": "fp32",
+    "shape": [
+      147,
+      6656,
+      1
+    ],
+    "elements": 978432,
+    "ideal_unique_bytes": 15681536,
+    "scheduled_logical_bytes": 16187392,
+    "Task_us": 11.729625,
+    "effective_TBps": 1.380043437023775,
+    "required_TBps_5us": 3.2374784,
+    "required_TBps_4us": 4.046848,
+    "scenario_io_floor_us_at_TBps": {
+      "1": 15.681536,
+      "1.5": 10.454357333333334,
+      "2": 7.840768,
+      "3": 5.227178666666667
+    },
+    "groups": 20,
+    "max_rows": 8,
+    "metrics": {
+      "Task Duration(us)": {
+        "mean": 11.729625,
+        "round_medians": [
+          11.779499999999999,
+          12.34,
+          11.839,
+          10.96
+        ]
+      },
+      "aiv_time(us)": {
+        "mean": 9.6455,
+        "round_medians": [
+          9.629000000000001,
+          10.245000000000001,
+          9.707,
+          9.001
+        ]
+      },
+      "aiv_mte2_time(us)": {
+        "mean": 4.34175,
+        "round_medians": [
+          4.2215,
+          4.86,
+          4.423500000000001,
+          3.862
+        ]
+      },
+      "aiv_mte3_time(us)": {
+        "mean": 2.011875,
+        "round_medians": [
+          1.9885000000000002,
+          2.0315000000000003,
+          2.0220000000000002,
+          2.0054999999999996
+        ]
+      },
+      "aiv_scalar_time(us)": {
+        "mean": 5.0225,
+        "round_medians": [
+          5.236000000000001,
+          5.0085,
+          4.9405,
+          4.905
+        ]
+      },
+      "aiv_vec_time(us)": {
+        "mean": 3.111,
+        "round_medians": [
+          3.111,
+          3.111,
+          3.111,
+          3.111
+        ]
+      },
+      "block_nums": [
+        40
+      ]
+    }
+  }
+]

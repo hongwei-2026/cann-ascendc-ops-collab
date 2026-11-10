@@ -1,0 +1,6 @@
+# J030: observe dependencies, memory bandwidth and profiler limits
+
+No operator source changes. Investigate J026 baseline versus J029 paired-queue binaries on the existing 910C. Local msprof op exposes PipeUtilization/ResourceConflictRatio/Memory/MemoryUB/MemoryDetail/TimelineDetail, but not on-board InstrTimeline/PipeTimeline. Official fixed-commit guide limits actual instruction/pipe timelines to 950; TimelineDetail for A2/A3 is simulated and restricted to supported Python framework scenarios. Current harness is C++ ACLNN; do not call simulation output real hardware dependency timing.
+First probe MemoryDetail on one fixed fp16 [127,8192,1] run. If counters work, bounded two-round reversed J026/J029 comparison for fp16/fp32, kernel versus application replay; inspect stall/wait counters, cache hit and traffic, not summed active time. Add bf16 only if needed, not automatically. Existing ordinary task timeline may be inspected for scope, not mistaken for within-kernel instructions. Stop at the smallest tool/data gap if critical dependencies are not observable. No installs, network/security changes, competition submission or push.
+
+17 profile runs completed and verified. No operator source changes. Findings and observability limits: [RESULTS.md](RESULTS.md).

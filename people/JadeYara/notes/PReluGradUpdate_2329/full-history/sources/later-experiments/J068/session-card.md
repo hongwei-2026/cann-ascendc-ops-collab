@@ -1,0 +1,6 @@
+# J068: execute builtin TBE contract and repair numerical core
+PReluGradUpdate_2329 / JadeYara / performance stage / 2026-11-07.
+Goal: use public ACL builtin execution as oracle for special values, dtype/format and broadcasting, then implement confirmed numerical repair in an isolated candidate. Research contiguous arbitraryC/middleS broadcast independently.
+Only J068 and personal notes/ledger/dev-log may change. ProductionJ035 and all prior experiments frozen; no official submission/commit/push.
+Latest user requests TBE-equivalent core, all original dtype/formats, generalization and logical tolerance float1e-4/half1e-3. DirectJ067 probe proved current where special-value mismatch. J068 therefore may implement originalTBE mask-coefficient chain despite earlier template-based blanket ban; do not silently change historical goldens. Preserve TBE actual binary outputs separately and compare exactly with existing zero/NaN-category equivalence before any tolerance claims.
+Probe public API ND/NCHW/NC1HWC0 origin/storage descriptors, inputbroadcast, spatialweights, rank8 and zero dimensions. Mark actual pass/failure scope and unconfirmed classifier/unknownrank behavior. No speculative full-contract claims.

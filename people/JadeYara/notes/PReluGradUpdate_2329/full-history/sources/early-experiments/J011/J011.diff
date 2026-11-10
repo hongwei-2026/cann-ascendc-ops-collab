@@ -1,0 +1,11 @@
+--- J010/op_host/p_relu_grad_update_tiling.cpp
++++ J011/op_host/p_relu_grad_update_tiling.cpp
+@@ -184,7 +184,7 @@
+         // Scalar weights have no channel-clamped loops: give small inputs
+         // approximately 1024 elements/core while preserving 32-byte blocks.
+         const int64_t targetCoreNum = weightLen == 1
+-            ? std::min(hardwareCoreNum, CeilDivI64(totalNum, 1024))
++            ? std::min(hardwareCoreNum, std::max<int64_t>(4, CeilDivI64(totalNum, 1024)))
+             : hardwareCoreNum;
+         blockFactor = AlignUpI64(CeilDivI64(totalNum, targetCoreNum), blockElements);
+         usedCores = std::min(targetCoreNum, CeilDivI64(totalNum, blockFactor));

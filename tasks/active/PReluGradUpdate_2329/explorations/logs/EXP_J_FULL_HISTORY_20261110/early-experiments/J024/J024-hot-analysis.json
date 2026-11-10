@@ -1,0 +1,5138 @@
+[
+  {
+    "case": "j024_bf16_n10c32768",
+    "window": "old_window",
+    "versions": {
+      "J018": {
+        "Task Duration(us)": {
+          "mean": 7.9098749999999995,
+          "round_medians": [
+            7.8995,
+            7.99,
+            7.88,
+            7.87
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 6.167,
+          "round_medians": [
+            6.147,
+            6.2335,
+            6.095000000000001,
+            6.1925
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "aiv_mte2_time(us)": {
+          "mean": 2.80675,
+          "round_medians": [
+            2.7939999999999996,
+            2.8335,
+            2.747,
+            2.8525
+          ]
+        },
+        "aiv_mte3_time(us)": {
+          "mean": 0.492,
+          "round_medians": [
+            0.494,
+            0.5015000000000001,
+            0.4865,
+            0.486
+          ]
+        },
+        "aiv_scalar_time(us)": {
+          "mean": 2.794375,
+          "round_medians": [
+            2.7024999999999997,
+            2.9995000000000003,
+            2.7365000000000004,
+            2.739
+          ]
+        },
+        "aiv_vec_time(us)": {
+          "mean": 1.445,
+          "round_medians": [
+            1.445,
+            1.445,
+            1.445,
+            1.445
+          ]
+        }
+      },
+      "J023": {
+        "Task Duration(us)": {
+          "mean": 7.927375,
+          "round_medians": [
+            7.92,
+            8.029499999999999,
+            7.72,
+            8.04
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 6.18675,
+          "round_medians": [
+            6.0945,
+            6.3355,
+            5.991,
+            6.3260000000000005
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "aiv_mte2_time(us)": {
+          "mean": 2.81425,
+          "round_medians": [
+            2.7435,
+            2.9425,
+            2.6145,
+            2.9565
+          ]
+        },
+        "aiv_mte3_time(us)": {
+          "mean": 0.5201250000000001,
+          "round_medians": [
+            0.532,
+            0.4765,
+            0.548,
+            0.524
+          ]
+        },
+        "aiv_scalar_time(us)": {
+          "mean": 2.698875,
+          "round_medians": [
+            2.589,
+            2.859,
+            2.6305,
+            2.717
+          ]
+        },
+        "aiv_vec_time(us)": {
+          "mean": 1.46,
+          "round_medians": [
+            1.46,
+            1.46,
+            1.46,
+            1.46
+          ]
+        }
+      },
+      "J024": {
+        "Task Duration(us)": {
+          "mean": 7.93975,
+          "round_medians": [
+            8.22,
+            7.44,
+            8.0195,
+            8.0795
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 6.178,
+          "round_medians": [
+            6.462,
+            5.66,
+            6.278,
+            6.311999999999999
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "aiv_mte2_time(us)": {
+          "mean": 2.639875,
+          "round_medians": [
+            2.9365,
+            2.1785,
+            2.6980000000000004,
+            2.7465
+          ]
+        },
+        "aiv_mte3_time(us)": {
+          "mean": 0.4485,
+          "round_medians": [
+            0.46,
+            0.3955,
+            0.4745,
+            0.464
+          ]
+        },
+        "aiv_scalar_time(us)": {
+          "mean": 2.7592499999999998,
+          "round_medians": [
+            2.935,
+            2.659,
+            2.7235,
+            2.7195
+          ]
+        },
+        "aiv_vec_time(us)": {
+          "mean": 1.651,
+          "round_medians": [
+            1.651,
+            1.651,
+            1.651,
+            1.651
+          ]
+        }
+      }
+    },
+    "dtype": "bf16",
+    "shape": [
+      10,
+      32768,
+      1
+    ],
+    "delta_vs_J023": 0.012375000000000469,
+    "round_deltas_vs_J023": [
+      0.3000000000000007,
+      -0.5894999999999984,
+      0.299500000000001,
+      0.03950000000000031
+    ]
+  },
+  {
+    "case": "j024_bf16_n10c32768",
+    "window": "late",
+    "versions": {
+      "J018": {
+        "Task Duration(us)": {
+          "mean": 7.8950000000000005,
+          "round_medians": [
+            7.9,
+            7.96,
+            7.86,
+            7.86
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 6.173,
+          "round_medians": [
+            6.1425,
+            6.233499999999999,
+            6.104,
+            6.212
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "aiv_mte2_time(us)": {
+          "mean": 2.8230000000000004,
+          "round_medians": [
+            2.7915,
+            2.833,
+            2.7735000000000003,
+            2.894
+          ]
+        },
+        "aiv_mte3_time(us)": {
+          "mean": 0.491625,
+          "round_medians": [
+            0.49,
+            0.505,
+            0.484,
+            0.4875
+          ]
+        },
+        "aiv_scalar_time(us)": {
+          "mean": 2.789125,
+          "round_medians": [
+            2.71,
+            3.003,
+            2.7165,
+            2.727
+          ]
+        },
+        "aiv_vec_time(us)": {
+          "mean": 1.445,
+          "round_medians": [
+            1.445,
+            1.445,
+            1.445,
+            1.445
+          ]
+        }
+      },
+      "J023": {
+        "Task Duration(us)": {
+          "mean": 7.94475,
+          "round_medians": [
+            7.939,
+            8.02,
+            7.74,
+            8.08
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 6.188750000000001,
+          "round_medians": [
+            6.088,
+            6.3365,
+            5.9915,
+            6.339
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "aiv_mte2_time(us)": {
+          "mean": 2.816,
+          "round_medians": [
+            2.7355,
+            2.9395,
+            2.621,
+            2.968
+          ]
+        },
+        "aiv_mte3_time(us)": {
+          "mean": 0.52375,
+          "round_medians": [
+            0.5455000000000001,
+            0.4785,
+            0.548,
+            0.523
+          ]
+        },
+        "aiv_scalar_time(us)": {
+          "mean": 2.696875,
+          "round_medians": [
+            2.597,
+            2.861,
+            2.6265,
+            2.703
+          ]
+        },
+        "aiv_vec_time(us)": {
+          "mean": 1.46,
+          "round_medians": [
+            1.46,
+            1.46,
+            1.46,
+            1.46
+          ]
+        }
+      },
+      "J024": {
+        "Task Duration(us)": {
+          "mean": 7.94475,
+          "round_medians": [
+            8.22,
+            7.44,
+            8.02,
+            8.099
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 6.182125,
+          "round_medians": [
+            6.4625,
+            5.659,
+            6.279,
+            6.328
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "aiv_mte2_time(us)": {
+          "mean": 2.647625,
+          "round_medians": [
+            2.933,
+            2.173,
+            2.7045000000000003,
+            2.78
+          ]
+        },
+        "aiv_mte3_time(us)": {
+          "mean": 0.449625,
+          "round_medians": [
+            0.4615,
+            0.394,
+            0.481,
+            0.462
+          ]
+        },
+        "aiv_scalar_time(us)": {
+          "mean": 2.752875,
+          "round_medians": [
+            2.937,
+            2.6605,
+            2.7125000000000004,
+            2.7015000000000002
+          ]
+        },
+        "aiv_vec_time(us)": {
+          "mean": 1.651,
+          "round_medians": [
+            1.651,
+            1.651,
+            1.651,
+            1.651
+          ]
+        }
+      }
+    },
+    "dtype": "bf16",
+    "shape": [
+      10,
+      32768,
+      1
+    ],
+    "delta_vs_J023": 0.0,
+    "round_deltas_vs_J023": [
+      0.2810000000000006,
+      -0.5799999999999992,
+      0.27999999999999936,
+      0.019000000000000128
+    ]
+  },
+  {
+    "case": "j024_bf16_n127c8192",
+    "window": "old_window",
+    "versions": {
+      "J018": {
+        "Task Duration(us)": {
+          "mean": 17.86475,
+          "round_medians": [
+            18.2895,
+            17.76,
+            17.6695,
+            17.74
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 15.925125,
+          "round_medians": [
+            16.2765,
+            15.889,
+            15.8695,
+            15.6655
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "aiv_mte2_time(us)": {
+          "mean": 8.9755,
+          "round_medians": [
+            9.306000000000001,
+            8.9485,
+            8.892,
+            8.755500000000001
+          ]
+        },
+        "aiv_mte3_time(us)": {
+          "mean": 2.822375,
+          "round_medians": [
+            2.5455,
+            3.144,
+            3.2415000000000003,
+            2.3585000000000003
+          ]
+        },
+        "aiv_scalar_time(us)": {
+          "mean": 5.451124999999999,
+          "round_medians": [
+            5.3605,
+            5.6715,
+            5.3835,
+            5.388999999999999
+          ]
+        },
+        "aiv_vec_time(us)": {
+          "mean": 4.69575,
+          "round_medians": [
+            4.696,
+            4.695,
+            4.696,
+            4.696
+          ]
+        }
+      },
+      "J023": {
+        "Task Duration(us)": {
+          "mean": 17.767375,
+          "round_medians": [
+            17.78,
+            17.24,
+            18.310000000000002,
+            17.7395
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 15.8415,
+          "round_medians": [
+            15.982,
+            15.345500000000001,
+            16.299,
+            15.7395
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "aiv_mte2_time(us)": {
+          "mean": 8.792625000000001,
+          "round_medians": [
+            8.8995,
+            8.2965,
+            9.2995,
+            8.675
+          ]
+        },
+        "aiv_mte3_time(us)": {
+          "mean": 2.9745,
+          "round_medians": [
+            3.1950000000000003,
+            2.278,
+            3.2554999999999996,
+            3.1695
+          ]
+        },
+        "aiv_scalar_time(us)": {
+          "mean": 5.247625,
+          "round_medians": [
+            5.157,
+            5.4225,
+            5.1635,
+            5.2475000000000005
+          ]
+        },
+        "aiv_vec_time(us)": {
+          "mean": 4.748,
+          "round_medians": [
+            4.748,
+            4.748,
+            4.748,
+            4.748
+          ]
+        }
+      },
+      "J024": {
+        "Task Duration(us)": {
+          "mean": 13.054875,
+          "round_medians": [
+            13.2,
+            12.7,
+            13.1995,
+            13.120000000000001
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 10.735125,
+          "round_medians": [
+            11.2075,
+            10.118,
+            10.7725,
+            10.8425
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "aiv_mte2_time(us)": {
+          "mean": 3.363375,
+          "round_medians": [
+            3.87,
+            2.832,
+            3.3194999999999997,
+            3.4320000000000004
+          ]
+        },
+        "aiv_mte3_time(us)": {
+          "mean": 1.303,
+          "round_medians": [
+            1.271,
+            1.2515,
+            1.359,
+            1.3305
+          ]
+        },
+        "aiv_scalar_time(us)": {
+          "mean": 4.83275,
+          "round_medians": [
+            5.0115,
+            4.728,
+            4.812,
+            4.7795000000000005
+          ]
+        },
+        "aiv_vec_time(us)": {
+          "mean": 5.189,
+          "round_medians": [
+            5.189,
+            5.189,
+            5.189,
+            5.189
+          ]
+        }
+      }
+    },
+    "dtype": "bf16",
+    "shape": [
+      127,
+      8192,
+      1
+    ],
+    "delta_vs_J023": -4.712500000000002,
+    "round_deltas_vs_J023": [
+      -4.580000000000002,
+      -4.539999999999999,
+      -5.110500000000002,
+      -4.619499999999999
+    ]
+  },
+  {
+    "case": "j024_bf16_n127c8192",
+    "window": "late",
+    "versions": {
+      "J018": {
+        "Task Duration(us)": {
+          "mean": 17.914375,
+          "round_medians": [
+            18.359,
+            17.779,
+            17.7,
+            17.819499999999998
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 15.939874999999999,
+          "round_medians": [
+            16.293,
+            15.876,
+            15.878,
+            15.712499999999999
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "aiv_mte2_time(us)": {
+          "mean": 8.996875,
+          "round_medians": [
+            9.334,
+            8.9255,
+            8.9345,
+            8.7935
+          ]
+        },
+        "aiv_mte3_time(us)": {
+          "mean": 2.8271249999999997,
+          "round_medians": [
+            2.5534999999999997,
+            3.137,
+            3.255,
+            2.363
+          ]
+        },
+        "aiv_scalar_time(us)": {
+          "mean": 5.4485,
+          "round_medians": [
+            5.3545,
+            5.673500000000001,
+            5.3774999999999995,
+            5.3885000000000005
+          ]
+        },
+        "aiv_vec_time(us)": {
+          "mean": 4.69575,
+          "round_medians": [
+            4.696,
+            4.695,
+            4.696,
+            4.696
+          ]
+        }
+      },
+      "J023": {
+        "Task Duration(us)": {
+          "mean": 17.7845,
+          "round_medians": [
+            17.84,
+            17.24,
+            18.319,
+            17.739
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 15.8565,
+          "round_medians": [
+            16.0195,
+            15.363,
+            16.305,
+            15.7385
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "aiv_mte2_time(us)": {
+          "mean": 8.8145,
+          "round_medians": [
+            8.953,
+            8.3275,
+            9.3015,
+            8.676
+          ]
+        },
+        "aiv_mte3_time(us)": {
+          "mean": 2.9703749999999998,
+          "round_medians": [
+            3.1915,
+            2.276,
+            3.243,
+            3.171
+          ]
+        },
+        "aiv_scalar_time(us)": {
+          "mean": 5.23875,
+          "round_medians": [
+            5.135,
+            5.412,
+            5.164,
+            5.244
+          ]
+        },
+        "aiv_vec_time(us)": {
+          "mean": 4.748,
+          "round_medians": [
+            4.748,
+            4.748,
+            4.748,
+            4.748
+          ]
+        }
+      },
+      "J024": {
+        "Task Duration(us)": {
+          "mean": 13.072125,
+          "round_medians": [
+            13.28,
+            12.699,
+            13.2,
+            13.1095
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 10.739374999999999,
+          "round_medians": [
+            11.2065,
+            10.12,
+            10.79,
+            10.841
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "aiv_mte2_time(us)": {
+          "mean": 3.369125,
+          "round_medians": [
+            3.8594999999999997,
+            2.832,
+            3.349,
+            3.436
+          ]
+        },
+        "aiv_mte3_time(us)": {
+          "mean": 1.302375,
+          "round_medians": [
+            1.27,
+            1.252,
+            1.3595000000000002,
+            1.328
+          ]
+        },
+        "aiv_scalar_time(us)": {
+          "mean": 4.829375,
+          "round_medians": [
+            5.017,
+            4.728,
+            4.788,
+            4.7844999999999995
+          ]
+        },
+        "aiv_vec_time(us)": {
+          "mean": 5.189,
+          "round_medians": [
+            5.189,
+            5.189,
+            5.189,
+            5.189
+          ]
+        }
+      }
+    },
+    "dtype": "bf16",
+    "shape": [
+      127,
+      8192,
+      1
+    ],
+    "delta_vs_J023": -4.7123750000000015,
+    "round_deltas_vs_J023": [
+      -4.5600000000000005,
+      -4.540999999999999,
+      -5.119,
+      -4.6295
+    ]
+  },
+  {
+    "case": "j024_bf16_n40c8192",
+    "window": "old_window",
+    "versions": {
+      "J018": {
+        "Task Duration(us)": {
+          "mean": 8.284875,
+          "round_medians": [
+            8.26,
+            8.41,
+            8.249500000000001,
+            8.22
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 6.473875,
+          "round_medians": [
+            6.577,
+            6.4525,
+            6.3325,
+            6.5335
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "aiv_mte2_time(us)": {
+          "mean": 3.138,
+          "round_medians": [
+            3.288,
+            3.0595,
+            2.9855,
+            3.219
+          ]
+        },
+        "aiv_mte3_time(us)": {
+          "mean": 0.5589999999999999,
+          "round_medians": [
+            0.4505,
+            0.6495,
+            0.6655,
+            0.4705
+          ]
+        },
+        "aiv_scalar_time(us)": {
+          "mean": 2.79475,
+          "round_medians": [
+            2.71,
+            3.0140000000000002,
+            2.721,
+            2.734
+          ]
+        },
+        "aiv_vec_time(us)": {
+          "mean": 1.445,
+          "round_medians": [
+            1.445,
+            1.445,
+            1.445,
+            1.445
+          ]
+        }
+      },
+      "J023": {
+        "Task Duration(us)": {
+          "mean": 8.284625,
+          "round_medians": [
+            8.349499999999999,
+            8.4895,
+            7.9094999999999995,
+            8.39
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 6.525125,
+          "round_medians": [
+            6.742,
+            6.622,
+            6.0344999999999995,
+            6.702
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "aiv_mte2_time(us)": {
+          "mean": 3.1625,
+          "round_medians": [
+            3.4345,
+            3.197,
+            2.662,
+            3.3565
+          ]
+        },
+        "aiv_mte3_time(us)": {
+          "mean": 0.542875,
+          "round_medians": [
+            0.4825,
+            0.632,
+            0.59,
+            0.467
+          ]
+        },
+        "aiv_scalar_time(us)": {
+          "mean": 2.6898750000000002,
+          "round_medians": [
+            2.5940000000000003,
+            2.8485,
+            2.616,
+            2.701
+          ]
+        },
+        "aiv_vec_time(us)": {
+          "mean": 1.46,
+          "round_medians": [
+            1.46,
+            1.46,
+            1.46,
+            1.46
+          ]
+        }
+      },
+      "J024": {
+        "Task Duration(us)": {
+          "mean": 7.962375000000001,
+          "round_medians": [
+            8.22,
+            7.44,
+            8.06,
+            8.1295
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 6.270625,
+          "round_medians": [
+            6.4535,
+            5.766,
+            6.413,
+            6.449999999999999
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "aiv_mte2_time(us)": {
+          "mean": 2.723125,
+          "round_medians": [
+            2.895,
+            2.2515,
+            2.837,
+            2.909
+          ]
+        },
+        "aiv_mte3_time(us)": {
+          "mean": 0.441625,
+          "round_medians": [
+            0.446,
+            0.448,
+            0.4435,
+            0.429
+          ]
+        },
+        "aiv_scalar_time(us)": {
+          "mean": 2.7493749999999997,
+          "round_medians": [
+            2.9345,
+            2.6595,
+            2.7184999999999997,
+            2.685
+          ]
+        },
+        "aiv_vec_time(us)": {
+          "mean": 1.651,
+          "round_medians": [
+            1.651,
+            1.651,
+            1.651,
+            1.651
+          ]
+        }
+      }
+    },
+    "dtype": "bf16",
+    "shape": [
+      40,
+      8192,
+      1
+    ],
+    "delta_vs_J023": -0.3222499999999995,
+    "round_deltas_vs_J023": [
+      -0.1294999999999984,
+      -1.0494999999999992,
+      0.15050000000000097,
+      -0.2605000000000004
+    ]
+  },
+  {
+    "case": "j024_bf16_n40c8192",
+    "window": "late",
+    "versions": {
+      "J018": {
+        "Task Duration(us)": {
+          "mean": 8.279875,
+          "round_medians": [
+            8.26,
+            8.4,
+            8.22,
+            8.2395
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 6.486000000000001,
+          "round_medians": [
+            6.597,
+            6.456,
+            6.335,
+            6.556
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "aiv_mte2_time(us)": {
+          "mean": 3.1585,
+          "round_medians": [
+            3.3194999999999997,
+            3.0785,
+            2.9835000000000003,
+            3.2525
+          ]
+        },
+        "aiv_mte3_time(us)": {
+          "mean": 0.558125,
+          "round_medians": [
+            0.453,
+            0.648,
+            0.6615,
+            0.47
+          ]
+        },
+        "aiv_scalar_time(us)": {
+          "mean": 2.791375,
+          "round_medians": [
+            2.704,
+            3.0045,
+            2.73,
+            2.727
+          ]
+        },
+        "aiv_vec_time(us)": {
+          "mean": 1.445,
+          "round_medians": [
+            1.445,
+            1.445,
+            1.445,
+            1.445
+          ]
+        }
+      },
+      "J023": {
+        "Task Duration(us)": {
+          "mean": 8.295,
+          "round_medians": [
+            8.34,
+            8.5,
+            7.9,
+            8.44
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 6.53725,
+          "round_medians": [
+            6.7475000000000005,
+            6.628,
+            6.047499999999999,
+            6.726
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "aiv_mte2_time(us)": {
+          "mean": 3.1713750000000003,
+          "round_medians": [
+            3.438,
+            3.186,
+            2.68,
+            3.3815
+          ]
+        },
+        "aiv_mte3_time(us)": {
+          "mean": 0.541875,
+          "round_medians": [
+            0.476,
+            0.63,
+            0.594,
+            0.4675
+          ]
+        },
+        "aiv_scalar_time(us)": {
+          "mean": 2.686,
+          "round_medians": [
+            2.587,
+            2.853,
+            2.612,
+            2.692
+          ]
+        },
+        "aiv_vec_time(us)": {
+          "mean": 1.46,
+          "round_medians": [
+            1.46,
+            1.46,
+            1.46,
+            1.46
+          ]
+        }
+      },
+      "J024": {
+        "Task Duration(us)": {
+          "mean": 7.945,
+          "round_medians": [
+            8.22,
+            7.44,
+            8.04,
+            8.08
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 6.26975,
+          "round_medians": [
+            6.4495000000000005,
+            5.765,
+            6.4085,
+            6.456
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "aiv_mte2_time(us)": {
+          "mean": 2.7192499999999997,
+          "round_medians": [
+            2.893,
+            2.246,
+            2.843,
+            2.895
+          ]
+        },
+        "aiv_mte3_time(us)": {
+          "mean": 0.44125000000000003,
+          "round_medians": [
+            0.443,
+            0.449,
+            0.441,
+            0.432
+          ]
+        },
+        "aiv_scalar_time(us)": {
+          "mean": 2.75325,
+          "round_medians": [
+            2.9385000000000003,
+            2.66,
+            2.709,
+            2.7055
+          ]
+        },
+        "aiv_vec_time(us)": {
+          "mean": 1.651,
+          "round_medians": [
+            1.651,
+            1.651,
+            1.651,
+            1.651
+          ]
+        }
+      }
+    },
+    "dtype": "bf16",
+    "shape": [
+      40,
+      8192,
+      1
+    ],
+    "delta_vs_J023": -0.34999999999999964,
+    "round_deltas_vs_J023": [
+      -0.11999999999999922,
+      -1.0599999999999996,
+      0.1399999999999988,
+      -0.35999999999999943
+    ]
+  },
+  {
+    "case": "j024_bf16_n41c8208",
+    "window": "old_window",
+    "versions": {
+      "J018": {
+        "Task Duration(us)": {
+          "mean": 9.132375,
+          "round_medians": [
+            8.97,
+            9.31,
+            9.319500000000001,
+            8.93
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 7.181125,
+          "round_medians": [
+            6.878,
+            7.482,
+            7.4575,
+            6.907
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "aiv_mte2_time(us)": {
+          "mean": 3.5612500000000002,
+          "round_medians": [
+            3.284,
+            3.8280000000000003,
+            3.8525,
+            3.2805
+          ]
+        },
+        "aiv_mte3_time(us)": {
+          "mean": 0.8262499999999999,
+          "round_medians": [
+            0.8294999999999999,
+            0.825,
+            0.8674999999999999,
+            0.783
+          ]
+        },
+        "aiv_scalar_time(us)": {
+          "mean": 3.29675,
+          "round_medians": [
+            3.207,
+            3.5164999999999997,
+            3.2235,
+            3.24
+          ]
+        },
+        "aiv_vec_time(us)": {
+          "mean": 1.6284999999999998,
+          "round_medians": [
+            1.629,
+            1.628,
+            1.628,
+            1.629
+          ]
+        }
+      },
+      "J023": {
+        "Task Duration(us)": {
+          "mean": 8.9625,
+          "round_medians": [
+            8.98,
+            8.99,
+            8.78,
+            9.1
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 7.017250000000001,
+          "round_medians": [
+            6.9384999999999994,
+            7.0615000000000006,
+            6.945,
+            7.1240000000000006
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "aiv_mte2_time(us)": {
+          "mean": 3.33575,
+          "round_medians": [
+            3.2485,
+            3.329,
+            3.2765,
+            3.489
+          ]
+        },
+        "aiv_mte3_time(us)": {
+          "mean": 0.841,
+          "round_medians": [
+            0.8975,
+            0.868,
+            0.8145,
+            0.784
+          ]
+        },
+        "aiv_scalar_time(us)": {
+          "mean": 3.16325,
+          "round_medians": [
+            3.063,
+            3.3265000000000002,
+            3.093,
+            3.1705
+          ]
+        },
+        "aiv_vec_time(us)": {
+          "mean": 1.65,
+          "round_medians": [
+            1.65,
+            1.65,
+            1.65,
+            1.65
+          ]
+        }
+      },
+      "J024": {
+        "Task Duration(us)": {
+          "mean": 8.479875,
+          "round_medians": [
+            8.79,
+            7.94,
+            8.73,
+            8.4595
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 6.2105,
+          "round_medians": [
+            6.497999999999999,
+            5.5925,
+            6.3645,
+            6.3870000000000005
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "aiv_mte2_time(us)": {
+          "mean": 2.7766249999999997,
+          "round_medians": [
+            3.066,
+            2.1944999999999997,
+            2.9095,
+            2.9364999999999997
+          ]
+        },
+        "aiv_mte3_time(us)": {
+          "mean": 0.520875,
+          "round_medians": [
+            0.522,
+            0.502,
+            0.558,
+            0.5015000000000001
+          ]
+        },
+        "aiv_scalar_time(us)": {
+          "mean": 2.7836250000000002,
+          "round_medians": [
+            2.9690000000000003,
+            2.6875,
+            2.7385,
+            2.7395
+          ]
+        },
+        "aiv_vec_time(us)": {
+          "mean": 1.504,
+          "round_medians": [
+            1.504,
+            1.504,
+            1.504,
+            1.504
+          ]
+        }
+      }
+    },
+    "dtype": "bf16",
+    "shape": [
+      41,
+      8208,
+      1
+    ],
+    "delta_vs_J023": -0.4826250000000005,
+    "round_deltas_vs_J023": [
+      -0.19000000000000128,
+      -1.0499999999999998,
+      -0.049999999999998934,
+      -0.6404999999999994
+    ]
+  },
+  {
+    "case": "j024_bf16_n41c8208",
+    "window": "late",
+    "versions": {
+      "J018": {
+        "Task Duration(us)": {
+          "mean": 9.15,
+          "round_medians": [
+            8.98,
+            9.32,
+            9.32,
+            8.98
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 7.189,
+          "round_medians": [
+            6.8885000000000005,
+            7.491,
+            7.455,
+            6.9215
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "aiv_mte2_time(us)": {
+          "mean": 3.572,
+          "round_medians": [
+            3.2794999999999996,
+            3.8485,
+            3.8565,
+            3.3034999999999997
+          ]
+        },
+        "aiv_mte3_time(us)": {
+          "mean": 0.82775,
+          "round_medians": [
+            0.8285,
+            0.828,
+            0.869,
+            0.7855000000000001
+          ]
+        },
+        "aiv_scalar_time(us)": {
+          "mean": 3.293625,
+          "round_medians": [
+            3.216,
+            3.5075000000000003,
+            3.2275,
+            3.2235
+          ]
+        },
+        "aiv_vec_time(us)": {
+          "mean": 1.62825,
+          "round_medians": [
+            1.629,
+            1.628,
+            1.628,
+            1.628
+          ]
+        }
+      },
+      "J023": {
+        "Task Duration(us)": {
+          "mean": 8.957374999999999,
+          "round_medians": [
+            8.9895,
+            8.98,
+            8.76,
+            9.1
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 7.017125,
+          "round_medians": [
+            6.953,
+            7.059,
+            6.933,
+            7.1235
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "aiv_mte2_time(us)": {
+          "mean": 3.330625,
+          "round_medians": [
+            3.2424999999999997,
+            3.3209999999999997,
+            3.272,
+            3.487
+          ]
+        },
+        "aiv_mte3_time(us)": {
+          "mean": 0.843875,
+          "round_medians": [
+            0.9055,
+            0.8765000000000001,
+            0.8125,
+            0.781
+          ]
+        },
+        "aiv_scalar_time(us)": {
+          "mean": 3.16475,
+          "round_medians": [
+            3.0735,
+            3.325,
+            3.092,
+            3.1685
+          ]
+        },
+        "aiv_vec_time(us)": {
+          "mean": 1.65,
+          "round_medians": [
+            1.65,
+            1.65,
+            1.65,
+            1.65
+          ]
+        }
+      },
+      "J024": {
+        "Task Duration(us)": {
+          "mean": 8.50425,
+          "round_medians": [
+            8.819,
+            7.979,
+            8.72,
+            8.499
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 6.217125,
+          "round_medians": [
+            6.501,
+            5.597,
+            6.367,
+            6.403499999999999
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "aiv_mte2_time(us)": {
+          "mean": 2.789625,
+          "round_medians": [
+            3.076,
+            2.2,
+            2.916,
+            2.9665
+          ]
+        },
+        "aiv_mte3_time(us)": {
+          "mean": 0.520375,
+          "round_medians": [
+            0.5235000000000001,
+            0.505,
+            0.552,
+            0.501
+          ]
+        },
+        "aiv_scalar_time(us)": {
+          "mean": 2.77775,
+          "round_medians": [
+            2.965,
+            2.6845,
+            2.7325,
+            2.729
+          ]
+        },
+        "aiv_vec_time(us)": {
+          "mean": 1.504,
+          "round_medians": [
+            1.504,
+            1.504,
+            1.504,
+            1.504
+          ]
+        }
+      }
+    },
+    "dtype": "bf16",
+    "shape": [
+      41,
+      8208,
+      1
+    ],
+    "delta_vs_J023": -0.4531249999999982,
+    "round_deltas_vs_J023": [
+      -0.17049999999999876,
+      -1.0010000000000003,
+      -0.03999999999999915,
+      -0.6009999999999991
+    ]
+  },
+  {
+    "case": "j024_fp16_n10c32768",
+    "window": "old_window",
+    "versions": {
+      "J018": {
+        "Task Duration(us)": {
+          "mean": 7.84725,
+          "round_medians": [
+            7.85,
+            7.919,
+            7.84,
+            7.78
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 6.071,
+          "round_medians": [
+            6.0425,
+            6.138999999999999,
+            6.092499999999999,
+            6.01
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "aiv_mte2_time(us)": {
+          "mean": 2.776625,
+          "round_medians": [
+            2.7495000000000003,
+            2.8405,
+            2.833,
+            2.6835
+          ]
+        },
+        "aiv_mte3_time(us)": {
+          "mean": 0.488625,
+          "round_medians": [
+            0.507,
+            0.4925,
+            0.4465,
+            0.5085
+          ]
+        },
+        "aiv_scalar_time(us)": {
+          "mean": 2.8183749999999996,
+          "round_medians": [
+            2.7285,
+            3.0164999999999997,
+            2.7565,
+            2.772
+          ]
+        },
+        "aiv_vec_time(us)": {
+          "mean": 1.369,
+          "round_medians": [
+            1.369,
+            1.369,
+            1.369,
+            1.369
+          ]
+        }
+      },
+      "J023": {
+        "Task Duration(us)": {
+          "mean": 7.842125,
+          "round_medians": [
+            7.82,
+            7.959,
+            7.6495,
+            7.94
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 6.094625000000001,
+          "round_medians": [
+            6.048,
+            6.160500000000001,
+            5.863,
+            6.307
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "aiv_mte2_time(us)": {
+          "mean": 2.815375,
+          "round_medians": [
+            2.7695,
+            2.844,
+            2.593,
+            3.0549999999999997
+          ]
+        },
+        "aiv_mte3_time(us)": {
+          "mean": 0.511625,
+          "round_medians": [
+            0.5345,
+            0.5165,
+            0.4935,
+            0.502
+          ]
+        },
+        "aiv_scalar_time(us)": {
+          "mean": 2.6818750000000002,
+          "round_medians": [
+            2.581,
+            2.8455000000000004,
+            2.609,
+            2.692
+          ]
+        },
+        "aiv_vec_time(us)": {
+          "mean": 1.384,
+          "round_medians": [
+            1.384,
+            1.384,
+            1.384,
+            1.384
+          ]
+        }
+      },
+      "J024": {
+        "Task Duration(us)": {
+          "mean": 7.97,
+          "round_medians": [
+            8.52,
+            7.34,
+            7.96,
+            8.06
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 6.284125,
+          "round_medians": [
+            7.0585,
+            5.5925,
+            6.232,
+            6.2535
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "aiv_mte2_time(us)": {
+          "mean": 2.54725,
+          "round_medians": [
+            2.462,
+            2.175,
+            2.7575,
+            2.7945
+          ]
+        },
+        "aiv_mte3_time(us)": {
+          "mean": 0.43762500000000004,
+          "round_medians": [
+            0.405,
+            0.443,
+            0.4405,
+            0.462
+          ]
+        },
+        "aiv_scalar_time(us)": {
+          "mean": 3.028875,
+          "round_medians": [
+            4.0794999999999995,
+            2.6535,
+            2.6935000000000002,
+            2.689
+          ]
+        },
+        "aiv_vec_time(us)": {
+          "mean": 1.588,
+          "round_medians": [
+            1.588,
+            1.588,
+            1.588,
+            1.588
+          ]
+        }
+      }
+    },
+    "dtype": "fp16",
+    "shape": [
+      10,
+      32768,
+      1
+    ],
+    "delta_vs_J023": 0.12787499999999952,
+    "round_deltas_vs_J023": [
+      0.6999999999999993,
+      -0.6189999999999998,
+      0.3105000000000002,
+      0.1200000000000001
+    ]
+  },
+  {
+    "case": "j024_fp16_n10c32768",
+    "window": "late",
+    "versions": {
+      "J018": {
+        "Task Duration(us)": {
+          "mean": 7.842,
+          "round_medians": [
+            7.8495,
+            7.919,
+            7.8,
+            7.7995
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 6.072375,
+          "round_medians": [
+            6.0375,
+            6.126,
+            6.092,
+            6.034000000000001
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "aiv_mte2_time(us)": {
+          "mean": 2.781625,
+          "round_medians": [
+            2.734,
+            2.8040000000000003,
+            2.8325,
+            2.7560000000000002
+          ]
+        },
+        "aiv_mte3_time(us)": {
+          "mean": 0.48725,
+          "round_medians": [
+            0.503,
+            0.491,
+            0.449,
+            0.506
+          ]
+        },
+        "aiv_scalar_time(us)": {
+          "mean": 2.81525,
+          "round_medians": [
+            2.7375,
+            3.034,
+            2.741,
+            2.7485
+          ]
+        },
+        "aiv_vec_time(us)": {
+          "mean": 1.369,
+          "round_medians": [
+            1.369,
+            1.369,
+            1.369,
+            1.369
+          ]
+        }
+      },
+      "J023": {
+        "Task Duration(us)": {
+          "mean": 7.84975,
+          "round_medians": [
+            7.84,
+            7.94,
+            7.659,
+            7.96
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 6.09325,
+          "round_medians": [
+            6.046,
+            6.158,
+            5.86,
+            6.309
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "aiv_mte2_time(us)": {
+          "mean": 2.813625,
+          "round_medians": [
+            2.7695,
+            2.837,
+            2.588,
+            3.06
+          ]
+        },
+        "aiv_mte3_time(us)": {
+          "mean": 0.51325,
+          "round_medians": [
+            0.53,
+            0.517,
+            0.497,
+            0.509
+          ]
+        },
+        "aiv_scalar_time(us)": {
+          "mean": 2.6805,
+          "round_medians": [
+            2.582,
+            2.844,
+            2.609,
+            2.687
+          ]
+        },
+        "aiv_vec_time(us)": {
+          "mean": 1.384,
+          "round_medians": [
+            1.384,
+            1.384,
+            1.384,
+            1.384
+          ]
+        }
+      },
+      "J024": {
+        "Task Duration(us)": {
+          "mean": 7.962375,
+          "round_medians": [
+            8.52,
+            7.34,
+            7.9495000000000005,
+            8.04
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 6.273875,
+          "round_medians": [
+            7.0255,
+            5.591,
+            6.2315000000000005,
+            6.2475000000000005
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "aiv_mte2_time(us)": {
+          "mean": 2.5355,
+          "round_medians": [
+            2.45,
+            2.17,
+            2.7495000000000003,
+            2.7725
+          ]
+        },
+        "aiv_mte3_time(us)": {
+          "mean": 0.436,
+          "round_medians": [
+            0.406,
+            0.44,
+            0.437,
+            0.461
+          ]
+        },
+        "aiv_scalar_time(us)": {
+          "mean": 3.028375,
+          "round_medians": [
+            4.056,
+            2.654,
+            2.6944999999999997,
+            2.709
+          ]
+        },
+        "aiv_vec_time(us)": {
+          "mean": 1.588,
+          "round_medians": [
+            1.588,
+            1.588,
+            1.588,
+            1.588
+          ]
+        }
+      }
+    },
+    "dtype": "fp16",
+    "shape": [
+      10,
+      32768,
+      1
+    ],
+    "delta_vs_J023": 0.11262499999999953,
+    "round_deltas_vs_J023": [
+      0.6799999999999997,
+      -0.6000000000000005,
+      0.29050000000000065,
+      0.07999999999999918
+    ]
+  },
+  {
+    "case": "j024_fp16_n127c8192",
+    "window": "old_window",
+    "versions": {
+      "J018": {
+        "Task Duration(us)": {
+          "mean": 17.669625,
+          "round_medians": [
+            18.0595,
+            18.3395,
+            16.64,
+            17.639499999999998
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 15.535,
+          "round_medians": [
+            15.881499999999999,
+            15.829,
+            14.779499999999999,
+            15.649999999999999
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "aiv_mte2_time(us)": {
+          "mean": 8.75775,
+          "round_medians": [
+            9.055499999999999,
+            8.955,
+            8.1145,
+            8.906
+          ]
+        },
+        "aiv_mte3_time(us)": {
+          "mean": 3.16925,
+          "round_medians": [
+            2.882,
+            3.5709999999999997,
+            2.982,
+            3.242
+          ]
+        },
+        "aiv_scalar_time(us)": {
+          "mean": 5.55975,
+          "round_medians": [
+            5.4879999999999995,
+            5.7829999999999995,
+            5.486000000000001,
+            5.482
+          ]
+        },
+        "aiv_vec_time(us)": {
+          "mean": 4.452,
+          "round_medians": [
+            4.452,
+            4.452,
+            4.452,
+            4.452
+          ]
+        }
+      },
+      "J023": {
+        "Task Duration(us)": {
+          "mean": 17.70225,
+          "round_medians": [
+            18.9,
+            16.8595,
+            17.6095,
+            17.44
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 15.603375,
+          "round_medians": [
+            16.5325,
+            14.9595,
+            15.5875,
+            15.334
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "aiv_mte2_time(us)": {
+          "mean": 8.74175,
+          "round_medians": [
+            9.609,
+            8.1465,
+            8.882,
+            8.3295
+          ]
+        },
+        "aiv_mte3_time(us)": {
+          "mean": 3.32,
+          "round_medians": [
+            3.55,
+            2.9255,
+            3.2615,
+            3.543
+          ]
+        },
+        "aiv_scalar_time(us)": {
+          "mean": 5.404375,
+          "round_medians": [
+            5.3505,
+            5.565,
+            5.3215,
+            5.3805
+          ]
+        },
+        "aiv_vec_time(us)": {
+          "mean": 4.505,
+          "round_medians": [
+            4.505,
+            4.505,
+            4.505,
+            4.505
+          ]
+        }
+      },
+      "J024": {
+        "Task Duration(us)": {
+          "mean": 12.952124999999999,
+          "round_medians": [
+            13.52,
+            12.48,
+            12.939,
+            12.869499999999999
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 10.671125,
+          "round_medians": [
+            11.5625,
+            9.903,
+            10.4955,
+            10.723500000000001
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "aiv_mte2_time(us)": {
+          "mean": 3.3055,
+          "round_medians": [
+            3.3305,
+            2.8425000000000002,
+            3.4055,
+            3.6435
+          ]
+        },
+        "aiv_mte3_time(us)": {
+          "mean": 1.232375,
+          "round_medians": [
+            1.2315,
+            1.2355,
+            1.2405,
+            1.222
+          ]
+        },
+        "aiv_scalar_time(us)": {
+          "mean": 5.17525,
+          "round_medians": [
+            6.227,
+            4.797499999999999,
+            4.8365,
+            4.84
+          ]
+        },
+        "aiv_vec_time(us)": {
+          "mean": 4.989,
+          "round_medians": [
+            4.989,
+            4.989,
+            4.989,
+            4.989
+          ]
+        }
+      }
+    },
+    "dtype": "fp16",
+    "shape": [
+      127,
+      8192,
+      1
+    ],
+    "delta_vs_J023": -4.750125000000001,
+    "round_deltas_vs_J023": [
+      -5.379999999999999,
+      -4.3795,
+      -4.6705000000000005,
+      -4.570500000000003
+    ]
+  },
+  {
+    "case": "j024_fp16_n127c8192",
+    "window": "late",
+    "versions": {
+      "J018": {
+        "Task Duration(us)": {
+          "mean": 17.672375,
+          "round_medians": [
+            18.08,
+            18.34,
+            16.58,
+            17.689500000000002
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 15.5265,
+          "round_medians": [
+            15.900500000000001,
+            15.8155,
+            14.754,
+            15.636
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "aiv_mte2_time(us)": {
+          "mean": 8.742375,
+          "round_medians": [
+            9.0595,
+            8.9435,
+            8.085,
+            8.881499999999999
+          ]
+        },
+        "aiv_mte3_time(us)": {
+          "mean": 3.1645000000000003,
+          "round_medians": [
+            2.874,
+            3.576,
+            2.9725,
+            3.2355
+          ]
+        },
+        "aiv_scalar_time(us)": {
+          "mean": 5.55775,
+          "round_medians": [
+            5.482,
+            5.778,
+            5.482,
+            5.489
+          ]
+        },
+        "aiv_vec_time(us)": {
+          "mean": 4.452,
+          "round_medians": [
+            4.452,
+            4.452,
+            4.452,
+            4.452
+          ]
+        }
+      },
+      "J023": {
+        "Task Duration(us)": {
+          "mean": 17.69975,
+          "round_medians": [
+            18.879,
+            16.82,
+            17.62,
+            17.48
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 15.607000000000001,
+          "round_medians": [
+            16.555500000000002,
+            14.9585,
+            15.596,
+            15.318
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "aiv_mte2_time(us)": {
+          "mean": 8.7525,
+          "round_medians": [
+            9.644,
+            8.169,
+            8.879999999999999,
+            8.317
+          ]
+        },
+        "aiv_mte3_time(us)": {
+          "mean": 3.322,
+          "round_medians": [
+            3.553,
+            2.91,
+            3.265,
+            3.56
+          ]
+        },
+        "aiv_scalar_time(us)": {
+          "mean": 5.399125,
+          "round_medians": [
+            5.3405000000000005,
+            5.5575,
+            5.321,
+            5.3774999999999995
+          ]
+        },
+        "aiv_vec_time(us)": {
+          "mean": 4.505,
+          "round_medians": [
+            4.505,
+            4.505,
+            4.505,
+            4.505
+          ]
+        }
+      },
+      "J024": {
+        "Task Duration(us)": {
+          "mean": 12.939625,
+          "round_medians": [
+            13.52,
+            12.479,
+            12.939499999999999,
+            12.82
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 10.668375,
+          "round_medians": [
+            11.5595,
+            9.901499999999999,
+            10.488,
+            10.724499999999999
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "aiv_mte2_time(us)": {
+          "mean": 3.2973749999999997,
+          "round_medians": [
+            3.328,
+            2.842,
+            3.386,
+            3.6334999999999997
+          ]
+        },
+        "aiv_mte3_time(us)": {
+          "mean": 1.23275,
+          "round_medians": [
+            1.233,
+            1.235,
+            1.236,
+            1.227
+          ]
+        },
+        "aiv_scalar_time(us)": {
+          "mean": 5.181,
+          "round_medians": [
+            6.23,
+            4.798,
+            4.844,
+            4.852
+          ]
+        },
+        "aiv_vec_time(us)": {
+          "mean": 4.989,
+          "round_medians": [
+            4.989,
+            4.989,
+            4.989,
+            4.989
+          ]
+        }
+      }
+    },
+    "dtype": "fp16",
+    "shape": [
+      127,
+      8192,
+      1
+    ],
+    "delta_vs_J023": -4.760125000000002,
+    "round_deltas_vs_J023": [
+      -5.359000000000002,
+      -4.341000000000001,
+      -4.680500000000002,
+      -4.66
+    ]
+  },
+  {
+    "case": "j024_fp16_n40c8192",
+    "window": "old_window",
+    "versions": {
+      "J018": {
+        "Task Duration(us)": {
+          "mean": 8.319875,
+          "round_medians": [
+            7.98,
+            8.8795,
+            8.3,
+            8.120000000000001
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 6.6445,
+          "round_medians": [
+            6.4485,
+            7.1765,
+            6.6850000000000005,
+            6.268
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "aiv_mte2_time(us)": {
+          "mean": 3.367375,
+          "round_medians": [
+            3.2199999999999998,
+            3.7945,
+            3.4450000000000003,
+            3.01
+          ]
+        },
+        "aiv_mte3_time(us)": {
+          "mean": 0.5445,
+          "round_medians": [
+            0.4465,
+            0.6845000000000001,
+            0.4845,
+            0.5625
+          ]
+        },
+        "aiv_scalar_time(us)": {
+          "mean": 2.785375,
+          "round_medians": [
+            2.713,
+            3.0025,
+            2.7125,
+            2.7135
+          ]
+        },
+        "aiv_vec_time(us)": {
+          "mean": 1.369,
+          "round_medians": [
+            1.369,
+            1.369,
+            1.369,
+            1.369
+          ]
+        }
+      },
+      "J023": {
+        "Task Duration(us)": {
+          "mean": 8.165,
+          "round_medians": [
+            8.44,
+            8.24,
+            7.82,
+            8.16
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 6.521375,
+          "round_medians": [
+            6.64,
+            6.6005,
+            6.2684999999999995,
+            6.576499999999999
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "aiv_mte2_time(us)": {
+          "mean": 3.2501249999999997,
+          "round_medians": [
+            3.362,
+            3.292,
+            3.0069999999999997,
+            3.3395
+          ]
+        },
+        "aiv_mte3_time(us)": {
+          "mean": 0.512875,
+          "round_medians": [
+            0.6904999999999999,
+            0.4615,
+            0.444,
+            0.4555
+          ]
+        },
+        "aiv_scalar_time(us)": {
+          "mean": 2.689,
+          "round_medians": [
+            2.5845000000000002,
+            2.858,
+            2.6185,
+            2.6950000000000003
+          ]
+        },
+        "aiv_vec_time(us)": {
+          "mean": 1.384,
+          "round_medians": [
+            1.384,
+            1.384,
+            1.384,
+            1.384
+          ]
+        }
+      },
+      "J024": {
+        "Task Duration(us)": {
+          "mean": 7.929875000000001,
+          "round_medians": [
+            8.46,
+            7.3395,
+            7.94,
+            7.98
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 6.374625,
+          "round_medians": [
+            6.9985,
+            5.7465,
+            6.427,
+            6.326499999999999
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "aiv_mte2_time(us)": {
+          "mean": 2.642875,
+          "round_medians": [
+            2.4305,
+            2.3315,
+            2.9365,
+            2.873
+          ]
+        },
+        "aiv_mte3_time(us)": {
+          "mean": 0.434625,
+          "round_medians": [
+            0.4335,
+            0.4205,
+            0.446,
+            0.4385
+          ]
+        },
+        "aiv_scalar_time(us)": {
+          "mean": 3.0303750000000003,
+          "round_medians": [
+            4.063,
+            2.657,
+            2.7015000000000002,
+            2.7
+          ]
+        },
+        "aiv_vec_time(us)": {
+          "mean": 1.588,
+          "round_medians": [
+            1.588,
+            1.588,
+            1.588,
+            1.588
+          ]
+        }
+      }
+    },
+    "dtype": "fp16",
+    "shape": [
+      40,
+      8192,
+      1
+    ],
+    "delta_vs_J023": -0.23512499999999825,
+    "round_deltas_vs_J023": [
+      0.02000000000000135,
+      -0.9005000000000001,
+      0.1200000000000001,
+      -0.17999999999999972
+    ]
+  },
+  {
+    "case": "j024_fp16_n40c8192",
+    "window": "late",
+    "versions": {
+      "J018": {
+        "Task Duration(us)": {
+          "mean": 8.32975,
+          "round_medians": [
+            8.02,
+            8.88,
+            8.3,
+            8.119
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 6.644375,
+          "round_medians": [
+            6.455,
+            7.17,
+            6.682,
+            6.2705
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "aiv_mte2_time(us)": {
+          "mean": 3.37275,
+          "round_medians": [
+            3.2255000000000003,
+            3.831,
+            3.4265,
+            3.008
+          ]
+        },
+        "aiv_mte3_time(us)": {
+          "mean": 0.543875,
+          "round_medians": [
+            0.448,
+            0.671,
+            0.5005,
+            0.556
+          ]
+        },
+        "aiv_scalar_time(us)": {
+          "mean": 2.791625,
+          "round_medians": [
+            2.7184999999999997,
+            2.9995000000000003,
+            2.7225,
+            2.726
+          ]
+        },
+        "aiv_vec_time(us)": {
+          "mean": 1.369,
+          "round_medians": [
+            1.369,
+            1.369,
+            1.369,
+            1.369
+          ]
+        }
+      },
+      "J023": {
+        "Task Duration(us)": {
+          "mean": 8.182125,
+          "round_medians": [
+            8.479,
+            8.249500000000001,
+            7.84,
+            8.16
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 6.523375,
+          "round_medians": [
+            6.63,
+            6.6195,
+            6.268,
+            6.5760000000000005
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "aiv_mte2_time(us)": {
+          "mean": 3.2525,
+          "round_medians": [
+            3.3385,
+            3.3185000000000002,
+            3.018,
+            3.335
+          ]
+        },
+        "aiv_mte3_time(us)": {
+          "mean": 0.51125,
+          "round_medians": [
+            0.675,
+            0.467,
+            0.445,
+            0.458
+          ]
+        },
+        "aiv_scalar_time(us)": {
+          "mean": 2.68775,
+          "round_medians": [
+            2.5895,
+            2.852,
+            2.6145,
+            2.695
+          ]
+        },
+        "aiv_vec_time(us)": {
+          "mean": 1.384,
+          "round_medians": [
+            1.384,
+            1.384,
+            1.384,
+            1.384
+          ]
+        }
+      },
+      "J024": {
+        "Task Duration(us)": {
+          "mean": 7.9498750000000005,
+          "round_medians": [
+            8.48,
+            7.34,
+            7.94,
+            8.0395
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 6.369375,
+          "round_medians": [
+            6.9985,
+            5.747,
+            6.407,
+            6.325
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "aiv_mte2_time(us)": {
+          "mean": 2.63475,
+          "round_medians": [
+            2.429,
+            2.335,
+            2.9074999999999998,
+            2.8674999999999997
+          ]
+        },
+        "aiv_mte3_time(us)": {
+          "mean": 0.435625,
+          "round_medians": [
+            0.435,
+            0.422,
+            0.4485,
+            0.437
+          ]
+        },
+        "aiv_scalar_time(us)": {
+          "mean": 3.031375,
+          "round_medians": [
+            4.0595,
+            2.66,
+            2.71,
+            2.696
+          ]
+        },
+        "aiv_vec_time(us)": {
+          "mean": 1.588,
+          "round_medians": [
+            1.588,
+            1.588,
+            1.588,
+            1.588
+          ]
+        }
+      }
+    },
+    "dtype": "fp16",
+    "shape": [
+      40,
+      8192,
+      1
+    ],
+    "delta_vs_J023": -0.23224999999999874,
+    "round_deltas_vs_J023": [
+      0.0010000000000012221,
+      -0.9095000000000013,
+      0.10000000000000053,
+      -0.12049999999999983
+    ]
+  },
+  {
+    "case": "j024_fp16_n41c8208",
+    "window": "old_window",
+    "versions": {
+      "J018": {
+        "Task Duration(us)": {
+          "mean": 9.0625,
+          "round_medians": [
+            9.1,
+            9.09,
+            9.0,
+            9.06
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 7.084375,
+          "round_medians": [
+            6.974,
+            7.1565,
+            7.2075,
+            6.9995
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "aiv_mte2_time(us)": {
+          "mean": 3.51325,
+          "round_medians": [
+            3.409,
+            3.5345,
+            3.6645000000000003,
+            3.4450000000000003
+          ]
+        },
+        "aiv_mte3_time(us)": {
+          "mean": 0.839625,
+          "round_medians": [
+            0.8554999999999999,
+            0.862,
+            0.821,
+            0.82
+          ]
+        },
+        "aiv_scalar_time(us)": {
+          "mean": 3.326,
+          "round_medians": [
+            3.2675,
+            3.5294999999999996,
+            3.2640000000000002,
+            3.2430000000000003
+          ]
+        },
+        "aiv_vec_time(us)": {
+          "mean": 1.549,
+          "round_medians": [
+            1.549,
+            1.549,
+            1.549,
+            1.549
+          ]
+        }
+      },
+      "J023": {
+        "Task Duration(us)": {
+          "mean": 9.08225,
+          "round_medians": [
+            8.9695,
+            9.18,
+            8.999500000000001,
+            9.18
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 7.178875,
+          "round_medians": [
+            6.872999999999999,
+            7.4510000000000005,
+            7.27,
+            7.1215
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "aiv_mte2_time(us)": {
+          "mean": 3.61475,
+          "round_medians": [
+            3.331,
+            3.862,
+            3.7485,
+            3.5175
+          ]
+        },
+        "aiv_mte3_time(us)": {
+          "mean": 0.864375,
+          "round_medians": [
+            0.7725,
+            0.849,
+            0.873,
+            0.963
+          ]
+        },
+        "aiv_scalar_time(us)": {
+          "mean": 3.18275,
+          "round_medians": [
+            3.0854999999999997,
+            3.3520000000000003,
+            3.114,
+            3.1795
+          ]
+        },
+        "aiv_vec_time(us)": {
+          "mean": 1.571,
+          "round_medians": [
+            1.571,
+            1.571,
+            1.571,
+            1.571
+          ]
+        }
+      },
+      "J024": {
+        "Task Duration(us)": {
+          "mean": 8.697,
+          "round_medians": [
+            10.039,
+            7.8395,
+            8.6295,
+            8.28
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 6.4355,
+          "round_medians": [
+            7.5385,
+            5.6075,
+            6.308,
+            6.288
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "aiv_mte2_time(us)": {
+          "mean": 2.7981249999999998,
+          "round_medians": [
+            3.02,
+            2.298,
+            2.948,
+            2.9265
+          ]
+        },
+        "aiv_mte3_time(us)": {
+          "mean": 0.548875,
+          "round_medians": [
+            0.63,
+            0.506,
+            0.544,
+            0.5155000000000001
+          ]
+        },
+        "aiv_scalar_time(us)": {
+          "mean": 3.05175,
+          "round_medians": [
+            4.0915,
+            2.675,
+            2.717,
+            2.7235
+          ]
+        },
+        "aiv_vec_time(us)": {
+          "mean": 1.439,
+          "round_medians": [
+            1.439,
+            1.439,
+            1.439,
+            1.439
+          ]
+        }
+      }
+    },
+    "dtype": "fp16",
+    "shape": [
+      41,
+      8208,
+      1
+    ],
+    "delta_vs_J023": -0.385250000000001,
+    "round_deltas_vs_J023": [
+      1.0694999999999997,
+      -1.3404999999999996,
+      -0.370000000000001,
+      -0.9000000000000004
+    ]
+  },
+  {
+    "case": "j024_fp16_n41c8208",
+    "window": "late",
+    "versions": {
+      "J018": {
+        "Task Duration(us)": {
+          "mean": 9.06475,
+          "round_medians": [
+            9.1,
+            9.06,
+            9.02,
+            9.079
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 7.089625,
+          "round_medians": [
+            6.962,
+            7.151,
+            7.235,
+            7.0105
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "aiv_mte2_time(us)": {
+          "mean": 3.517125,
+          "round_medians": [
+            3.4135,
+            3.515,
+            3.6955,
+            3.4444999999999997
+          ]
+        },
+        "aiv_mte3_time(us)": {
+          "mean": 0.8474999999999999,
+          "round_medians": [
+            0.86,
+            0.861,
+            0.831,
+            0.838
+          ]
+        },
+        "aiv_scalar_time(us)": {
+          "mean": 3.3286249999999997,
+          "round_medians": [
+            3.252,
+            3.5445,
+            3.258,
+            3.26
+          ]
+        },
+        "aiv_vec_time(us)": {
+          "mean": 1.549,
+          "round_medians": [
+            1.549,
+            1.549,
+            1.549,
+            1.549
+          ]
+        }
+      },
+      "J023": {
+        "Task Duration(us)": {
+          "mean": 9.089500000000001,
+          "round_medians": [
+            8.999,
+            9.179,
+            9.0,
+            9.18
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 7.178625,
+          "round_medians": [
+            6.862,
+            7.46,
+            7.279,
+            7.1135
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "aiv_mte2_time(us)": {
+          "mean": 3.620125,
+          "round_medians": [
+            3.33,
+            3.889,
+            3.7584999999999997,
+            3.503
+          ]
+        },
+        "aiv_mte3_time(us)": {
+          "mean": 0.869875,
+          "round_medians": [
+            0.7815000000000001,
+            0.8554999999999999,
+            0.879,
+            0.9635
+          ]
+        },
+        "aiv_scalar_time(us)": {
+          "mean": 3.178375,
+          "round_medians": [
+            3.076,
+            3.348,
+            3.113,
+            3.1765
+          ]
+        },
+        "aiv_vec_time(us)": {
+          "mean": 1.571,
+          "round_medians": [
+            1.571,
+            1.571,
+            1.571,
+            1.571
+          ]
+        }
+      },
+      "J024": {
+        "Task Duration(us)": {
+          "mean": 8.682375,
+          "round_medians": [
+            10.0095,
+            7.82,
+            8.6,
+            8.3
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 6.433125,
+          "round_medians": [
+            7.5395,
+            5.604,
+            6.291,
+            6.298
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "aiv_mte2_time(us)": {
+          "mean": 2.792125,
+          "round_medians": [
+            3.0095,
+            2.2935,
+            2.921,
+            2.9444999999999997
+          ]
+        },
+        "aiv_mte3_time(us)": {
+          "mean": 0.5455,
+          "round_medians": [
+            0.624,
+            0.506,
+            0.539,
+            0.513
+          ]
+        },
+        "aiv_scalar_time(us)": {
+          "mean": 3.0528750000000002,
+          "round_medians": [
+            4.093,
+            2.678,
+            2.723,
+            2.7175000000000002
+          ]
+        },
+        "aiv_vec_time(us)": {
+          "mean": 1.439,
+          "round_medians": [
+            1.439,
+            1.439,
+            1.439,
+            1.439
+          ]
+        }
+      }
+    },
+    "dtype": "fp16",
+    "shape": [
+      41,
+      8208,
+      1
+    ],
+    "delta_vs_J023": -0.4071250000000006,
+    "round_deltas_vs_J023": [
+      1.0104999999999986,
+      -1.359,
+      -0.40000000000000036,
+      -0.879999999999999
+    ]
+  },
+  {
+    "case": "j024_fp32_n10c32768",
+    "window": "old_window",
+    "versions": {
+      "J018": {
+        "Task Duration(us)": {
+          "mean": 7.7925,
+          "round_medians": [
+            7.76,
+            7.86,
+            7.77,
+            7.78
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 6.136625,
+          "round_medians": [
+            6.158,
+            6.115,
+            6.1425,
+            6.131
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "aiv_mte2_time(us)": {
+          "mean": 3.14725,
+          "round_medians": [
+            3.1775,
+            3.0645,
+            3.1855,
+            3.1615
+          ]
+        },
+        "aiv_mte3_time(us)": {
+          "mean": 0.67275,
+          "round_medians": [
+            0.69,
+            0.6855,
+            0.6495,
+            0.666
+          ]
+        },
+        "aiv_scalar_time(us)": {
+          "mean": 2.72325,
+          "round_medians": [
+            2.6535,
+            2.9379999999999997,
+            2.6470000000000002,
+            2.6545
+          ]
+        },
+        "aiv_vec_time(us)": {
+          "mean": 1.041,
+          "round_medians": [
+            1.041,
+            1.041,
+            1.041,
+            1.041
+          ]
+        }
+      },
+      "J023": {
+        "Task Duration(us)": {
+          "mean": 7.8225,
+          "round_medians": [
+            7.8100000000000005,
+            7.9,
+            7.64,
+            7.94
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 6.12925,
+          "round_medians": [
+            6.159,
+            6.171,
+            5.9285,
+            6.2585
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "aiv_mte2_time(us)": {
+          "mean": 3.13275,
+          "round_medians": [
+            3.201,
+            3.109,
+            2.96,
+            3.261
+          ]
+        },
+        "aiv_mte3_time(us)": {
+          "mean": 0.665,
+          "round_medians": [
+            0.684,
+            0.6555,
+            0.649,
+            0.6715
+          ]
+        },
+        "aiv_scalar_time(us)": {
+          "mean": 2.584625,
+          "round_medians": [
+            2.477,
+            2.771,
+            2.5035,
+            2.5869999999999997
+          ]
+        },
+        "aiv_vec_time(us)": {
+          "mean": 1.041,
+          "round_medians": [
+            1.041,
+            1.041,
+            1.041,
+            1.041
+          ]
+        }
+      },
+      "J024": {
+        "Task Duration(us)": {
+          "mean": 7.372375,
+          "round_medians": [
+            7.59,
+            6.92,
+            7.49,
+            7.4895
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 5.69375,
+          "round_medians": [
+            5.8870000000000005,
+            5.287,
+            5.792,
+            5.808999999999999
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "aiv_mte2_time(us)": {
+          "mean": 2.53675,
+          "round_medians": [
+            2.677,
+            2.199,
+            2.604,
+            2.667
+          ]
+        },
+        "aiv_mte3_time(us)": {
+          "mean": 0.705,
+          "round_medians": [
+            0.6915,
+            0.6835,
+            0.753,
+            0.692
+          ]
+        },
+        "aiv_scalar_time(us)": {
+          "mean": 2.5805000000000002,
+          "round_medians": [
+            2.7635,
+            2.4560000000000004,
+            2.5365,
+            2.566
+          ]
+        },
+        "aiv_vec_time(us)": {
+          "mean": 1.253,
+          "round_medians": [
+            1.253,
+            1.253,
+            1.253,
+            1.253
+          ]
+        }
+      }
+    },
+    "dtype": "fp32",
+    "shape": [
+      10,
+      32768,
+      1
+    ],
+    "delta_vs_J023": -0.4501249999999999,
+    "round_deltas_vs_J023": [
+      -0.22000000000000064,
+      -0.9800000000000004,
+      -0.14999999999999947,
+      -0.4505000000000008
+    ]
+  },
+  {
+    "case": "j024_fp32_n10c32768",
+    "window": "late",
+    "versions": {
+      "J018": {
+        "Task Duration(us)": {
+          "mean": 7.806875,
+          "round_medians": [
+            7.7895,
+            7.879,
+            7.78,
+            7.779
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 6.1392500000000005,
+          "round_medians": [
+            6.1605,
+            6.116,
+            6.1385000000000005,
+            6.142
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "aiv_mte2_time(us)": {
+          "mean": 3.1585,
+          "round_medians": [
+            3.202,
+            3.0725,
+            3.183,
+            3.1765
+          ]
+        },
+        "aiv_mte3_time(us)": {
+          "mean": 0.67225,
+          "round_medians": [
+            0.691,
+            0.68,
+            0.651,
+            0.667
+          ]
+        },
+        "aiv_scalar_time(us)": {
+          "mean": 2.717,
+          "round_medians": [
+            2.6390000000000002,
+            2.933,
+            2.6475,
+            2.6485000000000003
+          ]
+        },
+        "aiv_vec_time(us)": {
+          "mean": 1.041,
+          "round_medians": [
+            1.041,
+            1.041,
+            1.041,
+            1.041
+          ]
+        }
+      },
+      "J023": {
+        "Task Duration(us)": {
+          "mean": 7.805,
+          "round_medians": [
+            7.76,
+            7.9,
+            7.62,
+            7.94
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 6.130375,
+          "round_medians": [
+            6.145,
+            6.175,
+            5.934,
+            6.2675
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "aiv_mte2_time(us)": {
+          "mean": 3.135,
+          "round_medians": [
+            3.1795,
+            3.1125,
+            2.967,
+            3.2809999999999997
+          ]
+        },
+        "aiv_mte3_time(us)": {
+          "mean": 0.6635,
+          "round_medians": [
+            0.682,
+            0.654,
+            0.648,
+            0.67
+          ]
+        },
+        "aiv_scalar_time(us)": {
+          "mean": 2.5866249999999997,
+          "round_medians": [
+            2.491,
+            2.771,
+            2.502,
+            2.5825
+          ]
+        },
+        "aiv_vec_time(us)": {
+          "mean": 1.041,
+          "round_medians": [
+            1.041,
+            1.041,
+            1.041,
+            1.041
+          ]
+        }
+      },
+      "J024": {
+        "Task Duration(us)": {
+          "mean": 7.36475,
+          "round_medians": [
+            7.599,
+            6.92,
+            7.46,
+            7.48
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 5.672875,
+          "round_medians": [
+            5.865,
+            5.268000000000001,
+            5.763,
+            5.7955000000000005
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "aiv_mte2_time(us)": {
+          "mean": 2.492375,
+          "round_medians": [
+            2.635,
+            2.156,
+            2.583,
+            2.5955000000000004
+          ]
+        },
+        "aiv_mte3_time(us)": {
+          "mean": 0.6987500000000001,
+          "round_medians": [
+            0.6845000000000001,
+            0.684,
+            0.7395,
+            0.687
+          ]
+        },
+        "aiv_scalar_time(us)": {
+          "mean": 2.586625,
+          "round_medians": [
+            2.7705,
+            2.468,
+            2.553,
+            2.555
+          ]
+        },
+        "aiv_vec_time(us)": {
+          "mean": 1.253,
+          "round_medians": [
+            1.253,
+            1.253,
+            1.253,
+            1.253
+          ]
+        }
+      }
+    },
+    "dtype": "fp32",
+    "shape": [
+      10,
+      32768,
+      1
+    ],
+    "delta_vs_J023": -0.4402499999999998,
+    "round_deltas_vs_J023": [
+      -0.1609999999999996,
+      -0.9800000000000004,
+      -0.16000000000000014,
+      -0.45999999999999996
+    ]
+  },
+  {
+    "case": "j024_fp32_n127c8192",
+    "window": "old_window",
+    "versions": {
+      "J018": {
+        "Task Duration(us)": {
+          "mean": 14.09225,
+          "round_medians": [
+            14.54,
+            14.370000000000001,
+            13.36,
+            14.099
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 12.315999999999999,
+          "round_medians": [
+            12.742,
+            12.629,
+            11.651499999999999,
+            12.241499999999998
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "aiv_mte2_time(us)": {
+          "mean": 6.776999999999999,
+          "round_medians": [
+            7.1884999999999994,
+            7.07,
+            6.140499999999999,
+            6.709
+          ]
+        },
+        "aiv_mte3_time(us)": {
+          "mean": 2.734875,
+          "round_medians": [
+            2.9695,
+            2.759,
+            2.4195,
+            2.7915
+          ]
+        },
+        "aiv_scalar_time(us)": {
+          "mean": 5.202375,
+          "round_medians": [
+            5.1305,
+            5.414,
+            5.132,
+            5.133
+          ]
+        },
+        "aiv_vec_time(us)": {
+          "mean": 3.353,
+          "round_medians": [
+            3.353,
+            3.353,
+            3.353,
+            3.353
+          ]
+        }
+      },
+      "J023": {
+        "Task Duration(us)": {
+          "mean": 14.20725,
+          "round_medians": [
+            15.1,
+            13.59,
+            13.84,
+            14.299
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 12.389875,
+          "round_medians": [
+            13.0835,
+            11.8475,
+            12.120999999999999,
+            12.5075
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "aiv_mte2_time(us)": {
+          "mean": 6.831625,
+          "round_medians": [
+            7.547499999999999,
+            6.2435,
+            6.5835,
+            6.952
+          ]
+        },
+        "aiv_mte3_time(us)": {
+          "mean": 2.707,
+          "round_medians": [
+            3.2065,
+            2.4635,
+            2.5475000000000003,
+            2.6105
+          ]
+        },
+        "aiv_scalar_time(us)": {
+          "mean": 4.862375,
+          "round_medians": [
+            4.753,
+            5.054,
+            4.775,
+            4.8675
+          ]
+        },
+        "aiv_vec_time(us)": {
+          "mean": 3.353,
+          "round_medians": [
+            3.353,
+            3.353,
+            3.353,
+            3.353
+          ]
+        }
+      },
+      "J024": {
+        "Task Duration(us)": {
+          "mean": 11.894749999999998,
+          "round_medians": [
+            12.029499999999999,
+            11.439499999999999,
+            12.1,
+            12.01
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 9.80875,
+          "round_medians": [
+            10.059000000000001,
+            9.3295,
+            9.952,
+            9.8945
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "aiv_mte2_time(us)": {
+          "mean": 4.170625,
+          "round_medians": [
+            4.389,
+            3.769,
+            4.279,
+            4.2455
+          ]
+        },
+        "aiv_mte3_time(us)": {
+          "mean": 1.943875,
+          "round_medians": [
+            1.9195,
+            1.9649999999999999,
+            1.966,
+            1.925
+          ]
+        },
+        "aiv_scalar_time(us)": {
+          "mean": 4.500625,
+          "round_medians": [
+            4.673500000000001,
+            4.3385,
+            4.5095,
+            4.481
+          ]
+        },
+        "aiv_vec_time(us)": {
+          "mean": 3.507,
+          "round_medians": [
+            3.507,
+            3.507,
+            3.507,
+            3.507
+          ]
+        }
+      }
+    },
+    "dtype": "fp32",
+    "shape": [
+      127,
+      8192,
+      1
+    ],
+    "delta_vs_J023": -2.3125000000000018,
+    "round_deltas_vs_J023": [
+      -3.070500000000001,
+      -2.150500000000001,
+      -1.7400000000000002,
+      -2.2889999999999997
+    ]
+  },
+  {
+    "case": "j024_fp32_n127c8192",
+    "window": "late",
+    "versions": {
+      "J018": {
+        "Task Duration(us)": {
+          "mean": 14.095,
+          "round_medians": [
+            14.52,
+            14.38,
+            13.4,
+            14.08
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 12.312249999999999,
+          "round_medians": [
+            12.738,
+            12.648,
+            11.651,
+            12.212
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "aiv_mte2_time(us)": {
+          "mean": 6.7735,
+          "round_medians": [
+            7.181,
+            7.0745000000000005,
+            6.136,
+            6.7025
+          ]
+        },
+        "aiv_mte3_time(us)": {
+          "mean": 2.7268749999999997,
+          "round_medians": [
+            2.97,
+            2.7664999999999997,
+            2.408,
+            2.763
+          ]
+        },
+        "aiv_scalar_time(us)": {
+          "mean": 5.1955,
+          "round_medians": [
+            5.132,
+            5.405,
+            5.1235,
+            5.1215
+          ]
+        },
+        "aiv_vec_time(us)": {
+          "mean": 3.353,
+          "round_medians": [
+            3.353,
+            3.353,
+            3.353,
+            3.353
+          ]
+        }
+      },
+      "J023": {
+        "Task Duration(us)": {
+          "mean": 14.17975,
+          "round_medians": [
+            15.06,
+            13.579,
+            13.84,
+            14.24
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 12.393875,
+          "round_medians": [
+            13.08,
+            11.849499999999999,
+            12.1355,
+            12.5105
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "aiv_mte2_time(us)": {
+          "mean": 6.837999999999999,
+          "round_medians": [
+            7.5535,
+            6.249499999999999,
+            6.5969999999999995,
+            6.952
+          ]
+        },
+        "aiv_mte3_time(us)": {
+          "mean": 2.707375,
+          "round_medians": [
+            3.207,
+            2.464,
+            2.5484999999999998,
+            2.61
+          ]
+        },
+        "aiv_scalar_time(us)": {
+          "mean": 4.859375,
+          "round_medians": [
+            4.749499999999999,
+            5.045,
+            4.7745,
+            4.8685
+          ]
+        },
+        "aiv_vec_time(us)": {
+          "mean": 3.353,
+          "round_medians": [
+            3.353,
+            3.353,
+            3.353,
+            3.353
+          ]
+        }
+      },
+      "J024": {
+        "Task Duration(us)": {
+          "mean": 11.8945,
+          "round_medians": [
+            12.059,
+            11.4,
+            12.099,
+            12.02
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 9.810500000000001,
+          "round_medians": [
+            10.0555,
+            9.336,
+            9.95,
+            9.900500000000001
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "aiv_mte2_time(us)": {
+          "mean": 4.172375000000001,
+          "round_medians": [
+            4.375,
+            3.782,
+            4.2795000000000005,
+            4.253
+          ]
+        },
+        "aiv_mte3_time(us)": {
+          "mean": 1.94575,
+          "round_medians": [
+            1.92,
+            1.967,
+            1.967,
+            1.929
+          ]
+        },
+        "aiv_scalar_time(us)": {
+          "mean": 4.494125,
+          "round_medians": [
+            4.6754999999999995,
+            4.333,
+            4.5095,
+            4.4585
+          ]
+        },
+        "aiv_vec_time(us)": {
+          "mean": 3.507,
+          "round_medians": [
+            3.507,
+            3.507,
+            3.507,
+            3.507
+          ]
+        }
+      }
+    },
+    "dtype": "fp32",
+    "shape": [
+      127,
+      8192,
+      1
+    ],
+    "delta_vs_J023": -2.2852499999999996,
+    "round_deltas_vs_J023": [
+      -3.0010000000000012,
+      -2.1790000000000003,
+      -1.7409999999999997,
+      -2.2200000000000006
+    ]
+  },
+  {
+    "case": "j024_fp32_n40c8192",
+    "window": "old_window",
+    "versions": {
+      "J018": {
+        "Task Duration(us)": {
+          "mean": 8.0625,
+          "round_medians": [
+            7.88,
+            8.46,
+            7.94,
+            7.970000000000001
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 6.268,
+          "round_medians": [
+            6.0895,
+            6.308,
+            6.3149999999999995,
+            6.3595
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "aiv_mte2_time(us)": {
+          "mean": 3.330875,
+          "round_medians": [
+            3.159,
+            3.3245,
+            3.408,
+            3.4320000000000004
+          ]
+        },
+        "aiv_mte3_time(us)": {
+          "mean": 0.729625,
+          "round_medians": [
+            0.769,
+            0.786,
+            0.6915,
+            0.672
+          ]
+        },
+        "aiv_scalar_time(us)": {
+          "mean": 2.7247500000000002,
+          "round_medians": [
+            2.6740000000000004,
+            2.9225,
+            2.6470000000000002,
+            2.6555
+          ]
+        },
+        "aiv_vec_time(us)": {
+          "mean": 1.041,
+          "round_medians": [
+            1.041,
+            1.041,
+            1.041,
+            1.041
+          ]
+        }
+      },
+      "J023": {
+        "Task Duration(us)": {
+          "mean": 7.982375,
+          "round_medians": [
+            7.99,
+            8.04,
+            7.7795000000000005,
+            8.120000000000001
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 6.30575,
+          "round_medians": [
+            6.353,
+            6.351,
+            6.1105,
+            6.4085
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "aiv_mte2_time(us)": {
+          "mean": 3.3737500000000002,
+          "round_medians": [
+            3.4535,
+            3.3625,
+            3.1965000000000003,
+            3.4825
+          ]
+        },
+        "aiv_mte3_time(us)": {
+          "mean": 0.698125,
+          "round_medians": [
+            0.6745000000000001,
+            0.695,
+            0.666,
+            0.757
+          ]
+        },
+        "aiv_scalar_time(us)": {
+          "mean": 2.575625,
+          "round_medians": [
+            2.4865,
+            2.742,
+            2.4975,
+            2.5765000000000002
+          ]
+        },
+        "aiv_vec_time(us)": {
+          "mean": 1.041,
+          "round_medians": [
+            1.041,
+            1.041,
+            1.041,
+            1.041
+          ]
+        }
+      },
+      "J024": {
+        "Task Duration(us)": {
+          "mean": 7.649625,
+          "round_medians": [
+            7.94,
+            7.159,
+            7.76,
+            7.7395
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 5.98325,
+          "round_medians": [
+            6.2395,
+            5.378,
+            6.102,
+            6.2135
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "aiv_mte2_time(us)": {
+          "mean": 2.879625,
+          "round_medians": [
+            3.1205,
+            2.4539999999999997,
+            2.8425000000000002,
+            3.1014999999999997
+          ]
+        },
+        "aiv_mte3_time(us)": {
+          "mean": 0.679875,
+          "round_medians": [
+            0.6585000000000001,
+            0.6185,
+            0.7775000000000001,
+            0.665
+          ]
+        },
+        "aiv_scalar_time(us)": {
+          "mean": 2.611625,
+          "round_medians": [
+            2.7904999999999998,
+            2.447,
+            2.6225,
+            2.5865
+          ]
+        },
+        "aiv_vec_time(us)": {
+          "mean": 1.121,
+          "round_medians": [
+            1.121,
+            1.121,
+            1.121,
+            1.121
+          ]
+        }
+      }
+    },
+    "dtype": "fp32",
+    "shape": [
+      40,
+      8192,
+      1
+    ],
+    "delta_vs_J023": -0.3327499999999999,
+    "round_deltas_vs_J023": [
+      -0.04999999999999982,
+      -0.8809999999999993,
+      -0.01950000000000074,
+      -0.3805000000000014
+    ]
+  },
+  {
+    "case": "j024_fp32_n40c8192",
+    "window": "late",
+    "versions": {
+      "J018": {
+        "Task Duration(us)": {
+          "mean": 8.05975,
+          "round_medians": [
+            7.88,
+            8.42,
+            7.9595,
+            7.9795
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 6.264,
+          "round_medians": [
+            6.096,
+            6.306,
+            6.3025,
+            6.3515
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "aiv_mte2_time(us)": {
+          "mean": 3.328125,
+          "round_medians": [
+            3.187,
+            3.3034999999999997,
+            3.393,
+            3.429
+          ]
+        },
+        "aiv_mte3_time(us)": {
+          "mean": 0.7322500000000001,
+          "round_medians": [
+            0.769,
+            0.782,
+            0.7,
+            0.678
+          ]
+        },
+        "aiv_scalar_time(us)": {
+          "mean": 2.723,
+          "round_medians": [
+            2.6565000000000003,
+            2.9375,
+            2.6485000000000003,
+            2.6494999999999997
+          ]
+        },
+        "aiv_vec_time(us)": {
+          "mean": 1.041,
+          "round_medians": [
+            1.041,
+            1.041,
+            1.041,
+            1.041
+          ]
+        }
+      },
+      "J023": {
+        "Task Duration(us)": {
+          "mean": 7.95975,
+          "round_medians": [
+            7.959,
+            8.04,
+            7.74,
+            8.1
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 6.2986249999999995,
+          "round_medians": [
+            6.353,
+            6.3225,
+            6.1,
+            6.4190000000000005
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "aiv_mte2_time(us)": {
+          "mean": 3.3615,
+          "round_medians": [
+            3.4505,
+            3.3165,
+            3.182,
+            3.497
+          ]
+        },
+        "aiv_mte3_time(us)": {
+          "mean": 0.696625,
+          "round_medians": [
+            0.6735,
+            0.689,
+            0.664,
+            0.76
+          ]
+        },
+        "aiv_scalar_time(us)": {
+          "mean": 2.582125,
+          "round_medians": [
+            2.49,
+            2.7595,
+            2.499,
+            2.58
+          ]
+        },
+        "aiv_vec_time(us)": {
+          "mean": 1.041,
+          "round_medians": [
+            1.041,
+            1.041,
+            1.041,
+            1.041
+          ]
+        }
+      },
+      "J024": {
+        "Task Duration(us)": {
+          "mean": 7.63,
+          "round_medians": [
+            7.9,
+            7.14,
+            7.76,
+            7.72
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 5.97575,
+          "round_medians": [
+            6.2275,
+            5.3785,
+            6.091,
+            6.206
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "aiv_mte2_time(us)": {
+          "mean": 2.8716250000000003,
+          "round_medians": [
+            3.1035000000000004,
+            2.454,
+            2.829,
+            3.1
+          ]
+        },
+        "aiv_mte3_time(us)": {
+          "mean": 0.6775,
+          "round_medians": [
+            0.6595,
+            0.614,
+            0.7705,
+            0.666
+          ]
+        },
+        "aiv_scalar_time(us)": {
+          "mean": 2.614375,
+          "round_medians": [
+            2.795,
+            2.449,
+            2.629,
+            2.5845000000000002
+          ]
+        },
+        "aiv_vec_time(us)": {
+          "mean": 1.121,
+          "round_medians": [
+            1.121,
+            1.121,
+            1.121,
+            1.121
+          ]
+        }
+      }
+    },
+    "dtype": "fp32",
+    "shape": [
+      40,
+      8192,
+      1
+    ],
+    "delta_vs_J023": -0.32974999999999977,
+    "round_deltas_vs_J023": [
+      -0.058999999999999275,
+      -0.8999999999999995,
+      0.019999999999999574,
+      -0.3799999999999999
+    ]
+  },
+  {
+    "case": "j024_fp32_n41c8208",
+    "window": "old_window",
+    "versions": {
+      "J018": {
+        "Task Duration(us)": {
+          "mean": 8.75475,
+          "round_medians": [
+            8.619499999999999,
+            8.66,
+            8.96,
+            8.779499999999999
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 6.78675,
+          "round_medians": [
+            6.685499999999999,
+            6.537,
+            7.0215,
+            6.9030000000000005
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "aiv_mte2_time(us)": {
+          "mean": 3.59675,
+          "round_medians": [
+            3.5164999999999997,
+            3.2415000000000003,
+            3.866,
+            3.763
+          ]
+        },
+        "aiv_mte3_time(us)": {
+          "mean": 0.894625,
+          "round_medians": [
+            0.8734999999999999,
+            0.8985000000000001,
+            0.936,
+            0.8705
+          ]
+        },
+        "aiv_scalar_time(us)": {
+          "mean": 3.102125,
+          "round_medians": [
+            3.026,
+            3.3175,
+            3.0295,
+            3.0355
+          ]
+        },
+        "aiv_vec_time(us)": {
+          "mean": 1.155,
+          "round_medians": [
+            1.155,
+            1.155,
+            1.155,
+            1.155
+          ]
+        }
+      },
+      "J023": {
+        "Task Duration(us)": {
+          "mean": 8.784375,
+          "round_medians": [
+            8.959,
+            8.929,
+            8.52,
+            8.729500000000002
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 6.897125,
+          "round_medians": [
+            6.9615,
+            7.0785,
+            6.753,
+            6.7955000000000005
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "aiv_mte2_time(us)": {
+          "mean": 3.7251250000000002,
+          "round_medians": [
+            3.8365,
+            3.859,
+            3.615,
+            3.59
+          ]
+        },
+        "aiv_mte3_time(us)": {
+          "mean": 0.8985,
+          "round_medians": [
+            0.862,
+            0.9215,
+            0.891,
+            0.9195
+          ]
+        },
+        "aiv_scalar_time(us)": {
+          "mean": 2.9354999999999998,
+          "round_medians": [
+            2.8335,
+            3.118,
+            2.8625,
+            2.928
+          ]
+        },
+        "aiv_vec_time(us)": {
+          "mean": 1.155,
+          "round_medians": [
+            1.155,
+            1.155,
+            1.155,
+            1.155
+          ]
+        }
+      },
+      "J024": {
+        "Task Duration(us)": {
+          "mean": 8.21475,
+          "round_medians": [
+            8.529499999999999,
+            7.64,
+            8.4495,
+            8.24
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 6.0915,
+          "round_medians": [
+            6.321,
+            5.609999999999999,
+            6.154999999999999,
+            6.279999999999999
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "aiv_mte2_time(us)": {
+          "mean": 2.966375,
+          "round_medians": [
+            3.2110000000000003,
+            2.5525,
+            2.9989999999999997,
+            3.1029999999999998
+          ]
+        },
+        "aiv_mte3_time(us)": {
+          "mean": 0.775625,
+          "round_medians": [
+            0.762,
+            0.751,
+            0.7715000000000001,
+            0.818
+          ]
+        },
+        "aiv_scalar_time(us)": {
+          "mean": 2.64125,
+          "round_medians": [
+            2.8354999999999997,
+            2.548,
+            2.607,
+            2.5745
+          ]
+        },
+        "aiv_vec_time(us)": {
+          "mean": 1.113,
+          "round_medians": [
+            1.113,
+            1.113,
+            1.113,
+            1.113
+          ]
+        }
+      }
+    },
+    "dtype": "fp32",
+    "shape": [
+      41,
+      8208,
+      1
+    ],
+    "delta_vs_J023": -0.5696250000000003,
+    "round_deltas_vs_J023": [
+      -0.4295000000000009,
+      -1.2890000000000006,
+      -0.07049999999999912,
+      -0.4895000000000014
+    ]
+  },
+  {
+    "case": "j024_fp32_n41c8208",
+    "window": "late",
+    "versions": {
+      "J018": {
+        "Task Duration(us)": {
+          "mean": 8.76975,
+          "round_medians": [
+            8.64,
+            8.66,
+            8.999,
+            8.78
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 6.784875,
+          "round_medians": [
+            6.6805,
+            6.547,
+            7.0205,
+            6.891500000000001
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "aiv_mte2_time(us)": {
+          "mean": 3.5968750000000003,
+          "round_medians": [
+            3.503,
+            3.2460000000000004,
+            3.8765,
+            3.762
+          ]
+        },
+        "aiv_mte3_time(us)": {
+          "mean": 0.89175,
+          "round_medians": [
+            0.879,
+            0.902,
+            0.922,
+            0.864
+          ]
+        },
+        "aiv_scalar_time(us)": {
+          "mean": 3.106625,
+          "round_medians": [
+            3.031,
+            3.324,
+            3.036,
+            3.0355
+          ]
+        },
+        "aiv_vec_time(us)": {
+          "mean": 1.155,
+          "round_medians": [
+            1.155,
+            1.155,
+            1.155,
+            1.155
+          ]
+        }
+      },
+      "J023": {
+        "Task Duration(us)": {
+          "mean": 8.769625,
+          "round_medians": [
+            8.939499999999999,
+            8.92,
+            8.519,
+            8.7
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 6.8892500000000005,
+          "round_medians": [
+            6.933,
+            7.0705,
+            6.7605,
+            6.793
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "aiv_mte2_time(us)": {
+          "mean": 3.7112499999999997,
+          "round_medians": [
+            3.8,
+            3.838,
+            3.622,
+            3.585
+          ]
+        },
+        "aiv_mte3_time(us)": {
+          "mean": 0.897375,
+          "round_medians": [
+            0.8605,
+            0.917,
+            0.892,
+            0.92
+          ]
+        },
+        "aiv_scalar_time(us)": {
+          "mean": 2.9435,
+          "round_medians": [
+            2.8434999999999997,
+            3.1285,
+            2.862,
+            2.94
+          ]
+        },
+        "aiv_vec_time(us)": {
+          "mean": 1.155,
+          "round_medians": [
+            1.155,
+            1.155,
+            1.155,
+            1.155
+          ]
+        }
+      },
+      "J024": {
+        "Task Duration(us)": {
+          "mean": 8.202125,
+          "round_medians": [
+            8.52,
+            7.639,
+            8.46,
+            8.189499999999999
+          ]
+        },
+        "aiv_time(us)": {
+          "mean": 6.091875,
+          "round_medians": [
+            6.32,
+            5.613,
+            6.1635,
+            6.271
+          ]
+        },
+        "aiv_icache_miss_rate": {
+          "mean": 0.0,
+          "round_medians": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "aiv_mte2_time(us)": {
+          "mean": 2.966,
+          "round_medians": [
+            3.2085,
+            2.554,
+            3.043,
+            3.0585
+          ]
+        },
+        "aiv_mte3_time(us)": {
+          "mean": 0.7745,
+          "round_medians": [
+            0.758,
+            0.751,
+            0.766,
+            0.823
+          ]
+        },
+        "aiv_scalar_time(us)": {
+          "mean": 2.64525,
+          "round_medians": [
+            2.839,
+            2.547,
+            2.592,
+            2.6029999999999998
+          ]
+        },
+        "aiv_vec_time(us)": {
+          "mean": 1.113,
+          "round_medians": [
+            1.113,
+            1.113,
+            1.113,
+            1.113
+          ]
+        }
+      }
+    },
+    "dtype": "fp32",
+    "shape": [
+      41,
+      8208,
+      1
+    ],
+    "delta_vs_J023": -0.567499999999999,
+    "round_deltas_vs_J023": [
+      -0.4194999999999993,
+      -1.2809999999999997,
+      -0.058999999999999275,
+      -0.5105000000000004
+    ]
+  }
+]

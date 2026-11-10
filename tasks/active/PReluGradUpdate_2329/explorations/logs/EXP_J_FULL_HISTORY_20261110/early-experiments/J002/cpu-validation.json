@@ -1,0 +1,14 @@
+{
+  "date": "2026-11-03",
+  "commands": [
+    {"command": "python -B diagnose.py selftest", "exit_code": 0, "result": {"cpu_diagnostic_selftest": "PASS", "checks": 15, "npu_executed": false}},
+    {"command": "python -B diagnose.py generate j002-cpu-fixtures --code <JadeYara/workdir/code>", "exit_code": 0, "result": {"generated": 30, "npu_executed": false}},
+    {"command": "python -B verify_cpu.py j002-cpu-fixtures <JadeYara/workdir/code>", "exit_code": 0, "result": {"cpu_reference_comparison": "PASS", "cases": 30, "output_elements": 3609882, "npu_executed": false}},
+    {"command": "python -B diagnose.py check j002-cpu-fixtures", "exit_code": 1, "expected_failure": "device outputs absent", "result": {"exact_matches": 0, "total": 30}}
+  ],
+  "cpp_compilation": "NOT RUN: CANN SDK/compiler/device unavailable in current environment",
+  "host_ut": "NOT RUN",
+  "npu_tests": "NOT RUN",
+  "judge_submission": "NOT RUN by this session",
+  "reported_submission": {"id": "1109131", "page_time": "2026-11-03 22:53:30", "result": "Wrong Answer", "case_1_reported_error_percent": 100, "case_1_reported_time_us": 3.48, "cases_2_through_5": "Skipped", "artifact_binding": "UNCONFIRMED", "source": "user screenshot report relayed by parent", "valid_performance_result": false}
+}

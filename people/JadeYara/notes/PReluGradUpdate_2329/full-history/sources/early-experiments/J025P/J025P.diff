@@ -1,0 +1,31 @@
+--- J024/host
++++ J025P/host
+@@ -5,6 +5,7 @@
+ 
+ #include <algorithm>
+ #include <cstdint>
++#include <cstdlib>
+ #include "register/op_def_registry.h"
+ #include "op_common/log/log.h"
+ #include "op_common/op_host/util/platform_util.h"
+@@ -236,10 +237,16 @@
+ 
+     // A core owns one channel tile and a contiguous batch range.
+     // Reuse weights where a complete channel vector cannot fit in one tile.
+-    if (vectorWeights && channelNum % blockElements == 0 && channelNum > maxTile) {
+-        const int64_t cTiles = CeilDivI64(channelNum, maxTile);
+-        if (cTiles <= hardwareCoreNum) {
+-            const int64_t batchGroups = hardwareCoreNum / cTiles;
++    // Measurement-only controls. Final candidate removes these environment reads.
++    const char* coreEnv = std::getenv("J025_CORE_BUDGET");
++    const char* divEnv = std::getenv("J025_TILE_DIV");
++    const int64_t probeCores = coreEnv ? std::atoll(coreEnv) : hardwareCoreNum;
++    const int64_t probeDiv = divEnv ? std::atoll(divEnv) : 1;
++    const int64_t probeTile = (maxTile / probeDiv / CMP_ALIGN_FLOAT) * CMP_ALIGN_FLOAT;
++    if (probeCores > 0 && vectorWeights && channelNum % blockElements == 0 && channelNum > maxTile) {
++        const int64_t cTiles = CeilDivI64(channelNum, probeTile);
++        if (cTiles <= probeCores) {
++            const int64_t batchGroups = probeCores / cTiles;
+             const int64_t batchSize = totalNum / channelNum;
+             if (batchSize >= 2 * batchGroups) {
+                 tileLen = AlignUpI64(CeilDivI64(channelNum, cTiles), CMP_ALIGN_FLOAT);

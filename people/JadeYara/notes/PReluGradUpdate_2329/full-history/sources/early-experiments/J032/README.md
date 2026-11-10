@@ -1,0 +1,4 @@
+# J032: release converted low-precision inputs earlier
+
+From J026, only split-C FP16/BF16: move grads/features FreeTensor after both input Casts and the existing PIPE_V barrier, before weight Cast and math. No FP32 change because it aliases the original inputs. No queue depth, tile, UB, core count, arithmetic or output changes. J031 observed an input-lifetime gap of 1036 model cycles after the last input Cast; this motivates an actual-device test, not a performance prediction.
+Compile; run 723 existing and new held-out boundary precision cases; verify every invocation in a bounded repeated stress runner; four alternating ABBA/BAAB rounds versus J026 using existing performance protocol. Use simulation only to check the event moved. Stop after this candidate. No installs, network changes, submission or push.

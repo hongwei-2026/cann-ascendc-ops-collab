@@ -1,0 +1,5 @@
+# J051/J052: CANN 9.3 A/B/C weight conversion isolation
+
+A=J050 (exact J035 source rebuilt on 9.3). B=J051: independent FP32 weight buffer, conversion on every tile. C=J052: same buffer/layout, first-tile conversion cache (exact J049 source rebuilt on 9.3). FP32 retains the original J035 class. A/B includes UB allocation, initialization and operand address/in-place differences; B/C isolates conversion caching and associated branch scheduling. No official-shape inference or platform action.
+
+J050 baseline passed 780 precision cases and 5184 checked invocations. Same-process A/A ordinary profiling maximum delta 0.0195 us; enqueue reached 0.467 us and is not used alone to accept gains. Direct binary launch was investigated but not executed: generated metadata opParaSize=88 differs from the visible seven-pointer signature; ABI is not yet verified. Use balanced ordinary profiling with repeated A controls, log all five allocation addresses, and treat cross-process allocation/state variation as a remaining confounder. Only repeatable differences exceeding controls justify a dispatch rule. Cover small controls and split-C N/C/dtype reuse ranges with holdouts.

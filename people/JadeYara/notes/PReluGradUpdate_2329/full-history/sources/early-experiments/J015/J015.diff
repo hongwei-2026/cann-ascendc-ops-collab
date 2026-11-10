@@ -1,0 +1,38 @@
+--- J014/op_kernel/p_relu_grad_update_s1.h
++++ J015/op_kernel/p_relu_grad_update_s1.h
+@@ -172,13 +172,14 @@
+         LocalTensor<T> weightsLocal = weightsQueue_.AllocTensor<T>();
+         const int64_t weightOffset = (blockStart_ + progress) % channelNum_;
+         if (mergeWeights_) {
+-            // All intermediate destinations are 32B aligned. Only the final
+-            // segment may need padding; queue synchronization covers all loads.
++            // Load at most one rotated period. DeQue in Compute synchronizes
++            // these MTE2 writes before the remaining UB copies.
++            const int64_t seedNum = currentNum < channelNum_ ? currentNum : channelNum_;
+             int64_t copied = 0;
+             int64_t offset = weightOffset;
+-            while (copied < currentNum) {
++            while (copied < seedNum) {
+                 int64_t count = channelNum_ - offset;
+-                if (count > currentNum - copied) count = currentNum - copied;
++                if (count > seedNum - copied) count = seedNum - copied;
+                 DataCopyExtParams weightCopy = {1, static_cast<uint32_t>(count * sizeof(T)), 0, 0, 0};
+                 DataCopyPadExtParams<T> weightPad = {true, 0,
+                     static_cast<uint8_t>(AlignUp(count, tBlockElements) - count), padVal};
+@@ -238,6 +239,16 @@
+     LocalTensor<T> weightsLocal;
+     if (vectorWeights_) {
+         weightsLocal = weightsQueue_.DeQue<T>();
++        if (mergeWeights_ && currentNum > channelNum_) {
++            const int64_t copyAlign = 32 / sizeof(T);
++            for (int64_t copied = channelNum_; copied < currentNum; copied += channelNum_) {
++                int64_t count = currentNum - copied;
++                if (count > channelNum_) count = channelNum_;
++                DataCopy(weightsLocal[copied], weightsLocal,
++                    static_cast<uint32_t>(AlignUp(count, copyAlign)));
++            }
++            PipeBarrier<PIPE_V>();
++        }
+         if constexpr (std::is_same<T, float>::value) {
+             Mul(negLocal, gradsFloat, weightsLocal.template ReinterpretCast<float>(), currentNum);
+         } else {

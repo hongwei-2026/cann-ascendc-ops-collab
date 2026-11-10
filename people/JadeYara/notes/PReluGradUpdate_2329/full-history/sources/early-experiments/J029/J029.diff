@@ -1,0 +1,109 @@
+--- J026/splitc.h
++++ J029/splitc.h
+@@ -44,11 +44,9 @@
+ 
+ private:
+     TPipe pipe_;
+-    TQue<QuePosition::VECIN, BUFFER_NUM> gradsQueue_;
+-    TQue<QuePosition::VECIN, BUFFER_NUM> featuresQueue_;
++    TQue<QuePosition::VECIN, BUFFER_NUM> inputsQueue_;
+     TQue<QuePosition::VECIN, BUFFER_NUM> weightsQueue_;
+-    TQue<QuePosition::VECOUT, BUFFER_NUM> dxQueue_;
+-    TQue<QuePosition::VECOUT, BUFFER_NUM> updateQueue_;
++    TQue<QuePosition::VECOUT, BUFFER_NUM> outputsQueue_;
+ 
+     TBuf<TPosition::VECCALC> negFloatBuf_;
+     TBuf<TPosition::VECCALC> fgFloatBuf_;
+@@ -71,6 +69,7 @@
+     int64_t channelOffset_ = 0;
+     bool firstTile_ = true;
+     int64_t tileLen_ = 0;
++    int64_t pairOffset_ = 0;
+     int64_t channelNum_ = 0;
+     int64_t innerSize_ = 0;
+     int64_t weightsPerChannel_ = 0;
+@@ -133,13 +132,12 @@
+     const int64_t alignedCount = AlignUp(tileLen_, CMP_ALIGN_FLOAT);
+     const int64_t alignedMaskBytes = AlignUp(alignedCount, 32);
+ 
+-    pipe_.InitBuffer(gradsQueue_, BUFFER_NUM, alignedCount * sizeof(T));
+-    pipe_.InitBuffer(featuresQueue_, BUFFER_NUM, alignedCount * sizeof(T));
++    pairOffset_ = alignedCount;
++    pipe_.InitBuffer(inputsQueue_, BUFFER_NUM, 2 * alignedCount * sizeof(T));
+     if (vectorWeights_) {
+         pipe_.InitBuffer(weightsQueue_, BUFFER_NUM, alignedCount * sizeof(T));
+     }
+-    pipe_.InitBuffer(dxQueue_, BUFFER_NUM, alignedCount * sizeof(T));
+-    pipe_.InitBuffer(updateQueue_, BUFFER_NUM, alignedCount * sizeof(T));
++    pipe_.InitBuffer(outputsQueue_, BUFFER_NUM, 2 * alignedCount * sizeof(T));
+     pipe_.InitBuffer(maskBuf_, alignedMaskBytes);
+     pipe_.InitBuffer(negFloatBuf_, alignedCount * sizeof(float));
+     pipe_.InitBuffer(fgFloatBuf_, alignedCount * sizeof(float));
+@@ -157,8 +155,9 @@
+ template <typename T>
+ __aicore__ inline void PReluGradUpdate<T>::CopyIn(int64_t progress, int64_t currentNum)
+ {
+-    LocalTensor<T> gradsLocal = gradsQueue_.AllocTensor<T>();
+-    LocalTensor<T> featuresLocal = featuresQueue_.AllocTensor<T>();
++    LocalTensor<T> inputsLocal = inputsQueue_.AllocTensor<T>();
++    LocalTensor<T> gradsLocal = inputsLocal;
++    LocalTensor<T> featuresLocal = inputsLocal[pairOffset_];
+ 
+     const int64_t tBlockElements = 32 / static_cast<int64_t>(sizeof(T));
+     const int64_t paddedNum = AlignUp(currentNum, tBlockElements);
+@@ -198,17 +197,18 @@
+         }
+         weightsQueue_.EnQue(weightsLocal);
+     }
+-    gradsQueue_.EnQue(gradsLocal);
+-    featuresQueue_.EnQue(featuresLocal);
++    inputsQueue_.EnQue(inputsLocal);
+ }
+ 
+ template <typename T>
+ __aicore__ inline void PReluGradUpdate<T>::Compute(int64_t progress, int64_t currentNum)
+ {
+-    LocalTensor<T> gradsLocal = gradsQueue_.DeQue<T>();
+-    LocalTensor<T> featuresLocal = featuresQueue_.DeQue<T>();
+-    LocalTensor<T> dxLocal = dxQueue_.AllocTensor<T>();
+-    LocalTensor<T> updateLocal = updateQueue_.AllocTensor<T>();
++    LocalTensor<T> inputsLocal = inputsQueue_.DeQue<T>();
++    LocalTensor<T> gradsLocal = inputsLocal;
++    LocalTensor<T> featuresLocal = inputsLocal[pairOffset_];
++    LocalTensor<T> outputsLocal = outputsQueue_.AllocTensor<T>();
++    LocalTensor<T> dxLocal = outputsLocal;
++    LocalTensor<T> updateLocal = outputsLocal[pairOffset_];
+ 
+     const int64_t cmpCount = AlignUp(currentNum, CMP_ALIGN_FLOAT);
+     LocalTensor<uint8_t> maskLocal = maskBuf_.Get<uint8_t>();
+@@ -334,10 +334,8 @@
+         PipeBarrier<PIPE_V>();
+     }
+ 
+-    dxQueue_.EnQue(dxLocal);
+-    updateQueue_.EnQue(updateLocal);
+-    gradsQueue_.FreeTensor(gradsLocal);
+-    featuresQueue_.FreeTensor(featuresLocal);
++    outputsQueue_.EnQue(outputsLocal);
++    inputsQueue_.FreeTensor(inputsLocal);
+     if (vectorWeights_ && !residentWeights_) {
+         weightsQueue_.FreeTensor(weightsLocal);
+     }
+@@ -346,13 +344,13 @@
+ template <typename T>
+ __aicore__ inline void PReluGradUpdate<T>::CopyOut(int64_t progress, int64_t currentNum)
+ {
+-    LocalTensor<T> dxLocal = dxQueue_.DeQue<T>();
+-    LocalTensor<T> updateLocal = updateQueue_.DeQue<T>();
++    LocalTensor<T> outputsLocal = outputsQueue_.DeQue<T>();
++    LocalTensor<T> dxLocal = outputsLocal;
++    LocalTensor<T> updateLocal = outputsLocal[pairOffset_];
+     DataCopyExtParams copyParams = {1, static_cast<uint32_t>(currentNum * sizeof(T)), 0, 0, 0};
+     DataCopyPad(dxGm_[blockStart_ + progress], dxLocal, copyParams);
+     DataCopyPad(updateGm_[blockStart_ + progress], updateLocal, copyParams);
+-    dxQueue_.FreeTensor(dxLocal);
+-    updateQueue_.FreeTensor(updateLocal);
++    outputsQueue_.FreeTensor(outputsLocal);
+ }
+ 
+ template <typename T>

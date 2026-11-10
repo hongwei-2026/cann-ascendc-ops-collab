@@ -1,0 +1,27 @@
+{
+  "scope": "CPU model only; CANN Host UT and NPU execution NOT run",
+  "result": "PASS",
+  "seed": 2329,
+  "cases": 816,
+  "elements_per_model": 1519116,
+  "baseline_tiles": 46447,
+  "candidate_tiles": 17515,
+  "modeled_160000_1_1_48cores_tile_counts": {
+    "float32": [
+      160000,
+      48
+    ],
+    "float16": [
+      160000,
+      48
+    ],
+    "bfloat16": [
+      160000,
+      48
+    ]
+  },
+  "kernel_identical_to_P103": true,
+  "kernel_sha256": "2a340f612ec506a6e6ae920fd8f6acd14999f28cb2d89d386d2a075ff6fb3c89",
+  "host_sha256": "d561da63c4a280f08a68633a6923a616ced218582d52d226075c1b2d98ef8914",
+  "limitations": "Finite-value software model, not device dtype behavior or performance. Public Judge shapes unknown."
+}

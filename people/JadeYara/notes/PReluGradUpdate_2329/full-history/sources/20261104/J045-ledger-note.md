@@ -1,0 +1,1 @@
+J045 已完成：固定 J035 Host/tile/核数/UB 的 flat 通道块遍历与逐 tile 向量重读权重对照。780 精度、5184 压力、480 profiler 组/120000 kernel、192 无 profiler 窗口通过；多个大通道稳定回退，不升级基线。J044 确认计时漂移。用户确认官方 1148578=J035，工具未下载提交快照；精确单头文件/回退/hash 包在 J045/manual-platform-trial，用户自行决定是否做诊断提交。纯权重生命周期对照尚未执行。无在线改动/提交/push。见 explorations/EXP_J045_FLAT_CHANNEL_TILES_910C_20261105.md。

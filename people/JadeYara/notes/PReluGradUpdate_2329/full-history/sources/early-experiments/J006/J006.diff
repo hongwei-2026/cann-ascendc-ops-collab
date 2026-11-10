@@ -1,0 +1,119 @@
+--- J005/op_kernel/p_relu_grad_update_tiling_key.h
++++ J006/op_kernel/p_relu_grad_update_tiling_key.h
+@@ -11,6 +11,9 @@
+ #define PRELUGRADUPDATE_TPL_FLOAT 0
+ #define PRELUGRADUPDATE_TPL_FLOAT16 1
+ #define PRELUGRADUPDATE_TPL_BF16 2
++#define PRELUGRADUPDATE_TPL_FLOAT_S1 4
++#define PRELUGRADUPDATE_TPL_FLOAT16_S1 5
++#define PRELUGRADUPDATE_TPL_BF16_S1 6
+ 
+ // P029: 三 dtype。kernel 用 if constexpr 原生 half / bf16 位转换，禁止 DtypeBridge 显式特化。
+ #ifndef PRELU_ENABLE_FP16
+@@ -23,25 +26,25 @@
+ #if PRELU_ENABLE_BF16 && PRELU_ENABLE_FP16
+ ASCENDC_TPL_ARGS_DECL(
+     PReluGradUpdate,
+-    ASCENDC_TPL_UINT_DECL(schMode, 2, ASCENDC_TPL_UI_LIST,
+-        PRELUGRADUPDATE_TPL_FLOAT, PRELUGRADUPDATE_TPL_FLOAT16, PRELUGRADUPDATE_TPL_BF16));
++    ASCENDC_TPL_UINT_DECL(schMode, 3, ASCENDC_TPL_UI_LIST,
++        PRELUGRADUPDATE_TPL_FLOAT, PRELUGRADUPDATE_TPL_FLOAT16, PRELUGRADUPDATE_TPL_BF16, PRELUGRADUPDATE_TPL_FLOAT_S1, PRELUGRADUPDATE_TPL_FLOAT16_S1, PRELUGRADUPDATE_TPL_BF16_S1));
+ ASCENDC_TPL_SEL(ASCENDC_TPL_ARGS_SEL(
+     ASCENDC_TPL_UINT_SEL(schMode, ASCENDC_TPL_UI_LIST,
+-        PRELUGRADUPDATE_TPL_FLOAT, PRELUGRADUPDATE_TPL_FLOAT16, PRELUGRADUPDATE_TPL_BF16)));
++        PRELUGRADUPDATE_TPL_FLOAT, PRELUGRADUPDATE_TPL_FLOAT16, PRELUGRADUPDATE_TPL_BF16, PRELUGRADUPDATE_TPL_FLOAT_S1, PRELUGRADUPDATE_TPL_FLOAT16_S1, PRELUGRADUPDATE_TPL_BF16_S1)));
+ #elif PRELU_ENABLE_FP16
+ ASCENDC_TPL_ARGS_DECL(
+     PReluGradUpdate,
+-    ASCENDC_TPL_UINT_DECL(schMode, 2, ASCENDC_TPL_UI_LIST,
+-        PRELUGRADUPDATE_TPL_FLOAT, PRELUGRADUPDATE_TPL_FLOAT16));
++    ASCENDC_TPL_UINT_DECL(schMode, 3, ASCENDC_TPL_UI_LIST,
++        PRELUGRADUPDATE_TPL_FLOAT, PRELUGRADUPDATE_TPL_FLOAT16, PRELUGRADUPDATE_TPL_FLOAT_S1, PRELUGRADUPDATE_TPL_FLOAT16_S1));
+ ASCENDC_TPL_SEL(ASCENDC_TPL_ARGS_SEL(
+     ASCENDC_TPL_UINT_SEL(schMode, ASCENDC_TPL_UI_LIST,
+-        PRELUGRADUPDATE_TPL_FLOAT, PRELUGRADUPDATE_TPL_FLOAT16)));
++        PRELUGRADUPDATE_TPL_FLOAT, PRELUGRADUPDATE_TPL_FLOAT16, PRELUGRADUPDATE_TPL_FLOAT_S1, PRELUGRADUPDATE_TPL_FLOAT16_S1)));
+ #else
+ ASCENDC_TPL_ARGS_DECL(
+     PReluGradUpdate,
+-    ASCENDC_TPL_UINT_DECL(schMode, 2, ASCENDC_TPL_UI_LIST, PRELUGRADUPDATE_TPL_FLOAT));
++    ASCENDC_TPL_UINT_DECL(schMode, 3, ASCENDC_TPL_UI_LIST, PRELUGRADUPDATE_TPL_FLOAT, PRELUGRADUPDATE_TPL_FLOAT_S1));
+ ASCENDC_TPL_SEL(ASCENDC_TPL_ARGS_SEL(
+-    ASCENDC_TPL_UINT_SEL(schMode, ASCENDC_TPL_UI_LIST, PRELUGRADUPDATE_TPL_FLOAT)));
++    ASCENDC_TPL_UINT_SEL(schMode, ASCENDC_TPL_UI_LIST, PRELUGRADUPDATE_TPL_FLOAT, PRELUGRADUPDATE_TPL_FLOAT_S1)));
+ #endif
+ 
+ #endif
+--- J005/op_host/p_relu_grad_update_tiling.cpp
++++ J006/op_host/p_relu_grad_update_tiling.cpp
+@@ -161,6 +161,13 @@
+     const bool vectorWeights = weightLen > 1 && innerSize == 1;
+     if (vectorWeights) {
+         bytesPerElement += typeSize;  // contiguous channel weights queue
++        if (dtype == ge::DT_FLOAT) {
++            tilingKey = GET_TPL_TILING_KEY(PRELUGRADUPDATE_TPL_FLOAT_S1);
++        } else if (dtype == ge::DT_FLOAT16) {
++            tilingKey = GET_TPL_TILING_KEY(PRELUGRADUPDATE_TPL_FLOAT16_S1);
++        } else {
++            tilingKey = GET_TPL_TILING_KEY(PRELUGRADUPDATE_TPL_BF16_S1);
++        }
+     }
+ 
+     uint64_t ubSize = 0;
+--- J005/op_kernel/p_relu_grad_update.cpp
++++ J006/op_kernel/p_relu_grad_update.cpp
+@@ -19,41 +19,23 @@
+     REGISTER_TILING_DEFAULT(PReluGradUpdateTilingData);
+     GET_TILING_DATA_WITH_STRUCT(PReluGradUpdateTilingData, tilingData, tiling);
+ 
+-    const bool vectorWeights = tilingData.weightsPerChannel != 0 && tilingData.innerSize == 1;
++    constexpr bool vectorWeights = schMode >= 4;
+ 
+-    if constexpr (schMode == static_cast<uint32_t>(PReluGradUpdateTilingKey::FLOAT)) {
+-        if (vectorWeights) {
+-            NsPReluGradUpdate::PReluGradUpdate<float, true> op;
+-            op.Init(grads, features, weights, dx, update, &tilingData);
+-            op.Process();
+-        } else {
+-            NsPReluGradUpdate::PReluGradUpdate<float, false> op;
+-            op.Init(grads, features, weights, dx, update, &tilingData);
+-            op.Process();
+-        }
++    if constexpr ((schMode & 3U) == static_cast<uint32_t>(PReluGradUpdateTilingKey::FLOAT)) {
++        NsPReluGradUpdate::PReluGradUpdate<float, vectorWeights> op;
++        op.Init(grads, features, weights, dx, update, &tilingData);
++        op.Process();
+ #if PRELU_ENABLE_FP16
+-    } else if constexpr (schMode == static_cast<uint32_t>(PReluGradUpdateTilingKey::FLOAT16)) {
+-        if (vectorWeights) {
+-            NsPReluGradUpdate::PReluGradUpdate<half, true> op;
+-            op.Init(grads, features, weights, dx, update, &tilingData);
+-            op.Process();
+-        } else {
+-            NsPReluGradUpdate::PReluGradUpdate<half, false> op;
+-            op.Init(grads, features, weights, dx, update, &tilingData);
+-            op.Process();
+-        }
++    } else if constexpr ((schMode & 3U) == static_cast<uint32_t>(PReluGradUpdateTilingKey::FLOAT16)) {
++        NsPReluGradUpdate::PReluGradUpdate<half, vectorWeights> op;
++        op.Init(grads, features, weights, dx, update, &tilingData);
++        op.Process();
+ #endif
+ #if PRELU_ENABLE_BF16
+-    } else if constexpr (schMode == static_cast<uint32_t>(PReluGradUpdateTilingKey::BFLOAT16)) {
+-        if (vectorWeights) {
+-            NsPReluGradUpdate::PReluGradUpdate<bfloat16_t, true> op;
+-            op.Init(grads, features, weights, dx, update, &tilingData);
+-            op.Process();
+-        } else {
+-            NsPReluGradUpdate::PReluGradUpdate<bfloat16_t, false> op;
+-            op.Init(grads, features, weights, dx, update, &tilingData);
+-            op.Process();
+-        }
++    } else if constexpr ((schMode & 3U) == static_cast<uint32_t>(PReluGradUpdateTilingKey::BFLOAT16)) {
++        NsPReluGradUpdate::PReluGradUpdate<bfloat16_t, vectorWeights> op;
++        op.Init(grads, features, weights, dx, update, &tilingData);
++        op.Process();
+ #endif
+     }
+ }

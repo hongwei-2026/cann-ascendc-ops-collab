@@ -1,0 +1,42 @@
+--- J026/op_kernel/p_relu_grad_update_splitc.h
++++ J027/op_kernel/p_relu_grad_update_splitc.h
+@@ -263,9 +263,11 @@
+         if constexpr (std::is_same<T, float>::value) {
+             Mul(negLocal, gradsFloat, weightsLocal.template ReinterpretCast<float>(), currentNum);
+         } else {
+-            Cast(negLocal, weightsLocal, RoundMode::CAST_NONE, currentNum);
+-            PipeBarrier<PIPE_V>();
+-            Mul(negLocal, gradsFloat, negLocal, currentNum);
++            // The channel tile is invariant across this core's batch range.
++            if (firstTile_) {
++                Cast(negLocal, weightsLocal, RoundMode::CAST_NONE, currentNum);
++                PipeBarrier<PIPE_V>();
++            }
+         }
+     } else {
+         const int64_t globalStart = blockStart_ + progress;
+@@ -316,12 +318,22 @@
+     Compare(maskLocal, featuresFloat, zeroLocal, CMPMODE::GT, static_cast<uint32_t>(cmpCount));
+     PipeBarrier<PIPE_V>();
+ 
++    if constexpr (!std::is_same<T, float>::value) {
++        // Compare is complete; featuresFloat is dead and may hold weight*grad.
++        // The existing barrier after Select(update) also orders this Mul.
++        Mul(featuresFloat, gradsFloat, negLocal, currentNum);
++    }
+     Select(updateFloat, maskLocal, zeroLocal, fgLocal, SELMODE::VSEL_TENSOR_TENSOR_MODE,
+         static_cast<uint32_t>(cmpCount));
+     PipeBarrier<PIPE_V>();
+ 
+-    Select(dxFloat, maskLocal, gradsFloat, negLocal, SELMODE::VSEL_TENSOR_TENSOR_MODE,
+-        static_cast<uint32_t>(cmpCount));
++    if constexpr (std::is_same<T, float>::value) {
++        Select(dxFloat, maskLocal, gradsFloat, negLocal, SELMODE::VSEL_TENSOR_TENSOR_MODE,
++            static_cast<uint32_t>(cmpCount));
++    } else {
++        Select(dxFloat, maskLocal, gradsFloat, featuresFloat, SELMODE::VSEL_TENSOR_TENSOR_MODE,
++            static_cast<uint32_t>(cmpCount));
++    }
+     PipeBarrier<PIPE_V>();
+ 
+     if constexpr (std::is_same<T, half>::value) {

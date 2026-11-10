@@ -1,0 +1,152 @@
+--- J026/op_kernel/p_relu_grad_update_splitc.h
++++ J027IO/op_kernel/p_relu_grad_update_splitc.h
+@@ -202,145 +202,22 @@
+     featuresQueue_.EnQue(featuresLocal);
+ }
+ 
++// DIAGNOSTIC ONLY: preserve IO shape/queues, output grads and features.
+ template <typename T>
+ __aicore__ inline void PReluGradUpdate<T>::Compute(int64_t progress, int64_t currentNum)
+ {
+     LocalTensor<T> gradsLocal = gradsQueue_.DeQue<T>();
+     LocalTensor<T> featuresLocal = featuresQueue_.DeQue<T>();
++    if (firstTile_) residentWeightsLocal_ = weightsQueue_.DeQue<T>();
+     LocalTensor<T> dxLocal = dxQueue_.AllocTensor<T>();
+     LocalTensor<T> updateLocal = updateQueue_.AllocTensor<T>();
+-
+-    const int64_t cmpCount = AlignUp(currentNum, CMP_ALIGN_FLOAT);
+-    LocalTensor<uint8_t> maskLocal = maskBuf_.Get<uint8_t>();
+-    LocalTensor<float> negLocal = negFloatBuf_.Get<float>();
+-    LocalTensor<float> fgLocal = fgFloatBuf_.Get<float>();
+-
+-    LocalTensor<float> gradsFloat;
+-    LocalTensor<float> featuresFloat;
+-    LocalTensor<float> dxFloat;
+-    LocalTensor<float> updateFloat;
+-
+-    if constexpr (std::is_same<T, float>::value) {
+-        gradsFloat = gradsLocal.template ReinterpretCast<float>();
+-        featuresFloat = featuresLocal.template ReinterpretCast<float>();
+-        dxFloat = dxLocal.template ReinterpretCast<float>();
+-        updateFloat = updateLocal.template ReinterpretCast<float>();
+-    } else {
+-        gradsFloat = gradsFloatBuf_.Get<float>();
+-        featuresFloat = featuresFloatBuf_.Get<float>();
+-        dxFloat = dxFloatBuf_.Get<float>();
+-        updateFloat = updateFloatBuf_.Get<float>();
+-
+-        if constexpr (std::is_same<T, half>::value) {
+-            Cast(gradsFloat, gradsLocal, RoundMode::CAST_NONE, currentNum);
+-            Cast(featuresFloat, featuresLocal, RoundMode::CAST_NONE, currentNum);
+-            PipeBarrier<PIPE_V>();
+-        } else {
+-            Cast(gradsFloat, gradsLocal, RoundMode::CAST_NONE, currentNum);
+-            Cast(featuresFloat, featuresLocal, RoundMode::CAST_NONE, currentNum);
+-            PipeBarrier<PIPE_V>();
+-        }
+-    }
+-
+-    LocalTensor<T> weightsLocal;
+-    if (vectorWeights_) {
+-        if (residentWeights_ && !firstTile_) {
+-            weightsLocal = residentWeightsLocal_;
+-        } else {
+-            weightsLocal = weightsQueue_.DeQue<T>();
+-            if (residentWeights_) residentWeightsLocal_ = weightsLocal;
+-        }
+-        if (mergeWeights_ && currentNum > channelNum_ && (!residentWeights_ || firstTile_)) {
+-            const int64_t copyAlign = 32 / sizeof(T);
+-            for (int64_t copied = channelNum_; copied < currentNum; copied += channelNum_) {
+-                int64_t count = currentNum - copied;
+-                if (count > channelNum_) count = channelNum_;
+-                DataCopy(weightsLocal[copied], weightsLocal,
+-                    static_cast<uint32_t>(AlignUp(count, copyAlign)));
+-            }
+-            PipeBarrier<PIPE_V>();
+-        }
+-        if constexpr (std::is_same<T, float>::value) {
+-            Mul(negLocal, gradsFloat, weightsLocal.template ReinterpretCast<float>(), currentNum);
+-        } else {
+-            Cast(negLocal, weightsLocal, RoundMode::CAST_NONE, currentNum);
+-            PipeBarrier<PIPE_V>();
+-            Mul(negLocal, gradsFloat, negLocal, currentNum);
+-        }
+-    } else {
+-        const int64_t globalStart = blockStart_ + progress;
+-        const int64_t weightIndex = weightsPerChannel_ != 0
+-            ? (globalStart / innerSize_) % channelNum_
+-            : 0;
+-        float weightValue = 0.0f;
+-        if constexpr (std::is_same<T, float>::value) {
+-            weightValue = weightsGm_.GetValue(weightIndex);
+-        } else if constexpr (std::is_same<T, half>::value) {
+-            half h = weightsGm_.GetValue(weightIndex);
+-            uint16_t hb = *reinterpret_cast<uint16_t*>(&h);
+-            uint32_t sign = (static_cast<uint32_t>(hb) & 0x8000u) << 16;
+-            uint32_t exp = (static_cast<uint32_t>(hb) >> 10) & 0x1Fu;
+-            uint32_t man = static_cast<uint32_t>(hb) & 0x3FFu;
+-            uint32_t outBits;
+-            if (exp == 0) {
+-                if (man == 0) {
+-                    outBits = sign;
+-                } else {
+-                    exp = 127 - 15 + 1;
+-                    while ((man & 0x400u) == 0) {
+-                        man <<= 1;
+-                        --exp;
+-                    }
+-                    man &= 0x3FFu;
+-                    outBits = sign | (exp << 23) | (man << 13);
+-                }
+-            } else if (exp == 31) {
+-                outBits = sign | 0x7F800000u | (man << 13);
+-            } else {
+-                outBits = sign | ((exp + (127 - 15)) << 23) | (man << 13);
+-            }
+-            *reinterpret_cast<uint32_t*>(&weightValue) = outBits;
+-        } else {
+-            T raw = weightsGm_.GetValue(weightIndex);
+-            uint16_t bits = *reinterpret_cast<uint16_t*>(&raw);
+-            *reinterpret_cast<uint32_t*>(&weightValue) = static_cast<uint32_t>(bits) << 16;
+-        }
+-        SyncSV();
+-        Muls(negLocal, gradsFloat, weightValue, currentNum);
+-    }
+-    Mul(fgLocal, featuresFloat, gradsFloat, currentNum);
+-    LocalTensor<float> zeroLocal = dxFloat;
+-    Duplicate(zeroLocal, 0.0f, static_cast<int32_t>(cmpCount));
++    DataCopy(dxLocal, gradsLocal, static_cast<uint32_t>(currentNum));
++    DataCopy(updateLocal, featuresLocal, static_cast<uint32_t>(currentNum));
+     PipeBarrier<PIPE_V>();
+-
+-    Compare(maskLocal, featuresFloat, zeroLocal, CMPMODE::GT, static_cast<uint32_t>(cmpCount));
+-    PipeBarrier<PIPE_V>();
+-
+-    Select(updateFloat, maskLocal, zeroLocal, fgLocal, SELMODE::VSEL_TENSOR_TENSOR_MODE,
+-        static_cast<uint32_t>(cmpCount));
+-    PipeBarrier<PIPE_V>();
+-
+-    Select(dxFloat, maskLocal, gradsFloat, negLocal, SELMODE::VSEL_TENSOR_TENSOR_MODE,
+-        static_cast<uint32_t>(cmpCount));
+-    PipeBarrier<PIPE_V>();
+-
+-    if constexpr (std::is_same<T, half>::value) {
+-        Cast(dxLocal, dxFloat, RoundMode::CAST_RINT, currentNum);
+-        Cast(updateLocal, updateFloat, RoundMode::CAST_RINT, currentNum);
+-        PipeBarrier<PIPE_V>();
+-    } else if constexpr (std::is_same<T, bfloat16_t>::value) {
+-        Cast(dxLocal, dxFloat, RoundMode::CAST_RINT, currentNum);
+-        Cast(updateLocal, updateFloat, RoundMode::CAST_RINT, currentNum);
+-        PipeBarrier<PIPE_V>();
+-    }
+-
+     dxQueue_.EnQue(dxLocal);
+     updateQueue_.EnQue(updateLocal);
+     gradsQueue_.FreeTensor(gradsLocal);
+     featuresQueue_.FreeTensor(featuresLocal);
+-    if (vectorWeights_ && !residentWeights_) {
+-        weightsQueue_.FreeTensor(weightsLocal);
+-    }
+ }
+ 
+ template <typename T>

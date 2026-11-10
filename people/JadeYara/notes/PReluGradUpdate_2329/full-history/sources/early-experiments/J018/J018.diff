@@ -1,0 +1,11 @@
+--- J016/op_kernel/p_relu_grad_update_s1.h
++++ J018/op_kernel/p_relu_grad_update_s1.h
+@@ -113,7 +113,7 @@
+     residentWeights_ = rowsPerTile_ > 0;
+     vectorWeights_ = weightsPerChannel_ != 0 && innerSize_ == 1;
+     mergeWeights_ = vectorWeights_ && channelNum_ % (32 / sizeof(T)) == 0
+-        && tileLen_ > channelNum_;
++        && (tileLen_ > channelNum_ || residentWeights_);
+ 
+     blockStart_ = static_cast<int64_t>(GetBlockIdx()) * tilingData->blockFactor;
+     blockLength_ = blockStart_ < totalNum_ ? totalNum_ - blockStart_ : 0;

@@ -1,0 +1,192 @@
+--- J004/op_kernel/p_relu_grad_update.h
++++ J005/op_kernel/p_relu_grad_update.h
+@@ -25,7 +25,7 @@
+ constexpr int32_t BUFFER_NUM = 1;
+ constexpr int64_t CMP_ALIGN_FLOAT = 64;
+ 
+-template <typename T>
++template <typename T, bool VECTOR_WEIGHTS>
+ class PReluGradUpdate {
+ public:
+     __aicore__ inline PReluGradUpdate() = default;
+@@ -72,33 +72,33 @@
+     int64_t innerSize_ = 0;
+     int64_t weightsPerChannel_ = 0;
+     int64_t rowsPerTile_ = 0;
+-    bool vectorWeights_ = false;
++    static constexpr bool vectorWeights_ = VECTOR_WEIGHTS;
+ };
+ 
+-template <typename T>
+-__aicore__ inline int64_t PReluGradUpdate<T>::AlignUp(int64_t value, int64_t alignment) const
++template <typename T, bool VECTOR_WEIGHTS>
++__aicore__ inline int64_t PReluGradUpdate<T, VECTOR_WEIGHTS>::AlignUp(int64_t value, int64_t alignment) const
+ {
+     return ((value + alignment - 1) / alignment) * alignment;
+ }
+ 
+-template <typename T>
+-__aicore__ inline void PReluGradUpdate<T>::SyncSV()
++template <typename T, bool VECTOR_WEIGHTS>
++__aicore__ inline void PReluGradUpdate<T, VECTOR_WEIGHTS>::SyncSV()
+ {
+     event_t evt = static_cast<event_t>(GetTPipePtr()->FetchEventID(HardEvent::S_V));
+     SetFlag<HardEvent::S_V>(evt);
+     WaitFlag<HardEvent::S_V>(evt);
+ }
+ 
+-template <typename T>
+-__aicore__ inline void PReluGradUpdate<T>::SyncSMTE3()
++template <typename T, bool VECTOR_WEIGHTS>
++__aicore__ inline void PReluGradUpdate<T, VECTOR_WEIGHTS>::SyncSMTE3()
+ {
+     event_t evt = static_cast<event_t>(GetTPipePtr()->FetchEventID(HardEvent::S_MTE3));
+     SetFlag<HardEvent::S_MTE3>(evt);
+     WaitFlag<HardEvent::S_MTE3>(evt);
+ }
+ 
+-template <typename T>
+-__aicore__ inline void PReluGradUpdate<T>::Init(GM_ADDR grads, GM_ADDR features, GM_ADDR weights,
++template <typename T, bool VECTOR_WEIGHTS>
++__aicore__ inline void PReluGradUpdate<T, VECTOR_WEIGHTS>::Init(GM_ADDR grads, GM_ADDR features, GM_ADDR weights,
+     GM_ADDR dx, GM_ADDR update, const PReluGradUpdateTilingData* tilingData)
+ {
+     totalNum_ = tilingData->totalNum;
+@@ -107,7 +107,6 @@
+     innerSize_ = tilingData->innerSize;
+     weightsPerChannel_ = tilingData->weightsPerChannel;
+     rowsPerTile_ = tilingData->rowsPerTile;
+-    vectorWeights_ = weightsPerChannel_ != 0 && innerSize_ == 1;
+ 
+     blockStart_ = static_cast<int64_t>(GetBlockIdx()) * tilingData->blockFactor;
+     blockLength_ = blockStart_ < totalNum_ ? totalNum_ - blockStart_ : 0;
+@@ -126,7 +125,7 @@
+ 
+     pipe_.InitBuffer(gradsQueue_, BUFFER_NUM, alignedCount * sizeof(T));
+     pipe_.InitBuffer(featuresQueue_, BUFFER_NUM, alignedCount * sizeof(T));
+-    if (vectorWeights_) {
++    if constexpr (vectorWeights_) {
+         pipe_.InitBuffer(weightsQueue_, BUFFER_NUM, alignedCount * sizeof(T));
+     }
+     pipe_.InitBuffer(dxQueue_, BUFFER_NUM, alignedCount * sizeof(T));
+@@ -145,8 +144,8 @@
+     (void)rowsPerTile_;
+ }
+ 
+-template <typename T>
+-__aicore__ inline void PReluGradUpdate<T>::CopyIn(int64_t progress, int64_t currentNum)
++template <typename T, bool VECTOR_WEIGHTS>
++__aicore__ inline void PReluGradUpdate<T, VECTOR_WEIGHTS>::CopyIn(int64_t progress, int64_t currentNum)
+ {
+     LocalTensor<T> gradsLocal = gradsQueue_.AllocTensor<T>();
+     LocalTensor<T> featuresLocal = featuresQueue_.AllocTensor<T>();
+@@ -165,7 +164,7 @@
+     DataCopyPad(gradsLocal, gradsGm_[blockStart_ + progress], copyParams, padParams);
+     DataCopyPad(featuresLocal, featuresGm_[blockStart_ + progress], copyParams, padParams);
+ 
+-    if (vectorWeights_) {
++    if constexpr (vectorWeights_) {
+         LocalTensor<T> weightsLocal = weightsQueue_.AllocTensor<T>();
+         const int64_t weightOffset = (blockStart_ + progress) % channelNum_;
+         DataCopyPad(weightsLocal, weightsGm_[weightOffset], copyParams, padParams);
+@@ -175,8 +174,8 @@
+     featuresQueue_.EnQue(featuresLocal);
+ }
+ 
+-template <typename T>
+-__aicore__ inline void PReluGradUpdate<T>::Compute(int64_t progress, int64_t currentNum)
++template <typename T, bool VECTOR_WEIGHTS>
++__aicore__ inline void PReluGradUpdate<T, VECTOR_WEIGHTS>::Compute(int64_t progress, int64_t currentNum)
+ {
+     LocalTensor<T> gradsLocal = gradsQueue_.DeQue<T>();
+     LocalTensor<T> featuresLocal = featuresQueue_.DeQue<T>();
+@@ -216,7 +215,7 @@
+     }
+ 
+     LocalTensor<T> weightsLocal;
+-    if (vectorWeights_) {
++    if constexpr (vectorWeights_) {
+         weightsLocal = weightsQueue_.DeQue<T>();
+         if constexpr (std::is_same<T, float>::value) {
+             Mul(negLocal, gradsFloat, weightsLocal.template ReinterpretCast<float>(), currentNum);
+@@ -296,13 +295,13 @@
+     updateQueue_.EnQue(updateLocal);
+     gradsQueue_.FreeTensor(gradsLocal);
+     featuresQueue_.FreeTensor(featuresLocal);
+-    if (vectorWeights_) {
++    if constexpr (vectorWeights_) {
+         weightsQueue_.FreeTensor(weightsLocal);
+     }
+ }
+ 
+-template <typename T>
+-__aicore__ inline void PReluGradUpdate<T>::CopyOut(int64_t progress, int64_t currentNum)
++template <typename T, bool VECTOR_WEIGHTS>
++__aicore__ inline void PReluGradUpdate<T, VECTOR_WEIGHTS>::CopyOut(int64_t progress, int64_t currentNum)
+ {
+     LocalTensor<T> dxLocal = dxQueue_.DeQue<T>();
+     LocalTensor<T> updateLocal = updateQueue_.DeQue<T>();
+@@ -313,8 +312,8 @@
+     updateQueue_.FreeTensor(updateLocal);
+ }
+ 
+-template <typename T>
+-__aicore__ inline void PReluGradUpdate<T>::Process()
++template <typename T, bool VECTOR_WEIGHTS>
++__aicore__ inline void PReluGradUpdate<T, VECTOR_WEIGHTS>::Process()
+ {
+     if (blockLength_ <= 0 || tileLen_ <= 0 || innerSize_ <= 0 || channelNum_ <= 0) {
+         return;
+--- J004/op_kernel/p_relu_grad_update.cpp
++++ J005/op_kernel/p_relu_grad_update.cpp
+@@ -19,21 +19,41 @@
+     REGISTER_TILING_DEFAULT(PReluGradUpdateTilingData);
+     GET_TILING_DATA_WITH_STRUCT(PReluGradUpdateTilingData, tilingData, tiling);
+ 
++    const bool vectorWeights = tilingData.weightsPerChannel != 0 && tilingData.innerSize == 1;
++
+     if constexpr (schMode == static_cast<uint32_t>(PReluGradUpdateTilingKey::FLOAT)) {
+-        NsPReluGradUpdate::PReluGradUpdate<float> op;
+-        op.Init(grads, features, weights, dx, update, &tilingData);
+-        op.Process();
++        if (vectorWeights) {
++            NsPReluGradUpdate::PReluGradUpdate<float, true> op;
++            op.Init(grads, features, weights, dx, update, &tilingData);
++            op.Process();
++        } else {
++            NsPReluGradUpdate::PReluGradUpdate<float, false> op;
++            op.Init(grads, features, weights, dx, update, &tilingData);
++            op.Process();
++        }
+ #if PRELU_ENABLE_FP16
+     } else if constexpr (schMode == static_cast<uint32_t>(PReluGradUpdateTilingKey::FLOAT16)) {
+-        NsPReluGradUpdate::PReluGradUpdate<half> op;
+-        op.Init(grads, features, weights, dx, update, &tilingData);
+-        op.Process();
++        if (vectorWeights) {
++            NsPReluGradUpdate::PReluGradUpdate<half, true> op;
++            op.Init(grads, features, weights, dx, update, &tilingData);
++            op.Process();
++        } else {
++            NsPReluGradUpdate::PReluGradUpdate<half, false> op;
++            op.Init(grads, features, weights, dx, update, &tilingData);
++            op.Process();
++        }
+ #endif
+ #if PRELU_ENABLE_BF16
+     } else if constexpr (schMode == static_cast<uint32_t>(PReluGradUpdateTilingKey::BFLOAT16)) {
+-        NsPReluGradUpdate::PReluGradUpdate<bfloat16_t> op;
+-        op.Init(grads, features, weights, dx, update, &tilingData);
+-        op.Process();
++        if (vectorWeights) {
++            NsPReluGradUpdate::PReluGradUpdate<bfloat16_t, true> op;
++            op.Init(grads, features, weights, dx, update, &tilingData);
++            op.Process();
++        } else {
++            NsPReluGradUpdate::PReluGradUpdate<bfloat16_t, false> op;
++            op.Init(grads, features, weights, dx, update, &tilingData);
++            op.Process();
++        }
+ #endif
+     }
+ }

@@ -1,0 +1,898 @@
+[
+  {
+    "mode": "kernel",
+    "warmup": 5,
+    "gap_us": 0,
+    "variant": "J013",
+    "rounds": 2,
+    "Task Duration(us)": {
+      "mean": 3.1599365,
+      "values": [
+        3.179936,
+        3.139937
+      ]
+    },
+    "Current Freq": {
+      "mean": 1650.0,
+      "values": [
+        1650.0,
+        1650.0
+      ]
+    },
+    "aiv_time(us)": {
+      "mean": 2.5836360000000003,
+      "values": [
+        2.573939,
+        2.593333
+      ]
+    },
+    "aiv_icache_miss_rate": {
+      "mean": 0.0,
+      "values": [
+        0.0,
+        0.0
+      ]
+    },
+    "aiv_scalar_time(us)": {
+      "mean": 2.4709095000000003,
+      "values": [
+        2.435152,
+        2.506667
+      ]
+    },
+    "aiv_mte2_time(us)": {
+      "mean": 0.6745455,
+      "values": [
+        0.650909,
+        0.698182
+      ]
+    },
+    "aiv_read_hit_rate(%)": {
+      "mean": 57.142857,
+      "values": [
+        57.142857,
+        57.142857
+      ]
+    }
+  },
+  {
+    "mode": "kernel",
+    "warmup": 5,
+    "gap_us": 0,
+    "variant": "J020",
+    "rounds": 2,
+    "Task Duration(us)": {
+      "mean": 3.159937,
+      "values": [
+        3.099938,
+        3.219936
+      ]
+    },
+    "Current Freq": {
+      "mean": 1650.0,
+      "values": [
+        1650.0,
+        1650.0
+      ]
+    },
+    "aiv_time(us)": {
+      "mean": 2.6172725,
+      "values": [
+        2.595151,
+        2.639394
+      ]
+    },
+    "aiv_icache_miss_rate": {
+      "mean": 0.0,
+      "values": [
+        0.0,
+        0.0
+      ]
+    },
+    "aiv_scalar_time(us)": {
+      "mean": 2.5296969999999996,
+      "values": [
+        2.513333,
+        2.546061
+      ]
+    },
+    "aiv_mte2_time(us)": {
+      "mean": 0.6451515,
+      "values": [
+        0.647879,
+        0.642424
+      ]
+    },
+    "aiv_read_hit_rate(%)": {
+      "mean": 68.421051,
+      "values": [
+        68.421051,
+        68.421051
+      ]
+    }
+  },
+  {
+    "mode": "kernel",
+    "warmup": 5,
+    "gap_us": 10000,
+    "variant": "J013",
+    "rounds": 2,
+    "Task Duration(us)": {
+      "mean": 3.2299355,
+      "values": [
+        3.199936,
+        3.259935
+      ]
+    },
+    "Current Freq": {
+      "mean": 1650.0,
+      "values": [
+        1650.0,
+        1650.0
+      ]
+    },
+    "aiv_time(us)": {
+      "mean": 2.6700005,
+      "values": [
+        2.664243,
+        2.675758
+      ]
+    },
+    "aiv_icache_miss_rate": {
+      "mean": 0.0,
+      "values": [
+        0.0,
+        0.0
+      ]
+    },
+    "aiv_scalar_time(us)": {
+      "mean": 2.5633334999999997,
+      "values": [
+        2.578788,
+        2.547879
+      ]
+    },
+    "aiv_mte2_time(us)": {
+      "mean": 0.6645455,
+      "values": [
+        0.712727,
+        0.616364
+      ]
+    },
+    "aiv_read_hit_rate(%)": {
+      "mean": 57.142857,
+      "values": [
+        57.142857,
+        57.142857
+      ]
+    }
+  },
+  {
+    "mode": "kernel",
+    "warmup": 5,
+    "gap_us": 10000,
+    "variant": "J020",
+    "rounds": 2,
+    "Task Duration(us)": {
+      "mean": 3.2299350000000002,
+      "values": [
+        3.179936,
+        3.279934
+      ]
+    },
+    "Current Freq": {
+      "mean": 1650.0,
+      "values": [
+        1650.0,
+        1650.0
+      ]
+    },
+    "aiv_time(us)": {
+      "mean": 2.6684845,
+      "values": [
+        2.593939,
+        2.74303
+      ]
+    },
+    "aiv_icache_miss_rate": {
+      "mean": 0.0,
+      "values": [
+        0.0,
+        0.0
+      ]
+    },
+    "aiv_scalar_time(us)": {
+      "mean": 2.5836365,
+      "values": [
+        2.516364,
+        2.650909
+      ]
+    },
+    "aiv_mte2_time(us)": {
+      "mean": 0.658485,
+      "values": [
+        0.670909,
+        0.646061
+      ]
+    },
+    "aiv_read_hit_rate(%)": {
+      "mean": 68.421051,
+      "values": [
+        68.421051,
+        68.421051
+      ]
+    }
+  },
+  {
+    "mode": "kernel",
+    "warmup": 250,
+    "gap_us": 0,
+    "variant": "J013",
+    "rounds": 2,
+    "Task Duration(us)": {
+      "mean": 3.1699365000000004,
+      "values": [
+        3.139937,
+        3.199936
+      ]
+    },
+    "Current Freq": {
+      "mean": 1650.0,
+      "values": [
+        1650.0,
+        1650.0
+      ]
+    },
+    "aiv_time(us)": {
+      "mean": 2.6451515,
+      "values": [
+        2.622424,
+        2.667879
+      ]
+    },
+    "aiv_icache_miss_rate": {
+      "mean": 0.0,
+      "values": [
+        0.0,
+        0.0
+      ]
+    },
+    "aiv_scalar_time(us)": {
+      "mean": 2.5427275,
+      "values": [
+        2.515152,
+        2.570303
+      ]
+    },
+    "aiv_mte2_time(us)": {
+      "mean": 0.649394,
+      "values": [
+        0.633939,
+        0.664849
+      ]
+    },
+    "aiv_read_hit_rate(%)": {
+      "mean": 57.142857,
+      "values": [
+        57.142857,
+        57.142857
+      ]
+    }
+  },
+  {
+    "mode": "kernel",
+    "warmup": 250,
+    "gap_us": 0,
+    "variant": "J020",
+    "rounds": 2,
+    "Task Duration(us)": {
+      "mean": 3.2299355,
+      "values": [
+        3.199936,
+        3.259935
+      ]
+    },
+    "Current Freq": {
+      "mean": 1650.0,
+      "values": [
+        1650.0,
+        1650.0
+      ]
+    },
+    "aiv_time(us)": {
+      "mean": 2.6772725,
+      "values": [
+        2.615151,
+        2.739394
+      ]
+    },
+    "aiv_icache_miss_rate": {
+      "mean": 0.0,
+      "values": [
+        0.0,
+        0.0
+      ]
+    },
+    "aiv_scalar_time(us)": {
+      "mean": 2.557576,
+      "values": [
+        2.478182,
+        2.63697
+      ]
+    },
+    "aiv_mte2_time(us)": {
+      "mean": 0.62,
+      "values": [
+        0.587273,
+        0.652727
+      ]
+    },
+    "aiv_read_hit_rate(%)": {
+      "mean": 57.142857,
+      "values": [
+        57.142857,
+        57.142857
+      ]
+    }
+  },
+  {
+    "mode": "kernel",
+    "warmup": 250,
+    "gap_us": 10000,
+    "variant": "J013",
+    "rounds": 2,
+    "Task Duration(us)": {
+      "mean": 3.1099375,
+      "values": [
+        3.179936,
+        3.039939
+      ]
+    },
+    "Current Freq": {
+      "mean": 1650.0,
+      "values": [
+        1650.0,
+        1650.0
+      ]
+    },
+    "aiv_time(us)": {
+      "mean": 2.5612120000000003,
+      "values": [
+        2.597576,
+        2.524848
+      ]
+    },
+    "aiv_icache_miss_rate": {
+      "mean": 0.0,
+      "values": [
+        0.0,
+        0.0
+      ]
+    },
+    "aiv_scalar_time(us)": {
+      "mean": 2.439697,
+      "values": [
+        2.461818,
+        2.417576
+      ]
+    },
+    "aiv_mte2_time(us)": {
+      "mean": 0.617879,
+      "values": [
+        0.607273,
+        0.628485
+      ]
+    },
+    "aiv_read_hit_rate(%)": {
+      "mean": 57.142857,
+      "values": [
+        57.142857,
+        57.142857
+      ]
+    }
+  },
+  {
+    "mode": "kernel",
+    "warmup": 250,
+    "gap_us": 10000,
+    "variant": "J020",
+    "rounds": 2,
+    "Task Duration(us)": {
+      "mean": 3.2299350000000002,
+      "values": [
+        3.279934,
+        3.179936
+      ]
+    },
+    "Current Freq": {
+      "mean": 1650.0,
+      "values": [
+        1650.0,
+        1650.0
+      ]
+    },
+    "aiv_time(us)": {
+      "mean": 2.6436365,
+      "values": [
+        2.664849,
+        2.622424
+      ]
+    },
+    "aiv_icache_miss_rate": {
+      "mean": 0.0,
+      "values": [
+        0.0,
+        0.0
+      ]
+    },
+    "aiv_scalar_time(us)": {
+      "mean": 2.5278785,
+      "values": [
+        2.533939,
+        2.521818
+      ]
+    },
+    "aiv_mte2_time(us)": {
+      "mean": 0.683333,
+      "values": [
+        0.684848,
+        0.681818
+      ]
+    },
+    "aiv_read_hit_rate(%)": {
+      "mean": 57.142857,
+      "values": [
+        57.142857,
+        57.142857
+      ]
+    }
+  },
+  {
+    "mode": "application",
+    "warmup": 5,
+    "gap_us": 0,
+    "variant": "J013",
+    "rounds": 2,
+    "Task Duration(us)": {
+      "mean": 3.1099375,
+      "values": [
+        3.279934,
+        2.939941
+      ]
+    },
+    "Current Freq": {
+      "mean": 1650.0,
+      "values": [
+        1650.0,
+        1650.0
+      ]
+    },
+    "aiv_time(us)": {
+      "mean": 640.0891184999999,
+      "values": [
+        2.739394,
+        1277.438843
+      ]
+    },
+    "aiv_icache_miss_rate": {
+      "mean": 0.0,
+      "values": [
+        0.0,
+        0.0
+      ]
+    },
+    "aiv_scalar_time(us)": {
+      "mean": 2.279394,
+      "values": [
+        2.286061,
+        2.272727
+      ]
+    },
+    "aiv_mte2_time(us)": {
+      "mean": 0.6627275,
+      "values": [
+        0.709091,
+        0.616364
+      ]
+    },
+    "aiv_read_hit_rate(%)": {
+      "mean": 92.85714,
+      "values": [
+        92.85714,
+        92.85714
+      ]
+    }
+  },
+  {
+    "mode": "application",
+    "warmup": 5,
+    "gap_us": 0,
+    "variant": "J020",
+    "rounds": 2,
+    "Task Duration(us)": {
+      "mean": 4.0699179999999995,
+      "values": [
+        4.019919,
+        4.119917
+      ]
+    },
+    "Current Freq": {
+      "mean": 1650.0,
+      "values": [
+        1650.0,
+        1650.0
+      ]
+    },
+    "aiv_time(us)": {
+      "mean": 3.5739395,
+      "values": [
+        3.501818,
+        3.646061
+      ]
+    },
+    "aiv_icache_miss_rate": {
+      "mean": 0.079422,
+      "values": [
+        0.079422,
+        0.079422
+      ]
+    },
+    "aiv_scalar_time(us)": {
+      "mean": 2.659394,
+      "values": [
+        2.628485,
+        2.690303
+      ]
+    },
+    "aiv_mte2_time(us)": {
+      "mean": 0.70303,
+      "values": [
+        0.684848,
+        0.721212
+      ]
+    },
+    "aiv_read_hit_rate(%)": {
+      "mean": 98.245613,
+      "values": [
+        98.245613,
+        98.245613
+      ]
+    }
+  },
+  {
+    "mode": "application",
+    "warmup": 5,
+    "gap_us": 10000,
+    "variant": "J013",
+    "rounds": 2,
+    "Task Duration(us)": {
+      "mean": 2.97994,
+      "values": [
+        3.079938,
+        2.879942
+      ]
+    },
+    "Current Freq": {
+      "mean": 1650.0,
+      "values": [
+        1650.0,
+        1650.0
+      ]
+    },
+    "aiv_time(us)": {
+      "mean": 2.489394,
+      "values": [
+        2.584242,
+        2.394546
+      ]
+    },
+    "aiv_icache_miss_rate": {
+      "mean": 0.0,
+      "values": [
+        0.0,
+        0.0
+      ]
+    },
+    "aiv_scalar_time(us)": {
+      "mean": 2.2721210000000003,
+      "values": [
+        2.263636,
+        2.280606
+      ]
+    },
+    "aiv_mte2_time(us)": {
+      "mean": 0.6278785,
+      "values": [
+        0.692727,
+        0.56303
+      ]
+    },
+    "aiv_read_hit_rate(%)": {
+      "mean": 92.85714,
+      "values": [
+        92.85714,
+        92.85714
+      ]
+    }
+  },
+  {
+    "mode": "application",
+    "warmup": 5,
+    "gap_us": 10000,
+    "variant": "J020",
+    "rounds": 2,
+    "Task Duration(us)": {
+      "mean": 4.1399170000000005,
+      "values": [
+        4.119917,
+        4.159917
+      ]
+    },
+    "Current Freq": {
+      "mean": 1650.0,
+      "values": [
+        1650.0,
+        1650.0
+      ]
+    },
+    "aiv_time(us)": {
+      "mean": 3.5884845,
+      "values": [
+        3.544848,
+        3.632121
+      ]
+    },
+    "aiv_icache_miss_rate": {
+      "mean": 0.07886750000000001,
+      "values": [
+        0.078313,
+        0.079422
+      ]
+    },
+    "aiv_scalar_time(us)": {
+      "mean": 2.6821215,
+      "values": [
+        2.665455,
+        2.698788
+      ]
+    },
+    "aiv_mte2_time(us)": {
+      "mean": 0.671818,
+      "values": [
+        0.582424,
+        0.761212
+      ]
+    },
+    "aiv_read_hit_rate(%)": {
+      "mean": 98.245613,
+      "values": [
+        98.245613,
+        98.245613
+      ]
+    }
+  },
+  {
+    "mode": "application",
+    "warmup": 250,
+    "gap_us": 0,
+    "variant": "J013",
+    "rounds": 2,
+    "Task Duration(us)": {
+      "mean": 3.089938,
+      "values": [
+        3.239935,
+        2.939941
+      ]
+    },
+    "Current Freq": {
+      "mean": 1650.0,
+      "values": [
+        1650.0,
+        1650.0
+      ]
+    },
+    "aiv_time(us)": {
+      "mean": 2.5515155,
+      "values": [
+        2.686667,
+        2.416364
+      ]
+    },
+    "aiv_icache_miss_rate": {
+      "mean": 0.0,
+      "values": [
+        0.0,
+        0.0
+      ]
+    },
+    "aiv_scalar_time(us)": {
+      "mean": 2.2806059999999997,
+      "values": [
+        2.312121,
+        2.249091
+      ]
+    },
+    "aiv_mte2_time(us)": {
+      "mean": 0.5821215,
+      "values": [
+        0.605455,
+        0.558788
+      ]
+    },
+    "aiv_read_hit_rate(%)": {
+      "mean": 92.85714,
+      "values": [
+        92.85714,
+        92.85714
+      ]
+    }
+  },
+  {
+    "mode": "application",
+    "warmup": 250,
+    "gap_us": 0,
+    "variant": "J020",
+    "rounds": 2,
+    "Task Duration(us)": {
+      "mean": 4.2199155,
+      "values": [
+        4.279914,
+        4.159917
+      ]
+    },
+    "Current Freq": {
+      "mean": 1650.0,
+      "values": [
+        1650.0,
+        1650.0
+      ]
+    },
+    "aiv_time(us)": {
+      "mean": 3.6542425,
+      "values": [
+        3.726667,
+        3.581818
+      ]
+    },
+    "aiv_icache_miss_rate": {
+      "mean": 0.079422,
+      "values": [
+        0.079422,
+        0.079422
+      ]
+    },
+    "aiv_scalar_time(us)": {
+      "mean": 2.7212125,
+      "values": [
+        2.778182,
+        2.664243
+      ]
+    },
+    "aiv_mte2_time(us)": {
+      "mean": 0.6848485,
+      "values": [
+        0.635758,
+        0.733939
+      ]
+    },
+    "aiv_read_hit_rate(%)": {
+      "mean": 98.245613,
+      "values": [
+        98.245613,
+        98.245613
+      ]
+    }
+  },
+  {
+    "mode": "application",
+    "warmup": 250,
+    "gap_us": 10000,
+    "variant": "J013",
+    "rounds": 2,
+    "Task Duration(us)": {
+      "mean": 3.149937,
+      "values": [
+        3.319934,
+        2.97994
+      ]
+    },
+    "Current Freq": {
+      "mean": 1650.0,
+      "values": [
+        1650.0,
+        1650.0
+      ]
+    },
+    "aiv_time(us)": {
+      "mean": 2.597879,
+      "values": [
+        2.746061,
+        2.449697
+      ]
+    },
+    "aiv_icache_miss_rate": {
+      "mean": 0.0,
+      "values": [
+        0.0,
+        0.0
+      ]
+    },
+    "aiv_scalar_time(us)": {
+      "mean": 2.3048485000000003,
+      "values": [
+        2.347273,
+        2.262424
+      ]
+    },
+    "aiv_mte2_time(us)": {
+      "mean": 0.6260604999999999,
+      "values": [
+        0.700606,
+        0.551515
+      ]
+    },
+    "aiv_read_hit_rate(%)": {
+      "mean": 92.85714,
+      "values": [
+        92.85714,
+        92.85714
+      ]
+    }
+  },
+  {
+    "mode": "application",
+    "warmup": 250,
+    "gap_us": 10000,
+    "variant": "J020",
+    "rounds": 2,
+    "Task Duration(us)": {
+      "mean": 4.089918,
+      "values": [
+        4.159917,
+        4.019919
+      ]
+    },
+    "Current Freq": {
+      "mean": 1650.0,
+      "values": [
+        1650.0,
+        1650.0
+      ]
+    },
+    "aiv_time(us)": {
+      "mean": 3.5657575,
+      "values": [
+        3.637576,
+        3.493939
+      ]
+    },
+    "aiv_icache_miss_rate": {
+      "mean": 0.079422,
+      "values": [
+        0.079422,
+        0.079422
+      ]
+    },
+    "aiv_scalar_time(us)": {
+      "mean": 2.669394,
+      "values": [
+        2.672727,
+        2.666061
+      ]
+    },
+    "aiv_mte2_time(us)": {
+      "mean": 0.6378785,
+      "values": [
+        0.591515,
+        0.684242
+      ]
+    },
+    "aiv_read_hit_rate(%)": {
+      "mean": 98.245613,
+      "values": [
+        98.245613,
+        98.245613
+      ]
+    }
+  }
+]

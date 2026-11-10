@@ -1,0 +1,142 @@
+{
+  "review_id": "J036",
+  "operator_version": "J035",
+  "new_kernel_version": false,
+  "device_jobs_this_review": 0,
+  "source_zip": "J035-code.zip",
+  "source_zip_bytes": 63969,
+  "source_zip_sha256": "212183985a1795c76ca2fddf298d53ca4229321cdcdaa87517882b8ae17bbd35",
+  "source_files_sha256": {
+    "code/build.sh": "f7dcb013694c59e8ef8cb8713919f0c0919c941df16ef8c468b69e4d5a5cbb3c",
+    "code/CMakeLists.txt": "85103159ac84fce4fe67ad82fe5ba2f6974a9f28d8205f138bbb9212079deb90",
+    "code/FIX_NOTES.md": "1f82443c988e3a77eadec17e4f9259852dc5ce5e08353210068671f68974593c",
+    "code/README.md": "7f9bf3a841a3988ffb551f5ad168d00abc24e8f043be996c856d06c9d508e1a4",
+    "code/examples/CMakeLists.txt": "ee4f416c5ff131568142e7e9187c9c8d6c94bdee4e8992cea45500fa8e2b2309",
+    "code/examples/run.sh": "11b8d3fff5f5d6d98536e80a1e64bc8292328bb759a49f9219a3b94c080b63aa",
+    "code/examples/sample_support.h": "1e3ce5d7a19afd69e4d9c75df7802e9be63db9ec61d9840ed7bda7e6a426d5f7",
+    "code/examples/test_aclnn_p_relu_grad_update.cpp": "aad97eab6aa435bddbfa8c3e424a02159dd4c6a9e1571f3d071c5f1aa82058e4",
+    "code/op_host/CMakeLists.txt": "1de444d1f669aabeb63b73b636b64a1532d74d7e056956150ba1465073aed96b",
+    "code/op_host/p_relu_grad_update_def.cpp": "bb8e2c0c8e36b34408d586e467edee084eaa75bd9d62e1e5ccbdc692b0bdac49",
+    "code/op_host/p_relu_grad_update_infershape.cpp": "5b0bcf3d41649a92138df82c7558052d9ce568d5f8ddbce34cdfaccab388d1ba",
+    "code/op_host/p_relu_grad_update_tiling.cpp": "16584b8380cf41760bf5a0cb8a5f97e0ec278884c5d257eaa853ab86f9e769dd",
+    "code/op_kernel/CMakeLists.txt": "803fb189cb5bb83c1003e43e7df99db42fc838fa53ea8f0fce9dc6ccd3561d6b",
+    "code/op_kernel/p_relu_grad_update.cpp": "8da871be73c27e0a8d7934e639fa3d8f14b8cc2ab443cdacc4529cada0077e18",
+    "code/op_kernel/p_relu_grad_update.h": "0b3155a845c434c585484f315a941e1beef945190efcf254f03b5ef1cab466a5",
+    "code/op_kernel/p_relu_grad_update_merged.h": "76197fd5819a6182e8f1c8539280b4d21710794aa965eb005f36d6c64ed73e61",
+    "code/op_kernel/p_relu_grad_update_resident.h": "6182a7672ba289524f822cd2137785fc5dc1fe975e41c96b30080fae06193a33",
+    "code/op_kernel/p_relu_grad_update_s1.h": "3b9b8c28142e3cf0f2f528a7499002f0b7e2b02664257f6f169813eaab9df85c",
+    "code/op_kernel/p_relu_grad_update_splitc.h": "f4c5f793a36a152c5ee3cd4208c359cefc3246eaacba8a930916e808bd2c1ead",
+    "code/op_kernel/p_relu_grad_update_tiling_data.h": "42a68f7aa17548e8c9397b65bb9d50869ec34369750167dfc02cd431823c20ed",
+    "code/op_kernel/p_relu_grad_update_tiling_key.h": "ff6206a43ef623b39491c7a235f35eb0e962b7c08fa79665460473e63f9c772e",
+    "code/samples/case.json": "3e80ef774455fad621b320312f935d4a1ad4733e12ce5aa9a60d67dc3aa43315",
+    "code/samples/reference.py": "fe44f69b6e181031a349e25a8da18a06d3cee8913f6b7692c512f7fa28972028",
+    "code/samples/sample.py": "f8b63b30a32b450576e93d2e4fbecb7fd5e4b177de2027cdaf781c957c217a7b",
+    "code/tests/compute_schedule_check.py": "20f25ef9c550f1808fd5578053cca55b6e24ed1894c1e5414ee242577f215938",
+    "code/tests/local_semantic_check.py": "72096fa02e777cdc3d97838867989733fcf773fa26ff5e08ba6d3c7d4f155698",
+    "code/tests/shared_weight_check.py": "230a415dc26b2c14abc468996ab20bb7a58827c8839b5054305db9210fba555f",
+    "code/tests/ut/CMakeLists.txt": "40dcb7f41a7c8997a91b9e65da428bb15ca9b11ce00f1b11381949d3a9407a56",
+    "code/tests/ut/run.sh": "08529ac59892bf6d4e7bf6c817741904bf1f1aeb35138989a342a91dd07e5347",
+    "code/tests/ut/cmake/BuildGoogleTest.cmake": "51270daff5b349ce5f21f73e18d0b561f179541864158cafdef440ac7f81de93",
+    "code/tests/ut/common/any_value.h": "8dd88ba3c3908d757ee8bd11c03f03bb28218662fcc112f08a63846e38ee0c0f",
+    "code/tests/ut/common/infershape_case_executor.cpp": "ac45cda21b36cfec973f8b9faf17609c40ec0b1bb3505c5fa5b66a9f06239540",
+    "code/tests/ut/common/infershape_case_executor.h": "546fd2a0324139d58f1ae725189fdfd5d0d082feb69b8fbe53a9cdb07677ade4",
+    "code/tests/ut/common/infershape_context_faker.cpp": "5362aca7c89c708d8afbbdf32bc58e8a97ff96257d2fd60b669b410e765367c0",
+    "code/tests/ut/common/infershape_context_faker.h": "4154d87c522c3154753f31ad049719811103585871134b490ffde9fd69514ba9",
+    "code/tests/ut/common/tiling_case_executor.cpp": "3acf6379ae333fbf924a1ce1dea5ed44801f00f3f5dd7f52fc75914d19e0ba8f",
+    "code/tests/ut/common/tiling_case_executor.h": "2d3b1bdf37d545deeec09f901369d6bf18e0c9d94c0c6f5e43e8cd3a164b9ed1",
+    "code/tests/ut/common/tiling_context_faker.cpp": "966c05f053d931b983ed5f146d4d9a71fe68c143098ce9ac48c079020e774b66",
+    "code/tests/ut/common/tiling_context_faker.h": "d881ebd71f0a4c3062efd425ba213cb6a875e8494860e77d76ce1fdd19846bc0",
+    "code/tests/ut/op_host/CMakeLists.txt": "d1cac3f47a77496540876eb5c79aecb57b46a1353b6e8aa359c2104284bbe44b",
+    "code/tests/ut/op_host/test_op_host_main.cpp": "63fd175be4db9c9adcf8652db640451103bc536b18ca5c0bc489139346c7a998",
+    "code/tests/ut/op_host/test_p_relu_grad_update_tiling.cpp": "445ebebcd9d20f338253dd292d1254dfc59568e4a854b387f85b4e069a2f78f6",
+    "code/tests/ut/op_kernel/CMakeLists.txt": "4be89a8f04bbc30a58034aec988c99f1b2dbf3965dd0e9570201c69a23f28492",
+    "code/tests/ut/op_kernel/p_relu_grad_update_tiling.h": "8289b95c12f3fa81197cbd7640662c839061151fecf66d1f57ab2ebf1ae7310d",
+    "code/tests/ut/op_kernel/test_p_relu_grad_update.cpp": "062023bbc73207f3fd06609202146d8d3b28264975269b4496073e8a2922447b",
+    "code/tests/ut/op_kernel/p_relu_grad_update_data/README.md": "ffd9bb0b039727b52ed5ea3df627fb669ccd53b6752297d93bc8de786f76a934"
+  },
+  "source_differences": {
+    "J026->J034": [
+      "code/op_kernel/p_relu_grad_update_splitc.h"
+    ],
+    "J034->J035": [
+      "code/op_kernel/p_relu_grad_update_splitc.h"
+    ]
+  },
+  "integration": "J035 contains J034 low-precision layout and J035 FP32 layout; host routing unchanged from J026",
+  "preserved_versions": [
+    "J026",
+    "J034",
+    "J035"
+  ],
+  "target_shape": [
+    127,
+    8192,
+    1
+  ],
+  "measured_metrics_us_from_J035_campaign": {
+    "bf16": {
+      "Task Duration(us)": 11.937375,
+      "aiv_time(us)": 9.594,
+      "aiv_scalar_time(us)": 4.7787500000000005,
+      "aiv_vec_time(us)": 4.096,
+      "aiv_mte2_time(us)": 3.3080625,
+      "aiv_mte3_time(us)": 1.2755
+    },
+    "fp16": {
+      "Task Duration(us)": 11.832375,
+      "aiv_time(us)": 9.5983125,
+      "aiv_scalar_time(us)": 5.3088750000000005,
+      "aiv_vec_time(us)": 3.896,
+      "aiv_mte2_time(us)": 3.0695,
+      "aiv_mte3_time(us)": 1.2790625
+    },
+    "fp32": {
+      "Task Duration(us)": 10.7948125,
+      "aiv_time(us)": 8.632562499999999,
+      "aiv_scalar_time(us)": 4.561624999999999,
+      "aiv_vec_time(us)": 2.306,
+      "aiv_mte2_time(us)": 4.0563125,
+      "aiv_mte3_time(us)": 1.9555625
+    }
+  },
+  "prior_test_evidence": {
+    "report": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J035\\RESULTS.md",
+    "archive": "E:\\suanzi\\cann-ascendc-ops-collab\\tasks\\active\\PReluGradUpdate_2329\\explorations\\logs\\EXP_J035_FP32_UB_LAYOUT_910C_20261105\\J035-910C-evidence.zip",
+    "bytes": 179054045,
+    "sha256": "4f97f7a2e3d023f21a3962af4a55dbac4c97b7ab78f6abdc8fc76095042850f4",
+    "crc": "PASS",
+    "binary_paths": 6348,
+    "verified_unique_blob_references": 3823,
+    "verified_dependencies": 11,
+    "precision_cases": 750,
+    "stress_invocations": 1728,
+    "performance_groups": 432,
+    "device_profiles": 108000,
+    "all_device_jobs_exit": 0
+  },
+  "prior_reports": {
+    "J034": {
+      "path": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J034\\RESULTS.md",
+      "sha256": "ed6219819ee31195b1a855e00df457e71f83216deb4078ad00b7f782b561047c"
+    },
+    "J035": {
+      "path": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J035\\RESULTS.md",
+      "sha256": "ac9439e516059c93fcf22e96395e3295fdd28122ec13a620deb0e4521f0046ad"
+    }
+  },
+  "inspected_local_materials": {
+    "tasks\\active\\PReluGradUpdate_2329\\TASK.md": "0ee8bd11e4e19503370d6d881050758f2075f684d6e1167f103c4742a463a856",
+    "tasks\\active\\PReluGradUpdate_2329\\materials\\_unzipped\\code\\samples\\case.json": "3e80ef774455fad621b320312f935d4a1ad4733e12ce5aa9a60d67dc3aa43315",
+    "tasks\\active\\PReluGradUpdate_2329\\materials\\_unzipped\\code\\samples\\reference.py": "fe44f69b6e181031a349e25a8da18a06d3cee8913f6b7692c512f7fa28972028"
+  },
+  "decision": "No new justified kernel change; freeze J035 candidate and preserve measurement limitations",
+  "pending": [
+    "Confirm current platform target/toolchain/task requirements",
+    "Obtain direct TBE correctness and matched performance baseline",
+    "Resolve two FP32 flips and unchanged FP16 ordering offset",
+    "Check IEEE special-value requirements against official input domain",
+    "Clean build the frozen source for the confirmed target",
+    "Bind any future authorized platform result to this source hash"
+  ],
+  "competition_submission": false
+}

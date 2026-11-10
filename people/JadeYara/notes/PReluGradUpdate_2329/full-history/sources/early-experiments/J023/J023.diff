@@ -1,0 +1,32 @@
+--- J022/entry.cpp
++++ J023/entry.cpp
+@@ -28,7 +28,8 @@
+ 
+ 
+ 
+-    if constexpr ((schMode & 3U) == static_cast<uint32_t>(PReluGradUpdateTilingKey::FLOAT)) {
++    if constexpr ((schMode & 3U) == static_cast<uint32_t>(PReluGradUpdateTilingKey::FLOAT) &&
++                  std::is_same<DTYPE_GRADS, float>::value) {
+         using Kernel = typename std::conditional<(schMode >= 12),
+             NsPReluGradUpdateResident::PReluGradUpdate<float>,
+             typename std::conditional<(schMode >= 8),
+@@ -40,7 +41,8 @@
+         op.Init(grads, features, weights, dx, update, &tilingData);
+         op.Process();
+ #if PRELU_ENABLE_FP16
+-    } else if constexpr ((schMode & 3U) == static_cast<uint32_t>(PReluGradUpdateTilingKey::FLOAT16)) {
++    } else if constexpr ((schMode & 3U) == static_cast<uint32_t>(PReluGradUpdateTilingKey::FLOAT16) &&
++                  std::is_same<DTYPE_GRADS, half>::value) {
+         using Kernel = typename std::conditional<(schMode >= 12),
+             NsPReluGradUpdateResident::PReluGradUpdate<half>,
+             typename std::conditional<(schMode >= 8),
+@@ -53,7 +55,8 @@
+         op.Process();
+ #endif
+ #if PRELU_ENABLE_BF16
+-    } else if constexpr ((schMode & 3U) == static_cast<uint32_t>(PReluGradUpdateTilingKey::BFLOAT16)) {
++    } else if constexpr ((schMode & 3U) == static_cast<uint32_t>(PReluGradUpdateTilingKey::BFLOAT16) &&
++                  std::is_same<DTYPE_GRADS, bfloat16_t>::value) {
+         using Kernel = typename std::conditional<(schMode >= 12),
+             NsPReluGradUpdateResident::PReluGradUpdate<bfloat16_t>,
+             typename std::conditional<(schMode >= 8),

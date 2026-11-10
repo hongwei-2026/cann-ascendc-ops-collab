@@ -1,0 +1,29 @@
+--- J026/splitc.h
++++ J032/splitc.h
+@@ -240,6 +240,13 @@
+             Cast(featuresFloat, featuresLocal, RoundMode::CAST_NONE, currentNum);
+             PipeBarrier<PIPE_V>();
+         }
++    }
++
++    // The low-precision inputs have been copied into independent FP32 buffers.
++    // The existing Cast barrier orders their last reads before VEC->MTE2 reuse.
++    if constexpr (!std::is_same<T, float>::value) {
++        gradsQueue_.FreeTensor(gradsLocal);
++        featuresQueue_.FreeTensor(featuresLocal);
+     }
+ 
+     LocalTensor<T> weightsLocal;
+@@ -336,8 +343,10 @@
+ 
+     dxQueue_.EnQue(dxLocal);
+     updateQueue_.EnQue(updateLocal);
+-    gradsQueue_.FreeTensor(gradsLocal);
+-    featuresQueue_.FreeTensor(featuresLocal);
++    if constexpr (std::is_same<T, float>::value) {
++        gradsQueue_.FreeTensor(gradsLocal);
++        featuresQueue_.FreeTensor(featuresLocal);
++    }
+     if (vectorWeights_ && !residentWeights_) {
+         weightsQueue_.FreeTensor(weightsLocal);
+     }

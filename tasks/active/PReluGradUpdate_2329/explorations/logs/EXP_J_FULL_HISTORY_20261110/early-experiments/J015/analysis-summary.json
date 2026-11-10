@@ -1,0 +1,12 @@
+{
+  "counts": {
+    "active": 63,
+    "s1_control": 27,
+    "normal": 33
+  },
+  "active_all4_gain_at_least_0_15": 54,
+  "active_mean_delta_range": [
+    -34.296625,
+    -0.2472500000000002
+  ]
+}

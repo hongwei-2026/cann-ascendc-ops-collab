@@ -1,0 +1,24 @@
+--- 
++++ 
+@@ -158,8 +158,8 @@
+ template <typename T>
+ __aicore__ inline void PReluGradUpdate<T>::CopyIn(int64_t progress, int64_t currentNum, bool copyWeights)
+ {
+-    LocalTensor<T> gradsLocal = gradsQueue_.AllocTensor<T>();
+-    LocalTensor<T> featuresLocal = featuresQueue_.AllocTensor<T>();
++    LocalTensor<T> gradsLocal = gradsQueue_.template AllocTensor<T>();
++    LocalTensor<T> featuresLocal = featuresQueue_.template AllocTensor<T>();
+ 
+     const int64_t tBlockElements = 32 / static_cast<int64_t>(sizeof(T));
+     const int64_t paddedNum = AlignUp(currentNum, tBlockElements);
+@@ -206,8 +206,8 @@
+ template <typename T>
+ __aicore__ inline void PReluGradUpdate<T>::Compute(int64_t progress, int64_t currentNum)
+ {
+-    LocalTensor<T> gradsLocal = gradsQueue_.DeQue<T>();
+-    LocalTensor<T> featuresLocal = featuresQueue_.DeQue<T>();
++    LocalTensor<T> gradsLocal = gradsQueue_.template DeQue<T>();
++    LocalTensor<T> featuresLocal = featuresQueue_.template DeQue<T>();
+     LocalTensor<T> dxLocal = dxQueue_.AllocTensor<T>();
+     LocalTensor<T> updateLocal = updateQueue_.AllocTensor<T>();
+ 

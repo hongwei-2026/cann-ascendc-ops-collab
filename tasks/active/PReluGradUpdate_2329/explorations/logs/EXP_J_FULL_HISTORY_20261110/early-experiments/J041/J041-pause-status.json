@@ -1,0 +1,15 @@
+{
+  "status": "paused_before_device_launch",
+  "kernel_changes": false,
+  "remote_job_started": false,
+  "completed": [
+    "local48-case selection",
+    "local script preparation",
+    "read-only remote NPU status"
+  ],
+  "last_observed_remote_time": "2026-11-05T08:52:35+08:00",
+  "last_observed_npu_running_processes": 0,
+  "J040_layout_exit": 0,
+  "J040_perf_exit": 0,
+  "current_scope": "existing-evidence documentation only"
+}

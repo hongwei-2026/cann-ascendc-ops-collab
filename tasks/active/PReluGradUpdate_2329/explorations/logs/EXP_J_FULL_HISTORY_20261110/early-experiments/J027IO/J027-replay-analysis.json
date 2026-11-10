@@ -1,0 +1,386 @@
+[
+  {
+    "dtype": "fp32",
+    "mode": "kernel",
+    "variant": "J026",
+    "runs": [
+      {
+        "Task_us": 14.539709,
+        "freq_MHz": "1650",
+        "aiv_time(us)_maxcore": 13.513333,
+        "aiv_vec_time(us)_maxcore": 3.863636,
+        "aiv_mte2_time(us)_maxcore": 7.563636,
+        "aiv_mte3_time(us)_maxcore": 3.105454,
+        "aiv_scalar_time(us)_maxcore": 5.810909,
+        "aiv_scalar_wait_time(us)_maxcore": 2.472727,
+        "L2_read_hit_percent": 7.139201637666326,
+        "L2_write_hit_percent": 0.24545900834560627
+      },
+      {
+        "Task_us": 14.419712,
+        "freq_MHz": "1650",
+        "aiv_time(us)_maxcore": 13.341212,
+        "aiv_vec_time(us)_maxcore": 3.863636,
+        "aiv_mte2_time(us)_maxcore": 7.081212,
+        "aiv_mte3_time(us)_maxcore": 2.946667,
+        "aiv_scalar_time(us)_maxcore": 5.846061,
+        "aiv_scalar_wait_time(us)_maxcore": 2.224849,
+        "L2_read_hit_percent": 7.139201637666326,
+        "L2_write_hit_percent": 0.24545900834560627
+      }
+    ],
+    "Task_us_mean": 14.4797105
+  },
+  {
+    "dtype": "fp32",
+    "mode": "kernel",
+    "variant": "J027IO",
+    "runs": [
+      {
+        "Task_us": 11.379772,
+        "freq_MHz": "1650",
+        "aiv_time(us)_maxcore": 10.707879,
+        "aiv_vec_time(us)_maxcore": 0.70303,
+        "aiv_mte2_time(us)_maxcore": 7.606667,
+        "aiv_mte3_time(us)_maxcore": 3.25697,
+        "aiv_scalar_time(us)_maxcore": 5.653939,
+        "aiv_scalar_wait_time(us)_maxcore": 2.369091,
+        "L2_read_hit_percent": 7.139201637666326,
+        "L2_write_hit_percent": 0.24545900834560627
+      },
+      {
+        "Task_us": 10.619787,
+        "freq_MHz": "1650",
+        "aiv_time(us)_maxcore": 9.909091,
+        "aiv_vec_time(us)_maxcore": 0.70303,
+        "aiv_mte2_time(us)_maxcore": 7.347879,
+        "aiv_mte3_time(us)_maxcore": 3.19697,
+        "aiv_scalar_time(us)_maxcore": 5.879394,
+        "aiv_scalar_wait_time(us)_maxcore": 2.101212,
+        "L2_read_hit_percent": 7.139201637666326,
+        "L2_write_hit_percent": 0.24545900834560627
+      }
+    ],
+    "Task_us_mean": 10.9997795
+  },
+  {
+    "dtype": "fp32",
+    "mode": "application",
+    "variant": "J026",
+    "runs": [
+      {
+        "Task_us": 11.959761,
+        "freq_MHz": "1650",
+        "aiv_time(us)_maxcore": 11.189697,
+        "aiv_vec_time(us)_maxcore": 3.863636,
+        "aiv_mte2_time(us)_maxcore": 3.307273,
+        "aiv_mte3_time(us)_maxcore": 3.101818,
+        "aiv_scalar_time(us)_maxcore": 7.773334,
+        "aiv_scalar_wait_time(us)_maxcore": 2.391515,
+        "L2_read_hit_percent": 99.99857841464801,
+        "L2_write_hit_percent": 100.0
+      },
+      {
+        "Task_us": 11.639768,
+        "freq_MHz": "1650",
+        "aiv_time(us)_maxcore": 10.890303,
+        "aiv_vec_time(us)_maxcore": 3.863636,
+        "aiv_mte2_time(us)_maxcore": 3.363636,
+        "aiv_mte3_time(us)_maxcore": 3.564242,
+        "aiv_scalar_time(us)_maxcore": 7.533333,
+        "aiv_scalar_wait_time(us)_maxcore": 2.27697,
+        "L2_read_hit_percent": 99.99857841464801,
+        "L2_write_hit_percent": 100.0
+      }
+    ],
+    "Task_us_mean": 11.7997645
+  },
+  {
+    "dtype": "fp32",
+    "mode": "application",
+    "variant": "J027IO",
+    "runs": [
+      {
+        "Task_us": 9.259815,
+        "freq_MHz": "1650",
+        "aiv_time(us)_maxcore": 8.207273,
+        "aiv_vec_time(us)_maxcore": 0.70303,
+        "aiv_mte2_time(us)_maxcore": 5.578788,
+        "aiv_mte3_time(us)_maxcore": 3.014545,
+        "aiv_scalar_time(us)_maxcore": 5.478788,
+        "aiv_scalar_wait_time(us)_maxcore": 2.192727,
+        "L2_read_hit_percent": 99.99857841464801,
+        "L2_write_hit_percent": 100.0
+      },
+      {
+        "Task_us": 8.299834,
+        "freq_MHz": "1650",
+        "aiv_time(us)_maxcore": 7.492121,
+        "aiv_vec_time(us)_maxcore": 0.70303,
+        "aiv_mte2_time(us)_maxcore": 4.538788,
+        "aiv_mte3_time(us)_maxcore": 2.473333,
+        "aiv_scalar_time(us)_maxcore": 6.007273,
+        "aiv_scalar_wait_time(us)_maxcore": 1.97697,
+        "L2_read_hit_percent": 99.99857841464801,
+        "L2_write_hit_percent": 100.0
+      }
+    ],
+    "Task_us_mean": 8.7798245
+  },
+  {
+    "dtype": "fp16",
+    "mode": "kernel",
+    "variant": "J026",
+    "runs": [
+      {
+        "Task_us": 14.819704,
+        "freq_MHz": "1650",
+        "aiv_time(us)_maxcore": 14.106667,
+        "aiv_vec_time(us)_maxcore": 5.49697,
+        "aiv_mte2_time(us)_maxcore": 5.924242,
+        "aiv_mte3_time(us)_maxcore": 1.529091,
+        "aiv_scalar_time(us)_maxcore": 6.88303,
+        "aiv_scalar_wait_time(us)_maxcore": 2.350303,
+        "L2_read_hit_percent": 7.342934905874348,
+        "L2_write_hit_percent": 0.48971596474045054
+      },
+      {
+        "Task_us": 14.579708,
+        "freq_MHz": "1650",
+        "aiv_time(us)_maxcore": 13.87394,
+        "aiv_vec_time(us)_maxcore": 5.49697,
+        "aiv_mte2_time(us)_maxcore": 5.645454,
+        "aiv_mte3_time(us)_maxcore": 2.335151,
+        "aiv_scalar_time(us)_maxcore": 7.667273,
+        "aiv_scalar_wait_time(us)_maxcore": 2.347273,
+        "L2_read_hit_percent": 7.342934905874348,
+        "L2_write_hit_percent": 0.48971596474045054
+      }
+    ],
+    "Task_us_mean": 14.699705999999999
+  },
+  {
+    "dtype": "fp16",
+    "mode": "kernel",
+    "variant": "J027IO",
+    "runs": [
+      {
+        "Task_us": 9.779804,
+        "freq_MHz": "1650",
+        "aiv_time(us)_maxcore": 8.995152,
+        "aiv_vec_time(us)_maxcore": 0.431515,
+        "aiv_mte2_time(us)_maxcore": 4.829697,
+        "aiv_mte3_time(us)_maxcore": 2.920606,
+        "aiv_scalar_time(us)_maxcore": 7.572121,
+        "aiv_scalar_wait_time(us)_maxcore": 2.517576,
+        "L2_read_hit_percent": 7.342934905874348,
+        "L2_write_hit_percent": 0.48971596474045054
+      },
+      {
+        "Task_us": 9.719806,
+        "freq_MHz": "1650",
+        "aiv_time(us)_maxcore": 8.992121,
+        "aiv_vec_time(us)_maxcore": 0.431515,
+        "aiv_mte2_time(us)_maxcore": 6.339394,
+        "aiv_mte3_time(us)_maxcore": 3.572727,
+        "aiv_scalar_time(us)_maxcore": 6.058182,
+        "aiv_scalar_wait_time(us)_maxcore": 2.629697,
+        "L2_read_hit_percent": 7.342934905874348,
+        "L2_write_hit_percent": 0.48971596474045054
+      }
+    ],
+    "Task_us_mean": 9.749805
+  },
+  {
+    "dtype": "fp16",
+    "mode": "application",
+    "variant": "J026",
+    "runs": [
+      {
+        "Task_us": 12.779744,
+        "freq_MHz": "1650",
+        "aiv_time(us)_maxcore": 11.908484,
+        "aiv_vec_time(us)_maxcore": 5.49697,
+        "aiv_mte2_time(us)_maxcore": 4.408485,
+        "aiv_mte3_time(us)_maxcore": 1.930303,
+        "aiv_scalar_time(us)_maxcore": 6.178182,
+        "aiv_scalar_wait_time(us)_maxcore": 2.430303,
+        "L2_read_hit_percent": 99.99716488999773,
+        "L2_write_hit_percent": 100.0
+      },
+      {
+        "Task_us": 13.059739,
+        "freq_MHz": "1650",
+        "aiv_time(us)_maxcore": 12.208485,
+        "aiv_vec_time(us)_maxcore": 5.49697,
+        "aiv_mte2_time(us)_maxcore": 2.075151,
+        "aiv_mte3_time(us)_maxcore": 2.212727,
+        "aiv_scalar_time(us)_maxcore": 8.013333,
+        "aiv_scalar_wait_time(us)_maxcore": 2.193333,
+        "L2_read_hit_percent": 99.99716488999773,
+        "L2_write_hit_percent": 100.0
+      }
+    ],
+    "Task_us_mean": 12.9197415
+  },
+  {
+    "dtype": "fp16",
+    "mode": "application",
+    "variant": "J027IO",
+    "runs": [
+      {
+        "Task_us": 8.079839,
+        "freq_MHz": "1650",
+        "aiv_time(us)_maxcore": 7.437576,
+        "aiv_vec_time(us)_maxcore": 0.431515,
+        "aiv_mte2_time(us)_maxcore": 4.684848,
+        "aiv_mte3_time(us)_maxcore": 3.775758,
+        "aiv_scalar_time(us)_maxcore": 4.993333,
+        "aiv_scalar_wait_time(us)_maxcore": 2.672121,
+        "L2_read_hit_percent": 99.99716488999773,
+        "L2_write_hit_percent": 100.0
+      },
+      {
+        "Task_us": 8.399832,
+        "freq_MHz": "1650",
+        "aiv_time(us)_maxcore": 7.716969,
+        "aiv_vec_time(us)_maxcore": 0.431515,
+        "aiv_mte2_time(us)_maxcore": 4.955152,
+        "aiv_mte3_time(us)_maxcore": 1.895151,
+        "aiv_scalar_time(us)_maxcore": 5.537576,
+        "aiv_scalar_wait_time(us)_maxcore": 1.936364,
+        "L2_read_hit_percent": 99.99716488999773,
+        "L2_write_hit_percent": 100.0
+      }
+    ],
+    "Task_us_mean": 8.2398355
+  },
+  {
+    "dtype": "bf16",
+    "mode": "kernel",
+    "variant": "J026",
+    "runs": [
+      {
+        "Task_us": 14.799704,
+        "freq_MHz": "1650",
+        "aiv_time(us)_maxcore": 14.111515,
+        "aiv_vec_time(us)_maxcore": 5.717576,
+        "aiv_mte2_time(us)_maxcore": 5.994545,
+        "aiv_mte3_time(us)_maxcore": 1.514545,
+        "aiv_scalar_time(us)_maxcore": 6.243636,
+        "aiv_scalar_wait_time(us)_maxcore": 2.430303,
+        "L2_read_hit_percent": 7.342934905874348,
+        "L2_write_hit_percent": 0.48971596474045054
+      },
+      {
+        "Task_us": 14.699706,
+        "freq_MHz": "1650",
+        "aiv_time(us)_maxcore": 13.938182,
+        "aiv_vec_time(us)_maxcore": 5.717576,
+        "aiv_mte2_time(us)_maxcore": 4.892727,
+        "aiv_mte3_time(us)_maxcore": 1.8,
+        "aiv_scalar_time(us)_maxcore": 8.176364,
+        "aiv_scalar_wait_time(us)_maxcore": 2.124242,
+        "L2_read_hit_percent": 7.342934905874348,
+        "L2_write_hit_percent": 0.48971596474045054
+      }
+    ],
+    "Task_us_mean": 14.749705
+  },
+  {
+    "dtype": "bf16",
+    "mode": "kernel",
+    "variant": "J027IO",
+    "runs": [
+      {
+        "Task_us": 9.879803,
+        "freq_MHz": "1650",
+        "aiv_time(us)_maxcore": 9.175757,
+        "aiv_vec_time(us)_maxcore": 0.431515,
+        "aiv_mte2_time(us)_maxcore": 6.797576,
+        "aiv_mte3_time(us)_maxcore": 1.909697,
+        "aiv_scalar_time(us)_maxcore": 5.70606,
+        "aiv_scalar_wait_time(us)_maxcore": 2.702424,
+        "L2_read_hit_percent": 7.342934905874348,
+        "L2_write_hit_percent": 0.48971596474045054
+      },
+      {
+        "Task_us": 9.299814,
+        "freq_MHz": "1650",
+        "aiv_time(us)_maxcore": 8.645454,
+        "aiv_vec_time(us)_maxcore": 0.431515,
+        "aiv_mte2_time(us)_maxcore": 5.859394,
+        "aiv_mte3_time(us)_maxcore": 3.001818,
+        "aiv_scalar_time(us)_maxcore": 6.682424,
+        "aiv_scalar_wait_time(us)_maxcore": 2.124848,
+        "L2_read_hit_percent": 7.342934905874348,
+        "L2_write_hit_percent": 0.48971596474045054
+      }
+    ],
+    "Task_us_mean": 9.5898085
+  },
+  {
+    "dtype": "bf16",
+    "mode": "application",
+    "variant": "J026",
+    "runs": [
+      {
+        "Task_us": 12.719746,
+        "freq_MHz": "1650",
+        "aiv_time(us)_maxcore": 12.061818,
+        "aiv_vec_time(us)_maxcore": 5.717576,
+        "aiv_mte2_time(us)_maxcore": 3.83697,
+        "aiv_mte3_time(us)_maxcore": 3.022424,
+        "aiv_scalar_time(us)_maxcore": 6.74606,
+        "aiv_scalar_wait_time(us)_maxcore": 2.385455,
+        "L2_read_hit_percent": 99.99716488999773,
+        "L2_write_hit_percent": 100.0
+      },
+      {
+        "Task_us": 12.799744,
+        "freq_MHz": "1650",
+        "aiv_time(us)_maxcore": 12.109091,
+        "aiv_vec_time(us)_maxcore": 5.717576,
+        "aiv_mte2_time(us)_maxcore": 3.495152,
+        "aiv_mte3_time(us)_maxcore": 2.252727,
+        "aiv_scalar_time(us)_maxcore": 7.690909,
+        "aiv_scalar_wait_time(us)_maxcore": 2.237576,
+        "L2_read_hit_percent": 99.99716488999773,
+        "L2_write_hit_percent": 100.0
+      }
+    ],
+    "Task_us_mean": 12.759745
+  },
+  {
+    "dtype": "bf16",
+    "mode": "application",
+    "variant": "J027IO",
+    "runs": [
+      {
+        "Task_us": 8.019839,
+        "freq_MHz": "1650",
+        "aiv_time(us)_maxcore": 7.39697,
+        "aiv_vec_time(us)_maxcore": 0.431515,
+        "aiv_mte2_time(us)_maxcore": 4.214545,
+        "aiv_mte3_time(us)_maxcore": 1.915151,
+        "aiv_scalar_time(us)_maxcore": 6.113333,
+        "aiv_scalar_wait_time(us)_maxcore": 2.494545,
+        "L2_read_hit_percent": 99.99716488999773,
+        "L2_write_hit_percent": 100.0
+      },
+      {
+        "Task_us": 7.919842,
+        "freq_MHz": "1650",
+        "aiv_time(us)_maxcore": 7.270909,
+        "aiv_vec_time(us)_maxcore": 0.431515,
+        "aiv_mte2_time(us)_maxcore": 4.163636,
+        "aiv_mte3_time(us)_maxcore": 3.18303,
+        "aiv_scalar_time(us)_maxcore": 5.975758,
+        "aiv_scalar_wait_time(us)_maxcore": 1.841212,
+        "L2_read_hit_percent": 99.99716488999773,
+        "L2_write_hit_percent": 100.0
+      }
+    ],
+    "Task_us_mean": 7.9698405
+  }
+]

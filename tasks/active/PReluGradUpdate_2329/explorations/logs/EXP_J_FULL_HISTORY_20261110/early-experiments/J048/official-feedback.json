@@ -1,0 +1,38 @@
+{
+  "source": "user reported official result; no platform access in this review",
+  "baseline_submission": "1148578",
+  "baseline_source_identity": "user confirmed J035",
+  "candidate_submission": null,
+  "candidate_label": "J048",
+  "candidate_uploaded_source_verified": false,
+  "precision": "Pass",
+  "baseline_us": [
+    7.15,
+    7.29,
+    7.11,
+    5.88,
+    6.06
+  ],
+  "candidate_us": [
+    8.42,
+    8.35,
+    8.41,
+    5.75,
+    5.85
+  ],
+  "delta_us": [
+    1.27,
+    1.06,
+    1.3,
+    -0.13,
+    -0.21
+  ],
+  "decision": "reject J048 as overall replacement; restore J035 via user",
+  "rollback_path": "E:\\suanzi\\cann-ascendc-ops-collab\\people\\JadeYara\\PReluGradUpdate_2329\\experiments\\J048\\manual-platform-trial\\rollback\\op_kernel\\p_relu_grad_update_splitc.h",
+  "rollback_sha256": "f4c5f793a36a152c5ee3cd4208c359cefc3246eaacba8a930916e808bd2c1ead",
+  "candidate_header_sha256": "053e5f51be19a69b0679c262ccc347786279baeb4e9fe8fac27e49d692571732",
+  "code_packages": {
+    "J035": "212183985a1795c76ca2fddf298d53ca4229321cdcdaa87517882b8ae17bbd35",
+    "J048": "b6ea59046c0d902f6a08de91c51ed529fdf4e1f1d3a08b29bc106529ce82ee05"
+  }
+}

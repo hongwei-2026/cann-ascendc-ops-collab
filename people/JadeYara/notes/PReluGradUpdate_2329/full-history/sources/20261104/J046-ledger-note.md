@@ -1,0 +1,1 @@
+J046 完成严格权重生命周期对照：J035 相同切分/遍历/核数/UB/计算，仅权重逐 tile 重读释放。780 精度、5184 次压力通过；36 输入4轮普通 profiler 的19个 split-C 输入全部四轮回退，无 profiler 的6个适用输入也全部四轮回退，保留 J035、不采用 J046。附16份实板 MemoryDetail，逻辑搬运计数与硬件计数分列。首次 counter 因 msprof 私有目录检查未执行采集，保留日志后在新建私有目录成功恢复，不改现有权限。未操作平台/未提交/未push。见 explorations/EXP_J046_WEIGHT_LIFECYCLE_910C_20261105.md。

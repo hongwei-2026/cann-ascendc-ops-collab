@@ -1,0 +1,13 @@
+--- J020/entry.cpp
++++ J022/entry.cpp
+@@ -18,6 +18,10 @@
+ __global__ __aicore__ void p_relu_grad_update(GM_ADDR grads, GM_ADDR features, GM_ADDR weights,
+     GM_ADDR dx, GM_ADDR update, GM_ADDR workspace, GM_ADDR tiling)
+ {
++    if constexpr (schMode == PRELUGRADUPDATE_TPL_FLOAT16_S1 ||
++                  schMode == PRELUGRADUPDATE_TPL_BF16_S1) {
++        AscendC::ICachePreLoad(4);
++    }
+     (void)workspace;
+     REGISTER_TILING_DEFAULT(PReluGradUpdateTilingData);
+     GET_TILING_DATA_WITH_STRUCT(PReluGradUpdateTilingData, tilingData, tiling);

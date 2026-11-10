@@ -1,0 +1,15 @@
+--- J024/host
++++ J026/host
+@@ -238,10 +238,10 @@
+     // Reuse weights where a complete channel vector cannot fit in one tile.
+     if (vectorWeights && channelNum % blockElements == 0 && channelNum > maxTile) {
+         const int64_t cTiles = CeilDivI64(channelNum, maxTile);
+-        if (cTiles <= hardwareCoreNum) {
++        if (cTiles <= std::min<int64_t>(3, hardwareCoreNum)) {
+             const int64_t batchGroups = hardwareCoreNum / cTiles;
+             const int64_t batchSize = totalNum / channelNum;
+-            if (batchSize >= 2 * batchGroups) {
++            if (batchSize >= 2 * hardwareCoreNum) {
+                 tileLen = AlignUpI64(CeilDivI64(channelNum, cTiles), CMP_ALIGN_FLOAT);
+                 splitBatchGroups = batchGroups;
+                 usedCores = cTiles * batchGroups;

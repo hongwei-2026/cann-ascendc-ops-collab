@@ -1,0 +1,1 @@
+J048完成：独立FP32权重TBuf保留J035乘积缓冲/计算顺序/屏障；最大低精度UB170304/188416。780精度、5184逐调用压力、15输入240组60000 profiler记录、9输入144无profiler窗口通过。低精度目标/尾块无profiler四组均四轮改善；普通profiling BF16尾块四轮回退，其他大输入有轮次翻转。保留J035；已备用户手动官方一次诊断包及唯一头文件/回退/hash，不自动推广。FP32 split-C机器码+4bytes，其余小路径不变。未操作平台/提交/push。见explorations/EXP_J048_DEDICATED_CAST_CACHE_910C_20261105.md。

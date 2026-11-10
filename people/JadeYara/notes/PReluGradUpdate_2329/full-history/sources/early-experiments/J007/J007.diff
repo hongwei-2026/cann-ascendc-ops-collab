@@ -1,0 +1,112 @@
+--- J003/op_host/p_relu_grad_update_tiling.cpp
++++ J007/op_host/p_relu_grad_update_tiling.cpp
+@@ -19,11 +19,11 @@
+ constexpr uint32_t WS_SYS_SIZE = 0;
+ constexpr uint64_t UB_USAGE_NUMERATOR = 8U;
+ constexpr uint64_t UB_USAGE_DENOMINATOR = 10U;
+-// P100 每元素 UB（BUFFER_NUM=1）：
+-//   float: 4×4 + neg/fg(2×4) + mask≈1 = 25
+-//   fp16/bf16→fp32: 4×2 + float grads/features/dx/update/neg/fg(6×4) + mask≈1 = 33
+-constexpr int64_t FLOAT_BYTES_PER_ELEMENT = 25;
+-constexpr int64_t LOW_PRECISION_BYTES_PER_ELEMENT = 33;
++// Two input buffers for grads/features; one output buffer for dx/update.
++// float: 6*4 + neg/fg(2*4) + mask=33 bytes/element.
++// fp16/bf16: 6*2 + 6*4 float scratch + mask=37 bytes/element.
++constexpr int64_t FLOAT_BYTES_PER_ELEMENT = 33;
++constexpr int64_t LOW_PRECISION_BYTES_PER_ELEMENT = 37;
+ constexpr int64_t CMP_ALIGN_FLOAT = 64;   // 中间计算在 fp32 上，Compare 按 64 齐
+ 
+ int64_t CeilDivI64(int64_t value, int64_t divisor)
+--- J003/op_kernel/p_relu_grad_update.h
++++ J007/op_kernel/p_relu_grad_update.h
+@@ -23,6 +23,7 @@
+ using namespace AscendC;
+ 
+ constexpr int32_t BUFFER_NUM = 1;
++constexpr int32_t INPUT_BUFFER_NUM = 2;
+ constexpr int64_t CMP_ALIGN_FLOAT = 64;
+ 
+ template <typename T>
+@@ -35,6 +36,7 @@
+     __aicore__ inline void Process();
+ 
+ private:
++    __aicore__ inline int64_t TileSize(int64_t progress) const;
+     __aicore__ inline void CopyIn(int64_t progress, int64_t currentNum);
+     __aicore__ inline void Compute(int64_t progress, int64_t currentNum);
+     __aicore__ inline void CopyOut(int64_t progress, int64_t currentNum);
+@@ -44,8 +46,8 @@
+ 
+ private:
+     TPipe pipe_;
+-    TQue<QuePosition::VECIN, BUFFER_NUM> gradsQueue_;
+-    TQue<QuePosition::VECIN, BUFFER_NUM> featuresQueue_;
++    TQue<QuePosition::VECIN, INPUT_BUFFER_NUM> gradsQueue_;
++    TQue<QuePosition::VECIN, INPUT_BUFFER_NUM> featuresQueue_;
+     TQue<QuePosition::VECOUT, BUFFER_NUM> dxQueue_;
+     TQue<QuePosition::VECOUT, BUFFER_NUM> updateQueue_;
+ 
+@@ -121,8 +123,8 @@
+     const int64_t alignedCount = AlignUp(tileLen_, CMP_ALIGN_FLOAT);
+     const int64_t alignedMaskBytes = AlignUp(alignedCount, 32);
+ 
+-    pipe_.InitBuffer(gradsQueue_, BUFFER_NUM, alignedCount * sizeof(T));
+-    pipe_.InitBuffer(featuresQueue_, BUFFER_NUM, alignedCount * sizeof(T));
++    pipe_.InitBuffer(gradsQueue_, INPUT_BUFFER_NUM, alignedCount * sizeof(T));
++    pipe_.InitBuffer(featuresQueue_, INPUT_BUFFER_NUM, alignedCount * sizeof(T));
+     pipe_.InitBuffer(dxQueue_, BUFFER_NUM, alignedCount * sizeof(T));
+     pipe_.InitBuffer(updateQueue_, BUFFER_NUM, alignedCount * sizeof(T));
+     pipe_.InitBuffer(maskBuf_, alignedMaskBytes);
+@@ -287,29 +289,37 @@
+ }
+ 
+ template <typename T>
++__aicore__ inline int64_t PReluGradUpdate<T>::TileSize(int64_t progress) const
++{
++    int64_t count = blockLength_ - progress;
++    if (count > tileLen_) count = tileLen_;
++    if (weightsPerChannel_ != 0) {
++        const int64_t remain = innerSize_ - (blockStart_ + progress) % innerSize_;
++        if (count > remain) count = remain;
++    }
++    return count;
++}
++
++template <typename T>
+ __aicore__ inline void PReluGradUpdate<T>::Process()
+ {
+     if (blockLength_ <= 0 || tileLen_ <= 0 || innerSize_ <= 0 || channelNum_ <= 0) {
+         return;
+     }
+-    // Must advance by currentNum: channel clamping can make currentNum < tileLen_.
+-    // Using progress += tileLen_ would skip the remainder of the channel (WA).
+-    for (int64_t progress = 0; progress < blockLength_;) {
+-        int64_t currentNum = blockLength_ - progress;
+-        if (currentNum > tileLen_) {
+-            currentNum = tileLen_;
++    int64_t progress = 0;
++    int64_t currentNum = TileSize(progress);
++    CopyIn(progress, currentNum);
++    while (progress < blockLength_) {
++        const int64_t nextProgress = progress + currentNum;
++        int64_t nextNum = 0;
++        if (nextProgress < blockLength_) {
++            nextNum = TileSize(nextProgress);
++            CopyIn(nextProgress, nextNum);
+         }
+-        if (weightsPerChannel_ != 0) {
+-            const int64_t globalStart = blockStart_ + progress;
+-            const int64_t channelRemain = innerSize_ - globalStart % innerSize_;
+-            if (currentNum > channelRemain) {
+-                currentNum = channelRemain;
+-            }
+-        }
+-        CopyIn(progress, currentNum);
+         Compute(progress, currentNum);
+         CopyOut(progress, currentNum);
+-        progress += currentNum;
++        progress = nextProgress;
++        currentNum = nextNum;
+     }
+ }
+ 
