@@ -1,2 +1,3 @@
 console-paste.log -text -whitespace
 detail-paste.log -text -whitespace
+errors-paste.log -text -whitespace

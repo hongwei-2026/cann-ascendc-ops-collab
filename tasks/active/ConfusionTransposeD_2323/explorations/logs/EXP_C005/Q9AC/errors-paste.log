@@ -1,0 +1,339 @@
+developer@dfdd97f8c4e84acbaa54982714e4d993:/mnt/workspace$ cd /mnt/workspace/cann-ascendc-ops-collab
+ --ff-only origin main
+python3 people/hongwei-2026developer@dfdd97f8c4e84acbaa54982714e4d993:/mnt/workspace/cann-ascendc-ops-collab$ git pull --ff-only origin main
+/ConfusionTransposeD_2323/workdir/code/tests/print_c005_evidence.py /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C005_20261110_153111_Q9AC --errorsremote: Enumerating objects: 55, done.
+remote: Counting objects: 100% (55/55), done.
+remote: Compressing objects: 100% (10/10), done.
+remote: Total 30 (delta 18), reused 30 (delta 18), pack-reused 0 (from 0)
+Unpacking objects: 100% (30/30), 17.90 KiB | 654.00 KiB/s, done.
+From https://github.com/hongwei-2026/cann-ascendc-ops-collab
+ * branch            main       -> FETCH_HEAD
+   f7e4bd8..76040ee  main       -> origin/main
+Updating f7e4bd8..76040ee
+Fast-forward
+ people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/tests/print_c005_evidence.py              |  69 ++++++++-
+ tasks/active/ConfusionTransposeD_2323/C005-CLOUD-DIAGNOSTIC.md                                      |   6 +-
+ tasks/active/ConfusionTransposeD_2323/STATUS.md                                                     |   4 +-
+ tasks/active/ConfusionTransposeD_2323/analysis/SUMMARY.md                                           |   2 +
+ tasks/active/ConfusionTransposeD_2323/decisions/DEC003-c005-console-evidence-insufficient.md        |   6 +
+ tasks/active/ConfusionTransposeD_2323/dev-log.md                                                    |   7 +
+ tasks/active/ConfusionTransposeD_2323/explorations/EXP_C005-platform-re-and-boundary-diagnostic.md  |  13 ++
+ tasks/active/ConfusionTransposeD_2323/explorations/logs/EXP_C005/Q9AC/.gitattributes                |   1 +
+ tasks/active/ConfusionTransposeD_2323/explorations/logs/EXP_C005/Q9AC/README.md                     |   6 +
+ tasks/active/ConfusionTransposeD_2323/explorations/logs/EXP_C005/Q9AC/detail-paste.log              | 359 ++++++++++++++++++++++++++++++++++++++++++++
+ tasks/active/ConfusionTransposeD_2323/explorations/logs/EXP_C005/Q9AC/detail-summary.json           | 561 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ tasks/active/ConfusionTransposeD_2323/explorations/logs/EXP_C005/Q9AC/error-filter-local-check.json |   8 +
+ tasks/active/ConfusionTransposeD_2323/path-ledger.md                                                |   2 +-
+ 13 files changed, 1036 insertions(+), 8 deletions(-)
+ create mode 100644 tasks/active/ConfusionTransposeD_2323/explorations/logs/EXP_C005/Q9AC/detail-paste.log
+ create mode 100644 tasks/active/ConfusionTransposeD_2323/explorations/logs/EXP_C005/Q9AC/detail-summary.json
+ create mode 100644 tasks/active/ConfusionTransposeD_2323/explorations/logs/EXP_C005/Q9AC/error-filter-local-check.json
+developer@dfdd97f8c4e84acbaa54982714e4d993:/mnt/workspace/cann-ascendc-ops-collab$ python3 people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/tests/print_c005_evidence.py /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C005_20261110_153111_Q9AC --errors
+C005_TEXT_EVIDENCE_BEGIN
+Read-only export; no build, device execution, or new acceptance result.
+
+FILE /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C005_20261110_153111_Q9AC/logs/diagnostic_commit.txt
+bytes=41 sha256=5a710a846bc3d34e533baaf640a5fe03d59ff65965dc8fbfcf9c6255d316122e
+9b6de1cb2fe06456972377b6b63b36bd21453844
+
+
+FILE /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C005_20261110_153111_Q9AC/logs/diagnostic_exit_code.txt
+bytes=2 sha256=9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+0
+
+
+VERSION baseline cases=52 results_sha256=e30939ddfebd4476c044940cab212a2a802ccc5b9bfb7f46d0efc341e6318f2b
+COUNTS {"FAIL_OR_REJECTED": 6, "PASS_BITWISE": 46}
+NONPASS {"attr_shape": [2, 2, 11776], "case": "ub_188416_bytes", "category": "UB_boundary_probe", "dtype": "float32", "exit_code": 2, "golden_sha256": "8f6ae01cdac796e6b229872f361d7830a62b54c5df274d2416d73969549697b4", "host_phases": ["DIAG begin=aclInit", "DIAG phase=aclInit host_wall_us=16039", "DIAG phase=input_output_setup host_wall_us=408872", "DIAG begin=GetWorkspaceSize"], "in_shape": [2, 2, 11776], "input_bytes": 188416, "perm": [1, 0, 2], "process_wall_seconds": 4.218696361000184, "result": "FAIL_OR_REJECTED", "timing_scope": "host/process wall time, not kernel task time", "transpose_first": true, "version": "baseline"}
+NONPASS {"attr_shape": [2, 2, 12288], "case": "ub_196608_bytes", "category": "UB_boundary_probe", "dtype": "float32", "exit_code": 2, "golden_sha256": "e0cdedd769ed7ee60b0efd2a5f89c307590aa2a0c91111de72ff8851979f1295", "host_phases": ["DIAG begin=aclInit", "DIAG phase=aclInit host_wall_us=16249", "DIAG phase=input_output_setup host_wall_us=405468", "DIAG begin=GetWorkspaceSize"], "in_shape": [2, 2, 12288], "input_bytes": 196608, "perm": [1, 0, 2], "process_wall_seconds": 3.9897246069740504, "result": "FAIL_OR_REJECTED", "timing_scope": "host/process wall time, not kernel task time", "transpose_first": true, "version": "baseline"}
+NONPASS {"attr_shape": [2, 2, 16384], "case": "ub_262144_bytes", "category": "UB_boundary_probe", "dtype": "float32", "exit_code": 2, "golden_sha256": "7025dac14e19a3d9b57773dac48c666f0e591d25f2ae0fd33d174fc35ed2b1c2", "host_phases": ["DIAG begin=aclInit", "DIAG phase=aclInit host_wall_us=16006.4", "DIAG phase=input_output_setup host_wall_us=403758", "DIAG begin=GetWorkspaceSize"], "in_shape": [2, 2, 16384], "input_bytes": 262144, "perm": [1, 0, 2], "process_wall_seconds": 3.991703817038797, "result": "FAIL_OR_REJECTED", "timing_scope": "host/process wall time, not kernel task time", "transpose_first": true, "version": "baseline"}
+NONPASS {"attr_shape": [6, 20], "case": "crossrank_tf", "category": "crossrank_probe", "dtype": "float32", "exit_code": 2, "golden_sha256": "3ebf7526f5b0e294424364ea06592e8d760652e3f29dd43b4d45cc51a6ad1f7f", "host_phases": ["DIAG begin=aclInit", "DIAG phase=aclInit host_wall_us=16376.8", "DIAG phase=input_output_setup host_wall_us=398261", "DIAG begin=GetWorkspaceSize"], "in_shape": [2, 3, 4, 5], "input_bytes": 480, "perm": [0, 2, 1, 3], "process_wall_seconds": 3.9953505939920433, "result": "FAIL_OR_REJECTED", "timing_scope": "host/process wall time, not kernel task time", "transpose_first": true, "version": "baseline"}
+NONPASS {"attr_shape": [2, 4, 3, -1], "case": "infer_tf", "category": "inferred_dim_probe", "dtype": "float32", "exit_code": 2, "golden_sha256": "300ee359383be269ee29648fe70a99680f68c23a801fb70bf3e4811114f3cc6a", "host_phases": ["DIAG begin=aclInit", "DIAG phase=aclInit host_wall_us=16306.2", "DIAG phase=input_output_setup host_wall_us=411699", "DIAG begin=GetWorkspaceSize"], "in_shape": [2, 3, 4, 5], "input_bytes": 480, "perm": [0, 2, 1, 3], "process_wall_seconds": 3.911454754008446, "result": "FAIL_OR_REJECTED", "timing_scope": "host/process wall time, not kernel task time", "transpose_first": true, "version": "baseline"}
+NONPASS {"attr_shape": [2, 4, 3, -1], "case": "infer_rf", "category": "inferred_dim_probe", "dtype": "float32", "exit_code": 2, "golden_sha256": "ec1a1d6ffe503c19df79435b0f6a91affc9b593f18a84dddf4751a0a005fecdf", "host_phases": ["DIAG begin=aclInit", "DIAG phase=aclInit host_wall_us=16343.4", "DIAG phase=input_output_setup host_wall_us=404460", "DIAG begin=GetWorkspaceSize"], "in_shape": [2, 3, 4, 5], "input_bytes": 480, "perm": [0, 2, 1, 3], "process_wall_seconds": 3.9898076800163835, "result": "FAIL_OR_REJECTED", "timing_scope": "host/process wall time, not kernel task time", "transpose_first": false, "version": "baseline"}
+
+VERSION candidate cases=52 results_sha256=8ec16686f0057b70e82aa8ae3f5f36983bad46696c2712cd57303df486ce698d
+COUNTS {"FAIL_OR_REJECTED": 6, "PASS_BITWISE": 46}
+NONPASS {"attr_shape": [2, 2, 11776], "case": "ub_188416_bytes", "category": "UB_boundary_probe", "dtype": "float32", "exit_code": 2, "golden_sha256": "8f6ae01cdac796e6b229872f361d7830a62b54c5df274d2416d73969549697b4", "host_phases": ["DIAG begin=aclInit", "DIAG phase=aclInit host_wall_us=16303.3", "DIAG phase=input_output_setup host_wall_us=393168", "DIAG begin=GetWorkspaceSize"], "in_shape": [2, 2, 11776], "input_bytes": 188416, "perm": [1, 0, 2], "process_wall_seconds": 3.194365029979963, "result": "FAIL_OR_REJECTED", "timing_scope": "host/process wall time, not kernel task time", "transpose_first": true, "version": "candidate"}
+NONPASS {"attr_shape": [2, 2, 12288], "case": "ub_196608_bytes", "category": "UB_boundary_probe", "dtype": "float32", "exit_code": 2, "golden_sha256": "e0cdedd769ed7ee60b0efd2a5f89c307590aa2a0c91111de72ff8851979f1295", "host_phases": ["DIAG begin=aclInit", "DIAG phase=aclInit host_wall_us=16027.8", "DIAG phase=input_output_setup host_wall_us=405578", "DIAG begin=GetWorkspaceSize"], "in_shape": [2, 2, 12288], "input_bytes": 196608, "perm": [1, 0, 2], "process_wall_seconds": 4.008685541979503, "result": "FAIL_OR_REJECTED", "timing_scope": "host/process wall time, not kernel task time", "transpose_first": true, "version": "candidate"}
+NONPASS {"attr_shape": [2, 2, 16384], "case": "ub_262144_bytes", "category": "UB_boundary_probe", "dtype": "float32", "exit_code": 2, "golden_sha256": "7025dac14e19a3d9b57773dac48c666f0e591d25f2ae0fd33d174fc35ed2b1c2", "host_phases": ["DIAG begin=aclInit", "DIAG phase=aclInit host_wall_us=15929.2", "DIAG phase=input_output_setup host_wall_us=406436", "DIAG begin=GetWorkspaceSize"], "in_shape": [2, 2, 16384], "input_bytes": 262144, "perm": [1, 0, 2], "process_wall_seconds": 3.9849456810043193, "result": "FAIL_OR_REJECTED", "timing_scope": "host/process wall time, not kernel task time", "transpose_first": true, "version": "candidate"}
+NONPASS {"attr_shape": [6, 20], "case": "crossrank_tf", "category": "crossrank_probe", "dtype": "float32", "exit_code": 2, "golden_sha256": "3ebf7526f5b0e294424364ea06592e8d760652e3f29dd43b4d45cc51a6ad1f7f", "host_phases": ["DIAG begin=aclInit", "DIAG phase=aclInit host_wall_us=16009.2", "DIAG phase=input_output_setup host_wall_us=399521", "DIAG begin=GetWorkspaceSize"], "in_shape": [2, 3, 4, 5], "input_bytes": 480, "perm": [0, 2, 1, 3], "process_wall_seconds": 3.998603599029593, "result": "FAIL_OR_REJECTED", "timing_scope": "host/process wall time, not kernel task time", "transpose_first": true, "version": "candidate"}
+NONPASS {"attr_shape": [2, 4, 3, -1], "case": "infer_tf", "category": "inferred_dim_probe", "dtype": "float32", "exit_code": 2, "golden_sha256": "300ee359383be269ee29648fe70a99680f68c23a801fb70bf3e4811114f3cc6a", "host_phases": ["DIAG begin=aclInit", "DIAG phase=aclInit host_wall_us=16340.7", "DIAG phase=input_output_setup host_wall_us=418580", "DIAG begin=GetWorkspaceSize"], "in_shape": [2, 3, 4, 5], "input_bytes": 480, "perm": [0, 2, 1, 3], "process_wall_seconds": 3.9107624979806133, "result": "FAIL_OR_REJECTED", "timing_scope": "host/process wall time, not kernel task time", "transpose_first": true, "version": "candidate"}
+NONPASS {"attr_shape": [2, 4, 3, -1], "case": "infer_rf", "category": "inferred_dim_probe", "dtype": "float32", "exit_code": 2, "golden_sha256": "ec1a1d6ffe503c19df79435b0f6a91affc9b593f18a84dddf4751a0a005fecdf", "host_phases": ["DIAG begin=aclInit", "DIAG phase=aclInit host_wall_us=16175.2", "DIAG phase=input_output_setup host_wall_us=414488", "DIAG begin=GetWorkspaceSize"], "in_shape": [2, 3, 4, 5], "input_bytes": 480, "perm": [0, 2, 1, 3], "process_wall_seconds": 3.9997779009863734, "result": "FAIL_OR_REJECTED", "timing_scope": "host/process wall time, not kernel task time", "transpose_first": false, "version": "candidate"}
+HOST_TIMING {"case": "baseline_tf_f32", "result": "PASS_BITWISE", "exit_code": 0, "host_phases": ["DIAG begin=aclInit", "DIAG phase=aclInit host_wall_us=16078.9", "DIAG phase=input_output_setup host_wall_us=404853", "DIAG begin=GetWorkspaceSize", "DIAG phase=GetWorkspaceSize host_wall_us=1.54312e+06", "DIAG phase=pre_launch_setup host_wall_us=270.783", "DIAG begin=launch", "DIAG phase=launch_api host_wall_us=1042.55", "DIAG begin=synchronize", "DIAG phase=synchronize host_wall_us=67.331"], "timing_scope": "host/process wall time, not kernel task time"}
+HOST_TIMING {"case": "rank2_swap_f32", "result": "PASS_BITWISE", "exit_code": 0, "host_phases": ["DIAG begin=aclInit", "DIAG phase=aclInit host_wall_us=16090.6", "DIAG phase=input_output_setup host_wall_us=407132", "DIAG begin=GetWorkspaceSize", "DIAG phase=GetWorkspaceSize host_wall_us=1.49911e+06", "DIAG phase=pre_launch_setup host_wall_us=230.363", "DIAG begin=launch", "DIAG phase=launch_api host_wall_us=881.619", "DIAG begin=synchronize", "DIAG phase=synchronize host_wall_us=64.79"], "timing_scope": "host/process wall time, not kernel task time"}
+HOST_TIMING {"case": "dma_rows128_f32", "result": "PASS_BITWISE", "exit_code": 0, "host_phases": ["DIAG begin=aclInit", "DIAG phase=aclInit host_wall_us=16063.1", "DIAG phase=input_output_setup host_wall_us=413465", "DIAG begin=GetWorkspaceSize", "DIAG phase=GetWorkspaceSize host_wall_us=1.50055e+06", "DIAG phase=pre_launch_setup host_wall_us=361.854", "DIAG begin=launch", "DIAG phase=launch_api host_wall_us=899.269", "DIAG begin=synchronize", "DIAG phase=synchronize host_wall_us=66.33"], "timing_scope": "host/process wall time, not kernel task time"}
+
+FILE /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C005_20261110_153111_Q9AC/logs/candidate/ub_188416_bytes/run_full.log
+bytes=43112788 sha256=5293913bf8bcf544b47e5159f9181be4c9c4ba48e43d1a234e174e81be9557fc
+FILTERED_EXCERPT: whole file scanned; original line numbers retained; not a full log.
+MATCHES operator_reason total=9 retained=6 omitted=3
+214308: [INFO] OP(19607,diagnostic_sample):2026-11-10-15:39:05.455.415 [indv_bininfo.cpp:256][NNOP][NnopbaseSetOpJsonConfig][19607] OpName:[ConfusionTransposeD_0] Get opParaSize is [256 bytes], binInfo->opParaSize is [256 bytes].
+214309: [WARNING] OP(19607,diagnostic_sample):2026-11-10-15:39:05.455.445 [indv_bininfo.cpp:231][NNOP][NnopbaseGetDebugOptions][19607] OpName:[ConfusionTransposeD_0] Failed to get printType or debugBufSize, reason: [json.exception.type_error.302] type must be string, but is null.
+214310: [WARNING] OP(19607,diagnostic_sample):2026-11-10-15:39:05.455.469 [indv_bininfo.cpp:210][NNOP][NnopbaseGetOomFlag][19607] OpName:[ConfusionTransposeD_0] Failed to get op_debug_config, reason: [json.exception.type_error.302] type must be string, but is null.
+214311: [INFO] OP(19607,diagnostic_sample):2026-11-10-15:39:05.455.479 [indv_bininfo.cpp:188][NNOP][NnopbaseGetInitValue][19607] OpName:[ConfusionTransposeD_0] InitValues size is 0.
+214424: [DEBUG] FE(19607,diagnostic_sample):2026-11-10-15:39:05.456.477 [platform_infos_def.cpp:199]19607 SetCoreNum:Set PlatFormInfos::core_num_ to 40.
+214425: [ERROR] OP(19607,diagnostic_sample):2026-11-10-15:39:05.456.503 [/mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/candidate/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/op_host/confusion_transpose_d_tiling.cpp:159][OPS_BASE][ConfusionTransposeDTilingFunc][19607] OpName:[ConfusionTransposeD:ConfusionTransposeD] tensor too large for UB-resident scheme
+214426: [INFO] GE(19607,diagnostic_sample):2026-11-10-15:39:05.456.529 [error_manager.cc:399]19607 ReportInterErrMessage:report error_message, error_code:EZ9999, work_stream_id:1960719607, error_mode:0
+214432: [INFO] GE(19607,diagnostic_sample):2026-11-10-15:39:05.456.636 [error_manager.cc:452]19607 ReportErrMessage:report error_message, error_code:EZ9999, work_stream_id:1960719607, error_mode:0.
+214433: [ERROR] OP(19607,diagnostic_sample):2026-11-10-15:39:05.456.643 [indv_executor.cpp:1101][NNOP][NnopbaseExecutorRunForWorkspace][19607] errno[561002] OpName:[ConfusionTransposeD_0] Check NnopbaseExecutorMatchCache(executor) failed
+214434: [INFO] GE(19607,diagnostic_sample):2026-11-10-15:39:05.456.651 [error_manager.cc:452]19607 ReportErrMessage:report error_message, error_code:EZ9999, work_stream_id:1960719607, error_mode:0.
+214435: [ERROR] OP(19607,diagnostic_sample):2026-11-10-15:39:05.456.659 [individual_op_api.cpp:36][NNOP][NnopbaseOpLogE][19607] errno[561002] OpName:[ConfusionTransposeD_0] Check NnopbaseRunForWorkspace(*executor, workspaceSize) failed
+214436: [INFO] GE(19607,diagnostic_sample):2026-11-10-15:39:05.456.671 [error_manager.cc:452]19607 ReportErrMessage:report error_message, error_code:EZ9999, work_stream_id:1960719607, error_mode:0.
+214446: [DEBUG] DRV(19607,diagnostic_sample):2026-11-10-15:39:05.456.788 [devmm_virt_interface.c:714][ascend][curpid:19607,19607][drv][devmm][devmm_free_to_normal_heap]Free normal heap details. (free_ptr=0x12c0c0015000; heap_type=0xefef0003; heap_sub_type=1)
+214447: ACL error 561002
+214448: [INFO] PROFILING(19607,diagnostic_sample):2026-11-10-15:39:05.456.956 [hash_data.cpp:66] (tid:19607) HashData uninitialize success
+MATCHES error total=6 retained=6 omitted=0
+214424: [DEBUG] FE(19607,diagnostic_sample):2026-11-10-15:39:05.456.477 [platform_infos_def.cpp:199]19607 SetCoreNum:Set PlatFormInfos::core_num_ to 40.
+214425: [ERROR] OP(19607,diagnostic_sample):2026-11-10-15:39:05.456.503 [/mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/candidate/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/op_host/confusion_transpose_d_tiling.cpp:159][OPS_BASE][ConfusionTransposeDTilingFunc][19607] OpName:[ConfusionTransposeD:ConfusionTransposeD] tensor too large for UB-resident scheme
+214426: [INFO] GE(19607,diagnostic_sample):2026-11-10-15:39:05.456.529 [error_manager.cc:399]19607 ReportInterErrMessage:report error_message, error_code:EZ9999, work_stream_id:1960719607, error_mode:0
+214427: [ERROR] OP(19607,diagnostic_sample):2026-11-10-15:39:05.456.548 [indv_executor.cpp:865][NNOP][NnopbaseExecutorDoTiling][19607] errno[-1801264320] OpName:[ConfusionTransposeD_0] Failed to execute operator ConfusionTransposeD_0. Reason: Failed to execute tiling function.
+214428: [INFO] GE(19607,diagnostic_sample):2026-11-10-15:39:05.456.562 [error_manager.cc:452]19607 ReportErrMessage:report error_message, error_code:EZ1008, work_stream_id:1960719607, error_mode:0.
+214429: [ERROR] OP(19607,diagnostic_sample):2026-11-10-15:39:05.456.590 [indv_executor.cpp:955][NNOP][NnopbaseExecutorTilingAndUpdateBinInfo][19607] errno[561002] OpName:[ConfusionTransposeD_0] Check NnopbaseExecutorDoTiling(executor) failed
+214430: [INFO] GE(19607,diagnostic_sample):2026-11-10-15:39:05.456.604 [error_manager.cc:452]19607 ReportErrMessage:report error_message, error_code:EZ9999, work_stream_id:1960719607, error_mode:0.
+214431: [ERROR] OP(19607,diagnostic_sample):2026-11-10-15:39:05.456.624 [indv_executor.cpp:1078][NNOP][NnopbaseExecutorMatchCache][19607] errno[561002] OpName:[ConfusionTransposeD_0] Check NnopbaseExecutorTilingAndUpdateBinInfo(executor) failed
+214432: [INFO] GE(19607,diagnostic_sample):2026-11-10-15:39:05.456.636 [error_manager.cc:452]19607 ReportErrMessage:report error_message, error_code:EZ9999, work_stream_id:1960719607, error_mode:0.
+214433: [ERROR] OP(19607,diagnostic_sample):2026-11-10-15:39:05.456.643 [indv_executor.cpp:1101][NNOP][NnopbaseExecutorRunForWorkspace][19607] errno[561002] OpName:[ConfusionTransposeD_0] Check NnopbaseExecutorMatchCache(executor) failed
+214434: [INFO] GE(19607,diagnostic_sample):2026-11-10-15:39:05.456.651 [error_manager.cc:452]19607 ReportErrMessage:report error_message, error_code:EZ9999, work_stream_id:1960719607, error_mode:0.
+214435: [ERROR] OP(19607,diagnostic_sample):2026-11-10-15:39:05.456.659 [individual_op_api.cpp:36][NNOP][NnopbaseOpLogE][19607] errno[561002] OpName:[ConfusionTransposeD_0] Check NnopbaseRunForWorkspace(*executor, workspaceSize) failed
+214436: [INFO] GE(19607,diagnostic_sample):2026-11-10-15:39:05.456.671 [error_manager.cc:452]19607 ReportErrMessage:report error_message, error_code:EZ9999, work_stream_id:1960719607, error_mode:0.
+MATCHES phase total=4 retained=4 omitted=0
+66: [INFO] OP(19607,diagnostic_sample):2026-11-10-15:39:03.585.109 [indv_args_pool.cpp:38][NNOP][GetCacheSizeLimit][19607] Cachelimit is 10000
+67: DIAG begin=aclInit
+68: [INFO] ASCENDCL(19607,diagnostic_sample):2026-11-10-15:39:03.586.751 [acl.cpp:364]19607 aclInitImpl: start to execute aclInit
+631: [INFO] ASCENDCL(19607,diagnostic_sample):2026-11-10-15:39:03.602.849 [acl.cpp:523]19607 aclInitImpl: successfully execute aclInit, aclInitRefCount is 1
+632: DIAG phase=aclInit host_wall_us=16303.3
+633: [INFO] ASCENDCL(19607,diagnostic_sample):2026-11-10-15:39:03.602.886 [device.cpp:56]19607 aclrtSetDeviceImpl: start to execute aclrtSetDevice, deviceId = 0.
+5032: [DEBUG] DRV(19607,diagnostic_sample):2026-11-10-15:39:03.995.972 [devmm_svm.c:645][ascend][curpid:19607,19607][drv][devmm][_drvMemcpyInner]Argument. (dst=0x12c0c0044000; src=0xaaab1a1e24f0; ByteCount=188416)
+5033: DIAG phase=input_output_setup host_wall_us=393168
+5034: DIAG begin=GetWorkspaceSize
+5035: [INFO] OP(19607,diagnostic_sample):2026-11-10-15:39:03.996.050 [individual_op_api.cpp:273][NNOP][NnopbaseInit][19607] NnopbaseInit Start.
+
+FILE /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C005_20261110_153111_Q9AC/logs/candidate/ub_196608_bytes/run_full.log
+bytes=43112823 sha256=a0865bffae28bad22f7bbc70eb3cdc73a5a225b427b3387c192bd7c100273ef4
+FILTERED_EXCERPT: whole file scanned; original line numbers retained; not a full log.
+MATCHES operator_reason total=9 retained=6 omitted=3
+214308: [INFO] OP(19628,diagnostic_sample):2026-11-10-15:39:08.697.011 [indv_bininfo.cpp:256][NNOP][NnopbaseSetOpJsonConfig][19628] OpName:[ConfusionTransposeD_0] Get opParaSize is [256 bytes], binInfo->opParaSize is [256 bytes].
+214309: [WARNING] OP(19628,diagnostic_sample):2026-11-10-15:39:08.697.038 [indv_bininfo.cpp:231][NNOP][NnopbaseGetDebugOptions][19628] OpName:[ConfusionTransposeD_0] Failed to get printType or debugBufSize, reason: [json.exception.type_error.302] type must be string, but is null.
+214310: [WARNING] OP(19628,diagnostic_sample):2026-11-10-15:39:08.697.062 [indv_bininfo.cpp:210][NNOP][NnopbaseGetOomFlag][19628] OpName:[ConfusionTransposeD_0] Failed to get op_debug_config, reason: [json.exception.type_error.302] type must be string, but is null.
+214311: [INFO] OP(19628,diagnostic_sample):2026-11-10-15:39:08.697.072 [indv_bininfo.cpp:188][NNOP][NnopbaseGetInitValue][19628] OpName:[ConfusionTransposeD_0] InitValues size is 0.
+214424: [DEBUG] FE(19628,diagnostic_sample):2026-11-10-15:39:08.698.138 [platform_infos_def.cpp:199]19628 SetCoreNum:Set PlatFormInfos::core_num_ to 40.
+214425: [ERROR] OP(19628,diagnostic_sample):2026-11-10-15:39:08.698.164 [/mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/candidate/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/op_host/confusion_transpose_d_tiling.cpp:159][OPS_BASE][ConfusionTransposeDTilingFunc][19628] OpName:[ConfusionTransposeD:ConfusionTransposeD] tensor too large for UB-resident scheme
+214426: [INFO] GE(19628,diagnostic_sample):2026-11-10-15:39:08.698.190 [error_manager.cc:399]19628 ReportInterErrMessage:report error_message, error_code:EZ9999, work_stream_id:1962819628, error_mode:0
+214432: [INFO] GE(19628,diagnostic_sample):2026-11-10-15:39:08.698.293 [error_manager.cc:452]19628 ReportErrMessage:report error_message, error_code:EZ9999, work_stream_id:1962819628, error_mode:0.
+214433: [ERROR] OP(19628,diagnostic_sample):2026-11-10-15:39:08.698.301 [indv_executor.cpp:1101][NNOP][NnopbaseExecutorRunForWorkspace][19628] errno[561002] OpName:[ConfusionTransposeD_0] Check NnopbaseExecutorMatchCache(executor) failed
+214434: [INFO] GE(19628,diagnostic_sample):2026-11-10-15:39:08.698.313 [error_manager.cc:452]19628 ReportErrMessage:report error_message, error_code:EZ9999, work_stream_id:1962819628, error_mode:0.
+214435: [ERROR] OP(19628,diagnostic_sample):2026-11-10-15:39:08.698.322 [individual_op_api.cpp:36][NNOP][NnopbaseOpLogE][19628] errno[561002] OpName:[ConfusionTransposeD_0] Check NnopbaseRunForWorkspace(*executor, workspaceSize) failed
+214436: [INFO] GE(19628,diagnostic_sample):2026-11-10-15:39:08.698.330 [error_manager.cc:452]19628 ReportErrMessage:report error_message, error_code:EZ9999, work_stream_id:1962819628, error_mode:0.
+214446: [DEBUG] DRV(19628,diagnostic_sample):2026-11-10-15:39:08.698.446 [devmm_virt_interface.c:714][ascend][curpid:19628,19628][drv][devmm][devmm_free_to_normal_heap]Free normal heap details. (free_ptr=0x12c0c0015000; heap_type=0xefef0003; heap_sub_type=1)
+214447: ACL error 561002
+214448: [INFO] PROFILING(19628,diagnostic_sample):2026-11-10-15:39:08.698.608 [hash_data.cpp:66] (tid:19628) HashData uninitialize success
+MATCHES error total=6 retained=6 omitted=0
+214424: [DEBUG] FE(19628,diagnostic_sample):2026-11-10-15:39:08.698.138 [platform_infos_def.cpp:199]19628 SetCoreNum:Set PlatFormInfos::core_num_ to 40.
+214425: [ERROR] OP(19628,diagnostic_sample):2026-11-10-15:39:08.698.164 [/mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/candidate/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/op_host/confusion_transpose_d_tiling.cpp:159][OPS_BASE][ConfusionTransposeDTilingFunc][19628] OpName:[ConfusionTransposeD:ConfusionTransposeD] tensor too large for UB-resident scheme
+214426: [INFO] GE(19628,diagnostic_sample):2026-11-10-15:39:08.698.190 [error_manager.cc:399]19628 ReportInterErrMessage:report error_message, error_code:EZ9999, work_stream_id:1962819628, error_mode:0
+214427: [ERROR] OP(19628,diagnostic_sample):2026-11-10-15:39:08.698.210 [indv_executor.cpp:865][NNOP][NnopbaseExecutorDoTiling][19628] errno[-1327123648] OpName:[ConfusionTransposeD_0] Failed to execute operator ConfusionTransposeD_0. Reason: Failed to execute tiling function.
+214428: [INFO] GE(19628,diagnostic_sample):2026-11-10-15:39:08.698.224 [error_manager.cc:452]19628 ReportErrMessage:report error_message, error_code:EZ1008, work_stream_id:1962819628, error_mode:0.
+214429: [ERROR] OP(19628,diagnostic_sample):2026-11-10-15:39:08.698.250 [indv_executor.cpp:955][NNOP][NnopbaseExecutorTilingAndUpdateBinInfo][19628] errno[561002] OpName:[ConfusionTransposeD_0] Check NnopbaseExecutorDoTiling(executor) failed
+214430: [INFO] GE(19628,diagnostic_sample):2026-11-10-15:39:08.698.264 [error_manager.cc:452]19628 ReportErrMessage:report error_message, error_code:EZ9999, work_stream_id:1962819628, error_mode:0.
+214431: [ERROR] OP(19628,diagnostic_sample):2026-11-10-15:39:08.698.281 [indv_executor.cpp:1078][NNOP][NnopbaseExecutorMatchCache][19628] errno[561002] OpName:[ConfusionTransposeD_0] Check NnopbaseExecutorTilingAndUpdateBinInfo(executor) failed
+214432: [INFO] GE(19628,diagnostic_sample):2026-11-10-15:39:08.698.293 [error_manager.cc:452]19628 ReportErrMessage:report error_message, error_code:EZ9999, work_stream_id:1962819628, error_mode:0.
+214433: [ERROR] OP(19628,diagnostic_sample):2026-11-10-15:39:08.698.301 [indv_executor.cpp:1101][NNOP][NnopbaseExecutorRunForWorkspace][19628] errno[561002] OpName:[ConfusionTransposeD_0] Check NnopbaseExecutorMatchCache(executor) failed
+214434: [INFO] GE(19628,diagnostic_sample):2026-11-10-15:39:08.698.313 [error_manager.cc:452]19628 ReportErrMessage:report error_message, error_code:EZ9999, work_stream_id:1962819628, error_mode:0.
+214435: [ERROR] OP(19628,diagnostic_sample):2026-11-10-15:39:08.698.322 [individual_op_api.cpp:36][NNOP][NnopbaseOpLogE][19628] errno[561002] OpName:[ConfusionTransposeD_0] Check NnopbaseRunForWorkspace(*executor, workspaceSize) failed
+214436: [INFO] GE(19628,diagnostic_sample):2026-11-10-15:39:08.698.330 [error_manager.cc:452]19628 ReportErrMessage:report error_message, error_code:EZ9999, work_stream_id:1962819628, error_mode:0.
+MATCHES phase total=4 retained=4 omitted=0
+66: [INFO] OP(19628,diagnostic_sample):2026-11-10-15:39:06.785.343 [indv_args_pool.cpp:38][NNOP][GetCacheSizeLimit][19628] Cachelimit is 10000
+67: DIAG begin=aclInit
+68: [INFO] ASCENDCL(19628,diagnostic_sample):2026-11-10-15:39:06.786.982 [acl.cpp:364]19628 aclInitImpl: start to execute aclInit
+631: [INFO] ASCENDCL(19628,diagnostic_sample):2026-11-10-15:39:06.802.806 [acl.cpp:523]19628 aclInitImpl: successfully execute aclInit, aclInitRefCount is 1
+632: DIAG phase=aclInit host_wall_us=16027.8
+633: [INFO] ASCENDCL(19628,diagnostic_sample):2026-11-10-15:39:06.802.842 [device.cpp:56]19628 aclrtSetDeviceImpl: start to execute aclrtSetDevice, deviceId = 0.
+5032: [DEBUG] DRV(19628,diagnostic_sample):2026-11-10-15:39:07.208.343 [devmm_svm.c:645][ascend][curpid:19628,19628][drv][devmm][_drvMemcpyInner]Argument. (dst=0x12c0c0046000; src=0xaaab1b5714f0; ByteCount=196608)
+5033: DIAG phase=input_output_setup host_wall_us=405578
+5034: DIAG begin=GetWorkspaceSize
+5035: [INFO] OP(19628,diagnostic_sample):2026-11-10-15:39:07.208.417 [individual_op_api.cpp:273][NNOP][NnopbaseInit][19628] NnopbaseInit Start.
+
+FILE /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C005_20261110_153111_Q9AC/logs/candidate/ub_262144_bytes/run_full.log
+bytes=43112811 sha256=f1105caeb78bff32257572df384f46a1afdd59b0a578fb671fc726d62ea7c4b3
+FILTERED_EXCERPT: whole file scanned; original line numbers retained; not a full log.
+MATCHES operator_reason total=9 retained=6 omitted=3
+214308: [INFO] OP(19663,diagnostic_sample):2026-11-10-15:39:12.703.769 [indv_bininfo.cpp:256][NNOP][NnopbaseSetOpJsonConfig][19663] OpName:[ConfusionTransposeD_0] Get opParaSize is [256 bytes], binInfo->opParaSize is [256 bytes].
+214309: [WARNING] OP(19663,diagnostic_sample):2026-11-10-15:39:12.703.799 [indv_bininfo.cpp:231][NNOP][NnopbaseGetDebugOptions][19663] OpName:[ConfusionTransposeD_0] Failed to get printType or debugBufSize, reason: [json.exception.type_error.302] type must be string, but is null.
+214310: [WARNING] OP(19663,diagnostic_sample):2026-11-10-15:39:12.703.823 [indv_bininfo.cpp:210][NNOP][NnopbaseGetOomFlag][19663] OpName:[ConfusionTransposeD_0] Failed to get op_debug_config, reason: [json.exception.type_error.302] type must be string, but is null.
+214311: [INFO] OP(19663,diagnostic_sample):2026-11-10-15:39:12.703.833 [indv_bininfo.cpp:188][NNOP][NnopbaseGetInitValue][19663] OpName:[ConfusionTransposeD_0] InitValues size is 0.
+214424: [DEBUG] FE(19663,diagnostic_sample):2026-11-10-15:39:12.704.831 [platform_infos_def.cpp:199]19663 SetCoreNum:Set PlatFormInfos::core_num_ to 40.
+214425: [ERROR] OP(19663,diagnostic_sample):2026-11-10-15:39:12.704.859 [/mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/candidate/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/op_host/confusion_transpose_d_tiling.cpp:159][OPS_BASE][ConfusionTransposeDTilingFunc][19663] OpName:[ConfusionTransposeD:ConfusionTransposeD] tensor too large for UB-resident scheme
+214426: [INFO] GE(19663,diagnostic_sample):2026-11-10-15:39:12.704.884 [error_manager.cc:399]19663 ReportInterErrMessage:report error_message, error_code:EZ9999, work_stream_id:1966319663, error_mode:0
+214432: [INFO] GE(19663,diagnostic_sample):2026-11-10-15:39:12.704.981 [error_manager.cc:452]19663 ReportErrMessage:report error_message, error_code:EZ9999, work_stream_id:1966319663, error_mode:0.
+214433: [ERROR] OP(19663,diagnostic_sample):2026-11-10-15:39:12.704.988 [indv_executor.cpp:1101][NNOP][NnopbaseExecutorRunForWorkspace][19663] errno[561002] OpName:[ConfusionTransposeD_0] Check NnopbaseExecutorMatchCache(executor) failed
+214434: [INFO] GE(19663,diagnostic_sample):2026-11-10-15:39:12.704.995 [error_manager.cc:452]19663 ReportErrMessage:report error_message, error_code:EZ9999, work_stream_id:1966319663, error_mode:0.
+214435: [ERROR] OP(19663,diagnostic_sample):2026-11-10-15:39:12.705.002 [individual_op_api.cpp:36][NNOP][NnopbaseOpLogE][19663] errno[561002] OpName:[ConfusionTransposeD_0] Check NnopbaseRunForWorkspace(*executor, workspaceSize) failed
+214436: [INFO] GE(19663,diagnostic_sample):2026-11-10-15:39:12.705.014 [error_manager.cc:452]19663 ReportErrMessage:report error_message, error_code:EZ9999, work_stream_id:1966319663, error_mode:0.
+214446: [DEBUG] DRV(19663,diagnostic_sample):2026-11-10-15:39:12.705.127 [devmm_virt_interface.c:714][ascend][curpid:19663,19663][drv][devmm][devmm_free_to_normal_heap]Free normal heap details. (free_ptr=0x12c0c0015000; heap_type=0xefef0003; heap_sub_type=1)
+214447: ACL error 561002
+214448: [INFO] PROFILING(19663,diagnostic_sample):2026-11-10-15:39:12.705.287 [hash_data.cpp:66] (tid:19663) HashData uninitialize success
+MATCHES error total=6 retained=6 omitted=0
+214424: [DEBUG] FE(19663,diagnostic_sample):2026-11-10-15:39:12.704.831 [platform_infos_def.cpp:199]19663 SetCoreNum:Set PlatFormInfos::core_num_ to 40.
+214425: [ERROR] OP(19663,diagnostic_sample):2026-11-10-15:39:12.704.859 [/mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/candidate/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/op_host/confusion_transpose_d_tiling.cpp:159][OPS_BASE][ConfusionTransposeDTilingFunc][19663] OpName:[ConfusionTransposeD:ConfusionTransposeD] tensor too large for UB-resident scheme
+214426: [INFO] GE(19663,diagnostic_sample):2026-11-10-15:39:12.704.884 [error_manager.cc:399]19663 ReportInterErrMessage:report error_message, error_code:EZ9999, work_stream_id:1966319663, error_mode:0
+214427: [ERROR] OP(19663,diagnostic_sample):2026-11-10-15:39:12.704.903 [indv_executor.cpp:865][NNOP][NnopbaseExecutorDoTiling][19663] errno[-1307339968] OpName:[ConfusionTransposeD_0] Failed to execute operator ConfusionTransposeD_0. Reason: Failed to execute tiling function.
+214428: [INFO] GE(19663,diagnostic_sample):2026-11-10-15:39:12.704.916 [error_manager.cc:452]19663 ReportErrMessage:report error_message, error_code:EZ1008, work_stream_id:1966319663, error_mode:0.
+214429: [ERROR] OP(19663,diagnostic_sample):2026-11-10-15:39:12.704.941 [indv_executor.cpp:955][NNOP][NnopbaseExecutorTilingAndUpdateBinInfo][19663] errno[561002] OpName:[ConfusionTransposeD_0] Check NnopbaseExecutorDoTiling(executor) failed
+214430: [INFO] GE(19663,diagnostic_sample):2026-11-10-15:39:12.704.954 [error_manager.cc:452]19663 ReportErrMessage:report error_message, error_code:EZ9999, work_stream_id:1966319663, error_mode:0.
+214431: [ERROR] OP(19663,diagnostic_sample):2026-11-10-15:39:12.704.969 [indv_executor.cpp:1078][NNOP][NnopbaseExecutorMatchCache][19663] errno[561002] OpName:[ConfusionTransposeD_0] Check NnopbaseExecutorTilingAndUpdateBinInfo(executor) failed
+214432: [INFO] GE(19663,diagnostic_sample):2026-11-10-15:39:12.704.981 [error_manager.cc:452]19663 ReportErrMessage:report error_message, error_code:EZ9999, work_stream_id:1966319663, error_mode:0.
+214433: [ERROR] OP(19663,diagnostic_sample):2026-11-10-15:39:12.704.988 [indv_executor.cpp:1101][NNOP][NnopbaseExecutorRunForWorkspace][19663] errno[561002] OpName:[ConfusionTransposeD_0] Check NnopbaseExecutorMatchCache(executor) failed
+214434: [INFO] GE(19663,diagnostic_sample):2026-11-10-15:39:12.704.995 [error_manager.cc:452]19663 ReportErrMessage:report error_message, error_code:EZ9999, work_stream_id:1966319663, error_mode:0.
+214435: [ERROR] OP(19663,diagnostic_sample):2026-11-10-15:39:12.705.002 [individual_op_api.cpp:36][NNOP][NnopbaseOpLogE][19663] errno[561002] OpName:[ConfusionTransposeD_0] Check NnopbaseRunForWorkspace(*executor, workspaceSize) failed
+214436: [INFO] GE(19663,diagnostic_sample):2026-11-10-15:39:12.705.014 [error_manager.cc:452]19663 ReportErrMessage:report error_message, error_code:EZ9999, work_stream_id:1966319663, error_mode:0.
+MATCHES phase total=4 retained=4 omitted=0
+66: [INFO] OP(19663,diagnostic_sample):2026-11-10-15:39:10.798.516 [indv_args_pool.cpp:38][NNOP][GetCacheSizeLimit][19663] Cachelimit is 10000
+67: DIAG begin=aclInit
+68: [INFO] ASCENDCL(19663,diagnostic_sample):2026-11-10-15:39:10.800.118 [acl.cpp:364]19663 aclInitImpl: start to execute aclInit
+631: [INFO] ASCENDCL(19663,diagnostic_sample):2026-11-10-15:39:10.815.846 [acl.cpp:523]19663 aclInitImpl: successfully execute aclInit, aclInitRefCount is 1
+632: DIAG phase=aclInit host_wall_us=15929.2
+633: [INFO] ASCENDCL(19663,diagnostic_sample):2026-11-10-15:39:10.815.880 [device.cpp:56]19663 aclrtSetDeviceImpl: start to execute aclrtSetDevice, deviceId = 0.
+5032: [DEBUG] DRV(19663,diagnostic_sample):2026-11-10-15:39:11.222.196 [devmm_svm.c:645][ascend][curpid:19663,19663][drv][devmm][_drvMemcpyInner]Argument. (dst=0x12c0c0056000; src=0xaaaae7e534f0; ByteCount=262144)
+5033: DIAG phase=input_output_setup host_wall_us=406436
+5034: DIAG begin=GetWorkspaceSize
+5035: [INFO] OP(19663,diagnostic_sample):2026-11-10-15:39:11.222.319 [individual_op_api.cpp:273][NNOP][NnopbaseInit][19663] NnopbaseInit Start.
+
+FILE /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C005_20261110_153111_Q9AC/logs/candidate/crossrank_tf/run_full.log
+bytes=43112718 sha256=a49c08b481f9bae0eaf9fcfa93959796bea261d3bd01e08e4649956a8837520c
+FILTERED_EXCERPT: whole file scanned; original line numbers retained; not a full log.
+MATCHES operator_reason total=9 retained=6 omitted=3
+214308: [INFO] OP(19697,diagnostic_sample):2026-11-10-15:39:16.730.943 [indv_bininfo.cpp:256][NNOP][NnopbaseSetOpJsonConfig][19697] OpName:[ConfusionTransposeD_0] Get opParaSize is [256 bytes], binInfo->opParaSize is [256 bytes].
+214309: [WARNING] OP(19697,diagnostic_sample):2026-11-10-15:39:16.730.979 [indv_bininfo.cpp:231][NNOP][NnopbaseGetDebugOptions][19697] OpName:[ConfusionTransposeD_0] Failed to get printType or debugBufSize, reason: [json.exception.type_error.302] type must be string, but is null.
+214310: [WARNING] OP(19697,diagnostic_sample):2026-11-10-15:39:16.731.005 [indv_bininfo.cpp:210][NNOP][NnopbaseGetOomFlag][19697] OpName:[ConfusionTransposeD_0] Failed to get op_debug_config, reason: [json.exception.type_error.302] type must be string, but is null.
+214311: [INFO] OP(19697,diagnostic_sample):2026-11-10-15:39:16.731.016 [indv_bininfo.cpp:188][NNOP][NnopbaseGetInitValue][19697] OpName:[ConfusionTransposeD_0] InitValues size is 0.
+214424: [DEBUG] FE(19697,diagnostic_sample):2026-11-10-15:39:16.732.064 [platform_infos_def.cpp:199]19697 SetCoreNum:Set PlatFormInfos::core_num_ to 40.
+214425: [ERROR] OP(19697,diagnostic_sample):2026-11-10-15:39:16.732.091 [/mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/candidate/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/op_host/confusion_transpose_d_tiling.cpp:135][OPS_BASE][ConfusionTransposeDTilingFunc][19697] OpName:[ConfusionTransposeD:ConfusionTransposeD] perm/shape rank mismatch
+214426: [INFO] GE(19697,diagnostic_sample):2026-11-10-15:39:16.732.118 [error_manager.cc:399]19697 ReportInterErrMessage:report error_message, error_code:EZ9999, work_stream_id:1969719697, error_mode:0
+214432: [INFO] GE(19697,diagnostic_sample):2026-11-10-15:39:16.732.219 [error_manager.cc:452]19697 ReportErrMessage:report error_message, error_code:EZ9999, work_stream_id:1969719697, error_mode:0.
+214433: [ERROR] OP(19697,diagnostic_sample):2026-11-10-15:39:16.732.227 [indv_executor.cpp:1101][NNOP][NnopbaseExecutorRunForWorkspace][19697] errno[561002] OpName:[ConfusionTransposeD_0] Check NnopbaseExecutorMatchCache(executor) failed
+214434: [INFO] GE(19697,diagnostic_sample):2026-11-10-15:39:16.732.234 [error_manager.cc:452]19697 ReportErrMessage:report error_message, error_code:EZ9999, work_stream_id:1969719697, error_mode:0.
+214435: [ERROR] OP(19697,diagnostic_sample):2026-11-10-15:39:16.732.242 [individual_op_api.cpp:36][NNOP][NnopbaseOpLogE][19697] errno[561002] OpName:[ConfusionTransposeD_0] Check NnopbaseRunForWorkspace(*executor, workspaceSize) failed
+214436: [INFO] GE(19697,diagnostic_sample):2026-11-10-15:39:16.732.256 [error_manager.cc:452]19697 ReportErrMessage:report error_message, error_code:EZ9999, work_stream_id:1969719697, error_mode:0.
+214446: [DEBUG] DRV(19697,diagnostic_sample):2026-11-10-15:39:16.732.378 [devmm_virt_interface.c:714][ascend][curpid:19697,19697][drv][devmm][devmm_free_to_normal_heap]Free normal heap details. (free_ptr=0x12c0c0015000; heap_type=0xefef0003; heap_sub_type=1)
+214447: ACL error 561002
+214448: [INFO] PROFILING(19697,diagnostic_sample):2026-11-10-15:39:16.732.560 [hash_data.cpp:66] (tid:19697) HashData uninitialize success
+MATCHES error total=6 retained=6 omitted=0
+214424: [DEBUG] FE(19697,diagnostic_sample):2026-11-10-15:39:16.732.064 [platform_infos_def.cpp:199]19697 SetCoreNum:Set PlatFormInfos::core_num_ to 40.
+214425: [ERROR] OP(19697,diagnostic_sample):2026-11-10-15:39:16.732.091 [/mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/candidate/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/op_host/confusion_transpose_d_tiling.cpp:135][OPS_BASE][ConfusionTransposeDTilingFunc][19697] OpName:[ConfusionTransposeD:ConfusionTransposeD] perm/shape rank mismatch
+214426: [INFO] GE(19697,diagnostic_sample):2026-11-10-15:39:16.732.118 [error_manager.cc:399]19697 ReportInterErrMessage:report error_message, error_code:EZ9999, work_stream_id:1969719697, error_mode:0
+214427: [ERROR] OP(19697,diagnostic_sample):2026-11-10-15:39:16.732.139 [indv_executor.cpp:865][NNOP][NnopbaseExecutorDoTiling][19697] errno[-1924574400] OpName:[ConfusionTransposeD_0] Failed to execute operator ConfusionTransposeD_0. Reason: Failed to execute tiling function.
+214428: [INFO] GE(19697,diagnostic_sample):2026-11-10-15:39:16.732.153 [error_manager.cc:452]19697 ReportErrMessage:report error_message, error_code:EZ1008, work_stream_id:1969719697, error_mode:0.
+214429: [ERROR] OP(19697,diagnostic_sample):2026-11-10-15:39:16.732.177 [indv_executor.cpp:955][NNOP][NnopbaseExecutorTilingAndUpdateBinInfo][19697] errno[561002] OpName:[ConfusionTransposeD_0] Check NnopbaseExecutorDoTiling(executor) failed
+214430: [INFO] GE(19697,diagnostic_sample):2026-11-10-15:39:16.732.191 [error_manager.cc:452]19697 ReportErrMessage:report error_message, error_code:EZ9999, work_stream_id:1969719697, error_mode:0.
+214431: [ERROR] OP(19697,diagnostic_sample):2026-11-10-15:39:16.732.206 [indv_executor.cpp:1078][NNOP][NnopbaseExecutorMatchCache][19697] errno[561002] OpName:[ConfusionTransposeD_0] Check NnopbaseExecutorTilingAndUpdateBinInfo(executor) failed
+214432: [INFO] GE(19697,diagnostic_sample):2026-11-10-15:39:16.732.219 [error_manager.cc:452]19697 ReportErrMessage:report error_message, error_code:EZ9999, work_stream_id:1969719697, error_mode:0.
+214433: [ERROR] OP(19697,diagnostic_sample):2026-11-10-15:39:16.732.227 [indv_executor.cpp:1101][NNOP][NnopbaseExecutorRunForWorkspace][19697] errno[561002] OpName:[ConfusionTransposeD_0] Check NnopbaseExecutorMatchCache(executor) failed
+214434: [INFO] GE(19697,diagnostic_sample):2026-11-10-15:39:16.732.234 [error_manager.cc:452]19697 ReportErrMessage:report error_message, error_code:EZ9999, work_stream_id:1969719697, error_mode:0.
+214435: [ERROR] OP(19697,diagnostic_sample):2026-11-10-15:39:16.732.242 [individual_op_api.cpp:36][NNOP][NnopbaseOpLogE][19697] errno[561002] OpName:[ConfusionTransposeD_0] Check NnopbaseRunForWorkspace(*executor, workspaceSize) failed
+214436: [INFO] GE(19697,diagnostic_sample):2026-11-10-15:39:16.732.256 [error_manager.cc:452]19697 ReportErrMessage:report error_message, error_code:EZ9999, work_stream_id:1969719697, error_mode:0.
+MATCHES phase total=4 retained=4 omitted=0
+66: [INFO] OP(19697,diagnostic_sample):2026-11-10-15:39:14.786.572 [indv_args_pool.cpp:38][NNOP][GetCacheSizeLimit][19697] Cachelimit is 10000
+67: DIAG begin=aclInit
+68: [INFO] ASCENDCL(19697,diagnostic_sample):2026-11-10-15:39:14.788.139 [acl.cpp:364]19697 aclInitImpl: start to execute aclInit
+631: [INFO] ASCENDCL(19697,diagnostic_sample):2026-11-10-15:39:14.803.943 [acl.cpp:523]19697 aclInitImpl: successfully execute aclInit, aclInitRefCount is 1
+632: DIAG phase=aclInit host_wall_us=16009.2
+633: [INFO] ASCENDCL(19697,diagnostic_sample):2026-11-10-15:39:14.803.977 [device.cpp:56]19697 aclrtSetDeviceImpl: start to execute aclrtSetDevice, deviceId = 0.
+5032: [DEBUG] DRV(19697,diagnostic_sample):2026-11-10-15:39:15.203.438 [devmm_svm.c:645][ascend][curpid:19697,19697][drv][devmm][_drvMemcpyInner]Argument. (dst=0x12c0c0016000; src=0xaaaaca04ca50; ByteCount=480)
+5033: DIAG phase=input_output_setup host_wall_us=399521
+5034: DIAG begin=GetWorkspaceSize
+5035: [INFO] OP(19697,diagnostic_sample):2026-11-10-15:39:15.203.501 [individual_op_api.cpp:273][NNOP][NnopbaseInit][19697] NnopbaseInit Start.
+
+FILE /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C005_20261110_153111_Q9AC/logs/candidate/infer_tf/run_full.log
+bytes=43112746 sha256=e633ea90574fc4d29f4196f52bfb9ff5aad179464b29a4ed7332464beae85d79
+FILTERED_EXCERPT: whole file scanned; original line numbers retained; not a full log.
+MATCHES operator_reason total=9 retained=6 omitted=3
+214308: [INFO] OP(19751,diagnostic_sample):2026-11-10-15:39:25.868.430 [indv_bininfo.cpp:256][NNOP][NnopbaseSetOpJsonConfig][19751] OpName:[ConfusionTransposeD_0] Get opParaSize is [256 bytes], binInfo->opParaSize is [256 bytes].
+214309: [WARNING] OP(19751,diagnostic_sample):2026-11-10-15:39:25.868.461 [indv_bininfo.cpp:231][NNOP][NnopbaseGetDebugOptions][19751] OpName:[ConfusionTransposeD_0] Failed to get printType or debugBufSize, reason: [json.exception.type_error.302] type must be string, but is null.
+214310: [WARNING] OP(19751,diagnostic_sample):2026-11-10-15:39:25.868.485 [indv_bininfo.cpp:210][NNOP][NnopbaseGetOomFlag][19751] OpName:[ConfusionTransposeD_0] Failed to get op_debug_config, reason: [json.exception.type_error.302] type must be string, but is null.
+214311: [INFO] OP(19751,diagnostic_sample):2026-11-10-15:39:25.868.496 [indv_bininfo.cpp:188][NNOP][NnopbaseGetInitValue][19751] OpName:[ConfusionTransposeD_0] InitValues size is 0.
+214424: [DEBUG] FE(19751,diagnostic_sample):2026-11-10-15:39:25.869.524 [platform_infos_def.cpp:199]19751 SetCoreNum:Set PlatFormInfos::core_num_ to 40.
+214425: [ERROR] OP(19751,diagnostic_sample):2026-11-10-15:39:25.869.551 [/mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/candidate/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/op_host/confusion_transpose_d_tiling.cpp:152][OPS_BASE][ConfusionTransposeDTilingFunc][19751] OpName:[ConfusionTransposeD:ConfusionTransposeD] shape numel mismatch
+214426: [INFO] GE(19751,diagnostic_sample):2026-11-10-15:39:25.869.577 [error_manager.cc:399]19751 ReportInterErrMessage:report error_message, error_code:EZ9999, work_stream_id:1975119751, error_mode:0
+214432: [INFO] GE(19751,diagnostic_sample):2026-11-10-15:39:25.869.677 [error_manager.cc:452]19751 ReportErrMessage:report error_message, error_code:EZ9999, work_stream_id:1975119751, error_mode:0.
+214433: [ERROR] OP(19751,diagnostic_sample):2026-11-10-15:39:25.869.685 [indv_executor.cpp:1101][NNOP][NnopbaseExecutorRunForWorkspace][19751] errno[561002] OpName:[ConfusionTransposeD_0] Check NnopbaseExecutorMatchCache(executor) failed
+214434: [INFO] GE(19751,diagnostic_sample):2026-11-10-15:39:25.869.692 [error_manager.cc:452]19751 ReportErrMessage:report error_message, error_code:EZ9999, work_stream_id:1975119751, error_mode:0.
+214435: [ERROR] OP(19751,diagnostic_sample):2026-11-10-15:39:25.869.704 [individual_op_api.cpp:36][NNOP][NnopbaseOpLogE][19751] errno[561002] OpName:[ConfusionTransposeD_0] Check NnopbaseRunForWorkspace(*executor, workspaceSize) failed
+214436: [INFO] GE(19751,diagnostic_sample):2026-11-10-15:39:25.869.713 [error_manager.cc:452]19751 ReportErrMessage:report error_message, error_code:EZ9999, work_stream_id:1975119751, error_mode:0.
+214446: [DEBUG] DRV(19751,diagnostic_sample):2026-11-10-15:39:25.869.830 [devmm_virt_interface.c:714][ascend][curpid:19751,19751][drv][devmm][devmm_free_to_normal_heap]Free normal heap details. (free_ptr=0x12c0c0015000; heap_type=0xefef0003; heap_sub_type=1)
+214447: ACL error 561002
+214448: [INFO] PROFILING(19751,diagnostic_sample):2026-11-10-15:39:25.869.991 [hash_data.cpp:66] (tid:19751) HashData uninitialize success
+MATCHES error total=6 retained=6 omitted=0
+214424: [DEBUG] FE(19751,diagnostic_sample):2026-11-10-15:39:25.869.524 [platform_infos_def.cpp:199]19751 SetCoreNum:Set PlatFormInfos::core_num_ to 40.
+214425: [ERROR] OP(19751,diagnostic_sample):2026-11-10-15:39:25.869.551 [/mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/candidate/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/op_host/confusion_transpose_d_tiling.cpp:152][OPS_BASE][ConfusionTransposeDTilingFunc][19751] OpName:[ConfusionTransposeD:ConfusionTransposeD] shape numel mismatch
+214426: [INFO] GE(19751,diagnostic_sample):2026-11-10-15:39:25.869.577 [error_manager.cc:399]19751 ReportInterErrMessage:report error_message, error_code:EZ9999, work_stream_id:1975119751, error_mode:0
+214427: [ERROR] OP(19751,diagnostic_sample):2026-11-10-15:39:25.869.596 [indv_executor.cpp:865][NNOP][NnopbaseExecutorDoTiling][19751] errno[-1723493568] OpName:[ConfusionTransposeD_0] Failed to execute operator ConfusionTransposeD_0. Reason: Failed to execute tiling function.
+214428: [INFO] GE(19751,diagnostic_sample):2026-11-10-15:39:25.869.609 [error_manager.cc:452]19751 ReportErrMessage:report error_message, error_code:EZ1008, work_stream_id:1975119751, error_mode:0.
+214429: [ERROR] OP(19751,diagnostic_sample):2026-11-10-15:39:25.869.634 [indv_executor.cpp:955][NNOP][NnopbaseExecutorTilingAndUpdateBinInfo][19751] errno[561002] OpName:[ConfusionTransposeD_0] Check NnopbaseExecutorDoTiling(executor) failed
+214430: [INFO] GE(19751,diagnostic_sample):2026-11-10-15:39:25.869.647 [error_manager.cc:452]19751 ReportErrMessage:report error_message, error_code:EZ9999, work_stream_id:1975119751, error_mode:0.
+214431: [ERROR] OP(19751,diagnostic_sample):2026-11-10-15:39:25.869.665 [indv_executor.cpp:1078][NNOP][NnopbaseExecutorMatchCache][19751] errno[561002] OpName:[ConfusionTransposeD_0] Check NnopbaseExecutorTilingAndUpdateBinInfo(executor) failed
+214432: [INFO] GE(19751,diagnostic_sample):2026-11-10-15:39:25.869.677 [error_manager.cc:452]19751 ReportErrMessage:report error_message, error_code:EZ9999, work_stream_id:1975119751, error_mode:0.
+214433: [ERROR] OP(19751,diagnostic_sample):2026-11-10-15:39:25.869.685 [indv_executor.cpp:1101][NNOP][NnopbaseExecutorRunForWorkspace][19751] errno[561002] OpName:[ConfusionTransposeD_0] Check NnopbaseExecutorMatchCache(executor) failed
+214434: [INFO] GE(19751,diagnostic_sample):2026-11-10-15:39:25.869.692 [error_manager.cc:452]19751 ReportErrMessage:report error_message, error_code:EZ9999, work_stream_id:1975119751, error_mode:0.
+214435: [ERROR] OP(19751,diagnostic_sample):2026-11-10-15:39:25.869.704 [individual_op_api.cpp:36][NNOP][NnopbaseOpLogE][19751] errno[561002] OpName:[ConfusionTransposeD_0] Check NnopbaseRunForWorkspace(*executor, workspaceSize) failed
+214436: [INFO] GE(19751,diagnostic_sample):2026-11-10-15:39:25.869.713 [error_manager.cc:452]19751 ReportErrMessage:report error_message, error_code:EZ9999, work_stream_id:1975119751, error_mode:0.
+MATCHES phase total=4 retained=4 omitted=0
+66: [INFO] OP(19751,diagnostic_sample):2026-11-10-15:39:23.906.769 [indv_args_pool.cpp:38][NNOP][GetCacheSizeLimit][19751] Cachelimit is 10000
+67: DIAG begin=aclInit
+68: [INFO] ASCENDCL(19751,diagnostic_sample):2026-11-10-15:39:23.908.373 [acl.cpp:364]19751 aclInitImpl: start to execute aclInit
+631: [INFO] ASCENDCL(19751,diagnostic_sample):2026-11-10-15:39:23.924.509 [acl.cpp:523]19751 aclInitImpl: successfully execute aclInit, aclInitRefCount is 1
+632: DIAG phase=aclInit host_wall_us=16340.7
+633: [INFO] ASCENDCL(19751,diagnostic_sample):2026-11-10-15:39:23.924.545 [device.cpp:56]19751 aclrtSetDeviceImpl: start to execute aclrtSetDevice, deviceId = 0.
+5032: [DEBUG] DRV(19751,diagnostic_sample):2026-11-10-15:39:24.343.055 [devmm_svm.c:645][ascend][curpid:19751,19751][drv][devmm][_drvMemcpyInner]Argument. (dst=0x12c0c0016000; src=0xaaaaff08c120; ByteCount=480)
+5033: DIAG phase=input_output_setup host_wall_us=418580
+5034: DIAG begin=GetWorkspaceSize
+5035: [INFO] OP(19751,diagnostic_sample):2026-11-10-15:39:24.343.127 [individual_op_api.cpp:273][NNOP][NnopbaseInit][19751] NnopbaseInit Start.
+
+FILE /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C005_20261110_153111_Q9AC/logs/candidate/infer_rf/run_full.log
+bytes=43112723 sha256=050a323e38071a9d8e703658349ca29daf09de5c6da0b4bb1b711c2890b3c6c9
+FILTERED_EXCERPT: whole file scanned; original line numbers retained; not a full log.
+MATCHES operator_reason total=9 retained=6 omitted=3
+214308: [INFO] OP(19773,diagnostic_sample):2026-11-10-15:39:29.764.092 [indv_bininfo.cpp:256][NNOP][NnopbaseSetOpJsonConfig][19773] OpName:[ConfusionTransposeD_0] Get opParaSize is [256 bytes], binInfo->opParaSize is [256 bytes].
+214309: [WARNING] OP(19773,diagnostic_sample):2026-11-10-15:39:29.764.122 [indv_bininfo.cpp:231][NNOP][NnopbaseGetDebugOptions][19773] OpName:[ConfusionTransposeD_0] Failed to get printType or debugBufSize, reason: [json.exception.type_error.302] type must be string, but is null.
+214310: [WARNING] OP(19773,diagnostic_sample):2026-11-10-15:39:29.764.147 [indv_bininfo.cpp:210][NNOP][NnopbaseGetOomFlag][19773] OpName:[ConfusionTransposeD_0] Failed to get op_debug_config, reason: [json.exception.type_error.302] type must be string, but is null.
+214311: [INFO] OP(19773,diagnostic_sample):2026-11-10-15:39:29.764.158 [indv_bininfo.cpp:188][NNOP][NnopbaseGetInitValue][19773] OpName:[ConfusionTransposeD_0] InitValues size is 0.
+214424: [DEBUG] FE(19773,diagnostic_sample):2026-11-10-15:39:29.765.171 [platform_infos_def.cpp:199]19773 SetCoreNum:Set PlatFormInfos::core_num_ to 40.
+214425: [ERROR] OP(19773,diagnostic_sample):2026-11-10-15:39:29.765.198 [/mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/candidate/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/op_host/confusion_transpose_d_tiling.cpp:152][OPS_BASE][ConfusionTransposeDTilingFunc][19773] OpName:[ConfusionTransposeD:ConfusionTransposeD] shape numel mismatch
+214426: [INFO] GE(19773,diagnostic_sample):2026-11-10-15:39:29.765.224 [error_manager.cc:399]19773 ReportInterErrMessage:report error_message, error_code:EZ9999, work_stream_id:1977319773, error_mode:0
+214432: [INFO] GE(19773,diagnostic_sample):2026-11-10-15:39:29.765.324 [error_manager.cc:452]19773 ReportErrMessage:report error_message, error_code:EZ9999, work_stream_id:1977319773, error_mode:0.
+214433: [ERROR] OP(19773,diagnostic_sample):2026-11-10-15:39:29.765.332 [indv_executor.cpp:1101][NNOP][NnopbaseExecutorRunForWorkspace][19773] errno[561002] OpName:[ConfusionTransposeD_0] Check NnopbaseExecutorMatchCache(executor) failed
+214434: [INFO] GE(19773,diagnostic_sample):2026-11-10-15:39:29.765.339 [error_manager.cc:452]19773 ReportErrMessage:report error_message, error_code:EZ9999, work_stream_id:1977319773, error_mode:0.
+214435: [ERROR] OP(19773,diagnostic_sample):2026-11-10-15:39:29.765.347 [individual_op_api.cpp:36][NNOP][NnopbaseOpLogE][19773] errno[561002] OpName:[ConfusionTransposeD_0] Check NnopbaseRunForWorkspace(*executor, workspaceSize) failed
+214436: [INFO] GE(19773,diagnostic_sample):2026-11-10-15:39:29.765.355 [error_manager.cc:452]19773 ReportErrMessage:report error_message, error_code:EZ9999, work_stream_id:1977319773, error_mode:0.
+214446: [DEBUG] DRV(19773,diagnostic_sample):2026-11-10-15:39:29.765.494 [devmm_virt_interface.c:714][ascend][curpid:19773,19773][drv][devmm][devmm_free_to_normal_heap]Free normal heap details. (free_ptr=0x12c0c0015000; heap_type=0xefef0003; heap_sub_type=1)
+214447: ACL error 561002
+214448: [INFO] PROFILING(19773,diagnostic_sample):2026-11-10-15:39:29.765.655 [hash_data.cpp:66] (tid:19773) HashData uninitialize success
+MATCHES error total=6 retained=6 omitted=0
+214424: [DEBUG] FE(19773,diagnostic_sample):2026-11-10-15:39:29.765.171 [platform_infos_def.cpp:199]19773 SetCoreNum:Set PlatFormInfos::core_num_ to 40.
+214425: [ERROR] OP(19773,diagnostic_sample):2026-11-10-15:39:29.765.198 [/mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/candidate/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/op_host/confusion_transpose_d_tiling.cpp:152][OPS_BASE][ConfusionTransposeDTilingFunc][19773] OpName:[ConfusionTransposeD:ConfusionTransposeD] shape numel mismatch
+214426: [INFO] GE(19773,diagnostic_sample):2026-11-10-15:39:29.765.224 [error_manager.cc:399]19773 ReportInterErrMessage:report error_message, error_code:EZ9999, work_stream_id:1977319773, error_mode:0
+214427: [ERROR] OP(19773,diagnostic_sample):2026-11-10-15:39:29.765.245 [indv_executor.cpp:865][NNOP][NnopbaseExecutorDoTiling][19773] errno[-1727298752] OpName:[ConfusionTransposeD_0] Failed to execute operator ConfusionTransposeD_0. Reason: Failed to execute tiling function.
+214428: [INFO] GE(19773,diagnostic_sample):2026-11-10-15:39:29.765.259 [error_manager.cc:452]19773 ReportErrMessage:report error_message, error_code:EZ1008, work_stream_id:1977319773, error_mode:0.
+214429: [ERROR] OP(19773,diagnostic_sample):2026-11-10-15:39:29.765.283 [indv_executor.cpp:955][NNOP][NnopbaseExecutorTilingAndUpdateBinInfo][19773] errno[561002] OpName:[ConfusionTransposeD_0] Check NnopbaseExecutorDoTiling(executor) failed
+214430: [INFO] GE(19773,diagnostic_sample):2026-11-10-15:39:29.765.297 [error_manager.cc:452]19773 ReportErrMessage:report error_message, error_code:EZ9999, work_stream_id:1977319773, error_mode:0.
+214431: [ERROR] OP(19773,diagnostic_sample):2026-11-10-15:39:29.765.312 [indv_executor.cpp:1078][NNOP][NnopbaseExecutorMatchCache][19773] errno[561002] OpName:[ConfusionTransposeD_0] Check NnopbaseExecutorTilingAndUpdateBinInfo(executor) failed
+214432: [INFO] GE(19773,diagnostic_sample):2026-11-10-15:39:29.765.324 [error_manager.cc:452]19773 ReportErrMessage:report error_message, error_code:EZ9999, work_stream_id:1977319773, error_mode:0.
+214433: [ERROR] OP(19773,diagnostic_sample):2026-11-10-15:39:29.765.332 [indv_executor.cpp:1101][NNOP][NnopbaseExecutorRunForWorkspace][19773] errno[561002] OpName:[ConfusionTransposeD_0] Check NnopbaseExecutorMatchCache(executor) failed
+214434: [INFO] GE(19773,diagnostic_sample):2026-11-10-15:39:29.765.339 [error_manager.cc:452]19773 ReportErrMessage:report error_message, error_code:EZ9999, work_stream_id:1977319773, error_mode:0.
+214435: [ERROR] OP(19773,diagnostic_sample):2026-11-10-15:39:29.765.347 [individual_op_api.cpp:36][NNOP][NnopbaseOpLogE][19773] errno[561002] OpName:[ConfusionTransposeD_0] Check NnopbaseRunForWorkspace(*executor, workspaceSize) failed
+214436: [INFO] GE(19773,diagnostic_sample):2026-11-10-15:39:29.765.355 [error_manager.cc:452]19773 ReportErrMessage:report error_message, error_code:EZ9999, work_stream_id:1977319773, error_mode:0.
+MATCHES phase total=4 retained=4 omitted=0
+66: [INFO] OP(19773,diagnostic_sample):2026-11-10-15:39:27.819.793 [indv_args_pool.cpp:38][NNOP][GetCacheSizeLimit][19773] Cachelimit is 10000
+67: DIAG begin=aclInit
+68: [INFO] ASCENDCL(19773,diagnostic_sample):2026-11-10-15:39:27.821.404 [acl.cpp:364]19773 aclInitImpl: start to execute aclInit
+631: [INFO] ASCENDCL(19773,diagnostic_sample):2026-11-10-15:39:27.837.364 [acl.cpp:523]19773 aclInitImpl: successfully execute aclInit, aclInitRefCount is 1
+632: DIAG phase=aclInit host_wall_us=16175.2
+633: [INFO] ASCENDCL(19773,diagnostic_sample):2026-11-10-15:39:27.837.415 [device.cpp:56]19773 aclrtSetDeviceImpl: start to execute aclrtSetDevice, deviceId = 0.
+5032: [DEBUG] DRV(19773,diagnostic_sample):2026-11-10-15:39:28.251.817 [devmm_svm.c:645][ascend][curpid:19773,19773][drv][devmm][_drvMemcpyInner]Argument. (dst=0x12c0c0016000; src=0xaaaacc6fe120; ByteCount=480)
+5033: DIAG phase=input_output_setup host_wall_us=414488
+5034: DIAG begin=GetWorkspaceSize
+5035: [INFO] OP(19773,diagnostic_sample):2026-11-10-15:39:28.251.889 [individual_op_api.cpp:273][NNOP][NnopbaseInit][19773] NnopbaseInit Start.
+HOST_TIMING {"case": "empty_tensor", "result": "PASS_BITWISE", "exit_code": 0, "host_phases": ["DIAG begin=aclInit", "DIAG phase=aclInit host_wall_us=16060.7", "DIAG phase=input_output_setup host_wall_us=400681", "DIAG begin=GetWorkspaceSize", "DIAG phase=GetWorkspaceSize host_wall_us=1.4937e+06", "DIAG phase=pre_launch_setup host_wall_us=31.611", "DIAG begin=launch", "DIAG phase=launch_api host_wall_us=71.49", "DIAG begin=synchronize", "DIAG phase=synchronize host_wall_us=48.881"], "timing_scope": "host/process wall time, not kernel task time"}
+C005_TEXT_EVIDENCE_END
+developer@dfdd97f8c4e84acbaa54982714e4d993:/mnt/workspace/cann-ascendc-ops-collab$ ^C
+developer@dfdd97f8c4e84acbaa54982714e4d993:/mnt/workspace/cann-ascendc-ops-collab$ ^C
+developer@dfdd97f8c4e84acbaa54982714e4d993:/mnt/workspace/cann-ascendc-ops-collab$ 

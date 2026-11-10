@@ -1,4 +1,4 @@
-# EXP_C005 — 平台 Runtime Error；P005 两版同6项失败，原始详情待补
+# EXP_C005 — 本地六项Host拒绝原因已定位；平台Runtime Error仍未知
 
 2026-11-10；hongwei-2026；唯一题目ConfusionTransposeD_2323。
 
@@ -76,3 +76,17 @@ Owner无法下载tar，回传终端文本；原文逐字节保存在 `logs/EXP_C
 本次仅维护只读导出工具（≤15分钟），新增`--errors`扫描完整已有日志，保留错误/本算子原因/DIAG标记及前后文、原始行号、文件SHA256；超量匹配明确标记省略。原始完整日志和平台case仍缺失，不改Host/Kernel，不新增NPU试验或性能路线。
 
 本地仅验证导出工具：超过43MB的模拟日志中间错误/ACL返回码能被提取，输出有界；大量匹配显式标省略，两版CLI运行通过。详见`Q9AC/error-filter-local-check.json`，不构成云端功能或性能验收。
+
+## 第三次文本回传：本地原因结案
+
+Owner回传全文错误筛选输出；原文`logs/EXP_C005/Q9AC/errors-paste.log`，61016字节，SHA256 `541617ff152733aff1336e86afe304ddb10d69877da98ac7b0184939dc310646`；结构化提取见`errors-summary.json`。六份candidate日志的报告字节数/哈希与第二次回传完全一致，ERROR匹配均total=6/retained=6/omitted=0。
+
+1. `ub_188416_bytes`、`ub_196608_bytes`、`ub_262144_bytes`：tiling.cpp:159明确报`tensor too large for UB-resident scheme`。触发整输入字节数加8KiB预留达到/超过UB大小的检查；这是实现的主动限制，未证明发生设备内存越界或物理OOM。不能靠删除检查扩大标量回退的UB分配。
+2. `crossrank_tf`：tiling.cpp:135明确报`perm/shape rank mismatch`。该case输入rank4、perm长4、最终reshape rank2；当前实现用attr shape rank约束perm，导致拒绝。
+3. `infer_tf`、`infer_rf`：tiling.cpp:152明确报`shape numel mismatch`。当前直接乘attr维度，未解析唯一`-1`为5，因此未能与输入120元素匹配。
+
+六项调用链均从tiling失败向上返回`ACL error 561002`，与先前exit=2、GetWorkspaceSize范围内且无launch的证据一致。561002在这里是共同上报码，具体原因以三条明确Host错误为准，不能把该码独自解读为某种设备故障。debug配置字段的JSON WARNING不作为根因。
+
+baseline错误正文未回传；只能引用两版逐项分类/阶段一致、exit=2的证据，不能声称逐条baseline原错误已取得。通过Git静态核对，545f8d2与4761239的Host中均有这三类拒绝检查，故本轮未观察到P004新增失败，不能推广为所有输入无回归。
+
+按[DEC004](../decisions/DEC004-close-c005-host-rejections.md)停止追加C005诊断。本次只归档/核对，不改测试工具或Host/Kernel；六项本地原因已解释。仍无平台失败输入、错误详情或提交源码哈希，因此**无法认定这三类边界就是平台RE原因**。未产生新性能数据，完整云端tar与原始全量log仍未回收，归档的是用户提供的筛选输出原文。

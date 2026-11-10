@@ -1,0 +1,123 @@
+{
+  "evidence": "User-pasted whole-file filtered excerpts, not complete original remote logs",
+  "paste_bytes": 61016,
+  "paste_sha256": "541617ff152733aff1336e86afe304ddb10d69877da98ac7b0184939dc310646",
+  "diagnostic_run": "EXP_C005_20261110_153111_Q9AC",
+  "candidate_errors": [
+    {
+      "case": "ub_188416_bytes",
+      "version": "candidate",
+      "remote_log": "/mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C005_20261110_153111_Q9AC/logs/candidate/ub_188416_bytes/run_full.log",
+      "log_bytes_reported": 43112788,
+      "log_sha256_reported": "5293913bf8bcf544b47e5159f9181be4c9c4ba48e43d1a234e174e81be9557fc",
+      "reason": "tensor too large for UB-resident scheme",
+      "acl_error": 561002,
+      "stage": "Host tiling inside GetWorkspaceSize; no launch",
+      "compiled_source_line": 159,
+      "error_lines": [
+        "214425: [ERROR] OP(19607,diagnostic_sample):2026-11-10-15:39:05.456.503 [/mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/candidate/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/op_host/confusion_transpose_d_tiling.cpp:159][OPS_BASE][ConfusionTransposeDTilingFunc][19607] OpName:[ConfusionTransposeD:ConfusionTransposeD] tensor too large for UB-resident scheme"
+      ],
+      "error_matches_retained": 6,
+      "error_matches_omitted": 0
+    },
+    {
+      "case": "ub_196608_bytes",
+      "version": "candidate",
+      "remote_log": "/mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C005_20261110_153111_Q9AC/logs/candidate/ub_196608_bytes/run_full.log",
+      "log_bytes_reported": 43112823,
+      "log_sha256_reported": "a0865bffae28bad22f7bbc70eb3cdc73a5a225b427b3387c192bd7c100273ef4",
+      "reason": "tensor too large for UB-resident scheme",
+      "acl_error": 561002,
+      "stage": "Host tiling inside GetWorkspaceSize; no launch",
+      "compiled_source_line": 159,
+      "error_lines": [
+        "214425: [ERROR] OP(19628,diagnostic_sample):2026-11-10-15:39:08.698.164 [/mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/candidate/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/op_host/confusion_transpose_d_tiling.cpp:159][OPS_BASE][ConfusionTransposeDTilingFunc][19628] OpName:[ConfusionTransposeD:ConfusionTransposeD] tensor too large for UB-resident scheme"
+      ],
+      "error_matches_retained": 6,
+      "error_matches_omitted": 0
+    },
+    {
+      "case": "ub_262144_bytes",
+      "version": "candidate",
+      "remote_log": "/mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C005_20261110_153111_Q9AC/logs/candidate/ub_262144_bytes/run_full.log",
+      "log_bytes_reported": 43112811,
+      "log_sha256_reported": "f1105caeb78bff32257572df384f46a1afdd59b0a578fb671fc726d62ea7c4b3",
+      "reason": "tensor too large for UB-resident scheme",
+      "acl_error": 561002,
+      "stage": "Host tiling inside GetWorkspaceSize; no launch",
+      "compiled_source_line": 159,
+      "error_lines": [
+        "214425: [ERROR] OP(19663,diagnostic_sample):2026-11-10-15:39:12.704.859 [/mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/candidate/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/op_host/confusion_transpose_d_tiling.cpp:159][OPS_BASE][ConfusionTransposeDTilingFunc][19663] OpName:[ConfusionTransposeD:ConfusionTransposeD] tensor too large for UB-resident scheme"
+      ],
+      "error_matches_retained": 6,
+      "error_matches_omitted": 0
+    },
+    {
+      "case": "crossrank_tf",
+      "version": "candidate",
+      "remote_log": "/mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C005_20261110_153111_Q9AC/logs/candidate/crossrank_tf/run_full.log",
+      "log_bytes_reported": 43112718,
+      "log_sha256_reported": "a49c08b481f9bae0eaf9fcfa93959796bea261d3bd01e08e4649956a8837520c",
+      "reason": "perm/shape rank mismatch",
+      "acl_error": 561002,
+      "stage": "Host tiling inside GetWorkspaceSize; no launch",
+      "compiled_source_line": 135,
+      "error_lines": [
+        "214425: [ERROR] OP(19697,diagnostic_sample):2026-11-10-15:39:16.732.091 [/mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/candidate/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/op_host/confusion_transpose_d_tiling.cpp:135][OPS_BASE][ConfusionTransposeDTilingFunc][19697] OpName:[ConfusionTransposeD:ConfusionTransposeD] perm/shape rank mismatch"
+      ],
+      "error_matches_retained": 6,
+      "error_matches_omitted": 0
+    },
+    {
+      "case": "infer_tf",
+      "version": "candidate",
+      "remote_log": "/mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C005_20261110_153111_Q9AC/logs/candidate/infer_tf/run_full.log",
+      "log_bytes_reported": 43112746,
+      "log_sha256_reported": "e633ea90574fc4d29f4196f52bfb9ff5aad179464b29a4ed7332464beae85d79",
+      "reason": "shape numel mismatch",
+      "acl_error": 561002,
+      "stage": "Host tiling inside GetWorkspaceSize; no launch",
+      "compiled_source_line": 152,
+      "error_lines": [
+        "214425: [ERROR] OP(19751,diagnostic_sample):2026-11-10-15:39:25.869.551 [/mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/candidate/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/op_host/confusion_transpose_d_tiling.cpp:152][OPS_BASE][ConfusionTransposeDTilingFunc][19751] OpName:[ConfusionTransposeD:ConfusionTransposeD] shape numel mismatch"
+      ],
+      "error_matches_retained": 6,
+      "error_matches_omitted": 0
+    },
+    {
+      "case": "infer_rf",
+      "version": "candidate",
+      "remote_log": "/mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C005_20261110_153111_Q9AC/logs/candidate/infer_rf/run_full.log",
+      "log_bytes_reported": 43112723,
+      "log_sha256_reported": "050a323e38071a9d8e703658349ca29daf09de5c6da0b4bb1b711c2890b3c6c9",
+      "reason": "shape numel mismatch",
+      "acl_error": 561002,
+      "stage": "Host tiling inside GetWorkspaceSize; no launch",
+      "compiled_source_line": 152,
+      "error_lines": [
+        "214425: [ERROR] OP(19773,diagnostic_sample):2026-11-10-15:39:29.765.198 [/mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/candidate/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/op_host/confusion_transpose_d_tiling.cpp:152][OPS_BASE][ConfusionTransposeDTilingFunc][19773] OpName:[ConfusionTransposeD:ConfusionTransposeD] shape numel mismatch"
+      ],
+      "error_matches_retained": 6,
+      "error_matches_omitted": 0
+    }
+  ],
+  "remote_file_identity_matches_previous_detail_paste": true,
+  "baseline_evidence": "Same six result classifications, exit=2 and pre-launch failure stage; baseline raw error body was not supplied.",
+  "static_check": [
+    {
+      "ref": "545f8d2",
+      "all_three_rejection_messages_present": true
+    },
+    {
+      "ref": "4761239",
+      "all_three_rejection_messages_present": true
+    }
+  ],
+  "finding": "Candidate six probes are explicit Host tiling rejections in three existing checks; no kernel execution reached for those probes.",
+  "platform_cause": "Unknown; no failure input, error text or submitted-code hash from platform.",
+  "limits": [
+    "561002 is the surfaced error in these six logs, not a unique cause identifier.",
+    "No new performance measurement.",
+    "Full cloud tar/logs and baseline error bodies not obtained."
+  ]
+}

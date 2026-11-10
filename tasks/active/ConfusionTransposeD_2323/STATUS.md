@@ -9,9 +9,9 @@
 | 模板 | `materials/ConfusionTransposeD_problem_2323_template.zip` |
 | 功能闸 | [EXP_C004](explorations/EXP_C004-contiguous-row-dma.md)：P004 样例 PASS + 原13/新9共22/22 bitwise PASS（含 bf16/int64）；此前 EXP_C001/C002 保留 |
 | 性能基线 | [EXP_C003](explorations/EXP_C003-perf-baseline-platform.md)：平台 1～5 Pass，用时 ~1.7ms / 最优 ~3.5μs（~500×） |
-| 下一闸 | **P005补录定位到GetWorkspaceSize阶段**：两版同为46/52通过、同6项失败，失败均exit=2且无launch；未观察到新增失败。错误正文被43MB日志首尾摘录漏掉，改用`--errors`扫描既有全文；平台RE根因仍未知，不重跑、不改Host/Kernel。见 [EXP_C005](explorations/EXP_C005-platform-re-and-boundary-diagnostic.md)、[DEC003](decisions/DEC003-c005-console-evidence-insufficient.md) |
+| 下一闸 | **P005结案，停止追加同批日志诊断**：candidate六项已确认为Host拒绝（UB限制3、跨rank1、-1属性2），均ACL561002；两版同结果，未观察到新增失败。平台RE根因仍未知，性能未达标。后续功能边界修复和性能路线分别新立P行，按 [DEC004](decisions/DEC004-close-c005-host-rejections.md) 分流，不混入本次归档 |
 | 止损 | `docs/collaboration/02-perf-gate.md`；触线写 `decisions/DEC*` |
 
 ## 一句话
 
-P004有有限收益；C005两版同6项失败均发生在GetWorkspaceSize阶段、尚未启动Kernel。继续只读提取错误正文，平台Runtime Error原因仍未知。
+P004有有限收益；C005六项本地失败已由Host明确拒绝解释，未启动Kernel。平台Runtime Error仍未定位，性能目标仍未完成；停止反复取证，后续修复须另立有界路线。

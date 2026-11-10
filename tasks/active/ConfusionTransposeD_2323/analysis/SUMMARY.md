@@ -17,6 +17,8 @@
 
 2026-11-10补录：12条失败记录已取得exit=2及GetWorkspaceSize开始后未完成、未launch的阶段证据。错误正文仍在约43MB日志中间，首尾摘录遗漏；只修导出工具按全文筛选，不重跑。候选冷进程GetWorkspaceSize约1.5秒及launch约0.9～1.0毫秒来自DEBUG全开诊断，不能作为设备性能或平台计时范围结论。
 
+2026-11-10最终补录：candidate六项错误正文已取得，UB整输入限制3项、perm/shape rank检查1项、shape numel检查2项，均tiling失败并返回ACL561002。两版源码均有这些检查，baseline正文未取得；无已观察到P004新增失败。DEC004关闭P005追加诊断，平台RE仍未知；本轮仅归档，未修复边界或改善性能。
+
 ## 废弃/禁止重复
 
 - 保留逐元素 MapSrcIndex + GetValue/SetValue，只微调循环变量。
