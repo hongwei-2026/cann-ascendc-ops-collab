@@ -24,7 +24,9 @@ Q9AC控制台已回收：两版均46/52通过，同6项FAIL_OR_REJECTED；仍缺
 ```bash
 cd /mnt/workspace/cann-ascendc-ops-collab
 git pull --ff-only origin main
-python3 people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/tests/print_c005_evidence.py /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C005_20261110_153111_Q9AC
+python3 people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/tests/print_c005_evidence.py /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C005_20261110_153111_Q9AC --errors
 ```
 
-此命令只读取已生成日志，默认candidate失败全文/摘录和代表项host阶段；两版结果分类均保留。每个原始日志打印字节数和SHA256，超过6000字符时明确标为摘录。若需要某项全文，可在最后一行追加 `--version baseline --case ub_188416_bytes --full`（替换相应版本/用例）；不必重新运行诊断。
+此命令只读取已生成日志，默认candidate六项失败，并保留两版结果分类及代表项host阶段。**使用`--errors`扫描整份约43MB原日志，导出错误/本算子拒绝原因/DIAG标记及前后文**；原行号、字节数、SHA256、匹配/省略数量明确打印。输出是筛选证据，不是完整日志。首尾摘录已证实漏掉错误正文，不要再次使用旧命令或粘贴43MB全文。
+
+要对照某个baseline case，在最后追加 `--version baseline --case ub_188416_bytes`；不必重新运行诊断。`--full`不能和`--errors`同时使用，仅在确需完整单项日志时单独选择。

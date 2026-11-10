@@ -1,0 +1,8 @@
+{
+  "scope": "Synthetic CPU log export checks; no NPU execution",
+  "checks": [
+    "Complete >43MB scan finds middle operator error and ACL code while output stays below 8000 characters",
+    "Many errors retain first/last windows and explicitly report omitted matches",
+    "CLI errors mode exports both selected versions and preserves error codes"
+  ]
+}

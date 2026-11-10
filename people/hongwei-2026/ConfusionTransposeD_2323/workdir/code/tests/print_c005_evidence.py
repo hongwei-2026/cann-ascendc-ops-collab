@@ -1,10 +1,67 @@
 #!/usr/bin/env python3
 """Print existing C005 evidence for copying from a terminal; never run an NPU case."""
 import argparse
-from collections import Counter
+from collections import Counter, deque
 import hashlib
 import json
 from pathlib import Path
+import re
+
+
+def show_errors(path):
+    """Scan the whole file; retain bounded error windows rather than its ends."""
+    print(f"\nFILE {path}")
+    if not path.is_file():
+        print("MISSING")
+        return
+    rules = {
+        "operator_reason": re.compile(
+            r"tensor too large for UB|perm/shape rank mismatch|shape numel mismatch|"
+            r"perm out of range|invalid input rank|empty tensor|^ACL error\b|"
+            r"ConfusionTranspose.*(?:fail|error|mismatch)", re.I),
+        "error": re.compile(r"\[(?:ERROR|FATAL)\]|\b(?:ERROR|FATAL)\s*[:(]|"
+                            r"\b(?:Tiling|InferShape).*\bfailed\b", re.I),
+        "phase": re.compile(r"^DIAG\b"),
+    }
+    first = {name: [] for name in rules}
+    last = {name: deque(maxlen=3) for name in rules}
+    counts = Counter()
+    pending = []
+    previous = None
+    digest = hashlib.sha256()
+    size = 0
+    with path.open("rb") as source:
+        for number, raw in enumerate(source, 1):
+            digest.update(raw)
+            size += len(raw)
+            line = raw.decode("utf-8", errors="replace").rstrip("\r\n")
+            for window in pending:
+                window.append((number, line))
+            pending = []
+            for name, rule in rules.items():
+                if not rule.search(line):
+                    continue
+                counts[name] += 1
+                window = ([] if previous is None else [previous]) + [(number, line)]
+                if len(first[name]) < 3:
+                    first[name].append(window)
+                else:
+                    last[name].append(window)
+                pending.append(window)
+            previous = (number, line)
+    print(f"bytes={size} sha256={digest.hexdigest()}")
+    print("FILTERED_EXCERPT: whole file scanned; original line numbers retained; not a full log.")
+    for name in rules:
+        windows = first[name] + list(last[name])
+        print(f"MATCHES {name} total={counts[name]} retained={len(windows)} omitted={counts[name] - len(windows)}")
+        lines = {number: line for window in windows for number, line in window}
+        for number in sorted(lines):
+            line = lines[number]
+            if len(line) > 1000:
+                line = line[:600] + " [LINE EXCERPT] " + line[-400:]
+            print(f"{number}: {line}")
+    if not any(counts.values()):
+        print("NO_ERROR_OR_PHASE_MATCH; inspect this case with --full if needed.")
 
 
 def show_file(path, limit):
@@ -29,7 +86,9 @@ def main():
     parser.add_argument("run", type=Path, help="Existing EXP_C005 run directory or its logs directory")
     parser.add_argument("--version", choices=("baseline", "candidate", "both"), default="candidate")
     parser.add_argument("--case", help="Print only this case's details (including a passing case)")
-    parser.add_argument("--full", action="store_true", help="Print complete selected case logs")
+    mode = parser.add_mutually_exclusive_group()
+    mode.add_argument("--full", action="store_true", help="Print complete selected case logs")
+    mode.add_argument("--errors", action="store_true", help="Scan whole case logs for errors, operator reasons, and phase markers")
     args = parser.parse_args()
     root = args.run.resolve()
     if (root / "logs").is_dir():
@@ -63,7 +122,11 @@ def main():
                 found_case = True
                 if Path(name).name != name:
                     raise ValueError("Invalid case name in stored results")
-                show_file(root / version / name / "run_full.log", 0 if args.full else 6000)
+                path = root / version / name / "run_full.log"
+                if args.errors:
+                    show_errors(path)
+                else:
+                    show_file(path, 0 if args.full else 6000)
             if name in ("baseline_tf_f32", "rank2_swap_f32", "dma_rows128_f32", "empty_tensor"):
                 print("HOST_TIMING", json.dumps({k: record.get(k) for k in (
                     "case", "result", "exit_code", "host_phases", "timing_scope"

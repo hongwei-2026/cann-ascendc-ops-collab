@@ -63,3 +63,16 @@ Owner无法下载tar，回传终端文本；原文逐字节保存在 `logs/EXP_C
 按[DEC003](../decisions/DEC003-c005-console-evidence-insufficient.md)有限证据结案，继续冻结Host/Kernel。提供只读 `tests/print_c005_evidence.py` 导出已有逐case错误与代表项host阶段供复制，不重跑NPU；优先candidate，必要时补baseline全文。
 
 本地补录：原语义检查通过；文本导出工具的Python语法、默认摘录标识、两版指定case全文、缺失case错误检查通过，记录在 `logs/EXP_C005/Q9AC/text-export-local-check.json`。这些是CPU工具验证，不是新的云端build/NPU回归或性能验收。
+
+## 第二次文本回传：失败阶段已知，正文仍缺
+
+原文 `logs/EXP_C005/Q9AC/detail-paste.log`（52713字节，SHA256 `42d2ffbbd42e16cc2b7ef54d3bd016f99f4c56e6af371add1b4a3343887900d0`）；结构化提取见 `detail-summary.json`。原诊断commit为9b6de1cb2fe06456972377b6b63b36bd21453844。
+
+- 两版共12条失败记录均exit=2，阶段最后为`DIAG begin=GetWorkspaceSize`，没有成功完成该调用的标记，也没有begin=launch。结合诊断驱动的check/异常处理，问题发生在该调用范围内、尚未调用本算子的launch API；不属于已复现的Kernel执行阶段失败。具体返回码/触发原因尚未取得。
+- candidate六份失败日志各约43.11MB。原导出工具只取首尾6000字符，均为初始化/清理消息，**中间错误被漏掉**；不能据摘录未见ERROR宣称没有错误。
+- candidate代表case冷启动主机GetWorkspaceSize约1.49～1.54秒、launch API约0.88～1.04毫秒（empty约71微秒）。该诊断设置`ASCEND_GLOBAL_LOG_LEVEL=0`并输出海量调试日志，且每项独立新进程；这些数值不构成性能基准，不能与C004设备微秒profile或平台毫秒结果等同。
+- empty_tensor的主机launch/sync API成功仍不证明实际Kernel发射；缺设备任务证据。
+
+本次仅维护只读导出工具（≤15分钟），新增`--errors`扫描完整已有日志，保留错误/本算子原因/DIAG标记及前后文、原始行号、文件SHA256；超量匹配明确标记省略。原始完整日志和平台case仍缺失，不改Host/Kernel，不新增NPU试验或性能路线。
+
+本地仅验证导出工具：超过43MB的模拟日志中间错误/ACL返回码能被提取，输出有界；大量匹配显式标省略，两版CLI运行通过。详见`Q9AC/error-filter-local-check.json`，不构成云端功能或性能验收。

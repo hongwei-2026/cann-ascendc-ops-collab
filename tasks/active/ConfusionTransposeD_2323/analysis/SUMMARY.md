@@ -15,6 +15,8 @@
 
 2026-11-10 C005 Q9AC控制台回传：两版均46/52 PASS_BITWISE，同6项FAIL_OR_REJECTED（大输入3、crossrank_tf、infer_tf/rf），未观察到新增P004失败；empty_tensor两版通过。仅控制台摘要已归档，缺逐case错误/阶段计时及完整tar，不得确定失败阶段或平台根因。DEC003有限证据结案，后续只读补录已有日志；Host/Kernel继续冻结。
 
+2026-11-10补录：12条失败记录已取得exit=2及GetWorkspaceSize开始后未完成、未launch的阶段证据。错误正文仍在约43MB日志中间，首尾摘录遗漏；只修导出工具按全文筛选，不重跑。候选冷进程GetWorkspaceSize约1.5秒及launch约0.9～1.0毫秒来自DEBUG全开诊断，不能作为设备性能或平台计时范围结论。
+
 ## 废弃/禁止重复
 
 - 保留逐元素 MapSrcIndex + GetValue/SetValue，只微调循环变量。

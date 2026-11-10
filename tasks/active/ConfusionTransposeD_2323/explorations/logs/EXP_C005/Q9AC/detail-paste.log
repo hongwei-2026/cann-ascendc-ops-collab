@@ -1,0 +1,359 @@
+developer@dfdd97f8c4e84acbaa54982714e4d993:/mnt/workspace/cann-ascendc-ops-collab$ cd /mnt/workspace/cann-ascendc-ops-collab
+OR=true git pull --ff-only origin main
+
+python3 people/hongwei-2026/ConfusionTransposeD_2323/workdirdeveloper@dfdd97f8c4e84acbaa54982714e4d993:/mnt/workspace/cann-ascendc-ops-collab$ GIT_EDITOR=true git pull --ff-only origin main
+/code/tests/print_c005_evidence.py \
+  /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C005_20261110_153111_Q9AC
+remote: Enumerating objects: 50, done.
+remote: Counting objects: 100% (50/50), done.
+remote: Compressing objects: 100% (11/11), done.
+remote: Total 30 (delta 16), reused 30 (delta 16), pack-reused 0 (from 0)
+Unpacking objects: 100% (30/30), 12.19 KiB | 134.00 KiB/s, done.
+From https://github.com/hongwei-2026/cann-ascendc-ops-collab
+ * branch            main       -> FETCH_HEAD
+   9b6de1c..f7e4bd8  main       -> origin/main
+Updating 9b6de1c..f7e4bd8
+Fast-forward
+ people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/tests/print_c005_evidence.py             |  79 ++++++++++++
+ tasks/active/ConfusionTransposeD_2323/C005-CLOUD-DIAGNOSTIC.md                                     |  12 ++
+ tasks/active/ConfusionTransposeD_2323/STATUS.md                                                    |   4 +-
+ tasks/active/ConfusionTransposeD_2323/analysis/SUMMARY.md                                          |   2 +
+ tasks/active/ConfusionTransposeD_2323/decisions/DEC003-c005-console-evidence-insufficient.md       |  16 +++
+ tasks/active/ConfusionTransposeD_2323/dev-log.md                                                   |   8 ++
+ tasks/active/ConfusionTransposeD_2323/explorations/EXP_C005-platform-re-and-boundary-diagnostic.md |  23 +++-
+ tasks/active/ConfusionTransposeD_2323/explorations/logs/EXP_C005/Q9AC/.gitattributes               |   1 +
+ tasks/active/ConfusionTransposeD_2323/explorations/logs/EXP_C005/Q9AC/README.md                    |   7 ++
+ tasks/active/ConfusionTransposeD_2323/explorations/logs/EXP_C005/Q9AC/console-paste.log            | 137 +++++++++++++++++++++
+ tasks/active/ConfusionTransposeD_2323/explorations/logs/EXP_C005/Q9AC/console-summary.json         | 467 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ tasks/active/ConfusionTransposeD_2323/explorations/logs/EXP_C005/Q9AC/text-export-local-check.json |  10 ++
+ tasks/active/ConfusionTransposeD_2323/path-ledger.md                                               |   2 +-
+ 13 files changed, 762 insertions(+), 6 deletions(-)
+ create mode 100644 people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/tests/print_c005_evidence.py
+ create mode 100644 tasks/active/ConfusionTransposeD_2323/decisions/DEC003-c005-console-evidence-insufficient.md
+ create mode 100644 tasks/active/ConfusionTransposeD_2323/explorations/logs/EXP_C005/Q9AC/.gitattributes
+ create mode 100644 tasks/active/ConfusionTransposeD_2323/explorations/logs/EXP_C005/Q9AC/README.md
+ create mode 100644 tasks/active/ConfusionTransposeD_2323/explorations/logs/EXP_C005/Q9AC/console-paste.log
+ create mode 100644 tasks/active/ConfusionTransposeD_2323/explorations/logs/EXP_C005/Q9AC/console-summary.json
+ create mode 100644 tasks/active/ConfusionTransposeD_2323/explorations/logs/EXP_C005/Q9AC/text-export-local-check.json
+developer@dfdd97f8c4e84acbaa54982714e4d993:/mnt/workspace/cann-ascendc-ops-collab$ 
+developer@dfdd97f8c4e84acbaa54982714e4d993:/mnt/workspace/cann-ascendc-ops-collab$ python3 people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/tests/print_c005_evidence.py \
+>   /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C005_20261110_153111_Q9AC
+C005_TEXT_EVIDENCE_BEGIN
+Read-only export; no build, device execution, or new acceptance result.
+
+FILE /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C005_20261110_153111_Q9AC/logs/diagnostic_commit.txt
+bytes=41 sha256=5a710a846bc3d34e533baaf640a5fe03d59ff65965dc8fbfcf9c6255d316122e
+9b6de1cb2fe06456972377b6b63b36bd21453844
+
+
+FILE /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C005_20261110_153111_Q9AC/logs/diagnostic_exit_code.txt
+bytes=2 sha256=9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+0
+
+
+VERSION baseline cases=52 results_sha256=e30939ddfebd4476c044940cab212a2a802ccc5b9bfb7f46d0efc341e6318f2b
+COUNTS {"FAIL_OR_REJECTED": 6, "PASS_BITWISE": 46}
+NONPASS {"attr_shape": [2, 2, 11776], "case": "ub_188416_bytes", "category": "UB_boundary_probe", "dtype": "float32", "exit_code": 2, "golden_sha256": "8f6ae01cdac796e6b229872f361d7830a62b54c5df274d2416d73969549697b4", "host_phases": ["DIAG begin=aclInit", "DIAG phase=aclInit host_wall_us=16039", "DIAG phase=input_output_setup host_wall_us=408872", "DIAG begin=GetWorkspaceSize"], "in_shape": [2, 2, 11776], "input_bytes": 188416, "perm": [1, 0, 2], "process_wall_seconds": 4.218696361000184, "result": "FAIL_OR_REJECTED", "timing_scope": "host/process wall time, not kernel task time", "transpose_first": true, "version": "baseline"}
+NONPASS {"attr_shape": [2, 2, 12288], "case": "ub_196608_bytes", "category": "UB_boundary_probe", "dtype": "float32", "exit_code": 2, "golden_sha256": "e0cdedd769ed7ee60b0efd2a5f89c307590aa2a0c91111de72ff8851979f1295", "host_phases": ["DIAG begin=aclInit", "DIAG phase=aclInit host_wall_us=16249", "DIAG phase=input_output_setup host_wall_us=405468", "DIAG begin=GetWorkspaceSize"], "in_shape": [2, 2, 12288], "input_bytes": 196608, "perm": [1, 0, 2], "process_wall_seconds": 3.9897246069740504, "result": "FAIL_OR_REJECTED", "timing_scope": "host/process wall time, not kernel task time", "transpose_first": true, "version": "baseline"}
+NONPASS {"attr_shape": [2, 2, 16384], "case": "ub_262144_bytes", "category": "UB_boundary_probe", "dtype": "float32", "exit_code": 2, "golden_sha256": "7025dac14e19a3d9b57773dac48c666f0e591d25f2ae0fd33d174fc35ed2b1c2", "host_phases": ["DIAG begin=aclInit", "DIAG phase=aclInit host_wall_us=16006.4", "DIAG phase=input_output_setup host_wall_us=403758", "DIAG begin=GetWorkspaceSize"], "in_shape": [2, 2, 16384], "input_bytes": 262144, "perm": [1, 0, 2], "process_wall_seconds": 3.991703817038797, "result": "FAIL_OR_REJECTED", "timing_scope": "host/process wall time, not kernel task time", "transpose_first": true, "version": "baseline"}
+NONPASS {"attr_shape": [6, 20], "case": "crossrank_tf", "category": "crossrank_probe", "dtype": "float32", "exit_code": 2, "golden_sha256": "3ebf7526f5b0e294424364ea06592e8d760652e3f29dd43b4d45cc51a6ad1f7f", "host_phases": ["DIAG begin=aclInit", "DIAG phase=aclInit host_wall_us=16376.8", "DIAG phase=input_output_setup host_wall_us=398261", "DIAG begin=GetWorkspaceSize"], "in_shape": [2, 3, 4, 5], "input_bytes": 480, "perm": [0, 2, 1, 3], "process_wall_seconds": 3.9953505939920433, "result": "FAIL_OR_REJECTED", "timing_scope": "host/process wall time, not kernel task time", "transpose_first": true, "version": "baseline"}
+NONPASS {"attr_shape": [2, 4, 3, -1], "case": "infer_tf", "category": "inferred_dim_probe", "dtype": "float32", "exit_code": 2, "golden_sha256": "300ee359383be269ee29648fe70a99680f68c23a801fb70bf3e4811114f3cc6a", "host_phases": ["DIAG begin=aclInit", "DIAG phase=aclInit host_wall_us=16306.2", "DIAG phase=input_output_setup host_wall_us=411699", "DIAG begin=GetWorkspaceSize"], "in_shape": [2, 3, 4, 5], "input_bytes": 480, "perm": [0, 2, 1, 3], "process_wall_seconds": 3.911454754008446, "result": "FAIL_OR_REJECTED", "timing_scope": "host/process wall time, not kernel task time", "transpose_first": true, "version": "baseline"}
+NONPASS {"attr_shape": [2, 4, 3, -1], "case": "infer_rf", "category": "inferred_dim_probe", "dtype": "float32", "exit_code": 2, "golden_sha256": "ec1a1d6ffe503c19df79435b0f6a91affc9b593f18a84dddf4751a0a005fecdf", "host_phases": ["DIAG begin=aclInit", "DIAG phase=aclInit host_wall_us=16343.4", "DIAG phase=input_output_setup host_wall_us=404460", "DIAG begin=GetWorkspaceSize"], "in_shape": [2, 3, 4, 5], "input_bytes": 480, "perm": [0, 2, 1, 3], "process_wall_seconds": 3.9898076800163835, "result": "FAIL_OR_REJECTED", "timing_scope": "host/process wall time, not kernel task time", "transpose_first": false, "version": "baseline"}
+
+VERSION candidate cases=52 results_sha256=8ec16686f0057b70e82aa8ae3f5f36983bad46696c2712cd57303df486ce698d
+COUNTS {"FAIL_OR_REJECTED": 6, "PASS_BITWISE": 46}
+NONPASS {"attr_shape": [2, 2, 11776], "case": "ub_188416_bytes", "category": "UB_boundary_probe", "dtype": "float32", "exit_code": 2, "golden_sha256": "8f6ae01cdac796e6b229872f361d7830a62b54c5df274d2416d73969549697b4", "host_phases": ["DIAG begin=aclInit", "DIAG phase=aclInit host_wall_us=16303.3", "DIAG phase=input_output_setup host_wall_us=393168", "DIAG begin=GetWorkspaceSize"], "in_shape": [2, 2, 11776], "input_bytes": 188416, "perm": [1, 0, 2], "process_wall_seconds": 3.194365029979963, "result": "FAIL_OR_REJECTED", "timing_scope": "host/process wall time, not kernel task time", "transpose_first": true, "version": "candidate"}
+NONPASS {"attr_shape": [2, 2, 12288], "case": "ub_196608_bytes", "category": "UB_boundary_probe", "dtype": "float32", "exit_code": 2, "golden_sha256": "e0cdedd769ed7ee60b0efd2a5f89c307590aa2a0c91111de72ff8851979f1295", "host_phases": ["DIAG begin=aclInit", "DIAG phase=aclInit host_wall_us=16027.8", "DIAG phase=input_output_setup host_wall_us=405578", "DIAG begin=GetWorkspaceSize"], "in_shape": [2, 2, 12288], "input_bytes": 196608, "perm": [1, 0, 2], "process_wall_seconds": 4.008685541979503, "result": "FAIL_OR_REJECTED", "timing_scope": "host/process wall time, not kernel task time", "transpose_first": true, "version": "candidate"}
+NONPASS {"attr_shape": [2, 2, 16384], "case": "ub_262144_bytes", "category": "UB_boundary_probe", "dtype": "float32", "exit_code": 2, "golden_sha256": "7025dac14e19a3d9b57773dac48c666f0e591d25f2ae0fd33d174fc35ed2b1c2", "host_phases": ["DIAG begin=aclInit", "DIAG phase=aclInit host_wall_us=15929.2", "DIAG phase=input_output_setup host_wall_us=406436", "DIAG begin=GetWorkspaceSize"], "in_shape": [2, 2, 16384], "input_bytes": 262144, "perm": [1, 0, 2], "process_wall_seconds": 3.9849456810043193, "result": "FAIL_OR_REJECTED", "timing_scope": "host/process wall time, not kernel task time", "transpose_first": true, "version": "candidate"}
+NONPASS {"attr_shape": [6, 20], "case": "crossrank_tf", "category": "crossrank_probe", "dtype": "float32", "exit_code": 2, "golden_sha256": "3ebf7526f5b0e294424364ea06592e8d760652e3f29dd43b4d45cc51a6ad1f7f", "host_phases": ["DIAG begin=aclInit", "DIAG phase=aclInit host_wall_us=16009.2", "DIAG phase=input_output_setup host_wall_us=399521", "DIAG begin=GetWorkspaceSize"], "in_shape": [2, 3, 4, 5], "input_bytes": 480, "perm": [0, 2, 1, 3], "process_wall_seconds": 3.998603599029593, "result": "FAIL_OR_REJECTED", "timing_scope": "host/process wall time, not kernel task time", "transpose_first": true, "version": "candidate"}
+NONPASS {"attr_shape": [2, 4, 3, -1], "case": "infer_tf", "category": "inferred_dim_probe", "dtype": "float32", "exit_code": 2, "golden_sha256": "300ee359383be269ee29648fe70a99680f68c23a801fb70bf3e4811114f3cc6a", "host_phases": ["DIAG begin=aclInit", "DIAG phase=aclInit host_wall_us=16340.7", "DIAG phase=input_output_setup host_wall_us=418580", "DIAG begin=GetWorkspaceSize"], "in_shape": [2, 3, 4, 5], "input_bytes": 480, "perm": [0, 2, 1, 3], "process_wall_seconds": 3.9107624979806133, "result": "FAIL_OR_REJECTED", "timing_scope": "host/process wall time, not kernel task time", "transpose_first": true, "version": "candidate"}
+NONPASS {"attr_shape": [2, 4, 3, -1], "case": "infer_rf", "category": "inferred_dim_probe", "dtype": "float32", "exit_code": 2, "golden_sha256": "ec1a1d6ffe503c19df79435b0f6a91affc9b593f18a84dddf4751a0a005fecdf", "host_phases": ["DIAG begin=aclInit", "DIAG phase=aclInit host_wall_us=16175.2", "DIAG phase=input_output_setup host_wall_us=414488", "DIAG begin=GetWorkspaceSize"], "in_shape": [2, 3, 4, 5], "input_bytes": 480, "perm": [0, 2, 1, 3], "process_wall_seconds": 3.9997779009863734, "result": "FAIL_OR_REJECTED", "timing_scope": "host/process wall time, not kernel task time", "transpose_first": false, "version": "candidate"}
+HOST_TIMING {"case": "baseline_tf_f32", "result": "PASS_BITWISE", "exit_code": 0, "host_phases": ["DIAG begin=aclInit", "DIAG phase=aclInit host_wall_us=16078.9", "DIAG phase=input_output_setup host_wall_us=404853", "DIAG begin=GetWorkspaceSize", "DIAG phase=GetWorkspaceSize host_wall_us=1.54312e+06", "DIAG phase=pre_launch_setup host_wall_us=270.783", "DIAG begin=launch", "DIAG phase=launch_api host_wall_us=1042.55", "DIAG begin=synchronize", "DIAG phase=synchronize host_wall_us=67.331"], "timing_scope": "host/process wall time, not kernel task time"}
+HOST_TIMING {"case": "rank2_swap_f32", "result": "PASS_BITWISE", "exit_code": 0, "host_phases": ["DIAG begin=aclInit", "DIAG phase=aclInit host_wall_us=16090.6", "DIAG phase=input_output_setup host_wall_us=407132", "DIAG begin=GetWorkspaceSize", "DIAG phase=GetWorkspaceSize host_wall_us=1.49911e+06", "DIAG phase=pre_launch_setup host_wall_us=230.363", "DIAG begin=launch", "DIAG phase=launch_api host_wall_us=881.619", "DIAG begin=synchronize", "DIAG phase=synchronize host_wall_us=64.79"], "timing_scope": "host/process wall time, not kernel task time"}
+HOST_TIMING {"case": "dma_rows128_f32", "result": "PASS_BITWISE", "exit_code": 0, "host_phases": ["DIAG begin=aclInit", "DIAG phase=aclInit host_wall_us=16063.1", "DIAG phase=input_output_setup host_wall_us=413465", "DIAG begin=GetWorkspaceSize", "DIAG phase=GetWorkspaceSize host_wall_us=1.50055e+06", "DIAG phase=pre_launch_setup host_wall_us=361.854", "DIAG begin=launch", "DIAG phase=launch_api host_wall_us=899.269", "DIAG begin=synchronize", "DIAG phase=synchronize host_wall_us=66.33"], "timing_scope": "host/process wall time, not kernel task time"}
+
+FILE /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C005_20261110_153111_Q9AC/logs/candidate/ub_188416_bytes/run_full.log
+bytes=43112788 sha256=5293913bf8bcf544b47e5159f9181be4c9c4ba48e43d1a234e174e81be9557fc
+[DEBUG] DRV(19607,diagnostic_sample):2026-11-10-15:39:03.519.973 [hdc_client.c:114][ascend][curpid:19607,19607][drv][hdc][drvHdcClientCreate]Create client success.
+[INFO] ATRACE(19607,diagnostic_sample):2026-11-10-15:39:03.520.104 [trace_attr.c:100](tid:19607) doesn't set env ASCEND_LOG_DEVICE_FLUSH_TIMEOUT, use default timeout=0ms.
+[INFO] ATRACE(19607,diagnostic_sample):2026-11-10-15:39:03.520.120 [trace_attr.c:190](tid:19607) attr init successfully, timeout=0ms.
+[WARNING] ATRACE(19607,diagnostic_sample):2026-11-10-15:39:03.520.127 [trace_system_api.c:111](tid:19607) Environment variable is null or the length exceeds 255.
+[INFO] ATRACE(19607,diagnostic_sample):2026-11-10-15:39:03.520.148 [trace_recorder.c:45](tid:19607) home_directory=/home/developer.
+[INFO] ATRACE(19607,diagnostic_sample):2026-11-10-15:39:03.520.157 [trace_recorder.c:211](tid:19607) use root path: /home/developer/ascend
+[INFO] ATRACE(19607,diagnostic_sample):2026-11-10-15:39:03.520.161 [trace_recorder.c:154](tid:19607) doesn't set env ASCEND_TRACE_RECORD_NUM, use default dir num=10.
+[INFO] ATRACE(19607,diagnostic_sample):2026-11-10-15:39:03.520.166 [trace_event.c:147](tid:19607) init trace event successfully
+[DEBUG] ATRACE(19607,diagnostic_sample):2026-11-10-15:39:03.520.193 [trace_event.c:204](tid:19607) insert event trace_inner_event to event list
+[INFO] ATRACE(19607,diagnostic_sample):2026-11-10-15:39:03.520.207 [atrace_client_core.c:185](tid:19607) init atrace client successfully.
+[INFO] ATRACE(19607,diagnostic_sample):2026-11-10-15:39:03.520.502 [stacktrace_dumper.c:244](tid:19607) path = /home/developer/Ascend/cann-9.1.0/aarch64-linux/bin/asc_dumper
+[WARNING] ATRACE(19607,diagnostic_sample):2026-11-10-15:39:03.520.530 [trace_system_api.c:111](tid:19607) Environment variable is null or the length exceeds 256.
+[INFO] ATRACE(19607,diagnostic_sample):2026-11-10-15:39:03.520.643 [stacktrace_signal.c:176](tid:19607) register signal handler for signal 2 succeed.
+[INFO] ATRACE(19607,diagnostic_sample):2026-11-10-15:39:03.520.653 [stacktrace_signal.c:176](tid:19607) register signal handler for signal 15 succeed.
+[INFO] ATRACE(19607,diagnostic_sample):2026-11-10-15:39:03.520.657 [stacktrace_signal.c:176](tid:19607) register signal handler for signal 3 succeed.
+[INFO] ATRACE(19607,diagnostic_sample):2026-11-10-15:39:03.520.660 [stacktrace_signal.c:176](tid:19607) register signal handler for signal 4 succeed.
+[INFO] ATRACE(19607,diagnostic_sample):2026-11-10-15:39:03.520.663 [stacktrace_signal.c:176](tid:19607) register signal handler for signal 5 succeed.
+[INFO] ATRACE(19607,diagnostic_sample):2026-11-10-15:39:03.520.667 [stacktrace_signal.c:176](tid:19607) register signal handler for signal 6 succeed.
+[INFO] ATRACE(19607,diagnostic_sample):2026-11-10-15:39:03.520.669 [stacktrace_signal.c:176](tid:19607) register signal handler for signal 7 succeed.
+[INFO] ATRACE(19607,diagnostic_sample):2026-11-10-15:39:03.520.672 [stacktrace_signal.c:176](tid:19607) register signal handler for sig
+
+[EXCERPT: omitted 43106788 characters; --full prints the whole file]
+
+_sample):2026-11-10-15:39:06.088.150 [trs_dev_drv.c:370][ascend][curpid:19607,19607][drv][tsdrv][drvDeviceCloseComm]Close success. (devid=0; fd=10; mmapFd=11)
+[INFO] DRV(19607,diagnostic_sample):2026-11-10-15:39:06.098.897 [event_sched.c:1515][ascend][curpid:19607,19607][drv][event-sche][eschedDeviceClose]The devId close success. (devId=0)
+[INFO] RUNTIME(19607,diagnostic_sample):2026-11-10-15:39:06.098.918 [npu_driver.cc:402] 19607 DeviceClose: Close device success, device_id=0, tsId=0.
+[INFO] RUNTIME(19607,diagnostic_sample):2026-11-10-15:39:06.098.927 [raw_device.cc:164] 19607 ~Device: device destructor.
+[DEBUG] RUNTIME(19607,diagnostic_sample):2026-11-10-15:39:06.098.935 [runtime.cc:2001] 19607 StopAicpuExecutor:TsdClose devId=0
+[INFO] RUNTIME(19607,diagnostic_sample):2026-11-10-15:39:06.098.942 [runtime.cc:2027] 19607 StopAicpuExecutor: TsdClose success, userDeviceId=0, devId=0, tdt status=0
+[DEBUG] RUNTIME(19607,diagnostic_sample):2026-11-10-15:39:06.205.881 [runtime.cc:5356] 19607 DeleteModuleBackupPoint:Delete begin
+[DEBUG] RUNTIME(19607,diagnostic_sample):2026-11-10-15:39:06.205.903 [runtime.cc:5358] 19607 DeleteModuleBackupPoint:Delete finish
+[INFO] RUNTIME(19607,diagnostic_sample):2026-11-10-15:39:06.205.932 [tprt.cc:23][TPRT]TID[19607] ~TprtManage: ~TprtManage
+[INFO] RUNTIME(19607,diagnostic_sample):2026-11-10-15:39:06.205.937 [plugin_old_arch.cc:39] 19607 DestructorRuntimeImpl: RuntimeImpl destructor success
+[INFO] RUNTIME(19607,diagnostic_sample):2026-11-10-15:39:06.205.942 [runtime_keeper.cc:245] 19607 DestroyRuntimeImpl: Destroy Runtime success
+[INFO] RUNTIME(19607,diagnostic_sample):2026-11-10-15:39:06.206.580 [xpu_task_fail_callback_data_manager.cc:64] 19607 ~XpuTaskFailCallBackManager: XpuTaskFailCallBackManager Destructor.
+[INFO] RUNTIME(19607,diagnostic_sample):2026-11-10-15:39:06.206.600 [task_fail_callback_data_manager.cc:98] 19607 ~TaskFailCallBackManager: Destructor.
+[INFO] ATRACE(19607,diagnostic_sample):2026-11-10-15:39:06.206.694 [stacktrace_signal.c:199](tid:19607) unregister all signal handlers, can not capture signal.
+[INFO] DRV(19607,diagnostic_sample):2026-11-10-15:39:06.260.573 [hdc_client.c:425][ascend][curpid:19607,19611][drv][hdc][drvHdcClientSessionClose]Destroy client session. (sock=1281)
+[DEBUG] DRV(19607,diagnostic_sample):2026-11-10-15:39:06.260.647 [hdc_client.c:267][ascend][curpid:19607,19611][drv][hdc][drvHdcClientFreeSession]Client free session.
+[DEBUG] DRV(19607,diagnostic_sample):2026-11-10-15:39:06.260.656 [hdc_client.c:191][ascend][curpid:19607,19611][drv][hdc][drvHdcClientDestroy]Destroy client.
+[INFO] ATRACE(19607,diagnostic_sample):2026-11-10-15:39:06.260.662 [atrace_client_core.c:127](tid:19611) atrace receive thread exited, devId=0.
+[DEBUG] ATRACE(19607,diagnostic_sample):2026-11-10-15:39:06.260.854 [trace_event.c:247](tid:19607) delete event trace_inner_event from event list
+[INFO] ATRACE(19607,diagnostic_sample):2026-11-10-15:39:06.261.017 [awatchdog_monitor.c:233](tid:19607) AwdMonitorExit
+
+
+FILE /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C005_20261110_153111_Q9AC/logs/candidate/ub_196608_bytes/run_full.log
+bytes=43112823 sha256=a0865bffae28bad22f7bbc70eb3cdc73a5a225b427b3387c192bd7c100273ef4
+[DEBUG] DRV(19628,diagnostic_sample):2026-11-10-15:39:06.719.232 [hdc_client.c:114][ascend][curpid:19628,19628][drv][hdc][drvHdcClientCreate]Create client success.
+[INFO] ATRACE(19628,diagnostic_sample):2026-11-10-15:39:06.719.372 [trace_attr.c:100](tid:19628) doesn't set env ASCEND_LOG_DEVICE_FLUSH_TIMEOUT, use default timeout=0ms.
+[INFO] ATRACE(19628,diagnostic_sample):2026-11-10-15:39:06.719.387 [trace_attr.c:190](tid:19628) attr init successfully, timeout=0ms.
+[WARNING] ATRACE(19628,diagnostic_sample):2026-11-10-15:39:06.719.394 [trace_system_api.c:111](tid:19628) Environment variable is null or the length exceeds 255.
+[INFO] ATRACE(19628,diagnostic_sample):2026-11-10-15:39:06.719.415 [trace_recorder.c:45](tid:19628) home_directory=/home/developer.
+[INFO] ATRACE(19628,diagnostic_sample):2026-11-10-15:39:06.719.428 [trace_recorder.c:211](tid:19628) use root path: /home/developer/ascend
+[INFO] ATRACE(19628,diagnostic_sample):2026-11-10-15:39:06.719.433 [trace_recorder.c:154](tid:19628) doesn't set env ASCEND_TRACE_RECORD_NUM, use default dir num=10.
+[INFO] ATRACE(19628,diagnostic_sample):2026-11-10-15:39:06.719.438 [trace_event.c:147](tid:19628) init trace event successfully
+[DEBUG] ATRACE(19628,diagnostic_sample):2026-11-10-15:39:06.719.463 [trace_event.c:204](tid:19628) insert event trace_inner_event to event list
+[INFO] ATRACE(19628,diagnostic_sample):2026-11-10-15:39:06.719.475 [atrace_client_core.c:185](tid:19628) init atrace client successfully.
+[INFO] ATRACE(19628,diagnostic_sample):2026-11-10-15:39:06.719.771 [stacktrace_dumper.c:244](tid:19628) path = /home/developer/Ascend/cann-9.1.0/aarch64-linux/bin/asc_dumper
+[WARNING] ATRACE(19628,diagnostic_sample):2026-11-10-15:39:06.719.802 [trace_system_api.c:111](tid:19628) Environment variable is null or the length exceeds 256.
+[INFO] ATRACE(19628,diagnostic_sample):2026-11-10-15:39:06.719.918 [stacktrace_signal.c:176](tid:19628) register signal handler for signal 2 succeed.
+[INFO] ATRACE(19628,diagnostic_sample):2026-11-10-15:39:06.719.929 [stacktrace_signal.c:176](tid:19628) register signal handler for signal 15 succeed.
+[INFO] ATRACE(19628,diagnostic_sample):2026-11-10-15:39:06.719.933 [stacktrace_signal.c:176](tid:19628) register signal handler for signal 3 succeed.
+[INFO] ATRACE(19628,diagnostic_sample):2026-11-10-15:39:06.719.936 [stacktrace_signal.c:176](tid:19628) register signal handler for signal 4 succeed.
+[INFO] ATRACE(19628,diagnostic_sample):2026-11-10-15:39:06.719.939 [stacktrace_signal.c:176](tid:19628) register signal handler for signal 5 succeed.
+[INFO] ATRACE(19628,diagnostic_sample):2026-11-10-15:39:06.719.943 [stacktrace_signal.c:176](tid:19628) register signal handler for signal 6 succeed.
+[INFO] ATRACE(19628,diagnostic_sample):2026-11-10-15:39:06.719.946 [stacktrace_signal.c:176](tid:19628) register signal handler for signal 7 succeed.
+[INFO] ATRACE(19628,diagnostic_sample):2026-11-10-15:39:06.719.949 [stacktrace_signal.c:176](tid:19628) register signal handler for sig
+
+[EXCERPT: omitted 43106823 characters; --full prints the whole file]
+
+_sample):2026-11-10-15:39:09.315.469 [trs_dev_drv.c:370][ascend][curpid:19628,19628][drv][tsdrv][drvDeviceCloseComm]Close success. (devid=0; fd=10; mmapFd=11)
+[INFO] DRV(19628,diagnostic_sample):2026-11-10-15:39:09.326.250 [event_sched.c:1515][ascend][curpid:19628,19628][drv][event-sche][eschedDeviceClose]The devId close success. (devId=0)
+[INFO] RUNTIME(19628,diagnostic_sample):2026-11-10-15:39:09.326.269 [npu_driver.cc:402] 19628 DeviceClose: Close device success, device_id=0, tsId=0.
+[INFO] RUNTIME(19628,diagnostic_sample):2026-11-10-15:39:09.326.278 [raw_device.cc:164] 19628 ~Device: device destructor.
+[DEBUG] RUNTIME(19628,diagnostic_sample):2026-11-10-15:39:09.326.286 [runtime.cc:2001] 19628 StopAicpuExecutor:TsdClose devId=0
+[INFO] RUNTIME(19628,diagnostic_sample):2026-11-10-15:39:09.326.310 [runtime.cc:2027] 19628 StopAicpuExecutor: TsdClose success, userDeviceId=0, devId=0, tdt status=0
+[DEBUG] RUNTIME(19628,diagnostic_sample):2026-11-10-15:39:09.433.099 [runtime.cc:5356] 19628 DeleteModuleBackupPoint:Delete begin
+[DEBUG] RUNTIME(19628,diagnostic_sample):2026-11-10-15:39:09.433.119 [runtime.cc:5358] 19628 DeleteModuleBackupPoint:Delete finish
+[INFO] RUNTIME(19628,diagnostic_sample):2026-11-10-15:39:09.433.144 [tprt.cc:23][TPRT]TID[19628] ~TprtManage: ~TprtManage
+[INFO] RUNTIME(19628,diagnostic_sample):2026-11-10-15:39:09.433.153 [plugin_old_arch.cc:39] 19628 DestructorRuntimeImpl: RuntimeImpl destructor success
+[INFO] RUNTIME(19628,diagnostic_sample):2026-11-10-15:39:09.433.158 [runtime_keeper.cc:245] 19628 DestroyRuntimeImpl: Destroy Runtime success
+[INFO] RUNTIME(19628,diagnostic_sample):2026-11-10-15:39:09.433.811 [xpu_task_fail_callback_data_manager.cc:64] 19628 ~XpuTaskFailCallBackManager: XpuTaskFailCallBackManager Destructor.
+[INFO] RUNTIME(19628,diagnostic_sample):2026-11-10-15:39:09.433.834 [task_fail_callback_data_manager.cc:98] 19628 ~TaskFailCallBackManager: Destructor.
+[INFO] ATRACE(19628,diagnostic_sample):2026-11-10-15:39:09.433.935 [stacktrace_signal.c:199](tid:19628) unregister all signal handlers, can not capture signal.
+[INFO] DRV(19628,diagnostic_sample):2026-11-10-15:39:09.561.183 [hdc_client.c:425][ascend][curpid:19628,19632][drv][hdc][drvHdcClientSessionClose]Destroy client session. (sock=1286)
+[DEBUG] DRV(19628,diagnostic_sample):2026-11-10-15:39:09.561.262 [hdc_client.c:267][ascend][curpid:19628,19632][drv][hdc][drvHdcClientFreeSession]Client free session.
+[DEBUG] DRV(19628,diagnostic_sample):2026-11-10-15:39:09.561.278 [hdc_client.c:191][ascend][curpid:19628,19632][drv][hdc][drvHdcClientDestroy]Destroy client.
+[INFO] ATRACE(19628,diagnostic_sample):2026-11-10-15:39:09.561.284 [atrace_client_core.c:127](tid:19632) atrace receive thread exited, devId=0.
+[DEBUG] ATRACE(19628,diagnostic_sample):2026-11-10-15:39:09.561.484 [trace_event.c:247](tid:19628) delete event trace_inner_event from event list
+[INFO] ATRACE(19628,diagnostic_sample):2026-11-10-15:39:09.561.760 [awatchdog_monitor.c:233](tid:19628) AwdMonitorExit
+
+
+FILE /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C005_20261110_153111_Q9AC/logs/candidate/ub_262144_bytes/run_full.log
+bytes=43112811 sha256=f1105caeb78bff32257572df384f46a1afdd59b0a578fb671fc726d62ea7c4b3
+[DEBUG] DRV(19663,diagnostic_sample):2026-11-10-15:39:10.733.501 [hdc_client.c:114][ascend][curpid:19663,19663][drv][hdc][drvHdcClientCreate]Create client success.
+[INFO] ATRACE(19663,diagnostic_sample):2026-11-10-15:39:10.733.634 [trace_attr.c:100](tid:19663) doesn't set env ASCEND_LOG_DEVICE_FLUSH_TIMEOUT, use default timeout=0ms.
+[INFO] ATRACE(19663,diagnostic_sample):2026-11-10-15:39:10.733.646 [trace_attr.c:190](tid:19663) attr init successfully, timeout=0ms.
+[WARNING] ATRACE(19663,diagnostic_sample):2026-11-10-15:39:10.733.652 [trace_system_api.c:111](tid:19663) Environment variable is null or the length exceeds 255.
+[INFO] ATRACE(19663,diagnostic_sample):2026-11-10-15:39:10.733.673 [trace_recorder.c:45](tid:19663) home_directory=/home/developer.
+[INFO] ATRACE(19663,diagnostic_sample):2026-11-10-15:39:10.733.681 [trace_recorder.c:211](tid:19663) use root path: /home/developer/ascend
+[INFO] ATRACE(19663,diagnostic_sample):2026-11-10-15:39:10.733.685 [trace_recorder.c:154](tid:19663) doesn't set env ASCEND_TRACE_RECORD_NUM, use default dir num=10.
+[INFO] ATRACE(19663,diagnostic_sample):2026-11-10-15:39:10.733.689 [trace_event.c:147](tid:19663) init trace event successfully
+[DEBUG] ATRACE(19663,diagnostic_sample):2026-11-10-15:39:10.733.719 [trace_event.c:204](tid:19663) insert event trace_inner_event to event list
+[INFO] ATRACE(19663,diagnostic_sample):2026-11-10-15:39:10.733.731 [atrace_client_core.c:185](tid:19663) init atrace client successfully.
+[INFO] ATRACE(19663,diagnostic_sample):2026-11-10-15:39:10.734.042 [stacktrace_dumper.c:244](tid:19663) path = /home/developer/Ascend/cann-9.1.0/aarch64-linux/bin/asc_dumper
+[WARNING] ATRACE(19663,diagnostic_sample):2026-11-10-15:39:10.734.073 [trace_system_api.c:111](tid:19663) Environment variable is null or the length exceeds 256.
+[INFO] ATRACE(19663,diagnostic_sample):2026-11-10-15:39:10.734.180 [stacktrace_signal.c:176](tid:19663) register signal handler for signal 2 succeed.
+[INFO] ATRACE(19663,diagnostic_sample):2026-11-10-15:39:10.734.189 [stacktrace_signal.c:176](tid:19663) register signal handler for signal 15 succeed.
+[INFO] ATRACE(19663,diagnostic_sample):2026-11-10-15:39:10.734.193 [stacktrace_signal.c:176](tid:19663) register signal handler for signal 3 succeed.
+[INFO] ATRACE(19663,diagnostic_sample):2026-11-10-15:39:10.734.196 [stacktrace_signal.c:176](tid:19663) register signal handler for signal 4 succeed.
+[INFO] ATRACE(19663,diagnostic_sample):2026-11-10-15:39:10.734.199 [stacktrace_signal.c:176](tid:19663) register signal handler for signal 5 succeed.
+[INFO] ATRACE(19663,diagnostic_sample):2026-11-10-15:39:10.734.202 [stacktrace_signal.c:176](tid:19663) register signal handler for signal 6 succeed.
+[INFO] ATRACE(19663,diagnostic_sample):2026-11-10-15:39:10.734.205 [stacktrace_signal.c:176](tid:19663) register signal handler for signal 7 succeed.
+[INFO] ATRACE(19663,diagnostic_sample):2026-11-10-15:39:10.734.208 [stacktrace_signal.c:176](tid:19663) register signal handler for sig
+
+[EXCERPT: omitted 43106811 characters; --full prints the whole file]
+
+_sample):2026-11-10-15:39:13.314.590 [trs_dev_drv.c:370][ascend][curpid:19663,19663][drv][tsdrv][drvDeviceCloseComm]Close success. (devid=0; fd=10; mmapFd=11)
+[INFO] DRV(19663,diagnostic_sample):2026-11-10-15:39:13.325.371 [event_sched.c:1515][ascend][curpid:19663,19663][drv][event-sche][eschedDeviceClose]The devId close success. (devId=0)
+[INFO] RUNTIME(19663,diagnostic_sample):2026-11-10-15:39:13.325.396 [npu_driver.cc:402] 19663 DeviceClose: Close device success, device_id=0, tsId=0.
+[INFO] RUNTIME(19663,diagnostic_sample):2026-11-10-15:39:13.325.406 [raw_device.cc:164] 19663 ~Device: device destructor.
+[DEBUG] RUNTIME(19663,diagnostic_sample):2026-11-10-15:39:13.325.413 [runtime.cc:2001] 19663 StopAicpuExecutor:TsdClose devId=0
+[INFO] RUNTIME(19663,diagnostic_sample):2026-11-10-15:39:13.325.435 [runtime.cc:2027] 19663 StopAicpuExecutor: TsdClose success, userDeviceId=0, devId=0, tdt status=0
+[DEBUG] RUNTIME(19663,diagnostic_sample):2026-11-10-15:39:13.432.273 [runtime.cc:5356] 19663 DeleteModuleBackupPoint:Delete begin
+[DEBUG] RUNTIME(19663,diagnostic_sample):2026-11-10-15:39:13.432.290 [runtime.cc:5358] 19663 DeleteModuleBackupPoint:Delete finish
+[INFO] RUNTIME(19663,diagnostic_sample):2026-11-10-15:39:13.432.314 [tprt.cc:23][TPRT]TID[19663] ~TprtManage: ~TprtManage
+[INFO] RUNTIME(19663,diagnostic_sample):2026-11-10-15:39:13.432.330 [plugin_old_arch.cc:39] 19663 DestructorRuntimeImpl: RuntimeImpl destructor success
+[INFO] RUNTIME(19663,diagnostic_sample):2026-11-10-15:39:13.432.335 [runtime_keeper.cc:245] 19663 DestroyRuntimeImpl: Destroy Runtime success
+[INFO] RUNTIME(19663,diagnostic_sample):2026-11-10-15:39:13.432.969 [xpu_task_fail_callback_data_manager.cc:64] 19663 ~XpuTaskFailCallBackManager: XpuTaskFailCallBackManager Destructor.
+[INFO] RUNTIME(19663,diagnostic_sample):2026-11-10-15:39:13.432.988 [task_fail_callback_data_manager.cc:98] 19663 ~TaskFailCallBackManager: Destructor.
+[INFO] ATRACE(19663,diagnostic_sample):2026-11-10-15:39:13.433.086 [stacktrace_signal.c:199](tid:19663) unregister all signal handlers, can not capture signal.
+[INFO] DRV(19663,diagnostic_sample):2026-11-10-15:39:13.470.618 [hdc_client.c:425][ascend][curpid:19663,19667][drv][hdc][drvHdcClientSessionClose]Destroy client session. (sock=1291)
+[DEBUG] DRV(19663,diagnostic_sample):2026-11-10-15:39:13.470.691 [hdc_client.c:267][ascend][curpid:19663,19667][drv][hdc][drvHdcClientFreeSession]Client free session.
+[DEBUG] DRV(19663,diagnostic_sample):2026-11-10-15:39:13.470.707 [hdc_client.c:191][ascend][curpid:19663,19667][drv][hdc][drvHdcClientDestroy]Destroy client.
+[INFO] ATRACE(19663,diagnostic_sample):2026-11-10-15:39:13.470.713 [atrace_client_core.c:127](tid:19667) atrace receive thread exited, devId=0.
+[DEBUG] ATRACE(19663,diagnostic_sample):2026-11-10-15:39:13.470.874 [trace_event.c:247](tid:19663) delete event trace_inner_event from event list
+[INFO] ATRACE(19663,diagnostic_sample):2026-11-10-15:39:13.471.034 [awatchdog_monitor.c:233](tid:19663) AwdMonitorExit
+
+
+FILE /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C005_20261110_153111_Q9AC/logs/candidate/crossrank_tf/run_full.log
+bytes=43112718 sha256=a49c08b481f9bae0eaf9fcfa93959796bea261d3bd01e08e4649956a8837520c
+[DEBUG] DRV(19697,diagnostic_sample):2026-11-10-15:39:14.721.975 [hdc_client.c:114][ascend][curpid:19697,19697][drv][hdc][drvHdcClientCreate]Create client success.
+[INFO] ATRACE(19697,diagnostic_sample):2026-11-10-15:39:14.722.118 [trace_attr.c:100](tid:19697) doesn't set env ASCEND_LOG_DEVICE_FLUSH_TIMEOUT, use default timeout=0ms.
+[INFO] ATRACE(19697,diagnostic_sample):2026-11-10-15:39:14.722.133 [trace_attr.c:190](tid:19697) attr init successfully, timeout=0ms.
+[WARNING] ATRACE(19697,diagnostic_sample):2026-11-10-15:39:14.722.139 [trace_system_api.c:111](tid:19697) Environment variable is null or the length exceeds 255.
+[INFO] ATRACE(19697,diagnostic_sample):2026-11-10-15:39:14.722.160 [trace_recorder.c:45](tid:19697) home_directory=/home/developer.
+[INFO] ATRACE(19697,diagnostic_sample):2026-11-10-15:39:14.722.169 [trace_recorder.c:211](tid:19697) use root path: /home/developer/ascend
+[INFO] ATRACE(19697,diagnostic_sample):2026-11-10-15:39:14.722.174 [trace_recorder.c:154](tid:19697) doesn't set env ASCEND_TRACE_RECORD_NUM, use default dir num=10.
+[INFO] ATRACE(19697,diagnostic_sample):2026-11-10-15:39:14.722.178 [trace_event.c:147](tid:19697) init trace event successfully
+[DEBUG] ATRACE(19697,diagnostic_sample):2026-11-10-15:39:14.722.206 [trace_event.c:204](tid:19697) insert event trace_inner_event to event list
+[INFO] ATRACE(19697,diagnostic_sample):2026-11-10-15:39:14.722.220 [atrace_client_core.c:185](tid:19697) init atrace client successfully.
+[INFO] ATRACE(19697,diagnostic_sample):2026-11-10-15:39:14.722.512 [stacktrace_dumper.c:244](tid:19697) path = /home/developer/Ascend/cann-9.1.0/aarch64-linux/bin/asc_dumper
+[WARNING] ATRACE(19697,diagnostic_sample):2026-11-10-15:39:14.722.541 [trace_system_api.c:111](tid:19697) Environment variable is null or the length exceeds 256.
+[INFO] ATRACE(19697,diagnostic_sample):2026-11-10-15:39:14.722.658 [stacktrace_signal.c:176](tid:19697) register signal handler for signal 2 succeed.
+[INFO] ATRACE(19697,diagnostic_sample):2026-11-10-15:39:14.722.668 [stacktrace_signal.c:176](tid:19697) register signal handler for signal 15 succeed.
+[INFO] ATRACE(19697,diagnostic_sample):2026-11-10-15:39:14.722.672 [stacktrace_signal.c:176](tid:19697) register signal handler for signal 3 succeed.
+[INFO] ATRACE(19697,diagnostic_sample):2026-11-10-15:39:14.722.675 [stacktrace_signal.c:176](tid:19697) register signal handler for signal 4 succeed.
+[INFO] ATRACE(19697,diagnostic_sample):2026-11-10-15:39:14.722.678 [stacktrace_signal.c:176](tid:19697) register signal handler for signal 5 succeed.
+[INFO] ATRACE(19697,diagnostic_sample):2026-11-10-15:39:14.722.681 [stacktrace_signal.c:176](tid:19697) register signal handler for signal 6 succeed.
+[INFO] ATRACE(19697,diagnostic_sample):2026-11-10-15:39:14.722.684 [stacktrace_signal.c:176](tid:19697) register signal handler for signal 7 succeed.
+[INFO] ATRACE(19697,diagnostic_sample):2026-11-10-15:39:14.722.687 [stacktrace_signal.c:176](tid:19697) register signal handler for sig
+
+[EXCERPT: omitted 43106718 characters; --full prints the whole file]
+
+_sample):2026-11-10-15:39:17.288.984 [trs_dev_drv.c:370][ascend][curpid:19697,19697][drv][tsdrv][drvDeviceCloseComm]Close success. (devid=0; fd=10; mmapFd=11)
+[INFO] DRV(19697,diagnostic_sample):2026-11-10-15:39:17.299.778 [event_sched.c:1515][ascend][curpid:19697,19697][drv][event-sche][eschedDeviceClose]The devId close success. (devId=0)
+[INFO] RUNTIME(19697,diagnostic_sample):2026-11-10-15:39:17.299.797 [npu_driver.cc:402] 19697 DeviceClose: Close device success, device_id=0, tsId=0.
+[INFO] RUNTIME(19697,diagnostic_sample):2026-11-10-15:39:17.299.807 [raw_device.cc:164] 19697 ~Device: device destructor.
+[DEBUG] RUNTIME(19697,diagnostic_sample):2026-11-10-15:39:17.299.815 [runtime.cc:2001] 19697 StopAicpuExecutor:TsdClose devId=0
+[INFO] RUNTIME(19697,diagnostic_sample):2026-11-10-15:39:17.299.822 [runtime.cc:2027] 19697 StopAicpuExecutor: TsdClose success, userDeviceId=0, devId=0, tdt status=0
+[DEBUG] RUNTIME(19697,diagnostic_sample):2026-11-10-15:39:17.406.592 [runtime.cc:5356] 19697 DeleteModuleBackupPoint:Delete begin
+[DEBUG] RUNTIME(19697,diagnostic_sample):2026-11-10-15:39:17.406.609 [runtime.cc:5358] 19697 DeleteModuleBackupPoint:Delete finish
+[INFO] RUNTIME(19697,diagnostic_sample):2026-11-10-15:39:17.406.632 [tprt.cc:23][TPRT]TID[19697] ~TprtManage: ~TprtManage
+[INFO] RUNTIME(19697,diagnostic_sample):2026-11-10-15:39:17.406.637 [plugin_old_arch.cc:39] 19697 DestructorRuntimeImpl: RuntimeImpl destructor success
+[INFO] RUNTIME(19697,diagnostic_sample):2026-11-10-15:39:17.406.641 [runtime_keeper.cc:245] 19697 DestroyRuntimeImpl: Destroy Runtime success
+[INFO] RUNTIME(19697,diagnostic_sample):2026-11-10-15:39:17.407.245 [xpu_task_fail_callback_data_manager.cc:64] 19697 ~XpuTaskFailCallBackManager: XpuTaskFailCallBackManager Destructor.
+[INFO] RUNTIME(19697,diagnostic_sample):2026-11-10-15:39:17.407.265 [task_fail_callback_data_manager.cc:98] 19697 ~TaskFailCallBackManager: Destructor.
+[INFO] ATRACE(19697,diagnostic_sample):2026-11-10-15:39:17.407.361 [stacktrace_signal.c:199](tid:19697) unregister all signal handlers, can not capture signal.
+[INFO] DRV(19697,diagnostic_sample):2026-11-10-15:39:17.460.489 [hdc_client.c:425][ascend][curpid:19697,19701][drv][hdc][drvHdcClientSessionClose]Destroy client session. (sock=1296)
+[DEBUG] DRV(19697,diagnostic_sample):2026-11-10-15:39:17.460.559 [hdc_client.c:267][ascend][curpid:19697,19701][drv][hdc][drvHdcClientFreeSession]Client free session.
+[DEBUG] DRV(19697,diagnostic_sample):2026-11-10-15:39:17.460.576 [hdc_client.c:191][ascend][curpid:19697,19701][drv][hdc][drvHdcClientDestroy]Destroy client.
+[INFO] ATRACE(19697,diagnostic_sample):2026-11-10-15:39:17.460.581 [atrace_client_core.c:127](tid:19701) atrace receive thread exited, devId=0.
+[DEBUG] ATRACE(19697,diagnostic_sample):2026-11-10-15:39:17.460.738 [trace_event.c:247](tid:19697) delete event trace_inner_event from event list
+[INFO] ATRACE(19697,diagnostic_sample):2026-11-10-15:39:17.460.906 [awatchdog_monitor.c:233](tid:19697) AwdMonitorExit
+
+
+FILE /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C005_20261110_153111_Q9AC/logs/candidate/infer_tf/run_full.log
+bytes=43112746 sha256=e633ea90574fc4d29f4196f52bfb9ff5aad179464b29a4ed7332464beae85d79
+[DEBUG] DRV(19751,diagnostic_sample):2026-11-10-15:39:23.840.411 [hdc_client.c:114][ascend][curpid:19751,19751][drv][hdc][drvHdcClientCreate]Create client success.
+[INFO] ATRACE(19751,diagnostic_sample):2026-11-10-15:39:23.840.553 [trace_attr.c:100](tid:19751) doesn't set env ASCEND_LOG_DEVICE_FLUSH_TIMEOUT, use default timeout=0ms.
+[INFO] ATRACE(19751,diagnostic_sample):2026-11-10-15:39:23.840.570 [trace_attr.c:190](tid:19751) attr init successfully, timeout=0ms.
+[WARNING] ATRACE(19751,diagnostic_sample):2026-11-10-15:39:23.840.576 [trace_system_api.c:111](tid:19751) Environment variable is null or the length exceeds 255.
+[INFO] ATRACE(19751,diagnostic_sample):2026-11-10-15:39:23.840.598 [trace_recorder.c:45](tid:19751) home_directory=/home/developer.
+[INFO] ATRACE(19751,diagnostic_sample):2026-11-10-15:39:23.840.608 [trace_recorder.c:211](tid:19751) use root path: /home/developer/ascend
+[INFO] ATRACE(19751,diagnostic_sample):2026-11-10-15:39:23.840.613 [trace_recorder.c:154](tid:19751) doesn't set env ASCEND_TRACE_RECORD_NUM, use default dir num=10.
+[INFO] ATRACE(19751,diagnostic_sample):2026-11-10-15:39:23.840.618 [trace_event.c:147](tid:19751) init trace event successfully
+[DEBUG] ATRACE(19751,diagnostic_sample):2026-11-10-15:39:23.840.646 [trace_event.c:204](tid:19751) insert event trace_inner_event to event list
+[INFO] ATRACE(19751,diagnostic_sample):2026-11-10-15:39:23.840.662 [atrace_client_core.c:185](tid:19751) init atrace client successfully.
+[INFO] ATRACE(19751,diagnostic_sample):2026-11-10-15:39:23.840.964 [stacktrace_dumper.c:244](tid:19751) path = /home/developer/Ascend/cann-9.1.0/aarch64-linux/bin/asc_dumper
+[WARNING] ATRACE(19751,diagnostic_sample):2026-11-10-15:39:23.840.992 [trace_system_api.c:111](tid:19751) Environment variable is null or the length exceeds 256.
+[INFO] ATRACE(19751,diagnostic_sample):2026-11-10-15:39:23.841.106 [stacktrace_signal.c:176](tid:19751) register signal handler for signal 2 succeed.
+[INFO] ATRACE(19751,diagnostic_sample):2026-11-10-15:39:23.841.116 [stacktrace_signal.c:176](tid:19751) register signal handler for signal 15 succeed.
+[INFO] ATRACE(19751,diagnostic_sample):2026-11-10-15:39:23.841.120 [stacktrace_signal.c:176](tid:19751) register signal handler for signal 3 succeed.
+[INFO] ATRACE(19751,diagnostic_sample):2026-11-10-15:39:23.841.123 [stacktrace_signal.c:176](tid:19751) register signal handler for signal 4 succeed.
+[INFO] ATRACE(19751,diagnostic_sample):2026-11-10-15:39:23.841.126 [stacktrace_signal.c:176](tid:19751) register signal handler for signal 5 succeed.
+[INFO] ATRACE(19751,diagnostic_sample):2026-11-10-15:39:23.841.130 [stacktrace_signal.c:176](tid:19751) register signal handler for signal 6 succeed.
+[INFO] ATRACE(19751,diagnostic_sample):2026-11-10-15:39:23.841.133 [stacktrace_signal.c:176](tid:19751) register signal handler for signal 7 succeed.
+[INFO] ATRACE(19751,diagnostic_sample):2026-11-10-15:39:23.841.136 [stacktrace_signal.c:176](tid:19751) register signal handler for sig
+
+[EXCERPT: omitted 43106746 characters; --full prints the whole file]
+
+_sample):2026-11-10-15:39:26.439.835 [trs_dev_drv.c:370][ascend][curpid:19751,19751][drv][tsdrv][drvDeviceCloseComm]Close success. (devid=0; fd=10; mmapFd=11)
+[INFO] DRV(19751,diagnostic_sample):2026-11-10-15:39:26.450.617 [event_sched.c:1515][ascend][curpid:19751,19751][drv][event-sche][eschedDeviceClose]The devId close success. (devId=0)
+[INFO] RUNTIME(19751,diagnostic_sample):2026-11-10-15:39:26.450.635 [npu_driver.cc:402] 19751 DeviceClose: Close device success, device_id=0, tsId=0.
+[INFO] RUNTIME(19751,diagnostic_sample):2026-11-10-15:39:26.450.645 [raw_device.cc:164] 19751 ~Device: device destructor.
+[DEBUG] RUNTIME(19751,diagnostic_sample):2026-11-10-15:39:26.450.653 [runtime.cc:2001] 19751 StopAicpuExecutor:TsdClose devId=0
+[INFO] RUNTIME(19751,diagnostic_sample):2026-11-10-15:39:26.450.675 [runtime.cc:2027] 19751 StopAicpuExecutor: TsdClose success, userDeviceId=0, devId=0, tdt status=0
+[DEBUG] RUNTIME(19751,diagnostic_sample):2026-11-10-15:39:26.557.562 [runtime.cc:5356] 19751 DeleteModuleBackupPoint:Delete begin
+[DEBUG] RUNTIME(19751,diagnostic_sample):2026-11-10-15:39:26.557.581 [runtime.cc:5358] 19751 DeleteModuleBackupPoint:Delete finish
+[INFO] RUNTIME(19751,diagnostic_sample):2026-11-10-15:39:26.557.604 [tprt.cc:23][TPRT]TID[19751] ~TprtManage: ~TprtManage
+[INFO] RUNTIME(19751,diagnostic_sample):2026-11-10-15:39:26.557.616 [plugin_old_arch.cc:39] 19751 DestructorRuntimeImpl: RuntimeImpl destructor success
+[INFO] RUNTIME(19751,diagnostic_sample):2026-11-10-15:39:26.557.621 [runtime_keeper.cc:245] 19751 DestroyRuntimeImpl: Destroy Runtime success
+[INFO] RUNTIME(19751,diagnostic_sample):2026-11-10-15:39:26.558.227 [xpu_task_fail_callback_data_manager.cc:64] 19751 ~XpuTaskFailCallBackManager: XpuTaskFailCallBackManager Destructor.
+[INFO] RUNTIME(19751,diagnostic_sample):2026-11-10-15:39:26.558.246 [task_fail_callback_data_manager.cc:98] 19751 ~TaskFailCallBackManager: Destructor.
+[INFO] ATRACE(19751,diagnostic_sample):2026-11-10-15:39:26.558.350 [stacktrace_signal.c:199](tid:19751) unregister all signal handlers, can not capture signal.
+[INFO] DRV(19751,diagnostic_sample):2026-11-10-15:39:26.681.216 [hdc_client.c:425][ascend][curpid:19751,19755][drv][hdc][drvHdcClientSessionClose]Destroy client session. (sock=1307)
+[DEBUG] DRV(19751,diagnostic_sample):2026-11-10-15:39:26.681.293 [hdc_client.c:267][ascend][curpid:19751,19755][drv][hdc][drvHdcClientFreeSession]Client free session.
+[DEBUG] DRV(19751,diagnostic_sample):2026-11-10-15:39:26.681.309 [hdc_client.c:191][ascend][curpid:19751,19755][drv][hdc][drvHdcClientDestroy]Destroy client.
+[INFO] ATRACE(19751,diagnostic_sample):2026-11-10-15:39:26.681.315 [atrace_client_core.c:127](tid:19755) atrace receive thread exited, devId=0.
+[DEBUG] ATRACE(19751,diagnostic_sample):2026-11-10-15:39:26.681.506 [trace_event.c:247](tid:19751) delete event trace_inner_event from event list
+[INFO] ATRACE(19751,diagnostic_sample):2026-11-10-15:39:26.681.772 [awatchdog_monitor.c:233](tid:19751) AwdMonitorExit
+
+
+FILE /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C005_20261110_153111_Q9AC/logs/candidate/infer_rf/run_full.log
+bytes=43112723 sha256=050a323e38071a9d8e703658349ca29daf09de5c6da0b4bb1b711c2890b3c6c9
+[DEBUG] DRV(19773,diagnostic_sample):2026-11-10-15:39:27.755.053 [hdc_client.c:114][ascend][curpid:19773,19773][drv][hdc][drvHdcClientCreate]Create client success.
+[INFO] ATRACE(19773,diagnostic_sample):2026-11-10-15:39:27.755.192 [trace_attr.c:100](tid:19773) doesn't set env ASCEND_LOG_DEVICE_FLUSH_TIMEOUT, use default timeout=0ms.
+[INFO] ATRACE(19773,diagnostic_sample):2026-11-10-15:39:27.755.208 [trace_attr.c:190](tid:19773) attr init successfully, timeout=0ms.
+[WARNING] ATRACE(19773,diagnostic_sample):2026-11-10-15:39:27.755.215 [trace_system_api.c:111](tid:19773) Environment variable is null or the length exceeds 255.
+[INFO] ATRACE(19773,diagnostic_sample):2026-11-10-15:39:27.755.238 [trace_recorder.c:45](tid:19773) home_directory=/home/developer.
+[INFO] ATRACE(19773,diagnostic_sample):2026-11-10-15:39:27.755.248 [trace_recorder.c:211](tid:19773) use root path: /home/developer/ascend
+[INFO] ATRACE(19773,diagnostic_sample):2026-11-10-15:39:27.755.253 [trace_recorder.c:154](tid:19773) doesn't set env ASCEND_TRACE_RECORD_NUM, use default dir num=10.
+[INFO] ATRACE(19773,diagnostic_sample):2026-11-10-15:39:27.755.258 [trace_event.c:147](tid:19773) init trace event successfully
+[DEBUG] ATRACE(19773,diagnostic_sample):2026-11-10-15:39:27.755.284 [trace_event.c:204](tid:19773) insert event trace_inner_event to event list
+[INFO] ATRACE(19773,diagnostic_sample):2026-11-10-15:39:27.755.297 [atrace_client_core.c:185](tid:19773) init atrace client successfully.
+[INFO] ATRACE(19773,diagnostic_sample):2026-11-10-15:39:27.755.586 [stacktrace_dumper.c:244](tid:19773) path = /home/developer/Ascend/cann-9.1.0/aarch64-linux/bin/asc_dumper
+[WARNING] ATRACE(19773,diagnostic_sample):2026-11-10-15:39:27.755.614 [trace_system_api.c:111](tid:19773) Environment variable is null or the length exceeds 256.
+[INFO] ATRACE(19773,diagnostic_sample):2026-11-10-15:39:27.755.729 [stacktrace_signal.c:176](tid:19773) register signal handler for signal 2 succeed.
+[INFO] ATRACE(19773,diagnostic_sample):2026-11-10-15:39:27.755.740 [stacktrace_signal.c:176](tid:19773) register signal handler for signal 15 succeed.
+[INFO] ATRACE(19773,diagnostic_sample):2026-11-10-15:39:27.755.744 [stacktrace_signal.c:176](tid:19773) register signal handler for signal 3 succeed.
+[INFO] ATRACE(19773,diagnostic_sample):2026-11-10-15:39:27.755.748 [stacktrace_signal.c:176](tid:19773) register signal handler for signal 4 succeed.
+[INFO] ATRACE(19773,diagnostic_sample):2026-11-10-15:39:27.755.751 [stacktrace_signal.c:176](tid:19773) register signal handler for signal 5 succeed.
+[INFO] ATRACE(19773,diagnostic_sample):2026-11-10-15:39:27.755.754 [stacktrace_signal.c:176](tid:19773) register signal handler for signal 6 succeed.
+[INFO] ATRACE(19773,diagnostic_sample):2026-11-10-15:39:27.755.757 [stacktrace_signal.c:176](tid:19773) register signal handler for signal 7 succeed.
+[INFO] ATRACE(19773,diagnostic_sample):2026-11-10-15:39:27.755.760 [stacktrace_signal.c:176](tid:19773) register signal handler for sig
+
+[EXCERPT: omitted 43106723 characters; --full prints the whole file]
+
+_sample):2026-11-10-15:39:30.341.369 [trs_dev_drv.c:370][ascend][curpid:19773,19773][drv][tsdrv][drvDeviceCloseComm]Close success. (devid=0; fd=10; mmapFd=11)
+[INFO] DRV(19773,diagnostic_sample):2026-11-10-15:39:30.352.146 [event_sched.c:1515][ascend][curpid:19773,19773][drv][event-sche][eschedDeviceClose]The devId close success. (devId=0)
+[INFO] RUNTIME(19773,diagnostic_sample):2026-11-10-15:39:30.352.163 [npu_driver.cc:402] 19773 DeviceClose: Close device success, device_id=0, tsId=0.
+[INFO] RUNTIME(19773,diagnostic_sample):2026-11-10-15:39:30.352.172 [raw_device.cc:164] 19773 ~Device: device destructor.
+[DEBUG] RUNTIME(19773,diagnostic_sample):2026-11-10-15:39:30.352.180 [runtime.cc:2001] 19773 StopAicpuExecutor:TsdClose devId=0
+[INFO] RUNTIME(19773,diagnostic_sample):2026-11-10-15:39:30.352.187 [runtime.cc:2027] 19773 StopAicpuExecutor: TsdClose success, userDeviceId=0, devId=0, tdt status=0
+[DEBUG] RUNTIME(19773,diagnostic_sample):2026-11-10-15:39:30.459.023 [runtime.cc:5356] 19773 DeleteModuleBackupPoint:Delete begin
+[DEBUG] RUNTIME(19773,diagnostic_sample):2026-11-10-15:39:30.459.043 [runtime.cc:5358] 19773 DeleteModuleBackupPoint:Delete finish
+[INFO] RUNTIME(19773,diagnostic_sample):2026-11-10-15:39:30.459.067 [tprt.cc:23][TPRT]TID[19773] ~TprtManage: ~TprtManage
+[INFO] RUNTIME(19773,diagnostic_sample):2026-11-10-15:39:30.459.075 [plugin_old_arch.cc:39] 19773 DestructorRuntimeImpl: RuntimeImpl destructor success
+[INFO] RUNTIME(19773,diagnostic_sample):2026-11-10-15:39:30.459.080 [runtime_keeper.cc:245] 19773 DestroyRuntimeImpl: Destroy Runtime success
+[INFO] RUNTIME(19773,diagnostic_sample):2026-11-10-15:39:30.459.703 [xpu_task_fail_callback_data_manager.cc:64] 19773 ~XpuTaskFailCallBackManager: XpuTaskFailCallBackManager Destructor.
+[INFO] RUNTIME(19773,diagnostic_sample):2026-11-10-15:39:30.459.723 [task_fail_callback_data_manager.cc:98] 19773 ~TaskFailCallBackManager: Destructor.
+[INFO] ATRACE(19773,diagnostic_sample):2026-11-10-15:39:30.459.822 [stacktrace_signal.c:199](tid:19773) unregister all signal handlers, can not capture signal.
+[INFO] DRV(19773,diagnostic_sample):2026-11-10-15:39:30.595.216 [hdc_client.c:425][ascend][curpid:19773,19777][drv][hdc][drvHdcClientSessionClose]Destroy client session. (sock=1312)
+[DEBUG] DRV(19773,diagnostic_sample):2026-11-10-15:39:30.595.295 [hdc_client.c:267][ascend][curpid:19773,19777][drv][hdc][drvHdcClientFreeSession]Client free session.
+[DEBUG] DRV(19773,diagnostic_sample):2026-11-10-15:39:30.595.313 [hdc_client.c:191][ascend][curpid:19773,19777][drv][hdc][drvHdcClientDestroy]Destroy client.
+[INFO] ATRACE(19773,diagnostic_sample):2026-11-10-15:39:30.595.319 [atrace_client_core.c:127](tid:19777) atrace receive thread exited, devId=0.
+[DEBUG] ATRACE(19773,diagnostic_sample):2026-11-10-15:39:30.595.487 [trace_event.c:247](tid:19773) delete event trace_inner_event from event list
+[INFO] ATRACE(19773,diagnostic_sample):2026-11-10-15:39:30.595.659 [awatchdog_monitor.c:233](tid:19773) AwdMonitorExit
+
+HOST_TIMING {"case": "empty_tensor", "result": "PASS_BITWISE", "exit_code": 0, "host_phases": ["DIAG begin=aclInit", "DIAG phase=aclInit host_wall_us=16060.7", "DIAG phase=input_output_setup host_wall_us=400681", "DIAG begin=GetWorkspaceSize", "DIAG phase=GetWorkspaceSize host_wall_us=1.4937e+06", "DIAG phase=pre_launch_setup host_wall_us=31.611", "DIAG begin=launch", "DIAG phase=launch_api host_wall_us=71.49", "DIAG begin=synchronize", "DIAG phase=synchronize host_wall_us=48.881"], "timing_scope": "host/process wall time, not kernel task time"}
+C005_TEXT_EVIDENCE_END
+developer@dfdd97f8c4e84acbaa54982714e4d993:/mnt/workspace/cann-ascendc-ops-collab$ ^C
+developer@dfdd97f8c4e84acbaa54982714e4d993:/mnt/workspace/cann-ascendc-ops-collab$ 

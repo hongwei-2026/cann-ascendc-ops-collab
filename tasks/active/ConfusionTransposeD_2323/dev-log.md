@@ -1,5 +1,12 @@
 # Dev log — ConfusionTransposeD_2323
 
+## 2026-11-10（C005错误阶段补录）
+
+- 第二份粘贴52713字节原文与解析归档；12条失败记录均exit=2，停在GetWorkspaceSize调用范围，未开始launch。平台RE原因仍未知。
+- 发现六份candidate日志各约43MB，旧工具首尾摘录漏掉中间错误；仅维护只读导出工具≤15分钟，新增全文错误筛选与行号/上下文/省略计数，不重测设备。
+- 冷进程host时间来自DEBUG全开诊断，不能作为性能数据；继续冻结Host/Kernel，只补录已有证据。
+- 只读工具本地验证：扫描超过43MB的模拟日志，成功提取中间错误/ACL返回码；匹配超量时显式计数，两版CLI导出通过。记录`Q9AC/error-filter-local-check.json`，非云端/NPU PASS。
+
 ## 2026-11-10（C005 Q9AC控制台回传）
 
 - Owner无法下载tar，归档7093字节控制台原文及可复核解析JSON；SHA256 bd877ba7…b126835a，完整tar/逐case错误尚缺，不记完整日志归档。
