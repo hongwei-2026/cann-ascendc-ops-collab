@@ -32,11 +32,14 @@ private:
     __aicore__ inline void CopyInFull();
     __aicore__ inline void ComputeTile(int64_t dstOffset, int64_t currentNum);
     __aicore__ inline void CopyOutTile(int64_t dstOffset, int64_t currentNum);
+    __aicore__ inline void CopyRun(int64_t dstOffset, int64_t srcOffset, int64_t count);
+    __aicore__ inline void ProcessCopyRows();
 
 private:
     TPipe pipe;
     TQue<QuePosition::VECIN, BUFFER_NUM> inputQueueX;
     TQue<QuePosition::VECOUT, BUFFER_NUM> outputQueueY;
+    TQueBind<QuePosition::VECIN, QuePosition::VECOUT, BUFFER_NUM> copyQueue;
 
     GlobalTensor<T> inputGMX;
     GlobalTensor<T> outputGMY;
@@ -48,6 +51,7 @@ private:
     int64_t transposeFirst_ = 1;
     int64_t rank_ = 0;
     int64_t rankIn_ = 0;
+    int64_t copySpan_ = 1;
 
     int64_t dimIn_[MAX_DIM] = {0};
     int64_t dimShape_[MAX_DIM] = {0};
@@ -146,6 +150,7 @@ __aicore__ inline void ConfusionTransposeD<T>::Init(GM_ADDR x, GM_ADDR y, const 
     transposeFirst_ = tilingData->transposeFirst;
     rank_ = tilingData->rank;
     rankIn_ = tilingData->rankIn;
+    copySpan_ = tilingData->copySpan;
 
     const int64_t blockIdx = GetBlockIdx();
     blockOffset_ = blockIdx * tilingData->blockFactor;
@@ -162,9 +167,68 @@ __aicore__ inline void ConfusionTransposeD<T>::Init(GM_ADDR x, GM_ADDR y, const 
     inputGMX.SetGlobalBuffer((__gm__ T*)x, totalNum_);
     outputGMY.SetGlobalBuffer((__gm__ T*)y, totalNum_);
 
-    // 输入整 tensor + 输出 tile
-    pipe.InitBuffer(inputQueueX, BUFFER_NUM, totalNum_ * sizeof(T));
-    pipe.InitBuffer(outputQueueY, BUFFER_NUM, ubFactor_ * sizeof(T));
+    if (copySpan_ > 1) {
+        // MTE2→MTE3 直通，不分配整输入，也不经过标量/向量寄存器。
+        pipe.InitBuffer(copyQueue, BUFFER_NUM, ubFactor_ * sizeof(T));
+    } else {
+        pipe.InitBuffer(inputQueueX, BUFFER_NUM, totalNum_ * sizeof(T));
+        pipe.InitBuffer(outputQueueY, BUFFER_NUM, ubFactor_ * sizeof(T));
+    }
+}
+
+template <typename T>
+__aicore__ inline void ConfusionTransposeD<T>::CopyRun(int64_t dstOffset, int64_t srcOffset, int64_t count)
+{
+    LocalTensor<T> local = copyQueue.AllocTensor<T>();
+    DataCopyExtParams params{1, static_cast<uint32_t>(count * sizeof(T)), 0, 0, 0};
+    DataCopyPadExtParams<T> pad{false, 0, 0, static_cast<T>(0)};
+    DataCopyPad(local, inputGMX[srcOffset], params, pad);
+    copyQueue.EnQue(local);
+    local = copyQueue.DeQue<T>();
+    DataCopyPad(outputGMY[dstOffset], local, params);
+    copyQueue.FreeTensor(local);
+}
+
+template <typename T>
+__aicore__ inline void ConfusionTransposeD<T>::ProcessCopyRows()
+{
+    const int64_t align = 32 / sizeof(T);
+    const int64_t paddedRow = ((copySpan_ + align - 1) / align) * align;
+    const int64_t end = blockOffset_ + blockLength_;
+    if (paddedRow > ubFactor_) {
+        // 连续行超过输出 tile 时，只切该行；不扩大超 UB tensor 支持范围。
+        for (int64_t row = blockOffset_; row < end; row += copySpan_) {
+            const int64_t src = MapSrcIndex(row);
+            for (int64_t start = 0; start < copySpan_; start += ubFactor_) {
+                const int64_t count = (copySpan_ - start > ubFactor_) ? ubFactor_ : copySpan_ - start;
+                CopyRun(row + start, src + start, count);
+            }
+        }
+        return;
+    }
+    int64_t rowsPerTile = ubFactor_ / paddedRow;
+    if (rowsPerTile > 4095) {
+        rowsPerTile = 4095;
+    }
+    for (int64_t dst = blockOffset_; dst < end;) {
+        const int64_t remainingRows = (end - dst) / copySpan_;
+        const int64_t rows = remainingRows > rowsPerTile ? rowsPerTile : remainingRows;
+        LocalTensor<T> local = copyQueue.AllocTensor<T>();
+        DataCopyExtParams inParams{1, static_cast<uint32_t>(copySpan_ * sizeof(T)), 0, 0, 0};
+        DataCopyPadExtParams<T> pad{false, 0, 0, static_cast<T>(0)};
+        for (int64_t row = 0; row < rows; ++row) {
+            const int64_t src = MapSrcIndex(dst + row * copySpan_);
+            DataCopyPad(local[row * paddedRow], inputGMX[src], inParams, pad);
+        }
+        copyQueue.EnQue(local);
+        local = copyQueue.DeQue<T>();
+        // 每个 UB 行自动跳过 32B 尾部补齐，GM 行紧密相连。
+        DataCopyExtParams outParams{static_cast<uint16_t>(rows),
+            static_cast<uint32_t>(copySpan_ * sizeof(T)), 0, 0, 0};
+        DataCopyPad(outputGMY[dst], local, outParams);
+        copyQueue.FreeTensor(local);
+        dst += rows * copySpan_;
+    }
 }
 
 template <typename T>
@@ -204,6 +268,10 @@ template <typename T>
 __aicore__ inline void ConfusionTransposeD<T>::Process()
 {
     if (blockLength_ <= 0 || totalNum_ <= 0) {
+        return;
+    }
+    if (copySpan_ > 1) {
+        ProcessCopyRows();
         return;
     }
     CopyInFull();

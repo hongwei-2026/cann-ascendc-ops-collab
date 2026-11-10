@@ -69,6 +69,27 @@ static void SetDimField(ConfusionTransposeDTilingData* tiling, int64_t* dims, in
     tiling->perm4 = perm[4]; tiling->perm5 = perm[5]; tiling->perm6 = perm[6]; tiling->perm7 = perm[7];
 }
 
+static int64_t GetCopySpan(const int64_t* dims, const int64_t* perm, int64_t rank)
+{
+    int64_t strides[MAX_DIM] = {0};
+    strides[rank - 1] = 1;
+    for (int64_t i = rank - 2; i >= 0; --i) {
+        strides[i] = strides[i + 1] * dims[i + 1];
+    }
+    int64_t span = 1;
+    for (int64_t i = rank - 1; i >= 0; --i) {
+        const int64_t axis = perm[i];
+        if (dims[axis] == 1) {
+            continue;
+        }
+        if (strides[axis] != span) {
+            break;
+        }
+        span *= dims[axis];
+    }
+    return span;
+}
+
 static ge::graphStatus ConfusionTransposeDTilingFunc(gert::TilingContext* context)
 {
     uint64_t ubSize = 0;
@@ -159,7 +180,25 @@ static ge::graphStatus ConfusionTransposeDTilingFunc(gert::TilingContext* contex
     if (usedCores <= 0) {
         usedCores = 1;
     }
-    const int64_t blockFactor = (totalNum + usedCores - 1) / usedCores;
+    int64_t blockFactor = (totalNum + usedCores - 1) / usedCores;
+    // TF=false 的转置输入是 attr shape；TF=true 是原输入。
+    const int64_t copySpan = (*transposeFirst && rankIn != rank) ? 1 :
+        GetCopySpan((*transposeFirst) ? dimIn : dimShape, perm, static_cast<int64_t>(rank));
+    if (copySpan > 1) {
+        // 核边界同时对齐整行和 32B，避免相邻核写同一 GM 块。
+        int64_t a = copySpan;
+        int64_t b = align;
+        while (b != 0) {
+            const int64_t remainder = a % b;
+            a = b;
+            b = remainder;
+        }
+        const int64_t grain = copySpan * (align / a);
+        const int64_t grains = (totalNum + grain - 1) / grain;
+        usedCores = std::min(coreNum, grains);
+        blockFactor = ((grains + usedCores - 1) / usedCores) * grain;
+        usedCores = (totalNum + blockFactor - 1) / blockFactor;
+    }
 
     ConfusionTransposeDTilingData* tiling = context->GetTilingData<ConfusionTransposeDTilingData>();
     OP_CHECK_NULL_WITH_CONTEXT(context, tiling);
@@ -169,6 +208,7 @@ static ge::graphStatus ConfusionTransposeDTilingFunc(gert::TilingContext* contex
     tiling->transposeFirst = (*transposeFirst) ? 1 : 0;
     tiling->rank = static_cast<int64_t>(rank);
     tiling->rankIn = static_cast<int64_t>(rankIn);
+    tiling->copySpan = copySpan;
     SetDimField(tiling, dimIn, dimShape, perm);
 
     context->SetBlockDim(static_cast<uint32_t>(usedCores));

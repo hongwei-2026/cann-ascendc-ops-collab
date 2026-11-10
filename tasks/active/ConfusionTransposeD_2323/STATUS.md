@@ -9,7 +9,7 @@
 | 模板 | `materials/ConfusionTransposeD_problem_2323_template.zip` |
 | 功能闸 | [EXP_C001](explorations/EXP_C001-local-910b4-pass.md) 样例 PASS；[EXP_C002](explorations/EXP_C002-generalize-cloud.md) 13/13 PASS |
 | 性能基线 | [EXP_C003](explorations/EXP_C003-perf-baseline-platform.md)：平台 1～5 Pass，用时 ~1.7ms / 最优 ~3.5μs（~500×） |
-| 下一闸 | **性能有界优化**（见 [HANDOFF-PERF-PROMPT.md](HANDOFF-PERF-PROMPT.md) / P003）；超 UB 分块后置 |
+| 下一闸 | **P004 连续行 DMA 候选云测**：原 13 + 新 9 项 bitwise 回归、原版/候选同机 msprof；当前只有 CPU 语义验证，未采纳，见 [EXP_C004](explorations/EXP_C004-contiguous-row-dma.md) |
 | 止损 | `docs/collaboration/02-perf-gate.md`；触线写 `decisions/DEC*` |
 
 ## 一句话

@@ -1,5 +1,12 @@
 # Dev log — ConfusionTransposeD_2323
 
+## 2026-11-10（P004 候选，待云测）
+
+- 同步 main=545f8d2；只在隔离副本的 hongwei 本题座位实现；补事实 SUMMARY/会话卡片，先登记 P004 连续行 DMA 假设与时限。
+- 连续后缀走 MTE2→MTE3 整行批量 DMA，短行 UB 补齐后密集写出；span=1 保留原实现；超 UB tensor 边界不扩大。
+- CPU local semantic + 1658 项 copy-plan PASS；22 项 fixture 生成、脚本语法检查通过。**无 CANN/NPU PASS 或性能收益结论**。
+- 云测由 Owner 手动执行；一键脚本对比 545f8d2/候选，失败也打包；见 C004-CLOUD-RUN.md。下一步回收云日志、按时限结案/DEC，禁止无证据转路线。
+
 ## 2026-11-10（性能交接）
 
 - 平台：点 1～5 功能 Pass、错误 0%；用时 ~1.7ms vs 最优 ~3.5μs（~500×）→ STATUS **性能中**

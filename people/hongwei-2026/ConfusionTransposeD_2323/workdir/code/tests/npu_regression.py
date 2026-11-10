@@ -43,14 +43,27 @@ CASES = [
     ("larger_4d_f16", (4, 16, 16, 8), (0, 2, 1, 3), (4, 16, 16, 8), True, "float16"),
 ]
 
-if bf16 is not None:
-    CASES.append(("baseline_tf_bf16", (2, 3, 4, 5), (0, 2, 1, 3), (2, 4, 3, 5), True, "bfloat16"))
+CASES.append(("baseline_tf_bf16", (2, 3, 4, 5), (0, 2, 1, 3), (2, 4, 3, 5), True, "bfloat16"))
+
+P004_CASES = [
+    ("dma_short_i8", (3, 5, 7, 3), (0, 2, 1, 3), (3, 7, 5, 3), True, "int8"),
+    ("dma_short_i64", (3, 5, 7, 3), (0, 2, 1, 3), (3, 7, 5, 3), True, "int64"),
+    ("dma_fused_suffix", (2, 3, 4, 8), (1, 0, 2, 3), (3, 2, 4, 8), True, "float32"),
+    ("dma_unit_axes", (2, 1, 3, 5), (2, 0, 1, 3), (3, 2, 1, 5), True, "float16"),
+    ("dma_long_row", (38400,), (0,), (38400,), True, "float32"),
+    ("dma_rank8", (2, 1, 2, 1, 2, 1, 2, 3), (6, 1, 2, 3, 4, 5, 0, 7),
+     (2, 1, 2, 1, 2, 1, 2, 3), True, "float32"),
+    ("dma_rows128_f32", (4, 8, 4, 128), (0, 2, 1, 3), (4, 4, 8, 128), True, "float32"),
+    ("dma_rf_newshape", (4, 3, 2, 5), (0, 2, 1, 3), (2, 4, 3, 5), False, "float32"),
+    ("fallback_i64", (8, 9), (1, 0), (9, 8), True, "int64"),
+]
 
 DTYPE_MAP = {
     "float32": np.float32,
     "float16": np.float16,
     "int8": np.int8,
     "int32": np.int32,
+    "int64": np.int64,
     "bfloat16": bf16,
 }
 
@@ -60,6 +73,7 @@ TOL = {
     "bfloat16": (1e-2, 1e-2),
     "int8": (0.0, 0.0),
     "int32": (0.0, 0.0),
+    "int64": (0.0, 0.0),
 }
 
 
@@ -106,6 +120,9 @@ def compare(actual: np.ndarray, golden: np.ndarray, dtype_name: str) -> tuple[bo
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--generate-only", action="store_true")
+    parser.add_argument("--include-p004", action="store_true")
+    parser.add_argument("--bitwise", action="store_true", help="Require exact bytes for this pure rearrangement")
+    parser.add_argument("--code-root", type=Path, default=ROOT, help="Select the built vendor package for A/B runs")
     parser.add_argument("--directory", type=Path, default=ROOT / "samples" / "build-c002-regression")
     parser.add_argument("--binary", type=Path, default=ROOT / "examples" / "build" / "sample")
     parser.add_argument("--device", default=os.environ.get("DEVICE_ID", "0"))
@@ -115,7 +132,7 @@ def main():
 
     rng = np.random.default_rng(2323002)
     env = os.environ.copy()
-    vendor = ROOT / "build/packages/vendors/confusion_transpose_d_custom"
+    vendor = args.code_root.resolve() / "build/packages/vendors/confusion_transpose_d_custom"
     env["ASCEND_CUSTOM_OPP_PATH"] = str(vendor) + (
         ":" + env["ASCEND_CUSTOM_OPP_PATH"] if env.get("ASCEND_CUSTOM_OPP_PATH") else ""
     )
@@ -123,7 +140,7 @@ def main():
 
     results = []
     args.directory.mkdir(parents=True, exist_ok=True)
-    for name, in_shape, perm, attr_shape, tf, dtype_name in CASES:
+    for name, in_shape, perm, attr_shape, tf, dtype_name in CASES + (P004_CASES if args.include_p004 else []):
         if dtype_name not in DTYPE_MAP or DTYPE_MAP[dtype_name] is None:
             results.append({"case": name, "result": "SKIP_NO_DTYPE"})
             print("SKIP", name, "dtype unavailable")
@@ -142,25 +159,44 @@ def main():
             "dtype": dtype_name,
             "numel": int(x.size),
             "transpose_first": tf,
+            "in_shape": list(in_shape),
+            "perm": list(perm),
+            "attr_shape": list(attr_shape),
+            "comparison": "bitwise" if args.bitwise else "tolerance",
             "result": "GENERATED_ONLY",
         }
         if not args.generate_only:
             out_path = folder / "output" / "y.bin"
             out_path.unlink(missing_ok=True)
-            proc = subprocess.run(
-                [str(args.binary.resolve()), str(folder.resolve()), str(args.device)],
-                env=env,
-                stdout=subprocess.PIPE,
-                stderr=subprocess.STDOUT,
-                text=True,
-                timeout=180,
-            )
+            try:
+                proc = subprocess.run(
+                    [str(args.binary.resolve()), str(folder.resolve()), str(args.device)],
+                    env=env,
+                    stdout=subprocess.PIPE,
+                    stderr=subprocess.STDOUT,
+                    text=True,
+                    timeout=180,
+                )
+            except subprocess.TimeoutExpired as error:
+                captured = error.stdout or b""
+                if isinstance(captured, bytes):
+                    captured = captured.decode(errors="replace")
+                (folder / "run.log").write_text(captured + "\nTIMEOUT after 180s\n", encoding="utf-8")
+                record.update(result="FAIL", mismatched=-1, reason="TIMEOUT")
+                results.append(record)
+                print("FAIL", name, "TIMEOUT", flush=True)
+                continue
             (folder / "run.log").write_text(proc.stdout, encoding="utf-8")
             ok = proc.returncode == 0
             bad = -1
             if ok and out_path.is_file() and out_path.stat().st_size == y.nbytes:
                 actual = np.frombuffer(out_path.read_bytes(), dtype=y.dtype).reshape(y.shape)
                 ok, bad = compare(actual, y, dtype_name)
+                if args.bitwise:
+                    bad = int(np.count_nonzero(
+                        actual.view(np.uint8).reshape(-1, y.dtype.itemsize) !=
+                        np.ascontiguousarray(y).view(np.uint8).reshape(-1, y.dtype.itemsize)))
+                    ok = bad == 0
             else:
                 ok = False
             record["result"] = "PASS" if ok else "FAIL"

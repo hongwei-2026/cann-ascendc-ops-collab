@@ -28,7 +28,7 @@ struct ConfusionTransposeDTestParam {
     uint64_t tilingDataMaxSize;
 };
 
-// float32 sample: totalNum=120, usedCores=64, blockFactor=2, ubFactor=120, TF=1, rank=4
+// float32 sample: copySpan=5, 32B/row grain=40 elements, usedCores=3.
 static ConfusionTransposeDTestParam testCases[] = {
     {"confusion_transpose_d_0",
      {2, 3, 4, 5},
@@ -40,7 +40,7 @@ static ConfusionTransposeDTestParam testCases[] = {
      "Ascend910B",
      ge::GRAPH_SUCCESS,
      1UL,
-     "120 2 120 1 4 4 2 3 4 5 1 1 1 1 2 4 3 5 1 1 1 1 0 2 1 3 4 5 6 7 ",
+     "120 40 120 1 4 4 2 3 4 5 1 1 1 1 2 4 3 5 1 1 1 1 0 2 1 3 4 5 6 7 5 ",
      {16UL * 1024UL * 1024UL},
      64,
      262144,

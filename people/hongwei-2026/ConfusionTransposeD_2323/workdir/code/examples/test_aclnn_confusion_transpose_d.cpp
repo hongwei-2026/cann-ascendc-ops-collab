@@ -149,8 +149,25 @@ int main(int argc, char** argv) {
             void* workspace = nullptr;
             if (size)
                 check(aclrtMalloc(&workspace, size, ACL_MEM_MALLOC_HUGE_FIRST));
-            check(aclnnConfusionTransposeD(workspace, size, executor, stream));
-            check(aclrtSynchronizeStream(stream));
+            // Profiling uses fresh executors per call; defaults preserve the sample run.
+            const char* warmupText = std::getenv("CTD_PERF_WARMUP");
+            const char* repeatText = std::getenv("CTD_PERF_REPEAT");
+            const int warmup = warmupText ? std::stoi(warmupText) : 0;
+            const int repeat = repeatText ? std::stoi(repeatText) : 1;
+            if (warmup < 0 || repeat < 1 || warmup > 1000 || repeat > 1000) {
+                throw std::runtime_error("invalid CTD_PERF_WARMUP/REPEAT");
+            }
+            for (int i = 0; i < warmup + repeat; ++i) {
+                if (i != 0) {
+                    uint64_t nextSize = 0;
+                    check(aclnnConfusionTransposeDGetWorkspaceSize(
+                        input_0_0.tensor, attr_0, attr_1, attr_2, output_0_0.tensor, &nextSize, &executor));
+                    if (nextSize > size) throw std::runtime_error("workspace grew during repeated execution");
+                }
+                check(aclnnConfusionTransposeD(workspace, size, executor, stream));
+                check(aclrtSynchronizeStream(stream));
+            }
+            std::cout << "perf_warmup=" << warmup << " perf_repeat=" << repeat << std::endl;
             output_0_0.save(root);
             aclDestroyIntArray(attr_0);
             aclDestroyIntArray(attr_1);
