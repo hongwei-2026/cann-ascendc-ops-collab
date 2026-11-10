@@ -2,15 +2,16 @@
 
 | 项 | 内容 |
 |----|------|
-| 状态 | **`实现中`**（样例 + UB 内泛化云测已 PASS） |
-| Owner | yuhongming-2026（原实现）；**hongwei-2026 并行座位**（P002 云测） |
+| 状态 | **`性能中`**（功能/泛化已 PASS；平台用时 ~1.7ms vs 最优 ~3.5μs） |
+| Owner | yuhongming-2026（原功能实现）；**hongwei-2026**（P002 云测 + 性能座位） |
 | 更新日期 | 2026-11-10 |
-| 代码座位 | 原：`people/yuhongming-2026/.../workdir/code/` · 本闸：`people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/` |
+| 代码座位 | `people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/` |
 | 模板 | `materials/ConfusionTransposeD_problem_2323_template.zip` |
-| 本地闸 | [EXP_C001](explorations/EXP_C001-local-910b4-pass.md)：**PASSED**（y 0/120） |
-| 云测闸 | [EXP_C002](explorations/EXP_C002-generalize-cloud.md)：**PASSED**（13/13 + 样例 0/120） |
-| 下一闸 | **超 UB 分块**（或性能有界优化） |
+| 功能闸 | [EXP_C001](explorations/EXP_C001-local-910b4-pass.md) 样例 PASS；[EXP_C002](explorations/EXP_C002-generalize-cloud.md) 13/13 PASS |
+| 性能基线 | [EXP_C003](explorations/EXP_C003-perf-baseline-platform.md)：平台 1～5 Pass，用时 ~1.7ms / 最优 ~3.5μs（~500×） |
+| 下一闸 | **性能有界优化**（见 [HANDOFF-PERF-PROMPT.md](HANDOFF-PERF-PROMPT.md) / P003）；超 UB 分块后置 |
+| 止损 | `docs/collaboration/02-perf-gate.md`；触线写 `decisions/DEC*` |
 
 ## 一句话
 
-样例 + UB 内泛化已在 hongwei 座位云测打通（EXP_C002）；下一闸超 UB 分块。
+功能已绿；标量 gather 导致平台性能约慢 500×，进入性能专题（hongwei 座位）。
