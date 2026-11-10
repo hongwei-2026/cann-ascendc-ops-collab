@@ -5,3 +5,5 @@
 - 角色：本仓 Owner  
 
 当前主攻：`PReluGradUpdate_2329`（实现在本目录 `PReluGradUpdate_2329/workdir`）。
+
+并行座位：`ConfusionTransposeD_2323/`（自 yuhongming 拷贝；P002 扩泛化/云测）。
