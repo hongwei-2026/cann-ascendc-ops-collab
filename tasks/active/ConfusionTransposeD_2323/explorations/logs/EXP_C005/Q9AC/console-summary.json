@@ -1,0 +1,467 @@
+{
+  "run_id": "EXP_C005_20261110_153111_Q9AC",
+  "source": "user-pasted terminal text; original bytes preserved in console-paste.log",
+  "console_bytes": 7093,
+  "console_sha256": "bd877ba7ff55c6d52af50e2a4b621542c06c2c29d2ea3bb31245c3d9b126835a",
+  "diagnostic_exit_code_reported": 0,
+  "source_integrity_reported_by_console": "C004 Host/Kernel and shared driver source integrity verified; reusing built packages.",
+  "integrity_manifest_obtained": false,
+  "counts": {
+    "baseline": {
+      "PASS_BITWISE": 46,
+      "FAIL_OR_REJECTED": 6
+    },
+    "candidate": {
+      "PASS_BITWISE": 46,
+      "FAIL_OR_REJECTED": 6
+    }
+  },
+  "changed_results": [],
+  "both_nonpass": [
+    "ub_188416_bytes",
+    "ub_196608_bytes",
+    "ub_262144_bytes",
+    "crossrank_tf",
+    "infer_tf",
+    "infer_rf"
+  ],
+  "records": {
+    "baseline": [
+      {
+        "case": "baseline_tf_f32",
+        "result": "PASS_BITWISE"
+      },
+      {
+        "case": "baseline_rf_f32",
+        "result": "PASS_BITWISE"
+      },
+      {
+        "case": "baseline_tf_f16",
+        "result": "PASS_BITWISE"
+      },
+      {
+        "case": "baseline_tf_i8",
+        "result": "PASS_BITWISE"
+      },
+      {
+        "case": "baseline_tf_i32",
+        "result": "PASS_BITWISE"
+      },
+      {
+        "case": "rank2_swap_f32",
+        "result": "PASS_BITWISE"
+      },
+      {
+        "case": "rank3_rot_f32",
+        "result": "PASS_BITWISE"
+      },
+      {
+        "case": "rank3_rf_f32",
+        "result": "PASS_BITWISE"
+      },
+      {
+        "case": "reshape_same_rank_tf",
+        "result": "PASS_BITWISE"
+      },
+      {
+        "case": "reshape_same_rank_rf",
+        "result": "PASS_BITWISE"
+      },
+      {
+        "case": "larger_4d_f32",
+        "result": "PASS_BITWISE"
+      },
+      {
+        "case": "larger_4d_f16",
+        "result": "PASS_BITWISE"
+      },
+      {
+        "case": "baseline_tf_bf16",
+        "result": "PASS_BITWISE"
+      },
+      {
+        "case": "dma_short_i8",
+        "result": "PASS_BITWISE"
+      },
+      {
+        "case": "dma_short_i64",
+        "result": "PASS_BITWISE"
+      },
+      {
+        "case": "dma_fused_suffix",
+        "result": "PASS_BITWISE"
+      },
+      {
+        "case": "dma_unit_axes",
+        "result": "PASS_BITWISE"
+      },
+      {
+        "case": "dma_long_row",
+        "result": "PASS_BITWISE"
+      },
+      {
+        "case": "dma_rank8",
+        "result": "PASS_BITWISE"
+      },
+      {
+        "case": "dma_rows128_f32",
+        "result": "PASS_BITWISE"
+      },
+      {
+        "case": "dma_rf_newshape",
+        "result": "PASS_BITWISE"
+      },
+      {
+        "case": "fallback_i64",
+        "result": "PASS_BITWISE"
+      },
+      {
+        "case": "tiny_1_int8",
+        "result": "PASS_BITWISE"
+      },
+      {
+        "case": "tiny_1_float16",
+        "result": "PASS_BITWISE"
+      },
+      {
+        "case": "tiny_1_float32",
+        "result": "PASS_BITWISE"
+      },
+      {
+        "case": "tiny_2_int8",
+        "result": "PASS_BITWISE"
+      },
+      {
+        "case": "tiny_2_float16",
+        "result": "PASS_BITWISE"
+      },
+      {
+        "case": "tiny_2_float32",
+        "result": "PASS_BITWISE"
+      },
+      {
+        "case": "tiny_3_int8",
+        "result": "PASS_BITWISE"
+      },
+      {
+        "case": "tiny_3_float16",
+        "result": "PASS_BITWISE"
+      },
+      {
+        "case": "tiny_3_float32",
+        "result": "PASS_BITWISE"
+      },
+      {
+        "case": "tiny_7_int8",
+        "result": "PASS_BITWISE"
+      },
+      {
+        "case": "tiny_7_float16",
+        "result": "PASS_BITWISE"
+      },
+      {
+        "case": "tiny_7_float32",
+        "result": "PASS_BITWISE"
+      },
+      {
+        "case": "tiny_9_int8",
+        "result": "PASS_BITWISE"
+      },
+      {
+        "case": "tiny_9_float16",
+        "result": "PASS_BITWISE"
+      },
+      {
+        "case": "tiny_9_float32",
+        "result": "PASS_BITWISE"
+      },
+      {
+        "case": "storage_uint8",
+        "result": "PASS_BITWISE"
+      },
+      {
+        "case": "storage_int16",
+        "result": "PASS_BITWISE"
+      },
+      {
+        "case": "storage_uint16",
+        "result": "PASS_BITWISE"
+      },
+      {
+        "case": "storage_uint32",
+        "result": "PASS_BITWISE"
+      },
+      {
+        "case": "storage_uint64",
+        "result": "PASS_BITWISE"
+      },
+      {
+        "case": "ub_131072_bytes",
+        "result": "PASS_BITWISE"
+      },
+      {
+        "case": "ub_163840_bytes",
+        "result": "PASS_BITWISE"
+      },
+      {
+        "case": "ub_188416_bytes",
+        "result": "FAIL_OR_REJECTED"
+      },
+      {
+        "case": "ub_196608_bytes",
+        "result": "FAIL_OR_REJECTED"
+      },
+      {
+        "case": "ub_262144_bytes",
+        "result": "FAIL_OR_REJECTED"
+      },
+      {
+        "case": "crossrank_tf",
+        "result": "FAIL_OR_REJECTED"
+      },
+      {
+        "case": "crossrank_rf",
+        "result": "PASS_BITWISE"
+      },
+      {
+        "case": "infer_tf",
+        "result": "FAIL_OR_REJECTED"
+      },
+      {
+        "case": "infer_rf",
+        "result": "FAIL_OR_REJECTED"
+      },
+      {
+        "case": "empty_tensor",
+        "result": "PASS_BITWISE"
+      }
+    ],
+    "candidate": [
+      {
+        "case": "baseline_tf_f32",
+        "result": "PASS_BITWISE"
+      },
+      {
+        "case": "baseline_rf_f32",
+        "result": "PASS_BITWISE"
+      },
+      {
+        "case": "baseline_tf_f16",
+        "result": "PASS_BITWISE"
+      },
+      {
+        "case": "baseline_tf_i8",
+        "result": "PASS_BITWISE"
+      },
+      {
+        "case": "baseline_tf_i32",
+        "result": "PASS_BITWISE"
+      },
+      {
+        "case": "rank2_swap_f32",
+        "result": "PASS_BITWISE"
+      },
+      {
+        "case": "rank3_rot_f32",
+        "result": "PASS_BITWISE"
+      },
+      {
+        "case": "rank3_rf_f32",
+        "result": "PASS_BITWISE"
+      },
+      {
+        "case": "reshape_same_rank_tf",
+        "result": "PASS_BITWISE"
+      },
+      {
+        "case": "reshape_same_rank_rf",
+        "result": "PASS_BITWISE"
+      },
+      {
+        "case": "larger_4d_f32",
+        "result": "PASS_BITWISE"
+      },
+      {
+        "case": "larger_4d_f16",
+        "result": "PASS_BITWISE"
+      },
+      {
+        "case": "baseline_tf_bf16",
+        "result": "PASS_BITWISE"
+      },
+      {
+        "case": "dma_short_i8",
+        "result": "PASS_BITWISE"
+      },
+      {
+        "case": "dma_short_i64",
+        "result": "PASS_BITWISE"
+      },
+      {
+        "case": "dma_fused_suffix",
+        "result": "PASS_BITWISE"
+      },
+      {
+        "case": "dma_unit_axes",
+        "result": "PASS_BITWISE"
+      },
+      {
+        "case": "dma_long_row",
+        "result": "PASS_BITWISE"
+      },
+      {
+        "case": "dma_rank8",
+        "result": "PASS_BITWISE"
+      },
+      {
+        "case": "dma_rows128_f32",
+        "result": "PASS_BITWISE"
+      },
+      {
+        "case": "dma_rf_newshape",
+        "result": "PASS_BITWISE"
+      },
+      {
+        "case": "fallback_i64",
+        "result": "PASS_BITWISE"
+      },
+      {
+        "case": "tiny_1_int8",
+        "result": "PASS_BITWISE"
+      },
+      {
+        "case": "tiny_1_float16",
+        "result": "PASS_BITWISE"
+      },
+      {
+        "case": "tiny_1_float32",
+        "result": "PASS_BITWISE"
+      },
+      {
+        "case": "tiny_2_int8",
+        "result": "PASS_BITWISE"
+      },
+      {
+        "case": "tiny_2_float16",
+        "result": "PASS_BITWISE"
+      },
+      {
+        "case": "tiny_2_float32",
+        "result": "PASS_BITWISE"
+      },
+      {
+        "case": "tiny_3_int8",
+        "result": "PASS_BITWISE"
+      },
+      {
+        "case": "tiny_3_float16",
+        "result": "PASS_BITWISE"
+      },
+      {
+        "case": "tiny_3_float32",
+        "result": "PASS_BITWISE"
+      },
+      {
+        "case": "tiny_7_int8",
+        "result": "PASS_BITWISE"
+      },
+      {
+        "case": "tiny_7_float16",
+        "result": "PASS_BITWISE"
+      },
+      {
+        "case": "tiny_7_float32",
+        "result": "PASS_BITWISE"
+      },
+      {
+        "case": "tiny_9_int8",
+        "result": "PASS_BITWISE"
+      },
+      {
+        "case": "tiny_9_float16",
+        "result": "PASS_BITWISE"
+      },
+      {
+        "case": "tiny_9_float32",
+        "result": "PASS_BITWISE"
+      },
+      {
+        "case": "storage_uint8",
+        "result": "PASS_BITWISE"
+      },
+      {
+        "case": "storage_int16",
+        "result": "PASS_BITWISE"
+      },
+      {
+        "case": "storage_uint16",
+        "result": "PASS_BITWISE"
+      },
+      {
+        "case": "storage_uint32",
+        "result": "PASS_BITWISE"
+      },
+      {
+        "case": "storage_uint64",
+        "result": "PASS_BITWISE"
+      },
+      {
+        "case": "ub_131072_bytes",
+        "result": "PASS_BITWISE"
+      },
+      {
+        "case": "ub_163840_bytes",
+        "result": "PASS_BITWISE"
+      },
+      {
+        "case": "ub_188416_bytes",
+        "result": "FAIL_OR_REJECTED"
+      },
+      {
+        "case": "ub_196608_bytes",
+        "result": "FAIL_OR_REJECTED"
+      },
+      {
+        "case": "ub_262144_bytes",
+        "result": "FAIL_OR_REJECTED"
+      },
+      {
+        "case": "crossrank_tf",
+        "result": "FAIL_OR_REJECTED"
+      },
+      {
+        "case": "crossrank_rf",
+        "result": "PASS_BITWISE"
+      },
+      {
+        "case": "infer_tf",
+        "result": "FAIL_OR_REJECTED"
+      },
+      {
+        "case": "infer_rf",
+        "result": "FAIL_OR_REJECTED"
+      },
+      {
+        "case": "empty_tensor",
+        "result": "PASS_BITWISE"
+      }
+    ]
+  },
+  "empty_tensor_reported_result": {
+    "baseline": "PASS_BITWISE",
+    "candidate": "PASS_BITWISE"
+  },
+  "not_obtained": [
+    "original tar.gz",
+    "per-case raw errors and exit codes",
+    "host phase timings",
+    "source integrity manifest",
+    "CANN API header snapshots"
+  ],
+  "limitations": [
+    "Not a full cloud-log archive.",
+    "Identical probe classifications do not establish the platform Runtime Error cause.",
+    "No new performance or acceptance result.",
+    "Empty tensor PASS does not prove the tiling/kernel was invoked."
+  ]
+}

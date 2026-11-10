@@ -1,0 +1,137 @@
+eveloper@dfdd97f8c4e84acbaa54982714e4d993:/mnt/workspace/cann-ascendc-ops-collab$ cd /mnt/workspace/cann-ascendc-ops-collab
+ --ff-only origin main
+DEVICE_ID=0 bash people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/tedeveloper@dfdd97f8c4e84acbaa54982714e4d993:/mnt/workspace/cann-ascendc-ops-collab$ git pull --ff-only origin main
+sts/run_c005_diagnostic.shFrom https://github.com/hongwei-2026/cann-ascendc-ops-collab
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+developer@dfdd97f8c4e84acbaa54982714e4d993:/mnt/workspace/cann-ascendc-ops-collab$ DEVICE_ID=0 bash people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/tests/run_c005_diagnostic.sh
+C004 Host/Kernel and shared driver source integrity verified; reusing built packages.
+Read-only CANN Gather/Transpose header snapshots: 64
+PASS baseline_tf in (2, 3, 4, 5) attr [2, 4, 3, 5] out [2, 4, 3, 5] tf True
+PASS baseline_rf in (2, 3, 4, 5) attr [2, 4, 3, 5] out [2, 3, 4, 5] tf False
+PASS rank2_swap in (8, 16) attr [16, 8] out [16, 8] tf True
+PASS rank3_rot in (4, 5, 6) attr [6, 4, 5] out [6, 4, 5] tf True
+PASS rank3_rf in (4, 5, 6) attr [6, 4, 5] out [5, 6, 4] tf False
+PASS reshape_same_rank_tf in (2, 3, 4, 5) attr [4, 3, 2, 5] out [4, 3, 2, 5] tf True
+PASS reshape_same_rank_rf in (2, 3, 4, 5) attr [4, 5, 3, 2] out [4, 3, 5, 2] tf False
+PASS larger_4d in (4, 8, 8, 8) attr [4, 8, 8, 8] out [4, 8, 8, 8] tf True
+PASS dtype <class 'numpy.float16'>
+PASS dtype <class 'numpy.int8'>
+PASS dtype <class 'numpy.int32'>
+local_semantic_check: ALL PASS
+baseline baseline_tf_f32 PASS_BITWISE
+baseline baseline_rf_f32 PASS_BITWISE
+baseline baseline_tf_f16 PASS_BITWISE
+baseline baseline_tf_i8 PASS_BITWISE
+baseline baseline_tf_i32 PASS_BITWISE
+baseline rank2_swap_f32 PASS_BITWISE
+baseline rank3_rot_f32 PASS_BITWISE
+baseline rank3_rf_f32 PASS_BITWISE
+baseline reshape_same_rank_tf PASS_BITWISE
+baseline reshape_same_rank_rf PASS_BITWISE
+baseline larger_4d_f32 PASS_BITWISE
+baseline larger_4d_f16 PASS_BITWISE
+baseline baseline_tf_bf16 PASS_BITWISE
+baseline dma_short_i8 PASS_BITWISE
+baseline dma_short_i64 PASS_BITWISE
+baseline dma_fused_suffix PASS_BITWISE
+baseline dma_unit_axes PASS_BITWISE
+baseline dma_long_row PASS_BITWISE
+baseline dma_rank8 PASS_BITWISE
+baseline dma_rows128_f32 PASS_BITWISE
+baseline dma_rf_newshape PASS_BITWISE
+baseline fallback_i64 PASS_BITWISE
+baseline tiny_1_int8 PASS_BITWISE
+baseline tiny_1_float16 PASS_BITWISE
+baseline tiny_1_float32 PASS_BITWISE
+baseline tiny_2_int8 PASS_BITWISE
+baseline tiny_2_float16 PASS_BITWISE
+baseline tiny_2_float32 PASS_BITWISE
+baseline tiny_3_int8 PASS_BITWISE
+baseline tiny_3_float16 PASS_BITWISE
+baseline tiny_3_float32 PASS_BITWISE
+baseline tiny_7_int8 PASS_BITWISE
+baseline tiny_7_float16 PASS_BITWISE
+baseline tiny_7_float32 PASS_BITWISE
+baseline tiny_9_int8 PASS_BITWISE
+baseline tiny_9_float16 PASS_BITWISE
+baseline tiny_9_float32 PASS_BITWISE
+baseline storage_uint8 PASS_BITWISE
+baseline storage_int16 PASS_BITWISE
+baseline storage_uint16 PASS_BITWISE
+baseline storage_uint32 PASS_BITWISE
+baseline storage_uint64 PASS_BITWISE
+baseline ub_131072_bytes PASS_BITWISE
+baseline ub_163840_bytes PASS_BITWISE
+baseline ub_188416_bytes FAIL_OR_REJECTED
+baseline ub_196608_bytes FAIL_OR_REJECTED
+baseline ub_262144_bytes FAIL_OR_REJECTED
+baseline crossrank_tf FAIL_OR_REJECTED
+baseline crossrank_rf PASS_BITWISE
+baseline infer_tf FAIL_OR_REJECTED
+baseline infer_rf FAIL_OR_REJECTED
+baseline empty_tensor PASS_BITWISE
+DIAGNOSTIC_COUNTS {"PASS_BITWISE": 46, "FAIL_OR_REJECTED": 6}
+candidate baseline_tf_f32 PASS_BITWISE
+candidate baseline_rf_f32 PASS_BITWISE
+candidate baseline_tf_f16 PASS_BITWISE
+candidate baseline_tf_i8 PASS_BITWISE
+candidate baseline_tf_i32 PASS_BITWISE
+candidate rank2_swap_f32 PASS_BITWISE
+candidate rank3_rot_f32 PASS_BITWISE
+candidate rank3_rf_f32 PASS_BITWISE
+candidate reshape_same_rank_tf PASS_BITWISE
+candidate reshape_same_rank_rf PASS_BITWISE
+candidate larger_4d_f32 PASS_BITWISE
+candidate larger_4d_f16 PASS_BITWISE
+candidate baseline_tf_bf16 PASS_BITWISE
+candidate dma_short_i8 PASS_BITWISE
+candidate dma_short_i64 PASS_BITWISE
+candidate dma_fused_suffix PASS_BITWISE
+candidate dma_unit_axes PASS_BITWISE
+candidate dma_long_row PASS_BITWISE
+candidate dma_rank8 PASS_BITWISE
+candidate dma_rows128_f32 PASS_BITWISE
+candidate dma_rf_newshape PASS_BITWISE
+candidate fallback_i64 PASS_BITWISE
+candidate tiny_1_int8 PASS_BITWISE
+candidate tiny_1_float16 PASS_BITWISE
+candidate tiny_1_float32 PASS_BITWISE
+candidate tiny_2_int8 PASS_BITWISE
+candidate tiny_2_float16 PASS_BITWISE
+candidate tiny_2_float32 PASS_BITWISE
+candidate tiny_3_int8 PASS_BITWISE
+candidate tiny_3_float16 PASS_BITWISE
+candidate tiny_3_float32 PASS_BITWISE
+candidate tiny_7_int8 PASS_BITWISE
+candidate tiny_7_float16 PASS_BITWISE
+candidate tiny_7_float32 PASS_BITWISE
+candidate tiny_9_int8 PASS_BITWISE
+candidate tiny_9_float16 PASS_BITWISE
+candidate tiny_9_float32 PASS_BITWISE
+candidate storage_uint8 PASS_BITWISE
+candidate storage_int16 PASS_BITWISE
+candidate storage_uint16 PASS_BITWISE
+candidate storage_uint32 PASS_BITWISE
+candidate storage_uint64 PASS_BITWISE
+candidate ub_131072_bytes PASS_BITWISE
+candidate ub_163840_bytes PASS_BITWISE
+candidate ub_188416_bytes FAIL_OR_REJECTED
+candidate ub_196608_bytes FAIL_OR_REJECTED
+candidate ub_262144_bytes FAIL_OR_REJECTED
+candidate crossrank_tf FAIL_OR_REJECTED
+candidate crossrank_rf PASS_BITWISE
+candidate infer_tf FAIL_OR_REJECTED
+candidate infer_rf FAIL_OR_REJECTED
+candidate empty_tensor PASS_BITWISE
+DIAGNOSTIC_COUNTS {"PASS_BITWISE": 46, "FAIL_OR_REJECTED": 6}
+{"case": "ub_188416_bytes", "category": "UB_boundary_probe", "baseline": "FAIL_OR_REJECTED", "candidate": "FAIL_OR_REJECTED", "finding": "BOTH_FAIL_OR_REJECT; INSPECT_ERROR_PHASE"}
+{"case": "ub_196608_bytes", "category": "UB_boundary_probe", "baseline": "FAIL_OR_REJECTED", "candidate": "FAIL_OR_REJECTED", "finding": "BOTH_FAIL_OR_REJECT; INSPECT_ERROR_PHASE"}
+{"case": "ub_262144_bytes", "category": "UB_boundary_probe", "baseline": "FAIL_OR_REJECTED", "candidate": "FAIL_OR_REJECTED", "finding": "BOTH_FAIL_OR_REJECT; INSPECT_ERROR_PHASE"}
+{"case": "crossrank_tf", "category": "crossrank_probe", "baseline": "FAIL_OR_REJECTED", "candidate": "FAIL_OR_REJECTED", "finding": "BOTH_FAIL_OR_REJECT; INSPECT_ERROR_PHASE"}
+{"case": "infer_tf", "category": "inferred_dim_probe", "baseline": "FAIL_OR_REJECTED", "candidate": "FAIL_OR_REJECTED", "finding": "BOTH_FAIL_OR_REJECT; INSPECT_ERROR_PHASE"}
+{"case": "infer_rf", "category": "inferred_dim_probe", "baseline": "FAIL_OR_REJECTED", "candidate": "FAIL_OR_REJECTED", "finding": "BOTH_FAIL_OR_REJECT; INSPECT_ERROR_PHASE"}
+Diagnostic completed. Results are probes, not platform case identities or acceptance PASS.
+
+C005 diagnostic exit=0 (not kernel acceptance); download: /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C005_20261110_153111_Q9AC.tar.gz
+developer@dfdd97f8c4e84acbaa54982714e4d993:/mnt/workspace/cann-ascendc-ops-collab$ 

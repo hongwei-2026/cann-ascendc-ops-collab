@@ -1,0 +1,10 @@
+{
+  "verification": [
+    "default exports candidate only; both counts included; long log excerpt explicitly marked",
+    "both-version full export preserves complete selected log text",
+    "missing case reported as an error",
+    "archived console bytes match recorded SHA256"
+  ],
+  "scope": "CPU text-export smoke checks only; no NPU execution",
+  "initial_smoke_failure": "Windows text-mode fixture wrote CRLF; fixture corrected to write exact LF bytes. No exporter implementation change."
+}

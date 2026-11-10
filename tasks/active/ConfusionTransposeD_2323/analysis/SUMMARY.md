@@ -13,6 +13,8 @@
 
 2026-11-10 平台重提截图：点1/2=716.62/728.01us（约2.46/2.40×改善），点3～5=1.76/1.84/1.83ms，均输出正确；整次Runtime Error。Owner确认无详细错误，不能确定失败点。按DEC002登记P005诊断，不把超UB或跨rank假设写成平台根因，不继续盲改Kernel。
 
+2026-11-10 C005 Q9AC控制台回传：两版均46/52 PASS_BITWISE，同6项FAIL_OR_REJECTED（大输入3、crossrank_tf、infer_tf/rf），未观察到新增P004失败；empty_tensor两版通过。仅控制台摘要已归档，缺逐case错误/阶段计时及完整tar，不得确定失败阶段或平台根因。DEC003有限证据结案，后续只读补录已有日志；Host/Kernel继续冻结。
+
 ## 废弃/禁止重复
 
 - 保留逐元素 MapSrcIndex + GetValue/SetValue，只微调循环变量。
