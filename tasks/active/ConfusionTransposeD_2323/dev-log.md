@@ -3,9 +3,9 @@
 ## 2026-11-10
 
 - 授权：拷贝座位到 `people/hongwei-2026/ConfusionTransposeD_2323/`，先做扩泛化/云测（不改 yuhongming workdir）
-- path-ledger **P002** 开工；加 `tests/local_semantic_check.py` / `npu_regression.py` / `run_c002_cloud.sh` + 参数化 example
-- 本机无 Ascend：先跑 CPU 语义；写 `SYNC_CODEARTS.md`（git 同步 + exp_logs/ctd2323 下载归档）
-- NPU/云测待执行后归档 `explorations/logs/EXP_C002/`
+- path-ledger **P002** 开工；加泛化/云测脚本 + `SYNC_CODEARTS.md`；`207ea78` push
+- **EXP_C002 云测 PASS**：exit 0；样例 0/120；回归 13/13；日志归档 `explorations/logs/EXP_C002_20261110_134035_YaM4*`
+- 下一闸：超 UB 分块
 
 ## 2026-11-04
 

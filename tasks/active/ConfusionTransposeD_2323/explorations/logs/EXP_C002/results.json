@@ -1,0 +1,106 @@
+[
+  {
+    "case": "baseline_tf_f32",
+    "dtype": "float32",
+    "numel": 120,
+    "transpose_first": true,
+    "result": "PASS",
+    "mismatched": 0
+  },
+  {
+    "case": "baseline_rf_f32",
+    "dtype": "float32",
+    "numel": 120,
+    "transpose_first": false,
+    "result": "PASS",
+    "mismatched": 0
+  },
+  {
+    "case": "baseline_tf_f16",
+    "dtype": "float16",
+    "numel": 120,
+    "transpose_first": true,
+    "result": "PASS",
+    "mismatched": 0
+  },
+  {
+    "case": "baseline_tf_i8",
+    "dtype": "int8",
+    "numel": 120,
+    "transpose_first": true,
+    "result": "PASS",
+    "mismatched": 0
+  },
+  {
+    "case": "baseline_tf_i32",
+    "dtype": "int32",
+    "numel": 120,
+    "transpose_first": true,
+    "result": "PASS",
+    "mismatched": 0
+  },
+  {
+    "case": "rank2_swap_f32",
+    "dtype": "float32",
+    "numel": 128,
+    "transpose_first": true,
+    "result": "PASS",
+    "mismatched": 0
+  },
+  {
+    "case": "rank3_rot_f32",
+    "dtype": "float32",
+    "numel": 120,
+    "transpose_first": true,
+    "result": "PASS",
+    "mismatched": 0
+  },
+  {
+    "case": "rank3_rf_f32",
+    "dtype": "float32",
+    "numel": 120,
+    "transpose_first": false,
+    "result": "PASS",
+    "mismatched": 0
+  },
+  {
+    "case": "reshape_same_rank_tf",
+    "dtype": "float32",
+    "numel": 120,
+    "transpose_first": true,
+    "result": "PASS",
+    "mismatched": 0
+  },
+  {
+    "case": "reshape_same_rank_rf",
+    "dtype": "float32",
+    "numel": 120,
+    "transpose_first": false,
+    "result": "PASS",
+    "mismatched": 0
+  },
+  {
+    "case": "larger_4d_f32",
+    "dtype": "float32",
+    "numel": 2048,
+    "transpose_first": true,
+    "result": "PASS",
+    "mismatched": 0
+  },
+  {
+    "case": "larger_4d_f16",
+    "dtype": "float16",
+    "numel": 8192,
+    "transpose_first": true,
+    "result": "PASS",
+    "mismatched": 0
+  },
+  {
+    "case": "baseline_tf_bf16",
+    "dtype": "bfloat16",
+    "numel": 120,
+    "transpose_first": true,
+    "result": "PASS",
+    "mismatched": 0
+  }
+]

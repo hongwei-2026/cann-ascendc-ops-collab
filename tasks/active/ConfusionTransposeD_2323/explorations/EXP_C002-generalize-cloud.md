@@ -6,7 +6,7 @@
 | 日期 | 2026-11-10 |
 | 作者 / AI | hongwei-2026 · Cursor |
 | 阶段 | 功能泛化（实现中） |
-| 结论 | **进行中**（CPU 语义先跑；NPU/云测待归档） |
+| 结论 | **采纳**（云测 exit_code=0；样例 PASSED；回归 13/13 PASS） |
 | 座位 | `people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/` |
 | path-ledger | P002 |
 
@@ -29,12 +29,11 @@
 
 | 项 | 状态 |
 |----|------|
-| `local_semantic_check.py` | **PASS**（2026-11-10 Windows CPU，8 case + dtype smoke） |
-| `npu_regression.py --generate-only` | **OK**（13 case 含可选 bf16） |
-| `build.sh -e` | 待云/NPU |
-| `npu_regression.py`（真机） | 待云/NPU |
-| 日志归档 | 待 → `explorations/logs/EXP_C002/` |
+| `local_semantic_check.py` | **PASS** |
+| `build.sh -e` | **PASSED**（y mismatched=0/120） |
+| `npu_regression.py` | **13/13 PASS**（含 bf16；最大 larger_4d_f16 8192） |
+| 日志 | `explorations/logs/EXP_C002/`（含 `EXP_C002_20261110_134035_YaM4.tar.gz`） |
 
 ## 下一步
 
-云测 PASS → 更新本 EXP 结论为采纳，STATUS 下一闸可转「超 UB 分块」或性能。
+开超 UB 分块新 path-ledger 行；或先性能基线。
