@@ -1,0 +1,5 @@
+dtype=float32
+transpose_first=1
+in_shape=2,3,4,8
+perm=1,0,2,3
+out_shape=3,2,4,8

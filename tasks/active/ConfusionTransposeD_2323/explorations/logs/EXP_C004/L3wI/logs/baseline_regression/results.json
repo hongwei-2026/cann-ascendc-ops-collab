@@ -1,0 +1,581 @@
+[
+  {
+    "case": "baseline_tf_f32",
+    "dtype": "float32",
+    "numel": 120,
+    "transpose_first": true,
+    "in_shape": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "perm": [
+      0,
+      2,
+      1,
+      3
+    ],
+    "attr_shape": [
+      2,
+      4,
+      3,
+      5
+    ],
+    "comparison": "bitwise",
+    "result": "PASS",
+    "mismatched": 0
+  },
+  {
+    "case": "baseline_rf_f32",
+    "dtype": "float32",
+    "numel": 120,
+    "transpose_first": false,
+    "in_shape": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "perm": [
+      0,
+      2,
+      1,
+      3
+    ],
+    "attr_shape": [
+      2,
+      4,
+      3,
+      5
+    ],
+    "comparison": "bitwise",
+    "result": "PASS",
+    "mismatched": 0
+  },
+  {
+    "case": "baseline_tf_f16",
+    "dtype": "float16",
+    "numel": 120,
+    "transpose_first": true,
+    "in_shape": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "perm": [
+      0,
+      2,
+      1,
+      3
+    ],
+    "attr_shape": [
+      2,
+      4,
+      3,
+      5
+    ],
+    "comparison": "bitwise",
+    "result": "PASS",
+    "mismatched": 0
+  },
+  {
+    "case": "baseline_tf_i8",
+    "dtype": "int8",
+    "numel": 120,
+    "transpose_first": true,
+    "in_shape": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "perm": [
+      0,
+      2,
+      1,
+      3
+    ],
+    "attr_shape": [
+      2,
+      4,
+      3,
+      5
+    ],
+    "comparison": "bitwise",
+    "result": "PASS",
+    "mismatched": 0
+  },
+  {
+    "case": "baseline_tf_i32",
+    "dtype": "int32",
+    "numel": 120,
+    "transpose_first": true,
+    "in_shape": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "perm": [
+      0,
+      2,
+      1,
+      3
+    ],
+    "attr_shape": [
+      2,
+      4,
+      3,
+      5
+    ],
+    "comparison": "bitwise",
+    "result": "PASS",
+    "mismatched": 0
+  },
+  {
+    "case": "rank2_swap_f32",
+    "dtype": "float32",
+    "numel": 128,
+    "transpose_first": true,
+    "in_shape": [
+      8,
+      16
+    ],
+    "perm": [
+      1,
+      0
+    ],
+    "attr_shape": [
+      16,
+      8
+    ],
+    "comparison": "bitwise",
+    "result": "PASS",
+    "mismatched": 0
+  },
+  {
+    "case": "rank3_rot_f32",
+    "dtype": "float32",
+    "numel": 120,
+    "transpose_first": true,
+    "in_shape": [
+      4,
+      5,
+      6
+    ],
+    "perm": [
+      2,
+      0,
+      1
+    ],
+    "attr_shape": [
+      6,
+      4,
+      5
+    ],
+    "comparison": "bitwise",
+    "result": "PASS",
+    "mismatched": 0
+  },
+  {
+    "case": "rank3_rf_f32",
+    "dtype": "float32",
+    "numel": 120,
+    "transpose_first": false,
+    "in_shape": [
+      4,
+      5,
+      6
+    ],
+    "perm": [
+      2,
+      0,
+      1
+    ],
+    "attr_shape": [
+      6,
+      4,
+      5
+    ],
+    "comparison": "bitwise",
+    "result": "PASS",
+    "mismatched": 0
+  },
+  {
+    "case": "reshape_same_rank_tf",
+    "dtype": "float32",
+    "numel": 120,
+    "transpose_first": true,
+    "in_shape": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "perm": [
+      0,
+      2,
+      1,
+      3
+    ],
+    "attr_shape": [
+      4,
+      3,
+      2,
+      5
+    ],
+    "comparison": "bitwise",
+    "result": "PASS",
+    "mismatched": 0
+  },
+  {
+    "case": "reshape_same_rank_rf",
+    "dtype": "float32",
+    "numel": 120,
+    "transpose_first": false,
+    "in_shape": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "perm": [
+      0,
+      2,
+      1,
+      3
+    ],
+    "attr_shape": [
+      4,
+      5,
+      3,
+      2
+    ],
+    "comparison": "bitwise",
+    "result": "PASS",
+    "mismatched": 0
+  },
+  {
+    "case": "larger_4d_f32",
+    "dtype": "float32",
+    "numel": 2048,
+    "transpose_first": true,
+    "in_shape": [
+      4,
+      8,
+      8,
+      8
+    ],
+    "perm": [
+      0,
+      2,
+      1,
+      3
+    ],
+    "attr_shape": [
+      4,
+      8,
+      8,
+      8
+    ],
+    "comparison": "bitwise",
+    "result": "PASS",
+    "mismatched": 0
+  },
+  {
+    "case": "larger_4d_f16",
+    "dtype": "float16",
+    "numel": 8192,
+    "transpose_first": true,
+    "in_shape": [
+      4,
+      16,
+      16,
+      8
+    ],
+    "perm": [
+      0,
+      2,
+      1,
+      3
+    ],
+    "attr_shape": [
+      4,
+      16,
+      16,
+      8
+    ],
+    "comparison": "bitwise",
+    "result": "PASS",
+    "mismatched": 0
+  },
+  {
+    "case": "baseline_tf_bf16",
+    "dtype": "bfloat16",
+    "numel": 120,
+    "transpose_first": true,
+    "in_shape": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "perm": [
+      0,
+      2,
+      1,
+      3
+    ],
+    "attr_shape": [
+      2,
+      4,
+      3,
+      5
+    ],
+    "comparison": "bitwise",
+    "result": "PASS",
+    "mismatched": 0
+  },
+  {
+    "case": "dma_short_i8",
+    "dtype": "int8",
+    "numel": 315,
+    "transpose_first": true,
+    "in_shape": [
+      3,
+      5,
+      7,
+      3
+    ],
+    "perm": [
+      0,
+      2,
+      1,
+      3
+    ],
+    "attr_shape": [
+      3,
+      7,
+      5,
+      3
+    ],
+    "comparison": "bitwise",
+    "result": "PASS",
+    "mismatched": 0
+  },
+  {
+    "case": "dma_short_i64",
+    "dtype": "int64",
+    "numel": 315,
+    "transpose_first": true,
+    "in_shape": [
+      3,
+      5,
+      7,
+      3
+    ],
+    "perm": [
+      0,
+      2,
+      1,
+      3
+    ],
+    "attr_shape": [
+      3,
+      7,
+      5,
+      3
+    ],
+    "comparison": "bitwise",
+    "result": "PASS",
+    "mismatched": 0
+  },
+  {
+    "case": "dma_fused_suffix",
+    "dtype": "float32",
+    "numel": 192,
+    "transpose_first": true,
+    "in_shape": [
+      2,
+      3,
+      4,
+      8
+    ],
+    "perm": [
+      1,
+      0,
+      2,
+      3
+    ],
+    "attr_shape": [
+      3,
+      2,
+      4,
+      8
+    ],
+    "comparison": "bitwise",
+    "result": "PASS",
+    "mismatched": 0
+  },
+  {
+    "case": "dma_unit_axes",
+    "dtype": "float16",
+    "numel": 30,
+    "transpose_first": true,
+    "in_shape": [
+      2,
+      1,
+      3,
+      5
+    ],
+    "perm": [
+      2,
+      0,
+      1,
+      3
+    ],
+    "attr_shape": [
+      3,
+      2,
+      1,
+      5
+    ],
+    "comparison": "bitwise",
+    "result": "PASS",
+    "mismatched": 0
+  },
+  {
+    "case": "dma_long_row",
+    "dtype": "float32",
+    "numel": 38400,
+    "transpose_first": true,
+    "in_shape": [
+      38400
+    ],
+    "perm": [
+      0
+    ],
+    "attr_shape": [
+      38400
+    ],
+    "comparison": "bitwise",
+    "result": "PASS",
+    "mismatched": 0
+  },
+  {
+    "case": "dma_rank8",
+    "dtype": "float32",
+    "numel": 48,
+    "transpose_first": true,
+    "in_shape": [
+      2,
+      1,
+      2,
+      1,
+      2,
+      1,
+      2,
+      3
+    ],
+    "perm": [
+      6,
+      1,
+      2,
+      3,
+      4,
+      5,
+      0,
+      7
+    ],
+    "attr_shape": [
+      2,
+      1,
+      2,
+      1,
+      2,
+      1,
+      2,
+      3
+    ],
+    "comparison": "bitwise",
+    "result": "PASS",
+    "mismatched": 0
+  },
+  {
+    "case": "dma_rows128_f32",
+    "dtype": "float32",
+    "numel": 16384,
+    "transpose_first": true,
+    "in_shape": [
+      4,
+      8,
+      4,
+      128
+    ],
+    "perm": [
+      0,
+      2,
+      1,
+      3
+    ],
+    "attr_shape": [
+      4,
+      4,
+      8,
+      128
+    ],
+    "comparison": "bitwise",
+    "result": "PASS",
+    "mismatched": 0
+  },
+  {
+    "case": "dma_rf_newshape",
+    "dtype": "float32",
+    "numel": 120,
+    "transpose_first": false,
+    "in_shape": [
+      4,
+      3,
+      2,
+      5
+    ],
+    "perm": [
+      0,
+      2,
+      1,
+      3
+    ],
+    "attr_shape": [
+      2,
+      4,
+      3,
+      5
+    ],
+    "comparison": "bitwise",
+    "result": "PASS",
+    "mismatched": 0
+  },
+  {
+    "case": "fallback_i64",
+    "dtype": "int64",
+    "numel": 72,
+    "transpose_first": true,
+    "in_shape": [
+      8,
+      9
+    ],
+    "perm": [
+      1,
+      0
+    ],
+    "attr_shape": [
+      9,
+      8
+    ],
+    "comparison": "bitwise",
+    "result": "PASS",
+    "mismatched": 0
+  }
+]

@@ -1,0 +1,12 @@
+PASS baseline_tf in (2, 3, 4, 5) attr [2, 4, 3, 5] out [2, 4, 3, 5] tf True
+PASS baseline_rf in (2, 3, 4, 5) attr [2, 4, 3, 5] out [2, 3, 4, 5] tf False
+PASS rank2_swap in (8, 16) attr [16, 8] out [16, 8] tf True
+PASS rank3_rot in (4, 5, 6) attr [6, 4, 5] out [6, 4, 5] tf True
+PASS rank3_rf in (4, 5, 6) attr [6, 4, 5] out [5, 6, 4] tf False
+PASS reshape_same_rank_tf in (2, 3, 4, 5) attr [4, 3, 2, 5] out [4, 3, 2, 5] tf True
+PASS reshape_same_rank_rf in (2, 3, 4, 5) attr [4, 5, 3, 2] out [4, 3, 5, 2] tf False
+PASS larger_4d in (4, 8, 8, 8) attr [4, 8, 8, 8] out [4, 8, 8, 8] tf True
+PASS dtype <class 'numpy.float16'>
+PASS dtype <class 'numpy.int8'>
+PASS dtype <class 'numpy.int32'>
+local_semantic_check: ALL PASS

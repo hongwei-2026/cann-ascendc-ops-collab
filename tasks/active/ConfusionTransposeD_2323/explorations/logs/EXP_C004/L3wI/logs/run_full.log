@@ -1,0 +1,638 @@
+PASS baseline_tf in (2, 3, 4, 5) attr [2, 4, 3, 5] out [2, 4, 3, 5] tf True
+PASS baseline_rf in (2, 3, 4, 5) attr [2, 4, 3, 5] out [2, 3, 4, 5] tf False
+PASS rank2_swap in (8, 16) attr [16, 8] out [16, 8] tf True
+PASS rank3_rot in (4, 5, 6) attr [6, 4, 5] out [6, 4, 5] tf True
+PASS rank3_rf in (4, 5, 6) attr [6, 4, 5] out [5, 6, 4] tf False
+PASS reshape_same_rank_tf in (2, 3, 4, 5) attr [4, 3, 2, 5] out [4, 3, 2, 5] tf True
+PASS reshape_same_rank_rf in (2, 3, 4, 5) attr [4, 5, 3, 2] out [4, 3, 5, 2] tf False
+PASS larger_4d in (4, 8, 8, 8) attr [4, 8, 8, 8] out [4, 8, 8, 8] tf True
+PASS dtype <class 'numpy.float16'>
+PASS dtype <class 'numpy.int8'>
+PASS dtype <class 'numpy.int32'>
+local_semantic_check: ALL PASS
+P004 copy-plan PASS: 1658 checks; DMA plans=594
+CPU oracle only; CANN/NPU verification remains required.
+----------------------------------------------------------------
+[INFO] Configuring project...
+[INFO] CMAKE_ARGS: -DASCEND_COMPUTE_UNIT=ascend910b -DCANNJUDGE_COMPILE_JOBS=4
+-- The C compiler identification is GNU 9.4.0
+-- The CXX compiler identification is GNU 9.4.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- set package config: INSTALL_PATH;/mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/baseline/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/build
+-- Opbuild generating sources
+-- Opbuild generating sources - done
+INFO target name: cust_optiling
+INFO target name: cust_op_proto
+INFO target name: cust_opapi
+INFO target name: ascendc_kernels
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/baseline/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/build
+----------------------------------------------------------------
+[INFO] Building project with 4 threads...
+[  6%] Generating scripts/install.sh, scripts/upgrade.sh, scripts/uninstall.sh
+[ 13%] Building CXX object op_host/CMakeFiles/cust_opapi.dir/__/autogen/aclnn_confusion_transpose_d.cpp.o
+[ 20%] Building CXX object op_host/CMakeFiles/cust_optiling.dir/confusion_transpose_d_def.cpp.o
+[ 20%] Built target gen_version_info
+[ 26%] Building CXX object op_host/CMakeFiles/cust_op_proto.dir/confusion_transpose_d_def.cpp.o
+[ 26%] Built target modify_vendor
+[ 33%] Building CXX object op_host/CMakeFiles/cust_op_proto.dir/confusion_transpose_d_infershape.cpp.o
+[ 33%] Built target cust_opapi
+[ 40%] Generating ../autogen/copy_kernel_src.timestamp
+[ 40%] Built target ascendc_kernels_copy_kernel_srcs
+[ 46%] Generating ascendc_kernels/tbe/op_info_cfg/ai_core/npu_supported_ops.json
+/mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/baseline/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/build/autogen /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/baseline/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/build/op_kernel/ascendc_kernels/tbe/op_info_cfg/ai_core
+[INFO] Succeeded generated /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/baseline/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/build/op_kernel/ascendc_kernels/tbe/op_info_cfg/ai_core/npu_supported_ops.json
+[ 46%] Built target confusion_transpose_d_custom_npu_supported_ops
+[ 53%] Building CXX object op_host/CMakeFiles/cust_op_proto.dir/confusion_transpose_d_tiling.cpp.o
+[ 53%] Built target confusion_transpose_d_custom_update_so_names
+[ 60%] Linking CXX shared library libcust_opapi.so
+[ 60%] Built target confusion_transpose_d_custom_ascendc_cust_opapi
+[ 66%] Building CXX object op_host/CMakeFiles/cust_op_proto.dir/__/autogen/op_proto.cc.o
+[ 73%] Building CXX object op_host/CMakeFiles/cust_optiling.dir/confusion_transpose_d_infershape.cpp.o
+[ 80%] Building CXX object op_host/CMakeFiles/cust_optiling.dir/confusion_transpose_d_tiling.cpp.o
+[ 86%] Generating ascendc_kernels/tbe/op_info_cfg/ai_core/ascend910b/aic-ascend910b-ops-info.json
+
+
+==============check valid for ops info start==============
+==============check valid for ops info end================
+
+
+Compile op info cfg successfully.
+[ 86%] Built target ascendc_kernels_ops_info_gen_ascend910b
+[ 86%] Built target cust_op_proto
+[ 93%] Linking CXX shared library libcust_opsproto_rt2.0.so
+[ 93%] Built target confusion_transpose_d_custom_ascendc_cust_op_proto
+[ 93%] Built target cust_optiling
+[100%] Linking CXX shared library libcust_opmaster_rt2.0.so
+[100%] Built target confusion_transpose_d_custom_ascendc_cust_optiling
+[100%] Built target optiling_compat
+[ 16%] Built target ascendc_kernels_copy_kernel_srcs
+Consolidate compiler generated dependencies of target cust_optiling
+[ 66%] Built target cust_optiling
+[ 83%] Built target ascendc_kernels_ops_info_gen_ascend910b
+[100%] Built target confusion_transpose_d_custom_ascendc_cust_optiling
+[ascend910b] Generating ConfusionTransposeD_5379110a4062b31a8cf82e51049f7f2f ...
+[ascend910b] Generating ConfusionTransposeD_ea7f35aa0ba9fb267f236670b9eb1cec ...
+[ascend910b] Generating ConfusionTransposeD_d26e4410ef10755323df762c5db69c82 ...
+[ascend910b] Generating ConfusionTransposeD_a7caa7ce760fb64fc3da4738ec8bab81 ...
+Opc tool start working now, please wait for a moment.
+[ascend910b] Generating ConfusionTransposeD_d26e4410ef10755323df762c5db69c82 Done
+[ascend910b] Generating ConfusionTransposeD_644ccd86d38dab8719230745de7404c1 ...
+Opc tool start working now, please wait for a moment.
+[ascend910b] Generating ConfusionTransposeD_a7caa7ce760fb64fc3da4738ec8bab81 Done
+[ascend910b] Generating ConfusionTransposeD_3900730a4a1444ee60064a3f190e5d48 ...
+Opc tool start working now, please wait for a moment.
+[ascend910b] Generating ConfusionTransposeD_5379110a4062b31a8cf82e51049f7f2f Done
+[ascend910b] Generating ConfusionTransposeD_13213515851a44d884c154d72787bb9a ...
+Opc tool start working now, please wait for a moment.
+[ascend910b] Generating ConfusionTransposeD_ea7f35aa0ba9fb267f236670b9eb1cec Done
+[ascend910b] Generating ConfusionTransposeD_969b5416b90174eba15eb726b8c4fb65 ...
+Opc tool start working now, please wait for a moment.
+[ascend910b] Generating ConfusionTransposeD_3900730a4a1444ee60064a3f190e5d48 Done
+[ascend910b] Generating ConfusionTransposeD_fa249fc957dbd50a55bf2c53dab874ab ...
+Opc tool start working now, please wait for a moment.
+[ascend910b] Generating ConfusionTransposeD_644ccd86d38dab8719230745de7404c1 Done
+[ascend910b] Generating ConfusionTransposeD_b46dad417c60878e6482c17a31d6dd5f ...
+Opc tool start working now, please wait for a moment.
+[ascend910b] Generating ConfusionTransposeD_13213515851a44d884c154d72787bb9a Done
+[ascend910b] Generating ConfusionTransposeD_b2dc7cd23b5334655a62140a073cbc45 ...
+Opc tool start working now, please wait for a moment.
+[ascend910b] Generating ConfusionTransposeD_969b5416b90174eba15eb726b8c4fb65 Done
+Opc tool start working now, please wait for a moment.
+[ascend910b] Generating ConfusionTransposeD_b2dc7cd23b5334655a62140a073cbc45 Done
+Opc tool start working now, please wait for a moment.
+[ascend910b] Generating ConfusionTransposeD_fa249fc957dbd50a55bf2c53dab874ab Done
+Opc tool start working now, please wait for a moment.
+[ascend910b] Generating ConfusionTransposeD_b46dad417c60878e6482c17a31d6dd5f Done
+[100%] Built target ConfusionTransposeD_ascend910b
+[100%] Built target ascendc_kernels_ascendc_bin_ascend910b_gen_ops_config
+[100%] Built target binary
+Consolidate compiler generated dependencies of target cust_opapi
+[  6%] Built target cust_opapi
+[ 13%] Built target modify_vendor
+[ 33%] Built target cust_optiling
+[ 33%] Built target gen_version_info
+[ 40%] Built target ascendc_kernels_copy_kernel_srcs
+[ 46%] Built target confusion_transpose_d_custom_npu_supported_ops
+Consolidate compiler generated dependencies of target cust_op_proto
+[ 73%] Built target cust_op_proto
+[ 80%] Built target confusion_transpose_d_custom_ascendc_cust_opapi
+[ 86%] Built target confusion_transpose_d_custom_ascendc_cust_optiling
+[ 86%] Built target confusion_transpose_d_custom_update_so_names
+[ 93%] Built target ascendc_kernels_ops_info_gen_ascend910b
+[100%] Built target confusion_transpose_d_custom_ascendc_cust_op_proto
+[100%] Built target optiling_compat
+Run CPack packaging tool...
+CPack: Create package using External
+CPack: Install projects
+CPack: - Run preinstall target for: confusion_transpose_d_op_prj
+CPack: - Install project: confusion_transpose_d_op_prj []
+CPack: Create package
+
+About to compress 1856 KB of data...
+Adding files to archive named "custom_opp_ubuntu_aarch64.run"...
+./help.info
+./install.sh
+./packages/vendors/confusion_transpose_d_custom/framework/tensorflow/npu_supported_ops.json
+./packages/vendors/confusion_transpose_d_custom/op_api/include/aclnn_confusion_transpose_d.h
+./packages/vendors/confusion_transpose_d_custom/op_api/lib/libcust_opapi.so
+./packages/vendors/confusion_transpose_d_custom/op_impl/ai_core/tbe/config/ascend910b/aic-ascend910b-ops-info.json
+./packages/vendors/confusion_transpose_d_custom/op_impl/ai_core/tbe/confusion_transpose_d_custom_impl/dynamic/confusion_transpose_d.cpp
+./packages/vendors/confusion_transpose_d_custom/op_impl/ai_core/tbe/confusion_transpose_d_custom_impl/dynamic/confusion_transpose_d.h
+./packages/vendors/confusion_transpose_d_custom/op_impl/ai_core/tbe/confusion_transpose_d_custom_impl/dynamic/confusion_transpose_d.py
+./packages/vendors/confusion_transpose_d_custom/op_impl/ai_core/tbe/confusion_transpose_d_custom_impl/dynamic/confusion_transpose_d_tiling_data.h
+./packages/vendors/confusion_transpose_d_custom/op_impl/ai_core/tbe/confusion_transpose_d_custom_impl/dynamic/confusion_transpose_d_tiling_key.h
+./packages/vendors/confusion_transpose_d_custom/op_impl/ai_core/tbe/kernel/ascend910b/confusion_transpose_d/ConfusionTransposeD_13213515851a44d884c154d72787bb9a.json
+./packages/vendors/confusion_transpose_d_custom/op_impl/ai_core/tbe/kernel/ascend910b/confusion_transpose_d/ConfusionTransposeD_13213515851a44d884c154d72787bb9a.o
+./packages/vendors/confusion_transpose_d_custom/op_impl/ai_core/tbe/kernel/ascend910b/confusion_transpose_d/ConfusionTransposeD_3900730a4a1444ee60064a3f190e5d48.json
+./packages/vendors/confusion_transpose_d_custom/op_impl/ai_core/tbe/kernel/ascend910b/confusion_transpose_d/ConfusionTransposeD_3900730a4a1444ee60064a3f190e5d48.o
+./packages/vendors/confusion_transpose_d_custom/op_impl/ai_core/tbe/kernel/ascend910b/confusion_transpose_d/ConfusionTransposeD_5379110a4062b31a8cf82e51049f7f2f.json
+./packages/vendors/confusion_transpose_d_custom/op_impl/ai_core/tbe/kernel/ascend910b/confusion_transpose_d/ConfusionTransposeD_5379110a4062b31a8cf82e51049f7f2f.o
+./packages/vendors/confusion_transpose_d_custom/op_impl/ai_core/tbe/kernel/ascend910b/confusion_transpose_d/ConfusionTransposeD_644ccd86d38dab8719230745de7404c1.json
+./packages/vendors/confusion_transpose_d_custom/op_impl/ai_core/tbe/kernel/ascend910b/confusion_transpose_d/ConfusionTransposeD_644ccd86d38dab8719230745de7404c1.o
+./packages/vendors/confusion_transpose_d_custom/op_impl/ai_core/tbe/kernel/ascend910b/confusion_transpose_d/ConfusionTransposeD_969b5416b90174eba15eb726b8c4fb65.json
+./packages/vendors/confusion_transpose_d_custom/op_impl/ai_core/tbe/kernel/ascend910b/confusion_transpose_d/ConfusionTransposeD_969b5416b90174eba15eb726b8c4fb65.o
+./packages/vendors/confusion_transpose_d_custom/op_impl/ai_core/tbe/kernel/ascend910b/confusion_transpose_d/ConfusionTransposeD_a7caa7ce760fb64fc3da4738ec8bab81.json
+./packages/vendors/confusion_transpose_d_custom/op_impl/ai_core/tbe/kernel/ascend910b/confusion_transpose_d/ConfusionTransposeD_a7caa7ce760fb64fc3da4738ec8bab81.o
+./packages/vendors/confusion_transpose_d_custom/op_impl/ai_core/tbe/kernel/ascend910b/confusion_transpose_d/ConfusionTransposeD_b2dc7cd23b5334655a62140a073cbc45.json
+./packages/vendors/confusion_transpose_d_custom/op_impl/ai_core/tbe/kernel/ascend910b/confusion_transpose_d/ConfusionTransposeD_b2dc7cd23b5334655a62140a073cbc45.o
+./packages/vendors/confusion_transpose_d_custom/op_impl/ai_core/tbe/kernel/ascend910b/confusion_transpose_d/ConfusionTransposeD_b46dad417c60878e6482c17a31d6dd5f.json
+./packages/vendors/confusion_transpose_d_custom/op_impl/ai_core/tbe/kernel/ascend910b/confusion_transpose_d/ConfusionTransposeD_b46dad417c60878e6482c17a31d6dd5f.o
+./packages/vendors/confusion_transpose_d_custom/op_impl/ai_core/tbe/kernel/ascend910b/confusion_transpose_d/ConfusionTransposeD_d26e4410ef10755323df762c5db69c82.json
+./packages/vendors/confusion_transpose_d_custom/op_impl/ai_core/tbe/kernel/ascend910b/confusion_transpose_d/ConfusionTransposeD_d26e4410ef10755323df762c5db69c82.o
+./packages/vendors/confusion_transpose_d_custom/op_impl/ai_core/tbe/kernel/ascend910b/confusion_transpose_d/ConfusionTransposeD_ea7f35aa0ba9fb267f236670b9eb1cec.json
+./packages/vendors/confusion_transpose_d_custom/op_impl/ai_core/tbe/kernel/ascend910b/confusion_transpose_d/ConfusionTransposeD_ea7f35aa0ba9fb267f236670b9eb1cec.o
+./packages/vendors/confusion_transpose_d_custom/op_impl/ai_core/tbe/kernel/ascend910b/confusion_transpose_d/ConfusionTransposeD_fa249fc957dbd50a55bf2c53dab874ab.json
+./packages/vendors/confusion_transpose_d_custom/op_impl/ai_core/tbe/kernel/ascend910b/confusion_transpose_d/ConfusionTransposeD_fa249fc957dbd50a55bf2c53dab874ab.o
+./packages/vendors/confusion_transpose_d_custom/op_impl/ai_core/tbe/kernel/config/ascend910b/binary_info_config.json
+./packages/vendors/confusion_transpose_d_custom/op_impl/ai_core/tbe/kernel/config/ascend910b/confusion_transpose_d.json
+./packages/vendors/confusion_transpose_d_custom/op_impl/ai_core/tbe/op_tiling/lib/linux/aarch64/libcust_opmaster_rt2.0.so
+./packages/vendors/confusion_transpose_d_custom/op_impl/ai_core/tbe/op_tiling/liboptiling.so
+./packages/vendors/confusion_transpose_d_custom/op_proto/inc/op_proto.h
+./packages/vendors/confusion_transpose_d_custom/op_proto/lib/linux/aarch64/libcust_opsproto_rt2.0.so
+./packages/vendors/confusion_transpose_d_custom/version.info
+./uninstall.sh
+./upgrade.sh
+CRC: 3493993315
+SHA256: d67435c93d1b19d8aa9e2358469ac6f5f439a887182143bbe7aea950128124b2
+Skipping md5sum at user request
+
+Self-extractable archive "custom_opp_ubuntu_aarch64.run" successfully created.
+Copy /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/baseline/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/build/_CPack_Packages/Linux/External/custom_opp_ubuntu_aarch64.run/custom_opp_ubuntu_aarch64.run to /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/baseline/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/build/
+CPack: - package: /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/baseline/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/build/custom_opp_ubuntu_aarch64.run.json generated.
+CPack: - package: /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/baseline/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/build/custom_opp_ubuntu_aarch64.run generated.
+[  6%] Built target cust_opapi
+[ 13%] Built target modify_vendor
+[ 33%] Built target cust_optiling
+[ 33%] Built target gen_version_info
+[ 40%] Built target ascendc_kernels_copy_kernel_srcs
+[ 46%] Built target confusion_transpose_d_custom_npu_supported_ops
+[ 73%] Built target cust_op_proto
+[ 80%] Built target confusion_transpose_d_custom_ascendc_cust_opapi
+[ 86%] Built target confusion_transpose_d_custom_ascendc_cust_optiling
+[ 86%] Built target confusion_transpose_d_custom_update_so_names
+[ 93%] Built target ascendc_kernels_ops_info_gen_ascend910b
+[100%] Built target confusion_transpose_d_custom_ascendc_cust_op_proto
+[100%] Built target optiling_compat
+Install the project...
+-- Install configuration: ""
+-- Up-to-date: /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/baseline/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/build/.
+-- Installing: /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/baseline/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/build/./help.info
+-- Installing: /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/baseline/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/build/./uninstall.sh
+-- Installing: /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/baseline/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/build/./install.sh
+-- Installing: /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/baseline/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/build/./upgrade.sh
+-- Installing: /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/baseline/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/build/packages/vendors/confusion_transpose_d_custom/version.info
+-- Installing: /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/baseline/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/build/packages/vendors/confusion_transpose_d_custom/op_impl/ai_core/tbe/op_tiling/lib/linux/aarch64/libcust_opmaster_rt2.0.so
+-- Set runtime path of "/mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/baseline/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/build/packages/vendors/confusion_transpose_d_custom/op_impl/ai_core/tbe/op_tiling/lib/linux/aarch64/libcust_opmaster_rt2.0.so" to ""
+-- Installing: /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/baseline/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/build/packages/vendors/confusion_transpose_d_custom/op_impl/ai_core/tbe/op_tiling/liboptiling.so
+-- Installing: /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/baseline/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/build/packages/vendors/confusion_transpose_d_custom/op_proto/lib/linux/aarch64/libcust_opsproto_rt2.0.so
+-- Set runtime path of "/mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/baseline/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/build/packages/vendors/confusion_transpose_d_custom/op_proto/lib/linux/aarch64/libcust_opsproto_rt2.0.so" to ""
+-- Installing: /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/baseline/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/build/packages/vendors/confusion_transpose_d_custom/op_proto/inc/op_proto.h
+-- Installing: /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/baseline/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/build/packages/vendors/confusion_transpose_d_custom/op_api/lib/libcust_opapi.so
+-- Set runtime path of "/mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/baseline/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/build/packages/vendors/confusion_transpose_d_custom/op_api/lib/libcust_opapi.so" to ""
+-- Installing: /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/baseline/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/build/packages/vendors/confusion_transpose_d_custom/op_api/include/aclnn_confusion_transpose_d.h
+-- Installing: /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/baseline/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/build/packages/vendors/confusion_transpose_d_custom/op_impl/ai_core/tbe/confusion_transpose_d_custom_impl/dynamic/
+-- Installing: /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/baseline/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/build/packages/vendors/confusion_transpose_d_custom/op_impl/ai_core/tbe/confusion_transpose_d_custom_impl/dynamic//confusion_transpose_d_tiling_key.h
+-- Installing: /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/baseline/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/build/packages/vendors/confusion_transpose_d_custom/op_impl/ai_core/tbe/confusion_transpose_d_custom_impl/dynamic//confusion_transpose_d_tiling_data.h
+-- Installing: /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/baseline/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/build/packages/vendors/confusion_transpose_d_custom/op_impl/ai_core/tbe/confusion_transpose_d_custom_impl/dynamic//confusion_transpose_d.py
+-- Installing: /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/baseline/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/build/packages/vendors/confusion_transpose_d_custom/op_impl/ai_core/tbe/confusion_transpose_d_custom_impl/dynamic//confusion_transpose_d.h
+-- Installing: /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/baseline/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/build/packages/vendors/confusion_transpose_d_custom/op_impl/ai_core/tbe/confusion_transpose_d_custom_impl/dynamic//confusion_transpose_d.cpp
+-- Installing: /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/baseline/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/build/packages/vendors/confusion_transpose_d_custom/op_impl/ai_core/tbe//kernel/ascend910b/
+-- Installing: /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/baseline/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/build/packages/vendors/confusion_transpose_d_custom/op_impl/ai_core/tbe//kernel/ascend910b//confusion_transpose_d
+-- Installing: /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/baseline/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/build/packages/vendors/confusion_transpose_d_custom/op_impl/ai_core/tbe//kernel/ascend910b//confusion_transpose_d/ConfusionTransposeD_644ccd86d38dab8719230745de7404c1.o
+-- Installing: /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/baseline/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/build/packages/vendors/confusion_transpose_d_custom/op_impl/ai_core/tbe//kernel/ascend910b//confusion_transpose_d/ConfusionTransposeD_a7caa7ce760fb64fc3da4738ec8bab81.o
+-- Installing: /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/baseline/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/build/packages/vendors/confusion_transpose_d_custom/op_impl/ai_core/tbe//kernel/ascend910b//confusion_transpose_d/ConfusionTransposeD_b2dc7cd23b5334655a62140a073cbc45.o
+-- Installing: /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/baseline/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/build/packages/vendors/confusion_transpose_d_custom/op_impl/ai_core/tbe//kernel/ascend910b//confusion_transpose_d/ConfusionTransposeD_fa249fc957dbd50a55bf2c53dab874ab.o
+-- Installing: /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/baseline/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/build/packages/vendors/confusion_transpose_d_custom/op_impl/ai_core/tbe//kernel/ascend910b//confusion_transpose_d/ConfusionTransposeD_b46dad417c60878e6482c17a31d6dd5f.json
+-- Installing: /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/baseline/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/build/packages/vendors/confusion_transpose_d_custom/op_impl/ai_core/tbe//kernel/ascend910b//confusion_transpose_d/ConfusionTransposeD_fa249fc957dbd50a55bf2c53dab874ab.json
+-- Installing: /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/baseline/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/build/packages/vendors/confusion_transpose_d_custom/op_impl/ai_core/tbe//kernel/ascend910b//confusion_transpose_d/ConfusionTransposeD_b2dc7cd23b5334655a62140a073cbc45.json
+-- Installing: /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/baseline/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/build/packages/vendors/confusion_transpose_d_custom/op_impl/ai_core/tbe//kernel/ascend910b//confusion_transpose_d/ConfusionTransposeD_d26e4410ef10755323df762c5db69c82.json
+-- Installing: /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/baseline/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/build/packages/vendors/confusion_transpose_d_custom/op_impl/ai_core/tbe//kernel/ascend910b//confusion_transpose_d/ConfusionTransposeD_ea7f35aa0ba9fb267f236670b9eb1cec.json
+-- Installing: /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/baseline/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/build/packages/vendors/confusion_transpose_d_custom/op_impl/ai_core/tbe//kernel/ascend910b//confusion_transpose_d/ConfusionTransposeD_3900730a4a1444ee60064a3f190e5d48.json
+-- Installing: /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/baseline/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/build/packages/vendors/confusion_transpose_d_custom/op_impl/ai_core/tbe//kernel/ascend910b//confusion_transpose_d/ConfusionTransposeD_5379110a4062b31a8cf82e51049f7f2f.json
+-- Installing: /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/baseline/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/build/packages/vendors/confusion_transpose_d_custom/op_impl/ai_core/tbe//kernel/ascend910b//confusion_transpose_d/ConfusionTransposeD_d26e4410ef10755323df762c5db69c82.o
+-- Installing: /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/baseline/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/build/packages/vendors/confusion_transpose_d_custom/op_impl/ai_core/tbe//kernel/ascend910b//confusion_transpose_d/ConfusionTransposeD_969b5416b90174eba15eb726b8c4fb65.json
+-- Installing: /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/baseline/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/build/packages/vendors/confusion_transpose_d_custom/op_impl/ai_core/tbe//kernel/ascend910b//confusion_transpose_d/ConfusionTransposeD_a7caa7ce760fb64fc3da4738ec8bab81.json
+-- Installing: /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/baseline/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/build/packages/vendors/confusion_transpose_d_custom/op_impl/ai_core/tbe//kernel/ascend910b//confusion_transpose_d/ConfusionTransposeD_b46dad417c60878e6482c17a31d6dd5f.o
+-- Installing: /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/baseline/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/build/packages/vendors/confusion_transpose_d_custom/op_impl/ai_core/tbe//kernel/ascend910b//confusion_transpose_d/ConfusionTransposeD_13213515851a44d884c154d72787bb9a.o
+-- Installing: /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/baseline/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/build/packages/vendors/confusion_transpose_d_custom/op_impl/ai_core/tbe//kernel/ascend910b//confusion_transpose_d/ConfusionTransposeD_3900730a4a1444ee60064a3f190e5d48.o
+-- Installing: /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/baseline/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/build/packages/vendors/confusion_transpose_d_custom/op_impl/ai_core/tbe//kernel/ascend910b//confusion_transpose_d/ConfusionTransposeD_13213515851a44d884c154d72787bb9a.json
+-- Installing: /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/baseline/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/build/packages/vendors/confusion_transpose_d_custom/op_impl/ai_core/tbe//kernel/ascend910b//confusion_transpose_d/ConfusionTransposeD_5379110a4062b31a8cf82e51049f7f2f.o
+-- Installing: /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/baseline/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/build/packages/vendors/confusion_transpose_d_custom/op_impl/ai_core/tbe//kernel/ascend910b//confusion_transpose_d/ConfusionTransposeD_ea7f35aa0ba9fb267f236670b9eb1cec.o
+-- Installing: /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/baseline/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/build/packages/vendors/confusion_transpose_d_custom/op_impl/ai_core/tbe//kernel/ascend910b//confusion_transpose_d/ConfusionTransposeD_644ccd86d38dab8719230745de7404c1.json
+-- Installing: /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/baseline/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/build/packages/vendors/confusion_transpose_d_custom/op_impl/ai_core/tbe//kernel/ascend910b//confusion_transpose_d/ConfusionTransposeD_969b5416b90174eba15eb726b8c4fb65.o
+-- Installing: /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/baseline/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/build/packages/vendors/confusion_transpose_d_custom/op_impl/ai_core/tbe//kernel/config/
+-- Installing: /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/baseline/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/build/packages/vendors/confusion_transpose_d_custom/op_impl/ai_core/tbe//kernel/config//ascend910b
+-- Installing: /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/baseline/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/build/packages/vendors/confusion_transpose_d_custom/op_impl/ai_core/tbe//kernel/config//ascend910b/binary_info_config.json
+-- Installing: /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/baseline/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/build/packages/vendors/confusion_transpose_d_custom/op_impl/ai_core/tbe//kernel/config//ascend910b/confusion_transpose_d.json
+-- Installing: /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/baseline/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/build/packages/vendors/confusion_transpose_d_custom/op_impl/ai_core/tbe/config/ascend910b/aic-ascend910b-ops-info.json
+-- Installing: /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/baseline/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/build/packages/vendors/confusion_transpose_d_custom/framework/tensorflow/npu_supported_ops.json
+----------------------------------------------------------------
+[INFO] Build completed successfully!
+[INFO] Kernel binary: /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/baseline/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/build/op_kernel/ascendc_kernels/binary/ascend910b/confusion_transpose_d/ConfusionTransposeD_644ccd86d38dab8719230745de7404c1.o
+[INFO] Package: /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/baseline/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/build/custom_opp_ubuntu_aarch64.run
+----------------------------------------------------------------
+[INFO] Running examples...
+-- The CXX compiler identification is GNU 9.4.0
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/baseline/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/examples/build
+[ 50%] Building CXX object CMakeFiles/sample.dir/test_aclnn_confusion_transpose_d.cpp.o
+[100%] Linking CXX executable sample
+[100%] Built target sample
+Sample data generated.
+workspace_bytes=16777216 numel=120 dtype=float32
+perf_warmup=0 perf_repeat=1
+PASS: y.bin, mismatched=0/120
+PASSED
+[INFO] Example completed successfully!
+PASS baseline_tf_f32 mismatched=0/120
+PASS baseline_rf_f32 mismatched=0/120
+PASS baseline_tf_f16 mismatched=0/120
+PASS baseline_tf_i8 mismatched=0/120
+PASS baseline_tf_i32 mismatched=0/120
+PASS rank2_swap_f32 mismatched=0/128
+PASS rank3_rot_f32 mismatched=0/120
+PASS rank3_rf_f32 mismatched=0/120
+PASS reshape_same_rank_tf mismatched=0/120
+PASS reshape_same_rank_rf mismatched=0/120
+PASS larger_4d_f32 mismatched=0/2048
+PASS larger_4d_f16 mismatched=0/8192
+PASS baseline_tf_bf16 mismatched=0/120
+PASS dma_short_i8 mismatched=0/315
+PASS dma_short_i64 mismatched=0/315
+PASS dma_fused_suffix mismatched=0/192
+PASS dma_unit_axes mismatched=0/30
+PASS dma_long_row mismatched=0/38400
+PASS dma_rank8 mismatched=0/48
+PASS dma_rows128_f32 mismatched=0/16384
+PASS dma_rf_newshape mismatched=0/120
+PASS fallback_i64 mismatched=0/72
+summary {'PASS': 22}
+counts {'PASS': 22}
+{"case": "baseline_tf_f32", "command": ["/home/developer/Ascend/cann-9.1.0/bin/msprof", "--application=/mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/baseline/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/examples/build/sample /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/logs/baseline_regression/baseline_tf_f32 0", "--output=/mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/logs/baseline_profile/baseline_tf_f32", "--task-time=on", "--aic-metrics=PipeUtilization"], "result": "PROFILED", "exit_code": 0, "exact_output": true, "observed_kernel_calls": 25, "csv_files": ["PROF_000001_20261110142838623_00005385BBNPRDKM/mindstudio_profiler_output/op_summary_20261110142845.csv"], "block_dim": [], "warmup": 5, "samples_us": [8.8, 8.48, 8.46, 8.74, 8.74, 8.56, 8.72, 8.74, 8.5, 8.5, 8.46, 8.48, 8.5, 8.68, 8.48, 8.94, 8.46, 8.48, 8.5, 8.48], "median_us": 8.5, "min_us": 8.46, "max_us": 8.94}
+{"case": "larger_4d_f16", "command": ["/home/developer/Ascend/cann-9.1.0/bin/msprof", "--application=/mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/baseline/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/examples/build/sample /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/logs/baseline_regression/larger_4d_f16 0", "--output=/mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/logs/baseline_profile/larger_4d_f16", "--task-time=on", "--aic-metrics=PipeUtilization"], "result": "PROFILED", "exit_code": 0, "exact_output": true, "observed_kernel_calls": 25, "csv_files": ["PROF_000001_20261110142846662_00005693NQCNRBOJ/mindstudio_profiler_output/op_summary_20261110142853.csv"], "block_dim": [], "warmup": 5, "samples_us": [24.48, 24.4, 24.44, 24.38, 24.3, 24.74, 24.5, 24.52, 24.48, 24.5, 24.3, 24.42, 24.3, 24.5, 24.42, 24.28, 24.5, 24.4, 24.3, 24.6], "median_us": 24.43, "min_us": 24.28, "max_us": 24.74}
+{"case": "dma_rows128_f32", "command": ["/home/developer/Ascend/cann-9.1.0/bin/msprof", "--application=/mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/baseline/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/examples/build/sample /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/logs/baseline_regression/dma_rows128_f32 0", "--output=/mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/logs/baseline_profile/dma_rows128_f32", "--task-time=on", "--aic-metrics=PipeUtilization"], "result": "PROFILED", "exit_code": 0, "exact_output": true, "observed_kernel_calls": 25, "csv_files": ["PROF_000001_20261110142854700_00005972QEAAIDER/mindstudio_profiler_output/op_summary_20261110062901.csv"], "block_dim": [], "warmup": 5, "samples_us": [41.0, 41.1, 41.5, 41.04, 41.08, 41.04, 41.3, 41.02, 41.44, 40.96, 41.16, 41.08, 40.96, 40.94, 41.08, 41.36, 41.06, 41.04, 41.08, 40.9], "median_us": 41.07, "min_us": 40.9, "max_us": 41.5}
+{"case": "rank2_swap_f32", "command": ["/home/developer/Ascend/cann-9.1.0/bin/msprof", "--application=/mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/baseline/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/examples/build/sample /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/logs/baseline_regression/rank2_swap_f32 0", "--output=/mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/logs/baseline_profile/rank2_swap_f32", "--task-time=on", "--aic-metrics=PipeUtilization"], "result": "PROFILED", "exit_code": 0, "exact_output": true, "observed_kernel_calls": 25, "csv_files": ["PROF_000001_20261110142902737_00006262GINMCAEH/mindstudio_profiler_output/op_summary_20261110142909.csv"], "block_dim": [], "warmup": 5, "samples_us": [8.26, 8.28, 8.22, 8.28, 8.2, 8.26, 8.26, 8.24, 8.26, 8.22, 8.26, 8.04, 8.28, 8.28, 8.22, 8.26, 8.3, 8.3, 8.3, 8.26], "median_us": 8.26, "min_us": 8.04, "max_us": 8.3}
+----------------------------------------------------------------
+[INFO] Configuring project...
+[INFO] CMAKE_ARGS: -DASCEND_COMPUTE_UNIT=ascend910b -DCANNJUDGE_COMPILE_JOBS=4
+-- The C compiler identification is GNU 9.4.0
+-- The CXX compiler identification is GNU 9.4.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- set package config: INSTALL_PATH;/mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/candidate/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/build
+-- Opbuild generating sources
+-- Opbuild generating sources - done
+INFO target name: cust_optiling
+INFO target name: cust_op_proto
+INFO target name: cust_opapi
+INFO target name: ascendc_kernels
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/candidate/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/build
+----------------------------------------------------------------
+[INFO] Building project with 4 threads...
+[  6%] Generating scripts/install.sh, scripts/upgrade.sh, scripts/uninstall.sh
+[ 13%] Building CXX object op_host/CMakeFiles/cust_opapi.dir/__/autogen/aclnn_confusion_transpose_d.cpp.o
+[ 20%] Building CXX object op_host/CMakeFiles/cust_optiling.dir/confusion_transpose_d_def.cpp.o
+[ 20%] Built target gen_version_info
+[ 26%] Building CXX object op_host/CMakeFiles/cust_op_proto.dir/confusion_transpose_d_def.cpp.o
+[ 26%] Built target modify_vendor
+[ 33%] Building CXX object op_host/CMakeFiles/cust_op_proto.dir/confusion_transpose_d_infershape.cpp.o
+[ 33%] Built target cust_opapi
+[ 40%] Generating ../autogen/copy_kernel_src.timestamp
+[ 40%] Built target ascendc_kernels_copy_kernel_srcs
+[ 46%] Building CXX object op_host/CMakeFiles/cust_optiling.dir/confusion_transpose_d_infershape.cpp.o
+[ 53%] Building CXX object op_host/CMakeFiles/cust_optiling.dir/confusion_transpose_d_tiling.cpp.o
+[ 60%] Building CXX object op_host/CMakeFiles/cust_op_proto.dir/confusion_transpose_d_tiling.cpp.o
+[ 66%] Building CXX object op_host/CMakeFiles/cust_op_proto.dir/__/autogen/op_proto.cc.o
+[ 73%] Generating ascendc_kernels/tbe/op_info_cfg/ai_core/npu_supported_ops.json
+/mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/candidate/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/build/autogen /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/candidate/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/build/op_kernel/ascendc_kernels/tbe/op_info_cfg/ai_core
+[INFO] Succeeded generated /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/candidate/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/build/op_kernel/ascendc_kernels/tbe/op_info_cfg/ai_core/npu_supported_ops.json
+[ 73%] Built target confusion_transpose_d_custom_npu_supported_ops
+[ 73%] Built target confusion_transpose_d_custom_update_so_names
+[ 80%] Linking CXX shared library libcust_opapi.so
+[ 80%] Built target confusion_transpose_d_custom_ascendc_cust_opapi
+[ 86%] Generating ascendc_kernels/tbe/op_info_cfg/ai_core/ascend910b/aic-ascend910b-ops-info.json
+
+
+==============check valid for ops info start==============
+==============check valid for ops info end================
+
+
+Compile op info cfg successfully.
+[ 86%] Built target ascendc_kernels_ops_info_gen_ascend910b
+[ 86%] Built target cust_optiling
+[ 93%] Linking CXX shared library libcust_opmaster_rt2.0.so
+[ 93%] Built target confusion_transpose_d_custom_ascendc_cust_optiling
+[ 93%] Built target optiling_compat
+[ 93%] Built target cust_op_proto
+[100%] Linking CXX shared library libcust_opsproto_rt2.0.so
+[100%] Built target confusion_transpose_d_custom_ascendc_cust_op_proto
+[ 16%] Built target ascendc_kernels_copy_kernel_srcs
+Consolidate compiler generated dependencies of target cust_optiling
+[ 66%] Built target cust_optiling
+[ 83%] Built target ascendc_kernels_ops_info_gen_ascend910b
+[100%] Built target confusion_transpose_d_custom_ascendc_cust_optiling
+[ascend910b] Generating ConfusionTransposeD_5379110a4062b31a8cf82e51049f7f2f ...
+[ascend910b] Generating ConfusionTransposeD_ea7f35aa0ba9fb267f236670b9eb1cec ...
+[ascend910b] Generating ConfusionTransposeD_d26e4410ef10755323df762c5db69c82 ...
+[ascend910b] Generating ConfusionTransposeD_a7caa7ce760fb64fc3da4738ec8bab81 ...
+Opc tool start working now, please wait for a moment.
+[ascend910b] Generating ConfusionTransposeD_d26e4410ef10755323df762c5db69c82 Done
+[ascend910b] Generating ConfusionTransposeD_644ccd86d38dab8719230745de7404c1 ...
+Opc tool start working now, please wait for a moment.
+[ascend910b] Generating ConfusionTransposeD_5379110a4062b31a8cf82e51049f7f2f Done
+[ascend910b] Generating ConfusionTransposeD_3900730a4a1444ee60064a3f190e5d48 ...
+Opc tool start working now, please wait for a moment.
+[ascend910b] Generating ConfusionTransposeD_ea7f35aa0ba9fb267f236670b9eb1cec Done
+[ascend910b] Generating ConfusionTransposeD_13213515851a44d884c154d72787bb9a ...
+Opc tool start working now, please wait for a moment.
+[ascend910b] Generating ConfusionTransposeD_a7caa7ce760fb64fc3da4738ec8bab81 Done
+[ascend910b] Generating ConfusionTransposeD_969b5416b90174eba15eb726b8c4fb65 ...
+Opc tool start working now, please wait for a moment.
+[ascend910b] Generating ConfusionTransposeD_644ccd86d38dab8719230745de7404c1 Done
+[ascend910b] Generating ConfusionTransposeD_fa249fc957dbd50a55bf2c53dab874ab ...
+Opc tool start working now, please wait for a moment.
+[ascend910b] Generating ConfusionTransposeD_3900730a4a1444ee60064a3f190e5d48 Done
+[ascend910b] Generating ConfusionTransposeD_b46dad417c60878e6482c17a31d6dd5f ...
+Opc tool start working now, please wait for a moment.
+[ascend910b] Generating ConfusionTransposeD_13213515851a44d884c154d72787bb9a Done
+[ascend910b] Generating ConfusionTransposeD_b2dc7cd23b5334655a62140a073cbc45 ...
+Opc tool start working now, please wait for a moment.
+[ascend910b] Generating ConfusionTransposeD_969b5416b90174eba15eb726b8c4fb65 Done
+Opc tool start working now, please wait for a moment.
+[ascend910b] Generating ConfusionTransposeD_fa249fc957dbd50a55bf2c53dab874ab Done
+Opc tool start working now, please wait for a moment.
+[ascend910b] Generating ConfusionTransposeD_b2dc7cd23b5334655a62140a073cbc45 Done
+Opc tool start working now, please wait for a moment.
+[ascend910b] Generating ConfusionTransposeD_b46dad417c60878e6482c17a31d6dd5f Done
+[100%] Built target ConfusionTransposeD_ascend910b
+[100%] Built target ascendc_kernels_ascendc_bin_ascend910b_gen_ops_config
+[100%] Built target binary
+Consolidate compiler generated dependencies of target cust_opapi
+[  6%] Built target cust_opapi
+[ 13%] Built target modify_vendor
+[ 33%] Built target cust_optiling
+[ 33%] Built target gen_version_info
+[ 40%] Built target ascendc_kernels_copy_kernel_srcs
+[ 46%] Built target confusion_transpose_d_custom_npu_supported_ops
+Consolidate compiler generated dependencies of target cust_op_proto
+[ 73%] Built target cust_op_proto
+[ 80%] Built target confusion_transpose_d_custom_ascendc_cust_opapi
+[ 86%] Built target confusion_transpose_d_custom_ascendc_cust_optiling
+[ 86%] Built target confusion_transpose_d_custom_update_so_names
+[ 93%] Built target ascendc_kernels_ops_info_gen_ascend910b
+[100%] Built target confusion_transpose_d_custom_ascendc_cust_op_proto
+[100%] Built target optiling_compat
+Run CPack packaging tool...
+CPack: Create package using External
+CPack: Install projects
+CPack: - Run preinstall target for: confusion_transpose_d_op_prj
+CPack: - Install project: confusion_transpose_d_op_prj []
+CPack: Create package
+
+About to compress 1952 KB of data...
+Adding files to archive named "custom_opp_ubuntu_aarch64.run"...
+./help.info
+./install.sh
+./packages/vendors/confusion_transpose_d_custom/framework/tensorflow/npu_supported_ops.json
+./packages/vendors/confusion_transpose_d_custom/op_api/include/aclnn_confusion_transpose_d.h
+./packages/vendors/confusion_transpose_d_custom/op_api/lib/libcust_opapi.so
+./packages/vendors/confusion_transpose_d_custom/op_impl/ai_core/tbe/config/ascend910b/aic-ascend910b-ops-info.json
+./packages/vendors/confusion_transpose_d_custom/op_impl/ai_core/tbe/confusion_transpose_d_custom_impl/dynamic/confusion_transpose_d.cpp
+./packages/vendors/confusion_transpose_d_custom/op_impl/ai_core/tbe/confusion_transpose_d_custom_impl/dynamic/confusion_transpose_d.h
+./packages/vendors/confusion_transpose_d_custom/op_impl/ai_core/tbe/confusion_transpose_d_custom_impl/dynamic/confusion_transpose_d.py
+./packages/vendors/confusion_transpose_d_custom/op_impl/ai_core/tbe/confusion_transpose_d_custom_impl/dynamic/confusion_transpose_d_tiling_data.h
+./packages/vendors/confusion_transpose_d_custom/op_impl/ai_core/tbe/confusion_transpose_d_custom_impl/dynamic/confusion_transpose_d_tiling_key.h
+./packages/vendors/confusion_transpose_d_custom/op_impl/ai_core/tbe/kernel/ascend910b/confusion_transpose_d/ConfusionTransposeD_13213515851a44d884c154d72787bb9a.json
+./packages/vendors/confusion_transpose_d_custom/op_impl/ai_core/tbe/kernel/ascend910b/confusion_transpose_d/ConfusionTransposeD_13213515851a44d884c154d72787bb9a.o
+./packages/vendors/confusion_transpose_d_custom/op_impl/ai_core/tbe/kernel/ascend910b/confusion_transpose_d/ConfusionTransposeD_3900730a4a1444ee60064a3f190e5d48.json
+./packages/vendors/confusion_transpose_d_custom/op_impl/ai_core/tbe/kernel/ascend910b/confusion_transpose_d/ConfusionTransposeD_3900730a4a1444ee60064a3f190e5d48.o
+./packages/vendors/confusion_transpose_d_custom/op_impl/ai_core/tbe/kernel/ascend910b/confusion_transpose_d/ConfusionTransposeD_5379110a4062b31a8cf82e51049f7f2f.json
+./packages/vendors/confusion_transpose_d_custom/op_impl/ai_core/tbe/kernel/ascend910b/confusion_transpose_d/ConfusionTransposeD_5379110a4062b31a8cf82e51049f7f2f.o
+./packages/vendors/confusion_transpose_d_custom/op_impl/ai_core/tbe/kernel/ascend910b/confusion_transpose_d/ConfusionTransposeD_644ccd86d38dab8719230745de7404c1.json
+./packages/vendors/confusion_transpose_d_custom/op_impl/ai_core/tbe/kernel/ascend910b/confusion_transpose_d/ConfusionTransposeD_644ccd86d38dab8719230745de7404c1.o
+./packages/vendors/confusion_transpose_d_custom/op_impl/ai_core/tbe/kernel/ascend910b/confusion_transpose_d/ConfusionTransposeD_969b5416b90174eba15eb726b8c4fb65.json
+./packages/vendors/confusion_transpose_d_custom/op_impl/ai_core/tbe/kernel/ascend910b/confusion_transpose_d/ConfusionTransposeD_969b5416b90174eba15eb726b8c4fb65.o
+./packages/vendors/confusion_transpose_d_custom/op_impl/ai_core/tbe/kernel/ascend910b/confusion_transpose_d/ConfusionTransposeD_a7caa7ce760fb64fc3da4738ec8bab81.json
+./packages/vendors/confusion_transpose_d_custom/op_impl/ai_core/tbe/kernel/ascend910b/confusion_transpose_d/ConfusionTransposeD_a7caa7ce760fb64fc3da4738ec8bab81.o
+./packages/vendors/confusion_transpose_d_custom/op_impl/ai_core/tbe/kernel/ascend910b/confusion_transpose_d/ConfusionTransposeD_b2dc7cd23b5334655a62140a073cbc45.json
+./packages/vendors/confusion_transpose_d_custom/op_impl/ai_core/tbe/kernel/ascend910b/confusion_transpose_d/ConfusionTransposeD_b2dc7cd23b5334655a62140a073cbc45.o
+./packages/vendors/confusion_transpose_d_custom/op_impl/ai_core/tbe/kernel/ascend910b/confusion_transpose_d/ConfusionTransposeD_b46dad417c60878e6482c17a31d6dd5f.json
+./packages/vendors/confusion_transpose_d_custom/op_impl/ai_core/tbe/kernel/ascend910b/confusion_transpose_d/ConfusionTransposeD_b46dad417c60878e6482c17a31d6dd5f.o
+./packages/vendors/confusion_transpose_d_custom/op_impl/ai_core/tbe/kernel/ascend910b/confusion_transpose_d/ConfusionTransposeD_d26e4410ef10755323df762c5db69c82.json
+./packages/vendors/confusion_transpose_d_custom/op_impl/ai_core/tbe/kernel/ascend910b/confusion_transpose_d/ConfusionTransposeD_d26e4410ef10755323df762c5db69c82.o
+./packages/vendors/confusion_transpose_d_custom/op_impl/ai_core/tbe/kernel/ascend910b/confusion_transpose_d/ConfusionTransposeD_ea7f35aa0ba9fb267f236670b9eb1cec.json
+./packages/vendors/confusion_transpose_d_custom/op_impl/ai_core/tbe/kernel/ascend910b/confusion_transpose_d/ConfusionTransposeD_ea7f35aa0ba9fb267f236670b9eb1cec.o
+./packages/vendors/confusion_transpose_d_custom/op_impl/ai_core/tbe/kernel/ascend910b/confusion_transpose_d/ConfusionTransposeD_fa249fc957dbd50a55bf2c53dab874ab.json
+./packages/vendors/confusion_transpose_d_custom/op_impl/ai_core/tbe/kernel/ascend910b/confusion_transpose_d/ConfusionTransposeD_fa249fc957dbd50a55bf2c53dab874ab.o
+./packages/vendors/confusion_transpose_d_custom/op_impl/ai_core/tbe/kernel/config/ascend910b/binary_info_config.json
+./packages/vendors/confusion_transpose_d_custom/op_impl/ai_core/tbe/kernel/config/ascend910b/confusion_transpose_d.json
+./packages/vendors/confusion_transpose_d_custom/op_impl/ai_core/tbe/op_tiling/lib/linux/aarch64/libcust_opmaster_rt2.0.so
+./packages/vendors/confusion_transpose_d_custom/op_impl/ai_core/tbe/op_tiling/liboptiling.so
+./packages/vendors/confusion_transpose_d_custom/op_proto/inc/op_proto.h
+./packages/vendors/confusion_transpose_d_custom/op_proto/lib/linux/aarch64/libcust_opsproto_rt2.0.so
+./packages/vendors/confusion_transpose_d_custom/version.info
+./uninstall.sh
+./upgrade.sh
+CRC: 673852733
+SHA256: dc1c8be5d1bcb1fe08aad6c03b335877514b31b62c48f051cb3c3dd559421118
+Skipping md5sum at user request
+
+Self-extractable archive "custom_opp_ubuntu_aarch64.run" successfully created.
+Copy /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/candidate/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/build/_CPack_Packages/Linux/External/custom_opp_ubuntu_aarch64.run/custom_opp_ubuntu_aarch64.run to /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/candidate/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/build/
+CPack: - package: /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/candidate/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/build/custom_opp_ubuntu_aarch64.run.json generated.
+CPack: - package: /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/candidate/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/build/custom_opp_ubuntu_aarch64.run generated.
+[  6%] Built target cust_opapi
+[ 13%] Built target modify_vendor
+[ 33%] Built target cust_optiling
+[ 33%] Built target gen_version_info
+[ 40%] Built target ascendc_kernels_copy_kernel_srcs
+[ 46%] Built target confusion_transpose_d_custom_npu_supported_ops
+[ 73%] Built target cust_op_proto
+[ 80%] Built target confusion_transpose_d_custom_ascendc_cust_opapi
+[ 86%] Built target confusion_transpose_d_custom_ascendc_cust_optiling
+[ 86%] Built target confusion_transpose_d_custom_update_so_names
+[ 93%] Built target ascendc_kernels_ops_info_gen_ascend910b
+[100%] Built target confusion_transpose_d_custom_ascendc_cust_op_proto
+[100%] Built target optiling_compat
+Install the project...
+-- Install configuration: ""
+-- Up-to-date: /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/candidate/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/build/.
+-- Installing: /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/candidate/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/build/./help.info
+-- Installing: /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/candidate/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/build/./uninstall.sh
+-- Installing: /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/candidate/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/build/./install.sh
+-- Installing: /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/candidate/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/build/./upgrade.sh
+-- Installing: /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/candidate/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/build/packages/vendors/confusion_transpose_d_custom/version.info
+-- Installing: /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/candidate/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/build/packages/vendors/confusion_transpose_d_custom/op_impl/ai_core/tbe/op_tiling/lib/linux/aarch64/libcust_opmaster_rt2.0.so
+-- Set runtime path of "/mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/candidate/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/build/packages/vendors/confusion_transpose_d_custom/op_impl/ai_core/tbe/op_tiling/lib/linux/aarch64/libcust_opmaster_rt2.0.so" to ""
+-- Installing: /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/candidate/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/build/packages/vendors/confusion_transpose_d_custom/op_impl/ai_core/tbe/op_tiling/liboptiling.so
+-- Installing: /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/candidate/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/build/packages/vendors/confusion_transpose_d_custom/op_proto/lib/linux/aarch64/libcust_opsproto_rt2.0.so
+-- Set runtime path of "/mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/candidate/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/build/packages/vendors/confusion_transpose_d_custom/op_proto/lib/linux/aarch64/libcust_opsproto_rt2.0.so" to ""
+-- Installing: /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/candidate/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/build/packages/vendors/confusion_transpose_d_custom/op_proto/inc/op_proto.h
+-- Installing: /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/candidate/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/build/packages/vendors/confusion_transpose_d_custom/op_api/lib/libcust_opapi.so
+-- Set runtime path of "/mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/candidate/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/build/packages/vendors/confusion_transpose_d_custom/op_api/lib/libcust_opapi.so" to ""
+-- Installing: /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/candidate/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/build/packages/vendors/confusion_transpose_d_custom/op_api/include/aclnn_confusion_transpose_d.h
+-- Installing: /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/candidate/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/build/packages/vendors/confusion_transpose_d_custom/op_impl/ai_core/tbe/confusion_transpose_d_custom_impl/dynamic/
+-- Installing: /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/candidate/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/build/packages/vendors/confusion_transpose_d_custom/op_impl/ai_core/tbe/confusion_transpose_d_custom_impl/dynamic//confusion_transpose_d_tiling_key.h
+-- Installing: /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/candidate/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/build/packages/vendors/confusion_transpose_d_custom/op_impl/ai_core/tbe/confusion_transpose_d_custom_impl/dynamic//confusion_transpose_d_tiling_data.h
+-- Installing: /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/candidate/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/build/packages/vendors/confusion_transpose_d_custom/op_impl/ai_core/tbe/confusion_transpose_d_custom_impl/dynamic//confusion_transpose_d.py
+-- Installing: /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/candidate/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/build/packages/vendors/confusion_transpose_d_custom/op_impl/ai_core/tbe/confusion_transpose_d_custom_impl/dynamic//confusion_transpose_d.h
+-- Installing: /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/candidate/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/build/packages/vendors/confusion_transpose_d_custom/op_impl/ai_core/tbe/confusion_transpose_d_custom_impl/dynamic//confusion_transpose_d.cpp
+-- Installing: /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/candidate/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/build/packages/vendors/confusion_transpose_d_custom/op_impl/ai_core/tbe//kernel/ascend910b/
+-- Installing: /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/candidate/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/build/packages/vendors/confusion_transpose_d_custom/op_impl/ai_core/tbe//kernel/ascend910b//confusion_transpose_d
+-- Installing: /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/candidate/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/build/packages/vendors/confusion_transpose_d_custom/op_impl/ai_core/tbe//kernel/ascend910b//confusion_transpose_d/ConfusionTransposeD_644ccd86d38dab8719230745de7404c1.o
+-- Installing: /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/candidate/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/build/packages/vendors/confusion_transpose_d_custom/op_impl/ai_core/tbe//kernel/ascend910b//confusion_transpose_d/ConfusionTransposeD_a7caa7ce760fb64fc3da4738ec8bab81.o
+-- Installing: /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/candidate/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/build/packages/vendors/confusion_transpose_d_custom/op_impl/ai_core/tbe//kernel/ascend910b//confusion_transpose_d/ConfusionTransposeD_b2dc7cd23b5334655a62140a073cbc45.o
+-- Installing: /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/candidate/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/build/packages/vendors/confusion_transpose_d_custom/op_impl/ai_core/tbe//kernel/ascend910b//confusion_transpose_d/ConfusionTransposeD_fa249fc957dbd50a55bf2c53dab874ab.o
+-- Installing: /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/candidate/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/build/packages/vendors/confusion_transpose_d_custom/op_impl/ai_core/tbe//kernel/ascend910b//confusion_transpose_d/ConfusionTransposeD_b46dad417c60878e6482c17a31d6dd5f.json
+-- Installing: /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/candidate/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/build/packages/vendors/confusion_transpose_d_custom/op_impl/ai_core/tbe//kernel/ascend910b//confusion_transpose_d/ConfusionTransposeD_fa249fc957dbd50a55bf2c53dab874ab.json
+-- Installing: /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/candidate/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/build/packages/vendors/confusion_transpose_d_custom/op_impl/ai_core/tbe//kernel/ascend910b//confusion_transpose_d/ConfusionTransposeD_b2dc7cd23b5334655a62140a073cbc45.json
+-- Installing: /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/candidate/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/build/packages/vendors/confusion_transpose_d_custom/op_impl/ai_core/tbe//kernel/ascend910b//confusion_transpose_d/ConfusionTransposeD_d26e4410ef10755323df762c5db69c82.json
+-- Installing: /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/candidate/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/build/packages/vendors/confusion_transpose_d_custom/op_impl/ai_core/tbe//kernel/ascend910b//confusion_transpose_d/ConfusionTransposeD_ea7f35aa0ba9fb267f236670b9eb1cec.json
+-- Installing: /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/candidate/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/build/packages/vendors/confusion_transpose_d_custom/op_impl/ai_core/tbe//kernel/ascend910b//confusion_transpose_d/ConfusionTransposeD_3900730a4a1444ee60064a3f190e5d48.json
+-- Installing: /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/candidate/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/build/packages/vendors/confusion_transpose_d_custom/op_impl/ai_core/tbe//kernel/ascend910b//confusion_transpose_d/ConfusionTransposeD_5379110a4062b31a8cf82e51049f7f2f.json
+-- Installing: /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/candidate/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/build/packages/vendors/confusion_transpose_d_custom/op_impl/ai_core/tbe//kernel/ascend910b//confusion_transpose_d/ConfusionTransposeD_d26e4410ef10755323df762c5db69c82.o
+-- Installing: /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/candidate/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/build/packages/vendors/confusion_transpose_d_custom/op_impl/ai_core/tbe//kernel/ascend910b//confusion_transpose_d/ConfusionTransposeD_969b5416b90174eba15eb726b8c4fb65.json
+-- Installing: /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/candidate/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/build/packages/vendors/confusion_transpose_d_custom/op_impl/ai_core/tbe//kernel/ascend910b//confusion_transpose_d/ConfusionTransposeD_a7caa7ce760fb64fc3da4738ec8bab81.json
+-- Installing: /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/candidate/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/build/packages/vendors/confusion_transpose_d_custom/op_impl/ai_core/tbe//kernel/ascend910b//confusion_transpose_d/ConfusionTransposeD_b46dad417c60878e6482c17a31d6dd5f.o
+-- Installing: /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/candidate/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/build/packages/vendors/confusion_transpose_d_custom/op_impl/ai_core/tbe//kernel/ascend910b//confusion_transpose_d/ConfusionTransposeD_13213515851a44d884c154d72787bb9a.o
+-- Installing: /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/candidate/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/build/packages/vendors/confusion_transpose_d_custom/op_impl/ai_core/tbe//kernel/ascend910b//confusion_transpose_d/ConfusionTransposeD_3900730a4a1444ee60064a3f190e5d48.o
+-- Installing: /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/candidate/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/build/packages/vendors/confusion_transpose_d_custom/op_impl/ai_core/tbe//kernel/ascend910b//confusion_transpose_d/ConfusionTransposeD_13213515851a44d884c154d72787bb9a.json
+-- Installing: /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/candidate/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/build/packages/vendors/confusion_transpose_d_custom/op_impl/ai_core/tbe//kernel/ascend910b//confusion_transpose_d/ConfusionTransposeD_5379110a4062b31a8cf82e51049f7f2f.o
+-- Installing: /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/candidate/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/build/packages/vendors/confusion_transpose_d_custom/op_impl/ai_core/tbe//kernel/ascend910b//confusion_transpose_d/ConfusionTransposeD_ea7f35aa0ba9fb267f236670b9eb1cec.o
+-- Installing: /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/candidate/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/build/packages/vendors/confusion_transpose_d_custom/op_impl/ai_core/tbe//kernel/ascend910b//confusion_transpose_d/ConfusionTransposeD_644ccd86d38dab8719230745de7404c1.json
+-- Installing: /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/candidate/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/build/packages/vendors/confusion_transpose_d_custom/op_impl/ai_core/tbe//kernel/ascend910b//confusion_transpose_d/ConfusionTransposeD_969b5416b90174eba15eb726b8c4fb65.o
+-- Installing: /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/candidate/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/build/packages/vendors/confusion_transpose_d_custom/op_impl/ai_core/tbe//kernel/config/
+-- Installing: /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/candidate/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/build/packages/vendors/confusion_transpose_d_custom/op_impl/ai_core/tbe//kernel/config//ascend910b
+-- Installing: /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/candidate/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/build/packages/vendors/confusion_transpose_d_custom/op_impl/ai_core/tbe//kernel/config//ascend910b/binary_info_config.json
+-- Installing: /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/candidate/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/build/packages/vendors/confusion_transpose_d_custom/op_impl/ai_core/tbe//kernel/config//ascend910b/confusion_transpose_d.json
+-- Installing: /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/candidate/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/build/packages/vendors/confusion_transpose_d_custom/op_impl/ai_core/tbe/config/ascend910b/aic-ascend910b-ops-info.json
+-- Installing: /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/candidate/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/build/packages/vendors/confusion_transpose_d_custom/framework/tensorflow/npu_supported_ops.json
+----------------------------------------------------------------
+[INFO] Build completed successfully!
+[INFO] Kernel binary: /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/candidate/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/build/op_kernel/ascendc_kernels/binary/ascend910b/confusion_transpose_d/ConfusionTransposeD_644ccd86d38dab8719230745de7404c1.o
+[INFO] Package: /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/candidate/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/build/custom_opp_ubuntu_aarch64.run
+----------------------------------------------------------------
+[INFO] Running examples...
+-- The CXX compiler identification is GNU 9.4.0
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/candidate/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/examples/build
+[ 50%] Building CXX object CMakeFiles/sample.dir/test_aclnn_confusion_transpose_d.cpp.o
+[100%] Linking CXX executable sample
+[100%] Built target sample
+Sample data generated.
+workspace_bytes=16777216 numel=120 dtype=float32
+perf_warmup=0 perf_repeat=1
+PASS: y.bin, mismatched=0/120
+PASSED
+[INFO] Example completed successfully!
+PASS baseline_tf_f32 mismatched=0/120
+PASS baseline_rf_f32 mismatched=0/120
+PASS baseline_tf_f16 mismatched=0/120
+PASS baseline_tf_i8 mismatched=0/120
+PASS baseline_tf_i32 mismatched=0/120
+PASS rank2_swap_f32 mismatched=0/128
+PASS rank3_rot_f32 mismatched=0/120
+PASS rank3_rf_f32 mismatched=0/120
+PASS reshape_same_rank_tf mismatched=0/120
+PASS reshape_same_rank_rf mismatched=0/120
+PASS larger_4d_f32 mismatched=0/2048
+PASS larger_4d_f16 mismatched=0/8192
+PASS baseline_tf_bf16 mismatched=0/120
+PASS dma_short_i8 mismatched=0/315
+PASS dma_short_i64 mismatched=0/315
+PASS dma_fused_suffix mismatched=0/192
+PASS dma_unit_axes mismatched=0/30
+PASS dma_long_row mismatched=0/38400
+PASS dma_rank8 mismatched=0/48
+PASS dma_rows128_f32 mismatched=0/16384
+PASS dma_rf_newshape mismatched=0/120
+PASS fallback_i64 mismatched=0/72
+summary {'PASS': 22}
+counts {'PASS': 22}
+{"case": "baseline_tf_f32", "command": ["/home/developer/Ascend/cann-9.1.0/bin/msprof", "--application=/mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/candidate/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/examples/build/sample /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/logs/candidate_regression/baseline_tf_f32 0", "--output=/mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/logs/candidate_profile/baseline_tf_f32", "--task-time=on", "--aic-metrics=PipeUtilization"], "result": "PROFILED", "exit_code": 0, "exact_output": true, "observed_kernel_calls": 25, "csv_files": ["PROF_000001_20261110143158338_00009611NIRHJHOE/mindstudio_profiler_output/op_summary_20261110143205.csv"], "block_dim": [], "warmup": 5, "samples_us": [6.42, 7.16, 6.72, 7.26, 6.72, 6.94, 6.42, 7.0, 4.02, 4.32, 4.04, 4.02, 3.92, 3.9, 3.96, 4.08, 3.92, 3.98, 4.02, 4.02], "median_us": 4.0600000000000005, "min_us": 3.9, "max_us": 7.26}
+{"case": "larger_4d_f16", "command": ["/home/developer/Ascend/cann-9.1.0/bin/msprof", "--application=/mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/candidate/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/examples/build/sample /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/logs/candidate_regression/larger_4d_f16 0", "--output=/mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/logs/candidate_profile/larger_4d_f16", "--task-time=on", "--aic-metrics=PipeUtilization"], "result": "PROFILED", "exit_code": 0, "exact_output": true, "observed_kernel_calls": 25, "csv_files": ["PROF_000001_20261110143207379_00009901ABRMHMNP/mindstudio_profiler_output/op_summary_20261110143214.csv"], "block_dim": [], "warmup": 5, "samples_us": [10.94, 10.84, 10.84, 10.82, 10.8, 10.72, 10.82, 10.82, 10.8, 10.82, 10.92, 10.96, 10.94, 10.84, 10.74, 10.84, 10.84, 10.86, 10.84, 10.78], "median_us": 10.84, "min_us": 10.72, "max_us": 10.96}
+{"case": "dma_rows128_f32", "command": ["/home/developer/Ascend/cann-9.1.0/bin/msprof", "--application=/mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/candidate/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/examples/build/sample /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/logs/candidate_regression/dma_rows128_f32 0", "--output=/mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/logs/candidate_profile/dma_rows128_f32", "--task-time=on", "--aic-metrics=PipeUtilization"], "result": "PROFILED", "exit_code": 0, "exact_output": true, "observed_kernel_calls": 25, "csv_files": ["PROF_000001_20261110143216420_00010180EIQRIOBR/mindstudio_profiler_output/op_summary_20261110143223.csv"], "block_dim": [], "warmup": 5, "samples_us": [6.76, 6.84, 6.78, 6.74, 6.72, 6.82, 6.78, 6.78, 6.72, 6.74, 6.78, 6.82, 6.76, 6.72, 6.74, 6.84, 6.82, 6.78, 6.74, 6.74], "median_us": 6.77, "min_us": 6.72, "max_us": 6.84}
+{"case": "rank2_swap_f32", "command": ["/home/developer/Ascend/cann-9.1.0/bin/msprof", "--application=/mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/candidate/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/examples/build/sample /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/logs/candidate_regression/rank2_swap_f32 0", "--output=/mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/logs/candidate_profile/rank2_swap_f32", "--task-time=on", "--aic-metrics=PipeUtilization"], "result": "PROFILED", "exit_code": 0, "exact_output": true, "observed_kernel_calls": 25, "csv_files": ["PROF_000001_20261110143225461_00010459HJHHFGHH/mindstudio_profiler_output/op_summary_20261110143232.csv"], "block_dim": [], "warmup": 5, "samples_us": [8.32, 8.42, 8.32, 8.32, 8.32, 8.32, 8.4, 8.32, 8.4, 8.3, 8.3, 8.34, 8.34, 8.4, 8.32, 8.34, 8.34, 8.4, 8.32, 8.32], "median_us": 8.32, "min_us": 8.3, "max_us": 8.42}
+[
+  {
+    "case": "baseline_tf_f32",
+    "baseline_us": 8.5,
+    "candidate_us": 4.0600000000000005,
+    "speedup": 2.0935960591133003,
+    "scope": "same-machine custom kernel A/B; not hidden platform cases or TBE"
+  },
+  {
+    "case": "larger_4d_f16",
+    "baseline_us": 24.43,
+    "candidate_us": 10.84,
+    "speedup": 2.253690036900369,
+    "scope": "same-machine custom kernel A/B; not hidden platform cases or TBE"
+  },
+  {
+    "case": "dma_rows128_f32",
+    "baseline_us": 41.07,
+    "candidate_us": 6.77,
+    "speedup": 6.066469719350074,
+    "scope": "same-machine custom kernel A/B; not hidden platform cases or TBE"
+  },
+  {
+    "case": "rank2_swap_f32",
+    "baseline_us": 8.26,
+    "candidate_us": 8.32,
+    "speedup": 0.9927884615384615,
+    "scope": "same-machine custom kernel A/B; not hidden platform cases or TBE"
+  }
+]

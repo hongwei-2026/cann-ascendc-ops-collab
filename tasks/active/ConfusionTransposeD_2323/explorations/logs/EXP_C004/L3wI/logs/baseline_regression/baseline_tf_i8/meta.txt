@@ -1,0 +1,5 @@
+dtype=int8
+transpose_first=1
+in_shape=2,3,4,5
+perm=0,2,1,3
+out_shape=2,4,3,5

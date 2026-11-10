@@ -1,0 +1,2 @@
+P004 copy-plan PASS: 1658 checks; DMA plans=594
+CPU oracle only; CANN/NPU verification remains required.

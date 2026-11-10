@@ -1,0 +1,18 @@
+{
+  "archive": "EXP_C004_20261110_142548_L3wI.tar.gz",
+  "sha256": "14c8db6d052bc36cc734a759258bd991049698cac648f5be9e2dd77c447365d5",
+  "bytes": 2016253,
+  "extracted_text_files": 285,
+  "scope": "Original tar includes all raw profiling binaries. Text logs, CSV and JSON extracted alongside for review.",
+  "extracted_profile_directory_map": {
+    "logs/baseline_profile/baseline_tf_f32/PROF_000001_20261110142838623_00005385BBNPRDKM": "logs/baseline_profile/baseline_tf_f32/raw",
+    "logs/baseline_profile/dma_rows128_f32/PROF_000001_20261110142854700_00005972QEAAIDER": "logs/baseline_profile/dma_rows128_f32/raw",
+    "logs/baseline_profile/larger_4d_f16/PROF_000001_20261110142846662_00005693NQCNRBOJ": "logs/baseline_profile/larger_4d_f16/raw",
+    "logs/baseline_profile/rank2_swap_f32/PROF_000001_20261110142902737_00006262GINMCAEH": "logs/baseline_profile/rank2_swap_f32/raw",
+    "logs/candidate_profile/baseline_tf_f32/PROF_000001_20261110143158338_00009611NIRHJHOE": "logs/candidate_profile/baseline_tf_f32/raw",
+    "logs/candidate_profile/dma_rows128_f32/PROF_000001_20261110143216420_00010180EIQRIOBR": "logs/candidate_profile/dma_rows128_f32/raw",
+    "logs/candidate_profile/larger_4d_f16/PROF_000001_20261110143207379_00009901ABRMHMNP": "logs/candidate_profile/larger_4d_f16/raw",
+    "logs/candidate_profile/rank2_swap_f32/PROF_000001_20261110143225461_00010459HJHHFGHH": "logs/candidate_profile/rank2_swap_f32/raw"
+  },
+  "reason_for_short_paths": "Keep extracted evidence paths below Windows path limits. Original archive and cloud JSON are unchanged."
+}

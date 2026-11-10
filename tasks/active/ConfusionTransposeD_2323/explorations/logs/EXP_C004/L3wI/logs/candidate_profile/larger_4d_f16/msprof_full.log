@@ -1,0 +1,30 @@
+[INFO] Start profiling....
+workspace_bytes=16777216 numel=8192 dtype=float16
+perf_warmup=5 perf_repeat=20
+[INFO] Start export data in PROF_000001_20261110143207379_00009901ABRMHMNP.
+Tue 10 Nov 2026 14:32:12 [INFO] [MSVP] [9968] msprof_common.py: Start analyzing data in "/mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/logs/candidate_profile/larger_4d_f16/PROF_000001_20261110143207379_00009901ABRMHMNP/host" ...
+Tue 10 Nov 2026 14:32:12 [INFO] [MSVP] [9968] msprof_common.py: It may take few minutes, please be patient ...
+Tue 10 Nov 2026 14:32:12 [INFO] [MSVP] [9968] msprof_common.py: Analysis data in "/mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/logs/candidate_profile/larger_4d_f16/PROF_000001_20261110143207379_00009901ABRMHMNP/host" finished.
+Tue 10 Nov 2026 14:32:12 [INFO] [MSVP] [9968] msprof_common.py: Start analyzing data in "/mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/logs/candidate_profile/larger_4d_f16/PROF_000001_20261110143207379_00009901ABRMHMNP/device_0" ...
+Tue 10 Nov 2026 14:32:12 [INFO] [MSVP] [9968] msprof_common.py: It may take few minutes, please be patient ...
+Tue 10 Nov 2026 14:32:13 [INFO] [MSVP] [9968] msprof_common.py: Analysis data in "/mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/logs/candidate_profile/larger_4d_f16/PROF_000001_20261110143207379_00009901ABRMHMNP/device_0" finished.
+Tue 10 Nov 2026 14:32:13 [INFO] [MSVP] [9968] msprof_export.py: All collected data will be exported, path is: /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/logs/candidate_profile/larger_4d_f16/PROF_000001_20261110143207379_00009901ABRMHMNP/device_0.
+Tue 10 Nov 2026 14:32:14 [INFO] [MSVP] [10137] msprof_export.py: The data in "/mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/logs/candidate_profile/larger_4d_f16/PROF_000001_20261110143207379_00009901ABRMHMNP/host" has been analyzed. Parsing phase will be skipped.
+Tue 10 Nov 2026 14:32:14 [INFO] [MSVP] [10137] msprof_export.py: The data in "/mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/logs/candidate_profile/larger_4d_f16/PROF_000001_20261110143207379_00009901ABRMHMNP/device_0" has been analyzed. Parsing phase will be skipped.
+Tue 10 Nov 2026 14:32:14 [INFO] [MSVP] [10137] msprof_export.py: All collected data will be exported, path is: /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/logs/candidate_profile/larger_4d_f16/PROF_000001_20261110143207379_00009901ABRMHMNP/device_0.
+Tue 10 Nov 2026 14:32:14 [INFO] [MSVP] [10137] msprof_export.py: There is no summary data to export for "/mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/logs/candidate_profile/larger_4d_f16/PROF_000001_20261110143207379_00009901ABRMHMNP/host"
+Tue 10 Nov 2026 14:32:14 [INFO] [MSVP] [10137] msprof_export.py: All collected data will be exported, path is: /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/logs/candidate_profile/larger_4d_f16/PROF_000001_20261110143207379_00009901ABRMHMNP/device_0.
+Tue 10 Nov 2026 14:32:14 [INFO] [MSVP] [10137] msprof_export.py: There is no summary data to export for "/mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/logs/candidate_profile/larger_4d_f16/PROF_000001_20261110143207379_00009901ABRMHMNP/device_0"
+Tue 10 Nov 2026 14:32:14 [INFO] [MSVP] [10137] msprof_common.py: Start exporting summary output_file.
+Tue 10 Nov 2026 14:32:14 [INFO] [MSVP] [10137] msprof_common.py: End exporting summary output_file.The file is stored in the /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/logs/candidate_profile/larger_4d_f16/PROF_000001_20261110143207379_00009901ABRMHMNP/mindstudio_profiler_output path.
+[INFO] Export all data in PROF_000001_20261110143207379_00009901ABRMHMNP done.
+[INFO] Start query data in PROF_000001_20261110143207379_00009901ABRMHMNP.
+Job Info	Device ID	Dir Name	Collection Time           	Model ID	Iteration Number	Top Time Iteration	Rank ID	
+
+NA      	         	host    	2026-11-10 14:32:07.373454	N/A     	N/A             	N/A               	-1     	
+
+NA      	0        	device_0	2026-11-10 14:32:07.376376	N/A     	N/A             	N/A               	-1     	
+
+[INFO] Query all data in PROF_000001_20261110143207379_00009901ABRMHMNP done.
+[INFO] Profiling finished.
+[INFO] Process profiling data complete. Data is saved in /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/logs/candidate_profile/larger_4d_f16/PROF_000001_20261110143207379_00009901ABRMHMNP

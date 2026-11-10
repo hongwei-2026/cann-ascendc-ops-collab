@@ -1,0 +1,30 @@
+[
+  {
+    "case": "baseline_tf_f32",
+    "baseline_us": 8.5,
+    "candidate_us": 4.0600000000000005,
+    "speedup": 2.0935960591133003,
+    "scope": "same-machine custom kernel A/B; not hidden platform cases or TBE"
+  },
+  {
+    "case": "larger_4d_f16",
+    "baseline_us": 24.43,
+    "candidate_us": 10.84,
+    "speedup": 2.253690036900369,
+    "scope": "same-machine custom kernel A/B; not hidden platform cases or TBE"
+  },
+  {
+    "case": "dma_rows128_f32",
+    "baseline_us": 41.07,
+    "candidate_us": 6.77,
+    "speedup": 6.066469719350074,
+    "scope": "same-machine custom kernel A/B; not hidden platform cases or TBE"
+  },
+  {
+    "case": "rank2_swap_f32",
+    "baseline_us": 8.26,
+    "candidate_us": 8.32,
+    "speedup": 0.9927884615384615,
+    "scope": "same-machine custom kernel A/B; not hidden platform cases or TBE"
+  }
+]

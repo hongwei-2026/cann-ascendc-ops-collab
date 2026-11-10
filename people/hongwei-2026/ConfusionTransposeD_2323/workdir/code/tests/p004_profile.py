@@ -32,7 +32,7 @@ def read_durations(folder):
                 if duration is None:
                     continue
                 values.append(float(duration))
-                blocks.extend(v for k, v in row.items() if normalized(k) in ("blockdim", "blockdims"))
+                blocks.extend(v for k, v in row.items() if normalized(k) in ("blockdim", "blockdims", "blocknum"))
                 sources.append(str(path.relative_to(folder)))
     return values, sorted(set(sources)), sorted(set(blocks))
 

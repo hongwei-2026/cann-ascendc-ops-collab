@@ -1,0 +1,18 @@
+Device_id,Level,API Name,Time(us),Count,Avg(us),Min(us),Max(us),Variance
+host,acl,aclnnConfusionTransposeD,992.33,25,39.693,14.27,616.91,13888.913
+host,acl,aclnnConfusionTransposeDGetWorkspaceSize,609792.6,25,24391.704,6.94,609601.51,14269604882.707
+host,acl,aclnnConfusionTransposeDTiling,26.38,1,26.38,26.38,26.38,0
+host,acl,aclrtBinaryLoadFromData,114.51,1,114.51,114.51,114.51,0
+host,acl,aclrtCreateStream,996.67,1,996.67,996.67,996.67,0
+host,acl,aclrtCtxGetFloatOverflowAddr,2.07,1,2.07,2.07,2.07,0
+host,acl,aclrtCtxGetSysParamOpt,69.84,27,2.587,0.97,37.72,47.729
+host,acl,aclrtDestroyStream,544.18,1,544.18,544.18,544.18,0
+host,acl,aclrtFree,22.35,3,7.45,3.32,12.69,15.249
+host,acl,aclrtGetResInCurrentThread,39.76,52,0.765,0.44,4.59,0.393
+host,acl,aclrtGetStreamAttribute,23.41,25,0.936,0.58,7.69,1.909
+host,acl,aclrtLaunchKernelWithHostArgs,631.41,25,25.256,5.81,472.88,8349.81
+host,acl,aclrtMalloc,185.58,3,61.86,9.16,124.61,2271.952
+host,acl,aclrtMemcpy,146.13,3,48.71,36.28,55.71,77.663
+host,acl,aclrtResetDevice,1915317.44,1,1915317.44,1915317.44,1915317.44,0
+host,acl,aclrtSynchronizeStream,1327.94,25,53.118,48.62,90.74,66.284
+host,node,launch,817.57,25,32.703,8.74,582.33,12589.758

@@ -1,0 +1,178 @@
+[
+  {
+    "case": "baseline_tf_f32",
+    "command": [
+      "/home/developer/Ascend/cann-9.1.0/bin/msprof",
+      "--application=/mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/baseline/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/examples/build/sample /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/logs/baseline_regression/baseline_tf_f32 0",
+      "--output=/mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/logs/baseline_profile/baseline_tf_f32",
+      "--task-time=on",
+      "--aic-metrics=PipeUtilization"
+    ],
+    "result": "PROFILED",
+    "exit_code": 0,
+    "exact_output": true,
+    "observed_kernel_calls": 25,
+    "csv_files": [
+      "PROF_000001_20261110142838623_00005385BBNPRDKM/mindstudio_profiler_output/op_summary_20261110142845.csv"
+    ],
+    "block_dim": [],
+    "warmup": 5,
+    "samples_us": [
+      8.8,
+      8.48,
+      8.46,
+      8.74,
+      8.74,
+      8.56,
+      8.72,
+      8.74,
+      8.5,
+      8.5,
+      8.46,
+      8.48,
+      8.5,
+      8.68,
+      8.48,
+      8.94,
+      8.46,
+      8.48,
+      8.5,
+      8.48
+    ],
+    "median_us": 8.5,
+    "min_us": 8.46,
+    "max_us": 8.94
+  },
+  {
+    "case": "larger_4d_f16",
+    "command": [
+      "/home/developer/Ascend/cann-9.1.0/bin/msprof",
+      "--application=/mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/baseline/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/examples/build/sample /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/logs/baseline_regression/larger_4d_f16 0",
+      "--output=/mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/logs/baseline_profile/larger_4d_f16",
+      "--task-time=on",
+      "--aic-metrics=PipeUtilization"
+    ],
+    "result": "PROFILED",
+    "exit_code": 0,
+    "exact_output": true,
+    "observed_kernel_calls": 25,
+    "csv_files": [
+      "PROF_000001_20261110142846662_00005693NQCNRBOJ/mindstudio_profiler_output/op_summary_20261110142853.csv"
+    ],
+    "block_dim": [],
+    "warmup": 5,
+    "samples_us": [
+      24.48,
+      24.4,
+      24.44,
+      24.38,
+      24.3,
+      24.74,
+      24.5,
+      24.52,
+      24.48,
+      24.5,
+      24.3,
+      24.42,
+      24.3,
+      24.5,
+      24.42,
+      24.28,
+      24.5,
+      24.4,
+      24.3,
+      24.6
+    ],
+    "median_us": 24.43,
+    "min_us": 24.28,
+    "max_us": 24.74
+  },
+  {
+    "case": "dma_rows128_f32",
+    "command": [
+      "/home/developer/Ascend/cann-9.1.0/bin/msprof",
+      "--application=/mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/baseline/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/examples/build/sample /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/logs/baseline_regression/dma_rows128_f32 0",
+      "--output=/mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/logs/baseline_profile/dma_rows128_f32",
+      "--task-time=on",
+      "--aic-metrics=PipeUtilization"
+    ],
+    "result": "PROFILED",
+    "exit_code": 0,
+    "exact_output": true,
+    "observed_kernel_calls": 25,
+    "csv_files": [
+      "PROF_000001_20261110142854700_00005972QEAAIDER/mindstudio_profiler_output/op_summary_20261110062901.csv"
+    ],
+    "block_dim": [],
+    "warmup": 5,
+    "samples_us": [
+      41.0,
+      41.1,
+      41.5,
+      41.04,
+      41.08,
+      41.04,
+      41.3,
+      41.02,
+      41.44,
+      40.96,
+      41.16,
+      41.08,
+      40.96,
+      40.94,
+      41.08,
+      41.36,
+      41.06,
+      41.04,
+      41.08,
+      40.9
+    ],
+    "median_us": 41.07,
+    "min_us": 40.9,
+    "max_us": 41.5
+  },
+  {
+    "case": "rank2_swap_f32",
+    "command": [
+      "/home/developer/Ascend/cann-9.1.0/bin/msprof",
+      "--application=/mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/baseline/people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/examples/build/sample /mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/logs/baseline_regression/rank2_swap_f32 0",
+      "--output=/mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C004_20261110_142548_L3wI/logs/baseline_profile/rank2_swap_f32",
+      "--task-time=on",
+      "--aic-metrics=PipeUtilization"
+    ],
+    "result": "PROFILED",
+    "exit_code": 0,
+    "exact_output": true,
+    "observed_kernel_calls": 25,
+    "csv_files": [
+      "PROF_000001_20261110142902737_00006262GINMCAEH/mindstudio_profiler_output/op_summary_20261110142909.csv"
+    ],
+    "block_dim": [],
+    "warmup": 5,
+    "samples_us": [
+      8.26,
+      8.28,
+      8.22,
+      8.28,
+      8.2,
+      8.26,
+      8.26,
+      8.24,
+      8.26,
+      8.22,
+      8.26,
+      8.04,
+      8.28,
+      8.28,
+      8.22,
+      8.26,
+      8.3,
+      8.3,
+      8.3,
+      8.26
+    ],
+    "median_us": 8.26,
+    "min_us": 8.04,
+    "max_us": 8.3
+  }
+]

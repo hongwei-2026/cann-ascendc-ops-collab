@@ -1,0 +1,2 @@
+workspace_bytes=16777216 numel=120 dtype=bfloat16
+perf_warmup=0 perf_repeat=1
