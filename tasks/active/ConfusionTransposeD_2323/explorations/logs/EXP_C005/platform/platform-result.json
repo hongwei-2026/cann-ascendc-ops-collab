@@ -1,0 +1,63 @@
+{
+  "source": "User-provided screenshot",
+  "screenshot_sha256": "238c1271779e3459d70966f416749474b697c9274aa102bdaf1829ee1a8d3d92",
+  "overall_status": "Runtime Error",
+  "visible_time": "14:56:11",
+  "date": "2026-11-10 (session date; screenshot date clipped)",
+  "records": [
+    {
+      "point": 1,
+      "result": "Pass",
+      "output_error_percent": 0,
+      "current_us": 716.62,
+      "previous_us": 1760,
+      "best_us": 3.66,
+      "previous_divided_by_current": 2.4559738773687587,
+      "current_divided_by_best": 195.79781420765028
+    },
+    {
+      "point": 2,
+      "result": "Pass",
+      "output_error_percent": 0,
+      "current_us": 728.01,
+      "previous_us": 1750,
+      "best_us": 3.45,
+      "previous_divided_by_current": 2.4038131344349667,
+      "current_divided_by_best": 211.01739130434783
+    },
+    {
+      "point": 3,
+      "result": "Pass",
+      "output_error_percent": 0,
+      "current_us": 1760,
+      "previous_us": 1730,
+      "best_us": 3.45,
+      "previous_divided_by_current": 0.9829545454545454,
+      "current_divided_by_best": 510.1449275362319
+    },
+    {
+      "point": 4,
+      "result": "Pass",
+      "output_error_percent": 0,
+      "current_us": 1840,
+      "previous_us": 1700,
+      "best_us": 3.5,
+      "previous_divided_by_current": 0.9239130434782609,
+      "current_divided_by_best": 525.7142857142857
+    },
+    {
+      "point": 5,
+      "result": "Pass",
+      "output_error_percent": 0,
+      "current_us": 1830,
+      "previous_us": 1820,
+      "best_us": 3.43,
+      "previous_divided_by_current": 0.994535519125683,
+      "current_divided_by_best": 533.5276967930029
+    }
+  ],
+  "hidden_point_6": "No result visible",
+  "error_detail": "Unavailable per owner",
+  "source_commit": "Reported as P004 resubmission; uploaded project hash not available",
+  "root_cause": "UNKNOWN"
+}

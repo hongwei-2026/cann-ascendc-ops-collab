@@ -1,0 +1,9 @@
+{
+  "local_semantic_exit_code": 0,
+  "probe_case_count": 52,
+  "source_anchor_check": "PASS",
+  "fixture_generation": "52 GENERATED_ONLY; no NPU execution",
+  "kernel_changes": false,
+  "driver_cann_compile": "UNVERIFIED",
+  "platform_root_cause": "UNKNOWN"
+}
