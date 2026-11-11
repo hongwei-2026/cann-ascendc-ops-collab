@@ -16,4 +16,6 @@ P004/P006/P007 的对照均是本算子版本之间的同机 A/B，不能证明�
 
 ## 结论
 
-进行中；无 Kernel diff、无性能 PASS。若 TBE 对照条件不成立，关闭 P008 并停止新增 Kernel 优化路线。
+CodeArts盘点成功（910B3 / CANN 9.1.0，exit=0），确认存在910B注册的legacy TBE配置、legacy Python实现，以及dynamic TBE/AscendC实现文件。扫描到的`Transpose`/`Gather`声明是ACLNN/ES接口；本次没有证明AscendC Kernel内可直接调用的Transpose/Gather原语。
+
+仍未确认TBE实现如何绕开自定义op调用、怎样用P004相同输入做profile，也未取得平台点shape。原始tar留在CodeArts且未下载；只归档用户粘贴的marker段[`C008-console-evidence.log`](logs/EXP_C008/C008-console-evidence.log)，SHA256为`B12C65694536E0D305DD920A6EE42ED0DC10F41CE861D97C5276D736649A9C03`，不宣称完整日志包已归档。当前P008继续限定在30分钟内读取TBE实现/入口；在同机device task对照可执行前，无Kernel diff、无性能PASS。

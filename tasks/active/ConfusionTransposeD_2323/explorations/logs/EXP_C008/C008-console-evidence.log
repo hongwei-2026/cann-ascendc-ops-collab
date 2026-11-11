@@ -1,0 +1,56 @@
+C008_EVIDENCE_BEGIN
+exit=0
+2026-11-11T22:24:24+08:00
+Linux dfdd97f8c4e84acbaa54982714e4d993 5.10.0-182.0.0.95.r2673_211.hce2.aarch64 #1 SMP Sat Mar 15 08:57:21 UTC 2025 aarch64 aarch64 aarch64 GNU/Linux
+repo_head=44a6bda4841cea781df8b76867052777439a2c63
+repo_status_for_operator=
+ASCEND_HOME_PATH=/home/developer/Ascend/cann-9.1.0
+ASCEND_OPP_PATH=/home/developer/Ascend/cann-9.1.0/opp
+ASCEND_CUSTOM_OPP_PATH=<unset>
++------------------------------------------------------------------------------------------------+
+| npu-smi 25.5.0                   Version: 25.5.0                                               |
++---------------------------+---------------+----------------------------------------------------+
+| NPU   Name                | Health        | Power(W)    Temp(C)           Hugepages-Usage(page)|
+| Chip                      | Bus-Id        | AICore(%)   Memory-Usage(MB)  HBM-Usage(MB)        |
++===========================+===============+====================================================+
+| 0     910B3               | OK            | 88.0        34                0    / 0             |
+| 0                         | 0000:0A:00.0  | 0           0    / 0          3427 / 65536         |
++===========================+===============+====================================================+
++---------------------------+---------------+----------------------------------------------------+
+| NPU     Chip              | Process id    | Process name             | Process memory(MB)      |
++===========================+===============+====================================================+
+| No running processes found in NPU 0                                                            |
++===========================+===============+====================================================+
+TBE_FILE_HITS_BEGIN
+/home/developer/Ascend/cann-9.1.0/opp/built-in/op_impl/ai_core/tbe/impl/ops_legacy/confusion_transpose_d.py
+/home/developer/Ascend/cann-9.1.0/opp/built-in/op_impl/ai_core/tbe/impl/ops_math/ascendc/confusion_transpose_d/confusion_transpose_d_apt.cpp
+/home/developer/Ascend/cann-9.1.0/opp/built-in/op_impl/ai_core/tbe/impl/ops_math/dynamic/confusion_transpose_d_apt.py
+TBE_FILE_HITS_END
+TBE_SYMBOL_HITS_BEGIN
+/home/developer/Ascend/cann-9.1.0/opp/built-in/op_impl/ai_core/tbe/config/ascend910b/aic-ascend910b-ops-info-legacy.json:12529:"ConfusionTransposeD":{
+/home/developer/Ascend/cann-9.1.0/opp/built-in/op_impl/ai_core/tbe/config/ascend950/aic-ascend950-ops-info-math.json:3476:"ConfusionTransposeD":{
+/home/developer/Ascend/cann-9.1.0/opp/built-in/op_impl/ai_core/tbe/impl/ops_math/dynamic/confusion_transpose_d_apt.py:175:@tbe_register.register_operator("ConfusionTransposeD", trans_bool_to_s8=False)
+/home/developer/Ascend/cann-9.1.0/opp/built-in/op_impl/ai_core/tbe/impl/ops_math/dynamic/confusion_transpose_d_apt.py:225:print("start compile Ascend C operator ConfusionTransposeD. kernel name is " + kernel_name)
+/home/developer/Ascend/cann-9.1.0/opp/built-in/op_impl/ai_core/tbe/impl/ops_math/dynamic/confusion_transpose_d_apt.py:226:op_type = "ConfusionTransposeD"
+TBE_SYMBOL_HITS_END
+TRANSPOSE_API_HITS_BEGIN
+/home/developer/Ascend/cann-9.1.0/include/aclnnop/aclnn_confusion_transpose.h:24:aclnnStatus aclnnConfusionTranspose(
+/home/developer/Ascend/cann-9.1.0/include/aclnnop/aclnn_gather.h:30:* 计算公式：$$ gather(X,index,d)_{i_0,i_1,\cdots,i_{d-1},i_{d+1},\cdots,i_{n-1}} =
+/home/developer/Ascend/cann-9.1.0/include/aclnnop/aclnn_gather.h:60:aclnnGather(void* workspace, uint64_t workspaceSize, aclOpExecutor* executor, const aclrtStream stream);
+/home/developer/Ascend/cann-9.1.0/include/aclnnop/level2/aclnn_confusion_transpose.h:25:aclnnStatus aclnnConfusionTranspose(
+/home/developer/Ascend/cann-9.1.0/include/aclnnop/level2/aclnn_gather.h:30:* 计算公式：$$ gather(X,index,d)_{i_0,i_1,\cdots,i_{d-1},i_{d+1},\cdots,i_{n-1}} =
+/home/developer/Ascend/cann-9.1.0/include/aclnnop/level2/aclnn_gather.h:60:aclnnGather(void* workspace, uint64_t workspaceSize, aclOpExecutor* executor, const aclrtStream stream);
+/home/developer/Ascend/cann-9.1.0/include/es/es_hccl/es_HcomAllGather_c.h:22:EsCTensorHolder *EsHcomAllGather(EsCTensorHolder *x, int64_t rank_size, const char *group, int64_t fusion, int64_t fusion_id);
+/home/developer/Ascend/cann-9.1.0/include/es/es_hccl/es_HcomAllGather.h:23:inline EsTensorHolder HcomAllGather(const EsTensorHolder & x, int64_t rank_size, const char * group, int64_t fusion=0, int64_t fusion_id=-1) {
+/home/developer/Ascend/cann-9.1.0/include/es/es_hccl/es_HcomAllGather.h:24:auto out = EsHcomAllGather(x.GetCTensorHolder(), rank_size, group, fusion, fusion_id);
+/home/developer/Ascend/cann-9.1.0/include/es/es_math/es_Transpose.h:31:inline EsTensorHolder Transpose(const EsTensorLike & x, const EsTensorLike & perm) {
+/home/developer/Ascend/cann-9.1.0/include/es/es_math/es_Transpose.h:34:auto out = EsTranspose(x.ToTensorHolder(owner_graph_builder).GetCTensorHolder(), perm.ToTensorHolder(owner_graph_builder).GetCTensorHolder());
+/home/developer/Ascend/cann-9.1.0/include/es/es_math/es_Transpose_c.h:22:EsCTensorHolder *EsTranspose(EsCTensorHolder *x, EsCTensorHolder *perm);
+/home/developer/Ascend/cann-9.1.0/include/es/es_nn/es_ExtendConvTranspose_c.h:22:EsCTensorHolder *EsExtendConvTranspose(EsCTensorHolder *input_size, EsCTensorHolder *x, EsCTensorHolder *filter, EsCTensorHolder *bias, EsCTensorHolder *scale, const int64_t *strides, int64_t strides_num, const int64_t *pads, int64_t pads_num, const int64_t *dilations, int64_t dilations_num, int64_t
+/home/developer/Ascend/cann-9.1.0/include/es/es_nn/es_ExtendConvTranspose.h:34:inline EsTensorHolder ExtendConvTranspose(const EsTensorLike & input_size, const EsTensorLike & x, const EsTensorLike & filter, const EsTensorLike & bias, const EsTensorLike & scale, const std::vector<int64_t> & strides, const std::vector<int64_t> & pads, const std::vector<int64_t> & dilations={1, 1
+/home/developer/Ascend/cann-9.1.0/include/es/es_nn/es_ExtendConvTranspose.h:37:auto out = EsExtendConvTranspose(input_size.ToTensorHolder(owner_graph_builder).GetCTensorHolder(), x.ToTensorHolder(owner_graph_builder).GetCTensorHolder(), filter.ToTensorHolder(owner_graph_builder).GetCTensorHolder(), bias.ToTensorHolder(owner_graph_builder).GetCTensorHolder(), scale.ToTensorHold
+/home/developer/Ascend/cann-9.1.0/include/aclnn_kernels/transpose.h:18:const aclTensor* Transpose(const aclTensor* x, const aclTensor* y, const aclTensor* perm, aclOpExecutor* executor);
+/home/developer/Ascend/cann-9.1.0/include/aclnn_kernels/transpose.h:19:const aclTensor* Transpose(const aclTensor* x, const aclIntArray* perm, aclOpExecutor* executor);
+TRANSPOSE_API_HITS_END
+archive=/mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C008_20261111_222424_X68C.tar.gz
+C008_EVIDENCE_END

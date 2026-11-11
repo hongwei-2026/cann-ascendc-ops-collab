@@ -1,5 +1,11 @@
 # Dev log — ConfusionTransposeD_2323
 
+## 2026-11-11（P008 CodeArts回传）
+
+- CodeArts盘点exit=0，机器为910B3、CANN9.1.0，`ASCEND_CUSTOM_OPP_PATH`未设置。确认CANN OPP含legacy ConfusionTransposeD TBE Python、910B legacy注册配置，以及dynamic TBE/AscendC实现源码。
+- 扫描命中的Transpose/Gather为ACLNN/ES接口，不能据此声称存在AscendC Kernel级Transpose/Gather原语；TBE独立调用和同输入device task profile仍未证明。平台点shape也未知。
+- 原tar位于CodeArts且未下载；归档用户粘贴marker段到`explorations/logs/EXP_C008/C008-console-evidence.log`，SHA256 `B12C65694536E0D305DD920A6EE42ED0DC10F41CE861D97C5276D736649A9C03`。P008在30分钟内继续核对TBE调用入口，不改Kernel。
+
 ## 2026-11-11（P008前置盘点）
 
 - Owner要求继续；P006/P007均止损后，没有把排行榜best time当TBE基线。P008仅盘点CodeArts的CANN 9.1 TBE实现、Transpose/Gather API和可复现输入，预算60分钟；Kernel暂不改。
