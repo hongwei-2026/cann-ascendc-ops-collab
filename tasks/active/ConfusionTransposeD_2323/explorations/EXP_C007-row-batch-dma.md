@@ -12,8 +12,15 @@ C006中P004的`dma_rows128_f32`基线为7.170μs；P004 `ProcessCopyRows`对每�
 
 `p007_semantic_check.py`以原reference逐字节比较TF/RF、perm/rank、tile/core边界，并核对每输出元素恰写一次；固定种子的随机原始字节避免周期性输入掩盖地址错误。266项本地计划通过，目标`dma_rows128_f32`模型中的MTE2调用从128降至32。该CPU oracle不验证CANN接口语义、NPU编译或性能。
 
-## 云端验收
+## 云端结果与结案
 
-Owner按[`C007-CLOUD-RUN.md`](../C007-CLOUD-RUN.md)执行P004/候选隔离build、39项bitwise和4项profile。完整tar与终端证据均需归档；分析时只把msprof task time称为Kernel耗时，平台Runtime Error仍未确认。
+2026-11-11，910B3/CANN9.1.0，C007脚本exit=0。P004与P007均`build.sh -e`完成，39/39 bitwise PASS；四项profile均为25次有效Kernel调用、输出字节精确一致。
 
-截止：本地实现/语义≤90分钟；Owner回传后分析/必要修复≤30分钟。任一编译/精度失败经一次修复仍未解决，或性能门槛未达到，依据DEC005停止并恢复P004。
+| 案例 | P004 (μs) | P007 (μs) | P004/P007 |
+|---|---:|---:|---:|
+| rank2_swap_f32 | 8.30 | 7.82 | 1.061× |
+| baseline_tf_f32 | 4.08 | 4.36 | 0.936× |
+| dma_rows128_f32 | 6.72 | 6.56 | 1.024× |
+| larger_4d_f16 | 11.16 | 10.80 | 1.033× |
+
+主目标仅提升2.44%，远低于1.3×；小shape耗时增加6.86%，超过2%回退上限。按DEC006关闭P007，并将Kernel、Host tiling及tiling data精确恢复至P004提交`4761239`。本次只归档粘贴的C007 marker证据段，SHA256为`816dfb66e398b839b5a9f2fc573ad3668a045b64abad774d70bccd1c97ea2911`；原始tar未下载，故不称完整原始日志归档。平台Runtime Error仍未知，C007同机profile不代表平台用时。

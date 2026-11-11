@@ -212,43 +212,7 @@ __aicore__ inline void ConfusionTransposeD<T>::ProcessCopyRows()
     }
     for (int64_t dst = blockOffset_; dst < end;) {
         const int64_t remainingRows = (end - dst) / copySpan_;
-        const int64_t maxRows = remainingRows > rowsPerTile ? rowsPerTile : remainingRows;
-        int64_t rows = maxRows;
-        const int64_t rowBytes = copySpan_ * static_cast<int64_t>(sizeof(T));
-        const int64_t src = MapSrcIndex(dst);
-        int64_t srcStep = 0;
-        int64_t batchRows = 1;
-        bool canBatch = rowBytes % 32 == 0 && maxRows > 1;
-        if (canBatch) {
-            srcStep = MapSrcIndex(dst + copySpan_) - src;
-            canBatch = srcStep >= copySpan_;
-            canBatch = canBatch && (srcStep - copySpan_) * static_cast<int64_t>(sizeof(T)) <= UINT32_MAX;
-            if (canBatch) {
-                batchRows = 2;
-                for (int64_t row = 2; row < maxRows; ++row) {
-                    if (MapSrcIndex(dst + row * copySpan_) != src + row * srcStep) {
-                        break;
-                    }
-                    ++batchRows;
-                }
-            }
-        }
-        if (canBatch && batchRows > 1) {
-            rows = batchRows;
-            // 等差源行合并成一次MTE2块DMA；行字节32B对齐时UB无需行间补齐。
-            LocalTensor<T> local = copyQueue.AllocTensor<T>();
-            DataCopyExtParams inParams{static_cast<uint16_t>(rows), static_cast<uint32_t>(rowBytes),
-                static_cast<uint32_t>((srcStep - copySpan_) * sizeof(T)), 0, 0};
-            DataCopyPadExtParams<T> pad{false, 0, 0, static_cast<T>(0)};
-            DataCopyPad(local, inputGMX[src], inParams, pad);
-            copyQueue.EnQue(local);
-            local = copyQueue.DeQue<T>();
-            DataCopyExtParams outParams{1, static_cast<uint32_t>(rows * rowBytes), 0, 0, 0};
-            DataCopyPad(outputGMY[dst], local, outParams);
-            copyQueue.FreeTensor(local);
-            dst += rows * copySpan_;
-            continue;
-        }
+        const int64_t rows = remainingRows > rowsPerTile ? rowsPerTile : remainingRows;
         LocalTensor<T> local = copyQueue.AllocTensor<T>();
         DataCopyExtParams inParams{1, static_cast<uint32_t>(copySpan_ * sizeof(T)), 0, 0, 0};
         DataCopyPadExtParams<T> pad{false, 0, 0, static_cast<T>(0)};

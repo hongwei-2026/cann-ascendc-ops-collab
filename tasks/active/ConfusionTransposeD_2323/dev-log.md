@@ -1,5 +1,11 @@
 # Dev log — ConfusionTransposeD_2323
 
+## 2026-11-11（C007止损）
+
+- 归档C007粘贴证据段，SHA256 `816dfb66e398b839b5a9f2fc573ad3668a045b64abad774d70bccd1c97ea2911`；CodeArts原tar未下载，证据范围如实标注。
+- 910B3/CANN9.1.0，P004和P007均build完成、39/39 bitwise PASS；四个msprof案例均25次有效Kernel及精确输出。目标128行6.72→6.56μs，仅1.024×；小样4.08→4.36μs，回退6.86%；rank2 8.30→7.82μs。未达到1.3×目标且触发2%回退上限。
+- 按DEC006关闭P007，不开P008；Kernel、Host tiling、tiling data恢复到P004 `4761239`。平台Runtime Error仍未定位。
+
 ## 2026-11-11（C006结案 / P007有界跟进）
 
 - 归档用户粘贴的C006 marker证据段，SHA256 `9cec05afe07c563f37462b6ccb05766d11d7e4841ea34e8342e6e1d60461e3e0`；原CodeArts tar无法下载，本次不称完整原始日志已回收。

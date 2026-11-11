@@ -42,6 +42,6 @@ struct ConfusionTransposeDTilingData {
     int64_t perm5 = 5;
     int64_t perm6 = 6;
     int64_t perm7 = 7;
-    int64_t copySpan = 1;     // 实际转置前 shape 的连续后缀
+    int64_t copySpan = 1;     // 实际转置前 shape 的连续后缀；1 保留标量路径
 };
 #endif

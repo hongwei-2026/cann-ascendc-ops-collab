@@ -9,9 +9,9 @@
 | 模板 | `materials/ConfusionTransposeD_problem_2323_template.zip` |
 | 功能闸 | [EXP_C004](explorations/EXP_C004-contiguous-row-dma.md)：P004 样例 PASS + 原13/新9共22/22 bitwise PASS（含 bf16/int64）；此前 EXP_C001/C002 保留 |
 | 性能基线 | [EXP_C003](explorations/EXP_C003-perf-baseline-platform.md)：平台 1～5 Pass，用时 ~1.7ms / 最优 ~3.5μs（~500×） |
-| 下一闸 | **P007候选待CodeArts验证**：C006确认P006步长DMA对5个定向布局均变慢，rank2和小样持平；已结案并回到P004 `4761239`。P007仅尝试把P004连续行中源地址等差的多行合为一次MTE2步长DMA；`local_semantic_check`、P004计划1658项和P007计划266项均通过，目标案例模型搬运调用128→32。实测门槛仍是`dma_rows128_f32`≥1.3×、rank2/小样回退≤2%；Owner需运行云端build、39项bitwise及profile。门槛未达即DEC止损，不再开启下一路线。平台RE仍未知 |
+| 下一闸 | **P007已止损，当前回到P004 `4761239`**：C007在910B3/CANN9.1.0 exit=0，P004/P007均39/39 bitwise PASS，4项profile全有效；但128行只有1.024×（未达1.3×），小样慢6.86%（超过2%回退上限），因此DEC006关闭P007。当前无后续性能路线授权；平台Runtime Error仍未知 |
 | 止损 | `docs/collaboration/02-perf-gate.md`；触线写 `decisions/DEC*` |
 
 ## 一句话
 
-P006已在910B3/CANN9.1.0上39/39 bitwise通过，但目标span=1路径普遍变慢，按DEC005关闭并以P004为生产起点。当前只推进一次有时限的P007连续行批量DMA假设；CodeArts和平台Runtime Error仍待后续证据，不把本地profile等同平台表现。
+P006与P007均已按门槛止损，活动Kernel恢复到P004 `4761239`。C007虽39/39 bitwise通过，128行目标仅1.024×且小样回退6.86%，不采纳P007；当前没有下一条优化路线授权。平台Runtime Error仍未定位。
