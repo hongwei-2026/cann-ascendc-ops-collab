@@ -5,7 +5,7 @@
 ```bash
 cd /mnt/workspace/cann-ascendc-ops-collab
 git pull --ff-only origin main
-if [ -z "${ASCEND_HOME_PATH:-}" ]; then source /usr/local/Ascend/ascend-toolkit/set_env.sh; fi
+if [ -z "${ASCEND_HOME_PATH:-}" ]; then source /home/developer/Ascend/cann-9.1.0/set_env.sh; fi
 DEVICE_ID=0 bash people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/tests/run_c006_cloud.sh
 ```
 
