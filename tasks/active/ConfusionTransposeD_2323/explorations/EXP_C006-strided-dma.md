@@ -39,3 +39,21 @@ CPU模型不能验证硬件的srcStride语义、队列同步、编译支持或�
 结束或失败时直接打印`C006_EVIDENCE_BEGIN/END`，同时把原包复制到CodeArts项目文件树的个人本题`deliverables/cloud-logs/`，便于下载。仅粘贴摘要不等于完整云日志已归档，回传后如实记录证据范围。
 
 下一闸：Owner执行[C006-CLOUD-RUN.md](../C006-CLOUD-RUN.md)，回传紧凑终端输出/原包；在30分钟预算内按结果采纳或DEC，不预先推荐平台提交候选。
+
+## C006 云端结果与结案
+
+Owner于2026-11-11在910B3/CANN 9.1.0运行脚本，exit=0。P004 baseline和P006 candidate均完成`build.sh -e`，各39/39 bitwise PASS；7项profile均识别到25次Kernel且输出字节一致。下表为msprof设备Kernel中位数（前5次warmup，后20次样本），只代表同机脚本案例，不代表平台隐藏点。
+
+| 案例 | P004基线 (μs) | P006候选 (μs) | 候选/基线 |
+|---|---:|---:|---:|
+| rank2_swap_f32 | 8.300 | 8.3295 | 0.996× |
+| stride_large_f32 | 47.619 | 50.359 | 0.946× |
+| stride_large_f16 | 89.478 | 99.378 | 0.900× |
+| stride_large_i8 | 165.616 | 199.606 | 0.830× |
+| stride_large_i64 | 27.239 | 28.430 | 0.958× |
+| baseline_tf_f32 | 4.130 | 4.120 | 1.002× |
+| dma_rows128_f32 | 7.170 | 7.520 | 0.954× |
+
+P006的≥10×假设被直接否证，所有span=1定向布局均变慢；功能PASS不能抵消性能回退。按[DEC005](../decisions/DEC005-close-p006-and-bound-p007.md)不采纳P006，恢复P004为代码基线。平台RE仍未定位。Owner无法下载原tar，本轮只归档粘贴的完整C006证据段；它不等价于tar内全部构建/运行原始日志。
+
+证据：[`C006-console-evidence.log`](logs/EXP_C006/C006-console-evidence.log)，提取自`666691a1-4ab4-48d1-8f35-fbd5aa4b5f73/Pasted text.txt`中的C006 marker段；文件SHA256 `9cec05afe07c563f37462b6ccb05766d11d7e4841ea34e8342e6e1d60461e3e0`。原tar路径为CodeArts项目文件树`people/hongwei-2026/ConfusionTransposeD_2323/deliverables/cloud-logs/EXP_C006_20261111_200241_31kv.tar.gz`，本机未取得。
