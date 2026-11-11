@@ -1,0 +1,19 @@
+{
+  "scope": "CPU only; no CANN build or NPU execution",
+  "local_semantic_check": "PASS (8 layouts and reference dtype checks)",
+  "p004_copy_plan": {
+    "result": "PASS",
+    "checks": 1658
+  },
+  "p006_strided_address_oracle": {
+    "result": "PASS",
+    "checks": 1002
+  },
+  "fixtures": {
+    "result": "GENERATED_ONLY",
+    "cases": 39,
+    "skips": 0
+  },
+  "python_syntax": "PASS",
+  "compact_report_smoke": "PASS; error output preserved, zero mismatches not flagged, invalid profile never yields speedup"
+}

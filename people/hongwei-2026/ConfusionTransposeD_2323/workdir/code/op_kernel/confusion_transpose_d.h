@@ -34,6 +34,7 @@ private:
     __aicore__ inline void CopyOutTile(int64_t dstOffset, int64_t currentNum);
     __aicore__ inline void CopyRun(int64_t dstOffset, int64_t srcOffset, int64_t count);
     __aicore__ inline void ProcessCopyRows();
+    __aicore__ inline void ProcessGatherRuns();
 
 private:
     TPipe pipe;
@@ -52,6 +53,8 @@ private:
     int64_t rank_ = 0;
     int64_t rankIn_ = 0;
     int64_t copySpan_ = 1;
+    int64_t gatherSpan_ = 0;
+    int64_t gatherStep_ = 0;
 
     int64_t dimIn_[MAX_DIM] = {0};
     int64_t dimShape_[MAX_DIM] = {0};
@@ -151,6 +154,8 @@ __aicore__ inline void ConfusionTransposeD<T>::Init(GM_ADDR x, GM_ADDR y, const 
     rank_ = tilingData->rank;
     rankIn_ = tilingData->rankIn;
     copySpan_ = tilingData->copySpan;
+    gatherSpan_ = tilingData->gatherSpan;
+    gatherStep_ = tilingData->gatherStep;
 
     const int64_t blockIdx = GetBlockIdx();
     blockOffset_ = blockIdx * tilingData->blockFactor;
@@ -167,7 +172,9 @@ __aicore__ inline void ConfusionTransposeD<T>::Init(GM_ADDR x, GM_ADDR y, const 
     inputGMX.SetGlobalBuffer((__gm__ T*)x, totalNum_);
     outputGMY.SetGlobalBuffer((__gm__ T*)y, totalNum_);
 
-    if (copySpan_ > 1) {
+    if (gatherSpan_ > 1) {
+        pipe.InitBuffer(copyQueue, BUFFER_NUM, ubFactor_ * 32);
+    } else if (copySpan_ > 1) {
         // MTE2→MTE3 直通，不分配整输入，也不经过标量/向量寄存器。
         pipe.InitBuffer(copyQueue, BUFFER_NUM, ubFactor_ * sizeof(T));
     } else {
@@ -232,6 +239,34 @@ __aicore__ inline void ConfusionTransposeD<T>::ProcessCopyRows()
 }
 
 template <typename T>
+__aicore__ inline void ConfusionTransposeD<T>::ProcessGatherRuns()
+{
+    const int64_t align = 32 / sizeof(T);
+    const int64_t end = blockOffset_ + blockLength_;
+    for (int64_t dst = blockOffset_; dst < end;) {
+        const int64_t current = (end - dst > ubFactor_) ? ubFactor_ : end - dst;
+        LocalTensor<T> local = copyQueue.AllocTensor<T>();
+        for (int64_t offset = 0; offset < current;) {
+            const int64_t runRemain = gatherSpan_ - ((dst + offset) % gatherSpan_);
+            const int64_t count = (current - offset > runRemain) ? runRemain : current - offset;
+            const int64_t src = MapSrcIndex(dst + offset);
+            // GM stride单位为字节；UB自动将每个短块补齐到32B。
+            DataCopyExtParams inParams{static_cast<uint16_t>(count), static_cast<uint32_t>(sizeof(T)),
+                static_cast<uint32_t>((gatherStep_ - 1) * sizeof(T)), 0, 0};
+            DataCopyPadExtParams<T> pad{false, 0, 0, static_cast<T>(0)};
+            DataCopyPad(local[offset * align], inputGMX[src], inParams, pad);
+            offset += count;
+        }
+        copyQueue.EnQue(local);
+        local = copyQueue.DeQue<T>();
+        DataCopyExtParams outParams{static_cast<uint16_t>(current), static_cast<uint32_t>(sizeof(T)), 0, 0, 0};
+        DataCopyPad(outputGMY[dst], local, outParams);
+        copyQueue.FreeTensor(local);
+        dst += current;
+    }
+}
+
+template <typename T>
 __aicore__ inline void ConfusionTransposeD<T>::CopyInFull()
 {
     LocalTensor<T> xLocal = inputQueueX.AllocTensor<T>();
@@ -272,6 +307,10 @@ __aicore__ inline void ConfusionTransposeD<T>::Process()
     }
     if (copySpan_ > 1) {
         ProcessCopyRows();
+        return;
+    }
+    if (gatherSpan_ > 1) {
+        ProcessGatherRuns();
         return;
     }
     CopyInFull();

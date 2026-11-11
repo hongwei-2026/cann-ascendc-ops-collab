@@ -45,6 +45,7 @@ def main():
     parser.add_argument("--device", default=os.environ.get("DEVICE_ID", "0"))
     parser.add_argument("--warmup", type=int, default=5)
     parser.add_argument("--repeat", type=int, default=20)
+    parser.add_argument("--probes", nargs="+", default=PROBES, help="Explicit fixture names; default preserves P004 probes")
     args = parser.parse_args()
     args.output.mkdir(parents=True, exist_ok=True)
     profiler = shutil.which("msprof")
@@ -59,7 +60,7 @@ def main():
         env["LD_LIBRARY_PATH"] = str(vendor / "op_api/lib") + ":" + env.get("LD_LIBRARY_PATH", "")
         env["CTD_PERF_WARMUP"] = str(args.warmup)
         env["CTD_PERF_REPEAT"] = str(args.repeat)
-        for name in PROBES:
+        for name in args.probes:
             case = (args.cases / name).resolve()
             output = args.output / name
             output.mkdir()
@@ -95,7 +96,7 @@ def main():
             records.append(record)
             print(json.dumps(record, ensure_ascii=False), flush=True)
     (args.output / "profile_summary.json").write_text(json.dumps(records, indent=2) + "\n", encoding="utf-8")
-    return 0 if len(records) == len(PROBES) and all(r["result"] == "PROFILED" for r in records) else 3
+    return 0 if len(records) == len(args.probes) and all(r["result"] == "PROFILED" for r in records) else 3
 
 
 if __name__ == "__main__":

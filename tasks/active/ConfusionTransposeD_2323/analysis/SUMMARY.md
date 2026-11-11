@@ -19,6 +19,8 @@
 
 2026-11-10最终补录：candidate六项错误正文已取得，UB整输入限制3项、perm/shape rank检查1项、shape numel检查2项，均tiling失败并返回ACL561002。两版源码均有这些检查，baseline正文未取得；无已观察到P004新增失败。DEC004关闭P005追加诊断，平台RE仍未知；本轮仅归档，未修复边界或改善性能。
 
+2026-11-11 Owner明确授权继续优化：先登记P006，再实现span=1规则步长DMA候选，数据不经GetValue/SetValue，P004连续后缀和现有输入边界保留。CPU1002新/1658旧搬运计划通过，39项fixture仅生成；C006脚本备好同机P004/候选39项bitwise及7项设备profile。尚无CANN/NPU或加速结论；等待云测不继续换路，超UB/跨rank TF/-1修复仍独立台账。
+
 ## 废弃/禁止重复
 
 - 保留逐元素 MapSrcIndex + GetValue/SetValue，只微调循环变量。

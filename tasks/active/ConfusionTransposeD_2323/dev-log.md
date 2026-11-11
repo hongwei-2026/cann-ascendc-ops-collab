@@ -1,5 +1,13 @@
 # Dev log — ConfusionTransposeD_2323
 
+## 2026-11-11（P006步长DMA候选）
+
+- Owner授权继续优化；同步远端无本题冲突，保留他题归档；先登记P006/SESSION假设、90分钟实现/30分钟云回传止损，再修改hongwei本题Host/Kernel。
+- span=1按末个非单元输出轴成批步长DMA，32B UB槽→MTE3密集写回；Host按真实槽容量和32B核边界分配。连续后缀路径保留，不改dtype key，不混超UB/跨rank TF/-1功能修复。
+- CPU原语义、1658旧计划、1002新地址/字节oracle通过；39fixture仅生成，无dtype跳过，未执行CANN/NPU。
+- 准备隔离P004/候选两套样例-e+39项bitwise+7项msprof；关闭DEBUG洪水，完整日志进tar、终端直接给可复制报告，另将tar复制到CodeArts项目文件树便于下载。
+- 下一闸Owner执行C006，按同机证据结案/DEC；当前没有P006性能数字或平台通过结论。
+
 ## 2026-11-10（C005本地原因结案）
 
 - 第三份粘贴61016字节原文及解析归档，SHA256 541617ff…c310646；六份日志报告哈希与上次一致。

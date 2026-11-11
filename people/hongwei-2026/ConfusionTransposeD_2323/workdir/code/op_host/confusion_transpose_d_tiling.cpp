@@ -90,6 +90,23 @@ static int64_t GetCopySpan(const int64_t* dims, const int64_t* perm, int64_t ran
     return span;
 }
 
+static void GetGatherRun(const int64_t* dims, const int64_t* perm, int64_t rank,
+    int64_t& span, int64_t& step)
+{
+    for (int64_t i = rank - 1; i >= 0; --i) {
+        const int64_t axis = perm[i];
+        if (dims[axis] <= 1) {
+            continue;
+        }
+        span = dims[axis];
+        step = 1;
+        for (int64_t j = axis + 1; j < rank; ++j) {
+            step *= dims[j];
+        }
+        return;
+    }
+}
+
 static ge::graphStatus ConfusionTransposeDTilingFunc(gert::TilingContext* context)
 {
     uint64_t ubSize = 0;
@@ -184,6 +201,8 @@ static ge::graphStatus ConfusionTransposeDTilingFunc(gert::TilingContext* contex
     // TF=false 的转置输入是 attr shape；TF=true 是原输入。
     const int64_t copySpan = (*transposeFirst && rankIn != rank) ? 1 :
         GetCopySpan((*transposeFirst) ? dimIn : dimShape, perm, static_cast<int64_t>(rank));
+    int64_t gatherSpan = 0;
+    int64_t gatherStep = 0;
     if (copySpan > 1) {
         // 核边界同时对齐整行和 32B，避免相邻核写同一 GM 块。
         int64_t a = copySpan;
@@ -198,6 +217,22 @@ static ge::graphStatus ConfusionTransposeDTilingFunc(gert::TilingContext* contex
         usedCores = std::min(coreNum, grains);
         blockFactor = ((grains + usedCores - 1) / usedCores) * grain;
         usedCores = (totalNum + blockFactor - 1) / blockFactor;
+    } else if (!(*transposeFirst) || rankIn == rank) {
+        GetGatherRun((*transposeFirst) ? dimIn : dimShape, perm,
+            static_cast<int64_t>(rank), gatherSpan, gatherStep);
+        if (gatherSpan > 1 && gatherStep > 1 && (gatherStep - 1) * typeSize <= UINT32_MAX) {
+            // 核间输出边界对齐32B；每元素在UB占一个32B槽，MTE3批量去补齐。
+            const int64_t grains = (totalNum + align - 1) / align;
+            usedCores = std::min(coreNum, grains);
+            blockFactor = ((grains + usedCores - 1) / usedCores) * align;
+            usedCores = (totalNum + blockFactor - 1) / blockFactor;
+            const int64_t maxSlots = std::min<int64_t>((static_cast<int64_t>(ubSize) - reserved) / 32, 4095);
+            ubFactor = (std::min(blockFactor, maxSlots) / align) * align;
+            OP_CHECK_IF(ubFactor < align, OP_LOGE(context, "insufficient UB for strided DMA"), return ge::GRAPH_FAILED);
+        } else {
+            gatherSpan = 0;
+            gatherStep = 0;
+        }
     }
 
     ConfusionTransposeDTilingData* tiling = context->GetTilingData<ConfusionTransposeDTilingData>();
@@ -209,6 +244,8 @@ static ge::graphStatus ConfusionTransposeDTilingFunc(gert::TilingContext* contex
     tiling->rank = static_cast<int64_t>(rank);
     tiling->rankIn = static_cast<int64_t>(rankIn);
     tiling->copySpan = copySpan;
+    tiling->gatherSpan = gatherSpan;
+    tiling->gatherStep = gatherStep;
     SetDimField(tiling, dimIn, dimShape, perm);
 
     context->SetBlockDim(static_cast<uint32_t>(usedCores));
