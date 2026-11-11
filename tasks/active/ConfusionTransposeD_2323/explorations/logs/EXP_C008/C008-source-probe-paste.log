@@ -1,0 +1,621 @@
+developer@dfdd97f8c4e84acbaa54982714e4d993:/mnt/workspace$ cd /mnt/workspace/cann-ascendc-ops-collab
+OR=true git pull --ff-only origin main
+source /homdeveloper@dfdd97f8c4e84acbaa54982714e4d993:/mnt/workspace/cann-ascendc-ops-collab$ GIT_EDITOR=true git pull --ff-only origin main
+e/developer/Ascend/cann-9.1.0/set_env.sh
+
+CTD_CANN="${ASCEND_HOME_PATH:-/home/developer/Ascend/cann-9.1.0}"
+CTD_TBE="$CTD_CANN/opp/built-in/op_impl/ai_core/tbe/impl"
+for f in \
+  "$CTD_TBE/ops_legacy/confusion_transpose_d.py" \
+  "$CTD_TBE/ops_math/dynamic/confusion_transpose_d_apt.py" \
+  "$CTD_TBE/ops_math/ascendc/confusion_transpose_d/confusion_transpose_d_apt.cpp"; do
+  echo "===== $f ====="
+  grep -nE -C 2 'register_operator|def |kernel_name|op_type|transpose_first|ConfusionTransposeD|__aicore__|__global__|DataCopy|Transpose|Gather|Tiling|Launch' "$f" | head -n 160
+done
+
+echo '===== Public API references ====='
+find "$CTD_CANN/include" -type f -iname '*confusion*transpose*' -print
+grep -RInE 'aclnnConfusionTransposeD|aclnnConfusionTranspose|npu_confusion_transpose' \
+  "$CTD_CANN/include/aclnnop" "$CTD_TBE" 2>/dev/null | head -n 120 || truecd /mnt/workspace/cann-ascendc-ops-collab
+GIT_EDITOR=true git pull --ff-only origin main
+source /home/developer/Ascend/cann-9.1.0/set_env.sh
+
+CTD_CANN="${ASCEND_HOME_PATH:-/home/developer/Ascend/cann-9.1.0}"
+CTD_TBE="$CTD_CANN/opp/built-in/op_impl/ai_core/tbe/impl"
+for f in \
+  "$CTD_TBE/ops_legacy/confusion_transpose_d.py" \
+  "$CTD_TBE/ops_math/dynamic/confusion_transpose_d_apt.py" \
+  "$CTD_TBE/ops_math/ascendc/confusion_transpose_d/confusion_transpose_d_apt.cpp"; do
+  echo "===== $f ====="
+  grep -nE -C 2 'register_operator|def |kernel_name|op_type|transpose_first|ConfusionTransposeD|__aicore__|__global__|DataCopy|Transpose|Gather|Tiling|Launch' "$f" | head -n 160
+done
+
+echo '===== Public API references ====='
+find "$CTD_CANN/include" -type f -iname '*confusion*transpose*' -print
+grep -RInE 'aclnnConfusionTransposeD|aclnnConfusionTranspose|npu_confusion_transpose' \
+  "$CTD_CANN/include/aclnnop" "$CTD_TBE" 2>/dev/null | head -n 120 || true
+remote: Enumerating objects: 25, done.
+remote: Counting objects: 100% (25/25), done.
+remote: Compressing objects: 100% (5/5), done.
+remote: Total 14 (delta 9), reused 14 (delta 9), pack-reused 0 (from 0)
+Unpacking objects: 100% (14/14), 6.29 KiB | 429.00 KiB/s, done.
+From https://github.com/hongwei-2026/cann-ascendc-ops-collab
+ * branch            main       -> FETCH_HEAD
+   44a6bda..be9ba93  main       -> origin/main
+Updating 44a6bda..be9ba93
+Fast-forward
+ tasks/active/ConfusionTransposeD_2323/C008-CLOUD-PREFLIGHT.md                              | 38 ++++++++++++++++++++++++++++++++++++--
+ tasks/active/ConfusionTransposeD_2323/STATUS.md                                            |  4 ++--
+ tasks/active/ConfusionTransposeD_2323/dev-log.md                                           |  6 ++++++
+ tasks/active/ConfusionTransposeD_2323/explorations/EXP_C008-tbe-api-preflight.md           |  4 +++-
+ tasks/active/ConfusionTransposeD_2323/explorations/logs/EXP_C008/C008-console-evidence.log | 56 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ tasks/active/ConfusionTransposeD_2323/path-ledger.md                                       |  2 +-
+ 6 files changed, 104 insertions(+), 6 deletions(-)
+ create mode 100644 tasks/active/ConfusionTransposeD_2323/explorations/logs/EXP_C008/C008-console-evidence.log
+developer@dfdd97f8c4e84acbaa54982714e4d993:/mnt/workspace/cann-ascendc-ops-collab$ source /home/developer/Ascend/cann-9.1.0/set_env.sh
+developer@dfdd97f8c4e84acbaa54982714e4d993:/mnt/workspace/cann-ascendc-ops-collab$ 
+developer@dfdd97f8c4e84acbaa54982714e4d993:/mnt/workspace/cann-ascendc-ops-collab$ CTD_CANN="${ASCEND_HOME_PATH:-/home/developer/Ascend/cann-9.1.0}"
+developer@dfdd97f8c4e84acbaa54982714e4d993:/mnt/workspace/cann-ascendc-ops-collab$ CTD_TBE="$CTD_CANN/opp/built-in/op_impl/ai_core/tbe/impl"
+developer@dfdd97f8c4e84acbaa54982714e4d993:/mnt/workspace/cann-ascendc-ops-collab$ for f in \
+>   "$CTD_TBE/ops_legacy/confusion_transpose_d.py" \
+>   "$CTD_TBE/ops_math/dynamic/confusion_transpose_d_apt.py" \
+>   "$CTD_TBE/ops_math/ascendc/confusion_transpose_d/confusion_transpose_d_apt.cpp"; do
+>   echo "===== $f ====="
+>   grep -nE -C 2 'register_operator|def |kernel_name|op_type|transpose_first|ConfusionTransposeD|__aicore__|__global__|DataCopy|Transpose|Gather|Tiling|Launch' "$f" | head -n 160
+> done
+===== /home/developer/Ascend/cann-9.1.0/opp/built-in/op_impl/ai_core/tbe/impl/ops_legacy/confusion_transpose_d.py =====
+28-from impl.ops_legacy.util.platform_adapter import tbe_platform
+29-from impl.ops_legacy.util.platform_adapter import error_manager_vector
+30:from impl.ops_legacy.util.platform_adapter import register_operator_compute
+31-from impl.ops_legacy.util import util_select_op_base
+32-from impl.ops_legacy.util.util_select_op_base import SplitInput
+--
+41-
+42-
+43:def _prod(input_shape):
+44-    """
+45-    Calculate the product of all elements
+--
+52-
+53-
+54:def _reshape_frac(shape_in, shape_out):
+55-    """
+56-    This algorithm can only used in the case
+--
+71-    return:
+72-        a splited shape which can be used to interpret fractal Reshape
+73:        as a Reshape + Transpose calculation
+74-    """
+75-    if _prod(shape_in) != _prod(shape_out):
+--
+103-
+104-
+105:def _split_shape_in(input_shape, axis_list):
+106-    """
+107-    split the dimension in axis_list to 16
+--
+131-
+132-
+133:def _merge_frac(shape_tensor, frac_shape):
+134-    """
+135-    merge a splited shape accoding to shape_tensor
+--
+149-
+150-
+151:def _merge_frac_1(shape_tensor, frac_shape):
+152-    """
+153-    merge a splited shape accoding to shape_tensor
+--
+180-
+181-
+182:def _merge_frac_2(shape_tensor, frac_shape):
+183-    """
+184-    merge a splited shape accoding to shape_tensor
+--
+228-
+229-
+230:def _perm_nz_to_orig(merged_orig, split_idx):
+231-    """
+232-    calculate the perm used in Nz to ND format transpose
+--
+276-
+277-
+278:def _merge_perm(src_list, dst_list):
+279-    """
+280-    merge a perm accoding to a given shape
+--
+299-
+300-
+301:def _flat_perm(merged_perm):
+302-    """
+303-    flatten a merged perm
+--
+315-
+316-
+317:def _shape_after_transpose(input_shape, trans_perm):
+318-    """
+319:    Transpose a merged_perm according to the given perm.
+320-    The result is a new perm that fuses two transpose operations
+321-    by fusing the two perms
+--
+336-
+337-
+338:def _perm_orig_to_nz(perm_merged, split_idx):
+339-    """
+340-    Only non-last-dimension transpose is considered in this situation.
+--
+361-
+362-
+363:def _shape_before_transpose(merged_frac, transpose_perm):
+364-    """
+365-    In a transpose before reshape case, calculate the shape before transpose.
+--
+384-
+385-
+386:def _reshape_transpose(transpose_perm, reshape_in, reshape_out):
+387-    """
+388-    The case where Reshape is before a transpose.
+--
+391-        reshape_in: input shape of Reshape op
+392-        reshape_out: output shape of Reshape op
+393:        transpose_perm: perm of Transpose op
+394-    return:
+395:        final input shape and perm of Transpose op
+396-    """
+397-    trans_out = _shape_after_transpose(reshape_out, transpose_perm)
+--
+420-
+421-
+422:def _transpose_reshape(transpose_perm, reshape_in, reshape_out):
+423-    """
+424-    The case where Reshape is after a transpose.
+--
+427-        reshape_in: input shape of Reshape op
+428-        reshape_out: output shape of Reshape op
+429:        transpose_perm: perm of Transpose op
+430-    return:
+431:        final input shape and perm of Transpose op
+432-    """
+433-    frac_res = _reshape_frac(reshape_out, reshape_in)
+--
+456-
+457-
+458:def _division_sixteen(shape):
+459-    if len(shape) < 2:
+460-        if shape[-1] == 0:
+--
+473-
+474-
+475:def check_shape_4_3(shape_a, shape_b):
+476-    flag_check = (shape_a[1] * shape_a[2] == shape_b[1] and shape_a[3] == shape_b[2])
+477-
+--
+479-
+480-
+481:def check_shape_2_4(shape_a, shape_b):
+482-    flag_check = (shape_b[0] * shape_b[1] == shape_a[0] and shape_b[2] * shape_b[3] == shape_a[1])
+483-
+--
+485-
+486-
+487:def check_reshape(in_shape, out_shape):
+488-    if len(in_shape) == 2 and len(out_shape) == 4 and check_shape_2_4(in_shape, out_shape):
+489-        return True
+--
+500-
+501-
+502:def _condition(x, perm, shape, transpose_first):
+503-    shape_x = shape_util.scalar2tensor_one(x.get("ori_shape"))
+504-
+505:    if transpose_first:
+506-        shape_reshapein = _shape_after_transpose(shape_x, perm)
+507-    else:
+--
+516-
+517-
+518:def _get_nz_split_shape_and_perm(x, perm, shape, transpose_first):
+519-    """
+520-    Get NZ split shape and perm.
+--
+525-    `perm = [2, 0, 1, 3]`
+526-    shape = [32, 48, 16, 64]`
+527:    `transpose_first = False`
+528-    `y = {"shape": (16, 32, 4, 3, 16, 16), "dtype": "float16", "format": "FRACTAL_NZ", "ori_shape": (16, 32, 48, 64),`
+529-         `"ori_format": "NHWC"}`
+--
+552-    nd_shape += [input_shape[-3] * input_shape[-2]]
+===== /home/developer/Ascend/cann-9.1.0/opp/built-in/op_impl/ai_core/tbe/impl/ops_math/dynamic/confusion_transpose_d_apt.py =====
+56-    "int2": ["DT_INT2", "int2b_t"]}
+57-
+58:def add_dtype_fmt_option_single(x, x_n, is_ref: bool = False):
+59-    options = []
+60-    x_fmt = x.get("format")
+--
+66-    return options
+67-
+68:def get_dtype_fmt_options(__inputs__, __outputs__):
+69-    options = []
+70-    input_names = ['x']
+--
+88-    return options
+89-
+90:def load_dso(so_path):
+91-    try:
+92-        ctypes.CDLL(so_path)
+--
+97-        print("load so succ ", so_path)
+98-
+99:def get_shortsoc_compile_option(compile_option_list: list, shortsoc:str):
+100-    compile_options = []
+101-    if shortsoc in compile_option_list:
+--
+105-    return compile_options
+106-
+107:def get_kernel_source(src_file, dir_snake, dir_ex):
+108-    src_ex = os.path.join(PYF_PATH, "..", "ascendc", dir_ex, src_file)
+109-    if os.path.exists(src_ex):
+--
+129-    return src_ex
+130-
+131:def _build_args(x_in__, y_out_, perm, shape, transpose_first):
+132-    __inputs__ = []
+133-    for arg in [x_in__]:
+--
+165-        attr["value"] = shape
+166-        __attrs__.append(attr)
+167:    if transpose_first != None:
+168-        attr = {}
+169:        attr["name"] = "transpose_first"
+170-        attr["dtype"] = "bool"
+171:        attr["value"] = transpose_first
+172-        __attrs__.append(attr)
+173-    return __inputs__, __outputs__, __attrs__
+174-
+175:@tbe_register.register_operator("ConfusionTransposeD", trans_bool_to_s8=False)
+176-@para_check.check_op_params(para_check.REQUIRED_INPUT, para_check.REQUIRED_OUTPUT, para_check.OPTION_ATTR_LIST_INT, para_check.OPTION_ATTR_LIST_INT, para_check.OPTION_ATTR_BOOL, para_check.KERNEL_NAME)
+177:def confusion_transpose_d(x_in__, y_out_, perm, shape, transpose_first, kernel_name="confusion_transpose_d", impl_mode=""):
+178-    # do ascendc build step
+179-    if get_current_build_config("enable_op_prebuild"):
+180-        return
+181:    __inputs__, __outputs__, __attrs__ = _build_args(x_in__, y_out_, perm, shape, transpose_first)
+182-    options = get_dtype_fmt_options(__inputs__, __outputs__)
+183-    options += ["-x", "cce"]
+--
+223-    src = get_kernel_source(ascendc_src_file, ascendc_src_dir, ascendc_src_dir_ex)
+224-
+225:    print("start compile Ascend C operator ConfusionTransposeD. kernel name is " + kernel_name)
+226:    op_type = "ConfusionTransposeD"
+227:    code_channel = get_code_channel(src, kernel_name, op_type, options)
+228:    op_info = OpInfo(kernel_name = kernel_name, op_type = op_type, inputs = __inputs__, outputs = __outputs__,\
+229-        attrs = __attrs__, impl_mode = impl_mode, origin_inputs=[x_in__], origin_outputs = [y_out_],\
+230-                param_type_dynamic = False, mc2_ctx = [], param_type_list = ['required', 'required'], init_value_list = [None],\
+===== /home/developer/Ascend/cann-9.1.0/opp/built-in/op_impl/ai_core/tbe/impl/ops_math/ascendc/confusion_transpose_d/confusion_transpose_d_apt.cpp =====
+27-#define BIG_DIM 10005
+28-
+29:using namespace Transpose;
+30-
+31:__global__ __aicore__ void confusion_transpose_d(GM_ADDR x, GM_ADDR y, GM_ADDR workspace, GM_ADDR tiling)
+32-{   
+33-    GET_TILING_DATA(tilingData, tiling);
+34-    TPipe pipe;
+35-    if (TILING_KEY_IS(TENSOR_MOVE)) {
+36:        Transpose::TransposeTensorMove<DTYPE_X> op;
+37:        op.Init(x, y, &tilingData.transposeOpTiling, &pipe);
+38-        op.Process();
+39-    } else if (TILING_KEY_IS(SMALL_SHAPE)) {
+40:        Transpose::TransposeSmallShape<DTYPE_X> op;
+41:        op.Init(x, y, &tilingData.transposeOpTiling);
+42-        op.Process();
+43-    } else if (TILING_KEY_IS(CUT_ONCE)) {
+44:        Transpose::TransposeCutOneAxis<DTYPE_X> op;
+45:        op.Init(x, y, &tilingData.transposeOpTiling, &pipe);
+46-        op.Process();
+47-    } else if (TILING_KEY_IS(CUT_TWICE)) {
+48:        Transpose::TransposeCutTwoAxis<DTYPE_X> op;
+49:        op.Init(x, y, &tilingData.transposeOpTiling, &pipe);
+50-        op.Process();
+51-    } else if (TILING_KEY_IS(BIG_DIM)) {
+52:        Transpose::TransposeBigDim<DTYPE_X> op;
+53:        op.Init(x, y, &tilingData.transposeOpTiling, &pipe);
+54-        op.Process();
+55-    } else if (TILING_KEY_IS(N_LAST_TRANSPOSE)) {
+56:        Transpose::TransposeNLast<DTYPE_X> op;
+57:        op.Init(x, y, &tilingData.transposeOpTiling, &pipe);
+58-        op.Process();
+59-    }
+developer@dfdd97f8c4e84acbaa54982714e4d993:/mnt/workspace/cann-ascendc-ops-collab$ 
+developer@dfdd97f8c4e84acbaa54982714e4d993:/mnt/workspace/cann-ascendc-ops-collab$ echo '===== Public API references ====='
+===== Public API references =====
+developer@dfdd97f8c4e84acbaa54982714e4d993:/mnt/workspace/cann-ascendc-ops-collab$ find "$CTD_CANN/include" -type f -iname '*confusion*transpose*' -print
+developer@dfdd97f8c4e84acbaa54982714e4d993:/mnt/workspace/cann-ascendc-ops-collab$ grep -RInE 'aclnnConfusionTransposeD|aclnnConfusionTranspose|npu_confusion_transpose' \
+>   "$CTD_CANN/include/aclnnop" "$CTD_TBE" 2>/dev/null | head -n 120 || truecd /mnt/workspace/cann-ascendc-ops-collab
+/home/developer/Ascend/cann-9.1.0/include/aclnnop/level2/aclnn_confusion_transpose.h:21:aclnnStatus aclnnConfusionTransposeGetWorkspaceSize(
+/home/developer/Ascend/cann-9.1.0/include/aclnnop/level2/aclnn_confusion_transpose.h:25:aclnnStatus aclnnConfusionTranspose(
+/home/developer/Ascend/cann-9.1.0/include/aclnnop/aclnn_confusion_transpose.h:20:aclnnStatus aclnnConfusionTransposeGetWorkspaceSize(
+/home/developer/Ascend/cann-9.1.0/include/aclnnop/aclnn_confusion_transpose.h:24:aclnnStatus aclnnConfusionTranspose(
+developer@dfdd97f8c4e84acbaa54982714e4d993:/mnt/workspace/cann-ascendc-ops-collab$ GIT_EDITOR=true git pull --ff-only origin main
+From https://github.com/hongwei-2026/cann-ascendc-ops-collab
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+developer@dfdd97f8c4e84acbaa54982714e4d993:/mnt/workspace/cann-ascendc-ops-collab$ source /home/developer/Ascend/cann-9.1.0/set_env.sh
+developer@dfdd97f8c4e84acbaa54982714e4d993:/mnt/workspace/cann-ascendc-ops-collab$ 
+developer@dfdd97f8c4e84acbaa54982714e4d993:/mnt/workspace/cann-ascendc-ops-collab$ CTD_CANN="${ASCEND_HOME_PATH:-/home/developer/Ascend/cann-9.1.0}"
+developer@dfdd97f8c4e84acbaa54982714e4d993:/mnt/workspace/cann-ascendc-ops-collab$ CTD_TBE="$CTD_CANN/opp/built-in/op_impl/ai_core/tbe/impl"
+developer@dfdd97f8c4e84acbaa54982714e4d993:/mnt/workspace/cann-ascendc-ops-collab$ for f in \
+>   "$CTD_TBE/ops_legacy/confusion_transpose_d.py" \
+>   "$CTD_TBE/ops_math/dynamic/confusion_transpose_d_apt.py" \
+>   "$CTD_TBE/ops_math/ascendc/confusion_transpose_d/confusion_transpose_d_apt.cpp"; do
+>   echo "===== $f ====="
+>   grep -nE -C 2 'register_operator|def |kernel_name|op_type|transpose_first|ConfusionTransposeD|__aicore__|__global__|DataCopy|Transpose|Gather|Tiling|Launch' "$f" | head -n 160
+> done
+===== /home/developer/Ascend/cann-9.1.0/opp/built-in/op_impl/ai_core/tbe/impl/ops_legacy/confusion_transpose_d.py =====
+28-from impl.ops_legacy.util.platform_adapter import tbe_platform
+29-from impl.ops_legacy.util.platform_adapter import error_manager_vector
+30:from impl.ops_legacy.util.platform_adapter import register_operator_compute
+31-from impl.ops_legacy.util import util_select_op_base
+32-from impl.ops_legacy.util.util_select_op_base import SplitInput
+--
+41-
+42-
+43:def _prod(input_shape):
+44-    """
+45-    Calculate the product of all elements
+--
+52-
+53-
+54:def _reshape_frac(shape_in, shape_out):
+55-    """
+56-    This algorithm can only used in the case
+--
+71-    return:
+72-        a splited shape which can be used to interpret fractal Reshape
+73:        as a Reshape + Transpose calculation
+74-    """
+75-    if _prod(shape_in) != _prod(shape_out):
+--
+103-
+104-
+105:def _split_shape_in(input_shape, axis_list):
+106-    """
+107-    split the dimension in axis_list to 16
+--
+131-
+132-
+133:def _merge_frac(shape_tensor, frac_shape):
+134-    """
+135-    merge a splited shape accoding to shape_tensor
+--
+149-
+150-
+151:def _merge_frac_1(shape_tensor, frac_shape):
+152-    """
+153-    merge a splited shape accoding to shape_tensor
+--
+180-
+181-
+182:def _merge_frac_2(shape_tensor, frac_shape):
+183-    """
+184-    merge a splited shape accoding to shape_tensor
+--
+228-
+229-
+230:def _perm_nz_to_orig(merged_orig, split_idx):
+231-    """
+232-    calculate the perm used in Nz to ND format transpose
+--
+276-
+277-
+278:def _merge_perm(src_list, dst_list):
+279-    """
+280-    merge a perm accoding to a given shape
+--
+299-
+300-
+301:def _flat_perm(merged_perm):
+302-    """
+303-    flatten a merged perm
+--
+315-
+316-
+317:def _shape_after_transpose(input_shape, trans_perm):
+318-    """
+319:    Transpose a merged_perm according to the given perm.
+320-    The result is a new perm that fuses two transpose operations
+321-    by fusing the two perms
+--
+336-
+337-
+338:def _perm_orig_to_nz(perm_merged, split_idx):
+339-    """
+340-    Only non-last-dimension transpose is considered in this situation.
+--
+361-
+362-
+363:def _shape_before_transpose(merged_frac, transpose_perm):
+364-    """
+365-    In a transpose before reshape case, calculate the shape before transpose.
+--
+384-
+385-
+386:def _reshape_transpose(transpose_perm, reshape_in, reshape_out):
+387-    """
+388-    The case where Reshape is before a transpose.
+--
+391-        reshape_in: input shape of Reshape op
+392-        reshape_out: output shape of Reshape op
+393:        transpose_perm: perm of Transpose op
+394-    return:
+395:        final input shape and perm of Transpose op
+396-    """
+397-    trans_out = _shape_after_transpose(reshape_out, transpose_perm)
+--
+420-
+421-
+422:def _transpose_reshape(transpose_perm, reshape_in, reshape_out):
+423-    """
+424-    The case where Reshape is after a transpose.
+--
+427-        reshape_in: input shape of Reshape op
+428-        reshape_out: output shape of Reshape op
+429:        transpose_perm: perm of Transpose op
+430-    return:
+431:        final input shape and perm of Transpose op
+432-    """
+433-    frac_res = _reshape_frac(reshape_out, reshape_in)
+--
+456-
+457-
+458:def _division_sixteen(shape):
+459-    if len(shape) < 2:
+460-        if shape[-1] == 0:
+--
+473-
+474-
+475:def check_shape_4_3(shape_a, shape_b):
+476-    flag_check = (shape_a[1] * shape_a[2] == shape_b[1] and shape_a[3] == shape_b[2])
+477-
+--
+479-
+480-
+481:def check_shape_2_4(shape_a, shape_b):
+482-    flag_check = (shape_b[0] * shape_b[1] == shape_a[0] and shape_b[2] * shape_b[3] == shape_a[1])
+483-
+--
+485-
+486-
+487:def check_reshape(in_shape, out_shape):
+488-    if len(in_shape) == 2 and len(out_shape) == 4 and check_shape_2_4(in_shape, out_shape):
+489-        return True
+--
+500-
+501-
+502:def _condition(x, perm, shape, transpose_first):
+503-    shape_x = shape_util.scalar2tensor_one(x.get("ori_shape"))
+504-
+505:    if transpose_first:
+506-        shape_reshapein = _shape_after_transpose(shape_x, perm)
+507-    else:
+--
+516-
+517-
+518:def _get_nz_split_shape_and_perm(x, perm, shape, transpose_first):
+519-    """
+520-    Get NZ split shape and perm.
+--
+525-    `perm = [2, 0, 1, 3]`
+526-    shape = [32, 48, 16, 64]`
+527:    `transpose_first = False`
+528-    `y = {"shape": (16, 32, 4, 3, 16, 16), "dtype": "float16", "format": "FRACTAL_NZ", "ori_shape": (16, 32, 48, 64),`
+529-         `"ori_format": "NHWC"}`
+--
+552-    nd_shape += [input_shape[-3] * input_shape[-2]]
+===== /home/developer/Ascend/cann-9.1.0/opp/built-in/op_impl/ai_core/tbe/impl/ops_math/dynamic/confusion_transpose_d_apt.py =====
+56-    "int2": ["DT_INT2", "int2b_t"]}
+57-
+58:def add_dtype_fmt_option_single(x, x_n, is_ref: bool = False):
+59-    options = []
+60-    x_fmt = x.get("format")
+--
+66-    return options
+67-
+68:def get_dtype_fmt_options(__inputs__, __outputs__):
+69-    options = []
+70-    input_names = ['x']
+--
+88-    return options
+89-
+90:def load_dso(so_path):
+91-    try:
+92-        ctypes.CDLL(so_path)
+--
+97-        print("load so succ ", so_path)
+98-
+99:def get_shortsoc_compile_option(compile_option_list: list, shortsoc:str):
+100-    compile_options = []
+101-    if shortsoc in compile_option_list:
+--
+105-    return compile_options
+106-
+107:def get_kernel_source(src_file, dir_snake, dir_ex):
+108-    src_ex = os.path.join(PYF_PATH, "..", "ascendc", dir_ex, src_file)
+109-    if os.path.exists(src_ex):
+--
+129-    return src_ex
+130-
+131:def _build_args(x_in__, y_out_, perm, shape, transpose_first):
+132-    __inputs__ = []
+133-    for arg in [x_in__]:
+--
+165-        attr["value"] = shape
+166-        __attrs__.append(attr)
+167:    if transpose_first != None:
+168-        attr = {}
+169:        attr["name"] = "transpose_first"
+170-        attr["dtype"] = "bool"
+171:        attr["value"] = transpose_first
+172-        __attrs__.append(attr)
+173-    return __inputs__, __outputs__, __attrs__
+174-
+175:@tbe_register.register_operator("ConfusionTransposeD", trans_bool_to_s8=False)
+176-@para_check.check_op_params(para_check.REQUIRED_INPUT, para_check.REQUIRED_OUTPUT, para_check.OPTION_ATTR_LIST_INT, para_check.OPTION_ATTR_LIST_INT, para_check.OPTION_ATTR_BOOL, para_check.KERNEL_NAME)
+177:def confusion_transpose_d(x_in__, y_out_, perm, shape, transpose_first, kernel_name="confusion_transpose_d", impl_mode=""):
+178-    # do ascendc build step
+179-    if get_current_build_config("enable_op_prebuild"):
+180-        return
+181:    __inputs__, __outputs__, __attrs__ = _build_args(x_in__, y_out_, perm, shape, transpose_first)
+182-    options = get_dtype_fmt_options(__inputs__, __outputs__)
+183-    options += ["-x", "cce"]
+--
+223-    src = get_kernel_source(ascendc_src_file, ascendc_src_dir, ascendc_src_dir_ex)
+224-
+225:    print("start compile Ascend C operator ConfusionTransposeD. kernel name is " + kernel_name)
+226:    op_type = "ConfusionTransposeD"
+227:    code_channel = get_code_channel(src, kernel_name, op_type, options)
+228:    op_info = OpInfo(kernel_name = kernel_name, op_type = op_type, inputs = __inputs__, outputs = __outputs__,\
+229-        attrs = __attrs__, impl_mode = impl_mode, origin_inputs=[x_in__], origin_outputs = [y_out_],\
+230-                param_type_dynamic = False, mc2_ctx = [], param_type_list = ['required', 'required'], init_value_list = [None],\
+===== /home/developer/Ascend/cann-9.1.0/opp/built-in/op_impl/ai_core/tbe/impl/ops_math/ascendc/confusion_transpose_d/confusion_transpose_d_apt.cpp =====
+27-#define BIG_DIM 10005
+28-
+29:using namespace Transpose;
+30-
+31:__global__ __aicore__ void confusion_transpose_d(GM_ADDR x, GM_ADDR y, GM_ADDR workspace, GM_ADDR tiling)
+32-{   
+33-    GET_TILING_DATA(tilingData, tiling);
+34-    TPipe pipe;
+35-    if (TILING_KEY_IS(TENSOR_MOVE)) {
+36:        Transpose::TransposeTensorMove<DTYPE_X> op;
+37:        op.Init(x, y, &tilingData.transposeOpTiling, &pipe);
+38-        op.Process();
+39-    } else if (TILING_KEY_IS(SMALL_SHAPE)) {
+40:        Transpose::TransposeSmallShape<DTYPE_X> op;
+41:        op.Init(x, y, &tilingData.transposeOpTiling);
+42-        op.Process();
+43-    } else if (TILING_KEY_IS(CUT_ONCE)) {
+44:        Transpose::TransposeCutOneAxis<DTYPE_X> op;
+45:        op.Init(x, y, &tilingData.transposeOpTiling, &pipe);
+46-        op.Process();
+47-    } else if (TILING_KEY_IS(CUT_TWICE)) {
+48:        Transpose::TransposeCutTwoAxis<DTYPE_X> op;
+49:        op.Init(x, y, &tilingData.transposeOpTiling, &pipe);
+50-        op.Process();
+51-    } else if (TILING_KEY_IS(BIG_DIM)) {
+52:        Transpose::TransposeBigDim<DTYPE_X> op;
+53:        op.Init(x, y, &tilingData.transposeOpTiling, &pipe);
+54-        op.Process();
+55-    } else if (TILING_KEY_IS(N_LAST_TRANSPOSE)) {
+56:        Transpose::TransposeNLast<DTYPE_X> op;
+57:        op.Init(x, y, &tilingData.transposeOpTiling, &pipe);
+58-        op.Process();
+59-    }
+developer@dfdd97f8c4e84acbaa54982714e4d993:/mnt/workspace/cann-ascendc-ops-collab$ 
+developer@dfdd97f8c4e84acbaa54982714e4d993:/mnt/workspace/cann-ascendc-ops-collab$ echo '===== Public API references ====='
+===== Public API references =====
+developer@dfdd97f8c4e84acbaa54982714e4d993:/mnt/workspace/cann-ascendc-ops-collab$ find "$CTD_CANN/include" -type f -iname '*confusion*transpose*' -print
+developer@dfdd97f8c4e84acbaa54982714e4d993:/mnt/workspace/cann-ascendc-ops-collab$ grep -RInE 'aclnnConfusionTransposeD|aclnnConfusionTranspose|npu_confusion_transpose' \
+>   "$CTD_CANN/include/aclnnop" "$CTD_TBE" 2>/dev/null | head -n 120 || true
+/home/developer/Ascend/cann-9.1.0/include/aclnnop/level2/aclnn_confusion_transpose.h:21:aclnnStatus aclnnConfusionTransposeGetWorkspaceSize(
+/home/developer/Ascend/cann-9.1.0/include/aclnnop/level2/aclnn_confusion_transpose.h:25:aclnnStatus aclnnConfusionTranspose(
+/home/developer/Ascend/cann-9.1.0/include/aclnnop/aclnn_confusion_transpose.h:20:aclnnStatus aclnnConfusionTransposeGetWorkspaceSize(
+/home/developer/Ascend/cann-9.1.0/include/aclnnop/aclnn_confusion_transpose.h:24:aclnnStatus aclnnConfusionTranspose(
+developer@dfdd97f8c4e84acbaa54982714e4d993:/mnt/workspace/cann-ascendc-ops-collab$ 

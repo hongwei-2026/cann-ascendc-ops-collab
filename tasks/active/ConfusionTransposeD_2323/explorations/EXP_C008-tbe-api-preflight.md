@@ -16,6 +16,6 @@ P004/P006/P007 的对照均是本算子版本之间的同机 A/B，不能证明�
 
 ## 结论
 
-CodeArts盘点成功（910B3 / CANN 9.1.0，exit=0），确认存在910B注册的legacy TBE配置、legacy Python实现，以及dynamic TBE/AscendC实现文件。扫描到的`Transpose`/`Gather`声明是ACLNN/ES接口；本次没有证明AscendC Kernel内可直接调用的Transpose/Gather原语。
+CodeArts盘点成功（910B3 / CANN 9.1.0，exit=0），确认存在910B注册的legacy TBE配置、legacy Python实现，以及dynamic TBE/AscendC实现文件。源码片段显示dynamic入口注册`ConfusionTransposeD`并调用AscendC编译通道；设备kernel按tiling key分派到`TransposeTensorMove`、`TransposeSmallShape`、`TransposeCutOneAxis`、`TransposeCutTwoAxis`、`TransposeBigDim`和`TransposeNLast`。这是可借鉴的专用路径证据，但还没有证明这些模板可由本算子直接include。
 
-仍未确认TBE实现如何绕开自定义op调用、怎样用P004相同输入做profile，也未取得平台点shape。原始tar留在CodeArts且未下载；只归档用户粘贴的marker段[`C008-console-evidence.log`](logs/EXP_C008/C008-console-evidence.log)，SHA256为`B12C65694536E0D305DD920A6EE42ED0DC10F41CE861D97C5276D736649A9C03`，不宣称完整日志包已归档。当前P008继续限定在30分钟内读取TBE实现/入口；在同机device task对照可执行前，无Kernel diff、无性能PASS。
+系统有`aclnnConfusionTranspose`头文件，但当前输出没有给出完整参数；搜索没有发现`aclnnConfusionTransposeD`。仍未确认该API是否覆盖目标属性、TBE如何绕开自定义op调用、怎样用P004相同输入profile，也未取得平台点shape。原始tar留在CodeArts且未下载；marker与源码片段分别归档为[`C008-console-evidence.log`](logs/EXP_C008/C008-console-evidence.log)和[`C008-source-probe-paste.log`](logs/EXP_C008/C008-source-probe-paste.log)，后者SHA256为`E3F8D76CA63F20C5B74B49314D9CBD348AFB98776CFF4FB722197236B9451F32`。P008继续限时核对API签名和头依赖；同机profile未建立前，无Kernel diff、无性能PASS。

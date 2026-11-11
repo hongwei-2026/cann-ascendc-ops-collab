@@ -49,6 +49,20 @@ PY
 
 把这段命令的完整输出贴回，用来判断TBE能否单独执行以及是否有公开API；源码匹配结果本身不算性能基线。
 
+当前回传已定位动态TBE的`aclnnConfusionTranspose`候选入口，以及AscendC transpose专用分派。下一次只读核对完整API签名与内部头文件依赖：
+
+```bash
+CTD_CANN="${ASCEND_HOME_PATH:-/home/developer/Ascend/cann-9.1.0}"
+CTD_TBE="$CTD_CANN/opp/built-in/op_impl/ai_core/tbe/impl"
+sed -n '15,50p' "$CTD_CANN/include/aclnnop/aclnn_confusion_transpose.h"
+sed -n '100,235p' "$CTD_TBE/ops_math/dynamic/confusion_transpose_d_apt.py"
+sed -n '1,80p' "$CTD_TBE/ops_math/ascendc/confusion_transpose_d/confusion_transpose_d_apt.cpp"
+grep -RInE 'class Transpose(SmallShape|CutOneAxis|CutTwoAxis|BigDim|NLast|TensorMove)' \
+  "$CTD_TBE/ops_math/ascendc" 2>/dev/null | head -n 80
+```
+
+输出这些片段即可。只有确认公开API参数覆盖`perm`、`shape`和`transpose_first`，并能用系统opapi而不加载自定义包，才继续准备P004/TBE同输入profile。
+
 ## 回传
 
 从终端复制完整的 `C008_EVIDENCE_BEGIN` 到 `C008_EVIDENCE_END`。完整日志包会保存到 `/mnt/workspace/exp_logs/ctd2323/`。若可以下载，把 `EXP_C008_*.tar.gz` 放入 `tasks/active/ConfusionTransposeD_2323/explorations/logs/EXP_C008/` 后提交；若仍不能下载，回传 marker 原文并标成粘贴证据。

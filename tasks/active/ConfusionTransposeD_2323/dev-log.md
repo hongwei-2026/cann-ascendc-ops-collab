@@ -6,6 +6,12 @@
 - 扫描命中的Transpose/Gather为ACLNN/ES接口，不能据此声称存在AscendC Kernel级Transpose/Gather原语；TBE独立调用和同输入device task profile仍未证明。平台点shape也未知。
 - 原tar位于CodeArts且未下载；归档用户粘贴marker段到`explorations/logs/EXP_C008/C008-console-evidence.log`，SHA256 `B12C65694536E0D305DD920A6EE42ED0DC10F41CE861D97C5276D736649A9C03`。P008在30分钟内继续核对TBE调用入口，不改Kernel。
 
+## 2026-11-11（P008 TBE源码入口回传）
+
+- 源码输出确认TBE的AscendC入口使用`get_code_channel`注册编译；设备kernel按tiling key分派TensorMove、SmallShape、CutOneAxis、CutTwoAxis、BigDim、NLast六类Transpose模板。
+- 找到`aclnnConfusionTranspose`头文件，但当前输出没有完整签名；未发现`aclnnConfusionTransposeD`。尚不能判断公共API是否具有`perm`、`shape`、`transpose_first`全套语义，也没有同输入TBE profile。
+- 用户粘贴源码输出归档至`explorations/logs/EXP_C008/C008-source-probe-paste.log`，SHA256 `E3F8D76CA63F20C5B74B49314D9CBD348AFB98776CFF4FB722197236B9451F32`。下一步只核对API签名和TBE模板头依赖；Kernel继续冻结。
+
 ## 2026-11-11（P008前置盘点）
 
 - Owner要求继续；P006/P007均止损后，没有把排行榜best time当TBE基线。P008仅盘点CodeArts的CANN 9.1 TBE实现、Transpose/Gather API和可复现输入，预算60分钟；Kernel暂不改。
