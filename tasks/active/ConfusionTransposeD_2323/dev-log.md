@@ -1,5 +1,11 @@
 # Dev log — ConfusionTransposeD_2323
 
+## 2026-11-11（P008前置盘点）
+
+- Owner要求继续；P006/P007均止损后，没有把排行榜best time当TBE基线。P008仅盘点CodeArts的CANN 9.1 TBE实现、Transpose/Gather API和可复现输入，预算60分钟；Kernel暂不改。
+- 新增`tests/run_c008_preflight.sh`与`C008-CLOUD-PREFLIGHT.md`、`EXP_C008-tbe-api-preflight.md`。等待Owner在CodeArts运行并回传`C008_EVIDENCE` marker或完整tar。
+- 若无法单独调用TBE并测得同机device task时间，按P008止损写DEC，不开Kernel优化路线。
+
 ## 2026-11-11（C007止损）
 
 - 归档C007粘贴证据段，SHA256 `816dfb66e398b839b5a9f2fc573ad3668a045b64abad774d70bccd1c97ea2911`；CodeArts原tar未下载，证据范围如实标注。
