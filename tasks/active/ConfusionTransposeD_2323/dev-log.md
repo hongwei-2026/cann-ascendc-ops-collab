@@ -1,5 +1,11 @@
 # Dev log — ConfusionTransposeD_2323
 
+## 2026-11-12（P008 msprof + DEC007）
+
+- msprof：`te_confusiontransposed_*` device 稳态 ≈4.7–4.9μs @ `(2,1024,128)`。
+- 写 DEC007：停 Host/P004 微优化；等 Owner 是否立项镜像 TBE 模板。
+- 归档 `C008-msprof-system-paste.log`；推 main。
+
 ## 2026-11-12（P008 Host 尺度）
 
 - 四档 Host ~0.09–0.10ms 贴死 → Host 基线作废。归档 `C008-torch-npu-scale-host-paste.log`。

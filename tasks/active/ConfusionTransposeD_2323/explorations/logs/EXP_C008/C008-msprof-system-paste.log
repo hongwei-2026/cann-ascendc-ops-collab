@@ -1,0 +1,25 @@
+# C008 msprof system path paste — 2026-11-12 CodeArts
+# CUSTOM unset; torch_npu.npu_confusion_transpose; shape (2,1024,128)->(2,128,1024) f32
+# PROF: /tmp/ctd_c008_msprof/out/PROF_000001_20261112172258200_00006063OMJARBPK
+
+Application printed: done (2, 128, 1024) CUSTOM= (unset)
+msprof export OK → mindstudio_profiler_output/
+
+## Device kernel identity
+te_confusiontransposed_<hash>__kernel0  (AI_VECTOR_CORE)
+→ system TE/TBE ConfusionTransposeD path (not custom AscendC package)
+
+## task_time.csv Duration samples (us) from paste (Task Duration column)
+14.120, 10.560, 7.380, 7.260, 5.920,   # early / warmup-ish
+4.780, 4.900, 4.700, 4.820, 4.700,
+4.880, 4.860, 4.740, 4.760, 4.900
+
+Steady (last 10): mean ≈ 4.804 us, min 4.700, max 4.900
+
+## Compare
+- Platform leaderboard best ≈ 3.5 us (EXP_C003) — same order of magnitude
+- Host wall earlier ≈ 90–100 us — ~20× above device (launch floor)
+- P004 platform points 1–2 ≈ 717 us — ~150× slower than this system device task on a mid shape
+
+## Conclusion
+P008 device baseline ESTABLISHED for this shape. Host baseline scrap confirmed.

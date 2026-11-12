@@ -28,4 +28,4 @@ CodeArts盘点成功（910B3 / CANN 9.1.0，exit=0）。2026-11-12 签名回传�
 
 2026-11-12 多尺度 Host：四档（含 `(2,1024,128)`）Host 均时 **0.092–0.103 ms**，与元素量几乎无关 → **Host 测到的是框架/launch 地板，不能当 TBE kernel 基线**（见 [`C008-torch-npu-scale-host-paste.log`](logs/EXP_C008/C008-torch-npu-scale-host-paste.log)）。
 
-下一闸：单 case msprof 取 device task；失败则 DEC 关闭「Host 建基线」假设。未拿到 device 对照前：**无新 Kernel、不粘贴平台「新优化版」**。
+2026-11-12 msprof：**已拿到 device task**。核名 `te_confusiontransposed_*__kernel0`；`(2,1024,128)` 稳态 ≈**4.7–4.9μs**（见 [`C008-msprof-system-paste.log`](logs/EXP_C008/C008-msprof-system-paste.log)）。与平台最优~3.5μs同阶。结案见 [DEC007](../decisions/DEC007-p008-tbe-device-baseline.md)：停 Host/微优化；结构大改需 Owner 立项。
