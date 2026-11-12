@@ -102,7 +102,7 @@ def main():
     env["CTD_PERF_WARMUP"] = "0"
     env["CTD_PERF_REPEAT"] = "1"
     env["ASCEND_SLOG_PRINT_TO_STDOUT"] = "1"
-    env["ASCEND_GLOBAL_LOG_LEVEL"] = "0"
+    env["ASCEND_GLOBAL_LOG_LEVEL"] = os.environ.get("CTD_C005_LOG_LEVEL", "0")
     binary = args.directory / "diagnostic_sample"
     if not args.generate_only:
         source = args.directory / "diagnostic_sample.cpp"

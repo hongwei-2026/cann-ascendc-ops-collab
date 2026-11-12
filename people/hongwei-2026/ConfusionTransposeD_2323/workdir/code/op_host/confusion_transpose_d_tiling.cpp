@@ -10,6 +10,7 @@
 #include "op_common/op_host/util/platform_util.h"
 #include "../op_kernel/confusion_transpose_d_tiling_data.h"
 #include "../op_kernel/confusion_transpose_d_tiling_key.h"
+#include "confusion_transpose_d_probe.h"
 
 namespace optiling {
 
@@ -92,12 +93,19 @@ static int64_t GetCopySpan(const int64_t* dims, const int64_t* perm, int64_t ran
 
 static ge::graphStatus ConfusionTransposeDTilingFunc(gert::TilingContext* context)
 {
+    ctd_probe::Event probe("tiling");
+    const auto* probeStorage = context->GetInputShape(0);
+    const auto* probeDesc = context->GetInputDesc(0);
+    const auto* probeShape = probeStorage ? &probeStorage->GetStorageShape() : nullptr;
+    probe.Capture(probeShape, context->GetAttrs(), probeDesc ? static_cast<int>(probeDesc->GetDataType()) : -1);
     uint64_t ubSize = 0;
     int64_t coreNum = 0;
+    probe.Stage("platform_info");
     OP_CHECK_IF(
         GetPlatformInfo(context, ubSize, coreNum) != ge::GRAPH_SUCCESS,
         OP_LOGE(context, "GetPlatformInfo error"),
         return ge::GRAPH_FAILED);
+    probe.Stage("workspace");
     OP_CHECK_IF(
         GetWorkspaceSize(context) != ge::GRAPH_SUCCESS,
         OP_LOGE(context, "GetWorkspaceSize error"),
@@ -105,11 +113,13 @@ static ge::graphStatus ConfusionTransposeDTilingFunc(gert::TilingContext* contex
 
     const gert::StorageShape* xStorage = context->GetInputShape(0);
     const auto* inputDesc = context->GetInputDesc(0);
+    probe.Stage("missing_input_shape_or_desc");
     OP_CHECK_NULL_WITH_CONTEXT(context, xStorage);
     OP_CHECK_NULL_WITH_CONTEXT(context, inputDesc);
 
     const gert::Shape& xShape = xStorage->GetStorageShape();
     const size_t rankIn = xShape.GetDimNum();
+    probe.Stage("invalid_input_rank");
     OP_CHECK_IF(rankIn == 0 || rankIn > MAX_DIM, OP_LOGE(context, "invalid input rank"), return ge::GRAPH_FAILED);
 
     int64_t dimIn[MAX_DIM] = {1, 1, 1, 1, 1, 1, 1, 1};
@@ -118,18 +128,22 @@ static ge::graphStatus ConfusionTransposeDTilingFunc(gert::TilingContext* contex
         dimIn[i] = xShape.GetDim(i);
         totalNum *= dimIn[i];
     }
+    probe.Stage("empty_or_invalid_numel");
     OP_CHECK_IF(totalNum <= 0, OP_LOGE(context, "empty tensor"), return ge::GRAPH_FAILED);
 
     const gert::RuntimeAttrs* attrs = context->GetAttrs();
+    probe.Stage("missing_attributes");
     OP_CHECK_NULL_WITH_CONTEXT(context, attrs);
     const auto* permVec = attrs->GetAttrPointer<gert::ContinuousVector>(0);
     const auto* shapeVec = attrs->GetAttrPointer<gert::ContinuousVector>(1);
     const bool* transposeFirst = attrs->GetAttrPointer<bool>(2);
+    probe.Stage("missing_attribute_value");
     OP_CHECK_NULL_WITH_CONTEXT(context, permVec);
     OP_CHECK_NULL_WITH_CONTEXT(context, shapeVec);
     OP_CHECK_NULL_WITH_CONTEXT(context, transposeFirst);
 
     const size_t rank = shapeVec->GetSize();
+    probe.Stage("perm_shape_rank_mismatch");
     OP_CHECK_IF(
         rank == 0 || rank > MAX_DIM || permVec->GetSize() != rank,
         OP_LOGE(context, "perm/shape rank mismatch"),
@@ -144,16 +158,20 @@ static ge::graphStatus ConfusionTransposeDTilingFunc(gert::TilingContext* contex
         dimShape[i] = shapeData[i];
         perm[i] = permData[i];
         shapeNumel *= dimShape[i];
+        probe.Stage("perm_out_of_range");
         OP_CHECK_IF(
             perm[i] < 0 || perm[i] >= static_cast<int64_t>(rank),
             OP_LOGE(context, "perm out of range"),
             return ge::GRAPH_FAILED);
     }
+    probe.Stage("shape_numel_mismatch");
     OP_CHECK_IF(shapeNumel != totalNum, OP_LOGE(context, "shape numel mismatch"), return ge::GRAPH_FAILED);
 
     const int64_t typeSize = GetTypeSize(inputDesc->GetDataType());
     // 输入整 tensor 常驻 UB + 输出 tile；预留 8KB
     const int64_t reserved = 8 * 1024;
+    probe.Limits(ubSize, totalNum, typeSize);
+    probe.Stage("tensor_too_large_for_ub");
     OP_CHECK_IF(
         totalNum * typeSize + reserved >= static_cast<int64_t>(ubSize),
         OP_LOGE(context, "tensor too large for UB-resident scheme"),
@@ -201,6 +219,7 @@ static ge::graphStatus ConfusionTransposeDTilingFunc(gert::TilingContext* contex
     }
 
     ConfusionTransposeDTilingData* tiling = context->GetTilingData<ConfusionTransposeDTilingData>();
+    probe.Stage("missing_tiling_data");
     OP_CHECK_NULL_WITH_CONTEXT(context, tiling);
     tiling->totalNum = totalNum;
     tiling->blockFactor = blockFactor;
@@ -224,6 +243,8 @@ static ge::graphStatus ConfusionTransposeDTilingFunc(gert::TilingContext* contex
         tilingKey = GET_TPL_TILING_KEY(CONFUSIONTRANSPOSED_TPL_SCH_MODE_3);
     }
     context->SetTilingKey(tilingKey);
+    probe.Tiling(copySpan, usedCores, blockFactor, ubFactor);
+    probe.Success();
     return ge::GRAPH_SUCCESS;
 }
 

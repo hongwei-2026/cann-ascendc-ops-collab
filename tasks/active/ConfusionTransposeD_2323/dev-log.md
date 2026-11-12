@@ -1,5 +1,11 @@
 # Dev log — ConfusionTransposeD_2323
 
+## 2026-11-12（P009 Host探针）
+
+- 在P004 Host infer/tiling入口及退出写`CTD_PROBE` JSON，记录输入、属性、dtype枚举、成功/拒绝阶段及可得路径/UB信息；Kernel和算子判断未改。记录是回调级而非保证一条对应一个平台case。
+- 本地语义检查、脚本语法、模拟Host JSON成功/失败事件检查通过；未在本机编译CANN或运行NPU。新增CodeArts隔离P004/候选样例、39项bitwise、边界诊断及探针解析流程。
+- 平台stderr可见性及隐藏点是否进入回调未知；等待C009云测，再判断提交探针包。没有平台shape或系统TBE对应profile，不作验收结论。
+
 ## 2026-11-12（平台再提 + 探针交接）
 
 - P004 再提：Runtime Error；1/4/5≈717–725μs，2/3≈2.03–2.05ms，点6隐藏。

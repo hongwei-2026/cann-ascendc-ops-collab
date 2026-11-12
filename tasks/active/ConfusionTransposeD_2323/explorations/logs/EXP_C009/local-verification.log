@@ -1,0 +1,8 @@
+C009 local verification, 2026-11-12
+local_semantic_check.py: ALL PASS (8 layouts; float16, int8, int32 reference checks)
+p004_semantic_check.py: PASS (1658 CPU copy-plan checks; 594 DMA plans)
+Git Bash: bash -n tests/run_c009_cloud.sh: exit 0
+Python AST parsing: c009_probe_report.py and c005_diagnostic.py: PASS
+g++ -std=c++17 -Wall -Wextra -Werror tests/c009_probe_host_smoke.cpp: exit 0
+Smoke binary JSON parsed: 4 events; success output shape and simulated UB rejection metadata verified.
+Scope: mocked host structures only. No CANN headers, NPU build, hardware execution or platform data tested.
