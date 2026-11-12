@@ -1,5 +1,10 @@
 # Dev log — ConfusionTransposeD_2323
 
+## 2026-11-12（P008 Host 尺度）
+
+- 四档 Host ~0.09–0.10ms 贴死 → Host 基线作废。归档 `C008-torch-npu-scale-host-paste.log`。
+- 下一闸：单 case msprof device task；失败写 DEC。
+
 ## 2026-11-12（P008 系统可调用）
 
 - `npu_confusion_transpose` + CUSTOM unset：sample 出 `(2,4,3,5)`，Host 0.0953ms/call。

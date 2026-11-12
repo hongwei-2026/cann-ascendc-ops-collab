@@ -24,4 +24,8 @@ CodeArts盘点成功（910B3 / CANN 9.1.0，exit=0）。2026-11-12 签名回传�
 
 归档：[`C008-api-signature-paste.log`](logs/EXP_C008/C008-api-signature-paste.log)；[`C008-system-symbol-paste.log`](logs/EXP_C008/C008-system-symbol-paste.log)；[`C008-torch-npu-system-call-paste.log`](logs/EXP_C008/C008-torch-npu-system-call-paste.log)。
 
-2026-11-12 可调用闸：`torch_npu.npu_confusion_transpose` + CUSTOM unset + sample 默认 shape，输出 `(2,4,3,5)`，Host 均时 **0.0953 ms/call**（含 launch，非 device task）。**仍未**建立与 P004 同输入的公平对照，也未覆盖平台隐藏点。未完成对照前：**无新 Kernel、不粘贴平台「新优化版」**。
+2026-11-12 可调用闸：`torch_npu.npu_confusion_transpose` + CUSTOM unset，sample 正确。
+
+2026-11-12 多尺度 Host：四档（含 `(2,1024,128)`）Host 均时 **0.092–0.103 ms**，与元素量几乎无关 → **Host 测到的是框架/launch 地板，不能当 TBE kernel 基线**（见 [`C008-torch-npu-scale-host-paste.log`](logs/EXP_C008/C008-torch-npu-scale-host-paste.log)）。
+
+下一闸：单 case msprof 取 device task；失败则 DEC 关闭「Host 建基线」假设。未拿到 device 对照前：**无新 Kernel、不粘贴平台「新优化版」**。

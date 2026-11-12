@@ -9,7 +9,7 @@
 | 模板 | `materials/ConfusionTransposeD_problem_2323_template.zip` |
 | 功能闸 | [EXP_C004](explorations/EXP_C004-contiguous-row-dma.md)：P004 样例 PASS + 原13/新9共22/22 bitwise PASS（含 bf16/int64）；此前 EXP_C001/C002 保留 |
 | 性能基线 | [EXP_C003](explorations/EXP_C003-perf-baseline-platform.md)：平台 1～5 Pass，用时 ~1.7ms / 最优 ~3.5μs（~500×）；P004 同机连续行 2～6×，平台点1/2约2.4×、3～5无改善 |
-| 下一闸 | **系统可调用已证实**（Host 0.0953ms @ sample）。下一步：同 shape 再测一档更大输入的系统 Host 时间，并（若 vendor 包已在 build）对比自定义 P004；要 device 时间再用 msprof。禁止新 Kernel / 平台粘贴 |
+| 下一闸 | Host 四档贴死 ~0.09ms → **废**。只做一次系统路径 msprof（`(2,1024,128)`）；失败则 DEC 止 Host 基线。Kernel 冻 P004；禁平台粘新包 |
 | 止损 | `docs/collaboration/02-perf-gate.md`；触线写 `decisions/DEC*` |
 
 ## 一句话

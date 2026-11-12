@@ -1,0 +1,11 @@
+# C008 torch_npu multi-shape Host paste — 2026-11-12 CodeArts
+# CUSTOM unset; torch_npu.npu_confusion_transpose; warmup3 + repeat20; Host wall
+
+in=(2, 3, 4, 5) out=(2, 4, 3, 5) host_avg_ms=0.1034
+in=(8, 128, 64) out=(8, 64, 128) host_avg_ms=0.0942
+in=(4, 32, 32, 32) out=(4, 32, 32, 32) host_avg_ms=0.0964
+in=(2, 1024, 128) out=(2, 128, 1024) host_avg_ms=0.0922
+CUSTOM= (unset)
+
+Verdict: Host times flat ~90–100μs across ~20× element range → launch/framework floor.
+Host A/B cannot establish TBE vs P004 kernel gap. Need msprof/device task or DEC Host path.

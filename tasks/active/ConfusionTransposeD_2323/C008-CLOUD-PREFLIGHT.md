@@ -95,6 +95,37 @@ print("torch:", importlib.util.find_spec("torch"))
 PY
 ```
 
+Host 多尺度已证明 ~90μs 地板，作废。下一闸只跑 **一条** msprof（可跳过 git pull）：
+
+```bash
+source /home/developer/Ascend/cann-9.1.0/set_env.sh
+unset ASCEND_CUSTOM_OPP_PATH
+mkdir -p /tmp/ctd_c008_msprof
+cat > /tmp/ctd_c008_msprof/run.py <<'PY'
+import os
+os.environ.pop("ASCEND_CUSTOM_OPP_PATH", None)
+import torch, torch_npu
+fn = torch_npu.npu_confusion_transpose
+x = torch.randn(2, 1024, 128, dtype=torch.float32, device="npu:0")
+perm, shape = [0, 2, 1], [2, 128, 1024]
+for _ in range(5):
+    y = fn(x, perm, shape, True)
+torch.npu.synchronize()
+for _ in range(10):
+    y = fn(x, perm, shape, True)
+torch.npu.synchronize()
+print("done", tuple(y.shape), "CUSTOM=", os.environ.get("ASCEND_CUSTOM_OPP_PATH", "(unset)"))
+PY
+cd /tmp/ctd_c008_msprof
+msprof --output=./out --application="python3 /tmp/ctd_c008_msprof/run.py" 2>&1 | tee msprof_console.log | tail -n 40
+# 若 msprof 子命令不同，改试：
+# msprof python3 /tmp/ctd_c008_msprof/run.py
+ls out 2>/dev/null | head
+grep -RInE 'confusion|transpose|Task Duration|Duration\(us\)|aic_?time' out 2>/dev/null | head -n 40
+```
+
+把 `msprof_console.log` 尾部 + grep 命中贴回。拿不到 device 时间就停，不要再扩 Host 测。
+
 只有系统路径对同一输入给出可识别的 device task 时间，才允许登记新的有界 Kernel 路线。
 
 ## 回传
