@@ -16,6 +16,10 @@ P004/P006/P007 的对照均是本算子版本之间的同机 A/B，不能证明�
 
 ## 结论
 
-CodeArts盘点成功（910B3 / CANN 9.1.0，exit=0），确认存在910B注册的legacy TBE配置、legacy Python实现，以及dynamic TBE/AscendC实现文件。源码片段显示dynamic入口注册`ConfusionTransposeD`并调用AscendC编译通道；设备kernel按tiling key分派到`TransposeTensorMove`、`TransposeSmallShape`、`TransposeCutOneAxis`、`TransposeCutTwoAxis`、`TransposeBigDim`和`TransposeNLast`。这是可借鉴的专用路径证据，但还没有证明这些模板可由本算子直接include。
+CodeArts盘点成功（910B3 / CANN 9.1.0，exit=0）。2026-11-12 签名回传进一步确认：
 
-系统有`aclnnConfusionTranspose`头文件，但当前输出没有给出完整参数；搜索没有发现`aclnnConfusionTransposeD`。仍未确认该API是否覆盖目标属性、TBE如何绕开自定义op调用、怎样用P004相同输入profile，也未取得平台点shape。原始tar留在CodeArts且未下载；marker与源码片段分别归档为[`C008-console-evidence.log`](logs/EXP_C008/C008-console-evidence.log)和[`C008-source-probe-paste.log`](logs/EXP_C008/C008-source-probe-paste.log)，后者SHA256为`E3F8D76CA63F20C5B74B49314D9CBD348AFB98776CFF4FB722197236B9451F32`。P008继续限时核对API签名和头依赖；同机profile未建立前，无Kernel diff、无性能PASS。
+1. **公开 API 属性对齐**：`aclnnConfusionTransposeGetWorkspaceSize(x, perm, shape, transpose_first, out, …)` —— 与题目 attrs 一致。注意 API 名是 `ConfusionTranspose`（无 `D`），竞赛算子仍是 `ConfusionTransposeD`。
+2. **TBE→AscendC 分派**：`register_operator("ConfusionTransposeD")`；device 按 tiling key 进六类 `Transpose*`（`arch35/` 模板路径）。这是借鉴线索，**不等于**可直接 `#include` 进自定义包，也不等于 910B 与 arch35 路径已实测同机。
+3. **仍缺**：清空 `ASCEND_CUSTOM_OPP_PATH` 后调用系统 opapi 的同输入 device profile；平台隐藏点 shape。
+
+归档：[`C008-api-signature-paste.log`](logs/EXP_C008/C008-api-signature-paste.log)（SHA256 `5EFD1A5193EB5B67A7225A4E2526B8ECEF34288AD67887FDB46734BB19A496CC`）。同机 profile 未建前：**无新 Kernel、不粘贴平台「新优化版」**。

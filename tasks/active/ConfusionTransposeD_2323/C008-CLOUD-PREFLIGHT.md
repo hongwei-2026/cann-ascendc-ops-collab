@@ -61,7 +61,21 @@ grep -RInE 'class Transpose(SmallShape|CutOneAxis|CutTwoAxis|BigDim|NLast|Tensor
   "$CTD_TBE/ops_math/ascendc" 2>/dev/null | head -n 80
 ```
 
-输出这些片段即可。只有确认公开API参数覆盖`perm`、`shape`和`transpose_first`，并能用系统opapi而不加载自定义包，才继续准备P004/TBE同输入profile。
+2026-11-12：上述签名片段已回传并确认 `perm/shape/transpose_first` 齐全。下一步只做**系统 API 同输入 profile**（仍不改 Kernel）：
+
+```bash
+cd /mnt/workspace/cann-ascendc-ops-collab
+GIT_EDITOR=true git pull --ff-only origin main
+source /home/developer/Ascend/cann-9.1.0/set_env.sh
+# 关键：不要带自定义算子包，否则测到的是自己的 op
+unset ASCEND_CUSTOM_OPP_PATH
+echo "ASCEND_CUSTOM_OPP_PATH=${ASCEND_CUSTOM_OPP_PATH:-(unset)}"
+# 用系统 aclnnConfusionTranspose（无 D）对 P004 样例跑一次；若无现成驱动，先回报「缺 sample」勿手写大段猜测
+ls people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/examples/ 2>/dev/null || ls people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/
+# 下一闸只回传：unset 后能否链到系统头、有无可跑 sample、msprof 是否出 device task
+```
+
+只有系统路径对同一输入给出可识别的 device task 时间，才允许登记新的有界 Kernel 路线。
 
 ## 回传
 

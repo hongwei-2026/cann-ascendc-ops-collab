@@ -1,5 +1,11 @@
 # Dev log — ConfusionTransposeD_2323
 
+## 2026-11-12（P008 API 签名回传）
+
+- Owner 粘贴 `aclnn_confusion_transpose.h`：`perm/shape/transpose_first` 齐全；TBE apt 注册 ConfusionTransposeD；device 分派六类 Transpose*（arch35）。
+- 归档 `explorations/logs/EXP_C008/C008-api-signature-paste.log`。判定：**签名闸过，对照闸未过**；活动 Kernel 仍 P004；**不可**当新优化粘平台。
+- 下一闸：不加载 custom opp，对 P004 样例调系统 `aclnnConfusionTranspose` + msprof（≤30min）；失败写 DEC。
+
 ## 2026-11-11（P008 CodeArts回传）
 
 - CodeArts盘点exit=0，机器为910B3、CANN9.1.0，`ASCEND_CUSTOM_OPP_PATH`未设置。确认CANN OPP含legacy ConfusionTransposeD TBE Python、910B legacy注册配置，以及dynamic TBE/AscendC实现源码。

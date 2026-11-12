@@ -1,0 +1,46 @@
+# C008 API signature / TBE dispatch paste — 2026-11-12 CodeArts
+# Owner paste from cann-ascendc-ops-collab after git pull to 7550eda
+# ASCEND via /home/developer/Ascend/cann-9.1.0/set_env.sh
+
+## aclnn_confusion_transpose.h (lines 15-50)
+
+aclnnStatus aclnnConfusionTransposeGetWorkspaceSize(
+    const aclTensor* x, const aclIntArray* perm, const aclIntArray* shape, bool transpose_first, aclTensor* out,
+    uint64_t* workspaceSize, aclOpExecutor** executor);
+
+aclnnStatus aclnnConfusionTranspose(
+    void* workspace, uint64_t workspaceSize, aclOpExecutor* executor, aclrtStream stream);
+
+## confusion_transpose_d_apt.py (excerpt)
+
+- _build_args attrs: perm(list_int), shape(list_int), transpose_first(bool)
+- @tbe_register.register_operator("ConfusionTransposeD")
+- confusion_transpose_d(...) builds AscendC via get_code_channel + compile_op
+- src: confusion_transpose_d_apt.cpp under ascendc/confusion_transpose_d/
+
+## confusion_transpose_d_apt.cpp (device entry)
+
+Includes arch35 templates:
+- transpose_tensor_move.h
+- transpose_cut_one_axis.h
+- transpose_cut_two_axis.h
+- transpose_small_shape.h
+- transpose_big_dim.h
+- transpose_n_last.h
+
+Tiling keys:
+- TENSOR_MOVE 10000 → TransposeTensorMove
+- SMALL_SHAPE 10001 → TransposeSmallShape
+- CUT_ONCE 10002 → TransposeCutOneAxis
+- CUT_TWICE 10003 → TransposeCutTwoAxis
+- N_LAST_TRANSPOSE 10004 → TransposeNLast
+- BIG_DIM 10005 → TransposeBigDim
+
+## class hits under ops_math/ascendc
+
+- transpose/arch35/transpose_cut_two_axis.h: TransposeCutTwoAxis
+- transpose/arch35/transpose_small_shape.h: TransposeSmallShape
+- transpose/arch35/transpose_big_dim.h: TransposeBigDim
+- transpose/arch35/transpose_cut_one_axis.h: TransposeCutOneAxis
+- transpose/arch35/transpose_n_last.h: TransposeNLast
+- transpose/arch35/transpose_tensor_move.h: TransposeTensorMove
