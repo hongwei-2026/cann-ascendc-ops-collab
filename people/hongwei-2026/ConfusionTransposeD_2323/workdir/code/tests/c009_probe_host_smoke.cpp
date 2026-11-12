@@ -43,6 +43,7 @@ int main()
     {
         ctd_probe::Event probe("tiling");
         probe.Capture(&input, &attrs, 0);
+        probe.OutputStorage(&output);
         probe.Limits(192 * 1024, 6, 4);
         probe.Stage("tensor_too_large_for_ub");
     }

@@ -98,6 +98,8 @@ static ge::graphStatus ConfusionTransposeDTilingFunc(gert::TilingContext* contex
     const auto* probeDesc = context->GetInputDesc(0);
     const auto* probeShape = probeStorage ? &probeStorage->GetStorageShape() : nullptr;
     probe.Capture(probeShape, context->GetAttrs(), probeDesc ? static_cast<int>(probeDesc->GetDataType()) : -1);
+    const auto* probeOutput = context->GetOutputShape(0);
+    probe.OutputStorage(probeOutput ? &probeOutput->GetStorageShape() : nullptr);
     uint64_t ubSize = 0;
     int64_t coreNum = 0;
     probe.Stage("platform_info");

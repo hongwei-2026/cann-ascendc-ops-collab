@@ -1,5 +1,10 @@
 # Dev log — ConfusionTransposeD_2323
 
+## 2026-11-12（P009探针修订）
+
+- 补充回传确认两例只见tiling事件；CANN头文件声明tiling可读输出StorageShape。归档用户回传摘要。
+- 增加tiling输出存储shape记录；检查器验证fixture匹配并单列未观测infer，不能把输出描述当成infer通过。Kernel与算子判断不变；修订版待云端编译和NPU验证。
+
 ## 2026-11-12（P009 云测首轮回传）
 
 - 归档CodeArts控制台证据段；候选 `ed583cb` 与P004均样例PASS、39/39 bitwise PASS。边界候选46 PASS、6 FAIL_OR_REJECTED。

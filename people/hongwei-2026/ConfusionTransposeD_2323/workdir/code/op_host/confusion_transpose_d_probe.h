@@ -106,6 +106,15 @@ public:
         extra_ += out.str();
     }
 
+    template <typename Shape>
+    void OutputStorage(const Shape* shape)
+    {
+        std::ostringstream out;
+        out << ",\"tiling_out_storage_shape\":";
+        WriteShape(out, shape);
+        extra_ += out.str();
+    }
+
     void Limits(uint64_t ub, int64_t numel, int64_t typeSize)
     {
         std::ostringstream out;

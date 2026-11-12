@@ -9,7 +9,7 @@
 | 模板 | `materials/ConfusionTransposeD_problem_2323_template.zip` |
 | 功能闸 | EXP_C001/C002/C004：样例+泛化 bitwise PASS |
 | 性能基线 | 平台 ~1.7ms vs 最优 ~3.5μs；**同机系统 TBE last10 mean=4.804μs** @ `(2,1024,128)`（`ConfusionTransposeD` / `te_confusiontransposed_*`）；P004 平台点1/2 ~717μs |
-| 下一闸 | **P009探针验证未完成**：C009样例和39/39 bitwise通过，但检查器未观察到infer事件而exit=1；先复用云端原始日志与CANN头文件调查，再决定探针修订和实机复测。平台日志可见性、点1～6 shape及隐藏点RE原因均未知；微优化仍按DEC007冻结 |
+| 下一闸 | **P009探针验证未完成**：C009首轮样例和39/39 bitwise通过，但检查器未观察到infer事件而exit=1；已补充tiling输出存储shape字段并区分未观测infer，待重新云端编译及实机验证。平台日志可见性、点1～6 shape及隐藏点RE原因均未知；微优化仍按DEC007冻结 |
 | 止损 | `docs/collaboration/02-perf-gate.md` |
 
 ## 一句话

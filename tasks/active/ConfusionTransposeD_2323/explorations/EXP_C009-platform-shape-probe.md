@@ -20,6 +20,14 @@
 - [控制台回传](logs/EXP_C009/C009-console-evidence.log)仅含打印的摘要和build日志末尾，SHA256 `aabcece950cc755c2f7e2612b1ea8915fdb6a65f05d04b0380de5caf4c4b0334`。完整tar尚未回收，云端路径为 `/mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C009_20261112_181640_Og8y.tar.gz`。不得把摘要当作完整原始日志。
 - 下一步复用这次云端已有逐case日志和CANN头文件，核实成功事件的实际字段、输出shape接口和infer日志缺失的可观测范围；如需改探针，重新编译和实机回归。平台stderr可见性、实际shape、隐藏点失败阶段仍未知；不把infer缺失改判为PASS。
 
+## 回传补充及探针修订（待云测）
+
+两条fixture原始日志再次确认只见tiling入口与退出；`tiling_context.h:142` 声明 `GetOutputShape` 返回 `const StorageShape*`，见[补充证据](logs/EXP_C009/C009-followup-probe-paste.log)。探针增加 `tiling_out_storage_shape`，即框架传入tiling的输出存储形状，为null则记录null；不改变Kernel或算子判断。回归程序自行创建输出张量，因此此字段不证明infer执行。
+
+检查器要求已成功的tiling记录包含匹配fixture的输入、属性和输出存储shape；无infer退出事件列为 `infer_unobserved`，不冒充infer通过；若有infer退出则必须匹配。整轮通过只说明约定的tiling检查和样例/回归通过，不能说明infer、平台日志可见或隐藏点已验证。此修订尚待CANN编译与NPU复测。
+
+本机验证：`local_semantic_check.py` 全PASS；`test_c009_probe_report.py` 3项通过（缺infer单列、错误输出shape失败、已观测但错误的infer失败）；`c009_probe_host_smoke.cpp` 通过g++语法检查。该模拟不覆盖CANN ABI或NPU。
+
 ## 先前准备与验证
 
 本地`local_semantic_check.py`和P004搬运计划1658项检查通过；Git Bash检查云测脚本语法通过；用最小Host数据结构编译`c009_probe_host_smoke.cpp`并解析4条JSON，确认成功/失败事件字段。该模拟不验证CANN ABI、平台日志或NPU结果，详见[local-verification.log](logs/EXP_C009/local-verification.log)。

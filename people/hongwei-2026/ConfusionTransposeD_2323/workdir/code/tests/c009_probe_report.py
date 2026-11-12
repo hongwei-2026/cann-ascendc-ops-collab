@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Inspect raw host probe lines against fixture metadata; missing lines are failures."""
+"""Inspect tiling output metadata and report infer events separately."""
 import json
 import sys
 from pathlib import Path
@@ -27,6 +27,7 @@ def main(root):
     cases = json.loads(result_file.read_text(encoding="utf-8"))
     failures = []
     samples = []
+    infer_unobserved = []
     for case in cases:
         name = case["case"]
         events = records(root / "candidate_regression" / name / "run.log")
@@ -37,14 +38,19 @@ def main(root):
                            [case["attr_shape"][i] for i in case["perm"]])
         matches = [e for e in success if (e.get("in_shape"), e.get("perm"), e.get("attr_shape"),
                                           e.get("transpose_first")) == expected
-                   and isinstance(e.get("dtype_code"), int) and e.get("copy_span", 0) > 0]
+                   and isinstance(e.get("dtype_code"), int) and e.get("copy_span", 0) > 0
+                   and e.get("tiling_out_storage_shape") == expected_output]
+        infer_exits = [e for e in events if e.get("phase") == "infer" and e.get("event") == "exit"]
         infer = [e for e in events if e.get("phase") == "infer" and e.get("event") == "exit"
                  and e.get("host_ok") is True and e.get("out_shape") == expected_output
                  and (e.get("in_shape"), e.get("perm"), e.get("attr_shape"),
                       e.get("transpose_first")) == expected]
-        if name in ("baseline_tf_f32", "rank2_swap_f32") and matches and infer:
-            samples.append({"case": name, "infer": infer[0], "tiling": matches[0]})
-        if case["result"] != "PASS_BITWISE" or not matches or not infer or any("parse_error" in e for e in events):
+        if not infer_exits:
+            infer_unobserved.append(name)
+        if name in ("baseline_tf_f32", "rank2_swap_f32") and matches:
+            samples.append({"case": name, "infer": infer[0] if infer else None, "tiling": matches[0]})
+        if (case["result"] != "PASS_BITWISE" or not matches or (infer_exits and not infer)
+                or any("parse_error" in e for e in events)):
             failures.append({"case": name, "result": case["result"], "tiling_matches": len(matches),
                              "infer_success": len(infer), "probe_events": len(events)})
     diagnostic = root / "candidate_boundary" / "results.json"
@@ -56,7 +62,8 @@ def main(root):
                 boundary.append({"case": case["case"], "result": case["result"],
                                  "exit_code": case.get("exit_code"),
                                  "host_exits": [e for e in events if e.get("event") == "exit"]})
-    summary = {"case_count": len(cases), "probe_failures": failures, "samples": samples, "boundary": boundary}
+    summary = {"case_count": len(cases), "probe_failures": failures, "infer_unobserved": infer_unobserved,
+               "samples": samples, "boundary": boundary}
     ub_rejected = any(case["case"] == "ub_196608_bytes" and case["result"] == "FAIL_OR_REJECTED"
                       and any(event.get("phase") == "tiling" and event.get("host_ok") is False
                               and event.get("stage") == "tensor_too_large_for_ub"
