@@ -1,0 +1,20 @@
+# C008 sample inventory paste — 2026-11-12 CodeArts
+# After skip hung git pull; CUSTOM unset; find/ls completed
+
+ASCEND via /home/developer/Ascend/cann-9.1.0/set_env.sh
+ASCEND_CUSTOM_OPP_PATH=(unset)
+
+find hits (depth<=3):
+- examples/sample_support.h
+- examples/test_aclnn_confusion_transpose_d.cpp
+- examples/run.sh
+- samples/sample.py
+- tests/run_c002/c004/c005/c006/c007/c008*.sh
+- tests/ut/run.sh
+
+examples/:
+CMakeLists.txt  run.sh  sample_support.h  test_aclnn_confusion_transpose_d.cpp
+
+NOTE (local analysis): examples/run.sh RE-SETS ASCEND_CUSTOM_OPP_PATH to
+build/packages/vendors/confusion_transpose_d_custom; sample calls
+aclnnConfusionTransposeD* (with D). Not usable as system-TBE baseline as-is.

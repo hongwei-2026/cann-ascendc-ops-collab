@@ -1,5 +1,11 @@
 # Dev log — ConfusionTransposeD_2323
 
+## 2026-11-12（P008 样例库存）
+
+- CodeArts：`git pull` 易挂在 Receiving；可跳过。`CUSTOM` unset + `find` 已确认有 `examples/test_aclnn_confusion_transpose_d.cpp`。
+- **禁止**直接 `examples/run.sh`：脚本会重新挂自定义 OPP，且 API 是带 `D` 的自定义入口。
+- 下一闸：nm/strings 查系统 `aclnnConfusionTranspose`（无 D）+ torch_npu 有无。
+
 ## 2026-11-12（P008 API 签名回传）
 
 - Owner 粘贴 `aclnn_confusion_transpose.h`：`perm/shape/transpose_first` 齐全；TBE apt 注册 ConfusionTransposeD；device 分派六类 Transpose*（arch35）。

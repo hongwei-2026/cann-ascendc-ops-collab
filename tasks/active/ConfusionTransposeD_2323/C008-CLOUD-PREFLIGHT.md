@@ -70,9 +70,29 @@ source /home/developer/Ascend/cann-9.1.0/set_env.sh
 # 关键：不要带自定义算子包，否则测到的是自己的 op
 unset ASCEND_CUSTOM_OPP_PATH
 echo "ASCEND_CUSTOM_OPP_PATH=${ASCEND_CUSTOM_OPP_PATH:-(unset)}"
-# 用系统 aclnnConfusionTranspose（无 D）对 P004 样例跑一次；若无现成驱动，先回报「缺 sample」勿手写大段猜测
-ls people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/examples/ 2>/dev/null || ls people/hongwei-2026/ConfusionTransposeD_2323/workdir/code/
-# 下一闸只回传：unset 后能否链到系统头、有无可跑 sample、msprof 是否出 device task
+# 库存已确认：有 examples/，但 examples/run.sh 会重新 export 自定义 OPP，且调用的是
+# aclnnConfusionTransposeD（带 D）——测的是自己的包，不是系统 TBE。禁止直接 bash examples/run.sh。
+# 下一闸：只读核对系统「无 D」API 是否可链（≤5min），把输出贴回：
+```
+
+```bash
+source /home/developer/Ascend/cann-9.1.0/set_env.sh
+unset ASCEND_CUSTOM_OPP_PATH
+CTD_CANN="${ASCEND_HOME_PATH:-/home/developer/Ascend/cann-9.1.0}"
+echo "CUSTOM=${ASCEND_CUSTOM_OPP_PATH:-(unset)}"
+ls -l "$CTD_CANN/include/aclnnop/aclnn_confusion_transpose.h" \
+      "$CTD_CANN/include/aclnnop/aclnn_confusion_transpose_d.h" 2>&1 | sed -n '1,20p'
+# 系统动态库里有没有无 D 符号
+( command -v nm >/dev/null && nm -D "$CTD_CANN"/lib64/libopapi.so 2>/dev/null \
+    | grep -E 'aclnnConfusionTranspose(GetWorkspaceSize)?$' | head ) || \
+  ( strings "$CTD_CANN"/lib64/libopapi.so 2>/dev/null \
+    | grep -E '^aclnnConfusionTranspose' | sort -u | head -n 40 )
+# 有无 torch_npu 捷径
+python3 - <<'PY'
+import importlib.util
+print("torch_npu:", importlib.util.find_spec("torch_npu"))
+print("torch:", importlib.util.find_spec("torch"))
+PY
 ```
 
 只有系统路径对同一输入给出可识别的 device task 时间，才允许登记新的有界 Kernel 路线。
