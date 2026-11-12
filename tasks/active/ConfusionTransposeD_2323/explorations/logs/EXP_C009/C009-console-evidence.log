@@ -1,0 +1,277 @@
+C009_EVIDENCE_BEGIN
+exit=1
+
+--- candidate_commit.txt ---
+ed583cb8610694ff87620865dbf8de93bfa0fb83
+
+--- stage.txt ---
+probe evidence check
+
+--- baseline_regression.log ---
+baseline_tf_f32 PASS_BITWISE
+baseline_rf_f32 PASS_BITWISE
+baseline_tf_f16 PASS_BITWISE
+baseline_tf_i8 PASS_BITWISE
+baseline_tf_i32 PASS_BITWISE
+rank2_swap_f32 PASS_BITWISE
+rank3_rot_f32 PASS_BITWISE
+rank3_rf_f32 PASS_BITWISE
+reshape_same_rank_tf PASS_BITWISE
+reshape_same_rank_rf PASS_BITWISE
+larger_4d_f32 PASS_BITWISE
+larger_4d_f16 PASS_BITWISE
+baseline_tf_bf16 PASS_BITWISE
+dma_short_i8 PASS_BITWISE
+dma_short_i64 PASS_BITWISE
+dma_fused_suffix PASS_BITWISE
+dma_unit_axes PASS_BITWISE
+dma_long_row PASS_BITWISE
+dma_rank8 PASS_BITWISE
+dma_rows128_f32 PASS_BITWISE
+dma_rf_newshape PASS_BITWISE
+fallback_i64 PASS_BITWISE
+stride_large_f32 PASS_BITWISE
+stride_large_f16 PASS_BITWISE
+stride_large_i8 PASS_BITWISE
+stride_large_i64 PASS_BITWISE
+stride_multitile_i8 PASS_BITWISE
+stride_odd_f16 PASS_BITWISE
+stride_tail_f32 PASS_BITWISE
+stride_tail_i8 PASS_BITWISE
+stride_tail_f16 PASS_BITWISE
+stride_tail_i64 PASS_BITWISE
+stride_tail_bf16 PASS_BITWISE
+stride_last_unit PASS_BITWISE
+stride_4d PASS_BITWISE
+stride_reshape_tf PASS_BITWISE
+stride_reshape_rf PASS_BITWISE
+stride_crossrank_rf PASS_BITWISE
+stride_rank8 PASS_BITWISE
+P006_COUNTS {"PASS_BITWISE": 39}
+
+--- candidate_regression.log ---
+baseline_tf_f32 PASS_BITWISE
+baseline_rf_f32 PASS_BITWISE
+baseline_tf_f16 PASS_BITWISE
+baseline_tf_i8 PASS_BITWISE
+baseline_tf_i32 PASS_BITWISE
+rank2_swap_f32 PASS_BITWISE
+rank3_rot_f32 PASS_BITWISE
+rank3_rf_f32 PASS_BITWISE
+reshape_same_rank_tf PASS_BITWISE
+reshape_same_rank_rf PASS_BITWISE
+larger_4d_f32 PASS_BITWISE
+larger_4d_f16 PASS_BITWISE
+baseline_tf_bf16 PASS_BITWISE
+dma_short_i8 PASS_BITWISE
+dma_short_i64 PASS_BITWISE
+dma_fused_suffix PASS_BITWISE
+dma_unit_axes PASS_BITWISE
+dma_long_row PASS_BITWISE
+dma_rank8 PASS_BITWISE
+dma_rows128_f32 PASS_BITWISE
+dma_rf_newshape PASS_BITWISE
+fallback_i64 PASS_BITWISE
+stride_large_f32 PASS_BITWISE
+stride_large_f16 PASS_BITWISE
+stride_large_i8 PASS_BITWISE
+stride_large_i64 PASS_BITWISE
+stride_multitile_i8 PASS_BITWISE
+stride_odd_f16 PASS_BITWISE
+stride_tail_f32 PASS_BITWISE
+stride_tail_i8 PASS_BITWISE
+stride_tail_f16 PASS_BITWISE
+stride_tail_i64 PASS_BITWISE
+stride_tail_bf16 PASS_BITWISE
+stride_last_unit PASS_BITWISE
+stride_4d PASS_BITWISE
+stride_reshape_tf PASS_BITWISE
+stride_reshape_rf PASS_BITWISE
+stride_crossrank_rf PASS_BITWISE
+stride_rank8 PASS_BITWISE
+P006_COUNTS {"PASS_BITWISE": 39}
+
+--- candidate_boundary.log ---
+candidate baseline_tf_f32 PASS_BITWISE
+candidate baseline_rf_f32 PASS_BITWISE
+candidate baseline_tf_f16 PASS_BITWISE
+candidate baseline_tf_i8 PASS_BITWISE
+candidate baseline_tf_i32 PASS_BITWISE
+candidate rank2_swap_f32 PASS_BITWISE
+candidate rank3_rot_f32 PASS_BITWISE
+candidate rank3_rf_f32 PASS_BITWISE
+candidate reshape_same_rank_tf PASS_BITWISE
+candidate reshape_same_rank_rf PASS_BITWISE
+candidate larger_4d_f32 PASS_BITWISE
+candidate larger_4d_f16 PASS_BITWISE
+candidate baseline_tf_bf16 PASS_BITWISE
+candidate dma_short_i8 PASS_BITWISE
+candidate dma_short_i64 PASS_BITWISE
+candidate dma_fused_suffix PASS_BITWISE
+candidate dma_unit_axes PASS_BITWISE
+candidate dma_long_row PASS_BITWISE
+candidate dma_rank8 PASS_BITWISE
+candidate dma_rows128_f32 PASS_BITWISE
+candidate dma_rf_newshape PASS_BITWISE
+candidate fallback_i64 PASS_BITWISE
+candidate tiny_1_int8 PASS_BITWISE
+candidate tiny_1_float16 PASS_BITWISE
+candidate tiny_1_float32 PASS_BITWISE
+candidate tiny_2_int8 PASS_BITWISE
+candidate tiny_2_float16 PASS_BITWISE
+candidate tiny_2_float32 PASS_BITWISE
+candidate tiny_3_int8 PASS_BITWISE
+candidate tiny_3_float16 PASS_BITWISE
+candidate tiny_3_float32 PASS_BITWISE
+candidate tiny_7_int8 PASS_BITWISE
+candidate tiny_7_float16 PASS_BITWISE
+candidate tiny_7_float32 PASS_BITWISE
+candidate tiny_9_int8 PASS_BITWISE
+candidate tiny_9_float16 PASS_BITWISE
+candidate tiny_9_float32 PASS_BITWISE
+candidate storage_uint8 PASS_BITWISE
+candidate storage_int16 PASS_BITWISE
+candidate storage_uint16 PASS_BITWISE
+candidate storage_uint32 PASS_BITWISE
+candidate storage_uint64 PASS_BITWISE
+candidate ub_131072_bytes PASS_BITWISE
+candidate ub_163840_bytes PASS_BITWISE
+candidate ub_188416_bytes FAIL_OR_REJECTED
+candidate ub_196608_bytes FAIL_OR_REJECTED
+candidate ub_262144_bytes FAIL_OR_REJECTED
+candidate crossrank_tf FAIL_OR_REJECTED
+candidate crossrank_rf PASS_BITWISE
+candidate infer_tf FAIL_OR_REJECTED
+candidate infer_rf FAIL_OR_REJECTED
+candidate empty_tensor PASS_BITWISE
+DIAGNOSTIC_COUNTS {"PASS_BITWISE": 46, "FAIL_OR_REJECTED": 6}
+
+--- probe_check.log ---
+C009_PROBE_CHECK {"case_count": 39, "probe_failures": [{"case": "baseline_tf_f32", "result": "PASS_BITWISE", "tiling_matches": 1, "infer_success": 0, "probe_events": 2}, {"case": "baseline_rf_f32", "result": "PASS_BITWISE", "tiling_matches": 1, "infer_success": 0, "probe_events": 2}, {"case": "baseline_tf_f16", "result": "PASS_BITWISE", "tiling_matches": 1, "infer_success": 0, "probe_events": 2}, {"case": "baseline_tf_i8", "result": "PASS_BITWISE", "tiling_matches": 1, "infer_success": 0, "probe_events": 2}, {"case": "baseline_tf_i32", "result": "PASS_BITWISE", "tiling_matches": 1, "infer_success": 0, "probe_events": 2}, {"case": "rank2_swap_f32", "result": "PASS_BITWISE", "tiling_matches": 1, "infer_success": 0, "probe_events": 2}, {"case": "rank3_rot_f32", "result": "PASS_BITWISE", "tiling_matches": 1, "infer_success": 0, "probe_events": 2}, {"case": "rank3_rf_f32", "result": "PASS_BITWISE", "tiling_matches": 1, "infer_success": 0, "probe_events": 2}, {"case": "reshape_same_rank_tf", "result": "PASS_BITWISE", "tiling_matches": 1, "infer_success": 0, "probe_events": 2}, {"case": "reshape_same_rank_rf", "result": "PASS_BITWISE", "tiling_matches": 1, "infer_success": 0, "probe_events": 2}, {"case": "larger_4d_f32", "result": "PASS_BITWISE", "tiling_matches": 1, "infer_success": 0, "probe_events": 2}, {"case": "larger_4d_f16", "result": "PASS_BITWISE", "tiling_matches": 1, "infer_success": 0, "probe_events": 2}, {"case": "baseline_tf_bf16", "result": "PASS_BITWISE", "tiling_matches": 1, "infer_success": 0, "probe_events": 2}, {"case": "dma_short_i8", "result": "PASS_BITWISE", "tiling_matches": 1, "infer_success": 0, "probe_events": 2}, {"case": "dma_short_i64", "result": "PASS_BITWISE", "tiling_matches": 1, "infer_success": 0, "probe_events": 2}, {"case": "dma_fused_suffix", "result": "PASS_BITWISE", "tiling_matches": 1, "infer_success": 0, "probe_events": 2}, {"case": "dma_unit_axes", "result": "PASS_BITWISE", "tiling_matches": 1, "infer_success": 0, "probe_events": 2}, {"case": "dma_long_row", "result": "PASS_BITWISE", "tiling_matches": 1, "infer_success": 0, "probe_events": 2}, {"case": "dma_rank8", "result": "PASS_BITWISE", "tiling_matches": 1, "infer_success": 0, "probe_events": 2}, {"case": "dma_rows128_f32", "result": "PASS_BITWISE", "tiling_matches": 1, "infer_success": 0, "probe_events": 2}, {"case": "dma_rf_newshape", "result": "PASS_BITWISE", "tiling_matches": 1, "infer_success": 0, "probe_events": 2}, {"case": "fallback_i64", "result": "PASS_BITWISE", "tiling_matches": 1, "infer_success": 0, "probe_events": 2}, {"case": "stride_large_f32", "result": "PASS_BITWISE", "tiling_matches": 1, "infer_success": 0, "probe_events": 2}, {"case": "stride_large_f16", "result": "PASS_BITWISE", "tiling_matches": 1, "infer_success": 0, "probe_events": 2}, {"case": "stride_large_i8", "result": "PASS_BITWISE", "tiling_matches": 1, "infer_success": 0, "probe_events": 2}, {"case": "stride_large_i64", "result": "PASS_BITWISE", "tiling_matches": 1, "infer_success": 0, "probe_events": 2}, {"case": "stride_multitile_i8", "result": "PASS_BITWISE", "tiling_matches": 1, "infer_success": 0, "probe_events": 2}, {"case": "stride_odd_f16", "result": "PASS_BITWISE", "tiling_matches": 1, "infer_success": 0, "probe_events": 2}, {"case": "stride_tail_f32", "result": "PASS_BITWISE", "tiling_matches": 1, "infer_success": 0, "probe_events": 2}, {"case": "stride_tail_i8", "result": "PASS_BITWISE", "tiling_matches": 1, "infer_success": 0, "probe_events": 2}, {"case": "stride_tail_f16", "result": "PASS_BITWISE", "tiling_matches": 1, "infer_success": 0, "probe_events": 2}, {"case": "stride_tail_i64", "result": "PASS_BITWISE", "tiling_matches": 1, "infer_success": 0, "probe_events": 2}, {"case": "stride_tail_bf16", "result": "PASS_BITWISE", "tiling_matches": 1, "infer_success": 0, "probe_events": 2}, {"case": "stride_last_unit", "result": "PASS_BITWISE", "tiling_matches": 1, "infer_success": 0, "probe_events": 2}, {"case": "stride_4d", "result": "PASS_BITWISE", "tiling_matches": 1, "infer_success": 0, "probe_events": 2}, {"case": "stride_reshape_tf", "result": "PASS_BITWISE", "tiling_matches": 1, "infer_success": 0, "probe_events": 2}, {"case": "stride_reshape_rf", "result": "PASS_BITWISE", "tiling_matches": 1, "infer_success": 0, "probe_events": 2}, {"case": "stride_crossrank_rf", "result": "PASS_BITWISE", "tiling_matches": 1, "infer_success": 0, "probe_events": 2}, {"case": "stride_rank8", "result": "PASS_BITWISE", "tiling_matches": 1, "infer_success": 0, "probe_events": 2}], "samples": [], "boundary": [{"case": "ub_196608_bytes", "result": "FAIL_OR_REJECTED", "exit_code": 2, "host_exits": [{"pid": 15412, "seq": 1, "time_unix_us": 1794479222568424, "phase": "tiling", "event": "exit", "stage": "tensor_too_large_for_ub", "host_ok": false, "dtype_code": 0, "in_shape": [2, 2, 12288], "numel": 49152, "perm": [1, 0, 2], "attr_shape": [2, 2, 12288], "transpose_first": true, "ub_bytes": 196352, "element_bytes": 4, "input_bytes": 196608}]}, {"case": "crossrank_tf", "result": "FAIL_OR_REJECTED", "exit_code": 2, "host_exits": [{"pid": 15428, "seq": 1, "time_unix_us": 1794479226572901, "phase": "tiling", "event": "exit", "stage": "perm_shape_rank_mismatch", "host_ok": false, "dtype_code": 0, "in_shape": [2, 3, 4, 5], "numel": 120, "perm": [0, 2, 1, 3], "attr_shape": [6, 20], "transpose_first": true}]}, {"case": "infer_tf", "result": "FAIL_OR_REJECTED", "exit_code": 2, "host_exits": [{"pid": 15444, "seq": 1, "time_unix_us": 1794479232437204, "phase": "tiling", "event": "exit", "stage": "shape_numel_mismatch", "host_ok": false, "dtype_code": 0, "in_shape": [2, 3, 4, 5], "numel": 120, "perm": [0, 2, 1, 3], "attr_shape": [2, 4, 3, -1], "transpose_first": true}]}, {"case": "infer_rf", "result": "FAIL_OR_REJECTED", "exit_code": 2, "host_exits": [{"pid": 15452, "seq": 1, "time_unix_us": 1794479234553539, "phase": "tiling", "event": "exit", "stage": "shape_numel_mismatch", "host_ok": false, "dtype_code": 0, "in_shape": [2, 3, 4, 5], "numel": 120, "perm": [0, 2, 1, 3], "attr_shape": [2, 4, 3, -1], "transpose_first": false}]}], "ub_rejection_observed": true}
+
+--- baseline_build_e.log (last 60 lines) ---
+[INFO] ATRACE(12472,sample):2026-11-12-18:18:01.706.716 [atrace_client_core.c:127](tid:12476) atrace receive thread exited, devId=0.
+[INFO] ATRACE(12472,sample):2026-11-12-18:18:01.706.973 [atrace_client_core.c:176](tid:12472) stop to receive device[0] trace log.
+[INFO] ASCENDCL(12472,sample):2026-11-12-18:18:02.188.830 [resource_statistics.cpp:113]12472 TraverseStatistics: The ResourceType:ACL_STATISTICS_MALLOC_FREE, applyTotal = 3, applySucc = 3, releaseTotal = 3, releaseSucc = 3
+[INFO] ASCENDCL(12472,sample):2026-11-12-18:18:02.188.869 [resource_statistics.cpp:113]12472 TraverseStatistics: The ResourceType:ACL_STATISTICS_MALLOC_FREE_HOST, applyTotal = 0, applySucc = 0, releaseTotal = 0, releaseSucc = 0
+[INFO] ASCENDCL(12472,sample):2026-11-12-18:18:02.188.878 [resource_statistics.cpp:113]12472 TraverseStatistics: The ResourceType:ACL_STATISTICS_CREATE_DESTROY_CONTEXT, applyTotal = 0, applySucc = 0, releaseTotal = 0, releaseSucc = 0
+[INFO] ASCENDCL(12472,sample):2026-11-12-18:18:02.188.904 [resource_statistics.cpp:113]12472 TraverseStatistics: The ResourceType:ACL_STATISTICS_SET_RESET_DEVICE, applyTotal = 1, applySucc = 1, releaseTotal = 1, releaseSucc = 1
+[INFO] ASCENDCL(12472,sample):2026-11-12-18:18:02.188.911 [resource_statistics.cpp:113]12472 TraverseStatistics: The ResourceType:ACL_STATISTICS_CREATE_DESTROY_EVENT, applyTotal = 0, applySucc = 0, releaseTotal = 0, releaseSucc = 0
+[INFO] ASCENDCL(12472,sample):2026-11-12-18:18:02.188.917 [resource_statistics.cpp:113]12472 TraverseStatistics: The ResourceType:ACL_STATISTICS_CREATE_DESTROY_STREAM, applyTotal = 1, applySucc = 1, releaseTotal = 1, releaseSucc = 1
+[INFO] ASCENDCL(12472,sample):2026-11-12-18:18:02.188.922 [resource_statistics.cpp:113]12472 TraverseStatistics: The ResourceType:ACL_STATISTICS_DVPP_MALLOC_FREE, applyTotal = 0, applySucc = 0, releaseTotal = 0, releaseSucc = 0
+[INFO] ASCENDCL(12472,sample):2026-11-12-18:18:02.188.927 [resource_statistics.cpp:113]12472 TraverseStatistics: The ResourceType:ACL_STATISTICS_RECORD_RESET_EVENT, applyTotal = 0, applySucc = 0, releaseTotal = 0, releaseSucc = 0
+[INFO] ASCENDCL(12472,sample):2026-11-12-18:18:02.188.932 [resource_statistics.cpp:113]12472 TraverseStatistics: The ResourceType:ACL_STATISTICS_CREATE_DESTROY_DATA_BUFFER, applyTotal = 0, applySucc = 0, releaseTotal = 0, releaseSucc = 0
+[INFO] ASCENDCL(12472,sample):2026-11-12-18:18:02.188.937 [resource_statistics.cpp:113]12472 TraverseStatistics: The ResourceType:ACL_STATISTICS_CREATE_DESTROY_TENSOR_DESC, applyTotal = 0, applySucc = 0, releaseTotal = 0, releaseSucc = 0
+[INFO] ASCENDCL(12472,sample):2026-11-12-18:18:02.188.942 [resource_statistics.cpp:113]12472 TraverseStatistics: The ResourceType:ACL_STATISTICS_CREATE_DESTROY_DESC, applyTotal = 0, applySucc = 0, releaseTotal = 0, releaseSucc = 0
+[INFO] ASCENDCL(12472,sample):2026-11-12-18:18:02.188.947 [resource_statistics.cpp:113]12472 TraverseStatistics: The ResourceType:ACL_STATISTICS_CREATE_DESTROY_DATASET, applyTotal = 0, applySucc = 0, releaseTotal = 0, releaseSucc = 0
+[INFO] ASCENDCL(12472,sample):2026-11-12-18:18:02.188.952 [resource_statistics.cpp:113]12472 TraverseStatistics: The ResourceType:ACL_STATISTICS_CREATE_LOAD_UNLOAD_MODEL, applyTotal = 0, applySucc = 0, releaseTotal = 0, releaseSucc = 0
+[INFO] ASCENDCL(12472,sample):2026-11-12-18:18:02.188.957 [resource_statistics.cpp:113]12472 TraverseStatistics: The ResourceType:ACL_STATISTICS_CREATE_DESTROY_AIPP, applyTotal = 0, applySucc = 0, releaseTotal = 0, releaseSucc = 0
+[INFO] ASCENDCL(12472,sample):2026-11-12-18:18:02.188.962 [resource_statistics.cpp:113]12472 TraverseStatistics: The ResourceType:ACL_STATISTICS_CREATE_DESTROY_ATTR, applyTotal = 0, applySucc = 0, releaseTotal = 0, releaseSucc = 0
+[INFO] ASCENDCL(12472,sample):2026-11-12-18:18:02.188.967 [resource_statistics.cpp:113]12472 TraverseStatistics: The ResourceType:ACL_STATISTICS_CREATE_DESTROY_HANDLE, applyTotal = 0, applySucc = 0, releaseTotal = 0, releaseSucc = 0
+[INFO] ASCENDCL(12472,sample):2026-11-12-18:18:02.188.972 [resource_statistics.cpp:113]12472 TraverseStatistics: The ResourceType:ACL_STATISTICS_CREATE_DESTROY_DVPP_CHANNEL_DESC, applyTotal = 0, applySucc = 0, releaseTotal = 0, releaseSucc = 0
+[INFO] ASCENDCL(12472,sample):2026-11-12-18:18:02.188.977 [resource_statistics.cpp:113]12472 TraverseStatistics: The ResourceType:ACL_STATISTICS_CREATE_DESTROY_DVPP_PIC_DESC, applyTotal = 0, applySucc = 0, releaseTotal = 0, releaseSucc = 0
+[INFO] ASCENDCL(12472,sample):2026-11-12-18:18:02.188.981 [resource_statistics.cpp:113]12472 TraverseStatistics: The ResourceType:ACL_STATISTICS_CREATE_DESTROY_DVPP_ROI_CONFIG, applyTotal = 0, applySucc = 0, releaseTotal = 0, releaseSucc = 0
+[INFO] ASCENDCL(12472,sample):2026-11-12-18:18:02.188.986 [resource_statistics.cpp:113]12472 TraverseStatistics: The ResourceType:ACL_STATISTICS_CREATE_DESTROY_DVPP_RESIZE_CONFIG, applyTotal = 0, applySucc = 0, releaseTotal = 0, releaseSucc = 0
+[INFO] ASCENDCL(12472,sample):2026-11-12-18:18:02.188.996 [resource_statistics.cpp:113]12472 TraverseStatistics: The ResourceType:ACL_STATISTICS_CREATE_DESTROY_DVPP_JPEGE_CONFIG, applyTotal = 0, applySucc = 0, releaseTotal = 0, releaseSucc = 0
+[INFO] ASCENDCL(12472,sample):2026-11-12-18:18:02.189.001 [resource_statistics.cpp:113]12472 TraverseStatistics: The ResourceType:ACL_STATISTICS_CREATE_DESTROY_VDEC_CHANNEL_DESC, applyTotal = 0, applySucc = 0, releaseTotal = 0, releaseSucc = 0
+[INFO] ASCENDCL(12472,sample):2026-11-12-18:18:02.189.006 [resource_statistics.cpp:113]12472 TraverseStatistics: The ResourceType:ACL_STATISTICS_CREATE_DESTROY_VENC_CHANNEL_DESC, applyTotal = 0, applySucc = 0, releaseTotal = 0, releaseSucc = 0
+[INFO] ASCENDCL(12472,sample):2026-11-12-18:18:02.189.011 [resource_statistics.cpp:113]12472 TraverseStatistics: The ResourceType:ACL_STATISTICS_CREATE_DESTROY_DVPP_STREAM_DESC, applyTotal = 0, applySucc = 0, releaseTotal = 0, releaseSucc = 0
+[INFO] ASCENDCL(12472,sample):2026-11-12-18:18:02.189.016 [resource_statistics.cpp:113]12472 TraverseStatistics: The ResourceType:ACL_STATISTICS_CREATE_DESTROY_VDEC_FRAME_CONFIG, applyTotal = 0, applySucc = 0, releaseTotal = 0, releaseSucc = 0
+[INFO] ASCENDCL(12472,sample):2026-11-12-18:18:02.189.021 [resource_statistics.cpp:113]12472 TraverseStatistics: The ResourceType:ACL_STATISTICS_CREATE_DESTROY_VENC_FRAME_CONFIG, applyTotal = 0, applySucc = 0, releaseTotal = 0, releaseSucc = 0
+[INFO] ASCENDCL(12472,sample):2026-11-12-18:18:02.189.026 [resource_statistics.cpp:113]12472 TraverseStatistics: The ResourceType:ACL_STATISTICS_CREATE_DESTROY_DVPP_CHANNEL, applyTotal = 0, applySucc = 0, releaseTotal = 0, releaseSucc = 0
+[INFO] ASCENDCL(12472,sample):2026-11-12-18:18:02.189.031 [resource_statistics.cpp:113]12472 TraverseStatistics: The ResourceType:ACL_STATISTICS_CREATE_DESTROY_VDEC_CHANNEL, applyTotal = 0, applySucc = 0, releaseTotal = 0, releaseSucc = 0
+[INFO] ASCENDCL(12472,sample):2026-11-12-18:18:02.189.036 [resource_statistics.cpp:113]12472 TraverseStatistics: The ResourceType:ACL_STATISTICS_CREATE_DESTROY_VENC_CHANNEL, applyTotal = 0, applySucc = 0, releaseTotal = 0, releaseSucc = 0
+[INFO] ASCENDCL(12472,sample):2026-11-12-18:18:02.189.041 [resource_statistics.cpp:113]12472 TraverseStatistics: The ResourceType:ACL_STATISTICS_CREATE_DESTROY_DVPP_BATCH_PIC_DESC, applyTotal = 0, applySucc = 0, releaseTotal = 0, releaseSucc = 0
+[INFO] ASCENDCL(12472,sample):2026-11-12-18:18:02.189.045 [resource_statistics.cpp:113]12472 TraverseStatistics: The ResourceType:ACL_STATISTICS_CREATE_DESTROY_GROUP_INFO, applyTotal = 0, applySucc = 0, releaseTotal = 0, releaseSucc = 0
+[INFO] ASCENDCL(12472,sample):2026-11-12-18:18:02.189.050 [resource_statistics.cpp:113]12472 TraverseStatistics: The ResourceType:ACL_STATISTICS_CREATE_DESTROY_PROF_CONFIG, applyTotal = 0, applySucc = 0, releaseTotal = 0, releaseSucc = 0
+[INFO] ASCENDCL(12472,sample):2026-11-12-18:18:02.189.055 [resource_statistics.cpp:113]12472 TraverseStatistics: The ResourceType:ACL_STATISTICS_CREATE_DESTROY_PROF_SUB_CONFIG, applyTotal = 0, applySucc = 0, releaseTotal = 0, releaseSucc = 0
+[INFO] ASCENDCL(12472,sample):2026-11-12-18:18:02.189.059 [resource_statistics.cpp:113]12472 TraverseStatistics: The ResourceType:ACL_STATISTICS_CREATE_DESTROY_MODEL_CONFIG, applyTotal = 0, applySucc = 0, releaseTotal = 0, releaseSucc = 0
+[INFO] ASCENDCL(12472,sample):2026-11-12-18:18:02.189.064 [resource_statistics.cpp:113]12472 TraverseStatistics: The ResourceType:ACL_STATISTICS_CREATE_DESTROY_QUEUE_ID, applyTotal = 0, applySucc = 0, releaseTotal = 0, releaseSucc = 0
+[INFO] ASCENDCL(12472,sample):2026-11-12-18:18:02.189.069 [resource_statistics.cpp:113]12472 TraverseStatistics: The ResourceType:ACL_STATISTICS_CREATE_DESTROY_QUEUE_ATTR, applyTotal = 0, applySucc = 0, releaseTotal = 0, releaseSucc = 0
+[INFO] ASCENDCL(12472,sample):2026-11-12-18:18:02.189.073 [resource_statistics.cpp:113]12472 TraverseStatistics: The ResourceType:ACL_STATISTICS_CREATE_DESTROY_QUEUE_ROUTE, applyTotal = 0, applySucc = 0, releaseTotal = 0, releaseSucc = 0
+[INFO] ASCENDCL(12472,sample):2026-11-12-18:18:02.189.083 [resource_statistics.cpp:113]12472 TraverseStatistics: The ResourceType:ACL_STATISTICS_CREATE_DESTROY_QUEUE_ROUTE_LIST, applyTotal = 0, applySucc = 0, releaseTotal = 0, releaseSucc = 0
+[INFO] ASCENDCL(12472,sample):2026-11-12-18:18:02.189.088 [resource_statistics.cpp:113]12472 TraverseStatistics: The ResourceType:ACL_STATISTICS_CREATE_DESTROY_QUEUE_ROUTE_QUERY, applyTotal = 0, applySucc = 0, releaseTotal = 0, releaseSucc = 0
+[INFO] ASCENDCL(12472,sample):2026-11-12-18:18:02.189.093 [resource_statistics.cpp:113]12472 TraverseStatistics: The ResourceType:ACL_STATISTICS_CREATE_DESTROY_MBUF, applyTotal = 0, applySucc = 0, releaseTotal = 0, releaseSucc = 0
+[INFO] ASCENDCL(12472,sample):2026-11-12-18:18:02.189.098 [resource_statistics.cpp:113]12472 TraverseStatistics: The ResourceType:ACL_STATISTICS_CREATE_DESTROY_GRAPH_DUMP_OPTION, applyTotal = 0, applySucc = 0, releaseTotal = 0, releaseSucc = 0
+[INFO] ASCENDCL(12472,sample):2026-11-12-18:18:02.189.102 [resource_statistics.cpp:113]12472 TraverseStatistics: The ResourceType:ACL_STATISTICS_CREATE_DESTROY_ALLOCATOR_DESC, applyTotal = 0, applySucc = 0, releaseTotal = 0, releaseSucc = 0
+[INFO] ASCENDCL(12472,sample):2026-11-12-18:18:02.189.107 [resource_statistics.cpp:113]12472 TraverseStatistics: The ResourceType:ACL_STATISTICS_CREATE_DESTROY_ALLOCATOR_BINARY_DESC, applyTotal = 0, applySucc = 0, releaseTotal = 0, releaseSucc = 0
+[INFO] ASCENDCL(12472,sample):2026-11-12-18:18:02.189.112 [resource_statistics.cpp:113]12472 TraverseStatistics: The ResourceType:ACL_STATISTICS_RESERVE_RELEASE_MEMORY_ADDRESS, applyTotal = 0, applySucc = 0, releaseTotal = 0, releaseSucc = 0
+[INFO] ASCENDCL(12472,sample):2026-11-12-18:18:02.189.116 [resource_statistics.cpp:113]12472 TraverseStatistics: The ResourceType:ACL_STATISTICS_MALLOC_FREE_PHYSICAL_MEMORY, applyTotal = 0, applySucc = 0, releaseTotal = 0, releaseSucc = 0
+[INFO] ASCENDCL(12472,sample):2026-11-12-18:18:02.189.121 [resource_statistics.cpp:113]12472 TraverseStatistics: The ResourceType:ACL_STATISTICS_MAP_UNMAP_MEMORY, applyTotal = 0, applySucc = 0, releaseTotal = 0, releaseSucc = 0
+[INFO] ASCENDCL(12472,sample):2026-11-12-18:18:02.189.126 [resource_statistics.cpp:113]12472 TraverseStatistics: The ResourceType:ACL_STATISTICS_LOAD_UNLOAD_BINARY, applyTotal = 0, applySucc = 0, releaseTotal = 0, releaseSucc = 0
+[INFO] RUNTIME(12472,sample):2026-11-12-18:18:02.389.503 [runtime_adapt.cc:58] 12472 ~Runtime: runtime destructor.
+[INFO] RUNTIME(12472,sample):2026-11-12-18:18:03.014.726 [runtime.cc:4967] 12478 ReportRasRun: Report ras thread exits normally!
+[INFO] RUNTIME(12472,sample):2026-11-12-18:18:03.016.738 [runtime.cc:4936] 12472 DestroyReportRasThread: Join report ras thread OK.
+[INFO] RUNTIME(12472,sample):2026-11-12-18:18:03.016.782 [runtime.cc:1340] 12472 WaitMonitorExit: wait monitor success, used count=0.
+[INFO] RUNTIME(12472,sample):2026-11-12-18:18:03.123.798 [tprt.cc:23][TPRT]TID[12472] ~TprtManage: ~TprtManage
+[INFO] RUNTIME(12472,sample):2026-11-12-18:18:03.124.493 [xpu_task_fail_callback_data_manager.cc:64] 12472 ~XpuTaskFailCallBackManager: XpuTaskFailCallBackManager Destructor.
+[INFO] RUNTIME(12472,sample):2026-11-12-18:18:03.124.519 [task_fail_callback_data_manager.cc:98] 12472 ~TaskFailCallBackManager: Destructor.
+[INFO] ATRACE(12472,sample):2026-11-12-18:18:03.124.704 [stacktrace_signal.c:199](tid:12472) unregister all signal handlers, can not capture signal.
+PASS: y.bin, mismatched=0/120
+PASSED
+[INFO] Example completed successfully!
+
+--- candidate_build_e.log (last 60 lines) ---
+[INFO] ATRACE(14509,sample):2026-11-12-18:21:47.786.745 [atrace_client_core.c:127](tid:14513) atrace receive thread exited, devId=0.
+[INFO] ATRACE(14509,sample):2026-11-12-18:21:47.786.960 [atrace_client_core.c:176](tid:14509) stop to receive device[0] trace log.
+[INFO] ASCENDCL(14509,sample):2026-11-12-18:21:48.269.718 [resource_statistics.cpp:113]14509 TraverseStatistics: The ResourceType:ACL_STATISTICS_MALLOC_FREE, applyTotal = 3, applySucc = 3, releaseTotal = 3, releaseSucc = 3
+[INFO] ASCENDCL(14509,sample):2026-11-12-18:21:48.269.765 [resource_statistics.cpp:113]14509 TraverseStatistics: The ResourceType:ACL_STATISTICS_MALLOC_FREE_HOST, applyTotal = 0, applySucc = 0, releaseTotal = 0, releaseSucc = 0
+[INFO] ASCENDCL(14509,sample):2026-11-12-18:21:48.269.776 [resource_statistics.cpp:113]14509 TraverseStatistics: The ResourceType:ACL_STATISTICS_CREATE_DESTROY_CONTEXT, applyTotal = 0, applySucc = 0, releaseTotal = 0, releaseSucc = 0
+[INFO] ASCENDCL(14509,sample):2026-11-12-18:21:48.269.783 [resource_statistics.cpp:113]14509 TraverseStatistics: The ResourceType:ACL_STATISTICS_SET_RESET_DEVICE, applyTotal = 1, applySucc = 1, releaseTotal = 1, releaseSucc = 1
+[INFO] ASCENDCL(14509,sample):2026-11-12-18:21:48.269.789 [resource_statistics.cpp:113]14509 TraverseStatistics: The ResourceType:ACL_STATISTICS_CREATE_DESTROY_EVENT, applyTotal = 0, applySucc = 0, releaseTotal = 0, releaseSucc = 0
+[INFO] ASCENDCL(14509,sample):2026-11-12-18:21:48.269.795 [resource_statistics.cpp:113]14509 TraverseStatistics: The ResourceType:ACL_STATISTICS_CREATE_DESTROY_STREAM, applyTotal = 1, applySucc = 1, releaseTotal = 1, releaseSucc = 1
+[INFO] ASCENDCL(14509,sample):2026-11-12-18:21:48.269.800 [resource_statistics.cpp:113]14509 TraverseStatistics: The ResourceType:ACL_STATISTICS_DVPP_MALLOC_FREE, applyTotal = 0, applySucc = 0, releaseTotal = 0, releaseSucc = 0
+[INFO] ASCENDCL(14509,sample):2026-11-12-18:21:48.269.805 [resource_statistics.cpp:113]14509 TraverseStatistics: The ResourceType:ACL_STATISTICS_RECORD_RESET_EVENT, applyTotal = 0, applySucc = 0, releaseTotal = 0, releaseSucc = 0
+[INFO] ASCENDCL(14509,sample):2026-11-12-18:21:48.269.810 [resource_statistics.cpp:113]14509 TraverseStatistics: The ResourceType:ACL_STATISTICS_CREATE_DESTROY_DATA_BUFFER, applyTotal = 0, applySucc = 0, releaseTotal = 0, releaseSucc = 0
+[INFO] ASCENDCL(14509,sample):2026-11-12-18:21:48.269.815 [resource_statistics.cpp:113]14509 TraverseStatistics: The ResourceType:ACL_STATISTICS_CREATE_DESTROY_TENSOR_DESC, applyTotal = 0, applySucc = 0, releaseTotal = 0, releaseSucc = 0
+[INFO] ASCENDCL(14509,sample):2026-11-12-18:21:48.269.820 [resource_statistics.cpp:113]14509 TraverseStatistics: The ResourceType:ACL_STATISTICS_CREATE_DESTROY_DESC, applyTotal = 0, applySucc = 0, releaseTotal = 0, releaseSucc = 0
+[INFO] ASCENDCL(14509,sample):2026-11-12-18:21:48.269.826 [resource_statistics.cpp:113]14509 TraverseStatistics: The ResourceType:ACL_STATISTICS_CREATE_DESTROY_DATASET, applyTotal = 0, applySucc = 0, releaseTotal = 0, releaseSucc = 0
+[INFO] ASCENDCL(14509,sample):2026-11-12-18:21:48.269.830 [resource_statistics.cpp:113]14509 TraverseStatistics: The ResourceType:ACL_STATISTICS_CREATE_LOAD_UNLOAD_MODEL, applyTotal = 0, applySucc = 0, releaseTotal = 0, releaseSucc = 0
+[INFO] ASCENDCL(14509,sample):2026-11-12-18:21:48.269.835 [resource_statistics.cpp:113]14509 TraverseStatistics: The ResourceType:ACL_STATISTICS_CREATE_DESTROY_AIPP, applyTotal = 0, applySucc = 0, releaseTotal = 0, releaseSucc = 0
+[INFO] ASCENDCL(14509,sample):2026-11-12-18:21:48.269.840 [resource_statistics.cpp:113]14509 TraverseStatistics: The ResourceType:ACL_STATISTICS_CREATE_DESTROY_ATTR, applyTotal = 0, applySucc = 0, releaseTotal = 0, releaseSucc = 0
+[INFO] ASCENDCL(14509,sample):2026-11-12-18:21:48.269.845 [resource_statistics.cpp:113]14509 TraverseStatistics: The ResourceType:ACL_STATISTICS_CREATE_DESTROY_HANDLE, applyTotal = 0, applySucc = 0, releaseTotal = 0, releaseSucc = 0
+[INFO] ASCENDCL(14509,sample):2026-11-12-18:21:48.269.850 [resource_statistics.cpp:113]14509 TraverseStatistics: The ResourceType:ACL_STATISTICS_CREATE_DESTROY_DVPP_CHANNEL_DESC, applyTotal = 0, applySucc = 0, releaseTotal = 0, releaseSucc = 0
+[INFO] ASCENDCL(14509,sample):2026-11-12-18:21:48.269.855 [resource_statistics.cpp:113]14509 TraverseStatistics: The ResourceType:ACL_STATISTICS_CREATE_DESTROY_DVPP_PIC_DESC, applyTotal = 0, applySucc = 0, releaseTotal = 0, releaseSucc = 0
+[INFO] ASCENDCL(14509,sample):2026-11-12-18:21:48.269.879 [resource_statistics.cpp:113]14509 TraverseStatistics: The ResourceType:ACL_STATISTICS_CREATE_DESTROY_DVPP_ROI_CONFIG, applyTotal = 0, applySucc = 0, releaseTotal = 0, releaseSucc = 0
+[INFO] ASCENDCL(14509,sample):2026-11-12-18:21:48.269.885 [resource_statistics.cpp:113]14509 TraverseStatistics: The ResourceType:ACL_STATISTICS_CREATE_DESTROY_DVPP_RESIZE_CONFIG, applyTotal = 0, applySucc = 0, releaseTotal = 0, releaseSucc = 0
+[INFO] ASCENDCL(14509,sample):2026-11-12-18:21:48.269.890 [resource_statistics.cpp:113]14509 TraverseStatistics: The ResourceType:ACL_STATISTICS_CREATE_DESTROY_DVPP_JPEGE_CONFIG, applyTotal = 0, applySucc = 0, releaseTotal = 0, releaseSucc = 0
+[INFO] ASCENDCL(14509,sample):2026-11-12-18:21:48.269.895 [resource_statistics.cpp:113]14509 TraverseStatistics: The ResourceType:ACL_STATISTICS_CREATE_DESTROY_VDEC_CHANNEL_DESC, applyTotal = 0, applySucc = 0, releaseTotal = 0, releaseSucc = 0
+[INFO] ASCENDCL(14509,sample):2026-11-12-18:21:48.269.900 [resource_statistics.cpp:113]14509 TraverseStatistics: The ResourceType:ACL_STATISTICS_CREATE_DESTROY_VENC_CHANNEL_DESC, applyTotal = 0, applySucc = 0, releaseTotal = 0, releaseSucc = 0
+[INFO] ASCENDCL(14509,sample):2026-11-12-18:21:48.269.905 [resource_statistics.cpp:113]14509 TraverseStatistics: The ResourceType:ACL_STATISTICS_CREATE_DESTROY_DVPP_STREAM_DESC, applyTotal = 0, applySucc = 0, releaseTotal = 0, releaseSucc = 0
+[INFO] ASCENDCL(14509,sample):2026-11-12-18:21:48.269.910 [resource_statistics.cpp:113]14509 TraverseStatistics: The ResourceType:ACL_STATISTICS_CREATE_DESTROY_VDEC_FRAME_CONFIG, applyTotal = 0, applySucc = 0, releaseTotal = 0, releaseSucc = 0
+[INFO] ASCENDCL(14509,sample):2026-11-12-18:21:48.269.915 [resource_statistics.cpp:113]14509 TraverseStatistics: The ResourceType:ACL_STATISTICS_CREATE_DESTROY_VENC_FRAME_CONFIG, applyTotal = 0, applySucc = 0, releaseTotal = 0, releaseSucc = 0
+[INFO] ASCENDCL(14509,sample):2026-11-12-18:21:48.269.919 [resource_statistics.cpp:113]14509 TraverseStatistics: The ResourceType:ACL_STATISTICS_CREATE_DESTROY_DVPP_CHANNEL, applyTotal = 0, applySucc = 0, releaseTotal = 0, releaseSucc = 0
+[INFO] ASCENDCL(14509,sample):2026-11-12-18:21:48.269.924 [resource_statistics.cpp:113]14509 TraverseStatistics: The ResourceType:ACL_STATISTICS_CREATE_DESTROY_VDEC_CHANNEL, applyTotal = 0, applySucc = 0, releaseTotal = 0, releaseSucc = 0
+[INFO] ASCENDCL(14509,sample):2026-11-12-18:21:48.269.930 [resource_statistics.cpp:113]14509 TraverseStatistics: The ResourceType:ACL_STATISTICS_CREATE_DESTROY_VENC_CHANNEL, applyTotal = 0, applySucc = 0, releaseTotal = 0, releaseSucc = 0
+[INFO] ASCENDCL(14509,sample):2026-11-12-18:21:48.269.934 [resource_statistics.cpp:113]14509 TraverseStatistics: The ResourceType:ACL_STATISTICS_CREATE_DESTROY_DVPP_BATCH_PIC_DESC, applyTotal = 0, applySucc = 0, releaseTotal = 0, releaseSucc = 0
+[INFO] ASCENDCL(14509,sample):2026-11-12-18:21:48.269.939 [resource_statistics.cpp:113]14509 TraverseStatistics: The ResourceType:ACL_STATISTICS_CREATE_DESTROY_GROUP_INFO, applyTotal = 0, applySucc = 0, releaseTotal = 0, releaseSucc = 0
+[INFO] ASCENDCL(14509,sample):2026-11-12-18:21:48.269.944 [resource_statistics.cpp:113]14509 TraverseStatistics: The ResourceType:ACL_STATISTICS_CREATE_DESTROY_PROF_CONFIG, applyTotal = 0, applySucc = 0, releaseTotal = 0, releaseSucc = 0
+[INFO] ASCENDCL(14509,sample):2026-11-12-18:21:48.269.949 [resource_statistics.cpp:113]14509 TraverseStatistics: The ResourceType:ACL_STATISTICS_CREATE_DESTROY_PROF_SUB_CONFIG, applyTotal = 0, applySucc = 0, releaseTotal = 0, releaseSucc = 0
+[INFO] ASCENDCL(14509,sample):2026-11-12-18:21:48.269.954 [resource_statistics.cpp:113]14509 TraverseStatistics: The ResourceType:ACL_STATISTICS_CREATE_DESTROY_MODEL_CONFIG, applyTotal = 0, applySucc = 0, releaseTotal = 0, releaseSucc = 0
+[INFO] ASCENDCL(14509,sample):2026-11-12-18:21:48.269.963 [resource_statistics.cpp:113]14509 TraverseStatistics: The ResourceType:ACL_STATISTICS_CREATE_DESTROY_QUEUE_ID, applyTotal = 0, applySucc = 0, releaseTotal = 0, releaseSucc = 0
+[INFO] ASCENDCL(14509,sample):2026-11-12-18:21:48.269.968 [resource_statistics.cpp:113]14509 TraverseStatistics: The ResourceType:ACL_STATISTICS_CREATE_DESTROY_QUEUE_ATTR, applyTotal = 0, applySucc = 0, releaseTotal = 0, releaseSucc = 0
+[INFO] ASCENDCL(14509,sample):2026-11-12-18:21:48.269.973 [resource_statistics.cpp:113]14509 TraverseStatistics: The ResourceType:ACL_STATISTICS_CREATE_DESTROY_QUEUE_ROUTE, applyTotal = 0, applySucc = 0, releaseTotal = 0, releaseSucc = 0
+[INFO] ASCENDCL(14509,sample):2026-11-12-18:21:48.269.978 [resource_statistics.cpp:113]14509 TraverseStatistics: The ResourceType:ACL_STATISTICS_CREATE_DESTROY_QUEUE_ROUTE_LIST, applyTotal = 0, applySucc = 0, releaseTotal = 0, releaseSucc = 0
+[INFO] ASCENDCL(14509,sample):2026-11-12-18:21:48.269.983 [resource_statistics.cpp:113]14509 TraverseStatistics: The ResourceType:ACL_STATISTICS_CREATE_DESTROY_QUEUE_ROUTE_QUERY, applyTotal = 0, applySucc = 0, releaseTotal = 0, releaseSucc = 0
+[INFO] ASCENDCL(14509,sample):2026-11-12-18:21:48.269.988 [resource_statistics.cpp:113]14509 TraverseStatistics: The ResourceType:ACL_STATISTICS_CREATE_DESTROY_MBUF, applyTotal = 0, applySucc = 0, releaseTotal = 0, releaseSucc = 0
+[INFO] ASCENDCL(14509,sample):2026-11-12-18:21:48.269.992 [resource_statistics.cpp:113]14509 TraverseStatistics: The ResourceType:ACL_STATISTICS_CREATE_DESTROY_GRAPH_DUMP_OPTION, applyTotal = 0, applySucc = 0, releaseTotal = 0, releaseSucc = 0
+[INFO] ASCENDCL(14509,sample):2026-11-12-18:21:48.269.997 [resource_statistics.cpp:113]14509 TraverseStatistics: The ResourceType:ACL_STATISTICS_CREATE_DESTROY_ALLOCATOR_DESC, applyTotal = 0, applySucc = 0, releaseTotal = 0, releaseSucc = 0
+[INFO] ASCENDCL(14509,sample):2026-11-12-18:21:48.270.002 [resource_statistics.cpp:113]14509 TraverseStatistics: The ResourceType:ACL_STATISTICS_CREATE_DESTROY_ALLOCATOR_BINARY_DESC, applyTotal = 0, applySucc = 0, releaseTotal = 0, releaseSucc = 0
+[INFO] ASCENDCL(14509,sample):2026-11-12-18:21:48.270.007 [resource_statistics.cpp:113]14509 TraverseStatistics: The ResourceType:ACL_STATISTICS_RESERVE_RELEASE_MEMORY_ADDRESS, applyTotal = 0, applySucc = 0, releaseTotal = 0, releaseSucc = 0
+[INFO] ASCENDCL(14509,sample):2026-11-12-18:21:48.270.012 [resource_statistics.cpp:113]14509 TraverseStatistics: The ResourceType:ACL_STATISTICS_MALLOC_FREE_PHYSICAL_MEMORY, applyTotal = 0, applySucc = 0, releaseTotal = 0, releaseSucc = 0
+[INFO] ASCENDCL(14509,sample):2026-11-12-18:21:48.270.017 [resource_statistics.cpp:113]14509 TraverseStatistics: The ResourceType:ACL_STATISTICS_MAP_UNMAP_MEMORY, applyTotal = 0, applySucc = 0, releaseTotal = 0, releaseSucc = 0
+[INFO] ASCENDCL(14509,sample):2026-11-12-18:21:48.270.022 [resource_statistics.cpp:113]14509 TraverseStatistics: The ResourceType:ACL_STATISTICS_LOAD_UNLOAD_BINARY, applyTotal = 0, applySucc = 0, releaseTotal = 0, releaseSucc = 0
+[INFO] RUNTIME(14509,sample):2026-11-12-18:21:48.395.102 [runtime_adapt.cc:58] 14509 ~Runtime: runtime destructor.
+[INFO] RUNTIME(14509,sample):2026-11-12-18:21:49.130.729 [runtime.cc:4967] 14515 ReportRasRun: Report ras thread exits normally!
+[INFO] RUNTIME(14509,sample):2026-11-12-18:21:49.132.618 [runtime.cc:4936] 14509 DestroyReportRasThread: Join report ras thread OK.
+[INFO] RUNTIME(14509,sample):2026-11-12-18:21:49.132.668 [runtime.cc:1340] 14509 WaitMonitorExit: wait monitor success, used count=0.
+[INFO] RUNTIME(14509,sample):2026-11-12-18:21:49.239.513 [tprt.cc:23][TPRT]TID[14509] ~TprtManage: ~TprtManage
+[INFO] RUNTIME(14509,sample):2026-11-12-18:21:49.240.229 [xpu_task_fail_callback_data_manager.cc:64] 14509 ~XpuTaskFailCallBackManager: XpuTaskFailCallBackManager Destructor.
+[INFO] RUNTIME(14509,sample):2026-11-12-18:21:49.240.264 [task_fail_callback_data_manager.cc:98] 14509 ~TaskFailCallBackManager: Destructor.
+[INFO] ATRACE(14509,sample):2026-11-12-18:21:49.240.374 [stacktrace_signal.c:199](tid:14509) unregister all signal handlers, can not capture signal.
+PASS: y.bin, mismatched=0/120
+PASSED
+[INFO] Example completed successfully!
+
+archive=/mnt/workspace/problems/ConfusionTransposeD_2323/explorations/EXP_C009_20261112_181640_Og8y.tar.gz
+C009_EVIDENCE_END

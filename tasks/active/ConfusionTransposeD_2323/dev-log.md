@@ -1,5 +1,11 @@
 # Dev log — ConfusionTransposeD_2323
 
+## 2026-11-12（P009 云测首轮回传）
+
+- 归档CodeArts控制台证据段；候选 `ed583cb` 与P004均样例PASS、39/39 bitwise PASS。边界候选46 PASS、6 FAIL_OR_REJECTED。
+- 检查器因39项未观察到成功infer事件而exit=1；每项观察到匹配tiling成功事件。探针验收未完成，不能由此推断infer回调未执行。
+- 原tar仍在云端未下载；下一步复用逐case日志及CANN头文件检查输出shape可得性，平台case和隐藏点RE仍未知。
+
 ## 2026-11-12（P009 Host探针）
 
 - 在P004 Host infer/tiling入口及退出写`CTD_PROBE` JSON，记录输入、属性、dtype枚举、成功/拒绝阶段及可得路径/UB信息；Kernel和算子判断未改。记录是回调级而非保证一条对应一个平台case。

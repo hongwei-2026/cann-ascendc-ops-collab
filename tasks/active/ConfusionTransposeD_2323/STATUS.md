@@ -9,9 +9,9 @@
 | 模板 | `materials/ConfusionTransposeD_problem_2323_template.zip` |
 | 功能闸 | EXP_C001/C002/C004：样例+泛化 bitwise PASS |
 | 性能基线 | 平台 ~1.7ms vs 最优 ~3.5μs；**同机系统 TBE last10 mean=4.804μs** @ `(2,1024,128)`（`ConfusionTransposeD` / `te_confusiontransposed_*`）；P004 平台点1/2 ~717μs |
-| 下一闸 | **P009 Host诊断探针待CodeArts验证**：infer/tiling记录输入、属性、输出及拒绝阶段；本机语义与模拟序列化已通过。先执行[C009云测](C009-CLOUD-RUN.md)，再判断平台是否可回收日志；平台点1～6的shape目前均未知。微优化仍按 DEC007 冻结 |
+| 下一闸 | **P009探针验证未完成**：C009样例和39/39 bitwise通过，但检查器未观察到infer事件而exit=1；先复用云端原始日志与CANN头文件调查，再决定探针修订和实机复测。平台日志可见性、点1～6 shape及隐藏点RE原因均未知；微优化仍按DEC007冻结 |
 | 止损 | `docs/collaboration/02-perf-gate.md` |
 
 ## 一句话
 
-P004 再提：1/4/5≈720μs、2/3≈2.0ms、点6隐藏、整次 RE。系统 TBE≈4.8μs。P009 Host探针待云端功能及日志验证，平台真实输入与RE原因仍未知。
+P004 再提：1/4/5≈720μs、2/3≈2.0ms、点6隐藏、整次 RE。系统 TBE≈4.8μs。P009云测功能通过但探针检查失败，平台真实输入与RE原因仍未知；见 [EXP_C009](explorations/EXP_C009-platform-shape-probe.md)。
