@@ -13,3 +13,5 @@
 | P009 | 2026-11-12 | **诊断探针（不改算法）**：平台再提 P004 仍 RE；点1/4/5≈720μs、2/3≈2.0ms、点6隐藏。Owner要求用探针探测每 case 真实 `in_shape/perm/shape/transpose_first/dtype`（含隐藏）。假设 Host 入口插桩可在≤2h 本地+≤1h 回传内拿到调用表；超时写 DEC，不开性能 Kernel | **进行中，首轮探针检查失败**：云测基线/候选样例与各39/39 bitwise通过；39项均有匹配tiling成功事件，infer成功事件未观测，检查器exit=1。边界拒绝是构造用例而非平台根因；完整tar未回收。复用云端原日志和头文件核查输出shape及infer可观测性，平台shape仍未知 | [EXP_C009](explorations/EXP_C009-platform-shape-probe.md)；[控制台摘要](explorations/logs/EXP_C009/C009-console-evidence.log)；[平台表](explorations/logs/EXP_C008/C008-platform-resubmit-20261112.md) |
 
 P009续记：CodeArts头文件确认tiling的 `GetOutputShape` 接口；探针增加输出存储shape字段，回归检查器将未观测infer单列，不伪称通过。语义检查及检查器正反例在CPU通过，CANN编译与NPU回归仍待执行；框架传入的输出描述不能证明infer回调执行。仍处于P009预算内，不另开性能路线。
+
+P009云测续记：`0878104` 基线/候选样例均PASS、各39/39 bitwise PASS；39项tiling信息与fixture匹配，infer均未观测。脚本exit=0仅代表上述本地检查；下一闸平台日志可见性，平台shape和RE原因未知。[回传摘要](explorations/logs/EXP_C009/C009-UOi3-console-evidence.log)，原tar未下载。

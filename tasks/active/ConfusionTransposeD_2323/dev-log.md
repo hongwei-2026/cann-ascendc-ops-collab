@@ -1,5 +1,11 @@
 # Dev log — ConfusionTransposeD_2323
 
+## 2026-11-12（P009修订版云测）
+
+- `0878104`：基线与候选样例均0/120、各39/39 bitwise PASS；候选边界46 PASS、6 FAIL_OR_REJECTED。
+- 39项tiling输入、属性、输出存储shape检查通过；39项infer未观测，不能称infer验证通过。控制台摘要已归档，原tar仍在云端。
+- 下一闸平台日志可见性，真实平台shape和隐藏点RE原因仍未知；不改性能Kernel。
+
 ## 2026-11-12（P009探针修订）
 
 - 补充回传确认两例只见tiling事件；CANN头文件声明tiling可读输出StorageShape。归档用户回传摘要。
