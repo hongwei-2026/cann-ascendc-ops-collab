@@ -1,5 +1,10 @@
 # Dev log — ConfusionTransposeD_2323
 
+## 2026-11-12（P008 系统可调用）
+
+- `npu_confusion_transpose` + CUSTOM unset：sample 出 `(2,4,3,5)`，Host 0.0953ms/call。
+- 归档 `C008-torch-npu-system-call-paste.log`。非 msprof；下一闸同输入更大 shape / 可选 P004 A/B。
+
 ## 2026-11-12（P008 系统符号）
 
 - 系统有 `aclnn_confusion_transpose.h` + `libopapi` 导出无 D API；无系统 `*_d.h`。
