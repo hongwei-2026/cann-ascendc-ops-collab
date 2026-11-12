@@ -21,5 +21,15 @@ Steady (last 10): mean ≈ 4.804 us, min 4.700, max 4.900
 - Host wall earlier ≈ 90–100 us — ~20× above device (launch floor)
 - P004 platform points 1–2 ≈ 717 us — ~150× slower than this system device task on a mid shape
 
+## op_summary formal stats (2026-11-12 follow-up paste)
+file: op_summary_20261112172319.csv
+hits: 15  Op Name=ConfusionTransposeD1  OP Type=ConfusionTransposeD
+shapes: in "2,1024,128" → out "2,128,1024"
+all mean/p50/min/max: 6.219 / 4.88 / 4.7 / 14.12
+last10 mean/p50/min/max: 4.804 / 4.8 / 4.7 / 4.9
+task_time cols: Device_id,kernel_name,kernel_type,stream_id,task_id,task_time(us),...
+kernel_name confirms: te_confusiontransposed_<hash>__kernel0
+
 ## Conclusion
 P008 device baseline ESTABLISHED for this shape. Host baseline scrap confirmed.
+Canonical steady number: **last10 mean 4.804 μs** (p50 4.8).

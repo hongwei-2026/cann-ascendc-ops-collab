@@ -9,7 +9,7 @@
 
 1. 系统可调用：`torch_npu.npu_confusion_transpose`，`ASCEND_CUSTOM_OPP_PATH` unset。
 2. Host 多尺度 ~0.09ms 贴死 → **Host 不能当 kernel 基线**。
-3. msprof device：核名 `te_confusiontransposed_*__kernel0`（TE/TBE）；`(2,1024,128)` f32 稳态 Task Duration **≈4.7–4.9μs**（末 10 次均值 ≈4.80μs）。
+3. msprof device：`OP Type=ConfusionTransposeD`，核名 `te_confusiontransposed_*__kernel0`；`(2,1024,128)→(2,128,1024)` f32；`op_summary` 15 hits，**last10 mean=4.804μs / p50=4.8 / min=4.7 / max=4.9**（全量含 warmup mean=6.219）。
 4. 与平台最优 ~3.5μs **同量级**；与 P004 平台点 ~717μs **差两个数量级**。
 5. 座位 `examples/run.sh` 只测自定义 `ConfusionTransposeD`，不能当系统基线。
 

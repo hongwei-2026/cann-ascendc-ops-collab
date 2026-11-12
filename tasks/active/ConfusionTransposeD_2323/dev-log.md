@@ -2,7 +2,7 @@
 
 ## 2026-11-12（P008 msprof + DEC007）
 
-- msprof：`te_confusiontransposed_*` device 稳态 ≈4.7–4.9μs @ `(2,1024,128)`。
+- msprof：`te_confusiontransposed_*` / OP `ConfusionTransposeD`；op_summary last10 **mean=4.804μs** @ `(2,1024,128)`。
 - 写 DEC007：停 Host/P004 微优化；等 Owner 是否立项镜像 TBE 模板。
 - 归档 `C008-msprof-system-paste.log`；推 main。
 
