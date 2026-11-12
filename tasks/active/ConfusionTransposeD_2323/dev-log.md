@@ -1,5 +1,11 @@
 # Dev log — ConfusionTransposeD_2323
 
+## 2026-11-12（平台再提 + 探针交接）
+
+- P004 再提：Runtime Error；1/4/5≈717–725μs，2/3≈2.03–2.05ms，点6隐藏。
+- 写 [HANDOFF-PROBE-SHAPES.md](HANDOFF-PROBE-SHAPES.md) 给其他 AI：优先探针探形；登记 P009。
+- 微优化仍按 DEC007 冻结。
+
 ## 2026-11-12（P008 msprof + DEC007）
 
 - msprof：`te_confusiontransposed_*` / OP `ConfusionTransposeD`；op_summary last10 **mean=4.804μs** @ `(2,1024,128)`。
