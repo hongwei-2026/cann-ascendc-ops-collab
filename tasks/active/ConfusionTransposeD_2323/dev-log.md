@@ -1,5 +1,11 @@
 # Dev log — ConfusionTransposeD_2323
 
+## 2026-11-12（P008 系统符号）
+
+- 系统有 `aclnn_confusion_transpose.h` + `libopapi` 导出无 D API；无系统 `*_d.h`。
+- `torch` / `torch_npu` 均可用。归档 `C008-system-symbol-paste.log`。
+- 下一闸：torch_npu 同输入调用（勿跑 examples/run.sh）。
+
 ## 2026-11-12（P008 样例库存）
 
 - CodeArts：`git pull` 易挂在 Receiving；可跳过。`CUSTOM` unset + `find` 已确认有 `examples/test_aclnn_confusion_transpose_d.cpp`。

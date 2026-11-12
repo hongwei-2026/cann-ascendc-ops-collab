@@ -1,0 +1,18 @@
+# C008 system symbol / torch_npu paste — 2026-11-12 CodeArts
+
+CUSTOM=(unset)
+
+ls:
+- aclnn_confusion_transpose.h EXISTS (1251 bytes)
+- aclnn_confusion_transpose_d.h MISSING (system has no D header)
+
+nm -D libopapi.so:
+0000000000adec58 T aclnnConfusionTranspose
+0000000000adfea0 T aclnnConfusionTransposeGetWorkspaceSize
+
+python:
+torch_npu: found at /opt/buildtools/Python-3.11.4/.../torch_npu
+torch: found
+
+Verdict: system API (no D) is linkable; seat sample uses ConfusionTransposeD (custom only).
+Next: torch_npu same-input call WITHOUT ASCEND_CUSTOM_OPP_PATH.

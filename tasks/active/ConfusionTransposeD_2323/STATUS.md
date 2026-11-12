@@ -9,7 +9,7 @@
 | 模板 | `materials/ConfusionTransposeD_problem_2323_template.zip` |
 | 功能闸 | [EXP_C004](explorations/EXP_C004-contiguous-row-dma.md)：P004 样例 PASS + 原13/新9共22/22 bitwise PASS（含 bf16/int64）；此前 EXP_C001/C002 保留 |
 | 性能基线 | [EXP_C003](explorations/EXP_C003-perf-baseline-platform.md)：平台 1～5 Pass，用时 ~1.7ms / 最优 ~3.5μs（~500×）；P004 同机连续行 2～6×，平台点1/2约2.4×、3～5无改善 |
-| 下一闸 | **签名闸已过，对照闸未过**。`aclnnConfusionTranspose` 含 `perm/shape/transpose_first`；TBE 分派六类 `Transpose*`。下一步：`unset ASCEND_CUSTOM_OPP_PATH` 后对 P004 样例跑系统 API + msprof（≤30min）。**禁止**把未验证新 Kernel 粘平台；平台 Runtime Error 仍未定位 |
+| 下一闸 | **系统无D API + torch_npu 已确认**。下一步：`unset` 后用 torch_npu 对 sample `[2,3,4,5]/perm` 调系统 ConfusionTranspose 并取 device 时间（≤30min）。**禁止** `examples/run.sh`（会挂自定义包）；禁止平台粘新 Kernel |
 | 止损 | `docs/collaboration/02-perf-gate.md`；触线写 `decisions/DEC*` |
 
 ## 一句话
