@@ -23,10 +23,14 @@
 - 本地语义检查、脚本语法、模拟Host JSON成功/失败事件检查通过；未在本机编译CANN或运行NPU。新增CodeArts隔离P004/候选样例、39项bitwise、边界诊断及探针解析流程。
 - 平台stderr可见性及隐藏点是否进入回调未知；等待C009云测，再判断提交探针包。没有平台shape或系统TBE对应profile，不作验收结论。
 
+## 2026-11-12（平台拒收 Debug 探针）
+
+- 平台：「提交代码存在不合规内容…如需 Debug 请在本地进行」→ 判定 CTD_PROBE/`fprintf(stderr)` 不可上平台。
+- Host `tiling`/`infershape` 已恢复为 P004 干净版（无探针）；探针仅保留 tests/CodeArts。
+
 ## 2026-11-12（探针内联：平台禁新增文件）
 
-- 平台不能新增 `confusion_transpose_d_probe.h`；已把 CTD_PROBE 内联进既有 `tiling.cpp` / `infershape.cpp`，并删除独立头。
-- 提交包只用模板既有文件列表；探针版耗时仍不作性能成绩。
+- 平台不能新增 `confusion_transpose_d_probe.h`；曾内联进 Host（随后因 Debug 合规又剥离）。
 
 ## 2026-11-12（平台再提 + 探针交接）
 

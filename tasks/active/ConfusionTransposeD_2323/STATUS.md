@@ -9,7 +9,7 @@
 | 模板 | `materials/ConfusionTransposeD_problem_2323_template.zip` |
 | 功能闸 | EXP_C001/C002/C004：样例+泛化 bitwise PASS |
 | 性能基线 | 平台 ~1.7ms vs 最优 ~3.5μs；**同机系统 TBE last10 mean=4.804μs** @ `(2,1024,128)`（`ConfusionTransposeD` / `te_confusiontransposed_*`）；P004 平台点1/2 ~717μs |
-| 下一闸 | **P009平台提交（禁新增文件）**：CTD_PROBE 已内联进既有 Host `tiling`/`infershape`，勿再上传 `*_probe.h`。验证平台日志有无 `CTD_PROBE`；耗时不作成绩；微优化仍冻 |
+| 下一闸 | **P009：平台拒收 Debug**。已从提交 Host **剥离 CTD_PROBE**（恢复 P004 干净 Host）；探针仅留 CodeArts/本地。平台再提干净 P004；探形改走其他合规手段；微优化仍冻 |
 | 止损 | `docs/collaboration/02-perf-gate.md` |
 
 ## 一句话
