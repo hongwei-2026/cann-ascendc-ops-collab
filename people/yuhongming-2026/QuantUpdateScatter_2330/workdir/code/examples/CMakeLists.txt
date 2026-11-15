@@ -7,3 +7,7 @@ find_library(OP_LIBRARY cust_opapi PATHS "${OPP_ROOT}/op_api/lib" NO_DEFAULT_PAT
 add_executable(sample test_aclnn_quant_update_scatter.cpp)
 target_include_directories(sample PRIVATE "${OP_INCLUDE}" "$ENV{ASCEND_HOME_PATH}/include")
 target_link_libraries(sample PRIVATE "${OP_LIBRARY}" "$ENV{ASCEND_HOME_PATH}/lib64/libascendcl.so" "$ENV{ASCEND_HOME_PATH}/lib64/libnnopbase.so")
+
+add_executable(profile_case EXCLUDE_FROM_ALL profile_quant_update_scatter.cpp)
+target_include_directories(profile_case PRIVATE "${OP_INCLUDE}" "$ENV{ASCEND_HOME_PATH}/include")
+target_link_libraries(profile_case PRIVATE "${OP_LIBRARY}" "$ENV{ASCEND_HOME_PATH}/lib64/libascendcl.so" "$ENV{ASCEND_HOME_PATH}/lib64/libnnopbase.so")

@@ -82,3 +82,13 @@ bash build.sh -j8 -u
 - 编译错误 / WA：保留**全文** log，不要只截图。  
 - 精度挂：优先怀疑 RINT 路径被改、或 SyncAll/拷贝竞态。  
 - 回滚单文件：`git checkout -- people/yuhongming-2026/QuantUpdateScatter_2330/workdir/code/op_kernel/quant_update_scatter.h`
+
+## Q005 独立采集入口（本轮仅准备，未执行）
+
+现行生产基线为 Q002。先完成并归档 bash build.sh -j8 -e，再在本题 code 目录执行：
+
+    bash examples/profile_q005.sh /tmp/qus2330_q005_run01
+
+只采同址/异址拷贝配对可追加 --case-id copy_heavy_out --case-id copy_heavy_in。须使用新输出目录。完整说明见 people/yuhongming-2026/QuantUpdateScatter_2330/workdir/code/tools/README_Q005.md。
+
+默认每例 10 次预热+50 次重复、3 轮；保存完整采集日志、原始 profiler 数据、源码/包/程序哈希和逐轮精度结果。26 组为人工诊断矩阵，不是官方 50 点。RAW_ONLY/INCOMPLETE 不能当作性能通过，采集后归档本题 EXP_Q005，先分析证据再新开道路。

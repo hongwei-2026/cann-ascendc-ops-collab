@@ -65,3 +65,17 @@
 - 归档：`logs/EXP_Q003/platform-q003-vs-q002.json`、`platform-q003-pass.png`
 - DEC：回退 `tiling.cpp` + `quant_update_scatter.h` 至 `796c82e`；Q003 废弃
 - 下一闸：新假设（建议 profile / 真双缓冲），禁止再抠 UB tile
+
+## 2026-11-15 — Q005 本地采集工具准备完成
+
+- 先登记新 DEC/道路；尊重 Q003 废弃和 Q002 回退，不改生产 host/kernel 或 TQue 深度。
+- 新增独立 profile_case 与数据生成/结果校验/采集归档入口，26 组诊断覆盖同址/异址、四签名、宽窄多行、zp/reciprocal；非官方 50 点。
+- 26×3 actual-runner CPU 接口模型、R001 源码契约和 shell 语法检查通过；缺失/空/歧义导出不补零、不判收益。
+- 旧 Q002 CPU 回归因主仓缺少 baseline 文件未运行成功，失败日志已归档；CANN/NPU/profile/性能收益全 NOT_RUN。
+- 下一闸：按本题 code/tools/README_Q005.md 采设备原始证据，再立有界候选。遵用户要求仅本地，未 commit/push。
+
+## 2026-11-15 — Q005 Cursor review → 入库
+
+- 确认生产 `op_host`/`op_kernel` 相对 `2d3c61c` 无改；`TQue<...,2>` + `InitBuffer(...,2)` 一致
+- 工具链口径保守（COMPLETE/RAW_ONLY/INCOMPLETE），未假 PASS；inplace 多轮幂等可对齐 golden
+- 台账止损改为「无 profile 不改生产」；推送 main 供云采

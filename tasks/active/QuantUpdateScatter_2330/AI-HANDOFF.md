@@ -157,3 +157,12 @@ for each batch p, index idx:
 - 官方性能门禁 shape / TBE 对照表：**未入库**。拿到后放到 `materials/` 并改 STATUS。  
 - 本机 Windows **无 NPU**，Q001 编译与精度未在本地验证。  
 - `SyncAll` 在拷贝后仍需要（多核写 out 前）；不要轻易删。
+
+## 10. Q005 — 先补测量（已审，待云采）
+
+生产仍为 **Q002**（host/kernel 未改；`TQue` 深度 **2**）。诊断入口：
+
+- `workdir/code/examples/profile_q005.sh`
+- `workdir/code/tools/README_Q005.md`
+
+26×3 CPU stub 检查通过 ≠ CANN/NPU PASS。设备 profile **未采**，无新性能数字。先采 `copy_heavy_out/in`，再 `narrow_rows` / `wide_rows`；有流水证据后再立生产候选。勿重开 Q003。详见 `explorations/EXP_Q005-profile.md`。

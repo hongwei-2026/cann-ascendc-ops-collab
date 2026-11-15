@@ -24,3 +24,9 @@ For Q003 allocation and actual-class comparisons against the saved passing Q002:
 This compiles the actual resource-plan block extracted from the host source and
 actual kernel classes with the synchronous CPU API model. It does not validate
 CANN compiler behavior, asynchronous device ordering or NPU latency.
+
+For Q005 diagnostic-runner plumbing checks:
+
+    python -B run_q005_support.py --cxx /path/to/g++
+
+See ../../tools/README_Q005.md. These checks compile the diagnostic executable against synchronous CPU ACL stubs, not CANN. They do not establish device precision, asynchronous scheduling or speedup.
