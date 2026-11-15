@@ -27,6 +27,12 @@
 
 | ID | 日期 | 作者 | 阶段 | 假设 | 方法 | 时限 | 结果 | 结论 | 耗时 |
 |----|------|------|------|------|------|------|------|------|------|
-| Q005 | 2026-11-15 | Codex(+review) | 性能诊断 | 缺少流水证据，不能由五点时延定位瓶颈 | Q002 独立多 case runner + msprof | 0.5d | copy_heavy out **29.62** / in **9.10** µs（Δ≈20.5） | **部分采纳（拷贝税成立）**；生产仍 Q002；下路待 narrow/wide + 平台 inplace 假设 | — |
+| Q005 | 2026-11-15 | Codex(+review) | 性能诊断 | 缺少流水证据 | 多 case msprof | 0.5d | copy Δ20.5；narrow out/in 496/457；wide 41.4/40.4；pipe 见 logs | **结案**；冲榜勿优先整表拷贝；生产仍 Q002 | — |
 
-数字：`explorations/logs/EXP_Q005/copy01-medians.json`。DEC：`decisions/DEC_Q005-profile-first.md`。
+数字：`copy01-medians.json`、`copy01-pipe-medians.json`、`rows01-medians.json`。DEC 已结。
+
+## Q006 — 待立项（未实施）
+
+| ID | 假设 | 方法 | 止损 |
+|----|------|------|------|
+| Q006 | 多行路径 EnQue→即 DeQue 未叠满；scalar 逐行寻址偏贵 | 真·跨行预取 +/或减 scalar；**不**重开 UB/整表拷贝 | 1d；可见点增益&lt;2% 或精度挂 → 回退 Q002 |

@@ -96,3 +96,9 @@
 - copy_heavy pipe：out MTE2/3≈10.85/9.72，in MTE3≈0，双方 vec≈0.019
 - rows01（narrow/wide × in/out）全部 COMPLETE；数字待导出
 - 归档 `copy01-pipe-medians.json`、`rows01-complete-paste.log`
+
+## 2026-11-15 — Q005 诊断结案
+
+- narrow 496/457、wide 41.4/40.4；多行路径非拷贝瓶颈
+- DEC 更新：冲榜 → Q006 真预取/减 scalar；生产仍冻结 Q002
+- 归档 `rows01-medians.json`

@@ -41,11 +41,12 @@ op_summary 仅在目标任务数与预期调用数完全相等、时间戳有效
 
 **Cursor review（同日）**：采纳为诊断工具；生产代码未改；已 push main。
 
-**云采（同日 `@d8ccf35`）**：`copy_heavy` COMPLETE。
+**云采结案（`@d8ccf35`）**
 
-| case | overall median (us) |
-|------|---------------------|
-| out（异址） | **29.62** |
-| in（同址） | **9.10** |
+| 诊断 | out | in | Δ |
+|------|-----|-----|---|
+| copy_heavy | 29.62 | 9.10 | 20.5（拷贝） |
+| narrow_rows | 495.73 | 457.42 | 38（更新循环主导） |
+| wide_rows | 41.37 | 40.43 | ≈1 |
 
-Δ≈20.5 µs → 该诊断上整表拷贝主导异址耗时。详见 `logs/EXP_Q005/copy01-medians.json`。平台 50 点 inplace/shape 未知，**不**据此立刻改拷贝或流水。下一步：导出 aiv_mte2/mte3/vec 中位；采 narrow_rows / wide_rows。
+pipe：copy 异址 MTE2/3 高、vec≈0；narrow 上 scalar/MTE/vec 全热；wide 上 scalar≳vec。详见 `logs/EXP_Q005/*-medians.json`。DEC 结案：冲榜下一刀 = Q006 真预取/减 scalar，非整表拷贝、非 Q003。

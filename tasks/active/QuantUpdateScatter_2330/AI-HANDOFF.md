@@ -158,11 +158,12 @@ for each batch p, index idx:
 - 本机 Windows **无 NPU**，Q001 编译与精度未在本地验证。  
 - `SyncAll` 在拷贝后仍需要（多核写 out 前）；不要轻易删。
 
-## 10. Q005 — 先补测量（已审，待云采）
+## 10. Q005 — 诊断已结案
 
-生产仍为 **Q002**（host/kernel 未改；`TQue` 深度 **2**）。诊断入口：
+生产仍 **Q002**（`TQue` 深度 **2**）。设备结论：
 
-- `workdir/code/examples/profile_q005.sh`
-- `workdir/code/tools/README_Q005.md`
+- 大异址：整表拷贝税 ~20 µs（成立，但冲榜次要）。
+- 多行/宽行：out≈in；scalar + 更新循环主导。
+- **下一生产路 Q006**：真·跨行预取 / 减逐行 scalar；禁止重开 Q003、禁止盲优化整表拷贝。
 
-26×3 CPU stub 检查通过 ≠ CANN/NPU PASS。设备 profile **未采**，无新性能数字。先采 `copy_heavy_out/in`，再 `narrow_rows` / `wide_rows`；有流水证据后再立生产候选。勿重开 Q003。详见 `explorations/EXP_Q005-profile.md`。
+证据：`explorations/logs/EXP_Q005/`；DEC：`decisions/DEC_Q005-profile-first.md`。

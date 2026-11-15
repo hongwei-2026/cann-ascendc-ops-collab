@@ -1,30 +1,27 @@
-# DEC Q005 — 先补瓶颈证据，再改流水
+# DEC Q005 — 瓶颈证据结案（仍不改生产）
 
-日期：2026-11-15。承接 DEC_Q003，现行代码为 Q002（回退后）。
+日期：2026-11-15。现行代码 **Q002**。
 
-## 已核实（设备）
+## 同机证据汇总（task median µs）
 
-`@d8ccf35` 云采 `copy_heavy`（var 8192×256，update 1 行）：
+| 诊断 | out | in | Δ | 主导 |
+|------|-----|-----|---|------|
+| copy_heavy（大 var、1 更新行） | 29.62 | 9.10 | **20.5** | 异址整表拷贝（MTE2/3；vec≈0） |
+| narrow_rows（多行更新 width=33） | 495.73 | 457.42 | **38** | 更新循环；scalar≈93、MTE/vec 全热；拷贝次要 |
+| wide_rows（宽行 8193） | 41.37 | 40.43 | **≈1** | out≈in；scalar≳vec≳MTE |
 
-| case | overall median task_us | 说明 |
-|------|------------------------|------|
-| copy_heavy_out | **29.62** | 异址，需整表拷贝 |
-| copy_heavy_in | **9.10** | 同址，跳过拷贝 |
+证据：`explorations/logs/EXP_Q005/copy01-medians.json`、`copy01-pipe-medians.json`、`rows01-medians.json`。
 
-差值约 **20.5 µs**（out/in ≈ 3.3×）。证据：`explorations/logs/EXP_Q005/copy01-medians.json`。
+## 瓶颈结论
 
-## 瓶颈结论（有界）
+1. **整表拷贝税**只在「大 var + 异址」显著；多行/宽行诊断上 out≈in。
+2. **冲榜可见点（5–8 µs）**更接近小开销区：同址路径上 **scalar / 逐行调度** 与（多行时）**MTE↔VEC 是否真重叠** 才是候选，不是再省 UB（Q003 已废）。
+3. 当前 Q002 的 `EnQue` 后立刻 `DeQue`：**设备上可能有部分异步**，但不能当已做真·跨行双缓冲；narrow 上 MTE2/VEC 同时高利用率，需时间线才能证明空隙。
+4. pipe 通道时间**不可直接相加**当墙钟。
 
-- **大 var + 异址**：整表拷贝主导。task Δ≈20.5 µs；pipe 上 out 的 MTE2≈10.85 + MTE3≈9.72，in 的 MTE3≈0 —— 与拷贝税一致。
-- **同址 + 单更新行**：vec≈0.019 µs（可忽略）；剩 MTE2≈2.69 + scalar≈2.89。不是「算力不够」，更像参数/调度/标量开销。
-- **不能**把 pipe 各通道时间直接相加当墙钟；墙钟仍看 task_duration。
-- **不能**仅凭 copy_heavy 断定官方 50 点：inplace/shape 未知。`narrow_rows`/`wide_rows` 已 COMPLETE，数字待入库。
+## 决策（生产仍冻结）
 
-## 决策
-
-1. 生产 host/kernel **暂不改**（仍 Q002）。
-2. 待 rows01 数字后立项：
-   - 若宽/多行同址仍 vec 极低、scalar/MTE 主导 → 优先减固定开销 / 合并 DMA，而非假双缓冲。
-   - 若多行同址出现明显 MTE2↔vec 串行 → 再立真·跨行预取（Q006-pipe）。
-   - 仅当平台确认大异址 → Q006-copy。
-3. **禁止**重开 Q003；**禁止**无 rows 数字就改生产。
+- **不**开 Q006-copy 冲榜（除非证明平台 50 点大量「大异址 var」）。
+- **下一条生产假设（待立项 Q006）**：多行路径上做 **真·跨行预取**（下一行 MTE2 与当前行 V/MTE3 重叠）并/或削减 **逐行 scalar 寻址开销**；先改 kernel 候选，限 1 人日，止损：相对 Q002 可见点增益 &lt;2% 或精度挂 → 回退。
+- 小 shape 若仍差榜 &lt;3 µs：走 B 类仿真豁免材料（`02-perf-gate`），勿无限抠。
+- **禁止**重开 Q003；无 Q006 台账行不得改 `op_host`/`op_kernel`。
