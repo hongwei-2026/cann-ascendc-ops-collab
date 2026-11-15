@@ -158,7 +158,10 @@ static ge::graphStatus QuantUpdateScatterTilingFunc(gert::TilingContext* context
     if (!hasZeroPoints && context->GetInputShape(4) != nullptr) {
         hasZeroPoints = true;
     }
-    const int64_t indicesIsInt64 = (indicesDesc->GetDataType() == ge::DT_INT64) ? 1 : 0;
+    const ge::DataType indexType = indicesDesc->GetDataType();
+    OP_CHECK_IF(indexType != ge::DT_INT32 && indexType != ge::DT_INT64,
+        OP_LOGE(context, "indices must be int32 or int64"), return ge::GRAPH_FAILED);
+    const int64_t indicesIsInt64 = indexType == ge::DT_INT64 ? 1 : 0;
 
     const int64_t budget = static_cast<int64_t>(ubSize) - kReserveBytes - kIndexCacheBytes;
     OP_CHECK_IF(budget < kDmaBlockBytes * kBufBytesPerElem,
@@ -192,7 +195,7 @@ static ge::graphStatus QuantUpdateScatterTilingFunc(gert::TilingContext* context
 
     context->SetBlockDim(static_cast<uint32_t>(usedCores));
 
-    // MODE_0: updates fp16；MODE_1: updates bf16（与 def 两组 dtype 对齐）
+    // Modes describe the quantization triple; index width is independent.
     uint64_t tilingKey = 0;
     const ge::DataType updatesDtype = updatesDesc->GetDataType();
     if (updatesDtype == ge::DT_FLOAT16) {

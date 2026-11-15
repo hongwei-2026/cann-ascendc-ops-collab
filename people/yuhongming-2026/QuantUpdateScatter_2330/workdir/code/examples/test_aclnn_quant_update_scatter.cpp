@@ -5,10 +5,10 @@ int main(int argc, char** argv) {
     try {
         std::string root = argc > 1 ? argv[1] : "../samples/build";
         int device = argc > 2 ? std::stoi(argv[2]) : 0;
-        check(aclInit(nullptr));
-        check(aclrtSetDevice(device));
+        QUS_ACL_CHECK(aclInit(nullptr));
+        QUS_ACL_CHECK(aclrtSetDevice(device));
         aclrtStream stream;
-        check(aclrtCreateStream(&stream));
+        QUS_ACL_CHECK(aclrtCreateStream(&stream));
         {
             Tensor input_0_0({1, 2, 32}, ACL_INT8, 64, "var.bin", true, false, root);
             Tensor input_1_0({1}, ACL_INT32, 4, "indices.bin", true, false, root);
@@ -22,7 +22,7 @@ int main(int argc, char** argv) {
             bool attr_3 = false;
             uint64_t size = 0;
             aclOpExecutor* executor = nullptr;
-            check(aclnnQuantUpdateScatterGetWorkspaceSize(
+            QUS_ACL_CHECK(aclnnQuantUpdateScatterGetWorkspaceSize(
                 input_0_0.tensor,
                 input_1_0.tensor,
                 input_2_0.tensor,
@@ -37,16 +37,16 @@ int main(int argc, char** argv) {
                 &executor));
             void* workspace = nullptr;
             if (size)
-                check(aclrtMalloc(&workspace, size, ACL_MEM_MALLOC_HUGE_FIRST));
-            check(aclnnQuantUpdateScatter(workspace, size, executor, stream));
-            check(aclrtSynchronizeStream(stream));
+                QUS_ACL_CHECK(aclrtMalloc(&workspace, size, ACL_MEM_MALLOC_HUGE_FIRST));
+            QUS_ACL_CHECK(aclnnQuantUpdateScatter(workspace, size, executor, stream));
+            QUS_ACL_CHECK(aclrtSynchronizeStream(stream));
             output_0_0.save(root);
             if (workspace)
-                check(aclrtFree(workspace));
+                QUS_ACL_CHECK(aclrtFree(workspace));
         }
-        check(aclrtDestroyStream(stream));
-        check(aclrtResetDevice(device));
-        check(aclFinalize());
+        QUS_ACL_CHECK(aclrtDestroyStream(stream));
+        QUS_ACL_CHECK(aclrtResetDevice(device));
+        QUS_ACL_CHECK(aclFinalize());
         return 0;
     } catch (const std::exception& e) {
         std::cerr << e.what() << std::endl;

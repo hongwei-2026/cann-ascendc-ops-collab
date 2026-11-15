@@ -1,0 +1,31 @@
+{
+  "date": "2026-11-15",
+  "cpu_regression_tests": 9,
+  "schedule_comparisons": 1152,
+  "source_contracts": "COMPILED_AND_PASSED_WITH_MINIMAL_API_STUBS",
+  "registered_signatures": 4,
+  "index_dispatch_combinations_checked": 4,
+  "reference_probes": "completed",
+  "modified_since_R001_start": [
+    "examples/sample_support.h",
+    "examples/test_aclnn_quant_update_scatter.cpp",
+    "op_host/quant_update_scatter_def.cpp",
+    "op_host/quant_update_scatter_tiling.cpp",
+    "op_kernel/quant_update_scatter.cpp",
+    "tests/local/README.md",
+    "tests/local/test_q001.py",
+    "tests/ut/op_host/test_quant_update_scatter_tiling.cpp",
+    "tests/ut/op_kernel/test_quant_update_scatter.cpp"
+  ],
+  "added_source_files": [
+    "tests/local/run_r001_contracts.py"
+  ],
+  "q001_kernel_header_unchanged": true,
+  "scope_check": "OK",
+  "cann_build": "NOT_RUN",
+  "npu_precision": "NOT_RUN",
+  "platform_case2_retest": "NOT_RUN",
+  "root_cause_of_uploaded_case2": "UNCONFIRMED_WITHOUT_FULL_LOG",
+  "pushed": false,
+  "validation_scope": "This revised local candidate; user-reported earlier platform failure is recorded separately."
+}

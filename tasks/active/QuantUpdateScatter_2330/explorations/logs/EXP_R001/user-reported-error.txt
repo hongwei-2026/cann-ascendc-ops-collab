@@ -1,0 +1,6 @@
+Source: user-provided text and screenshot, not a complete device log.
+[Execution failed] returncode=2
+[WARNING] The argument --export  is useless when --application is not empty
+ACL error 161002
+Screenshot: case 1 Pass, 0.00%, 5.89us; case 2 Runtime Error; later cases Skipped.
+Case 2 shape/dtype/attrs and failing API are not shown.

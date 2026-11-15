@@ -10,10 +10,17 @@
 #include <algorithm>
 #include <cstdlib>
 
-inline void check(int rc) {
-    if (rc)
-        throw std::runtime_error("ACL error " + std::to_string(rc));
+inline void check(int rc, const char* operation = "ACL call") {
+    if (rc) {
+        // Capture the diagnostic immediately; subsequent ACL calls may replace it.
+        const char* detail = aclGetRecentErrMsg();
+        std::string message = std::string(operation) + " failed: ACL error " + std::to_string(rc);
+        if (detail != nullptr && detail[0] != '\0')
+            message += std::string("\nACL detail: ") + detail;
+        throw std::runtime_error(message);
+    }
 }
+#define QUS_ACL_CHECK(call) check((call), #call)
 inline std::vector<char> read_file(const std::string& name, size_t size) {
     std::ifstream file(name, std::ios::binary | std::ios::ate);
     if (!file || file.tellg() != static_cast<std::streamoff>(size))
@@ -41,9 +48,9 @@ struct Tensor {
                 throw std::runtime_error("scalar creation failed");
             return;
         }
-        check(aclrtMalloc(&device, std::max(size_t(1), size), ACL_MEM_MALLOC_HUGE_FIRST));
+        QUS_ACL_CHECK(aclrtMalloc(&device, std::max(size_t(1), size), ACL_MEM_MALLOC_HUGE_FIRST));
         if (size)
-            check(aclrtMemcpy(device, size, host.data(), size, ACL_MEMCPY_HOST_TO_DEVICE));
+            QUS_ACL_CHECK(aclrtMemcpy(device, size, host.data(), size, ACL_MEMCPY_HOST_TO_DEVICE));
         std::vector<int64_t> strides(shape.size(), 1);
         for (size_t i = shape.size(); i > 1; --i)
             strides[i - 2] = strides[i - 1] * shape[i - 1];
@@ -54,7 +61,7 @@ struct Tensor {
     }
     void save(const std::string& root) {
         if (bytes)
-            check(aclrtMemcpy(host.data(), bytes, device, bytes, ACL_MEMCPY_DEVICE_TO_HOST));
+            QUS_ACL_CHECK(aclrtMemcpy(host.data(), bytes, device, bytes, ACL_MEMCPY_DEVICE_TO_HOST));
         std::ofstream out(root + "/output/" + file, std::ios::binary);
         if (!out || (bytes && !out.write(host.data(), bytes)))
             throw std::runtime_error("write: " + file);

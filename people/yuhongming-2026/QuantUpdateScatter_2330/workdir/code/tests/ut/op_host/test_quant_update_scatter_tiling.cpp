@@ -48,6 +48,9 @@ static QuantUpdateScatterTestParam testCases[] = {
     {"q001_copy_cores_batch1", {1, 2048, 64}, ge::DT_INT8, ge::FORMAT_ND, {1}, ge::DT_INT32, ge::FORMAT_ND, {1, 1, 64}, ge::DT_FLOAT16, ge::FORMAT_ND, {64}, ge::DT_FLOAT, ge::FORMAT_ND, {64}, ge::DT_INT32, ge::FORMAT_ND, {1, 2048, 64}, ge::DT_INT8, ge::FORMAT_ND, "Ascend910B", ge::GRAPH_SUCCESS, 0UL, "131072 1 64 4 1 1 1 2048 64 1 1 0 0 ", {0}, 64, 262144, 4096},
     {"q001_bf16_tail33", {3, 2, 5, 33}, ge::DT_INT8, ge::FORMAT_ND, {3}, ge::DT_INT64, ge::FORMAT_ND, {3, 2, 2, 33}, ge::DT_BF16, ge::FORMAT_ND, {33}, ge::DT_BF16, ge::FORMAT_ND, {33}, ge::DT_BF16, ge::FORMAT_ND, {3, 2, 5, 33}, ge::DT_INT8, ge::FORMAT_ND, "Ascend910B", ge::GRAPH_SUCCESS, 1UL, "990 1 64 3 3 2 2 5 33 3 1 0 1 ", {0}, 64, 262144, 4096},
 
+    {"r001_fp16_indices64", {3, 2, 5, 33}, ge::DT_INT8, ge::FORMAT_ND, {3}, ge::DT_INT64, ge::FORMAT_ND, {3, 2, 2, 33}, ge::DT_FLOAT16, ge::FORMAT_ND, {33}, ge::DT_FLOAT, ge::FORMAT_ND, {33}, ge::DT_INT32, ge::FORMAT_ND, {3, 2, 5, 33}, ge::DT_INT8, ge::FORMAT_ND, "Ascend910B", ge::GRAPH_SUCCESS, 0UL, "990 1 64 3 3 2 2 5 33 3 1 0 1 ", {0}, 64, 262144, 4096},
+    {"r001_bf16_indices32", {3, 2, 5, 33}, ge::DT_INT8, ge::FORMAT_ND, {3}, ge::DT_INT32, ge::FORMAT_ND, {3, 2, 2, 33}, ge::DT_BF16, ge::FORMAT_ND, {33}, ge::DT_BF16, ge::FORMAT_ND, {33}, ge::DT_BF16, ge::FORMAT_ND, {3, 2, 5, 33}, ge::DT_INT8, ge::FORMAT_ND, "Ascend910B", ge::GRAPH_SUCCESS, 1UL, "990 1 64 3 3 2 2 5 33 3 1 0 0 ", {0}, 64, 262144, 4096},
+
 };
 
 class QuantUpdateScatterTilingTest : public testing::TestWithParam<QuantUpdateScatterTestParam> {

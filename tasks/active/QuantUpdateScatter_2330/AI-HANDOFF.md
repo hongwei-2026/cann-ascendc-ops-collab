@@ -84,6 +84,11 @@ for each batch p, index idx:
 
 **未做（有意留给后续 AI）**：双缓冲、多行合并 DMA、特化「无 zp / reciprocal」模板、与 TBE 同机对照。
 
+### R001（平台测点2）
+
+截图：测点1 Pass、测点2 **Runtime Error / ACL 161002**（参数非法）。  
+修复：`op_host/quant_update_scatter_def.cpp` 注册 **4** 个配对签名（fp16/bf16 × int32/int64）；`op_kernel/quant_update_scatter.cpp` 按 `tilingData.indicesIsInt64` 选模板。详见 `explorations/EXP_R001-runtime.md`。
+
 ---
 
 ## 6. 给后续 AI 的优化队列（有界）

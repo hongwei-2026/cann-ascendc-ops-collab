@@ -136,14 +136,14 @@ struct ScopedQ001Gm {
     ScopedQ001Gm& operator=(const ScopedQ001Gm&) = delete;
 };
 
-template <uint32_t Mode>
+template <uint32_t Mode, bool IndicesInt64 = (Mode == 1)>
 void RunGeneratedQ001Case(bool inplace, bool hasZp, bool reciprocal)
 {
     constexpr uint32_t cores = 4; // block 3 only participates in copy and SyncAll
     constexpr int64_t batch = 3, middle = 2, rows = 2, varRows = 5, width = 33;
     constexpr size_t total = batch * middle * varRows * width;
     constexpr size_t updateCount = batch * middle * rows * width;
-    constexpr size_t indexBytes = Mode == 0 ? sizeof(int32_t) : sizeof(int64_t);
+    constexpr size_t indexBytes = IndicesInt64 ? sizeof(int64_t) : sizeof(int32_t);
     constexpr size_t scaleBytes = Mode == 0 ? sizeof(float) : sizeof(uint16_t);
     constexpr size_t zpBytes = Mode == 0 ? sizeof(int32_t) : sizeof(uint16_t);
     ScopedQ001Gm var(total), out(total), indices(batch * indexBytes), updates(updateCount * 2);
@@ -160,7 +160,7 @@ void RunGeneratedQ001Case(bool inplace, bool hasZp, bool reciprocal)
     std::memset(out.ptr, 0x5a, total);
     const int64_t indexValues[batch] = {0, 3, 1};
     for (int64_t p = 0; p < batch; ++p) {
-        if constexpr (Mode == 0) {
+        if constexpr (!IndicesInt64) {
             reinterpret_cast<int32_t*>(indices.ptr)[p] = static_cast<int32_t>(indexValues[p]);
         } else {
             reinterpret_cast<int64_t*>(indices.ptr)[p] = indexValues[p];
@@ -197,7 +197,7 @@ void RunGeneratedQ001Case(bool inplace, bool hasZp, bool reciprocal)
     td->totalNum = total; td->blockFactor = 1; td->ubFactor = 32; td->coreNum = cores;
     td->batchSize = batch; td->midSize = middle; td->updateAxis = rows;
     td->varAxis = varRows; td->lastDim = width; td->indexElements = batch;
-    td->hasZeroPoints = hasZp; td->reciprocalScale = reciprocal; td->indicesIsInt64 = Mode == 1;
+    td->hasZeroPoints = hasZp; td->reciprocalScale = reciprocal; td->indicesIsInt64 = IndicesInt64;
     uint8_t* result = inplace ? var.ptr : out.ptr;
     uint8_t* zeroPoints = hasZp ? zp.ptr : nullptr;
     ICPU_SET_TILING_KEY(Mode);
@@ -225,4 +225,21 @@ TEST_F(QuantUpdateScatterKernelTest, q001_mode0_inplace_without_zp_reciprocal)
 TEST_F(QuantUpdateScatterKernelTest, q001_mode1_inplace_without_zp_reciprocal)
 {
     RunGeneratedQ001Case<1>(true, false, true);
+}
+
+TEST_F(QuantUpdateScatterKernelTest, r001_mode0_indices64)
+{
+    RunGeneratedQ001Case<0, true>(false, true, false);
+}
+TEST_F(QuantUpdateScatterKernelTest, r001_mode1_indices32)
+{
+    RunGeneratedQ001Case<1, false>(false, true, false);
+}
+TEST_F(QuantUpdateScatterKernelTest, r001_mode0_indices64_inplace_no_zp)
+{
+    RunGeneratedQ001Case<0, true>(true, false, true);
+}
+TEST_F(QuantUpdateScatterKernelTest, r001_mode1_indices32_inplace_no_zp)
+{
+    RunGeneratedQ001Case<1, false>(true, false, true);
 }

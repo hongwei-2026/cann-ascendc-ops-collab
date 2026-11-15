@@ -158,7 +158,7 @@ class Q001LocalTest(unittest.TestCase):
 
     def test_reference_matches_independent_scalar_fp32_oracle(self):
         rng=np.random.default_rng(2330)
-        for dtype,reciprocal,with_zp in itertools.product([np.float16,ml_dtypes.bfloat16],[False,True],[False,True]):
+        for dtype,index_dtype,reciprocal,with_zp in itertools.product([np.float16,ml_dtypes.bfloat16],[np.int32,np.int64],[False,True],[False,True]):
             for middle in [(),(2,),(2,2)]:
                 width=33
                 shape=(3,)+middle+(2,width)
@@ -166,7 +166,7 @@ class Q001LocalTest(unittest.TestCase):
                 updates=rng.uniform(-300,300,shape).astype(dtype)
                 scales=rng.uniform(0.1,3,width).astype(np.float32 if dtype==np.float16 else dtype)
                 zp=None if not with_zp else (rng.integers(-30,30,width,dtype=np.int32) if dtype==np.float16 else rng.uniform(-5,5,width).astype(dtype))
-                indices=np.array([0,3,1],dtype=np.int32 if dtype==np.float16 else np.int64)
+                indices=np.array([0,3,1],dtype=index_dtype)
                 expected=scalar_oracle(var,indices,updates,scales,zp,reciprocal)
                 actual=reference.impl(var,indices,updates,scales,zp,reciprocal_scale=reciprocal)
                 np.testing.assert_array_equal(actual,expected)
@@ -174,14 +174,14 @@ class Q001LocalTest(unittest.TestCase):
     def test_schedule_equivalence_modes_tails_and_index_lengths(self):
         rng=np.random.default_rng(1001)
         case_count=0
-        for dtype,reciprocal,with_zp,width in itertools.product([np.float16,ml_dtypes.bfloat16],[False,True],[False,True],[1,7,17,31,32,33,65,129,8193]):
+        for dtype,index_dtype,reciprocal,with_zp,width in itertools.product([np.float16,ml_dtypes.bfloat16],[np.int32,np.int64],[False,True],[False,True],[1,7,17,31,32,33,65,129,8193]):
             batch,middle,rows=(3,2,2) if width<1000 else (1,1,1)
             var=rng.integers(-128,128,(batch,middle,rows+3,width),dtype=np.int8)
             updates=rng.uniform(-500,500,(batch,middle,rows,width)).astype(dtype)
             scales=rng.uniform(0.01,5,width).astype(np.float32 if dtype==np.float16 else dtype)
             zp=None if not with_zp else (rng.integers(-50,50,width,dtype=np.int32) if dtype==np.float16 else rng.uniform(-10,10,width).astype(dtype))
             for count in [0,max(0,batch-1),batch,batch+2]:
-                indices=rng.integers(0,4,count,dtype=np.int32 if dtype==np.float16 else np.int64)
+                indices=rng.integers(0,4,count,dtype=index_dtype)
                 expected=reference.impl(var,indices,updates,scales,zp,reciprocal_scale=reciprocal)
                 for inplace in [False,True]:
                     actual=tiled_schedule(var.copy(),indices,updates,scales,zp,reciprocal,4,32768,inplace)
@@ -190,10 +190,10 @@ class Q001LocalTest(unittest.TestCase):
         print('Schedule comparisons:',case_count)
 
     def test_indices_cache_cap_and_fallback(self):
-        for dtype,batch in itertools.product([np.float16,ml_dtypes.bfloat16],[2048,2049]):
+        for dtype,index_dtype,batch in itertools.product([np.float16,ml_dtypes.bfloat16],[np.int32,np.int64],[2048,2049]):
             var=np.full((batch,2,1),-99,np.int8)
             updates=(np.arange(batch,dtype=np.float32)%127).astype(dtype).reshape(batch,1,1)
-            indices=np.ones(batch,dtype=np.int32 if dtype==np.float16 else np.int64)
+            indices=np.ones(batch,dtype=index_dtype)
             scales=np.ones(1,dtype=np.float32 if dtype==np.float16 else dtype)
             expected=reference.impl(var,indices,updates,scales)
             actual=tiled_schedule(var,indices,updates,scales,None,False,1,65536)

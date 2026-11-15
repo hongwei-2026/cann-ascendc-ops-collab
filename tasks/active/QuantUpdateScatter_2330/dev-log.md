@@ -21,3 +21,9 @@
 - 编译成功（ascend910b 两 key opc Done）；样例 `PASS: var_out.bin, mismatched=0/64` / `PASSED`
 - `set_env.sh` 默认路径不存在，但镜像内 CANN 已可用
 - 证据：`explorations/logs/EXP_Q001/C001-cloud-smoke-paste.log`；**非**性能门禁结论
+
+## 2026-11-15 — R001（平台测点2 ACL 161002）
+
+- 用户截图：测点1 Pass 5.89us；测点2 Runtime Error；后续 Skipped；ACL 161002（PARAM_INVALID）
+- Codex 本地修复：OpDef 补齐 4 签名；kernel 按 `indicesIsInt64` 分发；tiling 拒非法 indices；示例带 `aclGetRecentErrMsg`
+- 未改 Q001 计算头；平台第2点根因待重测确认；证据 `explorations/EXP_R001-runtime.md`
