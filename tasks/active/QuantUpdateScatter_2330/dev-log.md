@@ -116,3 +116,10 @@
 - 3072 组实际类 Q006/Q002/oracle 对拍及逻辑依赖检查通过；其中 1664 组两行待消费。9 项参考回归/1152 组调度、四签名源码契约通过；日志 EXP_Q006。
 - 用户最新明确仅本地：未连接云端、未 commit/push。CANN、设备精度、平台/时延/profile NOT_RUN，不宣称加速。工作树为候选，采纳基线仍 Q002。
 - 下一闸：先设备 -e，再多行精度、平台 50 点与 narrow/wide 同机复测；精度挂或可见点增益 <2% 按 DEC 回退保存的 Q002。
+
+## 2026-11-15 — Q006 云 `-e` PASS（粘贴归档）
+
+- hidevlab：pull → `4db2b31`；clean + `-e`：opc×4；样例 **0/64 PASSED**。
+- 同会话 `profile_q005` narrow/wide_in：**COMPLETE**（`/tmp/qus2330_q006_rows` 待打包下载）。
+- 归档：`logs/EXP_Q006/build_e-cloud-paste.log`；贴码 `deliverables/SUBMIT_LINKS_Q006.md`。
+- 下一闸：平台 vs Q002 可见点；无 ≥2% → 回退。

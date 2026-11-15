@@ -35,6 +35,13 @@
 
 ## 结论与门禁
 
-本地候选已实现，尚未采纳；已采纳基线仍 Q002，工作树 kernel 当前为 Q006 待测候选。CANN 编译、云 -e、设备精度、平台 50 点、narrow/wide 设备复测与时延收益全部 NOT_RUN。CPU 时间不用于速度判断。
+本地候选已实现，尚未采纳；已采纳基线仍 Q002。
 
-**Cursor review**：逻辑与契约通过，已允许 push 候选。注意样例 `-e` 多为单行 direct；平台/多行 profile 才是门禁。无数字前不判收益。失败回退 `people/.../explorations/Q006/baseline/`。
+### 云测（2026-11-15 hidevlab 粘贴）
+
+- tip `4db2b31`；`build.sh -j8 -e`：opc×4 Done；`PASS: var_out.bin, mismatched=0/64`。
+- `profile_q005.sh /tmp/qus2330_q006_rows --case-id narrow_rows_in --case-id wide_rows_in`：两者 **COMPLETE**；evidence summary complete。
+- 归档：`logs/EXP_Q006/build_e-cloud-paste.log`、`SOURCE-cloud-20261115.txt`。云端 `/tmp/qus2330_q006_*` 原文包待补下载。
+- **平台 50 点 / 可见点：NOT_RUN**。样例小 shape 多为 direct，不代替多行门禁。
+
+**Cursor review**：逻辑与契约通过。无平台数字前不判收益、不升级基线。失败或 &lt;2% → 回退 `people/.../explorations/Q006/baseline/`。

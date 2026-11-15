@@ -41,6 +41,6 @@
 
 | ID | 日期 | 作者 | 阶段 | 假设 | 方法 | 时限 | 结果 | 结论 | 耗时 |
 |----|------|------|------|------|------|------|------|------|------|
-| Q006 | 2026-11-15 | Codex(+review) | 性能候选 | 更新循环逐行提交与地址计算偏贵 | 首行预入队；DeQue 前 Prefetch 下一行；跨 middle 输入预取；src/dst 递增 | 1d | 本地 3072 组对拍通过；Cursor 审过（TQue=2；单行 else 安全）；设备 NOT_RUN | **候选待云测**；基线仍 Q002 | — |
+| Q006 | 2026-11-15 | Codex(+review) | 性能候选 | 更新循环逐行提交与地址计算偏贵 | 首行预入队；DeQue 前 Prefetch 下一行；跨 middle 输入预取；src/dst 递增 | 1d | 本地 3072 对拍；云 `-e` **0/64 PASS**（tip `4db2b31`）；profile narrow/wide COMPLETE；平台未出 | **进行中**；基线仍 Q002 至平台判定 | — |
 
-决策：`decisions/DEC_Q006-prefetch.md`。止损：精度挂或可见点相对 Q002 增益&lt;2% → 回退。EXP：`explorations/EXP_Q006-prefetch.md`。
+决策：`decisions/DEC_Q006-prefetch.md`。止损：精度挂或可见点相对 Q002 增益&lt;2% → 回退。EXP：`explorations/EXP_Q006-prefetch.md`。云粘贴：`logs/EXP_Q006/build_e-cloud-paste.log`。

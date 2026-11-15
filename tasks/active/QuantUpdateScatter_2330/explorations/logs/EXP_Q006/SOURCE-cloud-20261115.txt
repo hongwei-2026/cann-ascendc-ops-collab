@@ -1,0 +1,8 @@
+date=2026-11-15 (cloud paste)
+repo_commit_pulled=4db2b31
+seat=people/yuhongming-2026/QuantUpdateScatter_2330/workdir/code
+local_kernel_lf_sha256_after_pull=d3eeea4024f4f67a17d683cf04693b3b2d6b580ca26cf09f7cae6fbbf26f303d
+cloud_e=PASS mismatched=0/64
+opc_keys=4 Done
+profile_q005_rows=COMPLETE narrow_rows_in + wide_rows_in (artifacts still on cloud /tmp/qus2330_q006_rows)
+platform=NOT_RUN

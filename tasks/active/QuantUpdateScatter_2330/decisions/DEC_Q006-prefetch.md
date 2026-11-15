@@ -27,3 +27,7 @@ Q006 候选已实现；3072 组对拍通过；队列深度仍 2。
 ## Cursor review（同日）
 
 采纳为**待云测候选**并允许入库：TQue=2 正确；`else` 仅单行 direct；未改 host/RINT/SyncAll/四签名；输出侧仍即入即出（本轮只做输入预取）。无设备数字前不升级采纳基线。云 `-e` 失败或可见点增益&lt;2% → 回退 `explorations/Q006/baseline/`。
+
+## 云 `-e`（2026-11-15）
+
+样例 **PASS 0/64**；profile narrow/wide COMPLETE。**平台可见点未测** → 基线仍 Q002；等平台数字再写采纳/回退。
