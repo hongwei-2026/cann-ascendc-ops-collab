@@ -5,7 +5,7 @@
 | P000 | 2026-11-15 | yuhongming | 实现 | ZIP 可编 | 导入 | 0.5h | OK | **采纳** | 0.5h |
 | Q001 | 2026-11-15 | yuhongming+Codex | 性能 | 拷贝/重复 DMA | 多核拷贝+indices+scales 复用 | 1d | 云 `-e` PASS | **采纳（功能）** | — |
 | R001 | 2026-11-15 | Codex | 精度 | 161002 缺签名 | OpDef×4 + indices 分发 | 0.5d | 平台 1345715 **Pass** | **采纳** | — |
-| Q002 | 2026-11-15 | Codex(+review) | 性能 | 流水/大块拷贝可缩可见点时延 | TQue 两槽（深度模板改为 2）+ workBuf 作 copy scratch；UB/elem 30B | 1d | 本地模型 OK；设备 NOT_RUN | **进行中** | — |
+| Q002 | 2026-11-15 | Codex(+review) | 性能 | 流水/大块拷贝可缩可见点时延 | TQue 两槽（深度 2）+ workBuf copy scratch；UB/elem 30B | 1d | 本地 OK；云 `-e` PASS；平台 50 点 NOT_RUN | **进行中（待平台数字）** | — |
 | Q003 | — | — | 性能 | — | — | — | 未开 | 等 Q002 全 50 点数字；见 DEC | — |
 
 ## 平台基线（1345715）

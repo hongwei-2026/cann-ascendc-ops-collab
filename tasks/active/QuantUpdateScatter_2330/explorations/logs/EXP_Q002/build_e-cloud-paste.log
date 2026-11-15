@@ -1,0 +1,23 @@
+# EXP_Q002 cloud smoke — paste 2026-11-15
+# Host: developer@dfdd97f8c4e84acbaa54982714e4d993
+# Commit: 796c82e (fast-forward ad76638..796c82e)
+# Cmd: mkdir -p /tmp/qus2330_q002 && bash build.sh -j8 -e | tee /tmp/qus2330_q002/build_e.log
+
+## Build
+[INFO] Build completed successfully!
+opc Done x4:
+  QuantUpdateScatter_1dd06ad751fcf0fb41d823e366fb633f Done
+  QuantUpdateScatter_1f0bdd43f3238218b21cf775609ac436 Done
+  QuantUpdateScatter_d61292408ef9bc22b1c3ee35a8f5355b Done
+  QuantUpdateScatter_53d0f379a2098810ca8544d89a512fec Done
+
+## Example
+Sample data generated.
+PASS: var_out.bin, mismatched=0/64
+PASSED
+[INFO] Example completed successfully!
+
+## Verdict
+- Q002 CANN compile + samples first case: PASS
+- Platform full 50-case retest: NOT_RUN
+- Performance vs submission 1345715: UNMEASURED until platform upload

@@ -40,3 +40,9 @@
 - Codex Q002：TQue 两槽路径 + workBuf 大块拷贝；本地 512 组类模型通过；收益未测
 - Review：`TQue<...,1>` 与 InitBuffer(2) 不一致 → 主仓改为深度 **2** 后再上云
 - 证据：`explorations/EXP_Q002-pipeline.md`、`decisions/DEC_Q002-pending-platform.md`
+
+## 2026-11-15 — Q002 云端 `-e` PASS
+
+- `796c82e`：编译 opc×4；样例 `mismatched=0/64` / PASSED
+- 归档：`explorations/logs/EXP_Q002/build_e-cloud-paste.log`
+- 下一闸：上传平台全 50 点，对比提交 1345715 可见时延
