@@ -1,0 +1,13 @@
+# EXP_Q005 cloud build paste — 2026-11-15
+# Host: developer@dfdd97f8c4e84acbaa54982714e4d993
+# NOTE: git pull FAILED (curl 56 GnuTLS TLS hangup) BEFORE this build.
+# Therefore this build is NOT guaranteed to be @43f560c (Q005 tooling).
+# Sample -e: mismatched=0/64 PASSED; opc×4 Done.
+# profile_q005.sh then missing: No such file or directory (expected until pull succeeds).
+
+Cmd attempted:
+  git pull --ff-only origin main   # FAILED TLS
+  bash build.sh -j8 -e | tee /tmp/qus2330_q005_build_e.log  # PASSED (stale tree)
+  bash examples/profile_q005.sh /tmp/qus2330_q005_copy01 ...  # MISSING
+
+Next: retry pull until HEAD contains examples/profile_q005.sh, then rebuild -e and profile.
