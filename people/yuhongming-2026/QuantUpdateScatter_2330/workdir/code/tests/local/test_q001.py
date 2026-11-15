@@ -21,9 +21,9 @@ def ceildiv(a, b):
 
 def tiling(batch, total, width, cores=64, ub=262144):
     budget = ub - 8192 - 2048 * 8
-    if budget < 32 * 27:
+    if budget < 32 * 30:
         raise ValueError("UB cannot fit minimum aligned buffers")
-    maximum = min(budget // 27 // 32 * 32, 8192)
+    maximum = min(budget // 30 // 32 * 32, 8192)
     tile = ceildiv(min(max(width, 1), maximum), 32) * 32
     used = max(min(cores, max(batch, 1)), min(cores, ceildiv(total, 32768) if total else 1))
     return used, ceildiv(batch, used) if batch else 1, tile
@@ -148,7 +148,7 @@ class Q001LocalTest(unittest.TestCase):
         for ub,width in itertools.product([32768,65536,196608,262144], [0,1,7,8,15,16,17,31,32,33,8191,8192,8193,65537]):
             _,_,tile=tiling(64,1<<20,width,64,ub)
             self.assertEqual(tile % 32,0)
-            self.assertLessEqual(tile*27+2048*8+8192,ub)
+            self.assertLessEqual(tile*30+2048*8+8192,ub)
             for element_size in [1,2,4,8]:
                 for length in [1,7,8,15,16,17,31,32,min(width,tile)]:
                     if 0 < length <= tile:

@@ -1,0 +1,4 @@
+Local implementation diagnostics, not device logs:
+1. First edit attempt: ValueError: substring not found. String transforms were only in memory; no production file was written by this failed attempt. Corrected the function-boundary anchors, then wrote the candidate.
+2. First kernel-model compilation: fatal error: absolute Chinese-path baseline include not found by local MinGW. Copied the saved header set into the model temporary build directory and used a relative include. Subsequent compilation and 512 cases succeeded.
+3. Final source fingerprints and full successful stdout/stderr are in this same directory.

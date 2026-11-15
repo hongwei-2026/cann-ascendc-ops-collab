@@ -53,6 +53,8 @@ private:
     __aicore__ inline void LoadIndices();
     __aicore__ inline void LoadQuantParams(int64_t column, int32_t len);
     __aicore__ inline void QuantOneTile(int64_t srcOffset, int64_t dstOffset, int32_t len);
+    __aicore__ inline void QuantizeTile(LocalTensor<UpdatesT> input, LocalTensor<int8_t> output, int32_t len);
+    __aicore__ inline void QuantQueuedTile(int64_t srcOffset, int64_t dstOffset, int32_t len);
     __aicore__ inline int64_t ReadIndex(int64_t p);
 
 private:
@@ -68,6 +70,9 @@ private:
     TBuf<TPosition::VECCALC> outBuf_;
 
     TBuf<TPosition::VECCALC> indicesBuf_;
+    TQue<TPosition::VECIN, 2> updatesQueue_;
+    TQue<TPosition::VECOUT, 2> outputQueue_;
+    bool usePipeline_ = false;
 
     GlobalTensor<int8_t> varGm_;
     GlobalTensor<int8_t> outGm_;
@@ -132,7 +137,17 @@ __aicore__ inline void QuantUpdateScatter<UpdatesT, ScalesT, IndicesT, OffsetsT>
     indicesGm_.SetGlobalBuffer(reinterpret_cast<__gm__ IndicesT*>(indices));
 
     const int32_t n = bufElems_;
-    pipe_.InitBuffer(updatesBuf_, n * static_cast<int32_t>(sizeof(UpdatesT)));
+    const int64_t activeBatch = indexRemain < batchLen_ ? (indexRemain > 0 ? indexRemain : 0) : batchLen_;
+    // A single row retains the original short path; repeated rows use two slots.
+    usePipeline_ = activeBatch > 0 && updateAxis_ > 0 &&
+        (activeBatch > 1 || midSize_ > 1 || updateAxis_ > 1);
+    if (usePipeline_) {
+        pipe_.InitBuffer(updatesQueue_, 2, n * static_cast<int32_t>(sizeof(UpdatesT)));
+        pipe_.InitBuffer(outputQueue_, 2, n * static_cast<int32_t>(sizeof(int8_t)));
+    } else {
+        pipe_.InitBuffer(updatesBuf_, n * static_cast<int32_t>(sizeof(UpdatesT)));
+        pipe_.InitBuffer(outBuf_, n * static_cast<int32_t>(sizeof(int8_t)));
+    }
     pipe_.InitBuffer(scalesRawBuf_, n * 4); // float or bf16 padded
     pipe_.InitBuffer(zpRawBuf_, n * 4);     // int32 or bf16
     pipe_.InitBuffer(scalesBuf_, n * static_cast<int32_t>(sizeof(float)));
@@ -140,7 +155,6 @@ __aicore__ inline void QuantUpdateScatter<UpdatesT, ScalesT, IndicesT, OffsetsT>
     pipe_.InitBuffer(workBuf_, n * static_cast<int32_t>(sizeof(float)));
     pipe_.InitBuffer(int16Buf_, n * static_cast<int32_t>(sizeof(int16_t)));
     pipe_.InitBuffer(halfBuf_, n * static_cast<int32_t>(sizeof(half)));
-    pipe_.InitBuffer(outBuf_, n * static_cast<int32_t>(sizeof(int8_t)));
     if (indexCacheLen_ > 0) {
         pipe_.InitBuffer(indicesBuf_, AlignUpInt(static_cast<int32_t>(indexCacheLen_ * sizeof(IndicesT)), DMA_ALIGN));
     }
@@ -171,10 +185,12 @@ __aicore__ inline void QuantUpdateScatter<UpdatesT, ScalesT, IndicesT, OffsetsT>
     int64_t offset = static_cast<int64_t>(GetBlockIdx()) * blocksPerCore * DMA_ALIGN;
     int64_t end = offset + blocksPerCore * DMA_ALIGN;
     end = end < totalNum_ ? end : totalNum_;
-    LocalTensor<int8_t> tmp = outBuf_.Get<int8_t>();
+    // workBuf_ is free until quantization starts after SyncAll.
+    LocalTensor<int8_t> tmp = workBuf_.Get<int8_t>();
+    const int32_t copyCapacity = bufElems_ * static_cast<int32_t>(sizeof(float));
     while (offset < end) {
         const int64_t remaining = end - offset;
-        const int32_t len = remaining > bufElems_ ? bufElems_ : static_cast<int32_t>(remaining);
+        const int32_t len = remaining > copyCapacity ? copyCapacity : static_cast<int32_t>(remaining);
         LoadTile(tmp, varGm_, offset, len);
         const event_t loaded = static_cast<event_t>(GetTPipePtr()->FetchEventID(HardEvent::MTE2_MTE3));
         SetFlag<HardEvent::MTE2_MTE3>(loaded);
@@ -239,18 +255,11 @@ __aicore__ inline void QuantUpdateScatter<UpdatesT, ScalesT, IndicesT, OffsetsT>
 }
 
 template <typename UpdatesT, typename ScalesT, typename IndicesT, typename OffsetsT>
-__aicore__ inline void QuantUpdateScatter<UpdatesT, ScalesT, IndicesT, OffsetsT>::QuantOneTile(
-    int64_t srcOffset, int64_t dstOffset, int32_t len)
+__aicore__ inline void QuantUpdateScatter<UpdatesT, ScalesT, IndicesT, OffsetsT>::QuantizeTile(
+    LocalTensor<UpdatesT> input, LocalTensor<int8_t> output, int32_t len)
 {
     LocalTensor<float> work = workBuf_.Get<float>();
-    const event_t reusable = static_cast<event_t>(GetTPipePtr()->FetchEventID(HardEvent::V_MTE2));
-    SetFlag<HardEvent::V_MTE2>(reusable);
-    WaitFlag<HardEvent::V_MTE2>(reusable);
-    LoadTile(updatesBuf_.Get<UpdatesT>(), updatesGm_, srcOffset, len);
-    const event_t loaded = static_cast<event_t>(GetTPipePtr()->FetchEventID(HardEvent::MTE2_V));
-    SetFlag<HardEvent::MTE2_V>(loaded);
-    WaitFlag<HardEvent::MTE2_V>(loaded);
-    Cast(work, updatesBuf_.Get<UpdatesT>(), RoundMode::CAST_NONE, len);
+    Cast(work, input, RoundMode::CAST_NONE, len);
     PipeBarrier<PIPE_V>();
     if (reciprocalScale_ != 0) {
         Mul(work, work, scalesBuf_.Get<float>(), len);
@@ -271,7 +280,44 @@ __aicore__ inline void QuantUpdateScatter<UpdatesT, ScalesT, IndicesT, OffsetsT>
     PipeBarrier<PIPE_V>();
     Cast(halfBuf_.Get<half>(), int16Buf_.Get<int16_t>(), RoundMode::CAST_NONE, len);
     PipeBarrier<PIPE_V>();
-    Cast(outBuf_.Get<int8_t>(), halfBuf_.Get<half>(), RoundMode::CAST_NONE, len);
+    Cast(output, halfBuf_.Get<half>(), RoundMode::CAST_NONE, len);
+}
+
+template <typename UpdatesT, typename ScalesT, typename IndicesT, typename OffsetsT>
+__aicore__ inline void QuantUpdateScatter<UpdatesT, ScalesT, IndicesT, OffsetsT>::QuantQueuedTile(
+    int64_t srcOffset, int64_t dstOffset, int32_t len)
+{
+    LocalTensor<UpdatesT> input = updatesQueue_.AllocTensor<UpdatesT>();
+    LoadTile(input, updatesGm_, srcOffset, len);
+    updatesQueue_.EnQue(input);
+    input = updatesQueue_.DeQue<UpdatesT>();
+    LocalTensor<int8_t> output = outputQueue_.AllocTensor<int8_t>();
+    QuantizeTile(input, output, len);
+    updatesQueue_.FreeTensor(input);
+    outputQueue_.EnQue(output);
+    output = outputQueue_.DeQue<int8_t>();
+    DataCopyExtParams params = {1, static_cast<uint32_t>(len), 0, 0, 0};
+    DataCopyPad(outGm_[dstOffset], output, params);
+    // Each slot is protected by queue ownership instead of a row-wide MTE3_V wait.
+    outputQueue_.FreeTensor(output);
+}
+
+template <typename UpdatesT, typename ScalesT, typename IndicesT, typename OffsetsT>
+__aicore__ inline void QuantUpdateScatter<UpdatesT, ScalesT, IndicesT, OffsetsT>::QuantOneTile(
+    int64_t srcOffset, int64_t dstOffset, int32_t len)
+{
+    if (usePipeline_) {
+        QuantQueuedTile(srcOffset, dstOffset, len);
+        return;
+    }
+    const event_t reusable = static_cast<event_t>(GetTPipePtr()->FetchEventID(HardEvent::V_MTE2));
+    SetFlag<HardEvent::V_MTE2>(reusable);
+    WaitFlag<HardEvent::V_MTE2>(reusable);
+    LoadTile(updatesBuf_.Get<UpdatesT>(), updatesGm_, srcOffset, len);
+    const event_t loaded = static_cast<event_t>(GetTPipePtr()->FetchEventID(HardEvent::MTE2_V));
+    SetFlag<HardEvent::MTE2_V>(loaded);
+    WaitFlag<HardEvent::MTE2_V>(loaded);
+    QuantizeTile(updatesBuf_.Get<UpdatesT>(), outBuf_.Get<int8_t>(), len);
     const event_t ready = static_cast<event_t>(GetTPipePtr()->FetchEventID(HardEvent::V_MTE3));
     SetFlag<HardEvent::V_MTE3>(ready);
     WaitFlag<HardEvent::V_MTE3>(ready);

@@ -87,7 +87,15 @@ for each batch p, index idx:
 ### R001（平台测点2）
 
 截图：测点1 Pass、测点2 **Runtime Error / ACL 161002**（参数非法）。  
-修复：`op_host/quant_update_scatter_def.cpp` 注册 **4** 个配对签名（fp16/bf16 × int32/int64）；`op_kernel/quant_update_scatter.cpp` 按 `tilingData.indicesIsInt64` 选模板。详见 `explorations/EXP_R001-runtime.md`。
+修复：`op_host/quant_update_scatter_def.cpp` 注册 **4** 个配对签名（fp16/bf16 × int32/int64）；`op_kernel/quant_update_scatter.cpp` 按 `tilingData.indicesIsInt64` 选模板。详见 `explorations/EXP_R001-runtime.md`。  
+平台提交 **1345715** 已 Pass（50 点）。
+
+### Q002（冲时延）
+
+- 可见点仍慢于榜最优；候选：`TQue` 两槽 + `workBuf` 作整表拷贝 scratch（更大 DMA 块）。
+- **非**真·跨行双缓冲（每 tile 仍 EnQue 后立刻 DeQue）；主要收益待测。
+- `TQue` 模板深度须与 `InitBuffer(..., 2)` 一致（已改为 2）。
+- 止损：见 `decisions/DEC_Q002-pending-platform.md`；先全 50 点，勿盲开 Q003。
 
 ---
 

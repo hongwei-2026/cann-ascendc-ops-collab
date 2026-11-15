@@ -1,0 +1,19 @@
+Command: D:\Program Files\Python310\python.exe -X utf8 -B D:\华为算子比赛\ConfusionTransposeD_2323_perf_work\people\yuhongming-2026\QuantUpdateScatter_2330\workdir\code\tests\local\test_q001.py
+Exit code: 0
+
+test_copy_coverage_and_disjoint_aligned_boundaries (__main__.Q001LocalTest) ... ok
+test_direct_half_conversion_would_double_round (__main__.Q001LocalTest) ... ok
+test_fp32_division_boundary (__main__.Q001LocalTest) ... ok
+test_indices_cache_cap_and_fallback (__main__.Q001LocalTest) ... ok
+test_reciprocal_multiplies_directly (__main__.Q001LocalTest) ... ok
+test_reference_matches_independent_scalar_fp32_oracle (__main__.Q001LocalTest) ... ok
+test_schedule_equivalence_modes_tails_and_index_lengths (__main__.Q001LocalTest) ... ok
+test_ties_saturation_and_no_input_mutation (__main__.Q001LocalTest) ... ok
+test_ub_and_dma_padding (__main__.Q001LocalTest) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.615s
+
+OK
+CPU-only checks: no CANN build, device precision or performance claim.
+Schedule comparisons: 1152

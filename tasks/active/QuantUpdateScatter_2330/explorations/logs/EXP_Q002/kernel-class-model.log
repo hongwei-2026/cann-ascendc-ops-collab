@@ -1,0 +1,8 @@
+Command: D:\Program Files\Python310\python.exe -X utf8 -B D:\华为算子比赛\ConfusionTransposeD_2323_perf_work\people\yuhongming-2026\QuantUpdateScatter_2330\workdir\code\tests\local\run_q002_kernel_model.py --cxx D:\mingw64\bin\g++.exe
+Exit code: 0
+
+Actual kernel-class CPU model: 512 candidate/baseline/oracle comparisons passed.
+Cases exercising queues=288, direct/no-update=224, maximum per-core UB bytes=17344.
+Constructed copy case DMA calls: baseline=2117, candidate=533 (counts only, no timing claim).
+Checks: GM/UB bounds and guards, queue ownership, 4 dtype signatures, tails, empty/short/long indices, multi-tile widths, copy-only cores, inplace, optional zp, 2048/2049 cache boundary.
+Synchronous CPU API model only. CANN compilation, asynchronous pipeline correctness and NPU performance remain NOT_RUN.

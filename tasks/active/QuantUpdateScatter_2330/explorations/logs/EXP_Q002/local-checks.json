@@ -1,0 +1,32 @@
+{
+  "date": "2026-11-15",
+  "baseline_submission_user_reported": "1345715",
+  "total_platform_cases": 50,
+  "visible_cases": 5,
+  "hidden_cases": 45,
+  "baseline_preserved_sha256_check": "OK",
+  "candidate_cann_build": "NOT_RUN",
+  "candidate_platform_50case_retest": "NOT_RUN",
+  "candidate_profile": "NOT_RUN",
+  "performance_gain": "UNMEASURED",
+  "python_tests": 9,
+  "python_schedule_comparisons": 1152,
+  "actual_kernel_class_cpu_comparisons": 512,
+  "queued_model_cases": 288,
+  "direct_or_empty_model_cases": 224,
+  "maximum_cpu_model_ub_bytes_with_32KiB_budget": 17344,
+  "native_source_contracts": "OK_WITH_MINIMAL_API_STUBS",
+  "arithmetic_instruction_sequence_unchanged": true,
+  "sync_all_retained": true,
+  "modified_since_baseline": [
+    "op_host/quant_update_scatter_tiling.cpp",
+    "op_kernel/quant_update_scatter.h",
+    "tests/local/test_q001.py",
+    "tests/ut/op_host/test_quant_update_scatter_tiling.cpp"
+  ],
+  "added_source_files": [
+    "tests/local/run_q002_kernel_model.py"
+  ],
+  "scope_check": "OK",
+  "pushed": false
+}

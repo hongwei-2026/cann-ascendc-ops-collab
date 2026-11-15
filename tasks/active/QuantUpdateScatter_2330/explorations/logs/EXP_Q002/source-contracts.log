@@ -1,0 +1,5 @@
+Command: D:\Program Files\Python310\python.exe -X utf8 -B D:\华为算子比赛\ConfusionTransposeD_2323_perf_work\people\yuhongming-2026\QuantUpdateScatter_2330\workdir\code\tests\local\run_r001_contracts.py --cxx D:\mingw64\bin\g++.exe
+Exit code: 0
+
+Actual-source contract checks OK: 4 signatures, 4 index dispatches, ACL call/detail diagnostics.
+Minimal API stubs only; NOT a CANN build or NPU precision test.

@@ -1,0 +1,41 @@
+{
+  "source": "user screenshot and clarification",
+  "submission_id": "1345715",
+  "submitted_at_displayed": "2026/11/15 13:51:01",
+  "submission_status": "Pass",
+  "total_cases_reported_by_user": 50,
+  "visible_cases": 5,
+  "hidden_cases": 45,
+  "visible_measurements_us": [
+    {
+      "case": 1,
+      "time": 5.75,
+      "displayed_best": 3.68
+    },
+    {
+      "case": 2,
+      "time": 6.25,
+      "displayed_best": 3.89
+    },
+    {
+      "case": 3,
+      "time": 7.02,
+      "displayed_best": 3.88
+    },
+    {
+      "case": 4,
+      "time": 6.46,
+      "displayed_best": 3.8
+    },
+    {
+      "case": 5,
+      "time": 11.16,
+      "displayed_best": 4.0
+    }
+  ],
+  "limitations": [
+    "Full hidden-case shapes, dtypes and times unavailable.",
+    "Displayed best times are leaderboard values, not a captured same-machine TBE baseline.",
+    "No msprof pipeline trace or full device log was supplied."
+  ]
+}

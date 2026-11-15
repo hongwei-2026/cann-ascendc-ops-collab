@@ -1,0 +1,12 @@
+{
+  "source": "Local official CANN guide; read only",
+  "file": "CANN社区版 8.5.0 Ascend C算子开发指南 01.pdf",
+  "pdf_page": 59,
+  "supported_pattern": [
+    "TQue<TPosition::VECIN,1>",
+    "TQue<TPosition::VECOUT,1>",
+    "InitBuffer(queue,2,bytes)",
+    "AllocTensor -> DataCopy -> EnQue -> DeQue -> Compute -> EnQue -> DeQue -> DataCopy -> FreeTensor"
+  ],
+  "limitation": "Documentation API confirmation does not verify device behavior of this candidate."
+}

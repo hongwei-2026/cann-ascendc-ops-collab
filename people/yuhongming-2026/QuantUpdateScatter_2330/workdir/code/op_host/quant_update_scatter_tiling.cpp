@@ -23,8 +23,9 @@ constexpr int64_t kReserveBytes = 8 * 1024;
 constexpr int64_t kIndexCacheBytes = 2048 * sizeof(int64_t);
 constexpr int64_t kCopyBytesPerCore = 32 * 1024;
 constexpr int64_t kDmaBlockBytes = 32;
-// updates + scalesRaw + zpRaw + scales + zp + work + int16 + half + out
-constexpr int64_t kBufBytesPerElem = 2 + 4 + 4 + 4 + 4 + 4 + 2 + 2 + 1;
+// Worst case: two updates/output slots plus all parameter/calculation buffers.
+// Single-row direct buffers use less memory but share this safe upper bound.
+constexpr int64_t kBufBytesPerElem = 2 * 2 + 4 + 4 + 4 + 4 + 4 + 2 + 2 + 2 * 1;
 
 int64_t ShapeSize(const gert::Shape& shape)
 {

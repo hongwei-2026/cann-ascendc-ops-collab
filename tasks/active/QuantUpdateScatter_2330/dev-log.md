@@ -33,3 +33,10 @@
 - `ad76638`：编译出 **4** 个 ascend910b bin；样例 `mismatched=0/64` / PASSED
 - tee 目录未建导致 `/tmp/.../build_e.log` 失败；全文由粘贴归档 `logs/EXP_R001/build_e-cloud-paste.log`
 - 下一闸：重新上传平台验证测点2
+
+## 2026-11-15 — 平台 1345715 Pass + Q002 候选
+
+- 提交 Pass（50 点）；可见点仍慢于榜最优（约 1.5–2.8×）
+- Codex Q002：TQue 两槽路径 + workBuf 大块拷贝；本地 512 组类模型通过；收益未测
+- Review：`TQue<...,1>` 与 InitBuffer(2) 不一致 → 主仓改为深度 **2** 后再上云
+- 证据：`explorations/EXP_Q002-pipeline.md`、`decisions/DEC_Q002-pending-platform.md`
