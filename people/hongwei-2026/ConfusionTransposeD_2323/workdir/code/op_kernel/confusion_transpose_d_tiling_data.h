@@ -43,5 +43,6 @@ struct ConfusionTransposeDTilingData {
     int64_t perm6 = 6;
     int64_t perm7 = 7;
     int64_t copySpan = 1;     // 实际转置前 shape 的连续后缀；1 保留标量路径
+    int64_t needFullUb = 1;   // 1: 整输入常驻 UB；0: 超 UB 时从 GM 按址 gather（防平台 RE）
 };
 #endif

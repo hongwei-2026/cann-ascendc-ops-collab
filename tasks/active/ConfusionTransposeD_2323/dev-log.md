@@ -23,6 +23,11 @@
 - 本地语义检查、脚本语法、模拟Host JSON成功/失败事件检查通过；未在本机编译CANN或运行NPU。新增CodeArts隔离P004/候选样例、39项bitwise、边界诊断及探针解析流程。
 - 平台stderr可见性及隐藏点是否进入回调未知；等待C009云测，再判断提交探针包。没有平台shape或系统TBE对应profile，不作验收结论。
 
+## 2026-11-15（P010 超 UB + 行 UB）
+
+- Owner「再优化」：删 Host 超 UB 拒绝；`needFullUb`；`copySpan>1` 吃满 UB；Kernel `ProcessGmGather`。
+- 无 CTD_PROBE。EXP_C010 + path-ledger P010。待云测/平台。
+
 ## 2026-11-12（干净 P004 平台再提）
 
 - 19:32:12 Runtime Error；点1～5 Pass 1.26/1.28/1.93/1.77/2.02ms；点6隐藏。

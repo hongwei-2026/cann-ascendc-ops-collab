@@ -152,25 +152,41 @@ static ge::graphStatus ConfusionTransposeDTilingFunc(gert::TilingContext* contex
     OP_CHECK_IF(shapeNumel != totalNum, OP_LOGE(context, "shape numel mismatch"), return ge::GRAPH_FAILED);
 
     const int64_t typeSize = GetTypeSize(inputDesc->GetDataType());
-    // 输入整 tensor 常驻 UB + 输出 tile；预留 8KB
     const int64_t reserved = 8 * 1024;
-    OP_CHECK_IF(
-        totalNum * typeSize + reserved >= static_cast<int64_t>(ubSize),
-        OP_LOGE(context, "tensor too large for UB-resident scheme"),
-        return ge::GRAPH_FAILED);
+    const int64_t align = (typeSize > 0 && typeSize <= 32) ? (32 / typeSize) : 1;
+    // TF=false 的转置输入是 attr shape；TF=true 是原输入。
+    const int64_t copySpan = (*transposeFirst && rankIn != rank) ? 1 :
+        GetCopySpan((*transposeFirst) ? dimIn : dimShape, perm, static_cast<int64_t>(rank));
 
-    const int64_t remainUb = static_cast<int64_t>(ubSize) - totalNum * typeSize - reserved;
-    int64_t ubFactor = remainUb / typeSize;
+    // 连续行 DMA 不需要整输入常驻 UB；超 UB 也不再 Host 直接失败（平台隐藏点 RE 主嫌疑）。
+    const bool fitsFullUb =
+        (totalNum * typeSize + reserved) < static_cast<int64_t>(ubSize);
+    int64_t needFullUb = 0;
+    int64_t ubFactor = 1;
+    if (copySpan > 1) {
+        ubFactor = (static_cast<int64_t>(ubSize) - reserved) / typeSize;
+        needFullUb = 0;
+    } else if (fitsFullUb) {
+        // 小 tensor：整输入常驻 + 输出 tile（P004 标量路径）
+        const int64_t remainUb = static_cast<int64_t>(ubSize) - totalNum * typeSize - reserved;
+        ubFactor = remainUb / typeSize;
+        needFullUb = 1;
+    } else {
+        // 大 tensor：仅输出 tile，按址从 GM gather
+        ubFactor = (static_cast<int64_t>(ubSize) - reserved) / typeSize;
+        needFullUb = 0;
+    }
     if (ubFactor > totalNum) {
         ubFactor = totalNum;
     }
     if (ubFactor <= 0) {
         ubFactor = 1;
     }
-    // 32B 对齐友好：向下对齐到 32/typeSize
-    const int64_t align = 32 / typeSize;
     if (align > 1 && ubFactor >= align) {
         ubFactor = (ubFactor / align) * align;
+        if (ubFactor <= 0) {
+            ubFactor = align;
+        }
     }
 
     int64_t usedCores = coreNum;
@@ -181,9 +197,6 @@ static ge::graphStatus ConfusionTransposeDTilingFunc(gert::TilingContext* contex
         usedCores = 1;
     }
     int64_t blockFactor = (totalNum + usedCores - 1) / usedCores;
-    // TF=false 的转置输入是 attr shape；TF=true 是原输入。
-    const int64_t copySpan = (*transposeFirst && rankIn != rank) ? 1 :
-        GetCopySpan((*transposeFirst) ? dimIn : dimShape, perm, static_cast<int64_t>(rank));
     if (copySpan > 1) {
         // 核边界同时对齐整行和 32B，避免相邻核写同一 GM 块。
         int64_t a = copySpan;
@@ -209,6 +222,7 @@ static ge::graphStatus ConfusionTransposeDTilingFunc(gert::TilingContext* contex
     tiling->rank = static_cast<int64_t>(rank);
     tiling->rankIn = static_cast<int64_t>(rankIn);
     tiling->copySpan = copySpan;
+    tiling->needFullUb = needFullUb;
     SetDimField(tiling, dimIn, dimShape, perm);
 
     context->SetBlockDim(static_cast<uint32_t>(usedCores));

@@ -31,9 +31,11 @@ private:
     __aicore__ inline int64_t MapSrcIndex(int64_t dstIndex) const;
     __aicore__ inline void CopyInFull();
     __aicore__ inline void ComputeTile(int64_t dstOffset, int64_t currentNum);
+    __aicore__ inline void ComputeTileFromGm(int64_t dstOffset, int64_t currentNum);
     __aicore__ inline void CopyOutTile(int64_t dstOffset, int64_t currentNum);
     __aicore__ inline void CopyRun(int64_t dstOffset, int64_t srcOffset, int64_t count);
     __aicore__ inline void ProcessCopyRows();
+    __aicore__ inline void ProcessGmGather();
 
 private:
     TPipe pipe;
@@ -52,6 +54,7 @@ private:
     int64_t rank_ = 0;
     int64_t rankIn_ = 0;
     int64_t copySpan_ = 1;
+    int64_t needFullUb_ = 1;
 
     int64_t dimIn_[MAX_DIM] = {0};
     int64_t dimShape_[MAX_DIM] = {0};
@@ -151,6 +154,7 @@ __aicore__ inline void ConfusionTransposeD<T>::Init(GM_ADDR x, GM_ADDR y, const 
     rank_ = tilingData->rank;
     rankIn_ = tilingData->rankIn;
     copySpan_ = tilingData->copySpan;
+    needFullUb_ = tilingData->needFullUb;
 
     const int64_t blockIdx = GetBlockIdx();
     blockOffset_ = blockIdx * tilingData->blockFactor;
@@ -170,8 +174,11 @@ __aicore__ inline void ConfusionTransposeD<T>::Init(GM_ADDR x, GM_ADDR y, const 
     if (copySpan_ > 1) {
         // MTE2→MTE3 直通，不分配整输入，也不经过标量/向量寄存器。
         pipe.InitBuffer(copyQueue, BUFFER_NUM, ubFactor_ * sizeof(T));
-    } else {
+    } else if (needFullUb_ != 0) {
         pipe.InitBuffer(inputQueueX, BUFFER_NUM, totalNum_ * sizeof(T));
+        pipe.InitBuffer(outputQueueY, BUFFER_NUM, ubFactor_ * sizeof(T));
+    } else {
+        // 超 UB：只分配输出 tile，源元素按址从 GM 读取。
         pipe.InitBuffer(outputQueueY, BUFFER_NUM, ubFactor_ * sizeof(T));
     }
 }
@@ -256,6 +263,31 @@ __aicore__ inline void ConfusionTransposeD<T>::ComputeTile(int64_t dstOffset, in
 }
 
 template <typename T>
+__aicore__ inline void ConfusionTransposeD<T>::ComputeTileFromGm(int64_t dstOffset, int64_t currentNum)
+{
+    LocalTensor<T> yLocal = outputQueueY.AllocTensor<T>();
+    for (int64_t i = 0; i < currentNum; ++i) {
+        const int64_t srcIndex = MapSrcIndex(dstOffset + i);
+        yLocal.SetValue(i, inputGMX.GetValue(srcIndex));
+    }
+    outputQueueY.EnQue(yLocal);
+}
+
+template <typename T>
+__aicore__ inline void ConfusionTransposeD<T>::ProcessGmGather()
+{
+    int64_t remain = blockLength_;
+    int64_t offset = blockOffset_;
+    while (remain > 0) {
+        const int64_t current = remain > ubFactor_ ? ubFactor_ : remain;
+        ComputeTileFromGm(offset, current);
+        CopyOutTile(offset, current);
+        offset += current;
+        remain -= current;
+    }
+}
+
+template <typename T>
 __aicore__ inline void ConfusionTransposeD<T>::CopyOutTile(int64_t dstOffset, int64_t currentNum)
 {
     LocalTensor<T> yLocal = outputQueueY.DeQue<T>();
@@ -272,6 +304,10 @@ __aicore__ inline void ConfusionTransposeD<T>::Process()
     }
     if (copySpan_ > 1) {
         ProcessCopyRows();
+        return;
+    }
+    if (needFullUb_ == 0) {
+        ProcessGmGather();
         return;
     }
     CopyInFull();
