@@ -1,8 +1,16 @@
-# Dev Log — QuantUpdateScatter_2330
+# 开发日志 — QuantUpdateScatter_2330
 
-## 2026-11-15
+## 2026-11-15 — Q001 本地恢复开始
 
-- 从 ZIP 导入代码到 `people/yuhongming-2026/QuantUpdateScatter_2330/workdir/code/`（排除 build）。
-- 落地 **Q001**：多核 `var→out` 拷贝、indices 批量进 UB、scales/zp 按 lastDim tile 复用；tiling 按 `totalNum` 抬核。
-- 写 `AI-HANDOFF.md` + `CLOUD-RUN.md` 供云测与其他 AI 接力。
-- 本机无 NPU，未跑 `-e`；不得把精度写成 PASS。
+- 用户要求只在本地修改；本轮不云测、不 push。
+- 已读仓库 AGENTS、协作规则、性能门禁、座位认领和原始代码；指定座位已认领。
+- 当前协作仓快照缺少本题，不能把交接描述当成本地已有实现；只在允许的本题目录恢复。
+- 原始 reference.py 注释要求 fp32，实际使用 fp64；纳入 Q001 本地正确性检查。
+- 此时尚未修改内核，未运行 CANN/NPU，不写 PASS。
+## 2026-11-15 — Q001 本地候选完成
+
+- 已恢复本题源码到指定座位；未复制 build/缓存，未改原始 ZIP/解压目录或其它题。
+- Q001：多核对齐拷贝、copy 核数保留、indices 缓存与回退、按 tile 复用 scales/zp；保留 RINT 转换链和 SyncAll。
+- 修正 reference 的 fp32/reciprocal 语义、kernel UT 的 MODE/完整 tiling，并增加待 CANN 运行的多核双 dtype UT。
+- 实测：9 项 CPU 回归、576 组调度对拍、参考探针完成；源码范围检查通过，完整日志在 explorations/logs/EXP_Q001/。
+- 边界：CANN 编译、NPU 精度、TBE/profile 未运行，不记设备 PASS；用户要求仅本地，未 push。

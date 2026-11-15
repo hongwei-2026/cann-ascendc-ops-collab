@@ -66,16 +66,21 @@ for each batch p, index idx:
 
 - `op_kernel/quant_update_scatter.h` — 主逻辑  
 - `op_host/quant_update_scatter_tiling.cpp` — 核数 / UB 预留  
+- `samples/reference.py` — 逐步 fp32 + reciprocal 直接乘（对齐 kernel）  
+- 本地证据：`explorations/EXP_Q001-local.md`（CPU 回归；**非** NPU PASS）
 
-改动要点：
+改动要点（Cursor 初版 + Codex 本地加固后同步入主仓）：
 
 | 项 | 做法 |
 |----|------|
-| 多核拷贝 | 按 `coreNum` 均分 `totalNum`；inplace 同址跳过 |
-| tiling 抬核 | `usedCores = max(batchCores, copyCores)`，`copyCores≈CeilDiv(totalNum, 32KB)` |
-| indices | 每核 batch 段进 UB（cap 2048）；溢出回退 GetValue |
+| 多核拷贝 | 按 **32B block** 分核，避免边界重叠；inplace 同址跳过 |
+| tiling 抬核 | `usedCores = max(batchCores, copyCores)`，约 32KiB/核；**不要**再按 batch 缩回 1 |
+| indices | 每核缓存 cap 2048；超限整段回退 GetValue |
 | scales/zp | 外层按 lastDim tile 只 Load 一次，内层扫所有待写行复用 |
-| 精度路径 | 仍保持 fp32→int16(RINT)→half→int8 |
+| 精度路径 | 仍保持 fp32→int16(RINT)→half→int8；`SyncAll` 保留 |
+| UB | tile/缓冲按 32B 对齐；indices 最坏预留 16KiB |
+
+**云测观察点**：尾块 `len` 未 8 对齐时 Vector API 是否接受（Codex 用真实 `len`，未强制 `AlignUp(8)`）。
 
 **未做（有意留给后续 AI）**：双缓冲、多行合并 DMA、特化「无 zp / reciprocal」模板、与 TBE 同机对照。
 

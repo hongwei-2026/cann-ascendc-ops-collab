@@ -1,0 +1,22 @@
+{
+  "date": "2026-11-15",
+  "scope_check": "OK",
+  "changed_files": 51,
+  "python_sources_parsed": 3,
+  "cpu_regression_tests": 9,
+  "schedule_comparisons": 576,
+  "reference_probes": "completed",
+  "cann_build": "NOT_RUN",
+  "npu_precision": "NOT_RUN",
+  "performance_profile": "NOT_RUN",
+  "pushed": false,
+  "modified_original_files": [
+    "op_host/quant_update_scatter_tiling.cpp",
+    "op_kernel/quant_update_scatter.h",
+    "samples/reference.py",
+    "tests/ut/op_host/test_quant_update_scatter_tiling.cpp",
+    "tests/ut/op_kernel/test_quant_update_scatter.cpp"
+  ],
+  "source_files_fingerprinted": 40,
+  "whitespace_check": "OK"
+}

@@ -20,8 +20,9 @@ namespace {
 
 constexpr uint32_t WS_SYS_SIZE = 0U;
 constexpr int64_t kReserveBytes = 8 * 1024;
-// Q001: indices UB 预留（最多 2048 * sizeof(int64)）
-constexpr int64_t kIndicesReserveBytes = 2048 * 8;
+constexpr int64_t kIndexCacheBytes = 2048 * sizeof(int64_t);
+constexpr int64_t kCopyBytesPerCore = 32 * 1024;
+constexpr int64_t kDmaBlockBytes = 32;
 // updates + scalesRaw + zpRaw + scales + zp + work + int16 + half + out
 constexpr int64_t kBufBytesPerElem = 2 + 4 + 4 + 4 + 4 + 4 + 2 + 2 + 1;
 
@@ -159,62 +160,19 @@ static ge::graphStatus QuantUpdateScatterTilingFunc(gert::TilingContext* context
     }
     const int64_t indicesIsInt64 = (indicesDesc->GetDataType() == ge::DT_INT64) ? 1 : 0;
 
-    int64_t budget = static_cast<int64_t>(ubSize) - kReserveBytes - kIndicesReserveBytes;
-    if (budget < 4096) {
-        budget = static_cast<int64_t>(ubSize) / 2;
-    }
-    int64_t maxTile = budget / kBufBytesPerElem;
-    maxTile = (maxTile / 8) * 8;
-    if (maxTile < 32) {
-        maxTile = 32;
-    }
-    if (maxTile > 8192) {
-        maxTile = 8192;
-    }
-    int64_t ubFactor = lastDim < maxTile ? lastDim : maxTile;
-    if (ubFactor < 1) {
-        ubFactor = 1;
-    }
-    ubFactor = ((ubFactor + 7) / 8) * 8;
-    if (ubFactor > maxTile) {
-        ubFactor = maxTile;
-    }
-
-    // 核数同时服务：batch 切分 + 大 var 并行拷贝。batch 很小时仍可能因 totalNum 拉满核。
-    constexpr int64_t kMinCopyElemsPerCore = 32 * 1024; // ~32KB int8
-    int64_t copyCores = 1;
-    if (totalNum > 0) {
-        copyCores = CeilDiv(totalNum, kMinCopyElemsPerCore);
-        if (copyCores > coreNum) {
-            copyCores = coreNum;
-        }
-        if (copyCores < 1) {
-            copyCores = 1;
-        }
-    }
-    int64_t batchCores = batchSize > 0 ? (batchSize < coreNum ? batchSize : coreNum) : 1;
-    if (batchCores < 1) {
-        batchCores = 1;
-    }
-    int64_t usedCores = batchCores > copyCores ? batchCores : copyCores;
-    if (usedCores > coreNum) {
-        usedCores = coreNum;
-    }
-    if (usedCores < 1) {
-        usedCores = 1;
-    }
-    int64_t blockFactor = batchSize > 0 ? CeilDiv(batchSize, usedCores) : 1;
-    if (blockFactor < 1) {
-        blockFactor = 1;
-    }
-    // 若因 copyCores 抬高 usedCores，部分核 batchLen=0，只参与拷贝；blockFactor 仍按 usedCores 均分
-    if (batchSize > 0) {
-        const int64_t need = CeilDiv(batchSize, blockFactor);
-        if (need > usedCores) {
-            usedCores = need > coreNum ? coreNum : need;
-            blockFactor = CeilDiv(batchSize, usedCores);
-        }
-    }
+    const int64_t budget = static_cast<int64_t>(ubSize) - kReserveBytes - kIndexCacheBytes;
+    OP_CHECK_IF(budget < kDmaBlockBytes * kBufBytesPerElem,
+        OP_LOGE(context, "UB too small for aligned buffers and indices cache"), return ge::GRAPH_FAILED);
+    int64_t maxTile = (budget / kBufBytesPerElem / kDmaBlockBytes) * kDmaBlockBytes;
+    maxTile = std::min(maxTile, int64_t{8192});
+    int64_t ubFactor = std::min(lastDim > 0 ? lastDim : int64_t{1}, maxTile);
+    ubFactor = CeilDiv(ubFactor, kDmaBlockBytes) * kDmaBlockBytes;
+    const int64_t batchCores = std::min(coreNum, batchSize > 0 ? batchSize : int64_t{1});
+    const int64_t copyCores = std::min(coreNum,
+        totalNum > 0 ? CeilDiv(totalNum, kCopyBytesPerCore) : int64_t{1});
+    // Do not recompute usedCores from batchFactor: copy-only cores are intentional.
+    const int64_t usedCores = std::max(batchCores, copyCores);
+    const int64_t blockFactor = batchSize > 0 ? CeilDiv(batchSize, usedCores) : 1;
 
     QuantUpdateScatterTilingData* tiling = context->GetTilingData<QuantUpdateScatterTilingData>();
     OP_CHECK_NULL_WITH_CONTEXT(context, tiling);

@@ -23,11 +23,11 @@ def impl(var, indices, updates, quant_scales, quant_zero_points=None, reduce="up
     var_np = np.asarray(var)
     indices_np = np.asarray(indices).reshape(-1)
     updates_np = np.asarray(updates)
-    scales_np = np.asarray(quant_scales).reshape(-1)
+    scales_np = np.asarray(quant_scales).reshape(-1).astype(np.float32)
     if quant_zero_points is None:
-        zeros_np = np.zeros(scales_np.shape, dtype=np.float64)
+        zeros_np = np.zeros(scales_np.shape, dtype=np.float32)
     else:
-        zeros_np = np.asarray(quant_zero_points).reshape(-1).astype(np.float64)
+        zeros_np = np.asarray(quant_zero_points).reshape(-1).astype(np.float32)
 
     ndim = updates_np.ndim
     ax = axis % ndim                       # 内置只支持 -2
@@ -36,14 +36,17 @@ def impl(var, indices, updates, quant_scales, quant_zero_points=None, reduce="up
     if scales_np.size != updates_np.shape[qax]:
         raise ValueError(f"quant_scales 元素数 {scales_np.size} != updates 在量化轴上的长度 "
                          f"{updates_np.shape[qax]}")
-    if reciprocal_scale:                   # 内置的 DivMode=MUL 分支（aclnn 接口没有这个开关）
-        scales_np = 1.0 / scales_np
-
     shape = [1] * ndim
     shape[qax] = scales_np.size
-    q = np.rint(updates_np.astype(np.float64) / scales_np.reshape(shape)
-                + zeros_np.reshape(shape))
-    q = np.clip(q, -128.0, 127.0)
+    # Match each fp32 arithmetic step; reciprocal mode multiplies directly.
+    work = updates_np.astype(np.float32)
+    if reciprocal_scale:
+        work = np.multiply(work, scales_np.reshape(shape), dtype=np.float32)
+    else:
+        work = np.divide(work, scales_np.reshape(shape), dtype=np.float32)
+    if quant_zero_points is not None:
+        work = np.add(work, zeros_np.reshape(shape), dtype=np.float32)
+    q = np.rint(np.clip(work, np.float32(-128.0), np.float32(127.0)))
 
     y = var_np.astype(np.int8).copy()
     for p, idx in enumerate(indices_np):

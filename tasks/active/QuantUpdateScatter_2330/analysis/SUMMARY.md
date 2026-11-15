@@ -1,25 +1,13 @@
-# SUMMARY — QuantUpdateScatter_2330
+# Q001 本地执行摘要
 
-> 本题 ZIP 已带可运行功能基线；本 SUMMARY 压缩「性能阶段入口」，非从零三路开题全文。
+本摘要基于用户交接与 2026-11-15 本地检查，不补造历史评审或测试结果。
 
-## 定稿结论
-
-1. **语义钉死**：reference.py + 内置 RINT 路径；axis=-2、quant_axis=-1。  
-2. **性能主矛盾**：整表拷贝带宽 + scales/zp 重复 DMA + 串行流水。  
-3. **P0 路线 = Q001**（多核拷贝 / indices UB / scales 复用）；双缓冲为 Q002。  
-4. **废弃**：改量化舍入路径；无 SyncAll 的「抢跑」多核写。
-
-## 实现优先级
-
-| 优先级 | 项 | 状态 |
-|--------|----|------|
-| P0 | 功能基线导入 | 完成（P000） |
-| P0 | Q001 有界优化 | 代码完成，待云测 |
-| P1 | 云测 + TBE 对照 | 未做 |
-| P2 | Q002 双缓冲 | 未开 |
-
-## 风险
-
-- 小 batch + 大 var：抬核后部分核 `batchLen=0`，只拷贝——符合设计。  
-- indices > 2048/核：回退 GetValue，Q001 未彻底消灭标量读。  
-- UB 增加 indices 缓冲后 ubFactor 略降，大 lastDim 需 Q003 回看。
+- 唯一目标：恢复 Q001，完成本地可运行的正确性检查；只改本题指定座位与台账。
+- 多核拷贝：按 32B 块分核；tiling 保留 copy-only 核；所有核在 scatter 前 SyncAll。
+- 缓存：indices 最多 2048 项，超限标量回退；scales/zp 每 lastDim tile 只加载一次。
+- 缓冲安全：DMA 目标按 32B 对齐；UB 另预留 16KiB int64 indices；截断长度后再转 int32。
+- 精度：保留 fp32→int16(RINT)→half→int8；reference 修正为 fp32 算术和 reciprocal 直接乘法。
+- 已检查到的原始 UT 问题：fixture 实际 MODE_0，原来却执行 MODE_1，并缺失大部分 tiling 字段；本地已对齐。
+- 废弃/禁止：直接 fp32→half→int8；删除 SyncAll；把 samples 小 shape 当性能结论。
+- 本轮不进入 Q002/Q003；缺少设备基线，不推断优化增益。
+- CANN 编译、NPU 精度与同机 TBE/profile 仍待后续验证。
