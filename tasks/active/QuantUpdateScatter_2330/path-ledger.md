@@ -5,7 +5,7 @@
 | Q001 | 2026-11-15 | yuhongming+Codex | 性能 | 拷贝/重复 DMA | 多核拷贝+indices+scales 复用 | 1d | 云 PASS | **采纳** | — |
 | R001 | 2026-11-15 | Codex | 精度 | 缺 4 签名 | OpDef×4 | 0.5d | 平台 Pass | **采纳** | — |
 | Q002 | 2026-11-15 | Codex(+review) | 性能 | TQue/大块拷贝 | 两槽+workBuf scratch；TQue 深度 2 | 1d | 云 PASS；平台可见点↓约 7–30% | **采纳（基线）** | — |
-| Q003 | 2026-11-15 | Codex(+review) | 性能 | 收紧 UB→更大 tile | 条件分配 scales/zp raw；host 按 dtype/zp/indices 预算 | 0.5d | 本地预算/模型 OK；设备 NOT_RUN | **进行中** | — |
+| Q003 | 2026-11-15 | Codex(+review) | 性能 | 收紧 UB→更大 tile | 条件分配 scales/zp raw；host 按 dtype/zp/indices 预算 | 0.5d | 本地 OK；云 `-e` PASS；平台 50 点 NOT_RUN | **进行中（待平台数字）** | — |
 
 ## 可见点对比（us）
 

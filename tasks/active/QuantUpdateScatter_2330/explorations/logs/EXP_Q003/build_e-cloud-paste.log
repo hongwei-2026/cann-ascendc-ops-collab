@@ -1,0 +1,22 @@
+# EXP_Q003 cloud smoke — paste 2026-11-15
+# Host: developer@dfdd97f8c4e84acbaa54982714e4d993
+# Commit: ca79bd1 (fast-forward 796c82e..ca79bd1)
+# Cmd: mkdir -p /tmp/qus2330_q003 && bash build.sh -j8 -e | tee /tmp/qus2330_q003/build_e.log
+
+## Build
+[INFO] Build completed successfully!
+opc Done x4:
+  QuantUpdateScatter_1f0bdd43f3238218b21cf775609ac436 Done
+  QuantUpdateScatter_1dd06ad751fcf0fb41d823e366fb633f Done
+  QuantUpdateScatter_d61292408ef9bc22b1c3ee35a8f5355b Done
+  QuantUpdateScatter_53d0f379a2098810ca8544d89a512fec Done
+
+## Example
+Sample data generated.
+PASS: var_out.bin, mismatched=0/64
+PASSED
+[INFO] Example completed successfully!
+
+## Verdict
+- Q003 CANN compile + samples first case: PASS
+- Platform full 50-case retest vs Q002 (5.33/5.74/6.52/5.67/7.83): NOT_RUN
