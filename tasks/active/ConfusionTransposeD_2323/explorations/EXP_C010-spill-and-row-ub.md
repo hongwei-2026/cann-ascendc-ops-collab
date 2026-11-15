@@ -24,4 +24,6 @@
 
 ## 结果
 
-待 CodeArts/平台回传。本地：`local_semantic_check.py` 见 dev-log。
+- 本地语义 / CodeArts：样例 PASS；13/13；8MiB Host 未拒且 0/2097152 PASS。
+- 平台 2026-11-15：仍 **Runtime Error**；点1～5 Pass ~1.2–1.9ms；隐藏点现为 6/7/8。见 [`C010-platform-p010-20261115.md`](logs/EXP_C010/C010-platform-p010-20261115.md)。
+- 结论：P010 对「仅超 UB」有用，但**不足以**消除平台 RE；需另查 rank/-1/numel/Kernel fault。

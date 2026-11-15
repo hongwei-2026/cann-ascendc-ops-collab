@@ -23,6 +23,11 @@
 - 本地语义检查、脚本语法、模拟Host JSON成功/失败事件检查通过；未在本机编译CANN或运行NPU。新增CodeArts隔离P004/候选样例、39项bitwise、边界诊断及探针解析流程。
 - 平台stderr可见性及隐藏点是否进入回调未知；等待C009云测，再判断提交探针包。没有平台shape或系统TBE对应profile，不作验收结论。
 
+## 2026-11-15（P010 平台回传）
+
+- 仍 Runtime Error；点1～5：1.26/1.24/1.93/1.77/1.73ms；隐藏 6/7/8。
+- 归档 `explorations/logs/EXP_C010/C010-platform-p010-20261115.md`；STATUS/path-ledger 已更新。
+
 ## 2026-11-15（P010 云测 smoke）
 
 - bc14e41：build/样例/13回归 PASS；8MiB Host 未拒；自定义比对 **0/2097152 PASS**。
