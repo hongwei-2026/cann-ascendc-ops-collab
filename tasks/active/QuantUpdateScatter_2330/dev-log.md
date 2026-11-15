@@ -14,3 +14,10 @@
 - 修正 reference 的 fp32/reciprocal 语义、kernel UT 的 MODE/完整 tiling，并增加待 CANN 运行的多核双 dtype UT。
 - 实测：9 项 CPU 回归、576 组调度对拍、参考探针完成；源码范围检查通过，完整日志在 explorations/logs/EXP_Q001/。
 - 边界：CANN 编译、NPU 精度、TBE/profile 未运行，不记设备 PASS；用户要求仅本地，未 push。
+
+## 2026-11-15 — 云端冒烟 PASS（Q001）
+
+- hidevlab：`git pull` → `6a7b849`；`bash build.sh -j8 -e`
+- 编译成功（ascend910b 两 key opc Done）；样例 `PASS: var_out.bin, mismatched=0/64` / `PASSED`
+- `set_env.sh` 默认路径不存在，但镜像内 CANN 已可用
+- 证据：`explorations/logs/EXP_Q001/C001-cloud-smoke-paste.log`；**非**性能门禁结论

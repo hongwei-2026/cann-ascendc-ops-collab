@@ -1,0 +1,28 @@
+# EXP_Q001 cloud smoke — pasted from hidevlab 2026-11-15
+
+Host: developer@dfdd97f8c4e84acbaa54982714e4d993:/mnt/workspace
+Repo: cann-ascendc-ops-collab @ 6a7b849 (fast-forward bc14e41..6a7b849)
+
+## Env note
+source /usr/local/Ascend/ascend-toolkit/set_env.sh
+→ No such file or directory
+(Build still succeeded; CANN env already present in shell/image.)
+
+## Commands
+cd people/yuhongming-2026/QuantUpdateScatter_2330/workdir/code
+export DEVICE_ID=0
+bash build.sh --make_clean
+bash build.sh -j8 -e 2>&1 | tee /tmp/qus2330_q001/build_e.log
+
+## Result (tail)
+[INFO] Build completed successfully!
+Sample data generated.
+PASS: var_out.bin, mismatched=0/64
+PASSED
+[INFO] Example completed successfully!
+
+## Verdict
+- CANN compile: PASS (ascend910b, both tiling keys opc Done)
+- NPU samples first case: PASS (64 elems bitwise match)
+- NOT a performance gate; samples shape is tiny (1,2,32)
+- Full tee log may still live on cloud: /tmp/qus2330_q001/build_e.log

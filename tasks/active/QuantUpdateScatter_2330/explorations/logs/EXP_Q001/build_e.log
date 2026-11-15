@@ -1,0 +1,109 @@
+# Source: hidevlab paste 2026-11-15
+# Host: developer@dfdd97f8c4e84acbaa54982714e4d993
+# Repo: /mnt/workspace/cann-ascendc-ops-collab @ 6a7b849
+# Cmd: bash build.sh -j8 -e 2>&1 | tee /tmp/qus2330_q001/build_e.log
+# Note: source /usr/local/Ascend/ascend-toolkit/set_env.sh → No such file (CANN already in env)
+
+remote: Enumerating objects: 159, done.
+remote: Counting objects: 100% (159/159), done.
+remote: Compressing objects: 100% (99/99), done.
+remote: Total 146 (delta 48), reused 129 (delta 39), pack-reused 0 (from 0)
+Receiving objects: 100% (146/146), 71.38 KiB | 5.10 MiB/s, done.
+Resolving deltas: 100% (48/48), completed with 11 local objects.
+From https://github.com/hongwei-2026/cann-ascendc-ops-collab
+ * branch            main       -> FETCH_HEAD
+   bc14e41..6a7b849  main       -> origin/main
+Updating bc14e41..6a7b849
+Fast-forward
+# ... QuantUpdateScatter_2330 + ledger files pulled ...
+
+bash: /usr/local/Ascend/ascend-toolkit/set_env.sh: No such file or directory
+
+----------------------------------------------------------------
+[INFO] Configuring project...
+[INFO] CMAKE_ARGS: -DASCEND_COMPUTE_UNIT=ascend910b -DCANNJUDGE_COMPILE_JOBS=8
+-- The C compiler identification is GNU 9.4.0
+-- The CXX compiler identification is GNU 9.4.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- set package config: INSTALL_PATH;/mnt/workspace/cann-ascendc-ops-collab/people/yuhongming-2026/QuantUpdateScatter_2330/workdir/code/build
+-- Opbuild generating sources
+-- Opbuild generating sources - done
+INFO target name: cust_optiling
+INFO target name: cust_op_proto
+INFO target name: cust_opapi
+INFO target name: ascendc_kernels
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /mnt/workspace/cann-ascendc-ops-collab/people/yuhongming-2026/QuantUpdateScatter_2330/workdir/code/build
+----------------------------------------------------------------
+[INFO] Building project with 8 threads...
+[  6%] Generating scripts/install.sh, scripts/upgrade.sh, scripts/uninstall.sh
+[ 13%] Building CXX object op_host/CMakeFiles/cust_opapi.dir/__/autogen/aclnn_quant_update_scatter.cpp.o
+[ 20%] Building CXX object op_host/CMakeFiles/cust_optiling.dir/quant_update_scatter_def.cpp.o
+[ 26%] Building CXX object op_host/CMakeFiles/cust_optiling.dir/quant_update_scatter_infershape.cpp.o
+[ 40%] Building CXX object op_host/CMakeFiles/cust_op_proto.dir/quant_update_scatter_def.cpp.o
+[ 40%] Generating ../autogen/copy_kernel_src.timestamp
+[ 46%] Generating ascendc_kernels/tbe/op_info_cfg/ai_core/npu_supported_ops.json
+[ 46%] Built target gen_version_info
+[INFO] Succeeded generated .../npu_supported_ops.json
+[ 53%] Building CXX object op_host/CMakeFiles/cust_op_proto.dir/quant_update_scatter_infershape.cpp.o
+[ 53%] Built target modify_vendor
+[ 60%] Building CXX object op_host/CMakeFiles/cust_op_proto.dir/quant_update_scatter_tiling.cpp.o
+[ 60%] Built target quant_update_scatter_custom_npu_supported_ops
+[ 60%] Built target ascendc_kernels_copy_kernel_srcs
+[ 66%] Building CXX object op_host/CMakeFiles/cust_op_proto.dir/__/autogen/op_proto.cc.o
+[ 66%] Built target quant_update_scatter_custom_update_so_names
+[ 73%] Generating ascendc_kernels/tbe/op_info_cfg/ai_core/ascend910b/aic-ascend910b-ops-info.json
+==============check valid for ops info start==============
+==============check valid for ops info end================
+Compile op info cfg successfully.
+[ 73%] Built target ascendc_kernels_ops_info_gen_ascend910b
+[ 80%] Building CXX object op_host/CMakeFiles/cust_optiling.dir/quant_update_scatter_tiling.cpp.o
+[ 80%] Built target cust_opapi
+[ 86%] Linking CXX shared library libcust_opapi.so
+[ 86%] Built target quant_update_scatter_custom_ascendc_cust_opapi
+[ 86%] Built target cust_op_proto
+[ 93%] Linking CXX shared library libcust_opsproto_rt2.0.so
+[ 93%] Built target cust_optiling
+[100%] Linking CXX shared library libcust_opmaster_rt2.0.so
+[100%] Built target quant_update_scatter_custom_ascendc_cust_op_proto
+[100%] Built target quant_update_scatter_custom_ascendc_cust_optiling
+[100%] Built target optiling_compat
+[ascend910b] Generating QuantUpdateScatter_53d0f379a2098810ca8544d89a512fec ...
+[ascend910b] Generating QuantUpdateScatter_d61292408ef9bc22b1c3ee35a8f5355b ...
+Opc tool start working now, please wait for a moment.
+[ascend910b] Generating QuantUpdateScatter_53d0f379a2098810ca8544d89a512fec Done
+Opc tool start working now, please wait for a moment.
+[ascend910b] Generating QuantUpdateScatter_d61292408ef9bc22b1c3ee35a8f5355b Done
+[100%] Built target QuantUpdateScatter_ascend910b
+[100%] Built target ascendc_kernels_ascendc_bin_ascend910b_gen_ops_config
+[100%] Built target binary
+Run CPack packaging tool...
+CPack: Create package using External
+Self-extractable archive "custom_opp_ubuntu_aarch64.run" successfully created.
+----------------------------------------------------------------
+[INFO] Build completed successfully!
+[INFO] Kernel binary: .../QuantUpdateScatter_d61292408ef9bc22b1c3ee35a8f5355b.o
+[INFO] Package: .../build/custom_opp_ubuntu_aarch64.run
+----------------------------------------------------------------
+[INFO] Running examples...
+-- The CXX compiler identification is GNU 9.4.0
+-- Configuring done
+-- Generating done
+-- Build files have been written to: .../examples/build
+[ 50%] Building CXX object CMakeFiles/sample.dir/test_aclnn_quant_update_scatter.cpp.o
+[100%] Linking CXX executable sample
+[100%] Built target sample
+Sample data generated.
+PASS: var_out.bin, mismatched=0/64
+PASSED
+[INFO] Example completed successfully!
