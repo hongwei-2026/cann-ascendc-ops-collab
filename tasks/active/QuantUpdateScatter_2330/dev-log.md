@@ -79,3 +79,9 @@
 - 确认生产 `op_host`/`op_kernel` 相对 `2d3c61c` 无改；`TQue<...,2>` + `InitBuffer(...,2)` 一致
 - 工具链口径保守（COMPLETE/RAW_ONLY/INCOMPLETE），未假 PASS；inplace 多轮幂等可对齐 golden
 - 台账止损改为「无 profile 不改生产」；推送 main 供云采
+
+## 2026-11-15 — Q005 云 copy_heavy COMPLETE
+
+- pull `d8ccf35`；clean `-e` opc×4 + `0/64`；`profile_q005.sh` copy_heavy_out/in ×3 均 COMPLETE
+- stdout 归档 `logs/EXP_Q005/cloud-copy01-paste.log`；数值 JSON 仍在云 `/tmp/qus2330_q005_copy01`
+- 下一闸：导出 median 时延对比同址/异址，再立生产假设

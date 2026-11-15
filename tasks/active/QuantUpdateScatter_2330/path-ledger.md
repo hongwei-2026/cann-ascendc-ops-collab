@@ -27,6 +27,6 @@
 
 | ID | 日期 | 作者 | 阶段 | 假设 | 方法 | 时限 | 结果 | 结论 | 耗时 |
 |----|------|------|------|------|------|------|------|------|------|
-| Q005 | 2026-11-15 | Codex(+review) | 性能诊断 | 缺少流水证据，不能由五点时延定位瓶颈 | Q002 独立多 case runner + msprof 采集/校验；不改 host/kernel | 0.5d | 本地采集工具与 26×3 runner CPU 检查完成；NPU/profile NOT_RUN | **工具采纳（待设备证据）**；生产仍 Q002 | — |
+| Q005 | 2026-11-15 | Codex(+review) | 性能诊断 | 缺少流水证据，不能由五点时延定位瓶颈 | Q002 独立多 case runner + msprof 采集/校验；不改 host/kernel | 0.5d | 云 `@d8ccf35`：copy_heavy out/in ×3 **profile=COMPLETE**；中位数字待入库 | **采集进行中**；生产仍 Q002 | — |
 
-结论见 `explorations/EXP_Q005-profile.md`；日志 `explorations/logs/EXP_Q005/`。Review：生产 `op_host`/`op_kernel` diff=0，`TQue` 深度仍为 2；未重开 Q003。
+结论见 `explorations/EXP_Q005-profile.md`；日志 `explorations/logs/EXP_Q005/`。云 stdout：`cloud-copy01-paste.log`。

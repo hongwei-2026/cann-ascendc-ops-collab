@@ -8,13 +8,13 @@
 | 现行基线 | **Q002**（代码已从 Q003 回退至 `796c82e` 两文件） |
 | Q002 平台 | Pass；可见点 **5.33 / 5.74 / 6.52 / 5.67 / 7.83** us |
 | Q003 平台 | Pass；可见点 **5.51 / 5.84 / 6.68 / 5.46 / 7.68** us → **无收益，已废弃** |
-| Q005 | 采集工具 **已审并入库**；设备 msprof **待采** |
-| 下一闸 | 云上 `-e` 后跑 `profile_q005.sh`（先 copy_heavy 配对），归档 EXP_Q005 |
+| Q005 | `@d8ccf35` 云采 **copy_heavy COMPLETE**（out/in ×3）；数字待归档 |
+| 下一闸 | 贴 `results.json` 中位时延 + 必要时 raw CSV；再判拷贝占比 / 立生产路 |
 
 ## 一句话
 
-Q002 基线保留；Q005 只补测量。相对榜最优仍约 1.5～1.9×，下一闸拿流水/拷贝证据，禁止盲改 kernel。
+Q002 基线；copy_heavy 设备 profile 已 COMPLETE。先看同址/异址差值，再决定下一条生产优化；禁止盲改 kernel。
 
 ## Q005（2026-11-15）
 
-独立采集入口已准备并经 Cursor review：生产 host/kernel diff=0。26×3 CPU stub 通过 ≠ 设备 PASS。详见 `explorations/EXP_Q005-profile.md`。
+云：`-e` PASS + `profile_q005.sh … copy_heavy_*` → `summary complete: True`。证据目录仍在云 `/tmp/qus2330_q005_copy01`；stdout 已记 `logs/EXP_Q005/cloud-copy01-paste.log`。

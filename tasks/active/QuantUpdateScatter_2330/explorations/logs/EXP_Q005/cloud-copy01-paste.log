@@ -1,0 +1,15 @@
+# EXP_Q005 cloud copy_heavy profile — paste 2026-11-15
+# Host: developer@dfdd97f8c4e84acbaa54982714e4d993
+# Commit: d8ccf35 (fast-forward ca79bd1..d8ccf35); OK_Q005
+# Build: bash build.sh --make_clean && bash build.sh -j8 -e
+#   → opc×4 Done; sample mismatched=0/64 PASSED
+# Profile:
+#   bash examples/profile_q005.sh /tmp/qus2330_q005_copy01 \
+#     --case-id copy_heavy_out --case-id copy_heavy_in
+# Results (stdout):
+#   copy_heavy_out verified profile=COMPLETE  (×3 rounds, order alternates)
+#   copy_heavy_in  verified profile=COMPLETE
+#   Evidence: /tmp/qus2330_q005_copy01/evidence summary complete: True
+#
+# NOTE: numeric medians / PipeUtilization not yet pasted into repo.
+# Next: dump results.json medians then archive raw evidence under explorations/logs/EXP_Q005/copy01/

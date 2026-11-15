@@ -39,4 +39,6 @@ op_summary 仅在目标任务数与预期调用数完全相等、时间戳有效
 
 本地工具准备完成；设备证据待采集，生产继续 Q002。CANN 编译、NPU 精度、profile 实采、同机标杆与新增性能收益全部 NOT_RUN。
 
-**Cursor review（同日）**：采纳为诊断工具；生产代码未改；已 push main。先采 copy_heavy 同址/异址配对，再 narrow_rows / wide_rows。必须人工核对原始时间线与流水指标。确认瓶颈后另写新假设和台账才实施性能候选；不重开 Q003，不仅凭 EnQue 后立刻 DeQue 判断设备无重叠。
+**Cursor review（同日）**：采纳为诊断工具；生产代码未改；已 push main。
+
+**云采（同日 `@d8ccf35`）**：`copy_heavy_out` / `copy_heavy_in` 各 3 轮均 `profile=COMPLETE`，`summary complete: True`。stdout：`logs/EXP_Q005/cloud-copy01-paste.log`。中位 task_duration 与 PipeUtilization 表尚未入库——先导出再判拷贝占比。不重开 Q003；无数字前不改生产 kernel。
