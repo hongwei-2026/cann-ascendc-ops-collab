@@ -1,0 +1,39 @@
+{
+  "date": "2026-11-15",
+  "commit": "d8ccf35",
+  "evidence_dir": "/tmp/qus2330_q005_copy01/evidence",
+  "tarball": "/tmp/qus2330_q005_copy01.tgz",
+  "case": {
+    "regime": "copy_heavy",
+    "shape": "B=1 M=1 varRows=8192 updateRows=1 width=256",
+    "note": "synthetic diagnostic, NOT official platform case"
+  },
+  "task_duration_us": {
+    "copy_heavy_out": {
+      "round_medians": [29.63, 29.62, 29.18],
+      "overall_median": 29.62,
+      "p10": 29.538,
+      "p90": 29.68
+    },
+    "copy_heavy_in": {
+      "round_medians": [8.26, 9.1, 9.16],
+      "overall_median": 9.1,
+      "p10": 9.08,
+      "p90": 9.14
+    }
+  },
+  "delta_out_minus_in_us": 20.52,
+  "ratio_out_over_in": 3.255,
+  "raw_metric_columns_present": [
+    "Task Duration(us)",
+    "aic_fixpipe_ratio", "aic_mac_ratio",
+    "aic_mte1_ratio", "aic_mte1_time(us)",
+    "aic_mte2_ratio", "aic_mte2_time(us)",
+    "aic_scalar_ratio", "aic_scalar_time(us)", "aic_total_cycles",
+    "aiv_mte2_ratio", "aiv_mte2_time(us)",
+    "aiv_mte3_ratio", "aiv_mte3_time(us)",
+    "aiv_scalar_ratio", "aiv_scalar_time(us)", "aiv_total_cycles",
+    "aiv_vec_ratio", "aiv_vec_time(us)"
+  ],
+  "verdict": "On this large-var diagnostic, out-of-place pays ~20us vs inplace; copy path dominates when y!=var. Does NOT by itself prove platform-50 bottleneck (unknown inplace/shape)."
+}

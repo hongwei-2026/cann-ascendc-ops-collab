@@ -84,4 +84,9 @@
 
 - pull `d8ccf35`；clean `-e` opc×4 + `0/64`；`profile_q005.sh` copy_heavy_out/in ×3 均 COMPLETE
 - stdout 归档 `logs/EXP_Q005/cloud-copy01-paste.log`；数值 JSON 仍在云 `/tmp/qus2330_q005_copy01`
-- 下一闸：导出 median 时延对比同址/异址，再立生产假设
+
+## 2026-11-15 — Q005 copy_heavy 数字入库
+
+- out 29.62 / in 9.10 µs（Δ≈20.5）；大异址拷贝税成立
+- 归档 `logs/EXP_Q005/copy01-medians.json`；更新 DEC_Q005
+- 下一闸：pipe 列 + narrow/wide；确认平台 inplace 后再立 Q006

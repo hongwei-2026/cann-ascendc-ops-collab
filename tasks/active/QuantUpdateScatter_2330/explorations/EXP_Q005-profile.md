@@ -41,4 +41,11 @@ op_summary 仅在目标任务数与预期调用数完全相等、时间戳有效
 
 **Cursor review（同日）**：采纳为诊断工具；生产代码未改；已 push main。
 
-**云采（同日 `@d8ccf35`）**：`copy_heavy_out` / `copy_heavy_in` 各 3 轮均 `profile=COMPLETE`，`summary complete: True`。stdout：`logs/EXP_Q005/cloud-copy01-paste.log`。中位 task_duration 与 PipeUtilization 表尚未入库——先导出再判拷贝占比。不重开 Q003；无数字前不改生产 kernel。
+**云采（同日 `@d8ccf35`）**：`copy_heavy` COMPLETE。
+
+| case | overall median (us) |
+|------|---------------------|
+| out（异址） | **29.62** |
+| in（同址） | **9.10** |
+
+Δ≈20.5 µs → 该诊断上整表拷贝主导异址耗时。详见 `logs/EXP_Q005/copy01-medians.json`。平台 50 点 inplace/shape 未知，**不**据此立刻改拷贝或流水。下一步：导出 aiv_mte2/mte3/vec 中位；采 narrow_rows / wide_rows。

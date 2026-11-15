@@ -1,20 +1,29 @@
 # DEC Q005 — 先补瓶颈证据，再改流水
 
-日期：2026-11-15。承接 DEC_Q003，现行代码为 2d3c61c 中已采纳的 Q002。
+日期：2026-11-15。承接 DEC_Q003，现行代码为 Q002（回退后）。
 
-- 唯一目标：提供可重复、逐 case 校验的 Q002 采集入口，补齐 kernel 时长 / PipeUtilization 证据；本轮不推测加速。
-- 会话：Implementer，yuhongming-2026；仓库 D:/sageAttention2 算子开发任务书，main。
-- 允许写：people/yuhongming-2026/QuantUpdateScatter_2330/**；tasks/active/QuantUpdateScatter_2330/**。
-- 初版范围：仅本地工具；review 后已允许入库供云采（仍不改生产 host/kernel）。
+## 已核实（设备）
 
-## 已核实
+`@d8ccf35` 云采 `copy_heavy`（var 8192×256，update 1 行）：
 
-Q003 已废弃，不能重开省 UB / 抬 tile。当前 TQue 深度 2，InitBuffer 两槽；不再改回 1。逐行 EnQue 后立即 DeQue 是源码事实，但设备指令异步，仅据此不能断言没有重叠。现存证据只有平台汇总和冒烟日志，没有 msprof 时间线、流水指标及隐藏 45 点详情。
+| case | overall median task_us | 说明 |
+|------|------------------------|------|
+| copy_heavy_out | **29.62** | 异址，需整表拷贝 |
+| copy_heavy_in | **9.10** | 同址，跳过拷贝 |
 
-## 本轮决策
+差值约 **20.5 µs**（out/in ≈ 3.3×）。证据：`explorations/logs/EXP_Q005/copy01-medians.json`。
 
-新增独立 profiling runner / 数据准备 / 结果校验与归档入口，覆盖四 dtype 签名、可选 zp、reciprocal 和输入输出同址。保留默认样例、生产 host/kernel、SyncAll 和量化链。先生成小而明确的诊断 case，不把它们冒充官方 50 点。采集直接运行已构建的程序，不把编译包进 application，不同时传 --export。逐次重新获取 executor，避免未经开启复用的 executor 被重复执行。
+## 瓶颈结论（有界）
 
-## 止损与后续
+- **大 var + 异址**：整表 `CopyVarToOut` 是主耗时来源之一（同机对照成立）。
+- **同址路径**：已接近可见点量级（~9 µs），剩余差距更可能在量化行路径 / 固定开销 / 流水，而非「再省 UB」。
+- **不能**仅凭本诊断断定官方 50 点主因：平台 case 的 inplace / shape 未知；可见点 5–8 µs 可能本就偏同址或更小 tensor。
 
-限 0.5 人日；本地验证只记录工具和 CPU 检查，不记设备 PASS。没有同机原始 profile 不实施下一条生产性能候选。拿到数据后比较 inplace / out-of-place、单行 / 多行、宽 / 窄行：若复制占主导再立复制路线；若 MTE2 / V 等待明显再立跨行预取路线；若主要是固定开销则记录小 shape 限制。
+## 决策
+
+1. 生产 host/kernel **暂不改**（仍 Q002）。
+2. 下一条生产路必须二选一立项（先台账）：
+   - **Q006-copy**：仅当确认平台大量异址大 var → 加速整表拷贝（更大 DMA / 更好分核）。
+   - **Q006-pipe**：若平台以同址或小拷贝为主 → 真·跨行双缓冲 / 减 Sync，先用 narrow_rows + wide_rows profile。
+3. 下一步测量：导出 copy_heavy 的 `aiv_mte2/mte3/vec_time` 中位，并采 `narrow_rows` / `wide_rows` 同址异址对。
+4. **禁止**重开 Q003；**禁止**无新 profile 就改生产。

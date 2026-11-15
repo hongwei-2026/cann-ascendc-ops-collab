@@ -27,6 +27,6 @@
 
 | ID | 日期 | 作者 | 阶段 | 假设 | 方法 | 时限 | 结果 | 结论 | 耗时 |
 |----|------|------|------|------|------|------|------|------|------|
-| Q005 | 2026-11-15 | Codex(+review) | 性能诊断 | 缺少流水证据，不能由五点时延定位瓶颈 | Q002 独立多 case runner + msprof 采集/校验；不改 host/kernel | 0.5d | 云 `@d8ccf35`：copy_heavy out/in ×3 **profile=COMPLETE**；中位数字待入库 | **采集进行中**；生产仍 Q002 | — |
+| Q005 | 2026-11-15 | Codex(+review) | 性能诊断 | 缺少流水证据，不能由五点时延定位瓶颈 | Q002 独立多 case runner + msprof | 0.5d | copy_heavy out **29.62** / in **9.10** µs（Δ≈20.5） | **部分采纳（拷贝税成立）**；生产仍 Q002；下路待 narrow/wide + 平台 inplace 假设 | — |
 
-结论见 `explorations/EXP_Q005-profile.md`；日志 `explorations/logs/EXP_Q005/`。云 stdout：`cloud-copy01-paste.log`。
+数字：`explorations/logs/EXP_Q005/copy01-medians.json`。DEC：`decisions/DEC_Q005-profile-first.md`。
