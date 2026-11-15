@@ -19,17 +19,11 @@ This revised candidate has not been compiled with CANN or retested on the platfo
 See tasks/active/QuantUpdateScatter_2330/explorations/EXP_R001-runtime.md.
 Rebuild and submit the complete workdir/code tree so registration and kernel match.
 
-## Current candidate: Q003 resource allocation
+## Current baseline: Q002（Q003 已废弃）
 
-Q002 received user-reported platform Pass (screenshot time 14:20:36).
-Its complete local source is preserved in explorations/Q003/baseline/.
-The current workdir/code candidate removes unused parameter buffers and sizes
-raw buffers and per-core index reservation by actual types and input presence.
-Computation, copy, queue ownership and SyncAll definitions are unchanged from Q002.
-
-Local checks: 2432 Q003/Q002/scalar comparisons across four UB capacities,
-13824 actual-host and 12096 independent resource plans, 10 regression tests,
-1152 schedule comparisons, and the earlier source-contract checks pass.
-These use CPU API stubs; CANN compilation and the full 50-case platform retest
-are still required. No Q003 latency improvement is claimed before that retest.
-Report: tasks/active/QuantUpdateScatter_2330/explorations/EXP_Q003-ub.md.
+Q003 平台 Pass 但可见点相对 Q002 无收益（噪声级涨跌），已回退
+`op_host/quant_update_scatter_tiling.cpp` 与 `op_kernel/quant_update_scatter.h`
+至 Q002（`796c82e`）。证据与 DEC：
+`tasks/active/QuantUpdateScatter_2330/explorations/logs/EXP_Q003/`、
+`tasks/active/QuantUpdateScatter_2330/decisions/DEC_Q003-pending-platform.md`。
+历史 `tests/local/run_q003_resource_model.py` 仅作归档，勿当现行实现。

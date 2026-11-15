@@ -58,3 +58,10 @@
 - `ca79bd1`：opc×4；样例 `mismatched=0/64` / PASSED
 - 归档：`explorations/logs/EXP_Q003/build_e-cloud-paste.log`
 - 下一闸：上传平台，对比 Q002 可见点 5.33/5.74/6.52/5.67/7.83
+
+## 2026-11-15 — Q003 平台无收益 → 回退 Q002
+
+- 平台 Pass；可见点 5.51/5.84/6.68/5.46/7.68（相对 Q002 噪声级涨跌）
+- 归档：`logs/EXP_Q003/platform-q003-vs-q002.json`、`platform-q003-pass.png`
+- DEC：回退 `tiling.cpp` + `quant_update_scatter.h` 至 `796c82e`；Q003 废弃
+- 下一闸：新假设（建议 profile / 真双缓冲），禁止再抠 UB tile

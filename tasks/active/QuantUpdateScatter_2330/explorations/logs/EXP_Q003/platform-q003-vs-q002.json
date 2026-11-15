@@ -1,0 +1,16 @@
+{
+  "date": "2026-11-15",
+  "source": "platform screenshot paste (user chat)",
+  "submission_status": "Pass",
+  "visible_cases": {
+    "1": {"result": "Pass", "error_ratio_pct": 0.0, "q003_us": 5.51, "q002_us": 5.33, "best_us": 3.68},
+    "2": {"result": "Pass", "error_ratio_pct": 0.0, "q003_us": 5.84, "q002_us": 5.74, "best_us": 3.89},
+    "3": {"result": "Pass", "error_ratio_pct": 0.0, "q003_us": 6.68, "q002_us": 6.52, "best_us": 3.88},
+    "4": {"result": "Pass", "error_ratio_pct": 0.0, "q003_us": 5.46, "q002_us": 5.67, "best_us": 3.80},
+    "5": {"result": "Pass", "error_ratio_pct": 0.0, "q003_us": 7.68, "q002_us": 7.83, "best_us": 4.00}
+  },
+  "delta_q003_minus_q002_us": [0.18, 0.10, 0.16, -0.21, -0.15],
+  "delta_pct_approx": [3.4, 1.7, 2.5, -3.7, -1.9],
+  "verdict": "no meaningful gain; noise-level mixed; still ~1.5-1.9x vs leaderboard",
+  "action": "rollback code to Q002 (796c82e) per DEC_Q003"
+}

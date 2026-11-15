@@ -98,24 +98,25 @@ for each batch p, index idx:
 - 止损：见 `decisions/DEC_Q002-pending-platform.md`。
 - **Q002 平台已改善**（可见点约 -7%～-30% vs 1345715），仍慢于榜最优。
 
-### Q003（更大 tile）
+### Q003（更大 tile）— **已废弃**
 
-- 条件分配：fp32 不建 scalesRaw；无 zp 不建 zp 缓冲；host 按 dtype/zp/indices 重算 UB 预算。
+- 平台可见点噪声级涨跌，无实质加速；代码已回退 Q002。
+- 证据：`explorations/logs/EXP_Q003/platform-q003-vs-q002.json`；DEC：`decisions/DEC_Q003-pending-platform.md`。
 - **勿再把 `TQue` 模板深度改回 1**（须与 `InitBuffer(...,2)` 一致）。
-- 止损：`decisions/DEC_Q003-pending-platform.md`；失败/无收益回退 Q002。
+- **勿重开「仅省 UB / 抬 tile」**。
 
 ---
 
 ## 6. 给后续 AI 的优化队列（有界）
 
-先读 `path-ledger.md`，**新开一路必须先记账**。
+先读 `path-ledger.md`，**新开一路必须先记账**。现行基线 = **Q002**。
 
 | ID | 假设 | 建议做法 | 止损 |
 |----|------|----------|------|
-| Q002 | 流水重叠 | updates 双缓冲；MTE2 与 V/MTE3 重叠 | 1 人日；无增益 <2% 写 DEC |
-| Q003 | UB 吃满 | 收紧 per-elem 缓冲；fp32 scales 免 raw | 0.5 人日 |
+| Q002 | 流水重叠 | TQue 两槽 + workBuf；**已采纳基线** | — |
+| Q003 | UB 吃满 | ~~收紧缓冲抬 tile~~ | **废弃** |
 | Q004 | 小 shape | 仿真图豁免，勿抠 us | ≤2h |
-| Q005 | 拷贝占比 | profile 后：若 inplace 为主路径，拷贝优化收益有限 | 先看 msprof |
+| Q005 | 瓶颈未知 | 先 msprof / 流水证据，再立项真·跨行双缓冲或拷贝路径 | 无 profile 禁止盲改 |
 
 **禁止**：
 

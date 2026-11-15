@@ -26,4 +26,4 @@
 
 ## 本轮结论
 
-本地候选完成，保留 Q002 完整备份。本轮不再追加新路线；新候选需用完整工程重编译并全 50 点重测。若失败或无收益，恢复本座位 explorations/Q003/baseline/。不把未复测候选写为设备 PASS，不推送。
+平台 Pass 但可见点相对 Q002 **无收益**（5.51/5.84/6.68/5.46/7.68 vs 5.33/5.74/6.52/5.67/7.83）。按 DEC 已将 `tiling.cpp` + `quant_update_scatter.h` **回退 Q002（796c82e）**。证据：`logs/EXP_Q003/platform-q003-vs-q002.json`、`platform-q003-pass.png`。路线 **废弃**。

@@ -20,9 +20,12 @@ namespace {
 
 constexpr uint32_t WS_SYS_SIZE = 0U;
 constexpr int64_t kReserveBytes = 8 * 1024;
-constexpr int64_t kIndexCacheCap = 2048;
+constexpr int64_t kIndexCacheBytes = 2048 * sizeof(int64_t);
 constexpr int64_t kCopyBytesPerCore = 32 * 1024;
 constexpr int64_t kDmaBlockBytes = 32;
+// Worst case: two updates/output slots plus all parameter/calculation buffers.
+// Single-row direct buffers use less memory but share this safe upper bound.
+constexpr int64_t kBufBytesPerElem = 2 * 2 + 4 + 4 + 4 + 4 + 4 + 2 + 2 + 2 * 1;
 
 int64_t ShapeSize(const gert::Shape& shape)
 {
@@ -161,32 +164,19 @@ static ge::graphStatus QuantUpdateScatterTilingFunc(gert::TilingContext* context
         OP_LOGE(context, "indices must be int32 or int64"), return ge::GRAPH_FAILED);
     const int64_t indicesIsInt64 = indexType == ge::DT_INT64 ? 1 : 0;
 
-    const int64_t batchCores = std::min(coreNum, batchSize > 0 ? batchSize : int64_t{1});
-    const int64_t copyCores = std::min(coreNum,
-        totalNum > 0 ? CeilDiv(totalNum, kCopyBytesPerCore) : int64_t{1});
-    // Keep copy-only cores; their presence does not imply a full indices cache.
-    const int64_t usedCores = std::max(batchCores, copyCores);
-    const int64_t blockFactor = batchSize > 0 ? CeilDiv(batchSize, usedCores) : 1;
-
-    // Bound the largest cache any core can allocate; a smaller tail can still cache
-    // even when full blockFactor exceeds the cap and uses the scalar fallback.
-    const int64_t maxCachedIndices = std::min(blockFactor,
-        std::min(kIndexCacheCap, indexElements > 0 ? indexElements : int64_t{0}));
-    const int64_t indexBytes = indicesIsInt64 != 0 ? sizeof(int64_t) : sizeof(int32_t);
-    const int64_t cacheBytes = CeilDiv(maxCachedIndices * indexBytes, kDmaBlockBytes) * kDmaBlockBytes;
-    const bool updatesFp16 = updatesDesc->GetDataType() == ge::DT_FLOAT16;
-    // Maximum two-slot updates/output (6) + fp32 scales/work (8) + i16/half (4).
-    int64_t bytesPerElem = 18 + (updatesFp16 ? 0 : 2);
-    if (hasZeroPoints) {
-        bytesPerElem += (updatesFp16 ? 4 : 2) + 4;
-    }
-    const int64_t budget = static_cast<int64_t>(ubSize) - kReserveBytes - cacheBytes;
-    OP_CHECK_IF(budget < kDmaBlockBytes * bytesPerElem,
+    const int64_t budget = static_cast<int64_t>(ubSize) - kReserveBytes - kIndexCacheBytes;
+    OP_CHECK_IF(budget < kDmaBlockBytes * kBufBytesPerElem,
         OP_LOGE(context, "UB too small for aligned buffers and indices cache"), return ge::GRAPH_FAILED);
-    int64_t maxTile = (budget / bytesPerElem / kDmaBlockBytes) * kDmaBlockBytes;
+    int64_t maxTile = (budget / kBufBytesPerElem / kDmaBlockBytes) * kDmaBlockBytes;
     maxTile = std::min(maxTile, int64_t{8192});
     int64_t ubFactor = std::min(lastDim > 0 ? lastDim : int64_t{1}, maxTile);
     ubFactor = CeilDiv(ubFactor, kDmaBlockBytes) * kDmaBlockBytes;
+    const int64_t batchCores = std::min(coreNum, batchSize > 0 ? batchSize : int64_t{1});
+    const int64_t copyCores = std::min(coreNum,
+        totalNum > 0 ? CeilDiv(totalNum, kCopyBytesPerCore) : int64_t{1});
+    // Do not recompute usedCores from batchFactor: copy-only cores are intentional.
+    const int64_t usedCores = std::max(batchCores, copyCores);
+    const int64_t blockFactor = batchSize > 0 ? CeilDiv(batchSize, usedCores) : 1;
 
     QuantUpdateScatterTilingData* tiling = context->GetTilingData<QuantUpdateScatterTilingData>();
     OP_CHECK_NULL_WITH_CONTEXT(context, tiling);

@@ -51,7 +51,7 @@ static QuantUpdateScatterTestParam testCases[] = {
     {"r001_fp16_indices64", {3, 2, 5, 33}, ge::DT_INT8, ge::FORMAT_ND, {3}, ge::DT_INT64, ge::FORMAT_ND, {3, 2, 2, 33}, ge::DT_FLOAT16, ge::FORMAT_ND, {33}, ge::DT_FLOAT, ge::FORMAT_ND, {33}, ge::DT_INT32, ge::FORMAT_ND, {3, 2, 5, 33}, ge::DT_INT8, ge::FORMAT_ND, "Ascend910B", ge::GRAPH_SUCCESS, 0UL, "990 1 64 3 3 2 2 5 33 3 1 0 1 ", {0}, 64, 262144, 4096},
     {"r001_bf16_indices32", {3, 2, 5, 33}, ge::DT_INT8, ge::FORMAT_ND, {3}, ge::DT_INT32, ge::FORMAT_ND, {3, 2, 2, 33}, ge::DT_BF16, ge::FORMAT_ND, {33}, ge::DT_BF16, ge::FORMAT_ND, {33}, ge::DT_BF16, ge::FORMAT_ND, {3, 2, 5, 33}, ge::DT_INT8, ge::FORMAT_ND, "Ascend910B", ge::GRAPH_SUCCESS, 1UL, "990 1 64 3 3 2 2 5 33 3 1 0 0 ", {0}, 64, 262144, 4096},
 
-    {"q002_wide_ub_two_slots", {1, 4, 8193}, ge::DT_INT8, ge::FORMAT_ND, {1}, ge::DT_INT64, ge::FORMAT_ND, {1, 2, 8193}, ge::DT_FLOAT16, ge::FORMAT_ND, {8193}, ge::DT_FLOAT, ge::FORMAT_ND, {8193}, ge::DT_INT32, ge::FORMAT_ND, {1, 4, 8193}, ge::DT_INT8, ge::FORMAT_ND, "Ascend910B", ge::GRAPH_SUCCESS, 0UL, "32772 1 8192 2 1 1 2 4 8193 1 1 0 1 ", {0}, 64, 262144, 4096},
+    {"q002_wide_ub_two_slots", {1, 4, 8193}, ge::DT_INT8, ge::FORMAT_ND, {1}, ge::DT_INT64, ge::FORMAT_ND, {1, 2, 8193}, ge::DT_FLOAT16, ge::FORMAT_ND, {8193}, ge::DT_FLOAT, ge::FORMAT_ND, {8193}, ge::DT_INT32, ge::FORMAT_ND, {1, 4, 8193}, ge::DT_INT8, ge::FORMAT_ND, "Ascend910B", ge::GRAPH_SUCCESS, 0UL, "32772 1 7904 2 1 1 2 4 8193 1 1 0 1 ", {0}, 64, 262144, 4096},
 
 };
 
