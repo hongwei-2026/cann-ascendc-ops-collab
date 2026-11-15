@@ -90,3 +90,9 @@
 - out 29.62 / in 9.10 µs（Δ≈20.5）；大异址拷贝税成立
 - 归档 `logs/EXP_Q005/copy01-medians.json`；更新 DEC_Q005
 - 下一闸：pipe 列 + narrow/wide；确认平台 inplace 后再立 Q006
+
+## 2026-11-15 — Q005 pipe + rows01 COMPLETE
+
+- copy_heavy pipe：out MTE2/3≈10.85/9.72，in MTE3≈0，双方 vec≈0.019
+- rows01（narrow/wide × in/out）全部 COMPLETE；数字待导出
+- 归档 `copy01-pipe-medians.json`、`rows01-complete-paste.log`

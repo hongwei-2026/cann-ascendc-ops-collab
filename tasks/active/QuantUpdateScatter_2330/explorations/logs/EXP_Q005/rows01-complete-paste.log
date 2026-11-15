@@ -1,0 +1,7 @@
+# EXP_Q005 rows01 — paste 2026-11-15
+# Cmd: bash examples/profile_q005.sh /tmp/qus2330_q005_rows01 \
+#        --case-id narrow_rows_out --case-id narrow_rows_in \
+#        --case-id wide_rows_out --case-id wide_rows_in
+# Result: all 4 cases × 3 rounds profile=COMPLETE; summary complete: True
+# Evidence: /tmp/qus2330_q005_rows01/evidence
+# Numeric dump: NOT YET pasted (await duration + pipe medians).

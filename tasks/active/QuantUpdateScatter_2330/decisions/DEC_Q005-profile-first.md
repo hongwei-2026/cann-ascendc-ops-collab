@@ -15,15 +15,16 @@
 
 ## 瓶颈结论（有界）
 
-- **大 var + 异址**：整表 `CopyVarToOut` 是主耗时来源之一（同机对照成立）。
-- **同址路径**：已接近可见点量级（~9 µs），剩余差距更可能在量化行路径 / 固定开销 / 流水，而非「再省 UB」。
-- **不能**仅凭本诊断断定官方 50 点主因：平台 case 的 inplace / shape 未知；可见点 5–8 µs 可能本就偏同址或更小 tensor。
+- **大 var + 异址**：整表拷贝主导。task Δ≈20.5 µs；pipe 上 out 的 MTE2≈10.85 + MTE3≈9.72，in 的 MTE3≈0 —— 与拷贝税一致。
+- **同址 + 单更新行**：vec≈0.019 µs（可忽略）；剩 MTE2≈2.69 + scalar≈2.89。不是「算力不够」，更像参数/调度/标量开销。
+- **不能**把 pipe 各通道时间直接相加当墙钟；墙钟仍看 task_duration。
+- **不能**仅凭 copy_heavy 断定官方 50 点：inplace/shape 未知。`narrow_rows`/`wide_rows` 已 COMPLETE，数字待入库。
 
 ## 决策
 
 1. 生产 host/kernel **暂不改**（仍 Q002）。
-2. 下一条生产路必须二选一立项（先台账）：
-   - **Q006-copy**：仅当确认平台大量异址大 var → 加速整表拷贝（更大 DMA / 更好分核）。
-   - **Q006-pipe**：若平台以同址或小拷贝为主 → 真·跨行双缓冲 / 减 Sync，先用 narrow_rows + wide_rows profile。
-3. 下一步测量：导出 copy_heavy 的 `aiv_mte2/mte3/vec_time` 中位，并采 `narrow_rows` / `wide_rows` 同址异址对。
-4. **禁止**重开 Q003；**禁止**无新 profile 就改生产。
+2. 待 rows01 数字后立项：
+   - 若宽/多行同址仍 vec 极低、scalar/MTE 主导 → 优先减固定开销 / 合并 DMA，而非假双缓冲。
+   - 若多行同址出现明显 MTE2↔vec 串行 → 再立真·跨行预取（Q006-pipe）。
+   - 仅当平台确认大异址 → Q006-copy。
+3. **禁止**重开 Q003；**禁止**无 rows 数字就改生产。

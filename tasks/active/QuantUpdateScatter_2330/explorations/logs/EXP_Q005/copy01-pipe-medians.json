@@ -1,0 +1,28 @@
+{
+  "date": "2026-11-15",
+  "source": "/tmp/qus2330_q005_copy01/evidence/results.json",
+  "note": "median-of-round-medians for raw_metric_columns",
+  "copy_heavy_out": {
+    "aiv_mte2_time_us": 10.8495,
+    "aiv_mte3_time_us": 9.722,
+    "aiv_vec_time_us": 0.019,
+    "aiv_scalar_time_us": 3.9655,
+    "aiv_mte2_ratio": 0.384,
+    "aiv_mte3_ratio": 0.344,
+    "aiv_vec_ratio": 0.001
+  },
+  "copy_heavy_in": {
+    "aiv_mte2_time_us": 2.6875,
+    "aiv_mte3_time_us": 0.004,
+    "aiv_vec_time_us": 0.019,
+    "aiv_scalar_time_us": 2.886,
+    "aiv_mte2_ratio": 0.347,
+    "aiv_mte3_ratio": 0.001,
+    "aiv_vec_ratio": 0.002
+  },
+  "interpretation": {
+    "out": "MTE2+MTE3 (~20.6us) explain the out-vs-in gap; vec negligible (1 update row).",
+    "in": "No full-tensor MTE3; remaining ~scalar+MTE2 parameter/update traffic; still not vec-bound.",
+    "caution": "Pipe times are concurrent-capable counters; do not sum as wall time. Task duration remains authoritative for end-to-end."
+  }
+}
