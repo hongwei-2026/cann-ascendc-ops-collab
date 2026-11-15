@@ -1,0 +1,42 @@
+{
+  "date": "2026-11-15",
+  "baseline_platform_feedback": "Pass displayed at 14:20:36, per user screenshot",
+  "platform_total_cases": 50,
+  "visible": 5,
+  "hidden": 45,
+  "actual_host_resource_plans": 13824,
+  "independent_python_resource_plans": 12096,
+  "actual_kernel_class_Q003_Q002_oracle_comparisons": 2432,
+  "additional_fixed_tile_model_comparisons": 512,
+  "schedule_comparisons": 1152,
+  "python_regression_tests": 10,
+  "actual_registration_entry_diagnostic_contracts": "PASSED_WITH_MINIMAL_API_STUBS",
+  "arithmetic_copy_queue_process_code_unchanged": true,
+  "passing_Q002_backup_integrity": "OK",
+  "constructed_32KiB_wide_row_DMA_calls": {
+    "Q002": 19,
+    "Q003": 7,
+    "meaning": "operation count only, no latency claim"
+  },
+  "candidate_CANN_build": "NOT_RUN",
+  "candidate_NPU_50case_retest": "NOT_RUN",
+  "candidate_profile": "NOT_RUN",
+  "candidate_speed_gain": "UNMEASURED",
+  "pushed": false,
+  "modified_since_Q002": [
+    "op_host/quant_update_scatter_tiling.cpp",
+    "op_kernel/quant_update_scatter.h",
+    "tests/local/README.md",
+    "tests/local/test_q001.py",
+    "tests/ut/op_host/test_quant_update_scatter_tiling.cpp"
+  ],
+  "added_source_files": [
+    "tests/local/run_q003_resource_model.py"
+  ],
+  "production_files_modified": [
+    "op_host/quant_update_scatter_tiling.cpp",
+    "op_kernel/quant_update_scatter.h"
+  ],
+  "scope_check": "OK",
+  "whitespace_check": "OK"
+}

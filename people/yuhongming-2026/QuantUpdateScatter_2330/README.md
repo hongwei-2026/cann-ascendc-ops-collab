@@ -18,3 +18,18 @@ checks compile the actual registration/entry/error helper with minimal API stubs
 This revised candidate has not been compiled with CANN or retested on the platform.
 See tasks/active/QuantUpdateScatter_2330/explorations/EXP_R001-runtime.md.
 Rebuild and submit the complete workdir/code tree so registration and kernel match.
+
+## Current candidate: Q003 resource allocation
+
+Q002 received user-reported platform Pass (screenshot time 14:20:36).
+Its complete local source is preserved in explorations/Q003/baseline/.
+The current workdir/code candidate removes unused parameter buffers and sizes
+raw buffers and per-core index reservation by actual types and input presence.
+Computation, copy, queue ownership and SyncAll definitions are unchanged from Q002.
+
+Local checks: 2432 Q003/Q002/scalar comparisons across four UB capacities,
+13824 actual-host and 12096 independent resource plans, 10 regression tests,
+1152 schedule comparisons, and the earlier source-contract checks pass.
+These use CPU API stubs; CANN compilation and the full 50-case platform retest
+are still required. No Q003 latency improvement is claimed before that retest.
+Report: tasks/active/QuantUpdateScatter_2330/explorations/EXP_Q003-ub.md.

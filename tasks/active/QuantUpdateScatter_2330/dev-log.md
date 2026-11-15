@@ -46,3 +46,9 @@
 - `796c82e`：编译 opc×4；样例 `mismatched=0/64` / PASSED
 - 归档：`explorations/logs/EXP_Q002/build_e-cloud-paste.log`
 - 下一闸：上传平台全 50 点，对比提交 1345715 可见时延
+
+## 2026-11-15 — Q002 平台改善 + Q003 候选
+
+- Q002 平台可见点 5.33/5.74/6.52/5.67/7.83us（仍慢于榜最优）
+- Codex Q003：fp32 免 scalesRaw、无 zp 免 zp 缓冲；host 按实际预算抬 ubFactor；计算/队列未改
+- Review：再次把 `TQue` 深度从 1 改回 **2**；证据 `explorations/EXP_Q003-ub.md`

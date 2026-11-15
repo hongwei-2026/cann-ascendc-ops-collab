@@ -1,0 +1,51 @@
+{
+  "source": "user screenshot 2026-11-15 and earlier 50-case clarification",
+  "displayed_time": "14:20:36",
+  "status": "Pass",
+  "case_count_user_reported": 50,
+  "visible": 5,
+  "hidden": 45,
+  "submission_id": "not visible in screenshot",
+  "visible_us": [
+    {
+      "case": 1,
+      "current": 5.33,
+      "displayed_best": 3.68,
+      "previous_Q001_R001": 5.75,
+      "visible_reduction_percent": 7.304347826086956
+    },
+    {
+      "case": 2,
+      "current": 5.74,
+      "displayed_best": 3.89,
+      "previous_Q001_R001": 6.25,
+      "visible_reduction_percent": 8.159999999999997
+    },
+    {
+      "case": 3,
+      "current": 6.52,
+      "displayed_best": 3.88,
+      "previous_Q001_R001": 7.02,
+      "visible_reduction_percent": 7.122507122507122
+    },
+    {
+      "case": 4,
+      "current": 5.67,
+      "displayed_best": 3.8,
+      "previous_Q001_R001": 6.46,
+      "visible_reduction_percent": 12.229102167182663
+    },
+    {
+      "case": 5,
+      "current": 7.83,
+      "displayed_best": 4.0,
+      "previous_Q001_R001": 11.16,
+      "visible_reduction_percent": 29.838709677419356
+    }
+  ],
+  "limits": [
+    "No hidden-case latency details or profile supplied.",
+    "Screenshot is platform feedback, not a full device log.",
+    "Local baseline corresponds to last candidate; no server source archive supplied."
+  ]
+}

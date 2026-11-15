@@ -16,3 +16,11 @@ For native source-contract checks, run:
 
 This compiles the actual registration, entry dispatch and diagnostic helper against
 minimal API stubs. It does not compile the AscendC implementation or run NPU kernels.
+
+For Q003 allocation and actual-class comparisons against the saved passing Q002:
+
+    python -B run_q003_resource_model.py --cxx /path/to/g++
+
+This compiles the actual resource-plan block extracted from the host source and
+actual kernel classes with the synchronous CPU API model. It does not validate
+CANN compiler behavior, asynchronous device ordering or NPU latency.

@@ -19,14 +19,26 @@ def ceildiv(a, b):
     return a // b + (a % b != 0)
 
 
-def tiling(batch, total, width, cores=64, ub=262144):
-    budget = ub - 8192 - 2048 * 8
-    if budget < 32 * 30:
-        raise ValueError("UB cannot fit minimum aligned buffers")
-    maximum = min(budget // 30 // 32 * 32, 8192)
-    tile = ceildiv(min(max(width, 1), maximum), 32) * 32
+def resource_plan(batch, total, width, cores=64, ub=262144, *, bf16=False,
+                  with_zp=True, index_bytes=8, index_elements=None):
     used = max(min(cores, max(batch, 1)), min(cores, ceildiv(total, 32768) if total else 1))
-    return used, ceildiv(batch, used) if batch else 1, tile
+    factor = ceildiv(batch, used) if batch else 1
+    count = batch if index_elements is None else index_elements
+    cached = min(factor, 2048, max(count, 0))
+    cache_bytes = ceildiv(cached * index_bytes, 32) * 32
+    bytes_per_element = 18 + (2 if bf16 else 0)
+    if with_zp:
+        bytes_per_element += (2 if bf16 else 4) + 4
+    budget = ub - 8192 - cache_bytes
+    if budget < 32 * bytes_per_element:
+        raise ValueError("UB cannot fit minimum aligned buffers")
+    maximum = min(budget // bytes_per_element // 32 * 32, 8192)
+    tile = ceildiv(min(max(width, 1), maximum), 32) * 32
+    return used, factor, tile, bytes_per_element, cache_bytes
+
+
+def tiling(batch, total, width, cores=64, ub=262144, **kwargs):
+    return resource_plan(batch, total, width, cores, ub, **kwargs)[:3]
 
 
 def copy_ranges(total, cores):
@@ -71,7 +83,9 @@ def scalar_oracle(var, indices, updates, scales, zero_points, reciprocal):
 
 def tiled_schedule(var, indices, updates, scales, zero_points, reciprocal, cores, ub, inplace=False):
     batch, width = updates.shape[0], updates.shape[-1]
-    used, factor, tile = tiling(batch, var.size, width, cores, ub)
+    used, factor, tile = tiling(batch, var.size, width, cores, ub,
+        bf16=updates.dtype == np.dtype(ml_dtypes.bfloat16), with_zp=zero_points is not None,
+        index_bytes=indices.dtype.itemsize, index_elements=len(indices))
     out = var if inplace else np.empty_like(var)
     if not inplace:
         for first, last in copy_ranges(var.size, used):
@@ -146,15 +160,39 @@ class Q001LocalTest(unittest.TestCase):
 
     def test_ub_and_dma_padding(self):
         for ub,width in itertools.product([32768,65536,196608,262144], [0,1,7,8,15,16,17,31,32,33,8191,8192,8193,65537]):
-            _,_,tile=tiling(64,1<<20,width,64,ub)
+            _,_,tile,element_bytes,cache_bytes=resource_plan(64,1<<20,width,64,ub)
             self.assertEqual(tile % 32,0)
-            self.assertLessEqual(tile*30+2048*8+8192,ub)
+            self.assertLessEqual(tile*element_bytes+cache_bytes+8192,ub)
             for element_size in [1,2,4,8]:
                 for length in [1,7,8,15,16,17,31,32,min(width,tile)]:
                     if 0 < length <= tile:
                         self.assertLessEqual(ceildiv(length*element_size,32)*32,tile*element_size)
         for cache in [1,3,7,2047,2048]:
             self.assertLessEqual(ceildiv(cache*8,32)*32,2048*8)
+
+    def test_dynamic_resources_cover_every_core_and_do_not_shrink_q002_tiles(self):
+        count = 0
+        for batch, cores, ub, width, bf16, with_zp, index_bytes in itertools.product(
+                [0, 1, 3, 2048, 2049, 4097, 131073], [1, 3, 64],
+                [32768, 65536, 196608, 262144], [0, 1, 7905, 8192, 8193, 65537],
+                [False, True], [False, True], [4, 8]):
+            for indices in [0, max(0, batch-1), batch+2]:
+                used, factor, tile, per_elem, cached_bytes = resource_plan(
+                    batch, batch*width*2, width, cores, ub, bf16=bf16,
+                    with_zp=with_zp, index_bytes=index_bytes, index_elements=indices)
+                self.assertLessEqual(tile*per_elem+cached_bytes+8192,ub)
+                old_max = min((ub-8192-16384)//30//32*32,8192)
+                old_tile = ceildiv(min(max(width,1),old_max),32)*32
+                self.assertGreaterEqual(tile,old_tile)
+                for block in range(used):
+                    first=block*factor
+                    active=max(0,min(factor,batch-first))
+                    cached=max(0,min(active,indices-first))
+                    if cached>2048:
+                        cached=0
+                    self.assertLessEqual(ceildiv(cached*index_bytes,32)*32,cached_bytes)
+                count+=1
+        print('Independent dynamic-resource plans:',count)
 
     def test_reference_matches_independent_scalar_fp32_oracle(self):
         rng=np.random.default_rng(2330)

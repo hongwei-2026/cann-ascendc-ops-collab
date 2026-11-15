@@ -148,10 +148,15 @@ __aicore__ inline void QuantUpdateScatter<UpdatesT, ScalesT, IndicesT, OffsetsT>
         pipe_.InitBuffer(updatesBuf_, n * static_cast<int32_t>(sizeof(UpdatesT)));
         pipe_.InitBuffer(outBuf_, n * static_cast<int32_t>(sizeof(int8_t)));
     }
-    pipe_.InitBuffer(scalesRawBuf_, n * 4); // float or bf16 padded
-    pipe_.InitBuffer(zpRawBuf_, n * 4);     // int32 or bf16
+    // fp32 scales DMA directly into scalesBuf_; only bf16 needs conversion storage.
+    if constexpr (!std::is_same<ScalesT, float>::value) {
+        pipe_.InitBuffer(scalesRawBuf_, n * static_cast<int32_t>(sizeof(ScalesT)));
+    }
     pipe_.InitBuffer(scalesBuf_, n * static_cast<int32_t>(sizeof(float)));
-    pipe_.InitBuffer(zpBuf_, n * static_cast<int32_t>(sizeof(float)));
+    if (hasZeroPoints_ != 0) {
+        pipe_.InitBuffer(zpRawBuf_, n * static_cast<int32_t>(sizeof(OffsetsT)));
+        pipe_.InitBuffer(zpBuf_, n * static_cast<int32_t>(sizeof(float)));
+    }
     pipe_.InitBuffer(workBuf_, n * static_cast<int32_t>(sizeof(float)));
     pipe_.InitBuffer(int16Buf_, n * static_cast<int32_t>(sizeof(int16_t)));
     pipe_.InitBuffer(halfBuf_, n * static_cast<int32_t>(sizeof(half)));

@@ -1,0 +1,4 @@
+Local tooling notes, not CANN/device logs:
+- Initial command with an explicit Chinese workdir was rejected with os error 267. Omitted the redundant workdir and used the existing thread cwd, then reads succeeded.
+- First local test-authoring wrapper had nested quote SyntaxError before writing the test. Replaced it with a direct PowerShell literal string, then compiled checks succeeded.
+- No production kernel compile failure or device run is implied by either local tooling issue.

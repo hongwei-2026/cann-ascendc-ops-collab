@@ -95,7 +95,14 @@ for each batch p, index idx:
 - 可见点仍慢于榜最优；候选：`TQue` 两槽 + `workBuf` 作整表拷贝 scratch（更大 DMA 块）。
 - **非**真·跨行双缓冲（每 tile 仍 EnQue 后立刻 DeQue）；主要收益待测。
 - `TQue` 模板深度须与 `InitBuffer(..., 2)` 一致（已改为 2）。
-- 止损：见 `decisions/DEC_Q002-pending-platform.md`；先全 50 点，勿盲开 Q003。
+- 止损：见 `decisions/DEC_Q002-pending-platform.md`。
+- **Q002 平台已改善**（可见点约 -7%～-30% vs 1345715），仍慢于榜最优。
+
+### Q003（更大 tile）
+
+- 条件分配：fp32 不建 scalesRaw；无 zp 不建 zp 缓冲；host 按 dtype/zp/indices 重算 UB 预算。
+- **勿再把 `TQue` 模板深度改回 1**（须与 `InitBuffer(...,2)` 一致）。
+- 止损：`decisions/DEC_Q003-pending-platform.md`；失败/无收益回退 Q002。
 
 ---
 
