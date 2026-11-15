@@ -25,8 +25,8 @@
 
 ## 2026-11-15（P010 云测 smoke）
 
-- bc14e41：build/样例/13回归 PASS；8MiB case Host 未拒（numel=2097152）；`sample.py verify` 因写死 480B 误报 FAIL。
-- 待自定义比对 golden vs output；归档 `explorations/logs/EXP_C010/C010-cloud-smoke-paste.log`。
+- bc14e41：build/样例/13回归 PASS；8MiB Host 未拒；自定义比对 **0/2097152 PASS**。
+- `sample.py verify` 写死480属误报。可提平台。归档 `C010-cloud-smoke-paste.log`。
 
 ## 2026-11-15（P010 超 UB + 行 UB）
 

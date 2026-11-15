@@ -11,4 +11,7 @@ big tensor (64,128,256)->(64,256,128) f32, 8MiB:
   CAUSE: samples/sample.py OUTPUTS hardcodes size=480 for default sample;
   not a kernel size bug by itself. Need custom golden compare.
 
-P010_CLOUD_SMOKE formal: functional small PASS; big Host-accept PASS; big bitwise PENDING custom verify.
+custom big compare:
+out_bytes=gold_bytes=8388608 len=2097152 mismatched=0/2097152 BIG_BITWISE PASS
+
+P010_CLOUD_SMOKE=PASS (small+13reg+big Host accept+big bitwise). Ready for platform submit (no debug).
