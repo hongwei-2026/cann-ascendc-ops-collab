@@ -1,0 +1,14 @@
+{
+  "candidate_sha256": "8c478b36d6dbfec06da099dd0d9e26c7a93b245903975e786bc3f92ee89a2efb",
+  "baseline_sha256": "38b2b8f931a1baa2b1d60083744cb8a9547d5b502c4ce94561ce68f3117d7d11",
+  "baseline_commit": "25dfbaa402f7ed81fb60f1f92563e73b94fd2169",
+  "queue_depth": 2,
+  "host_registration_entry_unchanged": true,
+  "only_allowed_tracked_paths_changed": true,
+  "scope": "local_only_no_cloud_commit_push",
+  "q006_actual_class_cases": 3072,
+  "two_input_ready_cases": 1664,
+  "reference_tests": 9,
+  "reference_schedule_cases": 1152,
+  "device_build_precision_performance": "NOT_RUN"
+}

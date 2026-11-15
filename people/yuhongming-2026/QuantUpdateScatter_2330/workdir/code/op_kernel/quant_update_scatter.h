@@ -54,7 +54,8 @@ private:
     __aicore__ inline void LoadQuantParams(int64_t column, int32_t len);
     __aicore__ inline void QuantOneTile(int64_t srcOffset, int64_t dstOffset, int32_t len);
     __aicore__ inline void QuantizeTile(LocalTensor<UpdatesT> input, LocalTensor<int8_t> output, int32_t len);
-    __aicore__ inline void QuantQueuedTile(int64_t srcOffset, int64_t dstOffset, int32_t len);
+    __aicore__ inline void PrefetchUpdate(int64_t srcOffset, int32_t len);
+    __aicore__ inline void QuantQueuedTile(int64_t dstOffset, int32_t len);
     __aicore__ inline int64_t ReadIndex(int64_t p);
 
 private:
@@ -284,13 +285,19 @@ __aicore__ inline void QuantUpdateScatter<UpdatesT, ScalesT, IndicesT, OffsetsT>
 }
 
 template <typename UpdatesT, typename ScalesT, typename IndicesT, typename OffsetsT>
-__aicore__ inline void QuantUpdateScatter<UpdatesT, ScalesT, IndicesT, OffsetsT>::QuantQueuedTile(
-    int64_t srcOffset, int64_t dstOffset, int32_t len)
+__aicore__ inline void QuantUpdateScatter<UpdatesT, ScalesT, IndicesT, OffsetsT>::PrefetchUpdate(
+    int64_t srcOffset, int32_t len)
 {
     LocalTensor<UpdatesT> input = updatesQueue_.AllocTensor<UpdatesT>();
     LoadTile(input, updatesGm_, srcOffset, len);
     updatesQueue_.EnQue(input);
-    input = updatesQueue_.DeQue<UpdatesT>();
+}
+
+template <typename UpdatesT, typename ScalesT, typename IndicesT, typename OffsetsT>
+__aicore__ inline void QuantUpdateScatter<UpdatesT, ScalesT, IndicesT, OffsetsT>::QuantQueuedTile(
+    int64_t dstOffset, int32_t len)
+{
+    LocalTensor<UpdatesT> input = updatesQueue_.DeQue<UpdatesT>();
     LocalTensor<int8_t> output = outputQueue_.AllocTensor<int8_t>();
     QuantizeTile(input, output, len);
     updatesQueue_.FreeTensor(input);
@@ -298,7 +305,7 @@ __aicore__ inline void QuantUpdateScatter<UpdatesT, ScalesT, IndicesT, OffsetsT>
     output = outputQueue_.DeQue<int8_t>();
     DataCopyExtParams params = {1, static_cast<uint32_t>(len), 0, 0, 0};
     DataCopyPad(outGm_[dstOffset], output, params);
-    // Each slot is protected by queue ownership instead of a row-wide MTE3_V wait.
+    // Output slots remain protected until their MTE3 consumers finish.
     outputQueue_.FreeTensor(output);
 }
 
@@ -306,10 +313,6 @@ template <typename UpdatesT, typename ScalesT, typename IndicesT, typename Offse
 __aicore__ inline void QuantUpdateScatter<UpdatesT, ScalesT, IndicesT, OffsetsT>::QuantOneTile(
     int64_t srcOffset, int64_t dstOffset, int32_t len)
 {
-    if (usePipeline_) {
-        QuantQueuedTile(srcOffset, dstOffset, len);
-        return;
-    }
     const event_t reusable = static_cast<event_t>(GetTPipePtr()->FetchEventID(HardEvent::V_MTE2));
     SetFlag<HardEvent::V_MTE2>(reusable);
     WaitFlag<HardEvent::V_MTE2>(reusable);
@@ -339,24 +342,45 @@ __aicore__ inline void QuantUpdateScatter<UpdatesT, ScalesT, IndicesT, OffsetsT>
     LoadIndices();
     const int64_t srcBsStride = midSize_ * updateAxis_ * lastDim_;
     const int64_t dstBsStride = midSize_ * varAxis_ * lastDim_;
+    const int64_t batchEnd = batchStart_ + batchLen_ < indexElements_ ?
+        batchStart_ + batchLen_ : indexElements_;
+    const int64_t dstMiddleGap = (varAxis_ - updateAxis_) * lastDim_;
     for (int64_t column = 0; column < lastDim_;) {
         const int64_t remaining = lastDim_ - column;
         const int32_t len = remaining > ubFactor_ ? static_cast<int32_t>(ubFactor_) :
             static_cast<int32_t>(remaining);
         LoadQuantParams(column, len);
-        for (int64_t bi = 0; bi < batchLen_; ++bi) {
-            const int64_t p = batchStart_ + bi;
-            if (p >= indexElements_) {
-                break;
-            }
-            const int64_t idx = ReadIndex(p);
-            for (int64_t m = 0; m < midSize_; ++m) {
-                for (int64_t k = 0; k < updateAxis_; ++k) {
-                    const int64_t src = p * srcBsStride + (m * updateAxis_ + k) * lastDim_ + column;
-                    const int64_t dst = p * dstBsStride + (m * varAxis_ + idx + k) * lastDim_ + column;
-                    QuantOneTile(src, dst, len);
+        int64_t srcBatch = batchStart_ * srcBsStride + column;
+        int64_t dstBatch = batchStart_ * dstBsStride + column;
+        for (int64_t p = batchStart_; p < batchEnd; ++p) {
+            int64_t src = srcBatch;
+            int64_t dst = dstBatch + ReadIndex(p) * lastDim_;
+            if (usePipeline_) {
+                // Prime one row. The steady state submits the next row's MTE2
+                // before waiting for the current row, using both input slots.
+                // Input rows are contiguous even when the middle dimension changes.
+                const int64_t srcEnd = srcBatch + srcBsStride;
+                PrefetchUpdate(src, len);
+                src += lastDim_;
+                for (int64_t m = 0; m < midSize_; ++m) {
+                    for (int64_t k = 0; k < updateAxis_; ++k) {
+                        if (src < srcEnd) {
+                            PrefetchUpdate(src, len);
+                            src += lastDim_;
+                        }
+                        QuantQueuedTile(dst, len);
+                        dst += lastDim_;
+                    }
+                    dst += dstMiddleGap;
                 }
+                // All prefetched rows have been consumed before a batch/column
+                // transition; no stale input can cross a parameter-tile change.
+            } else {
+                // usePipeline_ is false only for 1 batch × 1 middle × 1 update row.
+                QuantOneTile(src, dst, len);
             }
+            srcBatch += srcBsStride;
+            dstBatch += dstBsStride;
         }
         column += len;
     }

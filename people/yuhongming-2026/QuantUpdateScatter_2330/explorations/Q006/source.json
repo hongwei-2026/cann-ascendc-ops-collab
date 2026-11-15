@@ -1,0 +1,7 @@
+{
+  "baseline_git_head": "25dfbaa402f7ed81fb60f1f92563e73b94fd2169",
+  "baseline_header_sha256": "38b2b8f931a1baa2b1d60083744cb8a9547d5b502c4ce94561ce68f3117d7d11",
+  "candidate_header_sha256": "8c478b36d6dbfec06da099dd0d9e26c7a93b245903975e786bc3f92ee89a2efb",
+  "state": "candidate_NOT_device_validated",
+  "scope": "local_only_no_cloud_no_commit_no_push"
+}

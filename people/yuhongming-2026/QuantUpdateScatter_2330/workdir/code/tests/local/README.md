@@ -30,3 +30,12 @@ For Q005 diagnostic-runner plumbing checks:
     python -B run_q005_support.py --cxx /path/to/g++
 
 See ../../tools/README_Q005.md. These checks compile the diagnostic executable against synchronous CPU ACL stubs, not CANN. They do not establish device precision, asynchronous scheduling or speedup.
+
+For Q006 actual kernel-class comparisons against the saved Q002:
+
+    python -B run_q006_kernel_model.py --cxx /path/to/g++
+
+This checks 3072 candidate/baseline/scalar-oracle cases, queue ownership/draining,
+DMA/UB bounds, identical allocations/counts, and logical producer/consumer dependencies
+with negative probes. It does not model hardware elapsed time, validate CANN code
+or establish NPU precision/performance. Baseline is seat/explorations/Q006/baseline.

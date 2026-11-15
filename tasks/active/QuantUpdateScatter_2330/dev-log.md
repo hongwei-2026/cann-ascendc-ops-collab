@@ -102,3 +102,17 @@
 - narrow 496/457、wide 41.4/40.4；多行路径非拷贝瓶颈
 - DEC 更新：冲榜 → Q006 真预取/减 scalar；生产仍冻结 Q002
 - 归档 `rows01-medians.json`
+
+## 2026-11-15 — Q006 Cursor review → 入库待云
+
+- Codex：输入侧跨行预取 + 递增寻址；3072 CPU 对拍；TQue=2 未回退
+- Review：单行 else 仅 1×1×1；host 未改；输出侧仍串行 EnQue/DeQue（可接受）
+- 推送候选供 `-e`/平台；基线未升级；止损回退 Q002 baseline
+
+## 2026-11-15 — Q006 跨行预取本地候选
+
+- 先读 Q005 设备 medians、hand-off 与规则；先登记 Q006/DEC，再保存精确 Q002；main 同步至 25dfbaa（Windows 证书库重试成功，未关闭 SSL 校验）。
+- 只改 kernel header：下一行 DMA 入队在当前行消费前；src/dst 递增、middle gap、batchEnd 外提。TQue=2，UB/copy/SyncAll/四签名/RINT 链不变。
+- 3072 组实际类 Q006/Q002/oracle 对拍及逻辑依赖检查通过；其中 1664 组两行待消费。9 项参考回归/1152 组调度、四签名源码契约通过；日志 EXP_Q006。
+- 用户最新明确仅本地：未连接云端、未 commit/push。CANN、设备精度、平台/时延/profile NOT_RUN，不宣称加速。工作树为候选，采纳基线仍 Q002。
+- 下一闸：先设备 -e，再多行精度、平台 50 点与 narrow/wide 同机复测；精度挂或可见点增益 <2% 按 DEC 回退保存的 Q002。

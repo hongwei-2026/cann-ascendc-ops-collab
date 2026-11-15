@@ -158,12 +158,18 @@ for each batch p, index idx:
 - 本机 Windows **无 NPU**，Q001 编译与精度未在本地验证。  
 - `SyncAll` 在拷贝后仍需要（多核写 out 前）；不要轻易删。
 
-## 10. Q005 — 诊断已结案
+## 10. Q005 结案 → Q006 候选（已审，待云）
 
-生产仍 **Q002**（`TQue` 深度 **2**）。设备结论：
+- Q005：拷贝税仅大异址；多行 scalar/更新循环主导。
+- Q006 工作树候选：`PrefetchUpdate` + `QuantQueuedTile` 错开；src/dst 递增；**TQue 深度仍 2**；输出侧仍 EnQue→即 DeQue（仅输入侧真预取）。
+- 已采纳基线名义上仍 Q002；回退副本：`people/.../explorations/Q006/baseline/`。
+- **勿**把 TQue 改回 1；**勿**重开 Q003。
+- 下一闸：云 `-e` + 平台 vs Q002 可见点 + `profile_q005` narrow/wide_in。
 
-- 大异址：整表拷贝税 ~20 µs（成立，但冲榜次要）。
-- 多行/宽行：out≈in；scalar + 更新循环主导。
-- **下一生产路 Q006**：真·跨行预取 / 减逐行 scalar；禁止重开 Q003、禁止盲优化整表拷贝。
+## Q006 本地候选交接（2026-11-15；最新）
 
-证据：`explorations/logs/EXP_Q005/`；DEC：`decisions/DEC_Q005-profile-first.md`。
+工作树 kernel 已改为 Q006，已采纳基线仍 Q002；不要将候选误当设备通过版。只改 quant_update_scatter.h：下一行预取先于当前行 DeQue，middle 之间保持预取；src/dst 递增并提取不变量。TQue 深度仍 2，UB/copy/SyncAll/四签名/量化链不变。精确 Q002 在 seat/explorations/Q006/baseline，source.json 标识本次代码。
+
+3072 组 Q006/Q002/标量 oracle 实际类 CPU 对拍、逻辑 engine 依赖和反例检查通过；9 项参考/调度、四签名源码契约通过。看 explorations/EXP_Q006-prefetch.md 和日志 EXP_Q006。逻辑依赖模型不是 NPU 异步验证；无性能结论。
+
+用户最新指示只在本地改代码，本轮未云测、未 commit/push。设备 -e、多行精度、平台及 narrow/wide 复测仍待；没有失败/无收益测量，暂不触发回退。如精度挂或可见点增益 <2%，恢复保存的 Q002 header，记录 DEC，保留候选和全文日志。禁止重开 Q003 或从陈旧工作副本覆盖。
