@@ -27,3 +27,9 @@
 - 用户截图：测点1 Pass 5.89us；测点2 Runtime Error；后续 Skipped；ACL 161002（PARAM_INVALID）
 - Codex 本地修复：OpDef 补齐 4 签名；kernel 按 `indicesIsInt64` 分发；tiling 拒非法 indices；示例带 `aclGetRecentErrMsg`
 - 未改 Q001 计算头；平台第2点根因待重测确认；证据 `explorations/EXP_R001-runtime.md`
+
+## 2026-11-15 — R001 云端 `-e` PASS
+
+- `ad76638`：编译出 **4** 个 ascend910b bin；样例 `mismatched=0/64` / PASSED
+- tee 目录未建导致 `/tmp/.../build_e.log` 失败；全文由粘贴归档 `logs/EXP_R001/build_e-cloud-paste.log`
+- 下一闸：重新上传平台验证测点2

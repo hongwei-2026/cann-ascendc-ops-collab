@@ -8,8 +8,8 @@
 | 代码座位 | `people/yuhongming-2026/QuantUpdateScatter_2330/workdir/code/` |
 | Q001 云冒烟 | PASS `@6a7b849` samples `-e`（小 shape） |
 | 平台评测 | 测点1 Pass（5.89us vs 最优 3.68us）；**测点2 Runtime Error / ACL 161002**；3–5 Skipped |
-| R001 | OpDef 补齐 4 签名 + kernel 按 `indicesIsInt64` 分发（待平台重测） |
-| 下一闸 | 云端 `-e` 再冒烟 → **重新上传平台** 看测点2 |
+| R001 云冒烟 | **PASS** `@ad76638`：opc×4 + `mismatched=0/64` |
+| 下一闸 | **重新上传平台** 看测点2；全绿后再抠测点1 时延 |
 
 ## 一句话
 
