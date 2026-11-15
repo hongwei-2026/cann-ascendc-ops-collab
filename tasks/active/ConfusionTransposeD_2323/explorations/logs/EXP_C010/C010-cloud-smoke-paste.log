@@ -1,0 +1,14 @@
+# P010 CodeArts smoke — 2026-11-15
+# HEAD=bc14e41
+
+build.sh -e: PASS (sample 0/120)
+npu_regression: 13/13 PASS (rc=0)
+examples/run.sh: PASS (rc=0)
+
+big tensor (64,128,256)->(64,256,128) f32, 8MiB:
+- Host NOT reject: workspace_bytes=16777216 numel=2097152 (rc=0)
+- sample.py verify FAILED: exact byte size mismatch
+  CAUSE: samples/sample.py OUTPUTS hardcodes size=480 for default sample;
+  not a kernel size bug by itself. Need custom golden compare.
+
+P010_CLOUD_SMOKE formal: functional small PASS; big Host-accept PASS; big bitwise PENDING custom verify.

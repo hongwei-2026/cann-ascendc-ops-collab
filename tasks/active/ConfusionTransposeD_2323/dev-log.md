@@ -23,6 +23,11 @@
 - 本地语义检查、脚本语法、模拟Host JSON成功/失败事件检查通过；未在本机编译CANN或运行NPU。新增CodeArts隔离P004/候选样例、39项bitwise、边界诊断及探针解析流程。
 - 平台stderr可见性及隐藏点是否进入回调未知；等待C009云测，再判断提交探针包。没有平台shape或系统TBE对应profile，不作验收结论。
 
+## 2026-11-15（P010 云测 smoke）
+
+- bc14e41：build/样例/13回归 PASS；8MiB case Host 未拒（numel=2097152）；`sample.py verify` 因写死 480B 误报 FAIL。
+- 待自定义比对 golden vs output；归档 `explorations/logs/EXP_C010/C010-cloud-smoke-paste.log`。
+
 ## 2026-11-15（P010 超 UB + 行 UB）
 
 - Owner「再优化」：删 Host 超 UB 拒绝；`needFullUb`；`copySpan>1` 吃满 UB；Kernel `ProcessGmGather`。
