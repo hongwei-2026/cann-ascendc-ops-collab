@@ -228,6 +228,15 @@ __aicore__ inline void SyncBatchNormGatherStats<T>::StoreAsInputDtype(GlobalTens
         event_t eventV = static_cast<event_t>(GetTPipePtr()->FetchEventID(HardEvent::V_MTE3));
         SetFlag<HardEvent::V_MTE3>(eventV);
         WaitFlag<HardEvent::V_MTE3>(eventV);
+        // Preserve non-finite values after the final half conversion.  Some
+        // vector CAST paths canonicalize NaN/Inf, while the reference keeps
+        // them observable in batch_invstd.
+        for (int32_t i = 0; i < len; ++i) {
+            const float value = src.GetValue(i);
+            if (value != value || value == PositiveInf() || value == -PositiveInf()) {
+                raw.SetValue(i, static_cast<half>(value));
+            }
+        }
         DataCopyExtParams copyParams = {1, static_cast<uint32_t>(len * sizeof(half)), 0, 0, 0};
         DataCopyPad(gm[offset], raw, copyParams);
         event_t eventM = static_cast<event_t>(GetTPipePtr()->FetchEventID(HardEvent::MTE3_V));

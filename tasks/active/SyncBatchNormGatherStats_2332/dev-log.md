@@ -31,3 +31,13 @@
 - 卡住：隐藏点无明细；高危假说见 SUMMARY（count 求和、W>1、fp16 二次 Cast 吞 NaN 等）。
 - 下一步：新对话按 HANDOFF 排障；最小修后重交。
 - 关联道路：S003
+
+## 2026-11-17（S003 fp16 特殊值探针）
+
+- 官方任务书将 `sampleCount` 描述为各设备计数；保留现有 count 求和与
+  `worldSize` 归约语义。
+- 仅修改 `op_kernel/sync_batch_norm_gather_stats.h`：最终 fp16 向量 Cast 后，
+  在 DMA 前重新写回源 NaN 与 +/-inf。
+- `git diff --check` 通过；reference 负 `var+eps` 探针确认
+  `batch_invstd=NaN`。
+- 云端构建与平台重交尚未执行，不宣称 PASS。
