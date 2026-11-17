@@ -1,10 +1,11 @@
-# EXP_S004 result
+# EXP_S004 — 云冒烟结果
 
-| Item | Result |
-|------|--------|
-| `git diff --check` | PASS |
-| Python `count==1` reference probes | PASS; NaN/±Inf preserved by reference |
-| `bash build.sh -j8 -e` | **NOT RUN**; Windows WSL has no `/bin/bash` |
-| Platform 50-point result | **Not submitted**; S003 remains WA |
+| 项 | 内容 |
+|----|------|
+| tip | `fa21ed5` |
+| 命令 | `bash build.sh -j8 -e` |
+| 结果 | **PASS** |
+| 样例 | 四输出 mismatched=**0/6**；末行 `PASSED` |
+| 全文 | 云端 `/tmp/sbngs2332_s004/build_e.log` |
 
-No cloud or platform PASS is claimed for S004.
+样例 ≠ 平台 50 点。请用 `deliverables/SUBMIT_LINKS_S004.md` 重交。

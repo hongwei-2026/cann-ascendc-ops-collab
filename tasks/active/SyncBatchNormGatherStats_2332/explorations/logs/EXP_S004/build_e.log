@@ -1,5 +1,14 @@
-Command: bash build.sh -j8 -e
-Working directory: D:\sageAttention2 算子开发任务书\people\yuhongming-2026\SyncBatchNormGatherStats_2332\workdir\code
-Exit code: 1
+# EXP_S004 — from cloud /tmp/sbngs2332_s004/build_e.log (tail)
+# tip: fa21ed5  host: dfdd97f8c4e84acbaa54982714e4d993
 
-<3>WSL (10 - Relay) ERROR: CreateProcessCommon:818: execvpe(/bin/bash) failed: No such file or directory
+----------------------------------------------------------------
+[INFO] Build completed successfully!
+----------------------------------------------------------------
+[INFO] Running examples...
+Sample data generated.
+PASS: batch_mean.bin, mismatched=0/6
+PASS: batch_invstd.bin, mismatched=0/6
+PASS: new_mean.bin, mismatched=0/6
+PASS: new_variance.bin, mismatched=0/6
+PASSED
+[INFO] Example completed successfully!
