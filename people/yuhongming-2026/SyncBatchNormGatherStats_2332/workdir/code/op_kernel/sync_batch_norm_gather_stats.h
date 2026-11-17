@@ -187,6 +187,9 @@ __aicore__ inline void SyncBatchNormGatherStats<T>::QuantFp16Vec(LocalTensor<flo
             raw.SetValue(i, static_cast<half>(value));
         }
     }
+    event_t eventSV = static_cast<event_t>(GetTPipePtr()->FetchEventID(HardEvent::S_V));
+    SetFlag<HardEvent::S_V>(eventSV);
+    WaitFlag<HardEvent::S_V>(eventSV);
     Cast(data, raw, RoundMode::CAST_NONE, len);
 }
 
@@ -249,6 +252,9 @@ __aicore__ inline void SyncBatchNormGatherStats<T>::StoreAsInputDtype(GlobalTens
                 raw.SetValue(i, static_cast<half>(value));
             }
         }
+        event_t eventSMTE3 = static_cast<event_t>(GetTPipePtr()->FetchEventID(HardEvent::S_MTE3));
+        SetFlag<HardEvent::S_MTE3>(eventSMTE3);
+        WaitFlag<HardEvent::S_MTE3>(eventSMTE3);
         DataCopyExtParams copyParams = {1, static_cast<uint32_t>(len * sizeof(half)), 0, 0, 0};
         DataCopyPad(gm[offset], raw, copyParams);
         event_t eventM = static_cast<event_t>(GetTPipePtr()->FetchEventID(HardEvent::MTE3_V));

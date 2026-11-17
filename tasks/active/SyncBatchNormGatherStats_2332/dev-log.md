@@ -56,3 +56,10 @@
 - **改动**：`op_kernel/sync_batch_norm_gather_stats.h` 在通用 `QuantFp16Vec` 的第二次 Cast 前，用 `V_S` 同步并恢复原始非有限值；有限值路径不变。
 - **验证**：`git diff --check` 通过；Python reference 边界探针确认 NaN/±Inf 语义。Windows 本机无 WSL/CANN，`bash build.sh -j8 -e` 启动失败，全文记录于 `explorations/logs/EXP_S004/build_e.log`。
 - **下一步**：在 910B 环境构建、归档完整云日志，更新 S004 提交清单后重交平台；不做性能优化。
+
+## 2026-11-17（S004 代码审阅）
+
+- 做了：认可假说；`QuantFp16Vec` 标量回写后补 `S_V`，`StoreAsInputDtype` 标量回写后补 `S_MTE3`。
+- 结果：未云测；不宣称 PASS。
+- 下一步：云 `-e`（EXP_S004）→ SUBMIT_LINKS_S004 重交平台。
+- 关联道路：S004

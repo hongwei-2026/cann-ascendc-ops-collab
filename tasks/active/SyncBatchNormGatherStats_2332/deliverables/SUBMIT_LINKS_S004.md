@@ -1,7 +1,8 @@
 # 平台粘贴用本地超链接（S004，工作树）
 
 S004 相对 S003 仅修改 `op_kernel/sync_batch_norm_gather_stats.h`：在通用
-`QuantFp16Vec` 的 fp16 暂存回写前恢复 NaN/±Inf，并加入 `V_S` 同步；有限值路径不变。
+`QuantFp16Vec` 的 fp16 暂存回写前恢复 NaN/±Inf（`V_S` + 审阅补 `S_V`）；
+`StoreAsInputDtype` 保留 S003 补丁并补 `S_MTE3`。有限值路径不变。
 
 ## Host（未修改）
 
