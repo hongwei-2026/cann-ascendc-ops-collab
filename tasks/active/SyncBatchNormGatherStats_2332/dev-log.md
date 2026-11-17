@@ -15,3 +15,11 @@
 - 卡住：无（等云结果）。
 - 下一步：云端跑完后把 `/tmp/sbngs2332_s002/build_e.log` 归档到 `explorations/logs/EXP_S002/` 并 push。
 - 关联道路：S002
+
+## 2026-11-17（S002 结案）
+
+- 做了：云机 `reset --hard origin/main`→`219e221`；`build.sh -j8 -e`；归档 EXP_S002。
+- 结果：**PASS**（batch_mean/invstd/new_mean/new_variance 均为 mismatched=0/6；末行 PASSED）。`ascend-toolkit/set_env.sh` 不存在，构建仍过（镜像已有 CANN）。
+- 卡住：无。
+- 下一步：全量/平台精度或边界补测；不开性能；勿把样例当 50 点。
+- 关联道路：S002

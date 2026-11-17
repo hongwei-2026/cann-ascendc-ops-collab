@@ -21,8 +21,8 @@ cd /mnt/workspace/cann-ascendc-ops-collab/people/yuhongming-2026/SyncBatchNormGa
 ## 1. 环境
 
 ```bash
-source /usr/local/Ascend/ascend-toolkit/set_env.sh
-# 若上面路径不存在，改用：
+# 本云镜像可能没有 ascend-toolkit；若文件不存在可跳过（环境往往已预置）
+# source /usr/local/Ascend/ascend-toolkit/set_env.sh
 # source /usr/local/Ascend/cann/set_env.sh
 
 export DEVICE_ID=0

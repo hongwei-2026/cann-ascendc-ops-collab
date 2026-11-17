@@ -1,0 +1,27 @@
+# EXP_S002 — archived from cloud paste /tmp/sbngs2332_s002/build_e.log
+# Prefer overwriting with: cp /tmp/sbngs2332_s002/build_e.log this file
+# host: dfdd97f8c4e84acbaa54982714e4d993  tip: 219e221  cmd: bash build.sh -j8 -e
+
+----------------------------------------------------------------
+[INFO] Configuring project...
+[INFO] CMAKE_ARGS: -DASCEND_COMPUTE_UNIT=ascend910b -DCANNJUDGE_COMPILE_JOBS=8
+-- Configuring done
+-- Generating done
+-- Build files have been written to: .../workdir/code/build
+----------------------------------------------------------------
+[INFO] Building project with 8 threads...
+[ascend910b] Generating SyncBatchNormGatherStats_* Done (4 binary keys)
+[100%] Built target binary
+Self-extractable archive "custom_opp_ubuntu_aarch64.run" successfully created.
+----------------------------------------------------------------
+[INFO] Build completed successfully!
+[INFO] Package: .../build/custom_opp_ubuntu_aarch64.run
+----------------------------------------------------------------
+[INFO] Running examples...
+Sample data generated.
+PASS: batch_mean.bin, mismatched=0/6
+PASS: batch_invstd.bin, mismatched=0/6
+PASS: new_mean.bin, mismatched=0/6
+PASS: new_variance.bin, mismatched=0/6
+PASSED
+[INFO] Example completed successfully!
