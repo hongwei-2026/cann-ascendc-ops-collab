@@ -1,0 +1,8 @@
+# 道路台账 — SyncBatchNormGatherStats_2332
+
+> 规范见 `docs/collaboration/01-path-ledger.md`。开新路前先搜索本表。
+
+| ID | 日期 | 作者 | 阶段 | 假设 | 方法 | 时限 | 结果 | 结论 | 耗时 |
+|----|------|------|------|------|------|------|------|------|------|
+| S001 | 2026-11-17 | yuhongming-2026 | 开题 | ZIP 基线可编译且已对齐 910B fp16 语义 | 剔 build 导入座位 workdir；建台账；≥3 路分析 + SUMMARY | 1 会话 | 脚手架完成；SUMMARY 定稿 | **采纳（开题）**；深度实现待用户确认 | ~1h |
+| S002 | 2026-11-17 | yuhongming-2026 | 功能 | 基线正确性优先：fp16 量化 + 中间 fp32 + count==1→inf | 按 SUMMARY P0：云 `build.sh -j8 -e` 冒烟；log→`explorations/logs/EXP_S002`；不做性能死磕 | 1 天 | （待云测） | **进行中** | |

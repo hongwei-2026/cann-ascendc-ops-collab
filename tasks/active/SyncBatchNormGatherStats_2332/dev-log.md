@@ -1,0 +1,17 @@
+# 开发流水 — SyncBatchNormGatherStats_2332
+
+## 2026-11-17
+
+- 做了：读 AGENTS / 05-ai-work-protocol / CLAIM；启用 cann-spmv-ascendc；从 `D:\华为算子比赛\SyncBatchNormGatherStats_2332.zip` 导入代码到 `people/yuhongming-2026/SyncBatchNormGatherStats_2332/workdir/code/`（剔 `build/`、`__pycache__`、stub_reg.log）；建 STATUS / path-ledger / CLOUD-RUN / AI-HANDOFF / TASK / WORKDIR；三路独立分析 AI-1/2/3 + `analysis/SUMMARY.md` 定稿。
+- 结果：座位 yuhongming-2026；基线完整；SUMMARY 共识=验证优先勿重写；废弃清单 D-01～D-10；STATUS=`分析定稿`。
+- 卡住：本机 `git pull` SSL 失败（未阻塞）；云测未跑；未 commit（等用户下令）。
+- 下一步：用户确认「可以编码/云测」→ P0 `build.sh -e` + 边界对拍；公开时 commit + push main。
+- 关联道路：S001（结案）· S002（规划中）
+
+## 2026-11-17（S002 开工）
+
+- 做了：STATUS→实现中（P0 云冒烟）；S002 标进行中；CLOUD-RUN 改为 EXP_S002；准备 commit/push 供云端 pull。
+- 结果：本机不改 Kernel；等云端 `-e` 全文 log。
+- 卡住：无（等云结果）。
+- 下一步：云端跑完后把 `/tmp/sbngs2332_s002/build_e.log` 归档到 `explorations/logs/EXP_S002/` 并 push。
+- 关联道路：S002

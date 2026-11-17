@@ -1,0 +1,195 @@
+{
+  "source_case": "npu_cases[0]",
+  "function": "impl",
+  "attributes": {
+    "momentum": 0.1,
+    "eps": 1e-05
+  },
+  "inputs": [
+    {
+      "name": "total_sum",
+      "kind": "required",
+      "tensors": [
+        {
+          "file": "total_sum.bin",
+          "dtype": "float32",
+          "shape": [
+            1,
+            6
+          ],
+          "bytes": 24,
+          "elements": 6,
+          "range": [
+            100,
+            500
+          ],
+          "value": null,
+          "value_url": null,
+          "value_sha256": null
+        }
+      ]
+    },
+    {
+      "name": "total_square_sum",
+      "kind": "required",
+      "tensors": [
+        {
+          "file": "total_square_sum.bin",
+          "dtype": "float32",
+          "shape": [
+            1,
+            6
+          ],
+          "bytes": 24,
+          "elements": 6,
+          "range": [
+            1000,
+            5000
+          ],
+          "value": null,
+          "value_url": null,
+          "value_sha256": null
+        }
+      ]
+    },
+    {
+      "name": "sample_count",
+      "kind": "required",
+      "tensors": [
+        {
+          "file": "sample_count.bin",
+          "dtype": "int32",
+          "shape": [
+            1
+          ],
+          "bytes": 4,
+          "elements": 1,
+          "range": null,
+          "value": [
+            100
+          ],
+          "value_url": null,
+          "value_sha256": null
+        }
+      ]
+    },
+    {
+      "name": "mean",
+      "kind": "required",
+      "tensors": [
+        {
+          "file": "mean.bin",
+          "dtype": "float32",
+          "shape": [
+            6
+          ],
+          "bytes": 24,
+          "elements": 6,
+          "range": [
+            1,
+            10
+          ],
+          "value": null,
+          "value_url": null,
+          "value_sha256": null
+        }
+      ]
+    },
+    {
+      "name": "variance",
+      "kind": "required",
+      "tensors": [
+        {
+          "file": "variance.bin",
+          "dtype": "float32",
+          "shape": [
+            6
+          ],
+          "bytes": 24,
+          "elements": 6,
+          "range": [
+            1,
+            10
+          ],
+          "value": null,
+          "value_url": null,
+          "value_sha256": null
+        }
+      ]
+    }
+  ],
+  "outputs": [
+    {
+      "name": "batch_mean",
+      "kind": "required",
+      "tensors": [
+        {
+          "file": "batch_mean.bin",
+          "dtype": "float32",
+          "shape": [
+            6
+          ],
+          "bytes": 24,
+          "elements": 6,
+          "rtol": 0.0001,
+          "atol": 0.0001,
+          "tol": 0.0001
+        }
+      ]
+    },
+    {
+      "name": "batch_invstd",
+      "kind": "required",
+      "tensors": [
+        {
+          "file": "batch_invstd.bin",
+          "dtype": "float32",
+          "shape": [
+            6
+          ],
+          "bytes": 24,
+          "elements": 6,
+          "rtol": 0.0001,
+          "atol": 0.0001,
+          "tol": 0.0001
+        }
+      ]
+    },
+    {
+      "name": "new_mean",
+      "kind": "required",
+      "tensors": [
+        {
+          "file": "new_mean.bin",
+          "dtype": "float32",
+          "shape": [
+            6
+          ],
+          "bytes": 24,
+          "elements": 6,
+          "rtol": 0.0001,
+          "atol": 0.0001,
+          "tol": 0.0001
+        }
+      ]
+    },
+    {
+      "name": "new_variance",
+      "kind": "required",
+      "tensors": [
+        {
+          "file": "new_variance.bin",
+          "dtype": "float32",
+          "shape": [
+            6
+          ],
+          "bytes": 24,
+          "elements": 6,
+          "rtol": 0.0001,
+          "atol": 0.0001,
+          "tol": 0.0001
+        }
+      ]
+    }
+  ]
+}
