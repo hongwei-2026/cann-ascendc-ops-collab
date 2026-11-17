@@ -41,3 +41,11 @@
 - `git diff --check` 通过；reference 负 `var+eps` 探针确认
   `batch_invstd=NaN`。
 - 云端构建与平台重交尚未执行，不宣称 PASS。
+
+## 2026-11-17（EXP_S003 云 `-e`）
+
+- 做了：云 pull→`74674f2`；`build.sh --make_clean` + `-j8 -e`；归档 EXP_S003。
+- 结果：**PASS**（四输出 0/6）。
+- 卡住：无。
+- 下一步：按 SUBMIT_LINKS_S003 重交平台；结果回写 S003 结案或开 S004。
+- 关联道路：S003

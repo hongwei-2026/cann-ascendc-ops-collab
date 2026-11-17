@@ -1,0 +1,14 @@
+# EXP_S003 — from cloud tee /tmp/sbngs2332_s003/build_e.log (summary + tail)
+# tip: 74674f2 / kernel 18e8ca5  host: dfdd97f8c4e84acbaa54982714e4d993
+
+----------------------------------------------------------------
+[INFO] Build completed successfully!
+----------------------------------------------------------------
+[INFO] Running examples...
+Sample data generated.
+PASS: batch_mean.bin, mismatched=0/6
+PASS: batch_invstd.bin, mismatched=0/6
+PASS: new_mean.bin, mismatched=0/6
+PASS: new_variance.bin, mismatched=0/6
+PASSED
+[INFO] Example completed successfully!
