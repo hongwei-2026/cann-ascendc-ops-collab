@@ -175,6 +175,18 @@ __aicore__ inline void SyncBatchNormGatherStats<T>::QuantFp16Vec(LocalTensor<flo
 {
     LocalTensor<half> raw = rawBuf_.Get<half>();
     Cast(raw, data, RoundMode::CAST_RINT, len);
+    // Keep non-finite values visible through the fp16-grid round trip.  This
+    // matters for new_variance when count==1 (inf*0 can produce NaN), while
+    // finite values retain the vector cast result.
+    event_t eventVS = static_cast<event_t>(GetTPipePtr()->FetchEventID(HardEvent::V_S));
+    SetFlag<HardEvent::V_S>(eventVS);
+    WaitFlag<HardEvent::V_S>(eventVS);
+    for (int32_t i = 0; i < len; ++i) {
+        const float value = data.GetValue(i);
+        if (value != value || value == PositiveInf() || value == -PositiveInf()) {
+            raw.SetValue(i, static_cast<half>(value));
+        }
+    }
     Cast(data, raw, RoundMode::CAST_NONE, len);
 }
 

@@ -1,0 +1,12 @@
+{
+  "exp": "EXP_S004",
+  "road": "S004",
+  "date": "2026-11-17",
+  "host": "windows-local",
+  "base_commit": "ee2f397",
+  "cmd": "bash build.sh -j8 -e",
+  "code": "people/yuhongming-2026/SyncBatchNormGatherStats_2332/workdir/code",
+  "result": "NOT_RUN",
+  "sample": null,
+  "notes": "Common QuantFp16Vec non-finite preservation; local host has no WSL /bin/bash or CANN toolchain."
+}
