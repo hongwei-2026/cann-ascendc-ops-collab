@@ -11,6 +11,6 @@
 | S005 | 2026-11-19 | yuhongming-2026 | 精度 | 隐藏 WA ≠ 输出 Cast 吞 NaN；疑 count/W>1/dtype | 回退 Quant/Store 至 S002；另路证据（下载工程/构造 case） | 1–2 天 | 回退完成；未取到平台工程证据 | **转 S006**（有限值舍入假说优先） | |
 | S006 | 2026-11-19 | yuhongming-2026 | 精度 | `x*(1/n)` vs `x/n` 可越过 fp16 边界致有限值 WA | `accSum`/`accSq` 改向量 `Div`；`tests/s006_rounding.py`；tip `b2271b4` | 1 会话 | 云 `-e`+rounding **PASS** 0/6（EXP_S006）；平台待重交 | **采纳（样例）**；≠平台 50 点 | |
 | S007 | 2026-11-19 | yuhongming-2026 | 精度 | 隐藏失败可能涉及 dtype、分块尾部、数值边界、count 或设备维，现有 C=6 冒烟无法覆盖 | 157 例矩阵 + `s007_runner`；单机单 count↔reference；W/count 多义为 PROBE | 1 会话 | 云 **PASS=144 FAIL=1 ERROR=0 PROBE=12**；PROBE 对齐 `world_sum+count_sum`；FAIL=`c524289` batch_mean 大片 0 | **采纳（证据）**；转 S008 修大 C | |
-| S008 | 2026-11-19 | yuhongming-2026 | 精度 | 大 C 时 `batch_mean` GM 写回失败/截断（`SetGlobalBuffer` 无长度或 store 路径） | 复现 `large_f32_i32_c524289`；给 GM `SetGlobalBuffer(ptr, numel)`；查多核/同步 | 1 会话 | 待开工 | **进行中** | |
+| S008 | 2026-11-19 | yuhongming-2026 | 精度 | 多 tile 时 MTE3 仍在读取输出缓存，下一 tile 的向量操作已复用该缓存；长度和多核也需证据裁决 | 保留 MTE3_MTE2，增加 MTE3_V；原种子重复运行大 C 后回归 157 例 | 1 会话 | 静态发现同步缺口；910B 复现和修复效果待验证；SetGlobalBuffer 长度假说未证实 | **进行中** | |
 
 S003/S004 note: 标量保 NaN 族补丁 **禁止重开**。平台 1–5 始终 Pass/0%；隐藏点根因未解。

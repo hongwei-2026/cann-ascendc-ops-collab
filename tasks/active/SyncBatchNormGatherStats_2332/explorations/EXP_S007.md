@@ -23,7 +23,7 @@ Host `dfdd97f8…`, tip `9c865d9`:
 `TOTAL {"PASS": 144, "FAIL": 1, "ERROR": 0, "PROBE": 12}`
 
 - Oracle cases through C=4097 + dtype/边界/舍入：**PASS**
-- PROBE：设备输出 ≡ **`world_sum` + `count_sum`**
+- PROBE：本次运行的自定义核输出与 **`world_sum` + `count_sum`** 候选一致；未运行独立内置算子，不能证明平台真值
 - FAIL：`large_f32_i32_c524289` — `batch_mean` ~半数为 0，`new_mean` 全对 → S008
 
 Logs: `explorations/logs/EXP_S007/`（云上另有全文 `matrix.log` / `results.json`，请 push）。

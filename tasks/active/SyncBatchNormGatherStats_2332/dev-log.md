@@ -97,3 +97,13 @@
 - 审阅（本会话）：**采纳为排障工具**；未改 Kernel；本机 `--self-test` PASS（157）；CMake 挂 `s007_runner`+`sample_support.h` 合理。注意：`c524289` 可能慢/吃内存；PROBE≠真值；矩阵全绿≠平台过。
 - 云结果：PASS=144 / FAIL=1 / ERROR=0 / PROBE=12。PROBE 证实 Kernel=world/count 求和；唯一 FAIL=`large_f32_i32_c524289`（batch_mean 大片 0，new_mean 全对）。
 - 下一步：云归档 matrix.log+results.json 并 push；开 S008 修大 C（优先 `SetGlobalBuffer` 带 numel）。
+
+## S008 多 tile 同步排查
+
+- 静态检查：tile 尾部已有 MTE3_MTE2，但后续 ComputeTile 先复用 VECCALC 缓存；
+  单独等待 MTE2 不保证 MTE3 完成读取后才启动下一次向量操作。
+- 最小改动：保留原 MTE3_MTE2，新增 MTE3_V 后再复用缓存；未改 count、world 或 GM 长度。
+- 检测脚本新增按名称筛选，保留原矩阵索引和随机种子；先重复失败大 C 再全矩阵。
+- 用户提供的 S007 终端粘贴记录已原样归档；独立日志文件及二进制数据尚未同步。
+  未在 910B 验证 S008；SetGlobalBuffer 长度假说仍未证实。
+- PROBE 对照的是自定义核与候选模型，不等于独立内置算子或平台裁决。

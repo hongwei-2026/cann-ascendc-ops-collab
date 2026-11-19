@@ -177,14 +177,22 @@ def run_case(case, index, base, executable, env):
         return dict(status="ERROR", detail=str(error))
 
 
+def select_cases(matrix, name):
+    return [(i, case) for i, case in enumerate(matrix) if not name or case["name"] == name]
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--output", type=Path, default=ROOT / "samples" / "build" / "s007")
     parser.add_argument("--self-test", action="store_true")
+    parser.add_argument("--case", help="Run one named case using its original matrix seed")
     args = parser.parse_args()
     matrix = cases()
     if args.self_test:
         assert len({case["name"] for case in matrix}) == len(matrix)
+        selected = select_cases(matrix, "large_f32_i32_c524289")
+        assert len(selected) == 1 and selected[0][0] == len(matrix) - 1
+        assert not select_cases(matrix, "nonexistent")
         for i, case in enumerate(matrix):
             data = inputs_for(case, 20261119 + i)
             assert data["total_sum"].shape == (case["world"], case["c"])
@@ -235,11 +243,14 @@ def main():
     env["ASCEND_CUSTOM_OPP_PATH"] = str(vendor) + os.pathsep + env.get("ASCEND_CUSTOM_OPP_PATH", "")
     env["LD_LIBRARY_PATH"] = os.pathsep.join((str(vendor / "op_api" / "lib"),
                                                str(Path(home) / "lib64"), env.get("LD_LIBRARY_PATH", "")))
+    selected = select_cases(matrix, args.case)
+    if not selected:
+        parser.error(f"unknown case: {args.case}")
     results = {}
-    for i, case in enumerate(matrix):
+    for position, (i, case) in enumerate(selected, 1):
         result = run_case(case, i, base, executable, env)
         results[case["name"]] = result
-        print(f"{i + 1}/{len(matrix)} {case['name']}: {result['status']} "
+        print(f"{position}/{len(selected)} {case['name']}: {result['status']} "
               + json.dumps(result, ensure_ascii=False), flush=True)
         (base / "results.json").write_text(json.dumps(results, indent=2), encoding="utf-8")
     totals = {key: sum(r["status"] == key for r in results.values())

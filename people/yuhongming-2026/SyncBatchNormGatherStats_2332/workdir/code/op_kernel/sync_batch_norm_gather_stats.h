@@ -326,9 +326,13 @@ __aicore__ inline void SyncBatchNormGatherStats<T>::ComputeTile(int64_t channel,
     StoreFloat(newMeanGm_, channel, len, mean);
     StoreFloat(newVarGm_, channel, len, var);
 
-    event_t eventMTE3V = static_cast<event_t>(GetTPipePtr()->FetchEventID(HardEvent::MTE3_MTE2));
-    SetFlag<HardEvent::MTE3_MTE2>(eventMTE3V);
-    WaitFlag<HardEvent::MTE3_MTE2>(eventMTE3V);
+    // The next tile reuses vector buffers that MTE3 may still be reading.
+    event_t eventMte3V = static_cast<event_t>(GetTPipePtr()->FetchEventID(HardEvent::MTE3_V));
+    SetFlag<HardEvent::MTE3_V>(eventMte3V);
+    WaitFlag<HardEvent::MTE3_V>(eventMte3V);
+    event_t eventMte3Mte2 = static_cast<event_t>(GetTPipePtr()->FetchEventID(HardEvent::MTE3_MTE2));
+    SetFlag<HardEvent::MTE3_MTE2>(eventMte3Mte2);
+    WaitFlag<HardEvent::MTE3_MTE2>(eventMte3Mte2);
 }
 
 template <typename T>
