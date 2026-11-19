@@ -143,6 +143,15 @@
   installed legacy source explicitly limits count to int32. Actual device
   dispatch was not traced. CPU ordering analysis is recorded in EXP_S010;
   no kernel arithmetic changed.
+
+## S011 controlled variance-order experiment
+
+- Prepared a separate S008-based project that changes only multiplication
+  order for new_variance; the submit baseline is unchanged.
+- Local checks confirmed the exact kernel diff, input/reference checks, 12
+  synthetic comparisons and rejection of unexpected unaffected-output changes.
+- 910B build, 15-channel comparison, S006 and full S007 matrix pending; see
+  CLOUD-S011. Both reference and saved system outputs must be reported.
 - 审阅（本会话）：**采纳为诊断工具**；本机 `--self-test` PASS；未改 Kernel。
   注意只抽到打印出的 8 个 new_var 下标（原 13）。平台仍交 S008/`140dbdf`，
   勿因 compact 严格 FAIL 去改算术。
