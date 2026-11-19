@@ -269,13 +269,13 @@ __aicore__ inline void SyncBatchNormGatherStats<T>::ComputeTile(int64_t channel,
     LoadQuantized(varGm_, channel, len, calcCount, var);
 
     const float n = sampleCount_;
-    const float invN = 1.0f / n;
     const float oneMinus = 1.0f - momentum_;
     const float unbias = (n == 1.0f) ? PositiveInf() : (n / (n - 1.0f));
     const float unbiasMom = unbias * momentum_;
 
-    Muls(accSum, accSum, invN, calcCount);
-    Muls(accSq, accSq, invN, calcCount);
+    Duplicate(load, n, calcCount);
+    Div(accSum, accSum, load, calcCount);
+    Div(accSq, accSq, load, calcCount);
     Mul(tmp, accSum, accSum, calcCount);
     Sub(accSq, accSq, tmp, calcCount);
     // invstd：向量 Sqrt+Div（负 var+eps 在量化后再标量补 NaN，避免 Cast 清掉 NaN）

@@ -9,5 +9,6 @@
 | S003 | 2026-11-17 | yuhongming-2026 | 精度 | fp16 二次 Cast 吞 NaN/Inf 致隐藏点 WA | 仅改 StoreAsInputDtype：Cast 后标量回写 NaN/±inf；保留 count 求和 | 1–2 天 | 云 `-e` PASS；平台仍 **WA** | **部分采纳**（不够，转入 S004） | |
 | S004 | 2026-11-17 | yuhongming-2026 | 精度 | `QuantFp16Vec` 往返吞 `new_variance` NaN/±Inf（`count==1`） | helper 内 half 暂存回写非有限值 + `S_V`/`S_MTE3` | 1 会话 | 云 PASS；平台仍 **WA**；可见点 **~6.05–6.69μs**（劣于 S002） | **废弃**（无 WA 收益 + 性能税） | |
 | S005 | 2026-11-19 | yuhongming-2026 | 精度 | 隐藏 WA ≠ 输出 Cast 吞 NaN；疑 count/W>1/dtype | 回退 Quant/Store 至 S002；另路证据（下载工程/构造 case） | 1–2 天 | 代码已回退；等新证据 | **进行中** | |
+| S006 | 2026-11-19 | yuhongming-2026 | 精度 | 用 fp32 倒数相乘替代 reference 的除法可能跨越 fp16 舍入边界，造成有限值 WA | 两处均值计算改为向量直接除法；用固定边界样例与 reference 比较；云端验证设备实际行为 | 1 会话 | CPU 数值模型发现边界差异；910B 验证待执行 | **进行中** | |
 
 S003/S004 note: 标量保 NaN 族补丁 **禁止重开**。平台 1–5 始终 Pass/0%；隐藏点根因未解。
