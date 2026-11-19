@@ -35,3 +35,26 @@ returns batch mean and inverse standard deviation, and updates mean and variance
 in place. The discovered entry point and installed device files are candidates,
 not proof that a specific device kernel was dispatched. See CLOUD-S010 for
 the isolated comparison and the native/fp16-input distinction.
+
+Cloud system API comparison at 2a64a0b: system libopapi loaded, and global
+vendor config lists p_relu_grad_update_custom, not this operator. Actual
+device dispatch was not traced. Three int32 calls executed. On f16 input,
+system vs custom mismatches were 0/2/0/4 for the four outputs; system vs
+reference were 0/5/0/4. Native f32 differs from fp16-input results.
+All three int64-count calls returned ACL 161002; the installed legacy
+operator metadata and check_param list only int32 count. This does not
+establish the custom operator or platform's int64 behavior.
+
+The user supplied excerpts of installed legacy Python source: it sums
+world-size counts, multiplies by reciprocal count, computes rsqrt with
+vec_rsqrt_high_preci, and multiplies variance by unbias then momentum.
+Dispatch to that specific implementation is not proven.
+
+tests/s010_order_analysis.py models fp32 operation orders on the original
+large input. Reciprocal plus factor-first reproduces 8/8 printed system
+new_variance examples; division plus factor-first reproduces 7/8. Against
+the local reference on the whole input, division plus momentum-first has
+12 mismatches, division plus factor-first 14, reciprocal plus factor-first
+18. The model is not device evidence for a modified custom kernel and
+does not establish the platform golden. Keep the kernel unchanged pending
+an experiment explicitly weighing both reference and system outputs.

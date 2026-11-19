@@ -138,6 +138,11 @@
 - System ACLNN entry and header discovered; it updates mean and variance
   in place. Added a separate system-linked runner and comparison script;
   device execution and dispatched-kernel identification remain pending.
+- System API ran for int32 count: fp16 system versus custom has 0/2/0/4
+  mismatches and versus reference 0/5/0/4. Three int64 calls returned 161002;
+  installed legacy source explicitly limits count to int32. Actual device
+  dispatch was not traced. CPU ordering analysis is recorded in EXP_S010;
+  no kernel arithmetic changed.
 - 审阅（本会话）：**采纳为诊断工具**；本机 `--self-test` PASS；未改 Kernel。
   注意只抽到打印出的 8 个 new_var 下标（原 13）。平台仍交 S008/`140dbdf`，
   勿因 compact 严格 FAIL 去改算术。

@@ -1,0 +1,98 @@
+developer@dfdd97f8c4e84acbaa54982714e4d993:/mnt/workspace/cann-ascendc-ops-collab$ cd /mnt/workspace/cann-ascendc-ops-collab
+ --ff-only origin main
+export DEVICE_ID=0
+export S010_LOG="$PWD/tasks/active/SyncBatchNormGatherStatdeveloper@dfdd97f8c4e84acbaa54982714e4d993:/mnt/workspace/cann-ascendc-ops-collab$ git pull --ff-only origin main
+s_2332/explorations/logs/EXP_S010"
+mkdir -p "$S010_LOG"
+cd people/yuhongming-2026/SyncBatchNormGatherStats_2332/workdir/code
+
+set -e -o pipefail
+python3 -B tests/s010_builtin_compare.py --self-test 2>&1 | tee "$S010_LOG/builtin-selftest.log"
+mkdir -p samples/build
+g++ -std=c++17 -Iexamples -I"$ASCEND_HOME_PATH/include" \
+  tests/s010_builtin_runner.cpp "$ASCEND_HOME_PATH/lib64/libopapi.so" \
+  -L"$ASCEND_HOME_PATH/lib64" -lascendcl -lnnopbase -ldl \
+  -Wl,-rpath,"$ASCEND_HOME_PATH/lib64" -o samples/build/s010_builtin_runner \
+  2>&1 | tee "$S010_LOG/builtin-build.log"
+
+{
+  echo "ASCEND_OPP_PATH=${ASCEND_OPP_PATH:-unset}"
+  if [ -d "${ASCEND_OPP_PATH:-/nonexistent}/vendors" ]; then
+    find "$ASCEND_OPP_PATH/vendors" -maxdepth 2 -type f -print
+    [ ! -f "$ASCEND_OPP_PATH/vendors/config.ini" ] || cat "$ASCEND_OPP_PATH/vendors/config.ini"
+  else
+    echo "No global vendors directory found."
+  fi
+} 2>&1 | tee "$S010_LOG/builtin-vendors.log"
+
+set +e
+python3 -B tests/s010_builtin_compare.py 2>&1 | tee "$S010_LOG/builtin-compare.log"
+compare_status=${PIPESTATUS[0]}
+set -e
+echo "comparison exit: $compare_status"
+cp samples/build/s010-builtin/results.json "$S010_LOG/builtin-results.json"
+remote: Enumerating objects: 37, done.
+remote: Counting objects: 100% (37/37), done.
+remote: Compressing objects: 100% (8/8), done.
+remote: Total 21 (delta 12), reused 21 (delta 12), pack-reused 0 (from 0)
+Unpacking objects: 100% (21/21), 10.39 KiB | 1.15 MiB/s, done.
+From https://github.com/hongwei-2026/cann-ascendc-ops-collab
+ * branch            main       -> FETCH_HEAD
+   2574fc4..2a64a0b  main       -> origin/main
+Updating 2574fc4..2a64a0b
+Fast-forward
+ people/yuhongming-2026/SyncBatchNormGatherStats_2332/workdir/code/tests/s010_builtin_compare.py | 119 +++++++++++++++++++++++++++++++++++
+ people/yuhongming-2026/SyncBatchNormGatherStats_2332/workdir/code/tests/s010_builtin_runner.cpp |  71 +++++++++++++++++++++
+ tasks/active/SyncBatchNormGatherStats_2332/CLOUD-S010.md                                        |  50 +++++++++++++++
+ tasks/active/SyncBatchNormGatherStats_2332/dev-log.md                                           |   3 +
+ tasks/active/SyncBatchNormGatherStats_2332/explorations/EXP_S010.md                             |   7 +++
+ tasks/active/SyncBatchNormGatherStats_2332/explorations/logs/EXP_S010/discovery-transcript.log  | 249 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ tasks/active/SyncBatchNormGatherStats_2332/path-ledger.md                                       |   2 +-
+ 7 files changed, 500 insertions(+), 1 deletion(-)
+ create mode 100644 people/yuhongming-2026/SyncBatchNormGatherStats_2332/workdir/code/tests/s010_builtin_compare.py
+ create mode 100644 people/yuhongming-2026/SyncBatchNormGatherStats_2332/workdir/code/tests/s010_builtin_runner.cpp
+ create mode 100644 tasks/active/SyncBatchNormGatherStats_2332/explorations/logs/EXP_S010/discovery-transcript.log
+developer@dfdd97f8c4e84acbaa54982714e4d993:/mnt/workspace/cann-ascendc-ops-collab$ export DEVICE_ID=0
+developer@dfdd97f8c4e84acbaa54982714e4d993:/mnt/workspace/cann-ascendc-ops-collab$ export S010_LOG="$PWD/tasks/active/SyncBatchNormGatherStats_2332/explorations/logs/EXP_S010"
+developer@dfdd97f8c4e84acbaa54982714e4d993:/mnt/workspace/cann-ascendc-ops-collab$ mkdir -p "$S010_LOG"
+developer@dfdd97f8c4e84acbaa54982714e4d993:/mnt/workspace/cann-ascendc-ops-collab$ cd people/yuhongming-2026/SyncBatchNormGatherStats_2332/workdir/code
+developer@dfdd97f8c4e84acbaa54982714e4d993:.../SyncBatchNormGatherStats_2332/workdir/code$ 
+developer@dfdd97f8c4e84acbaa54982714e4d993:.../SyncBatchNormGatherStats_2332/workdir/code$ set -e -o pipefail
+developer@dfdd97f8c4e84acbaa54982714e4d993:.../SyncBatchNormGatherStats_2332/workdir/code$ python3 -B tests/s010_builtin_compare.py --self-test 2>&1 | tee "$S010_LOG/builtin-selftest.log"
+SELF-TEST PASS: four original inputs; no device executed
+developer@dfdd97f8c4e84acbaa54982714e4d993:.../SyncBatchNormGatherStats_2332/workdir/code$ mkdir -p samples/build
+developer@dfdd97f8c4e84acbaa54982714e4d993:.../SyncBatchNormGatherStats_2332/workdir/code$ g++ -std=c++17 -Iexamples -I"$ASCEND_HOME_PATH/include" \
+>   tests/s010_builtin_runner.cpp "$ASCEND_HOME_PATH/lib64/libopapi.so" \
+>   -L"$ASCEND_HOME_PATH/lib64" -lascendcl -lnnopbase -ldl \
+>   -Wl,-rpath,"$ASCEND_HOME_PATH/lib64" -o samples/build/s010_builtin_runner \
+>   2>&1 | tee "$S010_LOG/builtin-build.log"
+developer@dfdd97f8c4e84acbaa54982714e4d993:.../SyncBatchNormGatherStats_2332/workdir/code$ 
+developer@dfdd97f8c4e84acbaa54982714e4d993:.../SyncBatchNormGatherStats_2332/workdir/code$ {
+>   echo "ASCEND_OPP_PATH=${ASCEND_OPP_PATH:-unset}"
+>   if [ -d "${ASCEND_OPP_PATH:-/nonexistent}/vendors" ]; then
+>     find "$ASCEND_OPP_PATH/vendors" -maxdepth 2 -type f -print
+>     [ ! -f "$ASCEND_OPP_PATH/vendors/config.ini" ] || cat "$ASCEND_OPP_PATH/vendors/config.ini"
+>   else
+>     echo "No global vendors directory found."
+>   fi
+> } 2>&1 | tee "$S010_LOG/builtin-vendors.log"
+ASCEND_OPP_PATH=/home/developer/Ascend/cann-9.1.0/opp
+/home/developer/Ascend/cann-9.1.0/opp/vendors/config.ini
+/home/developer/Ascend/cann-9.1.0/opp/vendors/p_relu_grad_update_custom/version.info
+load_priority=p_relu_grad_update_custom
+developer@dfdd97f8c4e84acbaa54982714e4d993:.../SyncBatchNormGatherStats_2332/workdir/code$ 
+developer@dfdd97f8c4e84acbaa54982714e4d993:.../SyncBatchNormGatherStats_2332/workdir/code$ set +e
+developer@dfdd97f8c4e84acbaa54982714e4d993:.../SyncBatchNormGatherStats_2332/workdir/code$ python3 -B tests/s010_builtin_compare.py 2>&1 | tee "$S010_LOG/builtin-compare.log"
+f32_i32_native: {"status": "EXECUTED", "library": "/home/developer/Ascend/cann-9.1.0/lib64/libopapi.so", "vs_reference": {"batch_mean": {"mismatched": 4, "total": 15, "sample_rule_limit": 0.0015, "sample_rule_pass": false, "examples": [{"index": 0, "actual": "0.6960673", "expected": "0.69628906"}, {"index": 1, "actual": "0.61986595", "expected": "0.6201172"}, {"index": 9, "actual": "-0.35106486", "expected": "-0.35083008"}, {"index": 13, "actual": "0.51539093", "expected": "0.5151367"}]}, "batch_invstd": {"mismatched": 1, "total": 15, "sample_rule_limit": 0.0015, "sample_rule_pass": false, "examples": [{"index": 2, "actual": "0.2925674", "expected": "0.2927246"}]}, "new_mean": {"mismatched": 7, "total": 15, "sample_rule_limit": 0.0015, "sample_rule_pass": false, "examples": [{"index": 4, "actual": "4.3020453", "expected": "4.3046875"}, {"index": 7, "actual": "0.6062407", "expected": "0.60595703"}, {"index": 8, "actual": "-2.686092", "expected": "-2.6855469"}, {"index": 9, "actual": "3.8448226", "expected": "3.8457031"}, {"index": 11, "actual": "1.4820255", "expected": "1.4814453"}, {"index": 12, "actual": "1.5177052", "expected": "1.5185547"}, {"index": 13, "actual": "1.7755835", "expected": "1.7763672"}]}, "new_variance": {"mismatched": 10, "total": 15, "sample_rule_limit": 0.0015, "sample_rule_pass": false, "examples": [{"index": 1, "actual": "6.411397", "expected": "6.4101562"}, {"index": 3, "actual": "9.2207155", "expected": "9.21875"}, {"index": 5, "actual": "10.013792", "expected": "10.015625"}, {"index": 7, "actual": "7.60777", "expected": "7.6054688"}, {"index": 8, "actual": "5.9212465", "expected": "5.9179688"}, {"index": 9, "actual": "5.889185", "expected": "5.890625"}, {"index": 11, "actual": "7.573062", "expected": "7.5742188"}, {"index": 12, "actual": "10.426163", "expected": "10.4296875"}]}}, "vs_custom": {"batch_mean": {"mismatched": 4, "total": 15, "sample_rule_limit": 0.0015, "sample_rule_pass": false, "examples": [{"index": 0, "actual": "0.6960673", "expected": "0.69628906"}, {"index": 1, "actual": "0.61986595", "expected": "0.6201172"}, {"index": 9, "actual": "-0.35106486", "expected": "-0.35083008"}, {"index": 13, "actual": "0.51539093", "expected": "0.5151367"}]}, "batch_invstd": {"mismatched": 0, "total": 15, "sample_rule_limit": 0.0015, "sample_rule_pass": true, "examples": []}, "new_mean": {"mismatched": 7, "total": 15, "sample_rule_limit": 0.0015, "sample_rule_pass": false, "examples": [{"index": 4, "actual": "4.3020453", "expected": "4.3046875"}, {"index": 7, "actual": "0.6062407", "expected": "0.60595703"}, {"index": 8, "actual": "-2.686092", "expected": "-2.6855469"}, {"index": 9, "actual": "3.8448226", "expected": "3.8457031"}, {"index": 11, "actual": "1.4820255", "expected": "1.4814453"}, {"index": 12, "actual": "1.5177052", "expected": "1.5185547"}, {"index": 13, "actual": "1.7755835", "expected": "1.7763672"}]}, "new_variance": {"mismatched": 10, "total": 15, "sample_rule_limit": 0.0015, "sample_rule_pass": false, "examples": [{"index": 1, "actual": "6.411397", "expected": "6.4101562"}, {"index": 3, "actual": "9.2207155", "expected": "9.21875"}, {"index": 5, "actual": "10.013792", "expected": "10.015625"}, {"index": 7, "actual": "7.60777", "expected": "7.609375"}, {"index": 9, "actual": "5.889185", "expected": "5.8867188"}, {"index": 10, "actual": "6.13616", "expected": "6.1328125"}, {"index": 11, "actual": "7.573062", "expected": "7.5703125"}, {"index": 12, "actual": "10.426163", "expected": "10.421875"}]}}}
+f32_i32_fp16_input: {"status": "EXECUTED", "library": "/home/developer/Ascend/cann-9.1.0/lib64/libopapi.so", "vs_reference": {"batch_mean": {"mismatched": 0, "total": 15, "sample_rule_limit": 0.0015, "sample_rule_pass": true, "examples": []}, "batch_invstd": {"mismatched": 5, "total": 15, "sample_rule_limit": 0.0015, "sample_rule_pass": false, "examples": [{"index": 1, "actual": "0.15991211", "expected": "0.16003418"}, {"index": 2, "actual": "0.29248047", "expected": "0.2927246"}, {"index": 3, "actual": "0.18835449", "expected": "0.18847656"}, {"index": 4, "actual": "0.21508789", "expected": "0.21520996"}, {"index": 5, "actual": "0.14245605", "expected": "0.14257812"}]}, "new_mean": {"mismatched": 0, "total": 15, "sample_rule_limit": 0.0015, "sample_rule_pass": true, "examples": []}, "new_variance": {"mismatched": 4, "total": 15, "sample_rule_limit": 0.0015, "sample_rule_pass": false, "examples": [{"index": 8, "actual": "5.921875", "expected": "5.9179688"}, {"index": 9, "actual": "5.8867188", "expected": "5.890625"}, {"index": 11, "actual": "7.5703125", "expected": "7.5742188"}, {"index": 12, "actual": "10.421875", "expected": "10.4296875"}]}}, "vs_custom": {"batch_mean": {"mismatched": 0, "total": 15, "sample_rule_limit": 0.0015, "sample_rule_pass": true, "examples": []}, "batch_invstd": {"mismatched": 2, "total": 15, "sample_rule_limit": 0.0015, "sample_rule_pass": false, "examples": [{"index": 0, "actual": "0.1595459", "expected": "0.15942383"}, {"index": 6, "actual": "0.17749023", "expected": "0.1776123"}]}, "new_mean": {"mismatched": 0, "total": 15, "sample_rule_limit": 0.0015, "sample_rule_pass": true, "examples": []}, "new_variance": {"mismatched": 4, "total": 15, "sample_rule_limit": 0.0015, "sample_rule_pass": false, "examples": [{"index": 7, "actual": "7.6054688", "expected": "7.609375"}, {"index": 10, "actual": "6.1367188", "expected": "6.1328125"}, {"index": 13, "actual": "12.7578125", "expected": "12.765625"}, {"index": 14, "actual": "8.0859375", "expected": "8.09375"}]}}}
+f32_i64_native: {"status": "ERROR", "detail": "runner exit 2: ACLNN implementation: /home/developer/Ascend/cann-9.1.0/lib64/libopapi.so\nACL error 161002\n"}
+f32_i64_fp16_input: {"status": "ERROR", "detail": "runner exit 2: ACLNN implementation: /home/developer/Ascend/cann-9.1.0/lib64/libopapi.so\nACL error 161002\n"}
+f16_i32_native: {"status": "EXECUTED", "library": "/home/developer/Ascend/cann-9.1.0/lib64/libopapi.so", "vs_reference": {"batch_mean": {"mismatched": 0, "total": 15, "sample_rule_limit": 0.0015, "sample_rule_pass": true, "examples": []}, "batch_invstd": {"mismatched": 5, "total": 15, "sample_rule_limit": 0.0015, "sample_rule_pass": false, "examples": [{"index": 1, "actual": "0.15991211", "expected": "0.16003418"}, {"index": 2, "actual": "0.29248047", "expected": "0.2927246"}, {"index": 3, "actual": "0.18835449", "expected": "0.18847656"}, {"index": 4, "actual": "0.21508789", "expected": "0.21520996"}, {"index": 5, "actual": "0.14245605", "expected": "0.14257812"}]}, "new_mean": {"mismatched": 0, "total": 15, "sample_rule_limit": 0.0015, "sample_rule_pass": true, "examples": []}, "new_variance": {"mismatched": 4, "total": 15, "sample_rule_limit": 0.0015, "sample_rule_pass": false, "examples": [{"index": 8, "actual": "5.921875", "expected": "5.9179688"}, {"index": 9, "actual": "5.8867188", "expected": "5.890625"}, {"index": 11, "actual": "7.5703125", "expected": "7.5742188"}, {"index": 12, "actual": "10.421875", "expected": "10.4296875"}]}}, "vs_custom": {"batch_mean": {"mismatched": 0, "total": 15, "sample_rule_limit": 0.0015, "sample_rule_pass": true, "examples": []}, "batch_invstd": {"mismatched": 2, "total": 15, "sample_rule_limit": 0.0015, "sample_rule_pass": false, "examples": [{"index": 0, "actual": "0.1595459", "expected": "0.15942383"}, {"index": 6, "actual": "0.17749023", "expected": "0.1776123"}]}, "new_mean": {"mismatched": 0, "total": 15, "sample_rule_limit": 0.0015, "sample_rule_pass": true, "examples": []}, "new_variance": {"mismatched": 4, "total": 15, "sample_rule_limit": 0.0015, "sample_rule_pass": false, "examples": [{"index": 7, "actual": "7.6054688", "expected": "7.609375"}, {"index": 10, "actual": "6.1367188", "expected": "6.1328125"}, {"index": 13, "actual": "12.7578125", "expected": "12.765625"}, {"index": 14, "actual": "8.0859375", "expected": "8.09375"}]}}}
+f16_i64_native: {"status": "ERROR", "detail": "runner exit 2: ACLNN implementation: /home/developer/Ascend/cann-9.1.0/lib64/libopapi.so\nACL error 161002\n"}
+Library isolation does not alone prove which device kernel was dispatched.
+developer@dfdd97f8c4e84acbaa54982714e4d993:.../SyncBatchNormGatherStats_2332/workdir/code$ compare_status=${PIPESTATUS[0]}
+developer@dfdd97f8c4e84acbaa54982714e4d993:.../SyncBatchNormGatherStats_2332/workdir/code$ set -e
+developer@dfdd97f8c4e84acbaa54982714e4d993:.../SyncBatchNormGatherStats_2332/workdir/code$ echo "comparison exit: $compare_status"
+comparison exit: 1
+developer@dfdd97f8c4e84acbaa54982714e4d993:.../SyncBatchNormGatherStats_2332/workdir/code$ cp samples/build/s010-builtin/results.json "$S010_LOG/builtin-results.json"
+developer@dfdd97f8c4e84acbaa54982714e4d993:.../SyncBatchNormGatherStats_2332/workdir/code$ 
