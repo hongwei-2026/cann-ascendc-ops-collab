@@ -132,3 +132,6 @@
 - The platform engineering package is unavailable. A compact difference is not
   evidence that the platform contains the same input or that the reference is
   independently correct. See EXP_S010 and CLOUD-S010.
+- 审阅（本会话）：**采纳为诊断工具**；本机 `--self-test` PASS；未改 Kernel。
+  注意只抽到打印出的 8 个 new_var 下标（原 13）。平台仍交 S008/`140dbdf`，
+  勿因 compact 严格 FAIL 去改算术。
