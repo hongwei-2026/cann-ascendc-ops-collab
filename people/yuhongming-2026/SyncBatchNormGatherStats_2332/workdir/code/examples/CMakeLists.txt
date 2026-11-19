@@ -7,3 +7,6 @@ find_library(OP_LIBRARY cust_opapi PATHS "${OPP_ROOT}/op_api/lib" NO_DEFAULT_PAT
 add_executable(sample test_aclnn_sync_batch_norm_gather_stats.cpp)
 target_include_directories(sample PRIVATE "${OP_INCLUDE}" "$ENV{ASCEND_HOME_PATH}/include")
 target_link_libraries(sample PRIVATE "${OP_LIBRARY}" "$ENV{ASCEND_HOME_PATH}/lib64/libascendcl.so" "$ENV{ASCEND_HOME_PATH}/lib64/libnnopbase.so")
+add_executable(s007_runner ../tests/s007_runner.cpp)
+target_include_directories(s007_runner PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}" "${OP_INCLUDE}" "$ENV{ASCEND_HOME_PATH}/include")
+target_link_libraries(s007_runner PRIVATE "${OP_LIBRARY}" "$ENV{ASCEND_HOME_PATH}/lib64/libascendcl.so" "$ENV{ASCEND_HOME_PATH}/lib64/libnnopbase.so")

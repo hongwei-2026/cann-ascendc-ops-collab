@@ -10,5 +10,6 @@
 | S004 | 2026-11-17 | yuhongming-2026 | 精度 | `QuantFp16Vec` 往返吞 `new_variance` NaN/±Inf（`count==1`） | helper 内 half 暂存回写非有限值 + `S_V`/`S_MTE3` | 1 会话 | 云 PASS；平台仍 **WA**；可见点 **~6.05–6.69μs**（劣于 S002） | **废弃**（无 WA 收益 + 性能税） | |
 | S005 | 2026-11-19 | yuhongming-2026 | 精度 | 隐藏 WA ≠ 输出 Cast 吞 NaN；疑 count/W>1/dtype | 回退 Quant/Store 至 S002；另路证据（下载工程/构造 case） | 1–2 天 | 回退完成；未取到平台工程证据 | **转 S006**（有限值舍入假说优先） | |
 | S006 | 2026-11-19 | yuhongming-2026 | 精度 | `x*(1/n)` vs `x/n` 可越过 fp16 边界致有限值 WA | `accSum`/`accSq` 改向量 `Div`；`tests/s006_rounding.py`；tip `b2271b4` | 1 会话 | 云 `-e`+rounding **PASS** 0/6（EXP_S006）；平台待重交 | **采纳（样例）**；≠平台 50 点 | |
+| S007 | 2026-11-19 | yuhongming-2026 | 精度 | 隐藏失败可能涉及 dtype、分块尾部、数值边界、count 或设备维，现有 C=6 冒烟无法覆盖 | 构造可复现设备测试矩阵；单设备单 count 对照 reference；多设备或多 count 分开列为语义探针，记录原始数据与日志 | 1 会话 | 构建测试中；设备结果待云运行 | **进行中**；不擅改未证实语义 | |
 
 S003/S004 note: 标量保 NaN 族补丁 **禁止重开**。平台 1–5 始终 Pass/0%；隐藏点根因未解。

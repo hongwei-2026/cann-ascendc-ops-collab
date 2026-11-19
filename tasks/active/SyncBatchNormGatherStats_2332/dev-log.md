@@ -87,3 +87,11 @@
 - 审阅（本会话）：同意假说；`load` 复用安全；reference 确为 `float32/float32` 除法；复现 `new_v` fp16 差约 0.004（> 样例 atol 1e-4）。Div 略重于 Muls，但本轮先修 WA。
 - 云结果：`build.sh -j8 -e` + `s006_rounding.py` 均 **PASS** 0/6；归档 EXP_S006。
 - 下一步：按 SUBMIT_LINKS_S006 重交平台；结果回写 S006 结案或开 S007。
+
+## S007 多维精度测试
+
+- 原 ZIP 仅发现一份首点 case.json；已有样例及 UT 固定 C=6、world=1、fp32/int32。
+- 新增 157 个可复现用例，覆盖四组 dtype、通道边界、rank、count、属性及特殊值；count=0 合法性待确认。
+- world>1 和多 count 为语义探针，分别列出候选公式，不冒充权威真值。
+- 本机只跑测试生成器自检；910B 构建、矩阵和平台结果均待执行。
+- 下一步：CLOUD-S007.md；收集完整日志、复现数据并分析失败。
