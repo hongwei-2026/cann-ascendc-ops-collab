@@ -15,6 +15,16 @@ The S007 probes compared the custom kernel to candidate formulas, not to an
 independent built-in implementation. Their agreement establishes the custom
 kernel's observed behavior, not the platform's semantic contract.
 
-Next: run CLOUD-S010.md on 910B, archive the complete log and results.json,
-and compare the cases with an independently callable built-in if available.
+Cloud at 1c1c29b: self-test and build/example PASS (four outputs 0/6).
+All four dtype combinations, each repeated three times, produced the same
+reference mismatch counts: batch_mean 0/15, batch_invstd 7/15, new_mean 0/15,
+new_variance 8/15. The values agree with the corresponding S008 printed
+examples. Strict and sample-derived comparison statuses both fail. The
+fifteen channels were selected because they differ; their mismatch rate is
+not representative of a random case or a platform hidden case.
+
+The user-provided complete terminal transcript is archived in
+logs/EXP_S010/console-transcript.log. The individual original cloud log files
+and results.json remain on the cloud host. Next, use CLOUD-S010.md to discover
+built-in interfaces, then compare independently if the environment supports it.
 Do not alter arithmetic based only on this test.

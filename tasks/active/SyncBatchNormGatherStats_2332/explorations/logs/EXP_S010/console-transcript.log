@@ -1,0 +1,273 @@
+developer@dfdd97f8c4e84acbaa54982714e4d993:/mnt/workspace$ cd /mnt/workspace/cann-ascendc-ops-collab
+IT_SSL_NO_VERIFY=1
+git fetch origin main && git merge --ff-only FETCH_HEAD
+
+export DEVICE_ID=0
+expordeveloper@dfdd97f8c4e84acbaa54982714e4d993:/mnt/workspace/cann-ascendc-ops-collab$ export GIT_SSL_NO_VERIFY=1
+t S010_LOG="$PWD/tasks/active/SyncBatchNormGatherStats_2332/explorations/logs/EXP_S010"
+mkdir -p "$Sdeveloper@dfdd97f8c4e84acbaa54982714e4d993:/mnt/workspace/cann-ascendc-ops-collab$ git fetch origin main && git merge --ff-only FETCH_HEAD
+010_LOG"
+cd people/yuhongming-2026/SyncBatchNormGatherStats_2332/workdir/code
+set -o pipefail
+python3 -B tests/s010_compact.py --self-test 2>&1 | tee "$S010_LOG/selftest.log"
+bash build.sh -j8 -e 2>&1 | tee "$S010_LOG/build_e.log"
+python3 -B tests/s010_compact.py --repeat 3 --output samples/build/s010 2>&1 | tee "$S010_LOG/compact.log"
+cp samples/build/s010/results.json "$S010_LOG/results.json"
+remote: Enumerating objects: 73, done.
+remote: Counting objects: 100% (73/73), done.
+remote: Compressing objects: 100% (26/26), done.
+remote: Total 55 (delta 32), reused 50 (delta 27), pack-reused 0 (from 0)
+Unpacking objects: 100% (55/55), 26.40 KiB | 730.00 KiB/s, done.
+From https://github.com/hongwei-2026/cann-ascendc-ops-collab
+ * branch            main       -> FETCH_HEAD
+   d75aa78..1c1c29b  main       -> origin/main
+Updating d75aa78..1c1c29b
+Fast-forward
+ people/yuhongming-2026/SyncBatchNormGatherStats_2332/workdir/code/tests/s007_matrix.py            |  13 ++-
+ people/yuhongming-2026/SyncBatchNormGatherStats_2332/workdir/code/tests/s009_rounding_analysis.py |  32 ++++++
+ people/yuhongming-2026/SyncBatchNormGatherStats_2332/workdir/code/tests/s010_compact.py           |  75 +++++++++++++
+ tasks/active/SyncBatchNormGatherStats_2332/CLOUD-S008.md                                          |   3 +-
+ tasks/active/SyncBatchNormGatherStats_2332/CLOUD-S010.md                                          |  26 +++++
+ tasks/active/SyncBatchNormGatherStats_2332/STATUS.md                                              |  14 +--
+ tasks/active/SyncBatchNormGatherStats_2332/deliverables/SUBMIT_LINKS_S008.md                      |  15 +++
+ tasks/active/SyncBatchNormGatherStats_2332/dev-log.md                                             |  27 +++++
+ tasks/active/SyncBatchNormGatherStats_2332/explorations/EXP_S008.md                               |  14 ++-
+ tasks/active/SyncBatchNormGatherStats_2332/explorations/EXP_S009.md                               |  19 ++++
+ tasks/active/SyncBatchNormGatherStats_2332/explorations/EXP_S010.md                               |  20 ++++
+ tasks/active/SyncBatchNormGatherStats_2332/explorations/logs/EXP_S008/console-transcript.log      | 437 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ tasks/active/SyncBatchNormGatherStats_2332/path-ledger.md                                         |   4 +-
+ 13 files changed, 686 insertions(+), 13 deletions(-)
+ create mode 100644 people/yuhongming-2026/SyncBatchNormGatherStats_2332/workdir/code/tests/s009_rounding_analysis.py
+ create mode 100644 people/yuhongming-2026/SyncBatchNormGatherStats_2332/workdir/code/tests/s010_compact.py
+ create mode 100644 tasks/active/SyncBatchNormGatherStats_2332/CLOUD-S010.md
+ create mode 100644 tasks/active/SyncBatchNormGatherStats_2332/deliverables/SUBMIT_LINKS_S008.md
+ create mode 100644 tasks/active/SyncBatchNormGatherStats_2332/explorations/EXP_S009.md
+ create mode 100644 tasks/active/SyncBatchNormGatherStats_2332/explorations/EXP_S010.md
+ create mode 100644 tasks/active/SyncBatchNormGatherStats_2332/explorations/logs/EXP_S008/console-transcript.log
+developer@dfdd97f8c4e84acbaa54982714e4d993:/mnt/workspace/cann-ascendc-ops-collab$ 
+developer@dfdd97f8c4e84acbaa54982714e4d993:/mnt/workspace/cann-ascendc-ops-collab$ export DEVICE_ID=0
+developer@dfdd97f8c4e84acbaa54982714e4d993:/mnt/workspace/cann-ascendc-ops-collab$ export S010_LOG="$PWD/tasks/active/SyncBatchNormGatherStats_2332/explorations/logs/EXP_S010"
+developer@dfdd97f8c4e84acbaa54982714e4d993:/mnt/workspace/cann-ascendc-ops-collab$ mkdir -p "$S010_LOG"
+developer@dfdd97f8c4e84acbaa54982714e4d993:/mnt/workspace/cann-ascendc-ops-collab$ cd people/yuhongming-2026/SyncBatchNormGatherStats_2332/workdir/code
+developer@dfdd97f8c4e84acbaa54982714e4d993:.../SyncBatchNormGatherStats_2332/workdir/code$ set -o pipefail
+developer@dfdd97f8c4e84acbaa54982714e4d993:.../SyncBatchNormGatherStats_2332/workdir/code$ python3 -B tests/s010_compact.py --self-test 2>&1 | tee "$S010_LOG/selftest.log"
+SELF-TEST PASS: 15 original channels, four dtype combinations; no device executed
+developer@dfdd97f8c4e84acbaa54982714e4d993:.../SyncBatchNormGatherStats_2332/workdir/code$ bash build.sh -j8 -e 2>&1 | tee "$S010_LOG/build_e.log"
+----------------------------------------------------------------
+[INFO] Configuring project...
+[INFO] CMAKE_ARGS: -DASCEND_COMPUTE_UNIT=ascend910b -DCANNJUDGE_COMPILE_JOBS=8
+-- The C compiler identification is GNU 9.4.0
+-- The CXX compiler identification is GNU 9.4.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- set package config: INSTALL_PATH;/mnt/workspace/cann-ascendc-ops-collab/people/yuhongming-2026/SyncBatchNormGatherStats_2332/workdir/code/build
+-- Opbuild generating sources
+-- Opbuild generating sources - done
+INFO target name: cust_optiling
+INFO target name: cust_op_proto
+INFO target name: cust_opapi
+INFO target name: ascendc_kernels
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /mnt/workspace/cann-ascendc-ops-collab/people/yuhongming-2026/SyncBatchNormGatherStats_2332/workdir/code/build
+----------------------------------------------------------------
+[INFO] Building project with 8 threads...
+Consolidate compiler generated dependencies of target cust_opapi
+[  6%] Built target ascendc_kernels_copy_kernel_srcs
+[ 13%] Built target sync_batch_norm_gather_stats_custom_npu_supported_ops
+[ 20%] Built target modify_vendor
+Consolidate compiler generated dependencies of target cust_optiling
+Consolidate compiler generated dependencies of target cust_op_proto
+[ 26%] Building CXX object op_host/CMakeFiles/cust_opapi.dir/__/autogen/aclnn_sync_batch_norm_gather_stats.cpp.o
+[ 26%] Built target gen_version_info
+[ 46%] Built target cust_optiling
+[ 53%] Built target ascendc_kernels_ops_info_gen_ascend910b
+[ 60%] Building CXX object op_host/CMakeFiles/cust_op_proto.dir/__/autogen/op_proto.cc.o
+[ 66%] Built target sync_batch_norm_gather_stats_custom_ascendc_cust_optiling
+[ 66%] Built target sync_batch_norm_gather_stats_custom_update_so_names
+[ 66%] Built target optiling_compat
+[ 66%] Built target cust_opapi
+[ 73%] Linking CXX shared library libcust_opapi.so
+[ 73%] Built target sync_batch_norm_gather_stats_custom_ascendc_cust_opapi
+[ 93%] Built target cust_op_proto
+[100%] Linking CXX shared library libcust_opsproto_rt2.0.so
+[100%] Built target sync_batch_norm_gather_stats_custom_ascendc_cust_op_proto
+[ 16%] Built target ascendc_kernels_copy_kernel_srcs
+[ 66%] Built target cust_optiling
+[ 83%] Built target ascendc_kernels_ops_info_gen_ascend910b
+[100%] Built target sync_batch_norm_gather_stats_custom_ascendc_cust_optiling
+[ascend910b] Generating SyncBatchNormGatherStats_bf5c7da99c8cced9d64887c21c9d178f ...
+[ascend910b] Generating SyncBatchNormGatherStats_b5b618242f234ac8cd55cddd10909fd0 ...
+[ascend910b] Generating SyncBatchNormGatherStats_9ca554de5b89e6a6fd702546bc5fd602 ...
+[ascend910b] Generating SyncBatchNormGatherStats_a628e96d034d62cebbdb984c7672656f ...
+Opc tool start working now, please wait for a moment.
+[ascend910b] Generating SyncBatchNormGatherStats_bf5c7da99c8cced9d64887c21c9d178f Done
+Opc tool start working now, please wait for a moment.
+[ascend910b] Generating SyncBatchNormGatherStats_a628e96d034d62cebbdb984c7672656f Done
+Opc tool start working now, please wait for a moment.
+[ascend910b] Generating SyncBatchNormGatherStats_b5b618242f234ac8cd55cddd10909fd0 Done
+Opc tool start working now, please wait for a moment.
+[ascend910b] Generating SyncBatchNormGatherStats_9ca554de5b89e6a6fd702546bc5fd602 Done
+[100%] Built target SyncBatchNormGatherStats_ascend910b
+[100%] Built target ascendc_kernels_ascendc_bin_ascend910b_gen_ops_config
+[100%] Built target binary
+Consolidate compiler generated dependencies of target cust_opapi
+[  6%] Built target ascendc_kernels_copy_kernel_srcs
+[ 13%] Built target sync_batch_norm_gather_stats_custom_npu_supported_ops
+[ 20%] Built target modify_vendor
+Consolidate compiler generated dependencies of target cust_op_proto
+[ 26%] Built target cust_opapi
+[ 46%] Built target cust_optiling
+[ 46%] Built target gen_version_info
+[ 73%] Built target cust_op_proto
+[ 80%] Built target ascendc_kernels_ops_info_gen_ascend910b
+[ 86%] Built target sync_batch_norm_gather_stats_custom_ascendc_cust_opapi
+[ 93%] Built target sync_batch_norm_gather_stats_custom_ascendc_cust_optiling
+[100%] Built target sync_batch_norm_gather_stats_custom_ascendc_cust_op_proto
+[100%] Built target sync_batch_norm_gather_stats_custom_update_so_names
+[100%] Built target optiling_compat
+Run CPack packaging tool...
+CPack: Create package using External
+CPack: Install projects
+CPack: - Run preinstall target for: sync_batch_norm_gather_stats_op_prj
+CPack: - Install project: sync_batch_norm_gather_stats_op_prj []
+CPack: Create package
+
+About to compress 1652 KB of data...
+Adding files to archive named "custom_opp_ubuntu_aarch64.run"...
+./help.info
+./install.sh
+./packages/vendors/sync_batch_norm_gather_stats_custom/framework/tensorflow/npu_supported_ops.json
+./packages/vendors/sync_batch_norm_gather_stats_custom/op_api/include/aclnn_sync_batch_norm_gather_stats.h
+./packages/vendors/sync_batch_norm_gather_stats_custom/op_api/lib/libcust_opapi.so
+./packages/vendors/sync_batch_norm_gather_stats_custom/op_impl/ai_core/tbe/config/ascend910b/aic-ascend910b-ops-info.json
+./packages/vendors/sync_batch_norm_gather_stats_custom/op_impl/ai_core/tbe/kernel/ascend910b/sync_batch_norm_gather_stats/SyncBatchNormGatherStats_9ca554de5b89e6a6fd702546bc5fd602.json
+./packages/vendors/sync_batch_norm_gather_stats_custom/op_impl/ai_core/tbe/kernel/ascend910b/sync_batch_norm_gather_stats/SyncBatchNormGatherStats_9ca554de5b89e6a6fd702546bc5fd602.o
+./packages/vendors/sync_batch_norm_gather_stats_custom/op_impl/ai_core/tbe/kernel/ascend910b/sync_batch_norm_gather_stats/SyncBatchNormGatherStats_a628e96d034d62cebbdb984c7672656f.json
+./packages/vendors/sync_batch_norm_gather_stats_custom/op_impl/ai_core/tbe/kernel/ascend910b/sync_batch_norm_gather_stats/SyncBatchNormGatherStats_a628e96d034d62cebbdb984c7672656f.o
+./packages/vendors/sync_batch_norm_gather_stats_custom/op_impl/ai_core/tbe/kernel/ascend910b/sync_batch_norm_gather_stats/SyncBatchNormGatherStats_b5b618242f234ac8cd55cddd10909fd0.json
+./packages/vendors/sync_batch_norm_gather_stats_custom/op_impl/ai_core/tbe/kernel/ascend910b/sync_batch_norm_gather_stats/SyncBatchNormGatherStats_b5b618242f234ac8cd55cddd10909fd0.o
+./packages/vendors/sync_batch_norm_gather_stats_custom/op_impl/ai_core/tbe/kernel/ascend910b/sync_batch_norm_gather_stats/SyncBatchNormGatherStats_bf5c7da99c8cced9d64887c21c9d178f.json
+./packages/vendors/sync_batch_norm_gather_stats_custom/op_impl/ai_core/tbe/kernel/ascend910b/sync_batch_norm_gather_stats/SyncBatchNormGatherStats_bf5c7da99c8cced9d64887c21c9d178f.o
+./packages/vendors/sync_batch_norm_gather_stats_custom/op_impl/ai_core/tbe/kernel/config/ascend910b/binary_info_config.json
+./packages/vendors/sync_batch_norm_gather_stats_custom/op_impl/ai_core/tbe/kernel/config/ascend910b/sync_batch_norm_gather_stats.json
+./packages/vendors/sync_batch_norm_gather_stats_custom/op_impl/ai_core/tbe/op_tiling/lib/linux/aarch64/libcust_opmaster_rt2.0.so
+./packages/vendors/sync_batch_norm_gather_stats_custom/op_impl/ai_core/tbe/op_tiling/liboptiling.so
+./packages/vendors/sync_batch_norm_gather_stats_custom/op_impl/ai_core/tbe/sync_batch_norm_gather_stats_custom_impl/dynamic/sync_batch_norm_gather_stats.cpp
+./packages/vendors/sync_batch_norm_gather_stats_custom/op_impl/ai_core/tbe/sync_batch_norm_gather_stats_custom_impl/dynamic/sync_batch_norm_gather_stats.h
+./packages/vendors/sync_batch_norm_gather_stats_custom/op_impl/ai_core/tbe/sync_batch_norm_gather_stats_custom_impl/dynamic/sync_batch_norm_gather_stats.py
+./packages/vendors/sync_batch_norm_gather_stats_custom/op_impl/ai_core/tbe/sync_batch_norm_gather_stats_custom_impl/dynamic/sync_batch_norm_gather_stats_tiling_data.h
+./packages/vendors/sync_batch_norm_gather_stats_custom/op_impl/ai_core/tbe/sync_batch_norm_gather_stats_custom_impl/dynamic/sync_batch_norm_gather_stats_tiling_key.h
+./packages/vendors/sync_batch_norm_gather_stats_custom/op_proto/inc/op_proto.h
+./packages/vendors/sync_batch_norm_gather_stats_custom/op_proto/lib/linux/aarch64/libcust_opsproto_rt2.0.so
+./packages/vendors/sync_batch_norm_gather_stats_custom/version.info
+./uninstall.sh
+./upgrade.sh
+CRC: 2647594019
+SHA256: 5ccf8797a8eef082ad6b64d23cb7cd920e628227be3d8fc884d0c43b49bc8ec7
+Skipping md5sum at user request
+
+Self-extractable archive "custom_opp_ubuntu_aarch64.run" successfully created.
+Copy /mnt/workspace/cann-ascendc-ops-collab/people/yuhongming-2026/SyncBatchNormGatherStats_2332/workdir/code/build/_CPack_Packages/Linux/External/custom_opp_ubuntu_aarch64.run/custom_opp_ubuntu_aarch64.run to /mnt/workspace/cann-ascendc-ops-collab/people/yuhongming-2026/SyncBatchNormGatherStats_2332/workdir/code/build/
+CPack: - package: /mnt/workspace/cann-ascendc-ops-collab/people/yuhongming-2026/SyncBatchNormGatherStats_2332/workdir/code/build/custom_opp_ubuntu_aarch64.run.json generated.
+CPack: - package: /mnt/workspace/cann-ascendc-ops-collab/people/yuhongming-2026/SyncBatchNormGatherStats_2332/workdir/code/build/custom_opp_ubuntu_aarch64.run generated.
+[  6%] Built target ascendc_kernels_copy_kernel_srcs
+[ 13%] Built target sync_batch_norm_gather_stats_custom_npu_supported_ops
+[ 20%] Built target cust_opapi
+[ 26%] Built target modify_vendor
+[ 46%] Built target cust_optiling
+[ 46%] Built target gen_version_info
+[ 73%] Built target cust_op_proto
+[ 80%] Built target ascendc_kernels_ops_info_gen_ascend910b
+[ 86%] Built target sync_batch_norm_gather_stats_custom_ascendc_cust_opapi
+[ 93%] Built target sync_batch_norm_gather_stats_custom_ascendc_cust_optiling
+[100%] Built target sync_batch_norm_gather_stats_custom_ascendc_cust_op_proto
+[100%] Built target sync_batch_norm_gather_stats_custom_update_so_names
+[100%] Built target optiling_compat
+Install the project...
+-- Install configuration: ""
+-- Up-to-date: /mnt/workspace/cann-ascendc-ops-collab/people/yuhongming-2026/SyncBatchNormGatherStats_2332/workdir/code/build/.
+-- Up-to-date: /mnt/workspace/cann-ascendc-ops-collab/people/yuhongming-2026/SyncBatchNormGatherStats_2332/workdir/code/build/./help.info
+-- Installing: /mnt/workspace/cann-ascendc-ops-collab/people/yuhongming-2026/SyncBatchNormGatherStats_2332/workdir/code/build/./uninstall.sh
+-- Installing: /mnt/workspace/cann-ascendc-ops-collab/people/yuhongming-2026/SyncBatchNormGatherStats_2332/workdir/code/build/./install.sh
+-- Installing: /mnt/workspace/cann-ascendc-ops-collab/people/yuhongming-2026/SyncBatchNormGatherStats_2332/workdir/code/build/./upgrade.sh
+-- Installing: /mnt/workspace/cann-ascendc-ops-collab/people/yuhongming-2026/SyncBatchNormGatherStats_2332/workdir/code/build/packages/vendors/sync_batch_norm_gather_stats_custom/version.info
+-- Up-to-date: /mnt/workspace/cann-ascendc-ops-collab/people/yuhongming-2026/SyncBatchNormGatherStats_2332/workdir/code/build/packages/vendors/sync_batch_norm_gather_stats_custom/op_impl/ai_core/tbe/op_tiling/lib/linux/aarch64/libcust_opmaster_rt2.0.so
+-- Up-to-date: /mnt/workspace/cann-ascendc-ops-collab/people/yuhongming-2026/SyncBatchNormGatherStats_2332/workdir/code/build/packages/vendors/sync_batch_norm_gather_stats_custom/op_impl/ai_core/tbe/op_tiling/liboptiling.so
+-- Installing: /mnt/workspace/cann-ascendc-ops-collab/people/yuhongming-2026/SyncBatchNormGatherStats_2332/workdir/code/build/packages/vendors/sync_batch_norm_gather_stats_custom/op_proto/lib/linux/aarch64/libcust_opsproto_rt2.0.so
+-- Set runtime path of "/mnt/workspace/cann-ascendc-ops-collab/people/yuhongming-2026/SyncBatchNormGatherStats_2332/workdir/code/build/packages/vendors/sync_batch_norm_gather_stats_custom/op_proto/lib/linux/aarch64/libcust_opsproto_rt2.0.so" to ""
+-- Installing: /mnt/workspace/cann-ascendc-ops-collab/people/yuhongming-2026/SyncBatchNormGatherStats_2332/workdir/code/build/packages/vendors/sync_batch_norm_gather_stats_custom/op_proto/inc/op_proto.h
+-- Installing: /mnt/workspace/cann-ascendc-ops-collab/people/yuhongming-2026/SyncBatchNormGatherStats_2332/workdir/code/build/packages/vendors/sync_batch_norm_gather_stats_custom/op_api/lib/libcust_opapi.so
+-- Set runtime path of "/mnt/workspace/cann-ascendc-ops-collab/people/yuhongming-2026/SyncBatchNormGatherStats_2332/workdir/code/build/packages/vendors/sync_batch_norm_gather_stats_custom/op_api/lib/libcust_opapi.so" to ""
+-- Installing: /mnt/workspace/cann-ascendc-ops-collab/people/yuhongming-2026/SyncBatchNormGatherStats_2332/workdir/code/build/packages/vendors/sync_batch_norm_gather_stats_custom/op_api/include/aclnn_sync_batch_norm_gather_stats.h
+-- Up-to-date: /mnt/workspace/cann-ascendc-ops-collab/people/yuhongming-2026/SyncBatchNormGatherStats_2332/workdir/code/build/packages/vendors/sync_batch_norm_gather_stats_custom/op_impl/ai_core/tbe/sync_batch_norm_gather_stats_custom_impl/dynamic/
+-- Up-to-date: /mnt/workspace/cann-ascendc-ops-collab/people/yuhongming-2026/SyncBatchNormGatherStats_2332/workdir/code/build/packages/vendors/sync_batch_norm_gather_stats_custom/op_impl/ai_core/tbe/sync_batch_norm_gather_stats_custom_impl/dynamic//sync_batch_norm_gather_stats.cpp
+-- Up-to-date: /mnt/workspace/cann-ascendc-ops-collab/people/yuhongming-2026/SyncBatchNormGatherStats_2332/workdir/code/build/packages/vendors/sync_batch_norm_gather_stats_custom/op_impl/ai_core/tbe/sync_batch_norm_gather_stats_custom_impl/dynamic//sync_batch_norm_gather_stats_tiling_data.h
+-- Installing: /mnt/workspace/cann-ascendc-ops-collab/people/yuhongming-2026/SyncBatchNormGatherStats_2332/workdir/code/build/packages/vendors/sync_batch_norm_gather_stats_custom/op_impl/ai_core/tbe/sync_batch_norm_gather_stats_custom_impl/dynamic//sync_batch_norm_gather_stats.py
+-- Up-to-date: /mnt/workspace/cann-ascendc-ops-collab/people/yuhongming-2026/SyncBatchNormGatherStats_2332/workdir/code/build/packages/vendors/sync_batch_norm_gather_stats_custom/op_impl/ai_core/tbe/sync_batch_norm_gather_stats_custom_impl/dynamic//sync_batch_norm_gather_stats.h
+-- Up-to-date: /mnt/workspace/cann-ascendc-ops-collab/people/yuhongming-2026/SyncBatchNormGatherStats_2332/workdir/code/build/packages/vendors/sync_batch_norm_gather_stats_custom/op_impl/ai_core/tbe/sync_batch_norm_gather_stats_custom_impl/dynamic//sync_batch_norm_gather_stats_tiling_key.h
+-- Up-to-date: /mnt/workspace/cann-ascendc-ops-collab/people/yuhongming-2026/SyncBatchNormGatherStats_2332/workdir/code/build/packages/vendors/sync_batch_norm_gather_stats_custom/op_impl/ai_core/tbe//kernel/ascend910b/
+-- Up-to-date: /mnt/workspace/cann-ascendc-ops-collab/people/yuhongming-2026/SyncBatchNormGatherStats_2332/workdir/code/build/packages/vendors/sync_batch_norm_gather_stats_custom/op_impl/ai_core/tbe//kernel/ascend910b//sync_batch_norm_gather_stats
+-- Installing: /mnt/workspace/cann-ascendc-ops-collab/people/yuhongming-2026/SyncBatchNormGatherStats_2332/workdir/code/build/packages/vendors/sync_batch_norm_gather_stats_custom/op_impl/ai_core/tbe//kernel/ascend910b//sync_batch_norm_gather_stats/SyncBatchNormGatherStats_9ca554de5b89e6a6fd702546bc5fd602.json
+-- Installing: /mnt/workspace/cann-ascendc-ops-collab/people/yuhongming-2026/SyncBatchNormGatherStats_2332/workdir/code/build/packages/vendors/sync_batch_norm_gather_stats_custom/op_impl/ai_core/tbe//kernel/ascend910b//sync_batch_norm_gather_stats/SyncBatchNormGatherStats_bf5c7da99c8cced9d64887c21c9d178f.o
+-- Installing: /mnt/workspace/cann-ascendc-ops-collab/people/yuhongming-2026/SyncBatchNormGatherStats_2332/workdir/code/build/packages/vendors/sync_batch_norm_gather_stats_custom/op_impl/ai_core/tbe//kernel/ascend910b//sync_batch_norm_gather_stats/SyncBatchNormGatherStats_b5b618242f234ac8cd55cddd10909fd0.json
+-- Installing: /mnt/workspace/cann-ascendc-ops-collab/people/yuhongming-2026/SyncBatchNormGatherStats_2332/workdir/code/build/packages/vendors/sync_batch_norm_gather_stats_custom/op_impl/ai_core/tbe//kernel/ascend910b//sync_batch_norm_gather_stats/SyncBatchNormGatherStats_bf5c7da99c8cced9d64887c21c9d178f.json
+-- Installing: /mnt/workspace/cann-ascendc-ops-collab/people/yuhongming-2026/SyncBatchNormGatherStats_2332/workdir/code/build/packages/vendors/sync_batch_norm_gather_stats_custom/op_impl/ai_core/tbe//kernel/ascend910b//sync_batch_norm_gather_stats/SyncBatchNormGatherStats_a628e96d034d62cebbdb984c7672656f.o
+-- Installing: /mnt/workspace/cann-ascendc-ops-collab/people/yuhongming-2026/SyncBatchNormGatherStats_2332/workdir/code/build/packages/vendors/sync_batch_norm_gather_stats_custom/op_impl/ai_core/tbe//kernel/ascend910b//sync_batch_norm_gather_stats/SyncBatchNormGatherStats_9ca554de5b89e6a6fd702546bc5fd602.o
+-- Installing: /mnt/workspace/cann-ascendc-ops-collab/people/yuhongming-2026/SyncBatchNormGatherStats_2332/workdir/code/build/packages/vendors/sync_batch_norm_gather_stats_custom/op_impl/ai_core/tbe//kernel/ascend910b//sync_batch_norm_gather_stats/SyncBatchNormGatherStats_a628e96d034d62cebbdb984c7672656f.json
+-- Installing: /mnt/workspace/cann-ascendc-ops-collab/people/yuhongming-2026/SyncBatchNormGatherStats_2332/workdir/code/build/packages/vendors/sync_batch_norm_gather_stats_custom/op_impl/ai_core/tbe//kernel/ascend910b//sync_batch_norm_gather_stats/SyncBatchNormGatherStats_b5b618242f234ac8cd55cddd10909fd0.o
+-- Up-to-date: /mnt/workspace/cann-ascendc-ops-collab/people/yuhongming-2026/SyncBatchNormGatherStats_2332/workdir/code/build/packages/vendors/sync_batch_norm_gather_stats_custom/op_impl/ai_core/tbe//kernel/config/
+-- Up-to-date: /mnt/workspace/cann-ascendc-ops-collab/people/yuhongming-2026/SyncBatchNormGatherStats_2332/workdir/code/build/packages/vendors/sync_batch_norm_gather_stats_custom/op_impl/ai_core/tbe//kernel/config//ascend910b
+-- Installing: /mnt/workspace/cann-ascendc-ops-collab/people/yuhongming-2026/SyncBatchNormGatherStats_2332/workdir/code/build/packages/vendors/sync_batch_norm_gather_stats_custom/op_impl/ai_core/tbe//kernel/config//ascend910b/sync_batch_norm_gather_stats.json
+-- Installing: /mnt/workspace/cann-ascendc-ops-collab/people/yuhongming-2026/SyncBatchNormGatherStats_2332/workdir/code/build/packages/vendors/sync_batch_norm_gather_stats_custom/op_impl/ai_core/tbe//kernel/config//ascend910b/binary_info_config.json
+-- Up-to-date: /mnt/workspace/cann-ascendc-ops-collab/people/yuhongming-2026/SyncBatchNormGatherStats_2332/workdir/code/build/packages/vendors/sync_batch_norm_gather_stats_custom/op_impl/ai_core/tbe/config/ascend910b/aic-ascend910b-ops-info.json
+-- Up-to-date: /mnt/workspace/cann-ascendc-ops-collab/people/yuhongming-2026/SyncBatchNormGatherStats_2332/workdir/code/build/packages/vendors/sync_batch_norm_gather_stats_custom/framework/tensorflow/npu_supported_ops.json
+----------------------------------------------------------------
+[INFO] Build completed successfully!
+[INFO] Kernel binary: /mnt/workspace/cann-ascendc-ops-collab/people/yuhongming-2026/SyncBatchNormGatherStats_2332/workdir/code/build/op_kernel/ascendc_kernels/binary/ascend910b/sync_batch_norm_gather_stats/SyncBatchNormGatherStats_bf5c7da99c8cced9d64887c21c9d178f.o
+[INFO] Package: /mnt/workspace/cann-ascendc-ops-collab/people/yuhongming-2026/SyncBatchNormGatherStats_2332/workdir/code/build/custom_opp_ubuntu_aarch64.run
+----------------------------------------------------------------
+[INFO] Running examples...
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /mnt/workspace/cann-ascendc-ops-collab/people/yuhongming-2026/SyncBatchNormGatherStats_2332/workdir/code/examples/build
+Consolidate compiler generated dependencies of target sample
+Consolidate compiler generated dependencies of target s007_runner
+[ 50%] Building CXX object CMakeFiles/s007_runner.dir/mnt/workspace/cann-ascendc-ops-collab/people/yuhongming-2026/SyncBatchNormGatherStats_2332/workdir/code/tests/s007_runner.cpp.o
+[ 50%] Building CXX object CMakeFiles/sample.dir/test_aclnn_sync_batch_norm_gather_stats.cpp.o
+[ 75%] Linking CXX executable sample
+[100%] Linking CXX executable s007_runner
+[100%] Built target sample
+[100%] Built target s007_runner
+Sample data generated.
+PASS: batch_mean.bin, mismatched=0/6
+PASS: batch_invstd.bin, mismatched=0/6
+PASS: new_mean.bin, mismatched=0/6
+PASS: new_variance.bin, mismatched=0/6
+PASSED
+[INFO] Example completed successfully!
+developer@dfdd97f8c4e84acbaa54982714e4d993:.../SyncBatchNormGatherStats_2332/workdir/code$ python3 -B tests/s010_compact.py --repeat 3 --output samples/build/s010 2>&1 | tee "$S010_LOG/compact.log"
+compact_f32_i32_run1: {"status": "FAIL", "sample_rule_status": "FAIL", "outputs": {"batch_mean": {"mismatched": 0, "total": 15, "sample_rule_limit": 0.0015, "sample_rule_pass": true, "examples": []}, "batch_invstd": {"mismatched": 7, "total": 15, "sample_rule_limit": 0.0015, "sample_rule_pass": false, "examples": [{"index": 0, "actual": "0.15942383", "expected": "0.1595459"}, {"index": 1, "actual": "0.15991211", "expected": "0.16003418"}, {"index": 2, "actual": "0.29248047", "expected": "0.2927246"}, {"index": 3, "actual": "0.18835449", "expected": "0.18847656"}, {"index": 4, "actual": "0.21508789", "expected": "0.21520996"}, {"index": 5, "actual": "0.14245605", "expected": "0.14257812"}, {"index": 6, "actual": "0.1776123", "expected": "0.17749023"}]}, "new_mean": {"mismatched": 0, "total": 15, "sample_rule_limit": 0.0015, "sample_rule_pass": true, "examples": []}, "new_variance": {"mismatched": 8, "total": 15, "sample_rule_limit": 0.0015, "sample_rule_pass": false, "examples": [{"index": 7, "actual": "7.609375", "expected": "7.6054688"}, {"index": 8, "actual": "5.921875", "expected": "5.9179688"}, {"index": 9, "actual": "5.8867188", "expected": "5.890625"}, {"index": 10, "actual": "6.1328125", "expected": "6.1367188"}, {"index": 11, "actual": "7.5703125", "expected": "7.5742188"}, {"index": 12, "actual": "10.421875", "expected": "10.4296875"}, {"index": 13, "actual": "12.765625", "expected": "12.7578125"}, {"index": 14, "actual": "8.09375", "expected": "8.0859375"}]}}}
+compact_f32_i32_run2: {"status": "FAIL", "sample_rule_status": "FAIL", "outputs": {"batch_mean": {"mismatched": 0, "total": 15, "sample_rule_limit": 0.0015, "sample_rule_pass": true, "examples": []}, "batch_invstd": {"mismatched": 7, "total": 15, "sample_rule_limit": 0.0015, "sample_rule_pass": false, "examples": [{"index": 0, "actual": "0.15942383", "expected": "0.1595459"}, {"index": 1, "actual": "0.15991211", "expected": "0.16003418"}, {"index": 2, "actual": "0.29248047", "expected": "0.2927246"}, {"index": 3, "actual": "0.18835449", "expected": "0.18847656"}, {"index": 4, "actual": "0.21508789", "expected": "0.21520996"}, {"index": 5, "actual": "0.14245605", "expected": "0.14257812"}, {"index": 6, "actual": "0.1776123", "expected": "0.17749023"}]}, "new_mean": {"mismatched": 0, "total": 15, "sample_rule_limit": 0.0015, "sample_rule_pass": true, "examples": []}, "new_variance": {"mismatched": 8, "total": 15, "sample_rule_limit": 0.0015, "sample_rule_pass": false, "examples": [{"index": 7, "actual": "7.609375", "expected": "7.6054688"}, {"index": 8, "actual": "5.921875", "expected": "5.9179688"}, {"index": 9, "actual": "5.8867188", "expected": "5.890625"}, {"index": 10, "actual": "6.1328125", "expected": "6.1367188"}, {"index": 11, "actual": "7.5703125", "expected": "7.5742188"}, {"index": 12, "actual": "10.421875", "expected": "10.4296875"}, {"index": 13, "actual": "12.765625", "expected": "12.7578125"}, {"index": 14, "actual": "8.09375", "expected": "8.0859375"}]}}}
+compact_f32_i32_run3: {"status": "FAIL", "sample_rule_status": "FAIL", "outputs": {"batch_mean": {"mismatched": 0, "total": 15, "sample_rule_limit": 0.0015, "sample_rule_pass": true, "examples": []}, "batch_invstd": {"mismatched": 7, "total": 15, "sample_rule_limit": 0.0015, "sample_rule_pass": false, "examples": [{"index": 0, "actual": "0.15942383", "expected": "0.1595459"}, {"index": 1, "actual": "0.15991211", "expected": "0.16003418"}, {"index": 2, "actual": "0.29248047", "expected": "0.2927246"}, {"index": 3, "actual": "0.18835449", "expected": "0.18847656"}, {"index": 4, "actual": "0.21508789", "expected": "0.21520996"}, {"index": 5, "actual": "0.14245605", "expected": "0.14257812"}, {"index": 6, "actual": "0.1776123", "expected": "0.17749023"}]}, "new_mean": {"mismatched": 0, "total": 15, "sample_rule_limit": 0.0015, "sample_rule_pass": true, "examples": []}, "new_variance": {"mismatched": 8, "total": 15, "sample_rule_limit": 0.0015, "sample_rule_pass": false, "examples": [{"index": 7, "actual": "7.609375", "expected": "7.6054688"}, {"index": 8, "actual": "5.921875", "expected": "5.9179688"}, {"index": 9, "actual": "5.8867188", "expected": "5.890625"}, {"index": 10, "actual": "6.1328125", "expected": "6.1367188"}, {"index": 11, "actual": "7.5703125", "expected": "7.5742188"}, {"index": 12, "actual": "10.421875", "expected": "10.4296875"}, {"index": 13, "actual": "12.765625", "expected": "12.7578125"}, {"index": 14, "actual": "8.09375", "expected": "8.0859375"}]}}}
+compact_f32_i64_run1: {"status": "FAIL", "sample_rule_status": "FAIL", "outputs": {"batch_mean": {"mismatched": 0, "total": 15, "sample_rule_limit": 0.0015, "sample_rule_pass": true, "examples": []}, "batch_invstd": {"mismatched": 7, "total": 15, "sample_rule_limit": 0.0015, "sample_rule_pass": false, "examples": [{"index": 0, "actual": "0.15942383", "expected": "0.1595459"}, {"index": 1, "actual": "0.15991211", "expected": "0.16003418"}, {"index": 2, "actual": "0.29248047", "expected": "0.2927246"}, {"index": 3, "actual": "0.18835449", "expected": "0.18847656"}, {"index": 4, "actual": "0.21508789", "expected": "0.21520996"}, {"index": 5, "actual": "0.14245605", "expected": "0.14257812"}, {"index": 6, "actual": "0.1776123", "expected": "0.17749023"}]}, "new_mean": {"mismatched": 0, "total": 15, "sample_rule_limit": 0.0015, "sample_rule_pass": true, "examples": []}, "new_variance": {"mismatched": 8, "total": 15, "sample_rule_limit": 0.0015, "sample_rule_pass": false, "examples": [{"index": 7, "actual": "7.609375", "expected": "7.6054688"}, {"index": 8, "actual": "5.921875", "expected": "5.9179688"}, {"index": 9, "actual": "5.8867188", "expected": "5.890625"}, {"index": 10, "actual": "6.1328125", "expected": "6.1367188"}, {"index": 11, "actual": "7.5703125", "expected": "7.5742188"}, {"index": 12, "actual": "10.421875", "expected": "10.4296875"}, {"index": 13, "actual": "12.765625", "expected": "12.7578125"}, {"index": 14, "actual": "8.09375", "expected": "8.0859375"}]}}}
+compact_f32_i64_run2: {"status": "FAIL", "sample_rule_status": "FAIL", "outputs": {"batch_mean": {"mismatched": 0, "total": 15, "sample_rule_limit": 0.0015, "sample_rule_pass": true, "examples": []}, "batch_invstd": {"mismatched": 7, "total": 15, "sample_rule_limit": 0.0015, "sample_rule_pass": false, "examples": [{"index": 0, "actual": "0.15942383", "expected": "0.1595459"}, {"index": 1, "actual": "0.15991211", "expected": "0.16003418"}, {"index": 2, "actual": "0.29248047", "expected": "0.2927246"}, {"index": 3, "actual": "0.18835449", "expected": "0.18847656"}, {"index": 4, "actual": "0.21508789", "expected": "0.21520996"}, {"index": 5, "actual": "0.14245605", "expected": "0.14257812"}, {"index": 6, "actual": "0.1776123", "expected": "0.17749023"}]}, "new_mean": {"mismatched": 0, "total": 15, "sample_rule_limit": 0.0015, "sample_rule_pass": true, "examples": []}, "new_variance": {"mismatched": 8, "total": 15, "sample_rule_limit": 0.0015, "sample_rule_pass": false, "examples": [{"index": 7, "actual": "7.609375", "expected": "7.6054688"}, {"index": 8, "actual": "5.921875", "expected": "5.9179688"}, {"index": 9, "actual": "5.8867188", "expected": "5.890625"}, {"index": 10, "actual": "6.1328125", "expected": "6.1367188"}, {"index": 11, "actual": "7.5703125", "expected": "7.5742188"}, {"index": 12, "actual": "10.421875", "expected": "10.4296875"}, {"index": 13, "actual": "12.765625", "expected": "12.7578125"}, {"index": 14, "actual": "8.09375", "expected": "8.0859375"}]}}}
+compact_f32_i64_run3: {"status": "FAIL", "sample_rule_status": "FAIL", "outputs": {"batch_mean": {"mismatched": 0, "total": 15, "sample_rule_limit": 0.0015, "sample_rule_pass": true, "examples": []}, "batch_invstd": {"mismatched": 7, "total": 15, "sample_rule_limit": 0.0015, "sample_rule_pass": false, "examples": [{"index": 0, "actual": "0.15942383", "expected": "0.1595459"}, {"index": 1, "actual": "0.15991211", "expected": "0.16003418"}, {"index": 2, "actual": "0.29248047", "expected": "0.2927246"}, {"index": 3, "actual": "0.18835449", "expected": "0.18847656"}, {"index": 4, "actual": "0.21508789", "expected": "0.21520996"}, {"index": 5, "actual": "0.14245605", "expected": "0.14257812"}, {"index": 6, "actual": "0.1776123", "expected": "0.17749023"}]}, "new_mean": {"mismatched": 0, "total": 15, "sample_rule_limit": 0.0015, "sample_rule_pass": true, "examples": []}, "new_variance": {"mismatched": 8, "total": 15, "sample_rule_limit": 0.0015, "sample_rule_pass": false, "examples": [{"index": 7, "actual": "7.609375", "expected": "7.6054688"}, {"index": 8, "actual": "5.921875", "expected": "5.9179688"}, {"index": 9, "actual": "5.8867188", "expected": "5.890625"}, {"index": 10, "actual": "6.1328125", "expected": "6.1367188"}, {"index": 11, "actual": "7.5703125", "expected": "7.5742188"}, {"index": 12, "actual": "10.421875", "expected": "10.4296875"}, {"index": 13, "actual": "12.765625", "expected": "12.7578125"}, {"index": 14, "actual": "8.09375", "expected": "8.0859375"}]}}}
+compact_f16_i32_run1: {"status": "FAIL", "sample_rule_status": "FAIL", "outputs": {"batch_mean": {"mismatched": 0, "total": 15, "sample_rule_limit": 0.0015, "sample_rule_pass": true, "examples": []}, "batch_invstd": {"mismatched": 7, "total": 15, "sample_rule_limit": 0.0015, "sample_rule_pass": false, "examples": [{"index": 0, "actual": "0.1594", "expected": "0.1595"}, {"index": 1, "actual": "0.1599", "expected": "0.16"}, {"index": 2, "actual": "0.2925", "expected": "0.2927"}, {"index": 3, "actual": "0.1884", "expected": "0.1885"}, {"index": 4, "actual": "0.2151", "expected": "0.2152"}, {"index": 5, "actual": "0.1425", "expected": "0.1426"}, {"index": 6, "actual": "0.1776", "expected": "0.1775"}]}, "new_mean": {"mismatched": 0, "total": 15, "sample_rule_limit": 0.0015, "sample_rule_pass": true, "examples": []}, "new_variance": {"mismatched": 8, "total": 15, "sample_rule_limit": 0.0015, "sample_rule_pass": false, "examples": [{"index": 7, "actual": "7.609375", "expected": "7.6054688"}, {"index": 8, "actual": "5.921875", "expected": "5.9179688"}, {"index": 9, "actual": "5.8867188", "expected": "5.890625"}, {"index": 10, "actual": "6.1328125", "expected": "6.1367188"}, {"index": 11, "actual": "7.5703125", "expected": "7.5742188"}, {"index": 12, "actual": "10.421875", "expected": "10.4296875"}, {"index": 13, "actual": "12.765625", "expected": "12.7578125"}, {"index": 14, "actual": "8.09375", "expected": "8.0859375"}]}}}
+compact_f16_i32_run2: {"status": "FAIL", "sample_rule_status": "FAIL", "outputs": {"batch_mean": {"mismatched": 0, "total": 15, "sample_rule_limit": 0.0015, "sample_rule_pass": true, "examples": []}, "batch_invstd": {"mismatched": 7, "total": 15, "sample_rule_limit": 0.0015, "sample_rule_pass": false, "examples": [{"index": 0, "actual": "0.1594", "expected": "0.1595"}, {"index": 1, "actual": "0.1599", "expected": "0.16"}, {"index": 2, "actual": "0.2925", "expected": "0.2927"}, {"index": 3, "actual": "0.1884", "expected": "0.1885"}, {"index": 4, "actual": "0.2151", "expected": "0.2152"}, {"index": 5, "actual": "0.1425", "expected": "0.1426"}, {"index": 6, "actual": "0.1776", "expected": "0.1775"}]}, "new_mean": {"mismatched": 0, "total": 15, "sample_rule_limit": 0.0015, "sample_rule_pass": true, "examples": []}, "new_variance": {"mismatched": 8, "total": 15, "sample_rule_limit": 0.0015, "sample_rule_pass": false, "examples": [{"index": 7, "actual": "7.609375", "expected": "7.6054688"}, {"index": 8, "actual": "5.921875", "expected": "5.9179688"}, {"index": 9, "actual": "5.8867188", "expected": "5.890625"}, {"index": 10, "actual": "6.1328125", "expected": "6.1367188"}, {"index": 11, "actual": "7.5703125", "expected": "7.5742188"}, {"index": 12, "actual": "10.421875", "expected": "10.4296875"}, {"index": 13, "actual": "12.765625", "expected": "12.7578125"}, {"index": 14, "actual": "8.09375", "expected": "8.0859375"}]}}}
+compact_f16_i32_run3: {"status": "FAIL", "sample_rule_status": "FAIL", "outputs": {"batch_mean": {"mismatched": 0, "total": 15, "sample_rule_limit": 0.0015, "sample_rule_pass": true, "examples": []}, "batch_invstd": {"mismatched": 7, "total": 15, "sample_rule_limit": 0.0015, "sample_rule_pass": false, "examples": [{"index": 0, "actual": "0.1594", "expected": "0.1595"}, {"index": 1, "actual": "0.1599", "expected": "0.16"}, {"index": 2, "actual": "0.2925", "expected": "0.2927"}, {"index": 3, "actual": "0.1884", "expected": "0.1885"}, {"index": 4, "actual": "0.2151", "expected": "0.2152"}, {"index": 5, "actual": "0.1425", "expected": "0.1426"}, {"index": 6, "actual": "0.1776", "expected": "0.1775"}]}, "new_mean": {"mismatched": 0, "total": 15, "sample_rule_limit": 0.0015, "sample_rule_pass": true, "examples": []}, "new_variance": {"mismatched": 8, "total": 15, "sample_rule_limit": 0.0015, "sample_rule_pass": false, "examples": [{"index": 7, "actual": "7.609375", "expected": "7.6054688"}, {"index": 8, "actual": "5.921875", "expected": "5.9179688"}, {"index": 9, "actual": "5.8867188", "expected": "5.890625"}, {"index": 10, "actual": "6.1328125", "expected": "6.1367188"}, {"index": 11, "actual": "7.5703125", "expected": "7.5742188"}, {"index": 12, "actual": "10.421875", "expected": "10.4296875"}, {"index": 13, "actual": "12.765625", "expected": "12.7578125"}, {"index": 14, "actual": "8.09375", "expected": "8.0859375"}]}}}
+compact_f16_i64_run1: {"status": "FAIL", "sample_rule_status": "FAIL", "outputs": {"batch_mean": {"mismatched": 0, "total": 15, "sample_rule_limit": 0.0015, "sample_rule_pass": true, "examples": []}, "batch_invstd": {"mismatched": 7, "total": 15, "sample_rule_limit": 0.0015, "sample_rule_pass": false, "examples": [{"index": 0, "actual": "0.1594", "expected": "0.1595"}, {"index": 1, "actual": "0.1599", "expected": "0.16"}, {"index": 2, "actual": "0.2925", "expected": "0.2927"}, {"index": 3, "actual": "0.1884", "expected": "0.1885"}, {"index": 4, "actual": "0.2151", "expected": "0.2152"}, {"index": 5, "actual": "0.1425", "expected": "0.1426"}, {"index": 6, "actual": "0.1776", "expected": "0.1775"}]}, "new_mean": {"mismatched": 0, "total": 15, "sample_rule_limit": 0.0015, "sample_rule_pass": true, "examples": []}, "new_variance": {"mismatched": 8, "total": 15, "sample_rule_limit": 0.0015, "sample_rule_pass": false, "examples": [{"index": 7, "actual": "7.609375", "expected": "7.6054688"}, {"index": 8, "actual": "5.921875", "expected": "5.9179688"}, {"index": 9, "actual": "5.8867188", "expected": "5.890625"}, {"index": 10, "actual": "6.1328125", "expected": "6.1367188"}, {"index": 11, "actual": "7.5703125", "expected": "7.5742188"}, {"index": 12, "actual": "10.421875", "expected": "10.4296875"}, {"index": 13, "actual": "12.765625", "expected": "12.7578125"}, {"index": 14, "actual": "8.09375", "expected": "8.0859375"}]}}}
+compact_f16_i64_run2: {"status": "FAIL", "sample_rule_status": "FAIL", "outputs": {"batch_mean": {"mismatched": 0, "total": 15, "sample_rule_limit": 0.0015, "sample_rule_pass": true, "examples": []}, "batch_invstd": {"mismatched": 7, "total": 15, "sample_rule_limit": 0.0015, "sample_rule_pass": false, "examples": [{"index": 0, "actual": "0.1594", "expected": "0.1595"}, {"index": 1, "actual": "0.1599", "expected": "0.16"}, {"index": 2, "actual": "0.2925", "expected": "0.2927"}, {"index": 3, "actual": "0.1884", "expected": "0.1885"}, {"index": 4, "actual": "0.2151", "expected": "0.2152"}, {"index": 5, "actual": "0.1425", "expected": "0.1426"}, {"index": 6, "actual": "0.1776", "expected": "0.1775"}]}, "new_mean": {"mismatched": 0, "total": 15, "sample_rule_limit": 0.0015, "sample_rule_pass": true, "examples": []}, "new_variance": {"mismatched": 8, "total": 15, "sample_rule_limit": 0.0015, "sample_rule_pass": false, "examples": [{"index": 7, "actual": "7.609375", "expected": "7.6054688"}, {"index": 8, "actual": "5.921875", "expected": "5.9179688"}, {"index": 9, "actual": "5.8867188", "expected": "5.890625"}, {"index": 10, "actual": "6.1328125", "expected": "6.1367188"}, {"index": 11, "actual": "7.5703125", "expected": "7.5742188"}, {"index": 12, "actual": "10.421875", "expected": "10.4296875"}, {"index": 13, "actual": "12.765625", "expected": "12.7578125"}, {"index": 14, "actual": "8.09375", "expected": "8.0859375"}]}}}
+compact_f16_i64_run3: {"status": "FAIL", "sample_rule_status": "FAIL", "outputs": {"batch_mean": {"mismatched": 0, "total": 15, "sample_rule_limit": 0.0015, "sample_rule_pass": true, "examples": []}, "batch_invstd": {"mismatched": 7, "total": 15, "sample_rule_limit": 0.0015, "sample_rule_pass": false, "examples": [{"index": 0, "actual": "0.1594", "expected": "0.1595"}, {"index": 1, "actual": "0.1599", "expected": "0.16"}, {"index": 2, "actual": "0.2925", "expected": "0.2927"}, {"index": 3, "actual": "0.1884", "expected": "0.1885"}, {"index": 4, "actual": "0.2151", "expected": "0.2152"}, {"index": 5, "actual": "0.1425", "expected": "0.1426"}, {"index": 6, "actual": "0.1776", "expected": "0.1775"}]}, "new_mean": {"mismatched": 0, "total": 15, "sample_rule_limit": 0.0015, "sample_rule_pass": true, "examples": []}, "new_variance": {"mismatched": 8, "total": 15, "sample_rule_limit": 0.0015, "sample_rule_pass": false, "examples": [{"index": 7, "actual": "7.609375", "expected": "7.6054688"}, {"index": 8, "actual": "5.921875", "expected": "5.9179688"}, {"index": 9, "actual": "5.8867188", "expected": "5.890625"}, {"index": 10, "actual": "6.1328125", "expected": "6.1367188"}, {"index": 11, "actual": "7.5703125", "expected": "7.5742188"}, {"index": 12, "actual": "10.421875", "expected": "10.4296875"}, {"index": 13, "actual": "12.765625", "expected": "12.7578125"}, {"index": 14, "actual": "8.09375", "expected": "8.0859375"}]}}}
+Original channel indices: [69528, 84745, 354501, 366094, 393032, 498326, 503890, 188307, 201472, 215481, 301966, 368953, 377353, 384637, 454808]
+Local reference only: not an independent built-in or platform golden.
+developer@dfdd97f8c4e84acbaa54982714e4d993:.../SyncBatchNormGatherStats_2332/workdir/code$ cp samples/build/s010/results.json "$S010_LOG/results.json"
+developer@dfdd97f8c4e84acbaa54982714e4d993:.../SyncBatchNormGatherStats_2332/workdir/code$ 
