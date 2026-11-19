@@ -1,0 +1,249 @@
+developer@dfdd97f8c4e84acbaa54982714e4d993:.../SyncBatchNormGatherStats_2332/workdir/code$ cd /mnt/workspace/cann-ascendc-ops-collab
+IT_SSL_NO_VERIFY=1
+git fetch origin main && git merge --ff-only FETCH_HEAD
+
+export S010_LOG="$PWD/tadeveloper@dfdd97f8c4e84acbaa54982714e4d993:/mnt/workspace/cann-ascendc-ops-collab$ export GIT_SSL_NO_VERIFY=1
+sks/active/SyncBatchNormGatherStats_2332/explorations/logs/EXP_S010"
+mkdir -p "$S010_LOG"
+{
+  echo "developer@dfdd97f8c4e84acbaa54982714e4d993:/mnt/workspace/cann-ascendc-ops-collab$ git fetch origin main && git merge --ff-only FETCH_HEAD
+ASCEND_HOME_PATH=${ASCEND_HOME_PATH:-unset}"
+  echo "ASCEND_OPP_PATH=${ASCEND_OPP_PATH:-unset}"
+  echo "Matching installed paths:"
+  find -L "${ASCEND_HOME_PATH:?CANN environment is not initialized}" -iname '*sync*batch*norm*' -print 2>&1
+  echo "Matching dynamic symbols in installed operator API libraries:"
+  find -L "$ASCEND_HOME_PATH" -type f \( -name '*opapi*.so*' -o -name '*nnopbase*.so*' \) -print |
+    while IFS= read -r lib; do
+      nm -D --defined-only "$lib" 2>/dev/null | grep -iE 'sync.*batch.*norm' | sed "s|^|$lib: |" || true
+    done
+} 2>&1 | tee "$S010_LOG/built-in-discovery.log"remote: Enumerating objects: 32, done.
+remote: Counting objects: 100% (32/32), done.
+remote: Compressing objects: 100% (8/8), done.
+remote: Total 21 (delta 14), reused 20 (delta 13), pack-reused 0 (from 0)
+Unpacking objects: 100% (21/21), 8.09 KiB | 920.00 KiB/s, done.
+From https://github.com/hongwei-2026/cann-ascendc-ops-collab
+ * branch            main       -> FETCH_HEAD
+   1c1c29b..2574fc4  main       -> origin/main
+Updating 1c1c29b..2574fc4
+Fast-forward
+ tasks/active/SyncBatchNormGatherStats_2332/CLOUD-S010.md                                     |  25 +++++++
+ tasks/active/SyncBatchNormGatherStats_2332/STATUS.md                                         |   8 +--
+ tasks/active/SyncBatchNormGatherStats_2332/dev-log.md                                        |   6 ++
+ tasks/active/SyncBatchNormGatherStats_2332/explorations/EXP_S010.md                          |  14 +++-
+ tasks/active/SyncBatchNormGatherStats_2332/explorations/logs/EXP_S010/console-transcript.log | 273 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ tasks/active/SyncBatchNormGatherStats_2332/path-ledger.md                                    |   2 +-
+ 6 files changed, 321 insertions(+), 7 deletions(-)
+ create mode 100644 tasks/active/SyncBatchNormGatherStats_2332/explorations/logs/EXP_S010/console-transcript.log
+developer@dfdd97f8c4e84acbaa54982714e4d993:/mnt/workspace/cann-ascendc-ops-collab$ 
+developer@dfdd97f8c4e84acbaa54982714e4d993:/mnt/workspace/cann-ascendc-ops-collab$ export S010_LOG="$PWD/tasks/active/SyncBatchNormGatherStats_2332/explorations/logs/EXP_S010"
+developer@dfdd97f8c4e84acbaa54982714e4d993:/mnt/workspace/cann-ascendc-ops-collab$ mkdir -p "$S010_LOG"
+developer@dfdd97f8c4e84acbaa54982714e4d993:/mnt/workspace/cann-ascendc-ops-collab$ {
+>   echo "ASCEND_HOME_PATH=${ASCEND_HOME_PATH:-unset}"
+>   echo "ASCEND_OPP_PATH=${ASCEND_OPP_PATH:-unset}"
+>   echo "Matching installed paths:"
+>   find -L "${ASCEND_HOME_PATH:?CANN environment is not initialized}" -iname '*sync*batch*norm*' -print 2>&1
+>   echo "Matching dynamic symbols in installed operator API libraries:"
+>   find -L "$ASCEND_HOME_PATH" -type f \( -name '*opapi*.so*' -o -name '*nnopbase*.so*' \) -print |
+>     while IFS= read -r lib; do
+>       nm -D --defined-only "$lib" 2>/dev/null | grep -iE 'sync.*batch.*norm' | sed "s|^|$lib: |" || true
+>     done
+> } 2>&1 | tee "$S010_LOG/built-in-discovery.log"
+ASCEND_HOME_PATH=/home/developer/Ascend/cann-9.1.0
+ASCEND_OPP_PATH=/home/developer/Ascend/cann-9.1.0/opp
+Matching installed paths:
+/home/developer/Ascend/cann-9.1.0/arm64-linux/include/aclnnop/level2/aclnn_sync_batch_norm_gather_stats.h
+/home/developer/Ascend/cann-9.1.0/arm64-linux/include/aclnnop/aclnn_sync_batch_norm_gather_stats.h
+/home/developer/Ascend/cann-9.1.0/arm64-linux/include/es/es_nn/es_SyncBatchNormBackwardReduce_c.h
+/home/developer/Ascend/cann-9.1.0/arm64-linux/include/es/es_nn/es_SyncBatchNormBackwardElemt_c.h
+/home/developer/Ascend/cann-9.1.0/arm64-linux/include/es/es_nn/es_SyncBatchNormBackwardReduce.h
+/home/developer/Ascend/cann-9.1.0/arm64-linux/include/es/es_nn/es_SyncBatchNormGatherStats.h
+/home/developer/Ascend/cann-9.1.0/arm64-linux/include/es/es_nn/es_SyncBatchNormGatherStats_c.h
+/home/developer/Ascend/cann-9.1.0/arm64-linux/include/es/es_nn/es_SyncBatchNormBackwardElemt.h
+/home/developer/Ascend/cann-9.1.0/opp/built-in/op_impl/ai_core/tbe/kernel/config/ascend910b/ops_legacy/sync_batch_norm_gather_stats_with_counts.json
+/home/developer/Ascend/cann-9.1.0/opp/built-in/op_impl/ai_core/tbe/kernel/config/ascend910b/ops_legacy/sync_batch_norm_gather_stats.json
+/home/developer/Ascend/cann-9.1.0/opp/built-in/op_impl/ai_core/tbe/kernel/config/ascend910b/ops_legacy/sync_batch_norm_backward_elemt.json
+/home/developer/Ascend/cann-9.1.0/opp/built-in/op_impl/ai_core/tbe/kernel/config/ascend910b/ops_legacy/sync_batch_norm_backward_reduce.json
+/home/developer/Ascend/cann-9.1.0/opp/built-in/op_impl/ai_core/tbe/kernel/ascend910b/ops_legacy/sync_batch_norm_backward_elemt
+/home/developer/Ascend/cann-9.1.0/opp/built-in/op_impl/ai_core/tbe/kernel/ascend910b/ops_legacy/sync_batch_norm_backward_elemt/SyncBatchNormBackwardElemt_78241fb0e123745a0c0e69516a0342e5_high_performance.o
+/home/developer/Ascend/cann-9.1.0/opp/built-in/op_impl/ai_core/tbe/kernel/ascend910b/ops_legacy/sync_batch_norm_backward_elemt/SyncBatchNormBackwardElemt_2749df1febd6206c95d2e6789d67863f_high_performance.o
+/home/developer/Ascend/cann-9.1.0/opp/built-in/op_impl/ai_core/tbe/kernel/ascend910b/ops_legacy/sync_batch_norm_backward_elemt/SyncBatchNormBackwardElemt_3ca9726e3b8adb578a099b89487c8ebc_high_performance.o
+/home/developer/Ascend/cann-9.1.0/opp/built-in/op_impl/ai_core/tbe/kernel/ascend910b/ops_legacy/sync_batch_norm_backward_elemt/SyncBatchNormBackwardElemt_89b359f0033b11e31b5cb97f2f37e45f_high_performance.json
+/home/developer/Ascend/cann-9.1.0/opp/built-in/op_impl/ai_core/tbe/kernel/ascend910b/ops_legacy/sync_batch_norm_backward_elemt/SyncBatchNormBackwardElemt_2749df1febd6206c95d2e6789d67863f_high_performance.json
+/home/developer/Ascend/cann-9.1.0/opp/built-in/op_impl/ai_core/tbe/kernel/ascend910b/ops_legacy/sync_batch_norm_backward_elemt/SyncBatchNormBackwardElemt_3ca9726e3b8adb578a099b89487c8ebc_high_performance.json
+/home/developer/Ascend/cann-9.1.0/opp/built-in/op_impl/ai_core/tbe/kernel/ascend910b/ops_legacy/sync_batch_norm_backward_elemt/SyncBatchNormBackwardElemt_89b359f0033b11e31b5cb97f2f37e45f_high_performance.o
+/home/developer/Ascend/cann-9.1.0/opp/built-in/op_impl/ai_core/tbe/kernel/ascend910b/ops_legacy/sync_batch_norm_backward_elemt/SyncBatchNormBackwardElemt_78241fb0e123745a0c0e69516a0342e5_high_performance.json
+/home/developer/Ascend/cann-9.1.0/opp/built-in/op_impl/ai_core/tbe/kernel/ascend910b/ops_legacy/sync_batch_norm_gather_stats_with_counts
+/home/developer/Ascend/cann-9.1.0/opp/built-in/op_impl/ai_core/tbe/kernel/ascend910b/ops_legacy/sync_batch_norm_gather_stats_with_counts/SyncBatchNormGatherStatsWithCounts_fp16_high_performance.json
+/home/developer/Ascend/cann-9.1.0/opp/built-in/op_impl/ai_core/tbe/kernel/ascend910b/ops_legacy/sync_batch_norm_gather_stats_with_counts/SyncBatchNormGatherStatsWithCounts_fp32_high_performance.json
+/home/developer/Ascend/cann-9.1.0/opp/built-in/op_impl/ai_core/tbe/kernel/ascend910b/ops_legacy/sync_batch_norm_gather_stats_with_counts/SyncBatchNormGatherStatsWithCounts_bf16_high_performance.json
+/home/developer/Ascend/cann-9.1.0/opp/built-in/op_impl/ai_core/tbe/kernel/ascend910b/ops_legacy/sync_batch_norm_gather_stats_with_counts/SyncBatchNormGatherStatsWithCounts_fp16_high_performance.o
+/home/developer/Ascend/cann-9.1.0/opp/built-in/op_impl/ai_core/tbe/kernel/ascend910b/ops_legacy/sync_batch_norm_gather_stats_with_counts/SyncBatchNormGatherStatsWithCounts_bf16_high_performance.o
+/home/developer/Ascend/cann-9.1.0/opp/built-in/op_impl/ai_core/tbe/kernel/ascend910b/ops_legacy/sync_batch_norm_gather_stats_with_counts/SyncBatchNormGatherStatsWithCounts_fp32_high_performance.o
+/home/developer/Ascend/cann-9.1.0/opp/built-in/op_impl/ai_core/tbe/kernel/ascend910b/ops_legacy/sync_batch_norm_gather_stats
+/home/developer/Ascend/cann-9.1.0/opp/built-in/op_impl/ai_core/tbe/kernel/ascend910b/ops_legacy/sync_batch_norm_gather_stats/SyncBatchNormGatherStats_0_high_performance.o
+/home/developer/Ascend/cann-9.1.0/opp/built-in/op_impl/ai_core/tbe/kernel/ascend910b/ops_legacy/sync_batch_norm_gather_stats/SyncBatchNormGatherStats_0_high_performance.json
+/home/developer/Ascend/cann-9.1.0/opp/built-in/op_impl/ai_core/tbe/kernel/ascend910b/ops_legacy/sync_batch_norm_gather_stats/SyncBatchNormGatherStats_1_high_performance.json
+/home/developer/Ascend/cann-9.1.0/opp/built-in/op_impl/ai_core/tbe/kernel/ascend910b/ops_legacy/sync_batch_norm_gather_stats/SyncBatchNormGatherStats_1_high_performance.o
+/home/developer/Ascend/cann-9.1.0/opp/built-in/op_impl/ai_core/tbe/kernel/ascend910b/ops_legacy/sync_batch_norm_backward_reduce
+/home/developer/Ascend/cann-9.1.0/opp/built-in/op_impl/ai_core/tbe/kernel/ascend910b/ops_legacy/sync_batch_norm_backward_reduce/SyncBatchNormBackwardReduce_float32_case_high_performance.json
+/home/developer/Ascend/cann-9.1.0/opp/built-in/op_impl/ai_core/tbe/kernel/ascend910b/ops_legacy/sync_batch_norm_backward_reduce/SyncBatchNormBackwardReduce_bfloat16_case_high_performance.o
+/home/developer/Ascend/cann-9.1.0/opp/built-in/op_impl/ai_core/tbe/kernel/ascend910b/ops_legacy/sync_batch_norm_backward_reduce/SyncBatchNormBackwardReduce_float32_case_high_performance.o
+/home/developer/Ascend/cann-9.1.0/opp/built-in/op_impl/ai_core/tbe/kernel/ascend910b/ops_legacy/sync_batch_norm_backward_reduce/SyncBatchNormBackwardReduce_float16_case_high_performance.json
+/home/developer/Ascend/cann-9.1.0/opp/built-in/op_impl/ai_core/tbe/kernel/ascend910b/ops_legacy/sync_batch_norm_backward_reduce/SyncBatchNormBackwardReduce_float16_case_high_performance.o
+/home/developer/Ascend/cann-9.1.0/opp/built-in/op_impl/ai_core/tbe/kernel/ascend910b/ops_legacy/sync_batch_norm_backward_reduce/SyncBatchNormBackwardReduce_bfloat16_case_high_performance.json
+/home/developer/Ascend/cann-9.1.0/opp/built-in/op_impl/ai_core/tbe/impl/ops_nn/dynamic/sync_batch_norm_backward_reduce_apt.py
+/home/developer/Ascend/cann-9.1.0/opp/built-in/op_impl/ai_core/tbe/impl/ops_nn/dynamic/sync_batch_norm_backward_elemt_apt.py
+/home/developer/Ascend/cann-9.1.0/opp/built-in/op_impl/ai_core/tbe/impl/ops_nn/dynamic/sync_batch_norm_gather_stats_apt.py
+/home/developer/Ascend/cann-9.1.0/opp/built-in/op_impl/ai_core/tbe/impl/ops_nn/dynamic/sync_batch_norm_gather_stats_fused.py
+/home/developer/Ascend/cann-9.1.0/opp/built-in/op_impl/ai_core/tbe/impl/ops_nn/ascendc/sync_batch_norm_backward_elemt
+/home/developer/Ascend/cann-9.1.0/opp/built-in/op_impl/ai_core/tbe/impl/ops_nn/ascendc/sync_batch_norm_backward_elemt/arch35/sync_batch_norm_backward_elemt_tilingdata.h
+/home/developer/Ascend/cann-9.1.0/opp/built-in/op_impl/ai_core/tbe/impl/ops_nn/ascendc/sync_batch_norm_backward_elemt/arch35/sync_batch_norm_backward_elemt_dag.h
+/home/developer/Ascend/cann-9.1.0/opp/built-in/op_impl/ai_core/tbe/impl/ops_nn/ascendc/sync_batch_norm_backward_elemt/sync_batch_norm_backward_elemt_apt.cpp
+/home/developer/Ascend/cann-9.1.0/opp/built-in/op_impl/ai_core/tbe/impl/ops_nn/ascendc/sync_batch_norm_gather_stats_fused
+/home/developer/Ascend/cann-9.1.0/opp/built-in/op_impl/ai_core/tbe/impl/ops_nn/ascendc/sync_batch_norm_gather_stats_fused/sync_batch_norm_gather_stats_fused_counts_sum.h
+/home/developer/Ascend/cann-9.1.0/opp/built-in/op_impl/ai_core/tbe/impl/ops_nn/ascendc/sync_batch_norm_gather_stats_fused/sync_batch_norm_gather_stats_fused_common.h
+/home/developer/Ascend/cann-9.1.0/opp/built-in/op_impl/ai_core/tbe/impl/ops_nn/ascendc/sync_batch_norm_gather_stats_fused/sync_batch_norm_gather_stats_fused_workspace.h
+/home/developer/Ascend/cann-9.1.0/opp/built-in/op_impl/ai_core/tbe/impl/ops_nn/ascendc/sync_batch_norm_gather_stats_fused/sync_batch_norm_gather_stats_fused_deterministic.h
+/home/developer/Ascend/cann-9.1.0/opp/built-in/op_impl/ai_core/tbe/impl/ops_nn/ascendc/sync_batch_norm_gather_stats_fused/sync_batch_norm_gather_stats_fused_compute.h
+/home/developer/Ascend/cann-9.1.0/opp/built-in/op_impl/ai_core/tbe/impl/ops_nn/ascendc/sync_batch_norm_gather_stats_fused/sync_batch_norm_gather_stats_fused_first_axis_common.inl
+/home/developer/Ascend/cann-9.1.0/opp/built-in/op_impl/ai_core/tbe/impl/ops_nn/ascendc/sync_batch_norm_gather_stats_fused/sync_batch_norm_gather_stats_fused_common.inl
+/home/developer/Ascend/cann-9.1.0/opp/built-in/op_impl/ai_core/tbe/impl/ops_nn/ascendc/sync_batch_norm_gather_stats_fused/sync_batch_norm_gather_stats_fused_first_axis_workspace.h
+/home/developer/Ascend/cann-9.1.0/opp/built-in/op_impl/ai_core/tbe/impl/ops_nn/ascendc/sync_batch_norm_gather_stats_fused/sync_batch_norm_gather_stats_fused_first_axis_common.h
+/home/developer/Ascend/cann-9.1.0/opp/built-in/op_impl/ai_core/tbe/impl/ops_nn/ascendc/sync_batch_norm_gather_stats_fused/sync_batch_norm_gather_stats_fused.cpp
+/home/developer/Ascend/cann-9.1.0/opp/built-in/op_impl/ai_core/tbe/impl/ops_nn/ascendc/sync_batch_norm_gather_stats
+/home/developer/Ascend/cann-9.1.0/opp/built-in/op_impl/ai_core/tbe/impl/ops_nn/ascendc/sync_batch_norm_gather_stats/arch35/sync_batch_norm_gather_stats_struct.h
+/home/developer/Ascend/cann-9.1.0/opp/built-in/op_impl/ai_core/tbe/impl/ops_nn/ascendc/sync_batch_norm_gather_stats/arch35/sync_batch_norm_gather_stats_n_full_load.h
+/home/developer/Ascend/cann-9.1.0/opp/built-in/op_impl/ai_core/tbe/impl/ops_nn/ascendc/sync_batch_norm_gather_stats/arch35/sync_batch_norm_gather_stats_n_not_full_load.h
+/home/developer/Ascend/cann-9.1.0/opp/built-in/op_impl/ai_core/tbe/impl/ops_nn/ascendc/sync_batch_norm_gather_stats/sync_batch_norm_gather_stats_apt.cpp
+/home/developer/Ascend/cann-9.1.0/opp/built-in/op_impl/ai_core/tbe/impl/ops_nn/ascendc/sync_batch_norm_backward_reduce
+/home/developer/Ascend/cann-9.1.0/opp/built-in/op_impl/ai_core/tbe/impl/ops_nn/ascendc/sync_batch_norm_backward_reduce/arch35/sync_batch_norm_backward_reduce_tilingdata.h
+/home/developer/Ascend/cann-9.1.0/opp/built-in/op_impl/ai_core/tbe/impl/ops_nn/ascendc/sync_batch_norm_backward_reduce/arch35/sync_batch_norm_backward_reduce_dag.h
+/home/developer/Ascend/cann-9.1.0/opp/built-in/op_impl/ai_core/tbe/impl/ops_nn/ascendc/sync_batch_norm_backward_reduce/sync_batch_norm_backward_reduce_apt.cpp
+/home/developer/Ascend/cann-9.1.0/opp/built-in/op_impl/ai_core/tbe/impl/ops_legacy/dynamic/sync_batch_norm_backward_reduce.py
+/home/developer/Ascend/cann-9.1.0/opp/built-in/op_impl/ai_core/tbe/impl/ops_legacy/dynamic/sync_batch_norm_gather_stats_with_counts.py
+/home/developer/Ascend/cann-9.1.0/opp/built-in/op_impl/ai_core/tbe/impl/ops_legacy/dynamic/sync_batch_norm_backward_elemt.py
+/home/developer/Ascend/cann-9.1.0/opp/built-in/op_impl/ai_core/tbe/impl/ops_legacy/dynamic/sync_batch_norm_gather_stats.py
+/home/developer/Ascend/cann-9.1.0/opp/include/aclnnop/level2/aclnn_sync_batch_norm_gather_stats.h
+/home/developer/Ascend/cann-9.1.0/opp/include/aclnnop/aclnn_sync_batch_norm_gather_stats.h
+/home/developer/Ascend/cann-9.1.0/python/site-packages/es_nn/__pycache__/es_SyncBatchNormBackwardElemt.cpython-311.pyc
+/home/developer/Ascend/cann-9.1.0/python/site-packages/es_nn/__pycache__/es_SyncBatchNormGatherStats.cpython-311.pyc
+/home/developer/Ascend/cann-9.1.0/python/site-packages/es_nn/__pycache__/es_SyncBatchNormBackwardReduce.cpython-311.pyc
+/home/developer/Ascend/cann-9.1.0/python/site-packages/es_nn/es_SyncBatchNormGatherStats.py
+/home/developer/Ascend/cann-9.1.0/python/site-packages/es_nn/es_SyncBatchNormBackwardElemt.py
+/home/developer/Ascend/cann-9.1.0/python/site-packages/es_nn/es_SyncBatchNormBackwardReduce.py
+/home/developer/Ascend/cann-9.1.0/include/aclnnop/level2/aclnn_sync_batch_norm_gather_stats.h
+/home/developer/Ascend/cann-9.1.0/include/aclnnop/aclnn_sync_batch_norm_gather_stats.h
+/home/developer/Ascend/cann-9.1.0/include/es/es_nn/es_SyncBatchNormBackwardReduce_c.h
+/home/developer/Ascend/cann-9.1.0/include/es/es_nn/es_SyncBatchNormBackwardElemt_c.h
+/home/developer/Ascend/cann-9.1.0/include/es/es_nn/es_SyncBatchNormBackwardReduce.h
+/home/developer/Ascend/cann-9.1.0/include/es/es_nn/es_SyncBatchNormGatherStats.h
+/home/developer/Ascend/cann-9.1.0/include/es/es_nn/es_SyncBatchNormGatherStats_c.h
+/home/developer/Ascend/cann-9.1.0/include/es/es_nn/es_SyncBatchNormBackwardElemt.h
+/home/developer/Ascend/cann-9.1.0/aarch64-linux/include/aclnnop/level2/aclnn_sync_batch_norm_gather_stats.h
+/home/developer/Ascend/cann-9.1.0/aarch64-linux/include/aclnnop/aclnn_sync_batch_norm_gather_stats.h
+/home/developer/Ascend/cann-9.1.0/aarch64-linux/include/es/es_nn/es_SyncBatchNormBackwardReduce_c.h
+/home/developer/Ascend/cann-9.1.0/aarch64-linux/include/es/es_nn/es_SyncBatchNormBackwardElemt_c.h
+/home/developer/Ascend/cann-9.1.0/aarch64-linux/include/es/es_nn/es_SyncBatchNormBackwardReduce.h
+/home/developer/Ascend/cann-9.1.0/aarch64-linux/include/es/es_nn/es_SyncBatchNormGatherStats.h
+/home/developer/Ascend/cann-9.1.0/aarch64-linux/include/es/es_nn/es_SyncBatchNormGatherStats_c.h
+/home/developer/Ascend/cann-9.1.0/aarch64-linux/include/es/es_nn/es_SyncBatchNormBackwardElemt.h
+Matching dynamic symbols in installed operator API libraries:
+/home/developer/Ascend/cann-9.1.0/arm64-linux/lib64/libopapi.so: 00000000019573e8 T aclnnSyncBatchNormGatherStats
+/home/developer/Ascend/cann-9.1.0/arm64-linux/lib64/libopapi.so: 000000000195c608 T aclnnSyncBatchNormGatherStatsGetWorkspaceSize
+/home/developer/Ascend/cann-9.1.0/arm64-linux/lib64/libopapi.so: 00000000019574b8 T SyncBatchNormGatherStatsFun
+/home/developer/Ascend/cann-9.1.0/arm64-linux/lib64/libopapi.so: 0000000002a525c0 u _ZGVZN4l0op32SyncBatchNormGatherStatsOpTypeIdEvE32SyncBatchNormGatherStatsOpTypeId
+/home/developer/Ascend/cann-9.1.0/arm64-linux/lib64/libopapi.so: 0000000002a522c0 u _ZGVZN4l0op34SyncBatchNormBackwardElemtOpTypeIdEvE34SyncBatchNormBackwardElemtOpTypeId
+/home/developer/Ascend/cann-9.1.0/arm64-linux/lib64/libopapi.so: 0000000002a52460 u _ZGVZN4l0op35SyncBatchNormBackwardReduceOpTypeIdEvE35SyncBatchNormBackwardReduceOpTypeId
+/home/developer/Ascend/cann-9.1.0/arm64-linux/lib64/libopapi.so: 0000000002a52660 u _ZGVZN4l0op37SyncBatchNormGatherStatsFusedOpTypeIdEvE37SyncBatchNormGatherStatsFusedOpTypeId
+/home/developer/Ascend/cann-9.1.0/arm64-linux/lib64/libopapi.so: 0000000002a52788 u _ZGVZN4l0op42SyncBatchNormGatherStatsWithCountsOpTypeIdEvE42SyncBatchNormGatherStatsWithCountsOpTypeId
+/home/developer/Ascend/cann-9.1.0/arm64-linux/lib64/libopapi.so: 0000000001960ea0 T _ZN4l0op24SyncBatchNormGatherStatsEPK9aclTensorS2_S2_PS0_S3_ffP13aclOpExecutor
+/home/developer/Ascend/cann-9.1.0/arm64-linux/lib64/libopapi.so: 0000000001947728 T _ZN4l0op26SyncBatchNormBackwardElemtEPK9aclTensorS2_S2_S2_S2_S2_S2_P13aclOpExecutor
+/home/developer/Ascend/cann-9.1.0/arm64-linux/lib64/libopapi.so: 0000000001954a08 T _ZN4l0op27SyncBatchNormBackwardReduceEPK9aclTensorS2_S2_S2_P13aclOpExecutor
+/home/developer/Ascend/cann-9.1.0/arm64-linux/lib64/libopapi.so: 00000000019643f8 T _ZN4l0op29SyncBatchNormGatherStatsFusedEPK9aclTensorS2_S2_S2_S2_ffP13aclOpExecutor
+/home/developer/Ascend/cann-9.1.0/arm64-linux/lib64/libopapi.so: 0000000001970cf0 T _ZN4l0op34SyncBatchNormGatherStatsWithCountsEPK9aclTensorS2_S2_S2_S2_S2_ffP13aclOpExecutor
+/home/developer/Ascend/cann-9.1.0/arm64-linux/lib64/libopapi.so: 0000000002a525b8 B _ZN4l0op60SyncBatchNormGatherStats_kernelName_Be_Defined_Multi_Times__E
+/home/developer/Ascend/cann-9.1.0/arm64-linux/lib64/libopapi.so: 0000000002a522bc B _ZN4l0op62SyncBatchNormBackwardElemt_kernelName_Be_Defined_Multi_Times__E
+/home/developer/Ascend/cann-9.1.0/arm64-linux/lib64/libopapi.so: 0000000002a52458 B _ZN4l0op63SyncBatchNormBackwardReduce_kernelName_Be_Defined_Multi_Times__E
+/home/developer/Ascend/cann-9.1.0/arm64-linux/lib64/libopapi.so: 0000000002a52658 B _ZN4l0op65SyncBatchNormGatherStatsFused_kernelName_Be_Defined_Multi_Times__E
+/home/developer/Ascend/cann-9.1.0/arm64-linux/lib64/libopapi.so: 0000000002a52780 B _ZN4l0op70SyncBatchNormGatherStatsWithCounts_kernelName_Be_Defined_Multi_Times__E
+/home/developer/Ascend/cann-9.1.0/arm64-linux/lib64/libopapi.so: 0000000002a525c8 u _ZZN4l0op32SyncBatchNormGatherStatsOpTypeIdEvE32SyncBatchNormGatherStatsOpTypeId
+/home/developer/Ascend/cann-9.1.0/arm64-linux/lib64/libopapi.so: 0000000002a522c8 u _ZZN4l0op34SyncBatchNormBackwardElemtOpTypeIdEvE34SyncBatchNormBackwardElemtOpTypeId
+/home/developer/Ascend/cann-9.1.0/arm64-linux/lib64/libopapi.so: 0000000002a52468 u _ZZN4l0op35SyncBatchNormBackwardReduceOpTypeIdEvE35SyncBatchNormBackwardReduceOpTypeId
+/home/developer/Ascend/cann-9.1.0/arm64-linux/lib64/libopapi.so: 0000000002a52668 u _ZZN4l0op37SyncBatchNormGatherStatsFusedOpTypeIdEvE37SyncBatchNormGatherStatsFusedOpTypeId
+/home/developer/Ascend/cann-9.1.0/arm64-linux/lib64/libopapi.so: 0000000002a52790 u _ZZN4l0op42SyncBatchNormGatherStatsWithCountsOpTypeIdEvE42SyncBatchNormGatherStatsWithCountsOpTypeId
+/home/developer/Ascend/cann-9.1.0/arm64-linux/lib64/libopapi_nn.so: 0000000000b691e8 T aclnnSyncBatchNormGatherStats
+/home/developer/Ascend/cann-9.1.0/arm64-linux/lib64/libopapi_nn.so: 0000000000b6e408 T aclnnSyncBatchNormGatherStatsGetWorkspaceSize
+/home/developer/Ascend/cann-9.1.0/opp/built-in/op_impl/ai_core/tbe/op_api/lib/linux/aarch64/libopapi.so: 00000000019573e8 T aclnnSyncBatchNormGatherStats
+/home/developer/Ascend/cann-9.1.0/opp/built-in/op_impl/ai_core/tbe/op_api/lib/linux/aarch64/libopapi.so: 000000000195c608 T aclnnSyncBatchNormGatherStatsGetWorkspaceSize
+/home/developer/Ascend/cann-9.1.0/opp/built-in/op_impl/ai_core/tbe/op_api/lib/linux/aarch64/libopapi.so: 00000000019574b8 T SyncBatchNormGatherStatsFun
+/home/developer/Ascend/cann-9.1.0/opp/built-in/op_impl/ai_core/tbe/op_api/lib/linux/aarch64/libopapi.so: 0000000002a525c0 u _ZGVZN4l0op32SyncBatchNormGatherStatsOpTypeIdEvE32SyncBatchNormGatherStatsOpTypeId
+/home/developer/Ascend/cann-9.1.0/opp/built-in/op_impl/ai_core/tbe/op_api/lib/linux/aarch64/libopapi.so: 0000000002a522c0 u _ZGVZN4l0op34SyncBatchNormBackwardElemtOpTypeIdEvE34SyncBatchNormBackwardElemtOpTypeId
+/home/developer/Ascend/cann-9.1.0/opp/built-in/op_impl/ai_core/tbe/op_api/lib/linux/aarch64/libopapi.so: 0000000002a52460 u _ZGVZN4l0op35SyncBatchNormBackwardReduceOpTypeIdEvE35SyncBatchNormBackwardReduceOpTypeId
+/home/developer/Ascend/cann-9.1.0/opp/built-in/op_impl/ai_core/tbe/op_api/lib/linux/aarch64/libopapi.so: 0000000002a52660 u _ZGVZN4l0op37SyncBatchNormGatherStatsFusedOpTypeIdEvE37SyncBatchNormGatherStatsFusedOpTypeId
+/home/developer/Ascend/cann-9.1.0/opp/built-in/op_impl/ai_core/tbe/op_api/lib/linux/aarch64/libopapi.so: 0000000002a52788 u _ZGVZN4l0op42SyncBatchNormGatherStatsWithCountsOpTypeIdEvE42SyncBatchNormGatherStatsWithCountsOpTypeId
+/home/developer/Ascend/cann-9.1.0/opp/built-in/op_impl/ai_core/tbe/op_api/lib/linux/aarch64/libopapi.so: 0000000001960ea0 T _ZN4l0op24SyncBatchNormGatherStatsEPK9aclTensorS2_S2_PS0_S3_ffP13aclOpExecutor
+/home/developer/Ascend/cann-9.1.0/opp/built-in/op_impl/ai_core/tbe/op_api/lib/linux/aarch64/libopapi.so: 0000000001947728 T _ZN4l0op26SyncBatchNormBackwardElemtEPK9aclTensorS2_S2_S2_S2_S2_S2_P13aclOpExecutor
+/home/developer/Ascend/cann-9.1.0/opp/built-in/op_impl/ai_core/tbe/op_api/lib/linux/aarch64/libopapi.so: 0000000001954a08 T _ZN4l0op27SyncBatchNormBackwardReduceEPK9aclTensorS2_S2_S2_P13aclOpExecutor
+/home/developer/Ascend/cann-9.1.0/opp/built-in/op_impl/ai_core/tbe/op_api/lib/linux/aarch64/libopapi.so: 00000000019643f8 T _ZN4l0op29SyncBatchNormGatherStatsFusedEPK9aclTensorS2_S2_S2_S2_ffP13aclOpExecutor
+/home/developer/Ascend/cann-9.1.0/opp/built-in/op_impl/ai_core/tbe/op_api/lib/linux/aarch64/libopapi.so: 0000000001970cf0 T _ZN4l0op34SyncBatchNormGatherStatsWithCountsEPK9aclTensorS2_S2_S2_S2_S2_ffP13aclOpExecutor
+/home/developer/Ascend/cann-9.1.0/opp/built-in/op_impl/ai_core/tbe/op_api/lib/linux/aarch64/libopapi.so: 0000000002a525b8 B _ZN4l0op60SyncBatchNormGatherStats_kernelName_Be_Defined_Multi_Times__E
+/home/developer/Ascend/cann-9.1.0/opp/built-in/op_impl/ai_core/tbe/op_api/lib/linux/aarch64/libopapi.so: 0000000002a522bc B _ZN4l0op62SyncBatchNormBackwardElemt_kernelName_Be_Defined_Multi_Times__E
+/home/developer/Ascend/cann-9.1.0/opp/built-in/op_impl/ai_core/tbe/op_api/lib/linux/aarch64/libopapi.so: 0000000002a52458 B _ZN4l0op63SyncBatchNormBackwardReduce_kernelName_Be_Defined_Multi_Times__E
+/home/developer/Ascend/cann-9.1.0/opp/built-in/op_impl/ai_core/tbe/op_api/lib/linux/aarch64/libopapi.so: 0000000002a52658 B _ZN4l0op65SyncBatchNormGatherStatsFused_kernelName_Be_Defined_Multi_Times__E
+/home/developer/Ascend/cann-9.1.0/opp/built-in/op_impl/ai_core/tbe/op_api/lib/linux/aarch64/libopapi.so: 0000000002a52780 B _ZN4l0op70SyncBatchNormGatherStatsWithCounts_kernelName_Be_Defined_Multi_Times__E
+/home/developer/Ascend/cann-9.1.0/opp/built-in/op_impl/ai_core/tbe/op_api/lib/linux/aarch64/libopapi.so: 0000000002a525c8 u _ZZN4l0op32SyncBatchNormGatherStatsOpTypeIdEvE32SyncBatchNormGatherStatsOpTypeId
+/home/developer/Ascend/cann-9.1.0/opp/built-in/op_impl/ai_core/tbe/op_api/lib/linux/aarch64/libopapi.so: 0000000002a522c8 u _ZZN4l0op34SyncBatchNormBackwardElemtOpTypeIdEvE34SyncBatchNormBackwardElemtOpTypeId
+/home/developer/Ascend/cann-9.1.0/opp/built-in/op_impl/ai_core/tbe/op_api/lib/linux/aarch64/libopapi.so: 0000000002a52468 u _ZZN4l0op35SyncBatchNormBackwardReduceOpTypeIdEvE35SyncBatchNormBackwardReduceOpTypeId
+/home/developer/Ascend/cann-9.1.0/opp/built-in/op_impl/ai_core/tbe/op_api/lib/linux/aarch64/libopapi.so: 0000000002a52668 u _ZZN4l0op37SyncBatchNormGatherStatsFusedOpTypeIdEvE37SyncBatchNormGatherStatsFusedOpTypeId
+/home/developer/Ascend/cann-9.1.0/opp/built-in/op_impl/ai_core/tbe/op_api/lib/linux/aarch64/libopapi.so: 0000000002a52790 u _ZZN4l0op42SyncBatchNormGatherStatsWithCountsOpTypeIdEvE42SyncBatchNormGatherStatsWithCountsOpTypeId
+/home/developer/Ascend/cann-9.1.0/lib64/libopapi.so: 00000000019573e8 T aclnnSyncBatchNormGatherStats
+/home/developer/Ascend/cann-9.1.0/lib64/libopapi.so: 000000000195c608 T aclnnSyncBatchNormGatherStatsGetWorkspaceSize
+/home/developer/Ascend/cann-9.1.0/lib64/libopapi.so: 00000000019574b8 T SyncBatchNormGatherStatsFun
+/home/developer/Ascend/cann-9.1.0/lib64/libopapi.so: 0000000002a525c0 u _ZGVZN4l0op32SyncBatchNormGatherStatsOpTypeIdEvE32SyncBatchNormGatherStatsOpTypeId
+/home/developer/Ascend/cann-9.1.0/lib64/libopapi.so: 0000000002a522c0 u _ZGVZN4l0op34SyncBatchNormBackwardElemtOpTypeIdEvE34SyncBatchNormBackwardElemtOpTypeId
+/home/developer/Ascend/cann-9.1.0/lib64/libopapi.so: 0000000002a52460 u _ZGVZN4l0op35SyncBatchNormBackwardReduceOpTypeIdEvE35SyncBatchNormBackwardReduceOpTypeId
+/home/developer/Ascend/cann-9.1.0/lib64/libopapi.so: 0000000002a52660 u _ZGVZN4l0op37SyncBatchNormGatherStatsFusedOpTypeIdEvE37SyncBatchNormGatherStatsFusedOpTypeId
+/home/developer/Ascend/cann-9.1.0/lib64/libopapi.so: 0000000002a52788 u _ZGVZN4l0op42SyncBatchNormGatherStatsWithCountsOpTypeIdEvE42SyncBatchNormGatherStatsWithCountsOpTypeId
+/home/developer/Ascend/cann-9.1.0/lib64/libopapi.so: 0000000001960ea0 T _ZN4l0op24SyncBatchNormGatherStatsEPK9aclTensorS2_S2_PS0_S3_ffP13aclOpExecutor
+/home/developer/Ascend/cann-9.1.0/lib64/libopapi.so: 0000000001947728 T _ZN4l0op26SyncBatchNormBackwardElemtEPK9aclTensorS2_S2_S2_S2_S2_S2_P13aclOpExecutor
+/home/developer/Ascend/cann-9.1.0/lib64/libopapi.so: 0000000001954a08 T _ZN4l0op27SyncBatchNormBackwardReduceEPK9aclTensorS2_S2_S2_P13aclOpExecutor
+/home/developer/Ascend/cann-9.1.0/lib64/libopapi.so: 00000000019643f8 T _ZN4l0op29SyncBatchNormGatherStatsFusedEPK9aclTensorS2_S2_S2_S2_ffP13aclOpExecutor
+/home/developer/Ascend/cann-9.1.0/lib64/libopapi.so: 0000000001970cf0 T _ZN4l0op34SyncBatchNormGatherStatsWithCountsEPK9aclTensorS2_S2_S2_S2_S2_ffP13aclOpExecutor
+/home/developer/Ascend/cann-9.1.0/lib64/libopapi.so: 0000000002a525b8 B _ZN4l0op60SyncBatchNormGatherStats_kernelName_Be_Defined_Multi_Times__E
+/home/developer/Ascend/cann-9.1.0/lib64/libopapi.so: 0000000002a522bc B _ZN4l0op62SyncBatchNormBackwardElemt_kernelName_Be_Defined_Multi_Times__E
+/home/developer/Ascend/cann-9.1.0/lib64/libopapi.so: 0000000002a52458 B _ZN4l0op63SyncBatchNormBackwardReduce_kernelName_Be_Defined_Multi_Times__E
+/home/developer/Ascend/cann-9.1.0/lib64/libopapi.so: 0000000002a52658 B _ZN4l0op65SyncBatchNormGatherStatsFused_kernelName_Be_Defined_Multi_Times__E
+/home/developer/Ascend/cann-9.1.0/lib64/libopapi.so: 0000000002a52780 B _ZN4l0op70SyncBatchNormGatherStatsWithCounts_kernelName_Be_Defined_Multi_Times__E
+/home/developer/Ascend/cann-9.1.0/lib64/libopapi.so: 0000000002a525c8 u _ZZN4l0op32SyncBatchNormGatherStatsOpTypeIdEvE32SyncBatchNormGatherStatsOpTypeId
+/home/developer/Ascend/cann-9.1.0/lib64/libopapi.so: 0000000002a522c8 u _ZZN4l0op34SyncBatchNormBackwardElemtOpTypeIdEvE34SyncBatchNormBackwardElemtOpTypeId
+/home/developer/Ascend/cann-9.1.0/lib64/libopapi.so: 0000000002a52468 u _ZZN4l0op35SyncBatchNormBackwardReduceOpTypeIdEvE35SyncBatchNormBackwardReduceOpTypeId
+/home/developer/Ascend/cann-9.1.0/lib64/libopapi.so: 0000000002a52668 u _ZZN4l0op37SyncBatchNormGatherStatsFusedOpTypeIdEvE37SyncBatchNormGatherStatsFusedOpTypeId
+/home/developer/Ascend/cann-9.1.0/lib64/libopapi.so: 0000000002a52790 u _ZZN4l0op42SyncBatchNormGatherStatsWithCountsOpTypeIdEvE42SyncBatchNormGatherStatsWithCountsOpTypeId
+/home/developer/Ascend/cann-9.1.0/lib64/libopapi_nn.so: 0000000000b691e8 T aclnnSyncBatchNormGatherStats
+/home/developer/Ascend/cann-9.1.0/lib64/libopapi_nn.so: 0000000000b6e408 T aclnnSyncBatchNormGatherStatsGetWorkspaceSize
+/home/developer/Ascend/cann-9.1.0/aarch64-linux/lib64/libopapi.so: 00000000019573e8 T aclnnSyncBatchNormGatherStats
+/home/developer/Ascend/cann-9.1.0/aarch64-linux/lib64/libopapi.so: 000000000195c608 T aclnnSyncBatchNormGatherStatsGetWorkspaceSize
+/home/developer/Ascend/cann-9.1.0/aarch64-linux/lib64/libopapi.so: 00000000019574b8 T SyncBatchNormGatherStatsFun
+/home/developer/Ascend/cann-9.1.0/aarch64-linux/lib64/libopapi.so: 0000000002a525c0 u _ZGVZN4l0op32SyncBatchNormGatherStatsOpTypeIdEvE32SyncBatchNormGatherStatsOpTypeId
+/home/developer/Ascend/cann-9.1.0/aarch64-linux/lib64/libopapi.so: 0000000002a522c0 u _ZGVZN4l0op34SyncBatchNormBackwardElemtOpTypeIdEvE34SyncBatchNormBackwardElemtOpTypeId
+/home/developer/Ascend/cann-9.1.0/aarch64-linux/lib64/libopapi.so: 0000000002a52460 u _ZGVZN4l0op35SyncBatchNormBackwardReduceOpTypeIdEvE35SyncBatchNormBackwardReduceOpTypeId
+/home/developer/Ascend/cann-9.1.0/aarch64-linux/lib64/libopapi.so: 0000000002a52660 u _ZGVZN4l0op37SyncBatchNormGatherStatsFusedOpTypeIdEvE37SyncBatchNormGatherStatsFusedOpTypeId
+/home/developer/Ascend/cann-9.1.0/aarch64-linux/lib64/libopapi.so: 0000000002a52788 u _ZGVZN4l0op42SyncBatchNormGatherStatsWithCountsOpTypeIdEvE42SyncBatchNormGatherStatsWithCountsOpTypeId
+/home/developer/Ascend/cann-9.1.0/aarch64-linux/lib64/libopapi.so: 0000000001960ea0 T _ZN4l0op24SyncBatchNormGatherStatsEPK9aclTensorS2_S2_PS0_S3_ffP13aclOpExecutor
+/home/developer/Ascend/cann-9.1.0/aarch64-linux/lib64/libopapi.so: 0000000001947728 T _ZN4l0op26SyncBatchNormBackwardElemtEPK9aclTensorS2_S2_S2_S2_S2_S2_P13aclOpExecutor
+/home/developer/Ascend/cann-9.1.0/aarch64-linux/lib64/libopapi.so: 0000000001954a08 T _ZN4l0op27SyncBatchNormBackwardReduceEPK9aclTensorS2_S2_S2_P13aclOpExecutor
+/home/developer/Ascend/cann-9.1.0/aarch64-linux/lib64/libopapi.so: 00000000019643f8 T _ZN4l0op29SyncBatchNormGatherStatsFusedEPK9aclTensorS2_S2_S2_S2_ffP13aclOpExecutor
+/home/developer/Ascend/cann-9.1.0/aarch64-linux/lib64/libopapi.so: 0000000001970cf0 T _ZN4l0op34SyncBatchNormGatherStatsWithCountsEPK9aclTensorS2_S2_S2_S2_S2_ffP13aclOpExecutor
+/home/developer/Ascend/cann-9.1.0/aarch64-linux/lib64/libopapi.so: 0000000002a525b8 B _ZN4l0op60SyncBatchNormGatherStats_kernelName_Be_Defined_Multi_Times__E
+/home/developer/Ascend/cann-9.1.0/aarch64-linux/lib64/libopapi.so: 0000000002a522bc B _ZN4l0op62SyncBatchNormBackwardElemt_kernelName_Be_Defined_Multi_Times__E
+/home/developer/Ascend/cann-9.1.0/aarch64-linux/lib64/libopapi.so: 0000000002a52458 B _ZN4l0op63SyncBatchNormBackwardReduce_kernelName_Be_Defined_Multi_Times__E
+/home/developer/Ascend/cann-9.1.0/aarch64-linux/lib64/libopapi.so: 0000000002a52658 B _ZN4l0op65SyncBatchNormGatherStatsFused_kernelName_Be_Defined_Multi_Times__E
+/home/developer/Ascend/cann-9.1.0/aarch64-linux/lib64/libopapi.so: 0000000002a52780 B _ZN4l0op70SyncBatchNormGatherStatsWithCounts_kernelName_Be_Defined_Multi_Times__E
+/home/developer/Ascend/cann-9.1.0/aarch64-linux/lib64/libopapi.so: 0000000002a525c8 u _ZZN4l0op32SyncBatchNormGatherStatsOpTypeIdEvE32SyncBatchNormGatherStatsOpTypeId
+/home/developer/Ascend/cann-9.1.0/aarch64-linux/lib64/libopapi.so: 0000000002a522c8 u _ZZN4l0op34SyncBatchNormBackwardElemtOpTypeIdEvE34SyncBatchNormBackwardElemtOpTypeId
+/home/developer/Ascend/cann-9.1.0/aarch64-linux/lib64/libopapi.so: 0000000002a52468 u _ZZN4l0op35SyncBatchNormBackwardReduceOpTypeIdEvE35SyncBatchNormBackwardReduceOpTypeId
+/home/developer/Ascend/cann-9.1.0/aarch64-linux/lib64/libopapi.so: 0000000002a52668 u _ZZN4l0op37SyncBatchNormGatherStatsFusedOpTypeIdEvE37SyncBatchNormGatherStatsFusedOpTypeId
+/home/developer/Ascend/cann-9.1.0/aarch64-linux/lib64/libopapi.so: 0000000002a52790 u _ZZN4l0op42SyncBatchNormGatherStatsWithCountsOpTypeIdEvE42SyncBatchNormGatherStatsWithCountsOpTypeId
+/home/developer/Ascend/cann-9.1.0/aarch64-linux/lib64/libopapi_nn.so: 0000000000b691e8 T aclnnSyncBatchNormGatherStats
+/home/developer/Ascend/cann-9.1.0/aarch64-linux/lib64/libopapi_nn.so: 0000000000b6e408 T aclnnSyncBatchNormGatherStatsGetWorkspaceSize
+developer@dfdd97f8c4e84acbaa54982714e4d993:/mnt/workspace/cann-ascendc-ops-collab$ 

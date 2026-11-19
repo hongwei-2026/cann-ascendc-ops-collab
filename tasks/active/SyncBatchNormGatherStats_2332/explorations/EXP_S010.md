@@ -28,3 +28,10 @@ logs/EXP_S010/console-transcript.log. The individual original cloud log files
 and results.json remain on the cloud host. Next, use CLOUD-S010.md to discover
 built-in interfaces, then compare independently if the environment supports it.
 Do not alter arithmetic based only on this test.
+
+Discovery found the system CANN ACLNN symbols and 910B legacy kernel files.
+The user supplied the system header: its API takes float momentum and epsilon,
+returns batch mean and inverse standard deviation, and updates mean and variance
+in place. The discovered entry point and installed device files are candidates,
+not proof that a specific device kernel was dispatched. See CLOUD-S010 for
+the isolated comparison and the native/fp16-input distinction.

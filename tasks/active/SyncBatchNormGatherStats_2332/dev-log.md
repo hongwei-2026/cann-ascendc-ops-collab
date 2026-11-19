@@ -135,6 +135,9 @@
 - Cloud at 1c1c29b: build/example passed; all 12 compact runs reproduced
   0/7/0/8 mismatches out of 15 against the local reference. Transcript
   archived; separate cloud logs and an independent built-in comparison pending.
+- System ACLNN entry and header discovered; it updates mean and variance
+  in place. Added a separate system-linked runner and comparison script;
+  device execution and dispatched-kernel identification remain pending.
 - 审阅（本会话）：**采纳为诊断工具**；本机 `--self-test` PASS；未改 Kernel。
   注意只抽到打印出的 8 个 new_var 下标（原 13）。平台仍交 S008/`140dbdf`，
   勿因 compact 严格 FAIL 去改算术。
