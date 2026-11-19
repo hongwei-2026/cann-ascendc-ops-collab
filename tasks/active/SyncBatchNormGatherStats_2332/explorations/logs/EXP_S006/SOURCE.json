@@ -1,0 +1,27 @@
+{
+  "exp": "EXP_S006",
+  "road": "S006",
+  "date": "2026-11-19",
+  "host": "dfdd97f8c4e84acbaa54982714e4d993",
+  "commit": "ff6b681",
+  "kernel_tip": "b2271b4",
+  "cmd": [
+    "bash build.sh -j8 -e",
+    "python3 tests/s006_rounding.py"
+  ],
+  "code": "people/yuhongming-2026/SyncBatchNormGatherStats_2332/workdir/code",
+  "result": "PASS",
+  "sample": {
+    "batch_mean": "0/6",
+    "batch_invstd": "0/6",
+    "new_mean": "0/6",
+    "new_variance": "0/6"
+  },
+  "rounding": {
+    "batch_mean": "0/6",
+    "batch_invstd": "0/6",
+    "new_mean": "0/6",
+    "new_variance": "0/6"
+  },
+  "notes": "Div(n) vs Muls(1/n) rounding hypothesis; device confirms boundary sample. Platform 50-case pending."
+}

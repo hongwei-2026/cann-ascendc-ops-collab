@@ -1,0 +1,5 @@
+batch_mean: mismatched=0/6
+batch_invstd: mismatched=0/6
+new_mean: mismatched=0/6
+new_variance: mismatched=0/6
+PASSED

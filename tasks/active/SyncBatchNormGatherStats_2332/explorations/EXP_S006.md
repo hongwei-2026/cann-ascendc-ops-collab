@@ -16,5 +16,13 @@ sample tolerance. CPU models disagree on five `new_variance` values for these
 inputs; only an actual 910B run can establish the kernel result. The test does
 not run the built-in operator or reproduce the hidden tests.
 
-Local checks: Python AST parse and `git diff --check` passed. 910B build,
-sample, boundary test, and platform submission remain pending.
+Local checks: Python AST parse and `git diff --check` passed.
+
+## Cloud result (2026-11-19)
+
+Host `dfdd97f8c4e84acbaa54982714e4d993`, tip `ff6b681` / kernel `b2271b4`:
+
+- `bash build.sh -j8 -e` → **PASS** (0/6 ×4)
+- `python3 tests/s006_rounding.py` → **PASS** (0/6 ×4)
+
+Logs: `explorations/logs/EXP_S006/`. Platform 50-case **pending**.

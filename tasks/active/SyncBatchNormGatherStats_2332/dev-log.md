@@ -85,4 +85,5 @@
 - 改动：Kernel 的 `accSum` / `accSq` 两处归一化改用向量 `Div`；不改 count 语义、特殊值处理或切分。
 - 验证：CPU 数值模型的固定 6 通道例子中，旧路径 `new_variance` 有 5 个值不同于 reference，直接除法模型均相同；模型并非设备测试。Python 测试脚本语法和 `git diff --check` 通过。
 - 审阅（本会话）：同意假说；`load` 复用安全；reference 确为 `float32/float32` 除法；复现 `new_v` fp16 差约 0.004（> 样例 atol 1e-4）。Div 略重于 Muls，但本轮先修 WA。
-- 下一步：按 `CLOUD-S006.md` 执行 910B 冒烟与边界测试，归档完整日志；通过后才建议平台重交。
+- 云结果：`build.sh -j8 -e` + `s006_rounding.py` 均 **PASS** 0/6；归档 EXP_S006。
+- 下一步：按 SUBMIT_LINKS_S006 重交平台；结果回写 S006 结案或开 S007。

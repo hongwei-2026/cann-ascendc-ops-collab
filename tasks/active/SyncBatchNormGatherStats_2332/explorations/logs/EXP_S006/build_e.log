@@ -1,0 +1,14 @@
+# EXP_S006 cloud build.sh -j8 -e (archived from paste 2026-11-19)
+# host: dfdd97f8c4e84acbaa54982714e4d993
+# tip: ff6b681 / kernel b2271b4
+# Full tee also at cloud: tasks/active/.../explorations/logs/EXP_S006/build_e.log
+
+[INFO] Build completed successfully!
+[INFO] Running examples...
+Sample data generated.
+PASS: batch_mean.bin, mismatched=0/6
+PASS: batch_invstd.bin, mismatched=0/6
+PASS: new_mean.bin, mismatched=0/6
+PASS: new_variance.bin, mismatched=0/6
+PASSED
+[INFO] Example completed successfully!

@@ -1,6 +1,7 @@
 # S006 平台提交清单
 
-先按 `../CLOUD-S006.md` 跑 910B 样例与舍入边界测试。完成后上传以下 7 个源码文件；S006 只改了 Kernel 的头文件。
+云测已过（EXP_S006）：`-e` + `s006_rounding.py` 均 PASS。  
+Kernel tip：`b2271b4`。上传以下 7 个源码文件（相对本仓；S006 实质只改了 `.h`）。
 
 - [sync_batch_norm_gather_stats_def.cpp](../../../../people/yuhongming-2026/SyncBatchNormGatherStats_2332/workdir/code/op_host/sync_batch_norm_gather_stats_def.cpp)
 - [sync_batch_norm_gather_stats_infershape.cpp](../../../../people/yuhongming-2026/SyncBatchNormGatherStats_2332/workdir/code/op_host/sync_batch_norm_gather_stats_infershape.cpp)
