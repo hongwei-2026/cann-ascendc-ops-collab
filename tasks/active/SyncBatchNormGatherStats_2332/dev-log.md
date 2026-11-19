@@ -108,6 +108,12 @@
   未在 910B 验证 S008；SetGlobalBuffer 长度假说仍未证实。
 - PROBE 对照的是自定义核与候选模型，不等于独立内置算子或平台裁决。
 - 审阅（本会话）：**采纳待云验**。下一 tile `Duplicate(accSum)` 可在 `batch_mean` DMA 未完成时改写 UB，能解释「batch_mean 大片 0 / new_mean 全对」。`--case` 单复现合理。
+
+## 2026-11-19（S008 云结果审阅）
+
+- 认同 Codex：写零已消；余差 7/13 低于样例外推 0.01%，但平台规则未知。
+- 同意用 Kernel tip `140dbdf` 按 SUBMIT_LINKS_S008 交平台；勿为抠 ulp 改公式。
+- 下一闸：平台结果；仍 WA → 下载工程 / 内置对照（S009）。
 - 云结果（d75aa78）：构建与样例 PASS；大 C 连续三次 batch_mean 0 错，invstd 7 错，new_mean 0 错，new_variance 13 错；完整矩阵严格结果 144 PASS / 1 FAIL / 12 PROBE。
 - 用户提供的 S008 终端记录已归档；独立云日志文件仍应保留。
 
