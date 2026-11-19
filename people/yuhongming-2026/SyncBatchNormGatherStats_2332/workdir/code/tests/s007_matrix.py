@@ -120,6 +120,8 @@ def compare(actual, expected):
                        rtol=1e-4, atol=1e-4, equal_nan=True)
     indexes = np.flatnonzero(~close)
     return dict(mismatched=int(indexes.size), total=int(expected.size),
+                sample_rule_limit=float(expected.size * 1e-4),
+                sample_rule_pass=bool(indexes.size <= expected.size * 1e-4),
                 examples=[dict(index=int(i), actual=str(actual[i]), expected=str(expected[i]))
                           for i in indexes[:8]])
 
@@ -172,6 +174,7 @@ def run_case(case, index, base, executable, env):
         for name, value in zip(NAMES, expected):
             value.tofile(directory / "golden" / (name + ".bin"))
         return dict(status="FAIL" if any(x["mismatched"] for x in comparisons.values()) else "PASS",
+                    sample_rule_status="PASS" if all(x["sample_rule_pass"] for x in comparisons.values()) else "FAIL",
                     outputs=comparisons)
     except (OSError, ValueError, subprocess.TimeoutExpired) as error:
         return dict(status="ERROR", detail=str(error))
@@ -206,6 +209,13 @@ def main():
                 assert all(x.size == case["c"] for x in probe_golden(case, data, "sum", "sum"))
         assert compare(np.array([np.inf, -np.inf, np.nan]), np.array([np.inf, -np.inf, np.nan]))["mismatched"] == 0
         assert compare(np.array([np.inf, np.nan]), np.array([-np.inf, 0.0]))["mismatched"] == 2
+        expected = np.zeros(10000, dtype=np.float32)
+        actual = expected.copy()
+        actual[0] = 1
+        assert compare(actual, expected)["sample_rule_pass"]
+        actual[1] = 1
+        assert not compare(actual, expected)["sample_rule_pass"]
+        assert not compare(actual[:6], expected[:6])["sample_rule_pass"]
         case = matrix[0]
         def fake_runner(cmd, **kwargs):
             folder = Path(cmd[1])
@@ -226,7 +236,8 @@ def main():
             assert result["status"] == "PASS"
             with mock.patch("subprocess.run", side_effect=wrong_runner):
                 result = run_case(case, 0, Path(tmp), Path("fake-runner"), {})
-            assert result["status"] == "FAIL" and result["outputs"]["batch_mean"]["mismatched"] == 1
+            assert result["status"] == "FAIL" and result["sample_rule_status"] == "FAIL"
+            assert result["outputs"]["batch_mean"]["mismatched"] == 1
             with mock.patch("subprocess.run", return_value=subprocess.CompletedProcess([], 2, stdout="fake error")):
                 result = run_case(case, 0, Path(tmp), Path("fake-runner"), {})
             assert result["status"] == "ERROR"

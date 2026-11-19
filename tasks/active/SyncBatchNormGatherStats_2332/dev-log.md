@@ -108,3 +108,12 @@
   未在 910B 验证 S008；SetGlobalBuffer 长度假说仍未证实。
 - PROBE 对照的是自定义核与候选模型，不等于独立内置算子或平台裁决。
 - 审阅（本会话）：**采纳待云验**。下一 tile `Duplicate(accSum)` 可在 `batch_mean` DMA 未完成时改写 UB，能解释「batch_mean 大片 0 / new_mean 全对」。`--case` 单复现合理。
+- 云结果（d75aa78）：构建与样例 PASS；大 C 连续三次 batch_mean 0 错，invstd 7 错，new_mean 0 错，new_variance 13 错；完整矩阵严格结果 144 PASS / 1 FAIL / 12 PROBE。
+- 用户提供的 S008 终端记录已归档；独立云日志文件仍应保留。
+
+## S009 舍入与判定规则分析
+
+- S007 脚本要求零超差；`samples/sample.py` 另允许每个输出不超过 0.0001 的超差比例。
+- 大 C 的 7 / 524289、13 / 524289 均低于按样例数值外推的阈值 52.4289；平台规则未核实，不称平台 PASS。
+- CPU 原种子 fp32 模型与 reference 的 new_variance 有 12 个超差；日志中的前 8 个设备例值均与模型相同。7 个 invstd 差异未由 CPU 模型复现。
+- 矩阵严格状态保留，附加显示样例比例结果；内核数值语义未改。

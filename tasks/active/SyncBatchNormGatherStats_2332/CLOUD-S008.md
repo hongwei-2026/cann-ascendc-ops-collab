@@ -36,7 +36,8 @@ cp samples/build/s008-matrix/results.json "$S008_LOG/results.json"
 
 记录四个输出各自的 mismatch 数量；即使 batch_mean 转为 0 错，也要检查
 S007 曾出现的 batch_invstd 7 处和 new_variance 13 处差异。失败或构建错误同样保留全文。
-大 C 或完整矩阵任一步失败时，不要声称修复或提交平台。
+严格矩阵仍有余差时，不要声称全部通过。S008 云端实测结果和样例比例规则分析见
+`explorations/EXP_S008.md` / `EXP_S009.md`；平台判定规则仍需实际提交确认。
 
 请将 S007 的 selftest.log、build_e.log、matrix.log、results.json 和 S008 的
 全部日志推送到各自的 `explorations/logs/EXP_S007/`、`EXP_S008/`；
