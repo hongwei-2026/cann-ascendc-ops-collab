@@ -16,5 +16,14 @@ printed separately and must be adjudicated against an authoritative source.
 All inputs and outputs are saved for reproduction. Exact special-value
 comparison is a diagnostic and may differ from platform grading rules.
 
-Local validation: generator self-test only. No 910B run or platform result
-for S007 is claimed. See CLOUD-S007.md for execution and log collection.
+## Cloud result (2026-11-19)
+
+Host `dfdd97f8…`, tip `9c865d9`:
+
+`TOTAL {"PASS": 144, "FAIL": 1, "ERROR": 0, "PROBE": 12}`
+
+- Oracle cases through C=4097 + dtype/边界/舍入：**PASS**
+- PROBE：设备输出 ≡ **`world_sum` + `count_sum`**
+- FAIL：`large_f32_i32_c524289` — `batch_mean` ~半数为 0，`new_mean` 全对 → S008
+
+Logs: `explorations/logs/EXP_S007/`（云上另有全文 `matrix.log` / `results.json`，请 push）。

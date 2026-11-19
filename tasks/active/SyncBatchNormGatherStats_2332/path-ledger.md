@@ -10,6 +10,7 @@
 | S004 | 2026-11-17 | yuhongming-2026 | 精度 | `QuantFp16Vec` 往返吞 `new_variance` NaN/±Inf（`count==1`） | helper 内 half 暂存回写非有限值 + `S_V`/`S_MTE3` | 1 会话 | 云 PASS；平台仍 **WA**；可见点 **~6.05–6.69μs**（劣于 S002） | **废弃**（无 WA 收益 + 性能税） | |
 | S005 | 2026-11-19 | yuhongming-2026 | 精度 | 隐藏 WA ≠ 输出 Cast 吞 NaN；疑 count/W>1/dtype | 回退 Quant/Store 至 S002；另路证据（下载工程/构造 case） | 1–2 天 | 回退完成；未取到平台工程证据 | **转 S006**（有限值舍入假说优先） | |
 | S006 | 2026-11-19 | yuhongming-2026 | 精度 | `x*(1/n)` vs `x/n` 可越过 fp16 边界致有限值 WA | `accSum`/`accSq` 改向量 `Div`；`tests/s006_rounding.py`；tip `b2271b4` | 1 会话 | 云 `-e`+rounding **PASS** 0/6（EXP_S006）；平台待重交 | **采纳（样例）**；≠平台 50 点 | |
-| S007 | 2026-11-19 | yuhongming-2026 | 精度 | 隐藏失败可能涉及 dtype、分块尾部、数值边界、count 或设备维，现有 C=6 冒烟无法覆盖 | 157 例矩阵 + `s007_runner`；单机单 count↔reference；W/count 多义为 PROBE；tip `c99ac08` | 1 会话 | 本机 self-test PASS；设备待云跑 | **进行中**（工具路，勿擅改语义） | |
+| S007 | 2026-11-19 | yuhongming-2026 | 精度 | 隐藏失败可能涉及 dtype、分块尾部、数值边界、count 或设备维，现有 C=6 冒烟无法覆盖 | 157 例矩阵 + `s007_runner`；单机单 count↔reference；W/count 多义为 PROBE | 1 会话 | 云 **PASS=144 FAIL=1 ERROR=0 PROBE=12**；PROBE 对齐 `world_sum+count_sum`；FAIL=`c524289` batch_mean 大片 0 | **采纳（证据）**；转 S008 修大 C | |
+| S008 | 2026-11-19 | yuhongming-2026 | 精度 | 大 C 时 `batch_mean` GM 写回失败/截断（`SetGlobalBuffer` 无长度或 store 路径） | 复现 `large_f32_i32_c524289`；给 GM `SetGlobalBuffer(ptr, numel)`；查多核/同步 | 1 会话 | 待开工 | **进行中** | |
 
 S003/S004 note: 标量保 NaN 族补丁 **禁止重开**。平台 1–5 始终 Pass/0%；隐藏点根因未解。

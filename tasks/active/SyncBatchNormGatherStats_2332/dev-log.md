@@ -95,4 +95,5 @@
 - world>1 和多 count 为语义探针，分别列出候选公式，不冒充权威真值。
 - 本机只跑测试生成器自检；910B 构建、矩阵和平台结果均待执行。
 - 审阅（本会话）：**采纳为排障工具**；未改 Kernel；本机 `--self-test` PASS（157）；CMake 挂 `s007_runner`+`sample_support.h` 合理。注意：`c524289` 可能慢/吃内存；PROBE≠真值；矩阵全绿≠平台过。
-- 下一步：CLOUD-S007.md；收集完整日志、复现数据并分析失败。
+- 云结果：PASS=144 / FAIL=1 / ERROR=0 / PROBE=12。PROBE 证实 Kernel=world/count 求和；唯一 FAIL=`large_f32_i32_c524289`（batch_mean 大片 0，new_mean 全对）。
+- 下一步：云归档 matrix.log+results.json 并 push；开 S008 修大 C（优先 `SetGlobalBuffer` 带 numel）。
