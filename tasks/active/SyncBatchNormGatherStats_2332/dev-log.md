@@ -107,3 +107,4 @@
 - 用户提供的 S007 终端粘贴记录已原样归档；独立日志文件及二进制数据尚未同步。
   未在 910B 验证 S008；SetGlobalBuffer 长度假说仍未证实。
 - PROBE 对照的是自定义核与候选模型，不等于独立内置算子或平台裁决。
+- 审阅（本会话）：**采纳待云验**。下一 tile `Duplicate(accSum)` 可在 `batch_mean` DMA 未完成时改写 UB，能解释「batch_mean 大片 0 / new_mean 全对」。`--case` 单复现合理。
