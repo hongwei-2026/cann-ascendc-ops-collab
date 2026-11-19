@@ -5,7 +5,7 @@
 | 状态 | **`实现中`（S008 多 tile 同步修复待云验证）** |
 | Owner / 座位 | yuhongming-2026 |
 | 更新日期 | 2026-11-19 |
-| tip | Kernel **`b2271b4`**；测试 tip **`9c865d9`** |
+| tip | Kernel **`140dbdf`**（S008：`MTE3_V`+`MTE3_MTE2`） |
 | 云测 | EXP_S007：`PASS=144 FAIL=1 ERROR=0 PROBE=12` |
 | 平台 | S002–S004 **WA**；S006 可交但大 C 未修前风险高 |
 | 提交 | 建议先修 S008 再交；清单仍见 `SUBMIT_LINKS_S006.md` |
