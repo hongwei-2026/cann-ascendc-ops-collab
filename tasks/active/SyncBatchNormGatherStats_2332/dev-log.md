@@ -70,3 +70,11 @@
 - 结果：**PASS**（四输出 0/6）。
 - 下一步：SUBMIT_LINKS_S004 重交平台。
 - 关联道路：S004
+
+## 2026-11-19（S004 平台失败 → 回退 → S005）
+
+- 做了：用户反馈平台仍 WA（错误同前），可见点用时更长；剥掉 S003/S004 标量保 NaN 环，Quant/Store 回 S002；写 `HANDOFF-S005-PLATFORM-WA-PROMPT.md`；台账 S004=废弃、S005=进行中。
+- 结果：代码无 Cast 后全 tile GetValue/SetValue；ComputeTile 内 invstd 量化后补丁保留（S002 起已有）。
+- 卡住：隐藏点根因仍未知（优先 count 语义 / W>1 / dtype / 下载工程）。
+- 下一步：按 S005 HANDOFF 取证；勿重交 S004 包；回退后云 `-e` 再交平台可选。
+- 关联道路：S004（废弃）· S005

@@ -65,16 +65,17 @@ batch_mean, batch_invstd, new_mean, new_variance
 
 | 已做 | 未做 |
 |------|------|
-| 开题脚手架 + ZIP 导入（剔 build） | 用户确认后的深度 Kernel 改动 |
-| AI-1/2/3 + **SUMMARY 定稿** | 云 `-e` / 平台 50 点 |
-| path-ledger S001 结案 | 性能专题（未开门） |
-| STATUS=`分析定稿` | 任务书性能表抄入 materials |
+| 开题 + ZIP 导入；SUMMARY；S001–S004 | **隐藏点 WA 根因** |
+| 云 `-e`：S002/S003/S004 均 PASS | 平台 50 点过关 |
+| 平台：S002–S004 均 **WA**（1–5 Pass） | 性能专题（未开门；勿为 WA 加标量扫） |
+| S003/S004 标量保 NaN **已废弃并回退** | 下载平台工程对拍 / count·W 假说 |
 
 ---
 
-## 5. 下一闸
+## 5. 下一闸（S005）
 
-1. 用户确认「可以编码」  
-2. 云 `build.sh -j8 -e` 冒烟 + 全文 log 归档  
-3. 按 SUMMARY P0：对照 reference / 边界（count==1、fp16 量化 Test_050 类）  
-4. 仅门禁未达标再开有界性能（写 path-ledger 新行）
+完整粘贴提示词：`HANDOFF-S005-PLATFORM-WA-PROMPT.md`
+
+1. **禁止**重开 Cast 后全 tile 保 NaN（S003/S004）  
+2. 优先：平台下载工程 / `sample_count` 求和 vs `[0]` / `world_size>1` / 未测 dtype  
+3. 最小修 → 云 `-e` → 再交平台；可见点勿故意劣化

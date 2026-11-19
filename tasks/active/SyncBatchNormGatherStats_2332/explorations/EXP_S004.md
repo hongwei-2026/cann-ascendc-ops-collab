@@ -1,39 +1,22 @@
-# EXP_S004 - preserve non-finite values in the common fp16 round trip
+# EXP_S004 — QuantFp16Vec 保 NaN（平台失败 + 回退）
 
-Date: 2026-11-17
-Owner: yuhongming-2026
-Scope: precision only; no performance work
+## 假设
 
-## Trigger
+`QuantFp16Vec` 往返 Cast 吞掉 `count==1` 路径的 `new_variance` NaN/±Inf；S003 只覆盖最终 half Store。
 
-S003 was submitted to the platform and remained Wrong Answer. The platform
-shows 50 tests total: tests 1-5 are public and pass; tests 6-50 are hidden.
+## 方法
 
-## Hypothesis
+在 `QuantFp16Vec` 第二次 Cast 前标量扫非有限值回写；补 `S_V` / `S_MTE3`。
 
-`QuantFp16Vec` can erase NaN or +/-Inf before values reach the declared-float
-`new_variance` output. This is observable for `count==1`, where the unbiased
-factor is +Inf and `Inf * 0` may be NaN. S003 only repaired the final half
-store path used by `batch_invstd`.
+## 结果
 
-## Change
+| 环境 | 结果 |
+|------|------|
+| 云 `build.sh -j8 -e` | **PASS**（0/6）→ `logs/EXP_S004/` |
+| 平台 50 点 | 仍 **Wrong Answer**（1–5 Pass/0%；隐藏失败，与 S002/S003 同型） |
+| 可见点用时 | **~6.05–6.69μs**（S002 约 5.87–6.23μs）→ **更慢** |
 
-In `op_kernel/sync_batch_norm_gather_stats.h`, restore non-finite source
-values in the temporary half tensor after the vector cast and before the
-float round-trip. A `V_S` event synchronizes the scalar check. Finite values
-continue through the existing vector path unchanged.
+## 结论
 
-## Verification
-
-- `git diff --check`: passed.
-- Python reference probes: confirmed `count==1` produces NaN or +/-Inf;
-  no finite clamp was added.
-- `bash build.sh -j8 -e`: **not runnable on this Windows host**;
-  WSL reports `/bin/bash` is unavailable. Full output is archived in
-  `explorations/logs/EXP_S004/build_e.log`.
-- Platform re-submission: not performed in this session; S003 platform result
-  remains WA until a new package is uploaded.
-
-## Conclusion
-
-S004 is a minimal precision fix, but it is not platform-validated yet.
+**废弃。** 隐藏 WA 不是「Cast 后全 tile 标量保 NaN」能修的；该补丁有明显性能税。  
+S005 已回退 `QuantFp16Vec` / `StoreAsInputDtype` 至 S002 语义；**禁止重开本族补丁**。

@@ -175,21 +175,6 @@ __aicore__ inline void SyncBatchNormGatherStats<T>::QuantFp16Vec(LocalTensor<flo
 {
     LocalTensor<half> raw = rawBuf_.Get<half>();
     Cast(raw, data, RoundMode::CAST_RINT, len);
-    // Keep non-finite values visible through the fp16-grid round trip.  This
-    // matters for new_variance when count==1 (inf*0 can produce NaN), while
-    // finite values retain the vector cast result.
-    event_t eventVS = static_cast<event_t>(GetTPipePtr()->FetchEventID(HardEvent::V_S));
-    SetFlag<HardEvent::V_S>(eventVS);
-    WaitFlag<HardEvent::V_S>(eventVS);
-    for (int32_t i = 0; i < len; ++i) {
-        const float value = data.GetValue(i);
-        if (value != value || value == PositiveInf() || value == -PositiveInf()) {
-            raw.SetValue(i, static_cast<half>(value));
-        }
-    }
-    event_t eventSV = static_cast<event_t>(GetTPipePtr()->FetchEventID(HardEvent::S_V));
-    SetFlag<HardEvent::S_V>(eventSV);
-    WaitFlag<HardEvent::S_V>(eventSV);
     Cast(data, raw, RoundMode::CAST_NONE, len);
 }
 
@@ -243,18 +228,6 @@ __aicore__ inline void SyncBatchNormGatherStats<T>::StoreAsInputDtype(GlobalTens
         event_t eventV = static_cast<event_t>(GetTPipePtr()->FetchEventID(HardEvent::V_MTE3));
         SetFlag<HardEvent::V_MTE3>(eventV);
         WaitFlag<HardEvent::V_MTE3>(eventV);
-        // Preserve non-finite values after the final half conversion.  Some
-        // vector CAST paths canonicalize NaN/Inf, while the reference keeps
-        // them observable in batch_invstd.
-        for (int32_t i = 0; i < len; ++i) {
-            const float value = src.GetValue(i);
-            if (value != value || value == PositiveInf() || value == -PositiveInf()) {
-                raw.SetValue(i, static_cast<half>(value));
-            }
-        }
-        event_t eventSMTE3 = static_cast<event_t>(GetTPipePtr()->FetchEventID(HardEvent::S_MTE3));
-        SetFlag<HardEvent::S_MTE3>(eventSMTE3);
-        WaitFlag<HardEvent::S_MTE3>(eventSMTE3);
         DataCopyExtParams copyParams = {1, static_cast<uint32_t>(len * sizeof(half)), 0, 0, 0};
         DataCopyPad(gm[offset], raw, copyParams);
         event_t eventM = static_cast<event_t>(GetTPipePtr()->FetchEventID(HardEvent::MTE3_V));
