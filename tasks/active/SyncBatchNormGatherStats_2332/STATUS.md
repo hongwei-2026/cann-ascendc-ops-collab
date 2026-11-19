@@ -5,11 +5,11 @@
 | 状态 | **`实现中`（S007 扩展精度测试待云运行）** |
 | Owner / 座位 | yuhongming-2026 |
 | 更新日期 | 2026-11-19 |
-| tip | **`b2271b4`**（Kernel）；台账归档 tip **`ff6b681`+** |
-| 云测 | EXP_S006：**PASS**（`-e` 0/6 + `s006_rounding.py` 0/6） |
-| 平台 | S002/S003/S004 **WA**；**S006 待重交** |
-| 提交 | `deliverables/SUBMIT_LINKS_S006.md` |
-| 下一闸 | 按 CLOUD-S007 运行扩展测试，分析 FAIL / ERROR / PROBE；平台隐藏点仍不可见 |
+| tip | Kernel **`b2271b4`**；测试矩阵 tip **`c99ac08`** |
+| 云测 | EXP_S006：**PASS**；S007 矩阵 **待云跑** |
+| 平台 | S002/S003/S004 **WA**；S006 包可交，但建议先看 S007 FAIL/PROBE |
+| 提交 | 暂勿仅凭样例重交；见 `CLOUD-S007.md` |
+| 下一闸 | 云跑 S007 → 分析 FAIL/ERROR/PROBE → 有证据再改 Kernel 或交平台 |
 
 ## 一句话
 
