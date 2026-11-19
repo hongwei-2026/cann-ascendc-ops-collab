@@ -123,3 +123,12 @@
 - 大 C 的 7 / 524289、13 / 524289 均低于按样例数值外推的阈值 52.4289；平台规则未核实，不称平台 PASS。
 - CPU 原种子 fp32 模型与 reference 的 new_variance 有 12 个超差；日志中的前 8 个设备例值均与模型相同。7 个 invstd 差异未由 CPU 模型复现。
 - 矩阵严格状态保留，附加显示样例比例结果；内核数值语义未改。
+
+## S010 compact precision reproduction
+
+- Extract the 7 recorded invstd and 8 recorded new_variance indices from the
+  original seeded case, across four dtype combinations and repeated runs.
+- Local input/reference self-test passed; 910B and built-in comparison pending.
+- The platform engineering package is unavailable. A compact difference is not
+  evidence that the platform contains the same input or that the reference is
+  independently correct. See EXP_S010 and CLOUD-S010.
