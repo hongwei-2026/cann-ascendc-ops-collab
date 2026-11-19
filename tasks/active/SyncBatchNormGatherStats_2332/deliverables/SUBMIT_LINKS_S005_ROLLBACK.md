@@ -1,6 +1,6 @@
 # 提交清单 — S005 起点（回退 S003/S004 后）
 
-> tip：以 push 后 `main` 最新 commit 为准（本文件写入时尚未 commit）。  
+> tip：`52b16fb`  
 > **不要**再交 `fa21ed5`（S004）包——平台仍 WA 且更慢。
 
 ## 七文件（相对座位 `workdir/code/`）
